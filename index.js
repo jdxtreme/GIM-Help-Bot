@@ -11,28 +11,32 @@ const bot = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESS
 const categories = {};
 const commands = {};
 const conflicts = {};
+const roles = [];
 
-const colors =
+const factions =
 {
-	Town: "80FF00",
-	Mafia: "FF0000",
-	Coven: "BF5FFF",
-	Rock: "404040",
-	Plant: "008000",
-	Underworld: "C51C00",
-	Hallow: "FFBB60",
-	Stalker: "000000",
-	Were: "804000",
-	Vampire: "7B8968",
-	Everfrost: "00FFFF",
-	Umbrae: "498080",
-	PaleMoon: "400080",
-	Sith: "800000",
-	Insurgency: "B00B69",
-	Loyalist: "93C47D",
-	SCP: "AAAAAA",
-	Thundercry: "FFFF00",
-	Neutral: "808080"
+	Town: {color: "80FF00", icon: "https://cdn.discordapp.com/emojis/974880541348331541.webp"},
+	Mafia: {color: "FF0000", icon: "https://cdn.discordapp.com/emojis/974880541298020402.webp"},
+	Coven: {color: "BF5FFF", icon: "https://cdn.discordapp.com/emojis/974880541180575784.webp"},
+	Rock: {color: "404040", icon: "https://cdn.discordapp.com/emojis/975690756390010891.webp"},
+	Plant: {color: "008000", icon: "https://cdn.discordapp.com/emojis/977636071884087326.webp"},
+	Underworld: {color: "C51C00"},
+	Hallow: {color: "FFC272"},
+	Stalker: {color: "000000"},
+	Were: {color: "804000", icon: "https://cdn.discordapp.com/emojis/974886993517490256.webp"},
+	Vampire: {color: "7B8968", icon: "https://cdn.discordapp.com/emojis/975231005713645618.webp"},
+	Everfrost: {color: "00FFFF", icon: "https://cdn.discordapp.com/emojis/977636071833759785.webp"},
+	Umbrae: {color: "498080", icon: "https://cdn.discordapp.com/emojis/979822258543550484.webp"},
+	PaleMoon: {color: "400080", icon: "https://cdn.discordapp.com/emojis/975853561722322944.webp"},
+	Sith: {color: "800000", icon: "https://cdn.discordapp.com/emojis/974882271783968839.webp"},
+	Insurgency: {color: "B00B69"},
+	Loyalist: {color: "93C47D"},
+	SCP: {color: "AAAAAA", icon: "https://cdn.discordapp.com/emojis/976658193323282462.webp"},
+	Thundercry: {color: "FFFF00"},
+	Crew: {color: "EDC240", icon: "https://cdn.discordapp.com/emojis/980989425137901588.webp"},
+	Pokemon: {color: "BB2F2F", icon: "https://cdn.discordapp.com/emojis/978766215155707924.webp"},
+	Fox: {color: "D67D4D"},
+	Neutral: {color: "808080", icon: "https://cdn.discordapp.com/emojis/980943261587865650.webp"}
 };
 
 const FNAME = ".store.json";
@@ -55,6 +59,7 @@ function msg(chn, txt, nodiff, line)
 {
 	let size = 1950;
 	line = (line || 0);
+	txt = (txt || "").toString();
 
 	if(line + size < txt.length)
 		while(txt[line+size-1] && txt[line+size-1] != '\n')
@@ -156,20 +161,30 @@ function register_role(name, cat, desc, func)
 		param: "",
 		func: (chn, message, e, args) =>
 		{
-			e.setAuthor({name: desc});
-			e.setColor(colors[cat] || "808080");
-			func(e);
+			let fac = factions[cat] || {color: "808080"};
+			e.setAuthor({name: desc, iconURL: fac.icon});
+			e.setColor(fac.color || "808080");
 
-			for(let f in e.fields)
+			try
 			{
-				if(e.fields[f].value.length > 1024)
-				{
-					msg(chn, "-ERROR: That command contains a Field which is longer than 1024 characters!");
-					return;
-				}
-			}
+				func(e);
 
-			chn.send({embeds: [e]});
+				for(let f in e.fields)
+				{
+					if(e.fields[f].value.length > 1024)
+					{
+						msg(chn, "-ERROR: That command contains a Field which is longer than 1024 characters!");
+						return;
+					}
+				}
+
+				chn.send({embeds: [e]});
+			}
+			catch(error)
+			{
+				console.log(error.message + "\n\n" + error.stack);
+				msg(chn, "-ERROR: " + error.message + "\n\n" + error.stack);
+			}
 		}
 	};
 
@@ -180,6 +195,8 @@ function register_role(name, cat, desc, func)
 	else
 		for(let i in name)
 			add_cmd(name[i], cmd);
+
+	roles[roles.length] = cmd;
 }
 
 const GLOBAL = {
@@ -188,11 +205,13 @@ const GLOBAL = {
 	bot,
 	categories,
 	commands,
+	roles,
 	msg,
 	register_role,
 };
 
 require("./cmd_basics.js")(GLOBAL);
+require("./cmd_rng.js")(GLOBAL);
 require("./roles/cmd_roles_1-50.js")(GLOBAL);
 require("./roles/cmd_roles_51-100.js")(GLOBAL);
 require("./roles/cmd_roles_101-150.js")(GLOBAL);
@@ -211,6 +230,8 @@ require("./roles/cmd_roles_701-750.js")(GLOBAL);
 require("./roles/cmd_roles_751-800.js")(GLOBAL);
 require("./roles/cmd_roles_801-850.js")(GLOBAL);
 require("./roles/cmd_roles_851-900.js")(GLOBAL);
+require("./roles/cmd_roles_901-950.js")(GLOBAL);
+require("./roles/cmd_roles_951-1000.js")(GLOBAL);
 
 
 

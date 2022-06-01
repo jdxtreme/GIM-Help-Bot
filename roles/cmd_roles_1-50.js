@@ -130,7 +130,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Mafia once the last Mafia dies.");
+		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Mafia once the last Mafia dies.\n- The Mafia know who you are and cannot perform actions that negatively affect you.");
 
 		e.addField("Goal:", "Kill everyone that won't submit to the mafia.");
 	});
@@ -143,7 +143,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Coven once the last Coven dies.");
+		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Coven once the last Coven dies.\n- The Coven know who you are and cannot perform actions that negatively affect you.");
 
 		e.addField("Goal:", "Kill all who would oppose the Coven.");
 	});
@@ -259,7 +259,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You instead deal an Overkill attack if you target a player whose Discord username starts with the letter \"a\", lowercase or uppercase.");
 
-		e.addField("Goal:", "Eliminate all roles whose names start with the letters \"N\" or \"A\".");
+		e.addField("Goal:", "Eliminate all other roles whose names start with the letters \"N\" or \"A\".");
 	});
 
 	register_role(["prodigy", "18"], "Neutral", "Prodigy", (e) =>
@@ -277,19 +277,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Succesfully mature and complete your new goal.");
 	});
 
-	register_role(["firefighter_hunter", "firefighterhunter", "19"], "Neutral", "Firefighter Hunter", (e) =>
+	register_role(["nice_or_fight", "niceorfight", "19"], "Neutral", "Nice or Fight?", (e) =>
 	{
 		e.setDescription("Post 19");
 
-		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Hunt for any Firefighters.");
+		e.addField("Abilities:", "- During the day, choose two players that are not yourself, and predict the outcome of your ability.");
 
-		e.addField("Attributes:", "- If you visit a Firefighter, you will attack them. If they are not, you will douse them. If you visit an Arsonist, you will learn they are an Arsonist, and neither you nor the Arsonist will douse each other.");
+		e.addField("Attributes:", "- Both players are given a prompt: Share, or Steal? If both players select Share, then you will choose to give one player a permanent attack increase (if the role does not have an attacking ability, they will gain one), or a permanent defense increase. If one player selects Share and the other chooses Steal, the player who chose Steal receives both a permanent attack and defense upgrade, and the person who chose Share gets nothing. If both player select Steal, neither gets any permanent upgrade, and both are dealt a Powerful attack.");
 
-		e.addField("Goal:", "Eliminate all Firefighters.");
+		e.addField("Goal:", "Correctly predict the outcome of your ability twice.");
 	});
 
 	register_role(["sheriff", "20"], "Town", "Sheriff", (e) =>
@@ -352,19 +352,17 @@ module.exports = (g) =>
 		e.addField("Goal:", "Swap with someone and follow your new role's goal.");
 	});
 
-	register_role(["firefighter_hunter_hunter", "firefighterhunterhunter", "24"], "Neutral", "Firefighter Hunter Hunter", (e) =>
+	register_role(["metagician", "24"], "Neutral", "Metagician", (e) =>
 	{
 		e.setDescription("Post 24");
 
-		e.addField("Alignment", "Neutral Benign", true);
-		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Hunt for any Firefighter Hunters.");
+		e.addField("Abilities:", "- Work wonders on any player at night. This has a different effect based on how many times they rerolled their roles:\n> - 0 times: They gain Powerful defense for the night.\n> - 1 time: They can't use abilities tonight or the following day.\n> - 2+ times: They're dealt an Unstoppable attack.\n- Peer into a target's thoughts during the day. You will receive a full backlog of everything sent in their private channel during the current game, with all role names, rolecards, and things that would directly identify roles censored.");
 
-		e.addField("Attributes:", "- If you visit a Firefighter Hunter, you will attack them. If they are not, you will un-douse them if they are doused. If you visit a Firefighter, you will learn that they are a Firefighter.\n- This role can't be rolled unless a Firefighter Hunter is rolled.");
-
-		e.addField("Goal:", "Eliminate all Firefighter Hunters (not Arsonists).");
+		e.addField("Goal:", "Win with the faction whose members rerolled the least times on average. You will know what this faction is at the beginning of the game.");
 	});
 
 	register_role(["plumber", "25"], "Town", "Plumber", (e) =>
@@ -382,22 +380,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["firefighter_hunter_hunter_hunter", "firefighterhunterhunterhunter", "27"], "Neutral", "Firefighter Hunter Hunter Hunter", (e) =>
+	register_role(["artificial_disease_developer", "artificialdiseasedeveloper", "artificial_disease", "artificialdisease", "add", "27"], "Neutral", "Artificial Disease Developer", (e) =>
 	{
 		e.setDescription("Post 27");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Hunt for any Firefighter Hunter Hunters.");
+		e.addField("Abilities:", "- Infect a player with your disease.\n- Or, reduce your attack level by one, but nobody can be infected if you reduce your attack level.\n- Once per game, you may set your attack level to Unstoppable, but your disease will never be able to spread again.");
 
-		e.addField("Attributes:", "- If you visit a Firefighter Hunter Hunter, you will attack them. If they are not, you will douse them. If you visit an Arsonist or a Firefighter Hunter, you will learn their role, and neither of you will be doused.");
+		e.addField("Attributes:", "- Your disease spreads similarly to Plaguebearer's plague, but each person can only spread it to one other person per night, including you. Everyone will know when they are infected if you have a Basic (or higher) attack, and if they were infected by visiting a target, or by getting visited (activates at Powerful or higher attack). Each night that someone is infected, they have a 33% chance of being dealt an astral attack at the current attack level. Your attack level increases at the very end of all full moon nights.");
 
-		e.addField("Goal:", "Eliminate all Firefighter Hunter Hunters.");
+		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["coven_leader", "covenleader", "28"], "Coven", "Coven Leader", (e) =>
+	register_role(["coven_leader", "covenleader", "cl", "28"], "Coven", "Coven Leader", (e) =>
 	{
 		e.setDescription("Post 28");
 
@@ -416,7 +414,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 29");
 
-		e.addField("Alignment", "Coven Evil", true);
+		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
@@ -424,7 +422,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Civilian has all abilities and attributes of three random Town roles from the game Town of Salem in addition to its other abilities.");
 
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", "Town Goal");
 	});
 
 	register_role(["day_vigilante", "dayvigilante", "30"], "Town", "Day Vigilante", (e) =>
@@ -595,11 +593,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["nlove", "42"], "Neutral", "Nlove", (e) =>
+	register_role(["nlove", "bazinga", "42"], "Neutral", "Nlove", (e) =>
 	{
 		e.setDescription("Post 42");
 
-		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
@@ -700,7 +698,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 50");
 
-		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic/Powerful", true);
 		e.addField("Defense", "Powerful", true);
 

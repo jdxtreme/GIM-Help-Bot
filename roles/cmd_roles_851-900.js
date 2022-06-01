@@ -225,7 +225,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who oppose the Insurgency.");
 	});
 
-	register_role(["otolarynologist", "otolary", "866"], "Town", "Otolarynologist", (e) =>
+	register_role(["otolarynologist", "otola", "866"], "Town", "Otolarynologist", (e) =>
 	{
 		e.setDescription("Post 866");
 
@@ -608,5 +608,125 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- The night you preserve them, you will be able to use their ability on any player (including yourself), and their ability now rampages.\n- You cannot preserve someone in Amber more than once in the entire game.");
 		
 		e.addField("Goal:", "Rock Goal");
+	});
+
+	register_role(["wolfi-induced_game_canning", "wolfiinducedgamecanning", "game_canning", "gamecanning", "wolfi", "893"], "Neutral", "Revenge of The Wolfi-Induced Game Canning", (e) =>
+	{
+		e.setDescription("Post 893");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Invincible", true);
+
+		e.addField("Abilities:", "- Trollos");
+
+		e.addField("Attributes:", "- While this role is alive, the host must first post the attached gif before anything else when the day phase starts. They then must immediately end the day phase.\n- While this role is alive, the host must first post the attached gif in <#970059745807437876> before anything else when the night phase starts. They then must immediately end the night phase.\n- While this role is alive, the game may not draw or otherwise naturally end. Copeium.\n- If this causes the host to can the game, in the next game, assuming it uses the same role list, any player may choose to keep their original role and alignment placement. God knows they aren't going to share it while the host is stuck in horse plinko hell.");
+		
+		e.addField("Goal:", "Survive until the host posts 10 Horse Plinko gifs.");
+
+		e.setImage("https://media.discordapp.net/attachments/970046125065265202/978724142255841300/HorsePlinko.gif");
+	});
+
+	register_role(["hare", "894"], "Neutral", "The Hare", (e) =>
+	{
+		e.setDescription("Post 894");
+
+		e.addField("Alignment", "Neutral Other", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Visit a player each day, they will be notified of your visit.");
+
+		e.addField("Attributes:", "- You will gain a night chat with them for that night.\n- They may choose to spare you or kill you.\n- If they choose to kill you, they will gain a permanent stage of defense and deal you an unstoppable attack.\n- If they choose to spare you, their defense will become invincible for that night alone.");
+		
+		e.addField("Goal:", "Survive to see the end of the game, and be spared three times.");
+	});
+
+	register_role(["yrexi", "god_of_madness", "godofmadness", "895"], "Neutral", "Yrexi, God of Madness", (e) =>
+	{
+		e.setDescription("Post 895");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Invincible", true);
+
+		e.addField("Abilities:", "- Drive a player insane each night.");
+
+		e.addField("Attributes:", "- All effects of their abilities this night will be replaced by Unstoppable attacks; then, they will deal an Unstoppable attack to themself. (The death message will be \"They were killed by [their role].\")\n- Conversion, Roleblock, Redirect Immune");
+		
+		e.addField("Goal:", "Eliminate all who would oppose you.");
+	});
+
+	register_role(["illusionist", "896"], "Town", "Illusionist", (e) =>
+	{
+		e.setDescription("Post 896");
+
+		e.addField("Alignment", "Town Power", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Halt all deaths (besides your own) during the night. 3 Uses.");
+
+		e.addField("Attributes:", "- When you perish, all players who's' deaths you halted will immediately die as well.\n- Town Protective visits on you will automatically fail.");
+		
+		e.addField("Goal:", "Town Goal");
+	});
+
+	register_role(["blitzen", "blixem", "897"], "Neutral", "Blitzen (Blixem)", (e) =>
+	{
+		e.setDescription("Post 897");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "None/Modkill", true);
+		e.addField("Defense", "None/\"True\"", true);
+
+		e.addField("Abilities:", "- Pick someone to play against in the day.\n- Falsify the game in the night.");
+
+		e.addField("Attributes:", "- The host picks the kind of game you play (atomic, FoW, giveaway, etc...)\n- Every game is blitz 1|1\n- Falsifying a game means whoever lost will instead win\n- Falsifying must happen before the 10th move\n- Whoever loses is dealt a modkill\n- Whoever wins gets true defense (not even a mod kill can kill)");
+		
+		e.addField("Goal:", "Win 2 games or be the last person standing");
+	});
+
+	register_role(["mind_melder", "mindmelder", "898"], "Neutral", "Mind Melder", (e) =>
+	{
+		e.setDescription("Post 898");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Choose four players and a category of items during the day.");
+
+		e.addField("Attributes:", "- The four players you choose must pick an item that fits the category. There must be at least five items that fit the category, and the category needs to be fairly common sense. Any players that choose the same item as another player will be dealt a Powerful Astral attack at the end of the night.\n- One random person will also be sent the prompt. You will not be notified who this is, and they will not die if they choose the same item as another player, but if anyone that you chose chooses the same item as this player, that player will be attacked.\n- You may not meld the night after you've killed players.");
+		
+		e.addField("Goal:", "Kill anyone who may oppose you.");
+	});
+
+	register_role(["psychopath", "899b", "899"], "Neutral", "Psychopath", (e) =>
+	{
+		e.setDescription("Post 899B");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Variable", true);
+
+		e.addField("Abilities:", "- At night, finish the job.\n- Trap: Prepare in the day. Gain Invincible Defense and deal a Basic Attack to all your visitors except for one. 2 uses.\n- Premeditate: Prepare in the day. Gain Powerful Defense, use an Astral Powerful Attack on a player of your choice, and automatically use a Powerful Attack on one person who visits you.\n- Snap: Prepare in the day. Gain Basic Defense, deal an Unstoppable Attack to a player of your choice, and deal a Powerful Attack to everyone else who visits your target. (2 uses)");
+
+		e.addField("Attributes:", "- Cannot be rolled naturally.\n- If you remembered a role as the Jest Amne, you will keep that role when you become the Psychopath. However, you will lose your previous goal.");
+		
+		e.addField("Goal:", "Kill all who stand in your way. You may choose to spare a solo member of an evil faction, but you may not spare the Mafia, Neutral Benigns, or Neutral Evils.");
+	});
+
+	register_role(["perfectionist", "900"], "Neutral", "Perfectionist", (e) =>
+	{
+		e.setDescription("Post 900");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Visit someone. If their post # isn't a perfect square (4, 9, 16, 25, etc.), you will kill them.");
+		
+		e.addField("Goal:", "Kill all players whose post # isn't a perfect square");
 	});
 };

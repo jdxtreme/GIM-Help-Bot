@@ -128,14 +128,4 @@ module.exports = (g) =>
 	{
 		msg(chn, "+Pong!");
 	});
-
-	register_cmd("echo", "[message]", "Echo", "Debug; Make the bot say what you say within a code block.", (chn, message) => 
-	{
-		let txt = message.content.substring(PRE.length + 5);
-
-		if(txt.length <= 1989)
-			msg(chn, txt);
-		else
-			msg(chn, "-ERROR: Requested message is too long to Echo.");
-	});
 };

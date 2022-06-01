@@ -17,19 +17,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Give two people an extra charge. You do not need to be alive - you can die the night before completing your goal.");
 	});
 
-	register_role(["wendigo", "402"], "Neutral", "Wendigo", (e) =>
+	register_role(["infested", "402"], "Neutral", "Infested", (e) =>
 	{
 		e.setDescription("Post 402");
 
 		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Basic (None)", true);
 
-		e.addField("Abilities:", "- Attack 1 player at night.");
+		e.addField("Abilities:", "- Attack 1 player at night\n- Infest someone.");
 
-		e.addField("Attributes:", "- Anyone that kills you at night will become a Wendigo.\n- Conversion Immune");
+		e.addField("Attributes:", "- If you choose to Infest someone, you will lose your defense for the next night. If you survive next night after Infesting, your target will become an Infested, and you will commit suicide. If you die while attempting to Infest your target, your ability will be canceled.\n- You can't attack while Infesting.");
 		
-		e.addField("Goal:", "Kill all who oppose you, or have another Wendigo win the game.");
+		e.addField("Goal:", "Kill all who oppose you, or have another Infested win the game.");
 	});
 
 	register_role(["token_vendor", "tokenvendor", "token", "403"], "Neutral", "Token Vendor", (e) =>
@@ -255,19 +255,6 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- At least one non-Florae Townie must be in the game for this to roll.\n- Posts 149-166, Daffodil, Hydrangea, Iris, Sage, Thyme, Azalea, Dahila, Nettle, Wisteria, Calendula, Lavender, Lily, Mint, Rosemary, Dicentra, Gardenia, Nightshade and Phlox count as Florae roles.\n- Non-Florae Townies will know that a City Planner is in the game.\n- After eliminating the non-Florae Townies, the Mafia can make up to two factional kills per night (two members make two kills).");
 		
 		e.addField("Goal:", "Mafia Goal");
-	});
-
-	register_role(["shaharazad", "shaha", "417"], "Neutral", "Shaharazad", (e) =>
-	{
-		e.setDescription("Post 417");
-
-		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "None (Basic)", true);
-
-		e.addField("Abilities:", "- Start a Grand Idea Mafia subgame every third night. Dead players aren't players in the subgame. Living players have the same roles they have in the main game. The players that win the subgame get a layer of Basic defense that can prevent one attack in the main game. The players that lose the subgame get dealt a Basic attack during the main game.");
-		
-		e.addField("Goal:", "You win no matter what if it's a subgame. If it's a main game, you must kill 3 players with your subgames or win 3 subgames to win.");
 	});
 
 	register_role(["shaharazad", "shaha", "417"], "Neutral", "Shaharazad", (e) =>

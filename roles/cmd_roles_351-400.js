@@ -513,11 +513,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Overkill", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Invincible", true);
 
 		e.addField("Abilities:", "- Each night, choose two players. That night, they're roleblocked through immunities. The following day, they can't talk or vote. At the start of the next night, they lose all abilities, attributes, immunities, and Defense, and at the end they're dealt an Overkill attack.");
 		
-		e.addField("Goal:", "Show the Town endless misery.");
+		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
 	register_role(["winsconsin", "388"], "Neutral", "Winsconsin", (e) =>
@@ -546,19 +546,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town day Basic vote one dead schizophrenia.");
 	});
 
-	register_role(["dimensional_mage", "dimensionalmage", "dimensional", "390"], "Coven", "Dimensional Mage", (e) =>
+	register_role(["dimensional_mage", "dimensionalmage", "dimensional", "dm", "390"], "Neutral", "Dimensional Mage", (e) =>
 	{
 		e.setDescription("Post 390");
 
-		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "None (Basic)", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Split the current playerlist in half, creating 2 separate games out of this one game. The players assigned to each game will be selected randomly. This includes dead players. (1 use.)\n- Create a miniature black hole in another player's house, dealing a Basic attack to that player and anyone who visits that player. (Only usable with the Necronomicon.) [Astral]");
+		e.addField("Abilities:", "- At night, split the current playerlist in half, creating 2 separate games out of this one game. The players assigned to each game will be selected randomly. This includes dead players (who will remain dead). (1 use. Cannot be used on the first night.)\n- At night, choose a player. Everyone who visits that player will be dealt a Basic attack. If nobody visits that player, then they will be dealt a Basic attack.");
 
-		e.addField("Attributes:", "- Any roles which have abilities or attributes which depend on another specific player will assume that player is dead if they are separated into different games.");
+		e.addField("Attributes:", "- Astral\n- Any roles which have abilities or attributes which depend on another specific player will assume that player is dead if they are separated into different games.");
 		
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", "NK Goal");
 	});
 
 	register_role(["drunk", "391"], "Neutral", "Drunk", (e) =>

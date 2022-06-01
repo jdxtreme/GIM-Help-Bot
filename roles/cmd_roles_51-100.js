@@ -206,17 +206,17 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["fuck_wolfi", "fuckwolfi", "65"], "Neutral", "Fuck Wolfi", (e) =>
+	register_role(["conflipper", "65"], "Neutral", "Coinflipper", (e) =>
 	{
 		e.setDescription("Post 65");
 
-		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Choose a player each night. If the name of their role is the same as the name of a role from Town of Salem, their role will be changed to another random role that's not from Town of Salem that's in the same faction.");
+		e.addField("Abilities:", "- Flip the coin for two people each night. If it's heads, you deal an Unstoppable attack to them. If it's tails, you deal an Unstoppable attack to them.");
 
-		e.addField("Goal:", "Change all roles from Town of Salem into different roles.");
+		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
 	register_role(["veteran", "vet", "66"], "Town", "Veteran", (e) =>
@@ -287,9 +287,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose one person each night to blackmail.");
-
-		e.addField("Attributes:", "- Blackmailed targets cannot talk during the day.\n- You can hear private messages.\n- (nice)");
+		e.addField("Abilities:", "- Check one person for their exact role each night.");
 
 		e.addField("Goal:", "Mafia Goal");
 	});
@@ -587,6 +585,7 @@ module.exports = (g) =>
 	register_role(["pirate", "92"], "Neutral", "Pirate", (e) =>
 	{
 		e.setDescription("Post 92");
+		e.author.iconURL = "https://cdn.discordapp.com/emojis/980989425137901588.webp";
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Powerful", true);
@@ -660,6 +659,7 @@ module.exports = (g) =>
 	register_role(["vampire", "vamp", "97"], "Neutral", "Vampire", (e) =>
 	{
 		e.setDescription("Post 97");
+		e.author.iconURL = "https://cdn.discordapp.com/emojis/975231005713645618.webp";
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Basic", true);

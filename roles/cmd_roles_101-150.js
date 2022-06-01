@@ -7,13 +7,13 @@ module.exports = (g) =>
 		e.setDescription("Post 101");
 
 		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "Overkill", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
 		e.addField("Abilities:", "- Play truth or dare with someone every night.");
 
 		e.addField("Attributes:", "- When you play truth or dare with someone, you ask them a question and name an action that they can perform. If they don't truthfully answer the question or perform the action, you deal an Overkill attack to them.\n- Detection Immunity and Roleblock Immunity");
-		e.addField("Goal:", "Kill two players; or get three players to answer your questions; or get three players to perform your dares.");
+		e.addField("Goal:", "Kill three players; or get three players to answer your questions; or get three players to perform your dares.");
 	});
 
 	register_role(["ringmaster", "102"], "PaleMoon", "Ringmaster", (e) =>
@@ -62,19 +62,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Goal: Kill three people.");
 	});
 
-	register_role(["psychopath", "psycho", "105"], "Neutral", "Psychopath", (e) =>
+	register_role(["psycho_psycho", "psychopsycho", "psychopath", "psycho", "105"], "Neutral", "Psychotic Psychopath", (e) =>
 	{
 		e.setDescription("Post 105");
 
 		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "None", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Choose someone to kill at night.");
 
-		e.addField("Attributes:", "- Your targets are also roleblocked for that night.");
+		e.addField("Attributes:", "- They are given every negative effect in the game except attacks.\n- You have a layer of Basic defense that can prevent one attack.");
 
-		e.addField("Goal:", "Kill someone who needed to live to win the game.");
+		e.addField("Goal:", "Live to see the Town lose.");
 	});
 
 	register_role(["senator", "despot", "106"], "Neutral", "Senator", (e) =>
@@ -197,17 +197,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pale Moon Goal");
 	});
 
-	register_role(["time_machine", "timemachine", "114"], "Neutral", "Time Machine", (e) =>
+	register_role(["tengu", "114"], "Neutral", "Tengu", (e) =>
 	{
 		e.setDescription("Post 114");
+		e.author.iconURL = "https://media.discordapp.net/attachments/930956687580483584/930978937876647966/Tengu.png";
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Unique Neutral Killing", true);
+		e.addField("Attack", "Basic/Powerful", true);
+		e.addField("Defense", "Basic (Powerful)", true);
 
-		e.addField("Abilities:", "- Choose a player and reroll their role. Absolutely positively any mechanical effects that role had on the game will be undone. The next day will start as if it had never existed at all. This includes roles with effects that can't normally be overridden, such as Vanilla Master Killer Killer. You may target dead people.");
+		e.addField("Abilities:", "- **Attack:** Use Basic Attack on a player in the night.\n- **Fire Bomb:** In the night, use a Powerful Attack a player, clean their role if they die, and deal a Basic Attack to anyone else who visits your target.\n- **Shock Bomb:** In the night, use a Basic Attack on a player and roleblock them and their visitors.\n- **Smoke Bomb:** In the night, use a Basic Attack on a player and hide the feedback messages of them and their visitors. They will only be told \"There was too much to see anything!\" and if they survived the night or not.");
 
-		e.addField("Goal:", "Reroll the game into a state where it would instantly win if all roles were present on Day 1.");
+		e.addField("Attributes:", "- At the start of the game, certain people will each gain 1 use of the Hire Tengu ability. Those people are the Town Power, every Head of an evil faction, and one random additional player other than them and Tengu. If any lacks a Power/Head, a random member will be given this ability instead.\n**Hire Tengu:** In the night, make the Tengu use a Unstoppable Attack against your target, without visiting Tengu.\n- When hired, you will gain Powerful Defense, Roleblock Immunity, and Control Immunity. Otherwise, you only have Basic Defense.\n- If you're hired, your chosen ability for that night will be cancelled without depleting limited charges. However, if you get hired multiple times, you will attack every target you were hired to kill.\n- Fire Bomb, Shock Bomb, and Smoke Bomb all start at 0 charges. However, each time you are hired, you will gain a charge for one at random, even if you fail to kill your target.");
+
+		e.addField("Attributes (cont.):", "- When hired, only you will know the results of your attack. Your hirer won't be told anything, even if the attack fails for any reason.\n- You are notified of every person you are hired to kill.\n- If you are hired to kill yourself, your attack will always fail.");
+
+		e.addField("Goal:", "NK Goal");
 	});
 
 	register_role(["ring", "115"], "Neutral", "Ring", (e) =>
@@ -259,15 +264,15 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 118");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "Unstoppable", true);
+		e.addField("Alignment", "Unique Neutral Benign", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Get The Fuck Out Of My Graveyard: \"Attack\" a dead target. If they \"die\", they will be revived instead.");
+		e.addField("Abilities:", "- Once per night, fucking kick a target out of your damn Graveyard and into the world of the living, reviving them.");
 
-		e.addField("Attributes:", "- Will automatically die at the end of Night 1, but its body will appear cleaned.\n- Can only use its ability while dead.");
+		e.addField("Attributes:", "- You can only use your ability while dead.\n- At the end of Night 1, you will automatically die. Your body will be cleaned.");
 
-		e.addField("Goal:", "Ensure that one faction wins with every single member alive. If even one member is still dead, or the only winning people are neutrals, you will lose.");
+		e.addField("Goal:", "Make a faction win with at least 2/3 of its members alive. If only neutrals are alive when the game ends, you lose.");
 	});
 
 	register_role(["grand_executioner", "grandexecutioner", "119"], "Neutral", "Grand Executioner", (e) =>
@@ -381,7 +386,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Distract a target player at night by calling a comet to drift across the night sky.");
 
-		e.addField("Attributes:", "- Your target will be roleblocked, and you will fail all visits against them.\n- You may only act on odd nights.\n- You may instead perform the factional Rock kill.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Your target will be roleblocked, and you will fail all visits against them.\n- You may only act on odd nights.\n- You may instead perform the factional Rock kill.");
 
 		e.addField("Goal:", "Defeat all players who would oppose the Rocks.");
 	});

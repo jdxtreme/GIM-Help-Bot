@@ -62,9 +62,15 @@ module.exports = (g) =>
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["305"], "Other", "Word That Accurately Describes What This Role Does", (e) =>
+	register_role(["accurately_describes", "accuratelydescribes", "word", "305"], "Neutral", "Word That Accurately Describes What This Role Does", (e) =>
 	{
-		e.setDescription("Post 305\nN/A Goal. Nothing to see here, folks.");
+		e.setDescription("Post 305");
+
+		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Choose a word that's not already the name of a role. The host will come up with a role that is accurately described by that word. It can't have mechanics that aren't seen on any other roles. You become that role.");
 	});
 
 	register_role(["mathematician", "math", "306"], "Neutral", "Mathematician", (e) =>
@@ -142,19 +148,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["gim_help_bot", "gimhelpbot", "bot", "311"], "Neutral", "GIM Help Bot", (e) =>
+	register_role(["lion", "311"], "PaleMoon", "Lion", (e) =>
 	{
 		e.setDescription("Post 311");
 
-		e.addField("Alignment", "Neutral Benign", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Pale Moon Killing", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Pick 2 players every night. Make It appear so that they visit someone else.\n- You may instead make the factional mafia kill.");
+		e.addField("Abilities:", "- Go on a hunt at night.");
 
-		e.addField("Attributes:", "- You're the GIM Help Bot and not you. (It's you.)\n- This role cannot be rolled until the GIM Help Bot works.\n- If you are reading this, it works, so this role can spawn.");
+		e.addField("Attributes:", "- When you go on a hunt, you will attack two random non-Pale Moon players.\n- If you go on a hunt two nights in a row, you will instead attack three random players other than yourself.\n- You may only go on a hunt twice.\n- During the PMCS, you may go on a hunt infinite times and going on a hunt instead attacks four random non-Pale Moon players.");
 		
-		e.addField("Goal:", "Successfully do what the GIM Help Bot is supposed to do.");
+		e.addField("Goal:", "Pale Moon Goal");
 	});
 
 	register_role(["rumor", "312"], "Mafia", "Rumor", (e) =>
@@ -200,6 +206,21 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- Have at least 2 players you changed the role of win the game.");
 		
 		e.addField("Goal:", "Have at least 2 players you changed the role of win the game.");
+	});
+
+	register_role(["lich", "315"], "Coven", "Lich", (e) =>
+	{
+		e.setDescription("Post 315");
+
+		e.addField("Alignment", "Unique Coven Evil", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None (Invincible)", true);
+
+		e.addField("Abilities:", "- Harvest a player's soul on full moon nights\n- Use souls to boost your own attacks");
+
+		e.addField("Attributes:", "- Each successfull kill gives you one soul. You may use souls as following during the night (lasts for 1 night);\n> **Curse of Anonymity (1)** Before a successful kill, replace your target's role with a Ghoul. Their faction and goal are maintained, but their abilities and attributes are changed.\n> **Curse of Rising (1)** After a successful kill, you will be able to (unofficially) use your target as an undead servant, allowing them to frame a target of your choice the following night.\n> **Minor Illusion (1)** You require an extra 2 votes to be put to trial tomorrow.\n> **Phylactery Sacrifice (1)** Gain Invincible Defense for this night.\n- You start with one soul.\n- With the Necronomicon, you may attack every night.\n- Necronomicon priority without a Coven Leader; with a Coven Leader, flip a coin between the two.");
+		
+		e.addField("Goal:", "Coven Goal");
 	});
 
 	register_role(["ghoul", "315.5"], "Other", "Ghoul", (e) =>
@@ -264,7 +285,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 319");
 
-		e.addField("Alignment", "Town Protective", true);
+		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
@@ -395,9 +416,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role("328", "Other", "Lonely Child", (e) =>
+	register_role(["car", "328"], "Town", "Car", (e) =>
 	{
-		e.setDescription("Post 328\nFortunately for you, \"Touch grass\" is not a valid goal.");
+		e.setDescription("Post 328");
+
+		e.addField("Alignment", "Town Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Take a player on a ride each day.");
+
+		e.addField("Attributes:", "- When you take a player on a ride, at the beginning of that night, they may choose journey or destination.\n*Journey* — All visits against them fail that night.\n*Destination* — Their ability is used on an additional target of your choice that night.\n- You may only take each player on a ride once.");
+		
+		e.addField("Goal:", "Car Goal");
 	});
 
 	register_role(["squirrel_apprentice", "squirrelapprentice", "squirrel", "apprentice", "329"], "Neutral", "Squirrel Apprentice", (e) =>

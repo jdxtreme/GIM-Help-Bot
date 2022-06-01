@@ -1,3 +1,5 @@
+//Credit: Vik
+
 module.exports = (g) =>
 {
 	const {register_role} = g;
@@ -139,7 +141,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 260");
 
-		e.addField("Alignment", "Town Support", true);
+		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Invincible", true);
 
@@ -186,7 +188,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Basic", true);
 
 		e.addField("Abilities:", "- Choose a player. They're banned from the game.");
 
@@ -351,7 +353,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Basic", true);
 
 		e.addField("Abilities:", "Choose another player to clone each night. A new player is added with their name and role. You control the clone. The clone wins with you.");
 
@@ -712,7 +714,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 298");
 
-		e.addField("Alignment", "Town Support", true);
+		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 

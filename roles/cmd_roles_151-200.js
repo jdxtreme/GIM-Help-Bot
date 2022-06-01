@@ -177,7 +177,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may infuse a player at night, granting them Basic defense.");
 
-		e.addField("Attributes:", "- When you infuse a player they will have Roleblock and Control immunity that night.\n- If your target is attacked you cannot infuse a player the next night.\n- You cannot be roleblocked or controlled.");
+		e.addField("Attributes:", "- When you infuse a player they will have Roleblock and Control immunity that night.\n- If your target is attacked you cannot infuse a player the next night.\n- You cannot be roleblocked or controlled.\n- You do not protect from indirect or astral attacks.");
 
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
@@ -259,13 +259,15 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 168");
 
-		e.addField("Alignment", "Neutral Other", true);
+		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- You have no alignment. Instead, choose a letter of the alphabet at the beginning of Day 2. The host will reroll your role to a random role that starts with that letter of the alphabet.");
+		e.addField("Abilities:", "- Send a player into the void at night.");
 
-		e.addField("Goal:", "N/A");
+		e.addField("Attributes:", "- They're removed from the game entirely, and re-added to the game at the beginning of the next night.\n- All actions that happen to them that night will fail, but won't give notifications that they failed.\n- You may send yourself into the void.");
+
+		e.addField("Goal:", "Live to see the Town lose.");
 	});
 
 	register_role(["simon_bolivar", "simonbolivar", "simon", "bolivar", "spanish", "169"], "Neutral", "Simón Bolívar", (e) =>
@@ -469,7 +471,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- Every night, choose three of the following. A random one of the chosen three will be announced at the start of the next day and then take effect at the start of the next night.\n\n- All players perpetually lose all Defense. Players can't have Defense or be given Defense for the rest of the game.\n- All players perpetually lose the ability to receive any messages during the night.\n- All players will have completely random targets for the next night.\n- 75% of players at random will be dealt a Powerful attack.\n- All players perpetually lose all attributes, except a random player, who gains all attributes lost this way.\n- Shuffle everyones' abilities and attributes.\n- Everyone gets a second role in addition to their first one.");
+		e.addField("Abilities:", "- Every night, choose three of the following. A random one of the chosen three will be announced at the start of the next day and then take effect at the start of the next night.\n> - All other players perpetually lose all Defense. Other players can't have Defense or be given Defense for the rest of the game.\n> - All other players perpetually lose the ability to receive any messages during the night.\n> - All other players will have completely random targets for the next night.\n> - 75% of other players at random will be dealt a Powerful attack. \n> - All other players perpetually lose all attributes, except a random other player, who gains all attributes lost this way.\n> - Shuffle everyones' abilities and attributes except yours.\n> - All other players get a second role in addition to their first one.");
 
 		e.addField("Goal:", "Cause infinite chaos (as determined by the host).");
 	});
@@ -705,16 +707,18 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["subcriber", "200"], "Neutral", "OMG GUYS 200 SUBSCRIBER SPECIAL SMASH THE LIKE BUTTON", (e) =>
+	register_role(["devastation_kami", "devastationkami", "devastation", "kami", "200"], "Neutral", "Devastation Kami", (e) =>
 	{
 		e.setDescription("Post 200");
 
-		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Smash someone's like button at night. Their rules text will be updated so you must be alive for them to win.\n- Accept a sponsorship at night. If you do, you cannot say anything except \"RAID: Shadow Legends\" for the next day, but you will gain Basic Attack and Basic Defense for the next 2 nights and the ability to attack players.");
+		e.addField("Abilities:", "+2: Choose a player. You learn a random one of their abilities and gain one use of that ability, but you may use it at any time and it resolves immediately. They lose that ability for the rest of the game.\n+1: Deal an Unstoppable attack to any player.\n-7: Every other player chooses two of their abilities and attributes. They lose those abilities or attributes. \n-12: All other players are roleblocked through immunities for tonight and lose all abilities, attributes, immunities, attacks, and defense for the rest of the game.");
 
-		e.addField("Goal:", "Kill all who can't win with you.");
+		e.addField("Attributes:", "- All Immunities\n**Divine Power** — You start with 7 power. When you use an ability, add or subtract power according to the ability. You may not use abilities that cost more power than you have. If you would be attacked, instead the attacker learns that your Defense was too strong and you lose power equal to the level of the attack. (Basic: 1, Powerful: 2, Unstoppable: 3, Overkill: 4. You still die if you're lynched.)");
+
+		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 };
