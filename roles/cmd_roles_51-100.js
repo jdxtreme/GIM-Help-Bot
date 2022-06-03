@@ -416,7 +416,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Carry out the Factional Mafia Kill.");
 
-		e.addField("Attributes:", "- You will see the role and last will of your targets when you clean them.\n- You have Control Immunity while following the Godfather's orders.")
+		e.addField("Attributes:", "- You can attack if the Godfather doesn't give you orders.\n- If the Godfather dies you will become the next Godfather.\n- You can talk with the other Mafia at night.\n- You have Control Immunity while following the Godfather's orders.")
 
 		e.addField("Goal:", "Mafia Goal");
 	});

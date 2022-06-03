@@ -51,13 +51,13 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 4");
 
-		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Overkill", true);
 		e.addField("Defense", "Powerful", true);
 
-		e.addField("Abilities:", "-Pick a player every night.");
+		e.addField("Abilities:", "- Pick a player every night.");
 
-		e.addField("Attributes:", "-If they're a role deemed unbalanced, deal an Overkill attack.\n-Your attack pierces through every form of defense and nothing can be saved. You will even kill things such as God.\n-Unbalanced roles: Soldier But On Steroids, God, Zerosage, Nlove, Host, Admin, All My Homies Hate Wolfi, Vanilla Master, Vanilla Master Killer, Vanilla Master Killer Killer, Very Serial Killer, Actually Screw It I Hate Town Roles, The Ultimate Mafioso, Reroller, The Flying Pumpkin That Shoots Laser Beams Out Of Its Ass, Odd Keystone, Super Idol, Odd Keyrock, Simon Bolivar, Omg Guys 200 Subscribers Special Smash The Like Button, The Royal Guards Which Tend To Apparently Exist In Certain Social Deduction Games Despite Not Being Players, Server Admin, Infinite Chaos, Fuc King, Eternity, Eternity but Faster, God (NK), Rioter, Timelord Jester, Modular Monstrosity, Moons familiar, Horsepotence, Hatred, Zero Kids in a Trenchcoat, The All Form, Genwunner, Horse Pinko Flexer, No More Game!");
+		e.addField("Attributes:", "- If they're a role deemed unbalanced, deal an Overkill attack.\n- Your attack pierces through every form of defense and nothing can be saved. You will even kill things such as God.\n- At the start of the game, after every role has been locked in, the host must go through the entire rolelist and deem every role unbalanced or not.\n- If the host doesnt deem any role unbalanced, then Role Jury Is immediately rerolled.");
 
 		e.addField("Goal:", "Kill every unbalanced role.");
 	});
@@ -445,7 +445,7 @@ module.exports = (g) =>
 		e.setDescription("Post 31");
 
 		e.addField("Alignment", "Mafia Killing", true);
-		e.addField("Attack", "Basic (Powerful)", true);
+		e.addField("Attack", "Basic (Unstoppable)", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Perform the Factional Mafia Kill.");
@@ -545,7 +545,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Perform the Factional Mafia Kill.");
 
-		e.addField("Attributes:", "- Once the rolelist has been rolled by the host, if Tenacious was rolled, before the roles are given out, 3 other roles must be rerolled into non killing mafia roles.\n- Once you are the last mafia standing, your Factional Mafia Kill Is an Unstoppable Rampaging attack.\n- Players will know at the start of the day when a Tenacious Is the last mafia standing.");
+		e.addField("Attributes:", "- Once the rolelist has been rolled by the host, if Tenacious was rolled, before the roles are given out, 3 other roles must be rerolled into non killing roles, UNLESS the rolelist already gas guaranteed Evil Faction slots.\n- Once you are the last mafia standing, your Factional Mafia Kill Is an Unstoppable Rampaging attack.\n- Players will know at the start of the day when a Tenacious Is the last mafia standing.");
 
 		e.addField("Goal:", "Mafia Goal");
 	});

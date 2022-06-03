@@ -1,44 +1,3 @@
-/*
-Format:
-
-register_role(["role_cmd_name", "other_role_cmd_name", "###"], "Alignment", "Actual Role Name", (e) =>
-{
-	e.setDescription("Post ###");
-
-	e.addField("Alignment", "Alignment Subalignment", true);
-	e.addField("Attack", "None/Basic/Whatever", true);
-	e.addField("Defense", "Powerful/Invincible/Whatever", true);
-
-	e.addField("Abilities:", "- Ability 1\n- Ability 2\n - etc...");
-
-	e.addField("Attributes:", "- Attribute 1\n- Attribute 2\n- etc...");
-
-	e.addField("Goal:", "Goal here.");
-});
-
-Other Notes:
-
-- If a role is Unique, put it with its alignment (e.g. "Unique Town Killing")
-
-- If a role has additional immunities under the listed attack/defense, put those immunities as additional attributes.
-
-- If a role has " within part of its description, you can use \" so that the bot can use the " character without breaking the code. (e.g. "a fake cause of \"death\" (ww, sk, etc).")
-
-- If a role doesn't list its attack and defense stats, try to come up with them based off of the listed abilities and attributes. If even those don't specify anything, assume basic for any ability that provides attack or defense, or "None" if a role mentions neither.
-
-- If a role only has Abilities or Attributes, but not the other, then just delete that role's e.addField() for whichever one would go unused.
-
-- If a role uses or comes with an image, you can use e.setImage("URL");
-
-- If a role mentions a specific channel on the Discord Server, use the format "<#970046125065265202>". That example will mention the "#roles" channel. You need to enable Discord Developer Mode in your settings to be able to copy channel IDs.
-
-- If a role doesn't fit the server's rules, you may leave a note in its description that it cannot be rolled, and just cut out every other part since nothing else will be needed.
-
-- If a role defines a custom faction that only it uses, feel free to put it in the "Other" category.
-
-- If a role can roll in any faction's slot, you may use the "Any" category.
-*/
-
 module.exports = (g) =>
 {
 	const {register_role} = g;
@@ -56,5 +15,753 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- A player who possesses your doll may choose to give the doll to another player during the night.\n- Forcing your doll onto another player will override the player choosing to give their doll to another player. You may do this once.\n- When you roleblock the player with your doll, you will also learn their identity. You may do this twice.\n- If the player with your doll is lynched, you will come into possession with the doll again at the beginning of the night and may choose another player to receive the doll.");
 		
 		e.addField("Goal:", "Have the player in possession of your doll die at night.");
+	});
+
+	register_role(["wannabe", "652"], "Mafia", "Wannabe", (e) =>
+	{
+		e.setDescription("Post 652");
+
+		e.addField("Alignment", "Mafia Espionage", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Kill a player at night.");
+
+		e.addField("Attributes:", "- Once you kill a player, you will join the mafia chat.\n- Once you kill a player, you will be given 5 random mafia roles, pick one to become permanently.\n- You can switch your role once, being given a selection of 5 new mafia roles to choose from.\n- If you pick a Mafia (Espionage) role, you will stay in the mafia chat.\n- You cannot become Wannabe, The Ultimate Mafioso, The Entire Mafia, Turncoat.");
+		
+		e.addField("Goal:", "Mafia Goal");
+	});
+
+	register_role(["sawbones", "653"], "Mafia", "Sawbones", (e) =>
+	{
+		e.setDescription("Post 653");
+
+		e.addField("Alignment", "Mafia Support", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Choose one member of the Mafia to heal each night.");
+
+		e.addField("Attributes:", "- Healing a member of the Mafia will give them Powerful defense for the night.\n- You may only heal four times.");
+		
+		e.addField("Goal:", "Mafia Goal");
+	});
+
+	register_role(["phisher", "654"], "Mafia", "Phisher", (e) =>
+	{
+		e.setDescription("Post 654");
+
+		e.addField("Alignment", "Mafia Deception", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Choose someone to phish each night.");
+
+		e.addField("Attributes:", "- Phished players will be forced to target you that night.\n- If your ability would cause you to be killed, it will be cancelled.\n- You will be notified if your target was immune to your phishing.\n- Your target will NOT be notified that they were redirected.");
+		
+		e.addField("Goal:", "Mafia Goal");
+	});
+
+	register_role(["fox", "655"], "Neutral", "Fox", (e) =>
+	{
+		e.setDescription("Post 655");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Scream at night, upgrading the attack value of all attacks for the night.");
+
+		e.addField("Attributes:", "- You may only scream once.\n- You may not scream night one.\n- The Town will be notified you have screamed.\n- Every kill during a scream grants you an extra charge.\n- If the Foxes win, you will win regardless of if you are living or have fulfilled your win condition.\n- You have access to the fox night chat if the foxes spawn.");
+		
+		e.addField("Goal:", "See three players die during a scream.");
+	});
+
+	register_role(["deity", "656"], "Umbrae", "Deity", (e) =>
+	{
+		e.setDescription("Post 656");
+
+		e.addField("Alignment", "Umbra Head", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Variable", true);
+
+		e.addField("Abilities:", "- Turn an Umbrae's visit astral, you cannot target the Prophet.\n- (Day Ability : {1} Use) Empower the Full Moon and turn it into a Blood Moon.");
+
+		e.addField("Attributes:", "- During the Blood Moon, you have Powerful defense.\n- During a Blood Moon, you may issue a Basic, Astral attack.\n- During the Full Moon, you have Basic defense.\n- If you are the last remaining Umbrae member you will become the Prophet.\n- Detection Immunity");
+		
+		e.addField("Goal:", "Umbrae Goal");
+	});
+
+	register_role(["prophet", "657"], "Umbrae", "Prophet", (e) =>
+	{
+		e.setDescription("Post 657");
+
+		e.addField("Alignment", "Umbra Assault", true);
+		e.addField("Attack", "Basic (Variable)", true);
+		e.addField("Defense", "None (Variable)", true);
+
+		e.addField("Abilities:", "- Kill a player each night.");
+
+		e.addField("Attributes:", "- Under a full moon you have basic defense.\n- Under a Blood Moon you have powerful attack.\n- Under no moon, you have no defense.\n- Under a Blood Moon your defense is powerful.\n- If you are jailed twice, you may issue your attack inside of jail.\n- Roleblock Immunity.\n- Detection Immunity during non-moon nights.");
+		
+		e.addField("Goal:", "Umbrae Goal");
+	});
+
+	register_role(["invoker", "658"], "Umbrae", "Invoker", (e) =>
+	{
+		e.setDescription("Post 658");
+
+		e.addField("Alignment", "Umbra Assault", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Kill one person each night, disguising their cause of death.");
+
+		e.addField("Attributes:", "- You are role block immune.\n- Under a Full Moon, your visit is astral.\n- Under a Blood Moon, you will mimic the mechanics of your disguised cause of death.\n(Werewolf/Pestilence Rampage, Juggernaut's Powerful Attack, Arsonist's Unstoppable Ignition)\n- Detection Immunity during non-moon nights.");
+		
+		e.addField("Goal:", "Umbrae Goal");
+	});
+
+	register_role(["fabricator", "659"], "Umbrae", "Fabricator", (e) =>
+	{
+		e.setDescription("Post 659");
+
+		e.addField("Alignment", "Umbra Support", true);
+		e.addField("Attack", "None (Variable)", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Replace a person's body every Full Moon night.");
+
+		e.addField("Attributes:", "- Killed players will appear as alive to the town until they are voted up to the stand, or if they are visited by another person during the night or any night after they die.\n- A fabricated player being voted up to stand can be pardoned or executed as normal.\n- On Blood Moon nights, you may kill and fabricate a player.\n- A player you have successfully fabricated will be seen as \"Fabricated\" during a death flip, and their last will is not shown.\n- You will know your target's role and will.\n- Detection Immunity during non-moon nights.");
+		
+		e.addField("Goal:", "Umbrae Goal");
+	});
+
+	register_role(["matriarch", "660"], "Umbrae", "Matriarch", (e) =>
+	{
+		e.setDescription("Post 660");
+
+		e.addField("Alignment", "Umbra Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Empower a teammate when the moon is out.");
+
+		e.addField("Attributes:", "- During a Full Moon, replenish a teammates charge, or let them act twice the next night if they have full charges.\n- During a Blood Moon, choose a teammate to let them use their Blood Moon powers the next night.\n- You can only use the Full Moon ability and the Blood Moon ability on the same person once.\n- You are able to use the Blood Moon ability and the Full Moon ability on the same person.\n- You cannot target the Deity.\n- Detection Immunity during non-moon nights.");
+		
+		e.addField("Goal:", "Umbrae Goal");
+	});
+
+	register_role(["tyro", "661"], "Umbrae", "Tyro", (e) =>
+	{
+		e.setDescription("Post 661");
+
+		e.addField("Alignment", "Umbra Support", true);
+		e.addField("Attack", "None (Variable)", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Visit a player each night, disguising as their role.");
+
+		e.addField("Attributes:", "- During the Blood Moon, you may issue a direct, powerful attack.\n- If the Prophet is killed you will take his place before anyone else.\n- After killing a player, you may choose an untaken Umbrae role to convert into.\n- Roleblock Immunity\n- Control Immunity\n- Detection Immunity during non-moon nights, unless you are disguised.");
+		
+		e.addField("Goal:", "Umbrae Goal");
+	});
+
+	register_role(["seer", "662"], "Umbrae", "Seer", (e) =>
+	{
+		e.setDescription("Post 662");
+
+		e.addField("Alignment", "Umbra Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Cloud a players mind once per game, preventing them from receiving feedback.\n- (Day Ability: {1} Use) Call upon the Full Moon to make a blinding fog once per game.");
+
+		e.addField("Attributes:", "- Anyone who was killed in the fog will have their roles shown as (Unknown) and will have their wills cleaned.\n- Cause of death in the fog will be hidden.\n- Calling fog from a blood moon will cause the next days discussion phase to be skipped.\n- The Umbrae will see the cause of death, roles, and wills of those undiscernable by the fog.\n- Detection Immunity during non-moon nights, unless you are disguised.");
+		
+		e.addField("Goal:", "Umbrae Goal");
+	});
+
+	register_role(["savior", "663"], "Neutral", "Savior", (e) =>
+	{
+		e.setDescription("Post 663");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Powerful", true);
+
+		e.addField("Abilities:", "- Protect one player at night, granting them invincible defense.");
+
+		e.addField("Attributes:", "- If you successfully protect a player, your target's attack will be reflected upon them. This includes astral, indirect, and overkill attacks.\n- Any player you successfully protect have their normal win condition, but can alternatively live to see the game end, and MUST see you alive.");
+		
+		e.addField("Goal:", "Kill or Convert one player.");
+	});
+
+	register_role(["iconoclast", "icon", "664"], "Neutral", "Iconoclast", (e) =>
+	{
+		e.setDescription("Post 664");
+
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Investigate two players, learning their role if they are a Neutral Killing.\n- Choose to call an assembly the following night with all the NKs in the game.");
+
+		e.addField("Attributes:", "- If both of the targets of your investigation are NK roles, they will be united, gaining an alternate win condition of the other winning.\n- During an assembly, all NKs can speak freely. After an assembly has been called until the next night, all NKs can win with each other. If there is no NK victory by that time, you will die.");
+		
+		e.addField("Goal:", "Live to see a Neutral Killing win the game");
+	});
+
+	register_role(["spirit_medium", "spiritmedium", "sm", "665"], "Neutral", "Spirit Medium", (e) =>
+	{
+		e.setDescription("Post 665");
+
+		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Speak with the dead at night, you may use a dead players body, unless they are a killer.");
+
+		e.addField("Attributes:", "- You can use any body an unlimited amount of times.\n- All dead players will win if you live until the end of the game.\n- If your action would cause a player to die (even if its something like a transport), your ability will fail.\n- You will resurrect two days after your death, but the dead players will no longer be able to win with you.");
+		
+		e.addField("Goal:", "Live to see the end of the game.");
+	});
+
+	register_role(["striker", "666"], "Neutral", "Striker", (e) =>
+	{
+		e.setDescription("Post 666");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Choose to wrangle a player each night.\n- Choose to shoot a player with your carmine-crafted blessing-tipped rifle.");
+
+		e.addField("Attributes:", "- Wrangling a player will roleblock them through immunity and deal an Astral Basic attack to them. It will appear as if your target visited you.\n- Shooting a player with your carmine-crafted blessing-tipped rifle will deal an Unstoppable Astral attack to them. However, if you are visited while using your rifle, you will instead deal a Powerful attack to all players visiting you. You may shoot three players, and you may only shoot during a full moon.\n- You show up as incapable of killing to any Investigative abilities.\n- You may win with **Loona** if you both spawn.");
+		
+		e.addField("Goal:", "Kill all who may oppose you.");
+	});
+
+	register_role(["loona", "667"], "Neutral", "Loona", (e) =>
+	{
+		e.setDescription("Post 667");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Powerful/Unstoppable", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Maul a player each night, attacking them and all their visitors with a __Powerful__ attack.\n- If you are visited, your visitors will be silently poisoned with a 2 day delayed __Unstoppable__ attack.");
+
+		e.addField("Attributes:", "- You will role-block all players that threaten to expose you. (Investigation Roles)\n- You may win with the **Striker** if you both spawn.");
+		
+		e.addField("Goal:", "Kill all who threaten your business. (NK Goal with flavor)");
+	});
+
+	register_role(["time_magician", "timemagician", "tm", "time", "668"], "PaleMoon", "Time Magician", (e) =>
+	{
+		e.setDescription("Post 668");
+
+		e.addField("Alignment", "Pale Moon Protection", true);
+		e.addField("Attack", "None (Unstoppable)", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Send someone back in time at night.\n- Once per game, revive a dead Pale Moon.");
+
+		e.addField("Attributes:", "- If they die the same night you send them back in time, their death Is delayed for 2 rounds\n- If they are attacked again while their death Is delayed, they will die.\n- You will revive a dead Pale Moon as a completely lifeless zombie. They cant be voted, talked or whispered to. You may decide to give this Zombie to yourself or any other Pale Moon.\n- If someone attacks a target with a Zombie, the Zombie will die instead.\n- When the PMCS begins, you will gain one charge of revival, and may revive any player. They still cannot be talked, voted or whispered to, nor can they get targeted at night, but you will use them to deal an Astral Unstoppable Attack at a player.");
+		
+		e.addField("Goal:", "Pale Moon Goal");
+	});
+
+	register_role(["replicant", "669"], "Neutral", "Replicant", (e) =>
+	{
+		e.setDescription("Post 669");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Destroy one or both of your closest living neighbours.");
+
+		e.addField("Attributes:", "- After attacking, you lose your defense and cannot attack the following night.\n- You are simultaneously also both your living neighbours' roles, sharing their abilities, attributes and goals.\n- If both of your living neighbours have the same win condition, you are forced to attack.");
+		
+		e.addField("Goal:", "Fulfil one of your living neighbours' goals.");
+	});
+
+	register_role(["savior", "670"], "Vampire", "Savior", (e) =>
+	{
+		e.setDescription("Post 670");
+
+		e.addField("Alignment", "Vampire Conversion", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "\"Defense\"", true);
+
+		e.addField("Abilities:", "- Protect a player each night.");
+
+		e.addField("Attributes:", "- If your target is attacked, reflect one attacker's attack. The other attackers will not know of this.\n- Your target is converted into a Devoted, unless the attack was Unstoppable.\n- If you successfully convert someone, you must wait a day before protecting again.\n- You cannot protect night 1.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["catacano", "671"], "Vampire", "Catacano", (e) =>
+	{
+		e.setDescription("Post 671");
+
+		e.addField("Alignment", "Vampire Support", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- You may infect a player member at night. If someone deals an attack that would kill your target, they will survive and become a Progeny.");
+
+		e.addField("Attributes:", "- You may only bite someone on an Odd night.\n- Biting someone converts them to a Vampire upon death. The attacker is informed their target has high defense.\n- You will know your newest progeny’s notifications.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["devoted", "672"], "Vampire", "Devoted", (e) =>
+	{
+		e.setDescription("Post 672");
+
+		e.addField("Alignment", "Vampire Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- You may use the abilities you had before your were converted one time.");
+
+		e.addField("Attributes:", "- You will become the Savior if the Savior dies.\n- You will gain all passive abilities your role had before conversion when using your ability.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["progeny", "673"], "Vampire", "Progeny", (e) =>
+	{
+		e.setDescription("Post 673");
+
+		e.addField("Alignment", "Vampire Conversion", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None (Unstoppable)", true);
+
+		e.addField("Abilities:", "- (The Youngest Progeny will) Carry out the Catacano’s Orders.");
+
+		e.addField("Attributes:", "- If the Catacano dies, the oldest Progeny takes their place.\n- If there are no kill capable Vampire roles left you will become a Lampir.\n- The night you become a Progeny, you gain Invincible Defense.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["talamaur", "674"], "Vampire", "Talamaur", (e) =>
+	{
+		e.setDescription("Post 674");
+
+		e.addField("Alignment", "Vampire Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Consumes a Soul from the Graveyard to use as a magical shield for itself or kin.");
+
+		e.addField("Attributes:", "- Selecting a Corpse at night destroys the Corpse, and uses it to shield a Vampire granting them a basic defense.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["broxa", "broca", "675"], "Vampire", "Broxa", (e) =>
+	{
+		e.setDescription("Post 675");
+
+		e.addField("Alignment", "Vampire Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Lull a target into a false sense of security at night.");
+
+		e.addField("Attributes:", "- By selecting a target you create a delayed roleblock.\n- If you die, your lull fails.\n- Anyone who threatens to expose you is lulled into a false sense of security.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["gierach", "676"], "Vampire", "Gierach", (e) =>
+	{
+		e.setDescription("Post 676");
+
+		e.addField("Alignment", "Vampire Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- You may Track a Player’s movements at night.\n- You will know if that Player has killed before.");
+
+		e.addField("Attributes:", "- You can talk to the other Vampires at night.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["nelapsi", "677"], "Vampire", "Nelapsi", (e) =>
+	{
+		e.setDescription("Post 677");
+
+		e.addField("Alignment", "Vampire Manipulation", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Select two players at night and soulbind them.");
+
+		e.addField("Attributes:", "- At night you soul bind two players.\n- Both players will now visit the same target as the first player selected.\n- You may only select two new players to bind after both die, or you set them free.\n- Setting the players free takes one night.\n- Players are freed if you die.\n- The selected Players will know who they are tied to, and each other’s roles.\n- If either bound player dies the other one dies at night.\n- Soul bound players cannot be targetted by Vampire Killing Roles.\n- You can talk to the other Vampires at night.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["adze", "678"], "Vampire", "Adze", (e) =>
+	{
+		e.setDescription("Post 678");
+
+		e.addField("Alignment", "Vampire Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- You choose a target to drain blood from at night.\n- You can mask your true identity upon killing.");
+
+		e.addField("Attributes:", "- Killing your target replaces your Investigator and Consigliere results with that of your drained target.\n- You can talk to the other Vampires at night.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["bebarlang", "bebar", "679"], "Vampire", "Bebarlang", (e) =>
+	{
+		e.setDescription("Post 679");
+
+		e.addField("Alignment", "Vampire Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- You choose a target to drain blood from at night.\n- You cannot go 2 nights without feasting - or you die.");
+
+		e.addField("Attributes:", "- Your visits are Astral.\n- You can talk to the other Vampires at night.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["lampir", "680"], "Vampire", "Lampir", (e) =>
+	{
+		e.setDescription("Post 680");
+
+		e.addField("Alignment", "Vampire Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- You choose a target to drain blood from at night.");
+
+		e.addField("Attributes:", "- You can talk to the other Vampires at night.\n- If you are roleblocked, you will only attack the player who roleblocked you. Their Last Will will be unreadable.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["pijavica", "pija", "681"], "Vampire", "Pijavica", (e) =>
+	{
+		e.setDescription("Post 681");
+
+		e.addField("Alignment", "Vampire Manipulation", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- You may veil the sky at night, hiding what each player votes during trials the next day.");
+
+		e.addField("Attributes:", "- You can hear private messages.\n- Only you will learn what each player votes during trials.\n- You may not veil twice in a row.");
+		
+		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+	});
+
+	register_role(["privateer", "681"], "Mafia", "Privateer", (e) =>
+	{
+		e.setDescription("Post 681");
+
+		e.addField("Alignment", "Mafia Espionage", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Perform the Factional Mafia Kill for the Mafia. 3 Uses\n- Select a player to raid during the day.");
+
+		e.addField("Attributes:", "- If you perform the Factional Mafia Kill, you will deal a Powerful attack. The Mafia will still decide who you target and not be made aware of this.\n- During the night, you will raid the player you chose during the day. You will roleblock your target, and you will both play the Pirate's Scimitar/Pistol/Rapier minigame. If you win, however, you will reduce their defense to none for the current and next night instead of killing them.\n- If you are in the process of raiding a player, you may not replace the Factional Mafia Kill.");
+		
+		e.addField("Goal:", "Mafia Goal");
+	});
+
+	register_role(["despot", "682"], "Insurgency", "Despot", (e) =>
+	{
+		e.setDescription("Post 682");
+
+		e.addField("Alignment", "Insurgency Head", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Give a random Insurgent a bomb during the day.\n- Give a bomb to a specific player during the day instead.\n- Privately offer to convert a player during the night. 1 Use\n- Attack a target during the night IF there are no other Insurgents. You will be informed when this is the case.");
+
+		e.addField("Attributes:", "- When given a bomb, the player may, instead of their normal night action, perform a basic attack to a chosen player.\n- If you die, a random Insurgent will be promoted to the Despot. They will have no conversion uses. Insurgent (Informant)s are prioritized last.\n- When you offer to convert a player, they may choose whether to accept. If they do accept, their role will be unchanged, however they will have their goal changed to 'Eliminate all who oppose the Insurgency.'\n- Detection immunity to the Sheriff.");
+		
+		e.addField("Goal:", "Insurgency Goal");
+	});
+
+	register_role(["consultant", "consult", "683"], "Insurgency", "Consultant", (e) =>
+	{
+		e.setDescription("Post 683");
+
+		e.addField("Alignment", "Unique Insurgency Informant", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Wiretap a player during the night.\n- Copy a player's last will during the day. 3 Uses.");
+
+		e.addField("Attributes:", "- When you wiretap a player, you will be given all notifications given to them from then on.\n- When you copy a player's last will, you will be able to read it yourself.\n- You will be notified if any whispers to and from you are eavesdropped or interfered with; when this happens, you may choose to edit what the contents of the whisper appears to be to the eavesdropper.");
+		
+		e.addField("Goal:", "Insurgency Goal");
+	});
+
+	register_role(["insider", "684"], "Insurgency", "Insider", (e) =>
+	{
+		e.setDescription("Post 684");
+
+		e.addField("Alignment", "Unique Insurgency Informant", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Investigate a player for their exact role during the Night.\n- Pretend to do the action of the role you're disguised as during the Night. May be used in conjunction w/ Investigation.\n- Invite a player into communications with you during the day.");
+
+		e.addField("Attributes:", "- The night after inviting a player, they will permanently be put into a private channel with you and any other invited players.\n- Before the start of the game, you will be assigned to infiltrate a random (EXISTANT) evil faction. You may choose a role in that faction to appear as. You will be placed into that evil faction, appearing as that role to all other players in the evil faction.\n- You may not appear to be a \"leader\" type role (i.e. Godfather, Coven Leader/Lich, Sun (Production), Rock (Killing), etc.)\n- Cannot be rolled w/ only one evil faction.");
+		
+		e.addField("Goal:", "Insurgency Goal");
+	});
+
+	register_role(["rogue", "685"], "Insurgency", "Rogue", (e) =>
+	{
+		e.setDescription("Post 685");
+
+		e.addField("Alignment", "Insurgency Saboteur", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Confuse a player during the night.\n- Report to a player during the day. 2 Uses");
+
+		e.addField("Attributes:", "- Confused players will be roleblocked, but won't be informed of such. Investigative roles will still gain results, however these results will be randomized. In cases where they view people (i.e. Lookout and Tracker), report the correct number, but randomize which people.\n- When you report to a player during the day, they will gain your exact role if they are an Insurgent.");
+		
+		e.addField("Goal:", "Insurgency Goal");
+	});
+
+	register_role(["elite", "686"], "Insurgency", "Elite", (e) =>
+	{
+		e.setDescription("Post 686");
+
+		e.addField("Alignment", "Insurgency Saboteur", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Attempt to bribe a player during the day. 2 Uses");
+
+		e.addField("Attributes:", "- When you attempt to bribe a player, they will be notified. They may choose to accept or deny the bribe. Accepting the bribe gives you their exact role. Denying the bribe has no effect.\n- You have 2 extra votes you may use each day. They will only be labeled as the Elite's votes, however you may not change them after voting.");
+		
+		e.addField("Goal:", "Insurgency Goal");
+	});
+
+	register_role(["herring", "687"], "Insurgency", "Herring", (e) =>
+	{
+		e.setDescription("Post 687");
+
+		e.addField("Alignment", "Insurgency Saboteur", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Variable", true);
+
+		e.addField("Abilities:", "- Size up a player's house during the night, removing their defense that night and blocking all Town Protective abilities on them from succeeding.\n- Read into a player during the day, learning whether or not they are a member of the Town or not. 2 Uses.");
+		
+		e.addField("Goal:", "Insurgency Goal");
+	});
+
+	register_role(["elite", "688"], "Insurgency", "Elite", (e) =>
+	{
+		e.setDescription("Post 688");
+
+		e.addField("Alignment", "Insurgency Hitman", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Storm a player's house during the night. 3 Uses\n- Determine if a player is kill-capable during the day. 2 Uses.");
+
+		e.addField("Attributes:", "- When you storm a player's house during the night, you will check if they have a kill-capable ability. If they do, you will attack them, and roleblock them past immunity.\n- Any player capable of performing a factional kill will come up as kill-capable when you check them, along with normal kill-capable roles.");
+		
+		e.addField("Goal:", "Insurgency Goal");
+	});
+
+	register_role(["zealot", "689"], "Insurgency", "Zealot", (e) =>
+	{
+		e.setDescription("Post 689");
+
+		e.addField("Alignment", "Unique Insurgency Hitman", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Attack a player during the night.\n- Probe a player during the day, learning if they have ever publicly voted for an Insurgent (even if rescinded). 2 Uses.");
+
+		e.addField("Attributes:", "- This attack will rampage. You will also attack yourself in the process.");
+		
+		e.addField("Goal:", "Insurgency Goal");
+	});
+
+	register_role(["virtuoso", "virt", "690"], "Insurgency", "Virtuoso", (e) =>
+	{
+		e.setDescription("Post 690");
+
+		e.addField("Alignment", "Insurgency Hitman", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Confiscate a player's weaponry during the day.\n- Interrogate a player during the night, determining whether they are Suspicious (Sheriff results). 2 Uses");
+
+		e.addField("Attributes:", "- If your confiscation target were to use an ability capable of killing the following night, you will roleblock them past immunity. You will then gain one use of that exact attack. You *may* confiscate bombs, if it isn't implied enough.");
+		
+		e.addField("Goal:", "Insurgency Goal");
+	});
+
+	register_role(["governor", "gov", "691"], "Loyalist", "Governor", (e) =>
+	{
+		e.setDescription("Post 691");
+
+		e.addField("Alignment", "Loyalist Governor", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Powerful (None)", true);
+
+		e.addField("Abilities:", "- During the day, you may reveal yourself as the Governor, regaining your position to gain 3 total votes during the day. You cannot reveal if another role with a revealing ability already has and is alive.");
+
+		e.addField("Attributes:", "- You will not know who is a Loyalist, but you will know their roles. You cannot access the Loyalist chat, and you cannot perform any Loyalist factional ability. If all other Loyalists die, you will be notified, and you can perform the factional kill.");
+		
+		e.addField("Goal:", "Survive to the end of the game and eradicate those who will not submit to the Governor's rule.");
+	});
+
+	register_role(["militant", "692"], "Loyalist", "Militant", (e) =>
+	{
+		e.setDescription("Post 692");
+
+		e.addField("Alignment", "Loyalist Killing", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Attack a player at night.");
+
+		e.addField("Attributes:", "- You may only use your ability twice, and it will only succeed on Town roles. This does not affect the factional kill if you perform it.");
+		
+		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+	});
+
+	register_role(["scribe", "693"], "Loyalist", "Scribe", (e) =>
+	{
+		e.setDescription("Post 693");
+
+		e.addField("Alignment", "Loyalist Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Predict if a role exists. You will know if it does or doesn't.");
+
+		e.addField("Attributes:", "- On even number nights, if the role does exist, you will get 5 names, at least one is that role. If it doesn't exist, you will know how many roles of that alignment do. \"Exist\" does not include the dead, unless their role was hidden.");
+		
+		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+	});
+
+	register_role(["state_knight", "stateknight", "state", "694"], "Loyalist", "State Knight", (e) =>
+	{
+		e.setDescription("Post 694");
+
+		e.addField("Alignment", "Loyalist Protective", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Protect a player at night, granting Powerful defense and killing any non-Loyalist attacker.");
+
+		e.addField("Attributes:", "- If you visit the same player as a Loyalist, you will instead attack the person the next night. You will not give the target Powerful defense or kill any attackers. You may protect someone the night you are attacking someone.");
+		
+		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+	});
+
+	register_role(["fraudster", "fraud", "695"], "Loyalist", "Fraudster", (e) =>
+	{
+		e.setDescription("Post 695");
+
+		e.addField("Alignment", "Loyalist Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Reverse the votes the following day. Whoever has the *least* votes will be lynched. In a tie, a random non-Loyalist target will be selected. A Loyalist can only die to this if they are the only one with the lowest votes.");
+
+		e.addField("Attributes:", "- You may only do this twice.");
+		
+		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+	});
+
+	register_role(["deceptionist", "decep", "696"], "Loyalist", "Deceptionist", (e) =>
+	{
+		e.setDescription("Post 696");
+
+		e.addField("Alignment", "Loyalist Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Target a player. If they die, you may change their full last will, cause of death, and role. You will receive all correct information. You will also steal their ability for one night.");
+
+		e.addField("Attributes:", "- The night after you successfully use your main ability, you cannot use it. You must do nothing or use your stolen ability. If you are the only Loyalist left, aside from the Governor, you may perform the factional kill and use your ability in the same night. You may only do this once.");
+		
+		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+	});
+
+	register_role(["assassin", "697"], "Loyalist", "Assassin", (e) =>
+	{
+		e.setDescription("Post 697");
+
+		e.addField("Alignment", "Loyalist Killing", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- During the day, guess a player's role. If you correctly guess it, you will immediately kill them. Required votes to lynch will be decreased as needed, and their vote will no longer count. The Town will only be told that an Assassin killed your target. If your guess is incorrect, you will kill yourself.");
+
+		e.addField("Attributes:", "- You may only use your ability twice. If your target is immune to your attack, both of you will survive, and the Town will receive no notification.");
+		
+		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+	});
+
+	register_role(["field_medic", "fieldmedic", "fm", "medic", "698"], "Loyalist", "Field Medic", (e) =>
+	{
+		e.setDescription("Post 698");
+
+		e.addField("Alignment", "Loyalist Protective", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Protect a player at night, giving them Powerful defense. If they are not attacked, you will learn their role. If they are attacked, you will learn the attacker's name, even if you cannot save your target. Loyalist killers will bypass the defense you give and do not count as an attack to you.");
+
+		e.addField("Attributes:", "- You will learn the names of all killers, if multiple target your target.");
+		
+		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+	});
+
+	register_role(["propogandist", "prop", "699"], "Loyalist", "Propogandist", (e) =>
+	{
+		e.setDescription("Post 699");
+
+		e.addField("Alignment", "Loyalist Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Roleblock a player at night. Said player will be unable to vote or whisper the next day. If they are roleblock immune, they will be able to whisper, but not vote.");
+
+		e.addField("Attributes:", "- Roleblock Immunity");
+		
+		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+	});
+
+	register_role(["illuminator", "ill", "700"], "Loyalist", "Illuminator", (e) =>
+	{
+		e.setDescription("Post 700");
+
+		e.addField("Alignment", "Loyalist Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Illuminate a bright path at night at someone's house, causing anyone with Basic defense or lower to be unable to see when trying to visit them, and end up visiting someone else entirely.");
+
+		e.addField("Attributes:", "- Unless this absolutely would break the game, (determined by hosts), Control immunity will not stop this.");
+		
+		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
 	});
 };

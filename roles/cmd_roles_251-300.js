@@ -64,7 +64,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town goal.");
 	});
 
-	register_role(["fuc_king", "fking", "255"], "Neutral", "Fuc King", (e) =>
+	register_role(["fuc_king", "fucking", "fking", "255"], "Neutral", "Fuc King", (e) =>
 	{
 		e.setDescription("Post 255");
 

@@ -36,6 +36,8 @@ const factions =
 	Crew: {color: "EDC240", icon: "https://cdn.discordapp.com/emojis/980989425137901588.webp"},
 	Pokemon: {color: "BB2F2F", icon: "https://cdn.discordapp.com/emojis/978766215155707924.webp"},
 	Fox: {color: "D67D4D"},
+	Cult: {color: "243A5F", icon: "https://cdn.discordapp.com/emojis/981974951756185680.webp"},
+	Horsemen: {color: "6936DB"},
 	Neutral: {color: "808080", icon: "https://cdn.discordapp.com/emojis/980943261587865650.webp"}
 };
 

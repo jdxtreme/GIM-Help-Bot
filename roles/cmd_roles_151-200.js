@@ -387,7 +387,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You grant your target Powerful defense.\n- You attack one person that visits your target on the same night.\n- You will know if your target is attacked.\n- You may protect yourself once, attacking one of your own visitors and granting yourself Powerful defense.");
 
-		e.addField("Goal:", "Reroll all living players' roles.");
+		e.addField("Goal:", "Town Goal");
 	});
 
 	register_role(["ebay_marketer", "ebaymarketer", "ebay", "e-bay", "marketer", "177"], "Neutral", "E-Bay Marketer", (e) =>
@@ -403,6 +403,21 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- Killing someone grants you one organ.");
 
 		e.addField("Goal:", "Sell your organs, and make sure you sell more organs than there are people currently alive.");
+	});
+
+	register_role(["royal", "178"], "Neutral", "Royal", (e) =>
+	{
+		e.setDescription("Post 178");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Powerful", true);
+
+		e.addField("Abilities:", "- Each night, attack a player.");
+
+		e.addField("Attributes:", "- Once per game, during the day, instantly execute whoever has the most votes at the time.\n- If they're Town, you can attack twice per night for the rest of the game.");
+
+		e.addField("Goal:", "NK Goal");
 	});
 
 	register_role(["amethyst", "179"], "Rock", "Amethyst", (e) =>
@@ -439,7 +454,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 181");
 
-		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 

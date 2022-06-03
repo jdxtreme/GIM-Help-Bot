@@ -190,9 +190,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Powerful/Invincible)", true);
 
-		e.addField("Abilities:", "-Once per game, fill every Pale Moon member's house with balloons, including yours.\n-Once per game, eat a candy.\n-Transport two players with balloons.");
+		e.addField("Abilities:", "- Once per game, fill every Pale Moon member's house with balloons, including yours.\n- Once per game, eat a candy.\n- Transport two players with balloons.");
 
-		e.addField("Attributes:", "-Filling houses with balloons grants every Pale Moon including yourself Invincible Defense, but lowers their attack value to None\n-Eating a candy grants you Powerful defense.\n-Once the PMCS begins, if you have 0 uses, you regain 1 use of filling houses with balloons. It will instead lower their attack value to Basic.");
+		e.addField("Attributes:", "- Filling houses with balloons grants every Pale Moon including yourself Invincible Defense, but lowers their attack value to None\n- Eating a candy grants you Powerful defense.\n- Once the PMCS begins, you gain 2 uses of filling houses with balloons. If you fill houses with balloons, all visitors of the filled are dealt a Powerful attack. Additionally, the players whose houses have been filled Attack Values are upped to Powerful.");
 
 		e.addField("Goal:", "Pale Moon Goal");
 	});

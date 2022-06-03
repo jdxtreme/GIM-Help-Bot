@@ -258,7 +258,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["smearple", "916"], "Pokemon", "Smearple", (e) =>
+	register_role(["smeargle", "916"], "Pokemon", "Smeargle", (e) =>
 	{
 		e.setDescription("Post 916");
 
@@ -624,7 +624,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player at night.");
 
-		e.addField("Attributes:", "- If this rolls, two other Ancient Gods are guaranteed to exist, but no more than three can exist.\n- You steal a random role's abilities and attributes from the slot you rolled from, and it can be any faction, as long as there are not multiple Ancient Gods in an informed faction.\n- In an informed faction, you will be seen as your stolen role; only in death and investigations will you be seen as an Ancient God.\n- You may perform your individual kill and stolen ability in the same night.\n- Your individual attack value is the value of your stolen role, but one tier higher.\n- If you exist, the Town will know this on day one, and informed faction members can use all abilities on each other.\n- Under no circumstance can your individual attack kill another Ancient God - but your stolen attack can.");
+		e.addField("Attributes:", "- If this rolls, two other Ancient Gods are guaranteed to exist, but no more than three can exist.\n- You steal a random role's abilities and attributes from the slot you rolled from, and it can be any faction, as long as there are not multiple Ancient Gods in an informed faction.\n- In an informed faction, you will be seen as your stolen role; only in death and investigations will you be seen as an Ancient God.\n- You may perform your individual kill and stolen ability in the same night.\n- Your individual attack value is the value of your stolen role, but one tier higher.\n- If you exist, the Town will know this on day one, and informed faction members can use all abilities on each other.\n- Under no circumstance can your individual attack kill another Ancient God - but your stolen attack can.\n- This can only spawn if an NK slot exists, even though it doesn't occupy it.");
 		
 		e.addField("Goal:", "NK Goal but all Ancient Gods win together");
 	});

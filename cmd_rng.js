@@ -46,8 +46,8 @@ module.exports = (g) =>
 			return;
 		}
 
-		let max = Number(args[0]);
-		let min = Number(args[1]);
+		let min = Number(args[0]);
+		let max = Number(args[1]);
 
 		msg(chn, randInt(min, max));
 	});

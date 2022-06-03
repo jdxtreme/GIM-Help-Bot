@@ -574,9 +574,17 @@ module.exports = (g) =>
 		e.addField("Goal:", "Learn your true role and complete its goal.");
 	});
 
-	register_role(["talented", "392"], "Other", "Talented", (e) =>
+	register_role(["talented", "392"], "Neutral", "Talented", (e) =>
 	{
-		e.setDescription("Post 392\nN/A Goal lets gooo");
+		e.setDescription("Post 392");
+
+		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Variable", true);
+
+		e.addField("Attributes:", "- You have another random role in addition to this role.");
+		
+		e.addField("Goal:", "N/A");
 	});
 
 	register_role(["copycat", "393"], "Mafia", "Copycat", (e) =>

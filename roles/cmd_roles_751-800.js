@@ -236,7 +236,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Everfrost Goal");
 	});
 
-	register_role(["black_hole", "blackhole", "bh", "767"], "Everfrost", "Black Hole", (e) =>
+	register_role(["black_hole", "blackhole", "bh", "767"], "Neutral", "Black Hole", (e) =>
 	{
 		e.setDescription("Post 767");
 
@@ -294,7 +294,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "SCP Goal");
 	});
 
-	register_role(["attorney_amber_hard", "attorney_amber_hard", "attorney", "amber_hard", "amberhard", "771"], "Mafia", "Attorney Amber Hard", (e) =>
+	register_role(["attorney_amber_hard", "attorneyamberhard", "attorney", "amber_hard", "amberhard", "771"], "Mafia", "Attorney Amber Hard", (e) =>
 	{
 		e.setDescription("Post 771");
 

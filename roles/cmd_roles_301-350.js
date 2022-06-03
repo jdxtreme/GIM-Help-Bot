@@ -248,7 +248,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player's house to become Hell during the first night.\n- Reassign Hell if that player dies.");
 
-		e.addField("Attributes:", "- Players who visit Hell during a full moon are subjected to the following effects:\n--Basic attacked\n--Their ability fails on the target\n--Utricated\n--Framed\n--Cannot be voted the following day\n--Given invincible defense for the rest of the night\n- Hell remains after you die.\n- With the necronomicon, Hell takes effect every night.");
+		e.addField("Attributes:", "- Players who visit Hell during a full moon are subjected to the following effects in the order:\n> - You learn their role\n> - Roleblocked\n> - Basic attacked\n> - Framed\n> - Basic attacked\n> - Given powerful defense for this night\n> - Lynchproof for one day\n> - Basic rampage attacked\n> - Powerfully poisoned\n- If a player dies, the effects after  are not applied.\n- Hell remains after you die.\n- With the necronomicon, you may have two Hells active at a time.");
 		
 		e.addField("Goal:", "Coven Goal");
 	});

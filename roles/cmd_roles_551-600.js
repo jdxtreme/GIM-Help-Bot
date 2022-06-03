@@ -111,9 +111,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Variable", true);
 
-		e.addField("Abilities:", "- Use another role's powers to get lynched at night.");
+		e.addField("Abilities:", "- Use another role's powers.");
 
-		e.addField("Attributes:", "- You will have the defense, attack, abilities, attributes, and investigative results of another role.\n- This role cannot be: Town, Neutral (Benign), Florae");
+		e.addField("Attributes:", "- You will have the defense, attack, abilities, attributes, and investigative results of another role.\n- This role cannot be: Town, Neutral (Benign), Florae, Lynch Immune Roles.");
 		
 		e.addField("Goal:", "Get lynched during the day.");
 	});
@@ -675,7 +675,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["tempest", "598"], "Town", "Tempest", (e) =>
+	register_role(["temptest", "tempt", "598"], "Town", "Temptest", (e) =>
 	{
 		e.setDescription("Post 598");
 

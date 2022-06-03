@@ -435,7 +435,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see 2 catastrophes take place.");
 	});
 
-	register_role(["ringleader", "629"], "Town", "Ringleader", (e) =>
+	register_role(["chairman", "629"], "Town", "Chairman", (e) =>
 	{
 		e.setDescription("Post 629");
 
