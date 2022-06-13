@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role} = g;
 
-	register_role(["i_am_inside_your_home", "inside", "601"], "Neutral", "I Am Inside Your Home", (e) =>
+	register_role(["i_am_inside_your_home", "inside", "601"], "Neutral", "I Am Inside Your Home", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 601");
 
@@ -17,7 +17,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Win with the goal given to you");
 	});
 
-	register_role(["undercover_agent", "undercoveragent", "undercover", "602"], "Town", "Undercover Agent", (e) =>
+	register_role(["undercover_agent", "undercoveragent", "undercover", "602"], "Town", "Undercover Agent", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 602");
 
@@ -32,7 +32,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["flexible_role", "flexiblerole", "flexible", "603"], "Neutral", "Flexible Role", (e) =>
+	register_role(["flexible_role", "flexiblerole", "flexible", "603"], "Neutral", "Flexible Role", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 603");
 
@@ -47,7 +47,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["quipper", "604"], "Neutral", "Quipper", (e) =>
+	register_role(["quipper", "604"], "Neutral", "Quipper", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 604");
 
@@ -58,11 +58,13 @@ module.exports = (g) =>
 		e.addField("Abilities:", "- Choose two players to force to answer a Quiplash prompt during the day.");
 
 		e.addField("Attributes:", "- The two players you chose will be given a Quiplash prompt at the start of the following night that they must respond to. You may choose yourself as one of the two players.\n- Immediately after both players have responded to the prompt, the prompt and answers will be shown to everyone in the server in a different channel. The answers will not indicate who sent them in. All of the players in the game (apart from the two players that answered the prompt) will be able to vote on which response they like more through their private channels. The player that receives fewer votes will be dealt a Powerful attack.\n- If there is a tie, both players will be dealt a Powerful attack.\n- If either player does not send a response by the time the night should end, they will automatically be dealt a Powerful attack at the end of the night.\n- If both players send the same exact response, a JINX is enacted, and both players will be blackmailed the following day.");
+
+		e.addField("Attributes (cont.):", "- You may choose yourself to answer the prompt, and you will automatically win regardless of the results of the votes.");
 		
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["muffin_baker", "muffinbaker", "muffin", "605"], "Town", "Muffin Baker", (e) =>
+	register_role(["muffin_baker", "muffinbaker", "muffin", "605"], "Town", "Muffin Baker", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 605");
 
@@ -77,7 +79,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["i_won", "iwon", "won", "606"], "Neutral", "I Won!", (e) =>
+	register_role(["i_won", "iwon", "won", "606"], "Neutral", "I Won!", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 606");
 
@@ -92,22 +94,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Have at least one of your changed players win with their new goal.");
 	});
 
-	register_role(["lunar_telepath", "lunartelepath", "telepath", "607"], "Town", "Lunar Telepath", (e) =>
+	register_role(["lunar_telepath", "lunartelepath", "telepath", "607"], "Town", "Lunar Telepath", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 607");
 
-		e.addField("Alignment", "Town Support", true);
+		e.addField("Alignment", "Unique Town Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Choose a player to share your mind with.");
 
-		e.addField("Attributes:", "- At night, linked players cannot talk in their own personal channel, but can talk in and control the other's channel.\n- Linked players have a whisper channel at night.\n- You gain their win goal as an alternate goal\n- You cannot die from their faction's attacks.\n- If one player dies, the link is broken, and you may create a new link after waiting a night.");
+		e.addField("Attributes:", "- At night, linked players cannot talk in their own personal channel, but can talk in and control the other's channel.\n- Linked players have a whisper channel at night.\n- They gain their win goal as an alternate goal\n- They cannot die from the other linked player's faction's attacks.\n- If one player dies, the link is broken, and you may create a new link after waiting a night.");
 		
 		e.addField("Goal:", "Town goal (or current linked player's)");
 	});
 
-	register_role(["palpatine", "palp", "608"], "Sith", "Palpatine", (e) =>
+	register_role(["palpatine", "palp", "608"], "Sith", "Palpatine", {subCat: "Master"}, (e) =>
 	{
 		e.setDescription("Post 608");
 
@@ -122,7 +124,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate those that do not join to the Dark Side");
 	});
 
-	register_role(["maul", "609"], "Sith", "Maul", (e) =>
+	register_role(["maul", "609"], "Sith", "Maul", {subCat: "Apprentice"}, (e) =>
 	{
 		e.setDescription("Post 609");
 
@@ -137,7 +139,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate those that do not join to the Dark Side");
 	});
 
-	register_role(["vader", "610"], "Sith", "Vader", (e) =>
+	register_role(["vader", "610"], "Sith", "Vader", {subCat: "Apprentice"}, (e) =>
 	{
 		e.setDescription("Post 610");
 
@@ -152,12 +154,12 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate those that do not join to the Dark Side");
 	});
 
-	register_role(["hand_of_death", "handofdeath", "hand", "611"], "Neutral", "Hand Of Death", (e) =>
+	register_role(["hand_of_death", "handofdeath", "hand", "611"], "Neutral", "Hand Of Death", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 611");
 
 		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "Unstoppable", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Pursue a player, attacking them if something else does first.\n- Alternatively choose to scry at night, revealing a random killer's identity and role to you.");
@@ -167,7 +169,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Successfully pursue and attack 2 players");
 	});
 
-	register_role(["fucker-upper", "fuckerupper", "fucker", "612"], "Neutral", "Fucker-Upper", (e) =>
+	register_role(["fucker-upper", "fuckerupper", "fucker", "612"], "Neutral", "Fucker-Upper", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 612");
 
@@ -182,7 +184,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["bard", "613"], "Neutral", "Bard", (e) =>
+	register_role(["bard", "613"], "Neutral", "Bard", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 613");
 
@@ -197,7 +199,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Choose one of the following goals at the start of the game. This becomes your goal:\n> Have 3 spotlighted players be spared.\n> Have 3 spotlighted players be slain by your own hand.");
 	});
 
-	register_role(["jedi_master", "jedimaster", "jedi", "614", "614a"], "Town", "Jedi Master", (e) =>
+	register_role(["jedi_master", "jedimaster", "jedi", "614", "614a"], "Town", "Jedi Master", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 614");
 
@@ -212,7 +214,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["jedi_apprentice", "jediapprentice", "614.5", "614b"], "Town", "Jedi Master", (e) =>
+	register_role(["jedi_apprentice", "jediapprentice", "614.5", "614b"], "Town", "Jedi Master", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 614.5");
 
@@ -227,7 +229,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["higher_or_lower", "higherorlower", "hol", "615"], "Town", "Higher or Lower", (e) =>
+	register_role(["higher_or_lower", "higherorlower", "hol", "615"], "Town", "Higher or Lower", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 615");
 
@@ -242,7 +244,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["cold-water_snapper", "coldwatersnapper", "snapper", "616"], "Neutral", "Cold-Water Snapper", (e) =>
+	register_role(["cold-water_snapper", "coldwatersnapper", "snapper", "616"], "Neutral", "Cold-Water Snapper", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 616");
 
@@ -257,7 +259,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["vital_late_game_townie", "vitallategametownie", "vital", "vlgt", "617"], "Town", "VITAL Late Game Townie", (e) =>
+	register_role(["vital_late_game_townie", "vitallategametownie", "vital", "vlgt", "617"], "Town", "VITAL Late Game Townie", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 617");
 
@@ -267,12 +269,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Wait until the late game and then become vital.");
 
-		e.addField("Attributes:", "- You start the game with no abilities.\n- At the start of the game, get a random Town (Protective) role. This role will be assumed to be on you every night until the first time you would die from an attack.\n- Once only half the players remain, gain 1 ability charge from 1 random role of each town subalignment.\n- You cannot get abilities that harm you.\n- Once you use all your abilities, gain a new set of abilities.");
+		e.addField("Attributes:", "- You start the game with no abilities.\n- At the start of the game, get a random Town (Protective) role. This role will be assumed to be on you every night until the first time you would die from an attack.\n- Once only half the players remain, gain 3 town abilities of your choice. The abilities must be from different subalignments.\n- You cannot get abilities that harm you.\n- Once you use all your abilities, gain a new set of abilities.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["vote-rigger", "voterigger", "rigger", "618"], "Mafia", "Vote-Rigger", (e) =>
+	register_role(["vote-rigger", "voterigger", "rigger", "618"], "Mafia", "Vote-Rigger", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 618");
 
@@ -287,7 +289,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["weredolphin", "619"], "Were", "WereDolphin", (e) =>
+	register_role(["weredolphin", "619"], "Were", "WereDolphin", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 619");
 
@@ -302,7 +304,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Were Goal");
 	});
 
-	register_role(["adrenaline_doctor", "adrenalinedoctor", "adrenaline", "620"], "Town", "Adrenaline", (e) =>
+	register_role(["adrenaline_doctor", "adrenalinedoctor", "adrenaline", "620"], "Town", "Adrenaline", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 620");
 
@@ -312,12 +314,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Give a player a shot of adrenaline to each night.");
 
-		e.addField("Attributes:", "- If a player that you have ever given an adrenaline shot to is attacked, they will automatically inject themselves with their adrenaline shot. They will die the following night instead of the night they were attacked.\n- You may give an adrenaline shot to three players.");
+		e.addField("Attributes:", "- If a player that you have ever given an adrenaline shot to is attacked, they will automatically inject themselves with their adrenaline shot. They will die the following night instead of the night they were attacked.\n- You may give an adrenaline shot to three players.\n- Players will not be notified that they have received an adrenaline shot.\n- You will automatically inject yourself if you are attacked. You may not give out an adrenaline shot the night after your inject yourself.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["e621", "621"], "Neutral", "e621", (e) =>
+	register_role(["e621", "621"], "Neutral", "e621", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 621");
 
@@ -332,7 +334,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Be the last player standing");
 	});
 
-	register_role(["wm_ghost", "wmghost", "ghost", "622"], "Town", "WM Ghost", (e) =>
+	register_role(["wm_ghost", "wmghost", "ghost", "622"], "Town", "WM Ghost", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 622");
 
@@ -347,7 +349,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["wm_marshall", "wmmarshall", "marshall", "623"], "Town", "WM Marshall", (e) =>
+	register_role(["wm_marshall", "wmmarshall", "marshall", "623"], "Town", "WM Marshall", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 623");
 
@@ -362,7 +364,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["tcg_player", "tcgplayer", "tcg", "624"], "Neutral", "TCG Player", (e) =>
+	register_role(["tcg_player", "tcgplayer", "tcg", "624"], "Neutral", "TCG Player", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 624");
 
@@ -377,7 +379,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who would oppose you.");
 	});
 
-	register_role(["tierlister_accent", "tierlisteraccent", "accent", "tierlister", "625"], "Neutral", "Tierlister Accent", (e) =>
+	register_role(["tierlister_accent", "tierlisteraccent", "accent", "tierlister", "625"], "Neutral", "Tierlister Accent", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 625");
 
@@ -390,7 +392,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Can only win as long as there's no F-tier role alive.");
 	});
 
-	register_role(["caroler_on_shrooms", "caroleronshrooms", "cos", "626"], "Neutral", "Caroler on Shrooms", (e) =>
+	register_role(["caroler_on_shrooms", "caroleronshrooms", "cos", "626"], "Neutral", "Caroler on Shrooms", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 626");
 
@@ -398,14 +400,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- At any point after Night 5, you may sing a carol. When you start singing a carol, the Town will become a list of three players of your choice, and all other players will be removed from the game entirely until you stop singing a carol. (You can't stop singing a carol unless you die, are removed from the game, or your abilities are otherwise turned off.)");
+		e.addField("Abilities:", "- At any point after Night 5, you may sing a carol. When you start singing a carol, the Town will become a list of three players of your choice, which may include yourself, and all other players will be removed from the game entirely until you stop singing a carol. (*You can't stop singing a carol unless you die, are removed from the game, or your abilities are otherwise turned off.*)");
 
-		e.addField("Attributes:", "- Before Night 5, you're Post 191: Caroler but you have Basic Defense. (You'll know that you're actually on shrooms.)");
+		e.addField("Attributes:", "- Before Night 5, you're Post 191: Caroler but you have Basic Defense. (*You'll know that you're actually on shrooms.*)");
 		
 		e.addField("Goal:", "Successfully sing your carol.");
 	});
 
-	register_role(["bomb_maker", "bombmaker", "627"], "Neutral", "Bomb Maker", (e) =>
+	register_role(["bomb_maker", "bombmaker", "627"], "Neutral", "Bomb Maker", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 627");
 
@@ -420,7 +422,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["doomsayer", "628"], "Neutral", "Doomsayer", (e) =>
+	register_role(["doomsayer", "628"], "Neutral", "Doomsayer", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 628");
 
@@ -435,11 +437,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see 2 catastrophes take place.");
 	});
 
-	register_role(["chairman", "629"], "Town", "Chairman", (e) =>
+	register_role(["chairman", "629"], "Town", "Chairman", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 629");
 
-		e.addField("Alignment", "Town Support", true);
+		e.addField("Alignment", "Unique Town Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -450,11 +452,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["conga_leader", "congaleader", "conga", "630"], "Mafia", "Conga Leader", (e) =>
+	register_role(["conga_leader", "congaleader", "conga", "630"], "Mafia", "Conga Leader", {subCat: "Deception"}, (e) =>
 	{
 		e.setDescription("Post 630");
 
-		e.addField("Alignment", "Mafia Deception", true);
+		e.addField("Alignment", "Unique Mafia Deception", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -465,7 +467,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["eyisa", "goddess_of_winter", "goddessofwinter", "egow", "gow", "631"], "Everfrost", "Eyisa, Goddess of Winter", (e) =>
+	register_role(["eyisa", "goddess_of_winter", "goddessofwinter", "egow", "gow", "631"], "Everfrost", "Eyisa, Goddess of Winter", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 631");
 
@@ -473,14 +475,16 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- Call upon the divine cold at night, giving an Everfrost player Basic defense and making them Astral and redirect immune.\n**Winter's Judgment** — Roleblock up to three players, then coldsnap. (Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately if Eyisa is alive.) You may only use this ability once each game and you can't use it until Night 3.");
+		e.addField("Abilities:", "- Call upon the divine cold at night, giving an Everfrost player Basic defense and making them Astral and redirect immune. Their ability that night will have the highest possible priority and, if it's a roleblock, will roleblock players through immunities.\n**Winter's Judgment** — Roleblock up to three players, then coldsnap. (*Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately if Eyisa is alive.*) You may only use this ability once each game and you can't use it until Night 3.");
 
-		e.addField("Attributes:", "- Roleblock, Redirect, and Detection Immune\n- This role will appear as long as any other Everfrost role does.\n- Town roles that roleblock players can't be rolled as long as the Everfrost does.\n- At the beginning of Day 1, players will be notified that the eternal winter is coming.\n- Instead of a factional kill, the Everfrost has a factional roleblock each night that any member may spend the night to perform. (This applies even if Eyisa is dead.)\n- Whenever a player is roleblocked by anything while you're alive, they'll be notified that they're covered in frost. If they're not visited by at least two other non-Everfrost players the next night, they're dealt an Astral Basic attack by you at the end of that night. This effect cannot be prevented by anything.");
+		e.addField("Attributes:", "- This role will appear as long as any other Everfrost role does.\n- Town roles that roleblock players can't be rolled as long as the Everfrost does.\n- At the beginning of Day 1, players will be notified that the eternal winter is coming.\n- Instead of a factional kill, the Everfrost has a factional roleblock each night that any member may spend the night to perform. (This applies even if Eyisa is dead.)\n- Whenever a player is roleblocked by anything while you're alive, they'll be notified that they're covered in frost. If they're not visited by at least two other non-Everfrost players the next night, they're dealt an Astral Basic attack by you at the end of that night. This effect cannot be prevented by anything.\n- If you die, this will only apply to the Everfrost's factional roleblock.\n- You have a veil of ice that makes you appear to be a Town role of your choice to all investigative effects of any kind. You may change the role you appear as at any time.");
+
+		e.addField("Immunities:", "- Roleblock, Redirect, Detection, Conversion");
 		
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["glacier", "632"], "Everfrost", "Glacier", (e) =>
+	register_role(["glacier", "632"], "Everfrost", "Glacier", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 632");
 
@@ -490,12 +494,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Freeze a player each night, doubling the length that they're being roleblocked if they're being roleblocked.\n**Arctic Cold** — Roleblock all players who were roleblocked in the last two nights, then coldsnap. You may only use this ability once each game.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything except this attribute, they're roleblocked for an additional night afterwards as well.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything except an Everfrost attribute, they're roleblocked for an additional night afterwards as well.");
 		
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["verglas", "633"], "Everfrost", "Verglas", (e) =>
+	register_role(["verglas", "633"], "Everfrost", "Verglas", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 633");
 
@@ -510,7 +514,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["rime", "634"], "Everfrost", "Rime", (e) =>
+	register_role(["rime", "634"], "Everfrost", "Rime", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 634");
 
@@ -525,7 +529,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["permafrost", "635"], "Everfrost", "Permafrost", (e) =>
+	register_role(["permafrost", "635"], "Everfrost", "Permafrost", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 635");
 
@@ -540,7 +544,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["chill", "636"], "Everfrost", "Chill", (e) =>
+	register_role(["chill", "636"], "Everfrost", "Chill", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 636");
 
@@ -550,12 +554,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player at night. At the beginning of the next day, if they don't have any attributes, they gain the attribute \"You can't use abilities, talk, whisper, or vote.\"\n**Glacial Dawn** — Cause all non-Everfrost players to lose all attributes for the rest of the night and the following day. Then, coldsnap. You may only use this ability once each game.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, they temporarily lose all attributes for the rest of that night and the following day.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, they temporarily lose all attributes for the rest of that night and the following day except for the one given by your ability.");
 		
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["absolute_zero", "absolutezero", "zero", "637"], "Everfrost", "Absolute Zero", (e) =>
+	register_role(["absolute_zero", "absolutezero", "zero", "637"], "Everfrost", "Absolute Zero", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 637");
 
@@ -570,7 +574,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["monkeeeee", "monke", "638"], "Neutral", "MONKEEEEE", (e) =>
+	register_role(["monkeeeee", "monke", "638"], "Neutral", "MONKEEEEE", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 638");
 
@@ -585,7 +589,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Assure that all players alive have Role #s over x/2, where x is the number of roles introduced so far. This does not include yourself.");
 	});
 
-	register_role(["judicator", "639"], "Town", "Judicator", (e) =>
+	register_role(["judicator", "639"], "Town", "Judicator", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 639");
 
@@ -595,12 +599,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Force one player to transcend humanity each night.");
 
-		e.addField("Attributes:", "- A player who transcends humanity will be completely immune to anything else that happens to them that night.\n- You may only commute three players.");
+		e.addField("Attributes:", "- A player who transcends humanity will be completely immune to anything else that happens to them that night.\n- You may only commute three players.\n- You may commute yourself once.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["snowdrift", "640"], "Everfrost", "Snowdrift", (e) =>
+	register_role(["snowdrift", "640"], "Everfrost", "Snowdrift", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 640");
 
@@ -615,7 +619,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["commuter", "641"], "Town", "Commuter", (e) =>
+	register_role(["commuter", "641"], "Town", "Commuter", {subCat: "Casual"}, (e) =>
 	{
 		e.setDescription("Post 641");
 
@@ -630,7 +634,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["avalanche", "642"], "Everfrost", "Avalanche", (e) =>
+	register_role(["avalanche", "642"], "Everfrost", "Avalanche", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 642");
 
@@ -640,12 +644,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Each night, choose a player. If they were roleblocked last night by your attribute, roleblock them.\n**Boreal Wrath** — Roleblock a player, and their neighbours, and their neighbours' neighbours, then coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything other than this attribute, the two players directly next to them in the player list (including dead players) are roleblocked as well.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything other than an Everfrost attribute, the two players directly next to them in the player list (including dead players) are roleblocked as well.");
 		
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["quack", "643"], "Town", "Quack", (e) =>
+	register_role(["quack", "643"], "Town", "Quack", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 643");
 
@@ -660,7 +664,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["robespierre", "robes", "644"], "Neutral", "Robespierre", (e) =>
+	register_role(["robespierre", "robes", "644"], "Neutral", "Robespierre", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 644");
 
@@ -675,7 +679,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["sleet", "645"], "Everfrost", "Sleet", (e) =>
+	register_role(["sleet", "645"], "Everfrost", "Sleet", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 645");
 
@@ -690,7 +694,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["blizzard", "646"], "Everfrost", "Blizzard", (e) =>
+	register_role(["blizzard", "646"], "Everfrost", "Blizzard", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 646");
 
@@ -700,12 +704,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Each night, choose a player and roleblock that player's night target(s).\n**Ravaging Storm** — Roleblock all players who have night targets tonight, then coldsnap. You may only use this ability once per game and you can't use it until Night 3.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything other than this attribute, non-Everfrost players who target them that night will be roleblocked as well.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything other than an Everfrost Attribute, non-Everfrost players who target them that night will be roleblocked as well.");
 		
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["demolitionist", "demo", "647"], "Neutral", "Demolitionist", (e) =>
+	register_role(["demolitionist", "demo", "647"], "Neutral", "Demolitionist", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 647");
 
@@ -720,22 +724,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["idealist", "648"], "Mafia", "Idealist", (e) =>
+	register_role(["idealist", "648"], "Mafia", "Idealist", {subCat: "Espionage"}, (e) =>
 	{
 		e.setDescription("Post 648");
 
-		e.addField("Alignment", "Mafia Deception", true);
+		e.addField("Alignment", "Mafia Espionage", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Choose to idealize the Mafia the following night during the day.");
 
-		e.addField("Attributes:", "- At the start of the following night, the Mafia will be informed that the Idealist will create an ideal vision for them tonight.\n- When you create an ideal vision for the Mafia, all member of the Mafia will be able to choose a role in the GIM thread to appear as. This will cause all investigative abilities to perceive the Mafia members as the role that they chose.\n- If an idealized Mafia member dies on the night they were idealized, or if they are lynched the day after, they will appear to be the role they were idealized as in the graveyard.\n- You may only idealize the Mafia three times per game.");
+		e.addField("Attributes:", "- At the start of the following night, the Mafia will be informed that the Idealist will create an ideal vision for them tonight.\n- When you create an ideal vision for the Mafia, all members of the Mafia will be able to choose a role in the GIM thread to appear as. This will cause any and all investigative abilities to perceive the Mafia members as the role that they chose.\n- If an idealized Mafia member dies on the night they were idealized, or if they are lynched the day after, they will appear to be the role they were idealized as in the graveyard.\n- You may idealize the Mafia twice per game.\n- If a Mafia member does not choose a role to idealize, they will be perceived as a random role based on their subalignment (Mafia Support = random Town Support role, Mafia Deception = random Town Investigative role, Mafia Head = random Town Killing role, Mafia Espionage = random Town Support role, any other Mafia alignment = random Town role). They will be notified what role they were idealized as.");
 		
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["hail", "649"], "Everfrost", "Hail", (e) =>
+	register_role(["hail", "649"], "Everfrost", "Hail", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 649");
 
@@ -750,7 +754,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
 	});
 
-	register_role(["editor", "650"], "Mafia", "Editor", (e) =>
+	register_role(["editor", "650"], "Mafia", "Editor", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 650");
 

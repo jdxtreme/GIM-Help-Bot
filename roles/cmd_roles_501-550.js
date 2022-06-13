@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role} = g;
 
-	register_role(["blue_dragon", "bluedragon", "501"], "Town", "Blue Dragon", (e) =>
+	register_role(["blue_dragon", "bluedragon", "bd", "501"], "Town", "Blue Dragon", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 501");
 
@@ -10,14 +10,14 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful (Unstoppable)", true);
 		e.addField("Defense", "Basic (None)", true);
 
-		e.addField("Abilities:", "- If a player is on trial, you may choose to override the voting process and have them found guilty instantly. If the hanged player is Town, your attack power becomes Unstoppable but you lose your Basic defense. (1 use.)\n- Deal a Powerful attack (Unstoppable if you used your other ability to forcefully hang a Town member) to another player at night. If the target dies and is Town, you lose your Basic defense, your role becomes revealed, and your vote now counts as 2 votes. (1 use.)");
+		e.addField("Abilities:", "- If a player is on trial, you may choose to override the voting process and have them found guilty instantly. If the hanged player is Town, your attack power becomes Unstoppable but you lose your Basic defense and all uses of this ability. If trials cannot occur in the current game of GIM, you may instead choose a player to instantly hang. (2 uses.)\n- Deal a Powerful attack (Unstoppable if you used your other ability to forcefully hang a Town member) to another player at night. If the target dies and is Town, you lose your Basic defense and all uses of this ability, your role becomes revealed, and your vote now counts as 2 votes. (2 uses.)");
 
 		e.addField("Attributes:", "- If both of the Blue Dragon's abilities cause the deaths of Town members, the Blue Dragon instantly dies.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["saint", "502"], "Hallow", "Saint", (e) =>
+	register_role(["saint", "502"], "Hallow", "Saint", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 502");
 
@@ -27,12 +27,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player to enact the Hallow’s will upon, killing them.");
 
-		e.addField("Attributes:", "- When you have accumulated Saint points from all other living Hallow members, you will transform into the Paragon. All players will be given the notification: “The Hallow has awakened their god…”\n- Death of a Hallow member will revoke their Saint point and decrease the number of required Saint points for you to transform by 1.\n- The Saint will always spawn in Hallow games.\n- If you are dead, the Hallow will gain a factional kill ability.\n- Conversion and Detection Immunity");
+		e.addField("Attributes:", "- When you have accumulated Saint points from all other living Hallow members, you will transform into the Paragon. All players will be given the notification: “The Hallow has awakened their god…”\n- Death of a Hallow member will revoke their Saint point and decrease the number of required Saint points for you to transform by 1.\n- The Saint will always spawn in Hallow games.\n- If you are dead, the Hallow will gain a factional kill ability.\n- Conversion, Detection Immunity");
 		
-		e.addField("Goal:", "Hallow Goal");
+		e.addField("Goal:", "Kill all who reject the Hallow’s will.");
 	});
 
-	register_role(["paragon", "502"], "Hallow", "Paragon", (e) =>
+	register_role(["paragon", "502"], "Hallow", "Paragon", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 502");
 
@@ -42,12 +42,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player at night.");
 
-		e.addField("Attributes:", "- You will attack all visitors to your target, and roleblock your initial target.\n- If you are jailed, locked in the garden or trapped in the void but not executed, you will attack your jailor.\n- This role cannot roll normally. It must upgrade from the Saint.\n- While you are alive, other Hallow members become weaker.\n- If you are dead, the Hallow will gain a factional kill ability.\n- Conversion, Control, Roleblock, and Detection Immunity");
+		e.addField("Attributes:", "- You will attack all visitors to your target, and roleblock your initial target.\n- You will automatically attack anyone who targets you, astral or not.\n- If you are jailed, locked in the garden or trapped in the void but not executed, you will attack your jailor.\n- This role cannot roll normally. It must upgrade from the Saint.\n- If you are dead, the Hallow will gain a factional kill ability.\n- Conversion, Control, Roleblock, and Detection Immunity");
 		
-		e.addField("Goal:", "Hallow Goal");
+		e.addField("Goal:", "Kill all who reject the Hallow’s will.");
 	});
 
-	register_role(["prince", "503"], "Hallow", "Prince", (e) =>
+	register_role(["prince", "503"], "Hallow", "Prince", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 503");
 
@@ -59,25 +59,25 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you open your church and are attacked, you will deal a basic attack to the visitors. If you are killed while your church is open, you will gain 2 Faith Points.\n- You learn the roles of all your visitors while your church is open.\n- All visitors to your church while it is open will net you 1 Faith Point.\n- When you have accumulated 2 Faith points, The Saint will gain a Saint point.\n- There will be no indication that your vote was two, other than the vote count appearing to be wrong. You may only make your vote count once per day, and you cannot reactivate it if you switch who you’re voting.\n- If the player you increased your voting power against is lynched, gain a Faith point.\n- You may open your church three times. Lose a charge when the Paragon awakens.\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Hallow Goal");
+		e.addField("Goal:", "Kill all who reject the Hallow’s will.");
 	});
 
-	register_role(["martyr", "504"], "Hallow", "Martyr", (e) =>
+	register_role(["missionary", "504"], "Hallow", "Missionary", {subCat: "Espionage"}, (e) =>
 	{
 		e.setDescription("Post 504");
 
-		e.addField("Alignment", "Unique Hallow Killing", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Alignment", "Unique Hallow Espionage", true);
+		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Guard a player at night.\n- Cancel any immediate effects being used on or by a player during the day.");
+		e.addField("Abilities:", "- Choose a player to invite to the Hallowed grounds during the day.");
 
-		e.addField("Attributes:", "- “Immediate effects” include day abilities, and abilities that occur during the beginning of the night instead of the end (Jailor’s imprison, Wisteria’s lockup, etc). Every ability you cancel will net you 1 Faith Point. You cannot negate increased voting power.\n- If you guard a player who is attacked, you and the attacker will be dealt a Powerful Attack and you will accumulate 2 Faith Points.\n- When you accumulate 2 Faith points, the Saint will gain 1 Saint point.\n- While the Paragon is alive, you will not kill yourself or the attacker with your guard. You will also not affect the Jailor, Hunter or the Wisteria with your day ability.\n- Conversion Immunity");
+		e.addField("Attributes:", "- The player you invite will be roleblocked through immunity. They can, however, be visited.\n- Your target can be protected, but you cannot be killed by Town Protective while executing.\n- You may converse with your prisoner anonymously. You will appear to be the Jailor, or if he is dead, the Missionary.\n- You may execute your prisoner. You have one execution.\n- If you execute an enemy player, the Saint will gain a Saint point.\n- Gain access to the Hallow factional kill if you are the last Hallow player alive. Lose if it another player becomes a non-espionage Hallow role by any means.\n- Conversion and Control Immunity");
 		
-		e.addField("Goal:", "Hallow Goal");
+		e.addField("Goal:", "Kill all who reject the Hallow’s will.");
 	});
 
-	register_role(["inquisitor", "505"], "Hallow", "Inquisitor", (e) =>
+	register_role(["inquisitor", "505"], "Hallow", "Inquisitor", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 505");
 
@@ -87,12 +87,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Frame a player at night.\n- Shroud a Hallow member during the day.");
 
-		e.addField("Attributes:", "- Framed players will return unfavorable results to all Investigative abilities: they will appear to be random existing evil in the game to Consigliere, appear to visit a dead player to a Tracker or Lookout, have the word “kill” to the Zoltar, etc. You will gain a Faith point for every Investigative ability used against a Framed player.\n- Shrouding a Hallow member will make them detection immune for the night. You will gain a Faith point for every Investigative ability activated against a shrouded Hallow member.\n- When you have accumulated 2 Faith points, the Saint will gain a Saint point.\n- If no Investigative roles are in the game, reroll this slot to another Hallow role.\n- Conversion Immunity");
+		e.addField("Attributes:", "- Framed players will return unfavorable results to all Investigative abilities: they will appear to be random existing evil in the game to Consigliere, appear to visit a dead player to a Tracker or Lookout, have the word “kill” to the Zoltar, etc. You will gain a Faith point for every Investigative ability used against a Framed player.\n- Shrouding a Hallow member will make them detection immune for the night. You will gain a Faith point for every Investigative ability activated against a shrouded Hallow member.\n- Shrouding Hallow members also astralizes their visits. Gain a Faith Point for every ability the astralization allowed them to avoid.\n- When you have accumulated 2 Faith points, the Saint will gain a Saint point.\n- If no Investigative roles are in the game, reroll this slot to another Hallow role.\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Hallow Goal");
+		e.addField("Goal:", "Kill all who reject the Hallow’s will.");
 	});
 
-	register_role(["hierophant", "hiero", "506"], "Hallow", "Hierophant", (e) =>
+	register_role(["hierophant", "hiero", "506"], "Hallow", "Hierophant", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 506");
 
@@ -104,7 +104,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The target player will be silenced for twenty minutes. You may do this twice.\n- Your results are identical to that of the Investigator (See Post 35)\n- You may choose to guess your target’s role immediately–if you are correct, gain a Faith Point.\n- When you have accumulated 2 Faith points, the Saint will gain a Saint point.\n- Lose your day ability when the Paragon awakens.");
 		
-		e.addField("Goal:", "Hallow Goal");
+		e.addField("Goal:", "Kill all who reject the Hallow’s will.");
 	});
 
 	register_role(["twins", "twin", "507"], "Any", "The Twins", (e) =>
@@ -120,22 +120,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Ensure that both of your roles' goals are fulfilled by the time the game ends.");
 	});
 
-	register_role(["altruist", "508"], "Hallow", "Altruist", (e) =>
+	register_role(["priest", "508"], "Hallow", "Priest", {subCat: "Espionage"}, (e) =>
 	{
 		e.setDescription("Post 508");
 
-		e.addField("Alignment", "Hallow Protective", true);
+		e.addField("Alignment", "Hallow Espionage", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Heal a player at night, granting them Powerful Defense.\n- Pickpocket a player during the day, learning their exact role at the beginning of the next night.");
+		e.addField("Abilities:", "- Force a player to target another at night.");
 
-		e.addField("Attributes:", "- If your target is attacked, you will gain a Faith point. Gain 2 if the Saint is attacked.\n- You may only target the Saint twice during the game.\n- You may heal yourself once; you will gain 2 Faith points if you are attacked.\n- If you pickpocket a player who is able to kill, you will gain 1 Faith point. You may pickpocket twice.\n- While the Paragon is alive, you are only able to grant Basic defense and will receive their role’s creator instead of their role.\n- When you have gained 3 Faith points, the Saint will gain a Saint point.\n- Conversion Immunity");
+		e.addField("Attributes:", "- Your first target will perform their ability on the second.\n- If your first target has a self-targeting ability or cannot visit, the second target will automatically use the first target's ability unless not applicable (i.e Medium)\n- Every time you make a player target a player of their own faction, gain a Faith Point. When you have gained 3 Faith Points, the Saint will gain a Saint point.\n- Conversion, Control, Roleblock Immunity");
 		
-		e.addField("Goal:", "Hallow Goal");
+		e.addField("Goal:", "Kill all who reject the Hallow’s will.");
 	});
 
-	register_role(["adherent", "509"], "Hallow", "Adherent", (e) =>
+	register_role(["adherent", "509"], "Hallow", "Adherent", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 509");
 
@@ -147,10 +147,10 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All intended visits against your target will succeed, regardless of what should prevent them (You will not succeed kills that would fail). You will gain a Faith point every time you inspire an action.\n- When you have accumulated 3 Faith points, the Saint will accumulate a Saint point.\n- Inspired players will know who else visited their target. You will be on that list.\n- You may only falsify a player’s role once. You will be able to edit their will, but you will not be able to falsify them as a Hallow member, nor will you ever learn what they had written before your change.\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Hallow Goal");
+		e.addField("Goal:", "Kill all who reject the Hallow’s will.");
 	});
 
-	register_role(["acolyte", "510"], "Hallow", "Acolyte", (e) =>
+	register_role(["acolyte", "510"], "Hallow", "Acolyte", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 510");
 
@@ -162,10 +162,10 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Anyone who visits your target will have their action fail, but they will all learn your name. Everyone you roleblock or fail gives you 1 point.\n- When you have accumulated 3 points, the Saint will gain 1 Saint point.\n- While the Paragon is alive, you will be unable to fail visits against your targets.\n- You cannot force a player to vote if they are not already voting, but your name will remain hidden.\n- You may only force a vote switch once per day, and thrice per game.\n- Conversion and Roleblock Immunity");
 		
-		e.addField("Goal:", "Hallow Goal");
+		e.addField("Goal:", "Kill all who reject the Hallow’s will.");
 	});
 
-	register_role(["hunter", "511"], "Stalker", "Hunter", (e) =>
+	register_role(["hunter", "511"], "Stalker", "Hunter", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 511");
 
@@ -180,7 +180,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Stalker Goal");
 	});
 
-	register_role(["shadower", "512"], "Stalker", "Shadower", (e) =>
+	register_role(["shadower", "512"], "Stalker", "Shadower", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 512");
 
@@ -195,7 +195,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Stalker Goal");
 	});
 
-	register_role(["unveiler", "513"], "Stalker", "Unveiler", (e) =>
+	register_role(["unveiler", "513"], "Stalker", "Unveiler", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 513");
 
@@ -210,7 +210,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Stalker Goal");
 	});
 
-	register_role(["gloom", "514"], "Stalker", "Gloom", (e) =>
+	register_role(["gloom", "514"], "Stalker", "Gloom", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 514");
 
@@ -225,7 +225,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Stalker Goal");
 	});
 
-	register_role(["traveler", "515"], "Stalker", "Traveler", (e) =>
+	register_role(["traveler", "515"], "Stalker", "Traveler", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 515");
 
@@ -240,7 +240,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Stalker Goal");
 	});
 
-	register_role(["ghost", "516"], "Stalker", "Ghost", (e) =>
+	register_role(["ghost", "516"], "Stalker", "Ghost", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 516");
 
@@ -255,7 +255,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Stalker Goal");
 	});
 
-	register_role(["echo", "517"], "Stalker", "Echo", (e) =>
+	register_role(["echo", "517"], "Stalker", "Echo", {subCat: "Offensive"}, (e) =>
 	{
 		e.setDescription("Post 517");
 
@@ -270,7 +270,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Stalker Goal");
 	});
 
-	register_role(["remnant", "518"], "Stalker", "Remnant", (e) =>
+	register_role(["remnant", "518"], "Stalker", "Remnant", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 518");
 
@@ -285,7 +285,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Stalker Goal");
 	});
 
-	register_role(["devil", "519"], "Neutral", "Devil", (e) =>
+	register_role(["devil", "519"], "Neutral", "Devil", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 519");
 
@@ -300,7 +300,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Ensure that every member of your Enemy Faction dies before you. If the last member dies on the same night as you, it counts as a loss.");
 	});
 
-	register_role(["walker", "520"], "Stalker", "Walker", (e) =>
+	register_role(["walker", "520"], "Stalker", "Walker", {subCat: "Offensive"}, (e) =>
 	{
 		e.setDescription("Post 520");
 
@@ -315,7 +315,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Stalker Goal");
 	});
 
-	register_role(["more_shaharazad", "moreshaharazad", "wdwms", "521"], "Neutral", "Who Doesn't Want More Shaharazad", (e) =>
+	register_role(["more_shaharazad", "moreshaharazad", "wdwms", "521"], "Neutral", "Who Doesn't Want More Shaharazad", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 521");
 
@@ -328,12 +328,12 @@ module.exports = (g) =>
 		e.addField("Goal:", "Bring three different players back from the dead with your subgames.");
 	});
 
-	register_role(["godfather", "522"], "Rock", "Godfather", (e) =>
+	register_role(["godfather", "522"], "Rock", "Godfather", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 522");
 
 		e.addField("Alignment", "Rock Support", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Choose to father at night. At the start of the next next day, a new player will be added named \"Child\" with a random Rock role. You can only father twice.\n- Choose to god at night. At the start of the next next next day, you will gain Overkill attack, Invincible defense, and the ability to attack people for one day/night cycle. You can only god twice.");
@@ -341,7 +341,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Rock Goal");
 	});
 
-	register_role(["no_bs_on_nbs", "nobsonnbs", "no_bs", "nobs", "nbon", "nbonb", "523"], "Neutral", "No BS on NBs", (e) =>
+	register_role(["no_bs_on_nbs", "nobsonnbs", "no_bs", "nobs", "nbon", "nbonb", "523"], "Neutral", "No BS on NBs", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 523");
 
@@ -354,7 +354,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "\"Prevent BS on NBs\"");
 	});
 
-	register_role(["magic_meta_man", "magicmetaman", "mmm", "524"], "Town", "Magic Meta Man", (e) =>
+	register_role(["magic_meta_man", "magicmetaman", "mmm", "524"], "Town", "Magic Meta Man", {subCat: "Investigative", spawnRate: 2}, (e) =>
 	{
 		e.setDescription("Post 524");
 
@@ -369,7 +369,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["mastermind", "525"], "Neutral", "Mastermind", (e) =>
+	register_role(["mastermind", "525"], "Neutral", "Mastermind", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 525");
 
@@ -384,7 +384,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Lead all the evils to victory without letting them betray you.");
 	});
 
-	register_role(["mary_sue", "marysue", "526"], "Neutral", "Mary Sue", (e) =>
+	register_role(["mary_sue", "marysue", "526"], "Neutral", "Mary Sue", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 526");
 
@@ -399,7 +399,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live until the end of the game.");
 	});
 
-	register_role(["werewolf", "527"], "Were", "WereWolf", (e) =>
+	register_role(["werewolf", "527"], "Were", "WereWolf", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 527");
 
@@ -414,7 +414,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Were Goal");
 	});
 
-	register_role(["wererat", "528"], "Were", "WereRat", (e) =>
+	register_role(["wererat", "528"], "Were", "WereRat", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 528");
 
@@ -429,7 +429,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Were Goal");
 	});
 
-	register_role(["werelion", "529"], "Were", "WereLion", (e) =>
+	register_role(["werelion", "529"], "Were", "WereLion", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 529");
 
@@ -444,7 +444,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Were Goal");
 	});
 
-	register_role(["werebear", "530"], "Were", "WereBear", (e) =>
+	register_role(["werebear", "530"], "Were", "WereBear", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 530");
 
@@ -459,7 +459,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Were Goal");
 	});
 
-	register_role(["werebat", "531"], "Were", "WereBat", (e) =>
+	register_role(["werebat", "531"], "Were", "WereBat", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 531");
 
@@ -474,7 +474,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Were Goal");
 	});
 
-	register_role(["werebird", "532"], "Were", "WereBird", (e) =>
+	register_role(["werebird", "532"], "Were", "WereBird", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 532");
 
@@ -489,7 +489,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Were Goal");
 	});
 
-	register_role(["weresquirrel", "533"], "Were", "WereSquirrel", (e) =>
+	register_role(["weresquirrel", "533"], "Were", "WereSquirrel", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 533");
 
@@ -504,7 +504,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Were Goal");
 	});
 
-	register_role(["wereturtle", "534"], "Were", "WereTurtle", (e) =>
+	register_role(["wereturtle", "534"], "Were", "WereTurtle", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 534");
 
@@ -519,7 +519,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Were Goal");
 	});
 
-	register_role(["sleep_agent", "sleepagent", "sleep", "535"], "Town", "Sleep Agent", (e) =>
+	register_role(["sleep_agent", "sleepagent", "sleep", "535"], "Town", "Sleep Agent", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 535");
 
@@ -532,7 +532,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["sleeping_agent", "sleepingagent", "sleeping", "536"], "Town", "Sleeping Agent", (e) =>
+	register_role(["sleeping_agent", "sleepingagent", "sleeping", "536"], "Town", "Sleeping Agent", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 536");
 
@@ -547,7 +547,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["quickdraw", "537"], "Neutral", "Quickdraw", (e) =>
+	register_role(["quickdraw", "537"], "Neutral", "Quickdraw", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 537");
 
@@ -560,22 +560,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "KILL EVERYONE! KILL ANYONE! KILL EVERYTHING THAT ISN'T DEAD!");
 	});
 
-	register_role(["sleepest_agent", "sleepestagent", "sleepest", "538"], "Town", "Sleepest Agent", (e) =>
+	register_role(["sleepest_agent", "sleepestagent", "sleepest", "538"], "Town", "Sleepest Agent", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 538");
 
 		e.addField("Alignment", "Town Killing", true);
-		e.addField("Attack", "Overkill", true);
+		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- When you die, choose any number of players. They die.");
 
-		e.addField("Attributes:", "- You're asleep until you die. (You can't talk, vote, use day abilities, or use night abilities.)");
+		e.addField("Attributes:", "- You're asleep until you die or Day 5. (You can't talk, vote, use day abilities, or use night abilities.)");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["general", "539"], "Town", "General (the name should NOT change btw)", (e) =>
+	register_role(["general", "539"], "Town", "General (the name should NOT change btw)", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 539");
 
@@ -590,7 +590,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["sleepless_agent", "sleeplessagent", "sleepless", "540"], "Town", "Sleepless Agent", (e) =>
+	register_role(["sleepless_agent", "sleeplessagent", "sleepless", "540"], "Town", "Sleepless Agent", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 540");
 
@@ -605,7 +605,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["chaos_mayor", "chaosmayor", "541"], "Town", "Chaos Mayor", (e) =>
+	register_role(["chaos_mayor", "chaosmayor", "541"], "Town", "Chaos Mayor", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 541");
 
@@ -620,7 +620,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Lynch at least 3 members of the Town after revealing yourself. Town Lynches before you reveal don't count.");
 	});
 
-	register_role(["every_tol_role", "everytolrole", "tol", "542"], "Town", "Every ToL Role", (e) =>
+	register_role(["every_tol_role", "everytolrole", "tol", "542"], "Town", "Every ToL Role", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 542");
 
@@ -633,7 +633,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["500_kilogram_brain", "500kilogrambrain", "500kg", "543"], "Town", "500 Kilogram Brain", (e) =>
+	register_role(["500_kilogram_brain", "500kilogrambrain", "500kg", "543"], "Town", "500 Kilogram Brain", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 543");
 
@@ -648,7 +648,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["powerful_being", "powerfulbeing", "544"], "Town", "The Powerful Being", (e) =>
+	register_role(["powerful_being", "powerfulbeing", "544"], "Town", "The Powerful Being", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 544");
 
@@ -663,7 +663,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Complete the town.");
 	});
 
-	register_role(["rasen", "545"], "Neutral", "The Rasen", (e) =>
+	register_role(["rasen", "545"], "Neutral", "The Rasen", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 545");
 
@@ -676,7 +676,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "At least once in a game, convince players to vote to execute a player who wasn't even on Trial in the first place. (Such an event would not kill anyone.)");
 	});
 
-	register_role(["snow_queen", "snowqueen", "546"], "Coven", "Snow Queen", (e) =>
+	register_role(["snow_queen", "snowqueen", "546"], "Coven", "Snow Queen", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 546");
 
@@ -691,7 +691,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["pedantic_player", "pedanticplayer", "547"], "Town", "Pedantic Player", (e) =>
+	register_role(["pedantic_player", "pedanticplayer", "547"], "Town", "Pedantic Player", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 547");
 
@@ -704,22 +704,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["morality_researcher", "moralityresearcher", "548"], "Town", "Morality Researcher", (e) =>
+	register_role(["morality_researcher", "moralityresearcher", "548"], "Town", "Morality Researcher", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 548");
 
 		e.addField("Alignment", "Town Support", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- During the day, choose two players to study, putting them into a chat with each other for the night.");
 
-		e.addField("Attributes:", "- Each player will need to choose whether to ally or betray.\n- If both ally, you'll learn the roles of both players.\n- If one player allies and the other betrays, you will attack the allier, and the betrayer will gain powerful defense for the night.\n- If both betray, you will attack both.\n- If a player doesn't choose in time, they will automatically betray.");
+		e.addField("Attributes:", "- Each player will need to choose whether to ally or betray. Their decision is revealed to each other at the end of the night. You will not know what they choose.\n- If both ally, you'll learn the roles of both players. Detection immune players may pick a role to appear as.\n- If one player allies and the other betrays, the allier will lose all abilities for the rest of the game, and the betrayer will have their defense upgraded by one level.\n- If both betray, you will attack both players.\n- If a player doesn't choose in time, they will automatically betray.\n- You are able to see what goes on in the chat by the host relaying messages (So that the Morality Researcher is not revealed).");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["overmind", "549"], "Neutral", "The Overmind", (e) =>
+	register_role(["overmind", "549"], "Neutral", "The Overmind", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 549");
 
@@ -734,7 +734,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who oppose the overmind before another faction wins.");
 	});
 
-	register_role(["undermind", "550"], "Neutral", "The Undermind", (e) =>
+	register_role(["undermind", "550"], "Neutral", "The Undermind", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 550");
 

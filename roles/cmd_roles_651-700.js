@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role} = g;
 
-	register_role(["creepy_girl", "creepygirl", "651"], "Neutral", "Creepy Girl", (e) =>
+	register_role(["creepy_girl", "creepygirl", "651"], "Neutral", "Creepy Girl", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 651");
 
@@ -17,7 +17,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Have the player in possession of your doll die at night.");
 	});
 
-	register_role(["wannabe", "652"], "Mafia", "Wannabe", (e) =>
+	register_role(["wannabe", "652"], "Mafia", "Wannabe", {subCat: "Espionage"}, (e) =>
 	{
 		e.setDescription("Post 652");
 
@@ -32,7 +32,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["sawbones", "653"], "Mafia", "Sawbones", (e) =>
+	register_role(["sawbones", "653"], "Mafia", "Sawbones", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 653");
 
@@ -42,12 +42,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose one member of the Mafia to heal each night.");
 
-		e.addField("Attributes:", "- Healing a member of the Mafia will give them Powerful defense for the night.\n- You may only heal four times.");
+		e.addField("Attributes:", "- Healing a member of the Mafia will give them Powerful defense for the night.\n- You may only heal four times.\n- You may heal yourself.");
 		
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["phisher", "654"], "Mafia", "Phisher", (e) =>
+	register_role(["phisher", "654"], "Mafia", "Phisher", {subCat: "Deception"}, (e) =>
 	{
 		e.setDescription("Post 654");
 
@@ -57,12 +57,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose someone to phish each night.");
 
-		e.addField("Attributes:", "- Phished players will be forced to target you that night.\n- If your ability would cause you to be killed, it will be cancelled.\n- You will be notified if your target was immune to your phishing.\n- Your target will NOT be notified that they were redirected.");
+		e.addField("Attributes:", "- Roleblock and Redirect Immune\n- Phished players will be forced to target you that night.\n- If your ability would cause you to be killed, it will be cancelled.\n- You will be notified if your target was immune to your phishing.\n- Your target will NOT be notified that they were redirected.");
 		
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["fox", "655"], "Neutral", "Fox", (e) =>
+	register_role(["fox", "655"], "Neutral", "Fox", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 655");
 
@@ -77,7 +77,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "See three players die during a scream.");
 	});
 
-	register_role(["deity", "656"], "Umbrae", "Deity", (e) =>
+	register_role(["deity", "656"], "Umbrae", "Deity", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 656");
 
@@ -92,7 +92,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Umbrae Goal");
 	});
 
-	register_role(["prophet", "657"], "Umbrae", "Prophet", (e) =>
+	register_role(["prophet", "657"], "Umbrae", "Prophet", {subCat: "Assault"}, (e) =>
 	{
 		e.setDescription("Post 657");
 
@@ -107,7 +107,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Umbrae Goal");
 	});
 
-	register_role(["invoker", "658"], "Umbrae", "Invoker", (e) =>
+	register_role(["invoker", "658"], "Umbrae", "Invoker", {subCat: "Assault"}, (e) =>
 	{
 		e.setDescription("Post 658");
 
@@ -122,7 +122,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Umbrae Goal");
 	});
 
-	register_role(["fabricator", "659"], "Umbrae", "Fabricator", (e) =>
+	register_role(["fabricator", "659"], "Umbrae", "Fabricator", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 659");
 
@@ -137,7 +137,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Umbrae Goal");
 	});
 
-	register_role(["matriarch", "660"], "Umbrae", "Matriarch", (e) =>
+	register_role(["matriarch", "660"], "Umbrae", "Matriarch", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 660");
 
@@ -152,7 +152,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Umbrae Goal");
 	});
 
-	register_role(["tyro", "661"], "Umbrae", "Tyro", (e) =>
+	register_role(["tyro", "661"], "Umbrae", "Tyro", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 661");
 
@@ -167,7 +167,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Umbrae Goal");
 	});
 
-	register_role(["seer", "662"], "Umbrae", "Seer", (e) =>
+	register_role(["seer", "662"], "Umbrae", "Seer", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 662");
 
@@ -182,7 +182,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Umbrae Goal");
 	});
 
-	register_role(["savior", "663"], "Neutral", "Savior", (e) =>
+	register_role(["savior", "663"], "Neutral", "Savior", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 663");
 
@@ -197,22 +197,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill or Convert one player.");
 	});
 
-	register_role(["iconoclast", "icon", "664"], "Neutral", "Iconoclast", (e) =>
+	register_role(["iconoclast", "icon", "664"], "Neutral", "Iconoclast", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 664");
 
-		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Alignment", "Unique Neutral Evil", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Investigate two players, learning their role if they are a Neutral Killing.\n- Choose to call an assembly the following night with all the NKs in the game.");
+		e.addField("Abilities:", "- Investigate two players, learning their role. This bypasses detection immunity.\n- Choose to call an assembly the following night with all the NKs in the game.");
 
-		e.addField("Attributes:", "- If both of the targets of your investigation are NK roles, they will be united, gaining an alternate win condition of the other winning.\n- During an assembly, all NKs can speak freely. After an assembly has been called until the next night, all NKs can win with each other. If there is no NK victory by that time, you will die.");
+		e.addField("Attributes:", "- If both of the targets of your investigation are NK roles, they will be united, gaining an alternate win condition of the other winning.\n- During an assembly, all NKs can speak freely. After an assembly has been called until the next night, all NKs can win with each other. If there is no NK victory by that time, you will die.\n- Iconoclast can only roll if there are at least two NK in the game.");
 		
 		e.addField("Goal:", "Live to see a Neutral Killing win the game");
 	});
 
-	register_role(["spirit_medium", "spiritmedium", "sm", "665"], "Neutral", "Spirit Medium", (e) =>
+	register_role(["spirit_medium", "spiritmedium", "sm", "665"], "Neutral", "Spirit Medium", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 665");
 
@@ -227,7 +227,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see the end of the game.");
 	});
 
-	register_role(["striker", "666"], "Neutral", "Striker", (e) =>
+	register_role(["striker", "666"], "Neutral", "Striker", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 666");
 
@@ -242,7 +242,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who may oppose you.");
 	});
 
-	register_role(["loona", "667"], "Neutral", "Loona", (e) =>
+	register_role(["loona", "667"], "Neutral", "Loona", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 667");
 
@@ -257,7 +257,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who threaten your business. (NK Goal with flavor)");
 	});
 
-	register_role(["time_magician", "timemagician", "tm", "time", "668"], "PaleMoon", "Time Magician", (e) =>
+	register_role(["time_magician", "timemagician", "tm", "time", "668"], "PaleMoon", "Time Magician", {subCat: "Protection"}, (e) =>
 	{
 		e.setDescription("Post 668");
 
@@ -272,22 +272,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pale Moon Goal");
 	});
 
-	register_role(["replicant", "669"], "Neutral", "Replicant", (e) =>
+	register_role(["replicant", "669"], "Neutral", "Replicant", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 669");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "Unstoppable", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Unique Neutral Chaos", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Destroy one or both of your closest living neighbours.");
 
-		e.addField("Attributes:", "- After attacking, you lose your defense and cannot attack the following night.\n- You are simultaneously also both your living neighbours' roles, sharing their abilities, attributes and goals.\n- If both of your living neighbours have the same win condition, you are forced to attack.");
+		e.addField("Attributes:", "- You are simultaneously also both your living neighbours' roles, sharing their abilities, attributes and goals. You will know which neighbour has which role.\n- You cannot be part of any nightly factional chats or learn the members of an informed minority. Members of an informed minority, however, will know of your existence and actions.\n- If both of your living neighbours have the same win condition, you are forced to attack.");
 		
 		e.addField("Goal:", "Fulfil one of your living neighbours' goals.");
 	});
 
-	register_role(["savior", "670"], "Vampire", "Savior", (e) =>
+	register_role(["savior", "670"], "Vampire", "Savior", {subCat: "Conversion"}, (e) =>
 	{
 		e.setDescription("Post 670");
 
@@ -302,7 +302,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["catacano", "671"], "Vampire", "Catacano", (e) =>
+	register_role(["catacano", "671"], "Vampire", "Catacano", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 671");
 
@@ -317,7 +317,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["devoted", "672"], "Vampire", "Devoted", (e) =>
+	register_role(["devoted", "672"], "Vampire", "Devoted", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 672");
 
@@ -332,7 +332,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["progeny", "673"], "Vampire", "Progeny", (e) =>
+	register_role(["progeny", "673"], "Vampire", "Progeny", {subCat: "Conversion"}, (e) =>
 	{
 		e.setDescription("Post 673");
 
@@ -347,7 +347,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["talamaur", "674"], "Vampire", "Talamaur", (e) =>
+	register_role(["talamaur", "674"], "Vampire", "Talamaur", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 674");
 
@@ -362,7 +362,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["broxa", "broca", "675"], "Vampire", "Broxa", (e) =>
+	register_role(["broxa", "broca", "675"], "Vampire", "Broxa", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 675");
 
@@ -377,7 +377,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["gierach", "676"], "Vampire", "Gierach", (e) =>
+	register_role(["gierach", "676"], "Vampire", "Gierach", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 676");
 
@@ -392,7 +392,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["nelapsi", "677"], "Vampire", "Nelapsi", (e) =>
+	register_role(["nelapsi", "677"], "Vampire", "Nelapsi", {subCat: "Manipulation"}, (e) =>
 	{
 		e.setDescription("Post 677");
 
@@ -407,7 +407,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["adze", "678"], "Vampire", "Adze", (e) =>
+	register_role(["adze", "678"], "Vampire", "Adze", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 678");
 
@@ -422,7 +422,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["bebarlang", "bebar", "679"], "Vampire", "Bebarlang", (e) =>
+	register_role(["bebarlang", "bebar", "679"], "Vampire", "Bebarlang", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 679");
 
@@ -437,7 +437,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["lampir", "680"], "Vampire", "Lampir", (e) =>
+	register_role(["lampir", "680"], "Vampire", "Lampir", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 680");
 
@@ -452,7 +452,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["pijavica", "pija", "681"], "Vampire", "Pijavica", (e) =>
+	register_role(["pijavica", "pija", "681"], "Vampire", "Pijavica", {subCat: "Manipulation"}, (e) =>
 	{
 		e.setDescription("Post 681");
 
@@ -467,7 +467,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["privateer", "681"], "Mafia", "Privateer", (e) =>
+	register_role(["privateer", "681"], "Mafia", "Privateer", {subCat: "Espionage"}, (e) =>
 	{
 		e.setDescription("Post 681");
 
@@ -482,7 +482,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["despot", "682"], "Insurgency", "Despot", (e) =>
+	register_role(["despot", "682"], "Insurgency", "Despot", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 682");
 
@@ -497,7 +497,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Insurgency Goal");
 	});
 
-	register_role(["consultant", "consult", "683"], "Insurgency", "Consultant", (e) =>
+	register_role(["consultant", "consult", "683"], "Insurgency", "Consultant", {subCat: "Informant"}, (e) =>
 	{
 		e.setDescription("Post 683");
 
@@ -512,7 +512,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Insurgency Goal");
 	});
 
-	register_role(["insider", "684"], "Insurgency", "Insider", (e) =>
+	register_role(["insider", "684"], "Insurgency", "Insider", {subCat: "Informant"}, (e) =>
 	{
 		e.setDescription("Post 684");
 
@@ -527,7 +527,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Insurgency Goal");
 	});
 
-	register_role(["rogue", "685"], "Insurgency", "Rogue", (e) =>
+	register_role(["rogue", "685"], "Insurgency", "Rogue", {subCat: "Saboteur"}, (e) =>
 	{
 		e.setDescription("Post 685");
 
@@ -542,7 +542,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Insurgency Goal");
 	});
 
-	register_role(["elite", "686"], "Insurgency", "Elite", (e) =>
+	register_role(["elite", "686"], "Insurgency", "Elite", {subCat: "Saboteur"}, (e) =>
 	{
 		e.setDescription("Post 686");
 
@@ -557,7 +557,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Insurgency Goal");
 	});
 
-	register_role(["herring", "687"], "Insurgency", "Herring", (e) =>
+	register_role(["herring", "687"], "Insurgency", "Herring", {subCat: "Saboteur"}, (e) =>
 	{
 		e.setDescription("Post 687");
 
@@ -570,7 +570,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Insurgency Goal");
 	});
 
-	register_role(["elite", "688"], "Insurgency", "Elite", (e) =>
+	register_role(["deserter", "688"], "Insurgency", "Deserter", {subCat: "Hitman"}, (e) =>
 	{
 		e.setDescription("Post 688");
 
@@ -585,7 +585,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Insurgency Goal");
 	});
 
-	register_role(["zealot", "689"], "Insurgency", "Zealot", (e) =>
+	register_role(["zealot", "689"], "Insurgency", "Zealot", {subCat: "Hitman"}, (e) =>
 	{
 		e.setDescription("Post 689");
 
@@ -600,7 +600,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Insurgency Goal");
 	});
 
-	register_role(["virtuoso", "virt", "690"], "Insurgency", "Virtuoso", (e) =>
+	register_role(["virtuoso", "virt", "690"], "Insurgency", "Virtuoso", {subCat: "Hitman"}, (e) =>
 	{
 		e.setDescription("Post 690");
 
@@ -615,7 +615,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Insurgency Goal");
 	});
 
-	register_role(["governor", "gov", "691"], "Loyalist", "Governor", (e) =>
+	register_role(["governor", "gov", "691"], "Loyalist", "Governor", {subCat: "Governor"}, (e) =>
 	{
 		e.setDescription("Post 691");
 
@@ -630,7 +630,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Survive to the end of the game and eradicate those who will not submit to the Governor's rule.");
 	});
 
-	register_role(["militant", "692"], "Loyalist", "Militant", (e) =>
+	register_role(["militant", "692"], "Loyalist", "Militant", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 692");
 
@@ -645,7 +645,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
 	});
 
-	register_role(["scribe", "693"], "Loyalist", "Scribe", (e) =>
+	register_role(["scribe", "693"], "Loyalist", "Scribe", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 693");
 
@@ -660,7 +660,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
 	});
 
-	register_role(["state_knight", "stateknight", "state", "694"], "Loyalist", "State Knight", (e) =>
+	register_role(["state_knight", "stateknight", "state", "694"], "Loyalist", "State Knight", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 694");
 
@@ -675,7 +675,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
 	});
 
-	register_role(["fraudster", "fraud", "695"], "Loyalist", "Fraudster", (e) =>
+	register_role(["fraudster", "fraud", "695"], "Loyalist", "Fraudster", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 695");
 
@@ -690,7 +690,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
 	});
 
-	register_role(["deceptionist", "decep", "696"], "Loyalist", "Deceptionist", (e) =>
+	register_role(["deceptionist", "decep", "696"], "Loyalist", "Deceptionist", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 696");
 
@@ -705,7 +705,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
 	});
 
-	register_role(["assassin", "697"], "Loyalist", "Assassin", (e) =>
+	register_role(["assassin", "697"], "Loyalist", "Assassin", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 697");
 
@@ -720,7 +720,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
 	});
 
-	register_role(["field_medic", "fieldmedic", "fm", "medic", "698"], "Loyalist", "Field Medic", (e) =>
+	register_role(["field_medic", "fieldmedic", "fm", "medic", "698"], "Loyalist", "Field Medic", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 698");
 
@@ -735,7 +735,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
 	});
 
-	register_role(["propogandist", "prop", "699"], "Loyalist", "Propogandist", (e) =>
+	register_role(["propogandist", "prop", "699"], "Loyalist", "Propogandist", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 699");
 
@@ -750,7 +750,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
 	});
 
-	register_role(["illuminator", "ill", "700"], "Loyalist", "Illuminator", (e) =>
+	register_role(["illuminator", "ill", "700"], "Loyalist", "Illuminator", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 700");
 

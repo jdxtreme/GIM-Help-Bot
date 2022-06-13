@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role} = g;
 
-	register_role(["journalist", "451"], "Town", "Journalist", (e) =>
+	register_role(["journalist", "451"], "Town", "Journalist", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 451");
 
@@ -17,7 +17,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["cupid", "452"], "Town", "Cupid", (e) =>
+	register_role(["cupid", "452"], "Town", "Cupid", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 452");
 
@@ -32,7 +32,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["cupid", "453"], "Neutral", "Cupid", (e) =>
+	register_role(["cupid", "453"], "Neutral", "Cupid", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 453");
 
@@ -42,12 +42,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Make two players Lovers every night.");
 
-		e.addField("Attributes:", "- Lovers are dealt an Unstoppable attack if the other Lover dies and can secretly whisper to each other. Lovers can win with each others' factions and also win if there are only Lovers and Cupids remaining.");
+		e.addField("Attributes:", "- Lovers are dealt an Unstoppable attack if the other Lover dies and can secretly whisper to each other. Lovers can win with each others' factions and also win if there are only Lovers and Cupids remaining.\n- You may self-target.\n- Rasen can only be made a Lover with Igu, if she's in the game.");
 		
 		e.addField("Goal:", "Lovers win");
 	});
 
-	register_role(["cupid", "454"], "Coven", "Cupid", (e) =>
+	register_role(["cupid", "454"], "Coven", "Cupid", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 454");
 
@@ -57,12 +57,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Make a player infatuated with another every night.");
 
-		e.addField("Attributes:", "- Infatuated players must visit the player they're infatuated with for the two nights after they're infatuated.\n- With the Necronomicon, instead they must visit that player for the rest of the game.");
+		e.addField("Attributes:", "- Infatuated players must visit the player they're infatuated with for the two nights after they're infatuated.\n- With the Necronomicon, instead they will become obsessed, visiting that player for the rest of the game and dealing a Basic attack along with their action.\n- Rasen can only be made a Lover with Igu, if she's in the game.");
 		
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["cupid", "455"], "Mafia", "Cupid", (e) =>
+	register_role(["cupid", "455"], "Mafia", "Cupid", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 455");
 
@@ -72,12 +72,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Blind a player by love every night.");
 
-		e.addField("Attributes:", "- Blinded players will receive a random player whom they are in love with. They can only see that players' messages for the next day, and can only target that player the next night. You will know who the player is.");
+		e.addField("Attributes:", "- Blinded players will fall in love with another player of your choice. They can only see that players' messages for the next day, and can only target that player the next night. You may make them fall in love with yourself.\n- Rasen can only fall in love with Igu, if she's in the game.");
 		
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["sunflower", "455"], "Plant", "Sunflower", (e) =>
+	register_role(["sunflower", "455"], "Plant", "Sunflower", {subCat: "Production"}, (e) =>
 	{
 		e.setDescription("Post 455");
 
@@ -90,12 +90,12 @@ module.exports = (g) =>
 		e.addField("Goal:", "Plant Goal");
 	});
 
-	register_role(["456"], "Other", "We need more!", (e) =>
+	register_role(["456"], "Other", "We need more!", {subCat: "Production"}, (e) =>
 	{
 		e.setDescription("Post 456\nThis role is now a rule.");
 	});
 
-	register_role(["twin_sunflower", "twinsunflower", "457"], "Plant", "Twin Sunflower", (e) =>
+	register_role(["twin_sunflower", "twinsunflower", "457"], "Plant", "Twin Sunflower", {subCat: "Production"}, (e) =>
 	{
 		e.setDescription("Post 457");
 
@@ -110,7 +110,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Plant Goal");
 	});
 
-	register_role(["nucler_warhead", "nuclearwarhead", "458"], "Neutral", "NuclearWarhead", (e) =>
+	register_role(["nucler_warhead", "nuclearwarhead", "458"], "Neutral", "NuclearWarhead", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 458");
 
@@ -125,7 +125,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Get someone to target you in the night and detonate.");
 	});
 
-	register_role(["sunshroom", "459"], "Plant", "Sunshroom", (e) =>
+	register_role(["sunshroom", "459"], "Plant", "Sunshroom", {subCat: "Production"}, (e) =>
 	{
 		e.setDescription("Post 459");
 
@@ -138,7 +138,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Plant Goal");
 	});
 
-	register_role(["chomper", "460"], "Plant", "Chomper", (e) =>
+	register_role(["chomper", "460"], "Plant", "Chomper", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 460");
 
@@ -153,7 +153,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Plant Goal");
 	});
 
-	register_role(["narrator", "461"], "Neutral", "Narrator", (e) =>
+	register_role(["narrator", "461"], "Neutral", "Narrator", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 461");
 
@@ -166,7 +166,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Narrate things.");
 	});
 
-	register_role(["pacifist", "462"], "Neutral", "Pacifist", (e) =>
+	register_role(["pacifist", "462"], "Neutral", "Pacifist", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 462");
 
@@ -181,7 +181,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Prevent 5 kills (preventing your own lynch counts as a prevented kill).");
 	});
 
-	register_role(["fumeshroom", "463"], "Plant", "Fumeshroom", (e) =>
+	register_role(["fumeshroom", "463"], "Plant", "Fumeshroom", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 463");
 
@@ -196,7 +196,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Plant Goal");
 	});
 
-	register_role(["rich_man", "richman", "464"], "Neutral", "Rich Man", (e) =>
+	register_role(["rich_man", "richman", "464"], "Neutral", "Rich Man", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 464");
 
@@ -213,7 +213,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "See the Town-aligned roles lose the game (You can die after your win con is achieved.)");
 	});
 
-	register_role(["coffee_bean", "coffeebean", "coffee", "465"], "Plant", "Coffee Bean", (e) =>
+	register_role(["coffee_bean", "coffeebean", "coffee", "465"], "Plant", "Coffee Bean", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 465");
 
@@ -228,7 +228,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Plant Goal");
 	});
 
-	register_role(["imitater", "466"], "Plant", "Imitater", (e) =>
+	register_role(["imitater", "466"], "Plant", "Imitater", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 466");
 
@@ -243,7 +243,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Plant Goal");
 	});
 
-	register_role(["wallnut", "467"], "Plant", "Wallnut", (e) =>
+	register_role(["wallnut", "467"], "Plant", "Wallnut", {subCat: "Protection"}, (e) =>
 	{
 		e.setDescription("Post 467");
 
@@ -256,7 +256,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Plant Goal");
 	});
 
-	register_role(["revealer", "468"], "Town", "Revealer", (e) =>
+	register_role(["revealer", "468"], "Town", "Revealer", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 468");
 
@@ -271,7 +271,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["cheerleader", "469"], "Town", "Cheerleader", (e) =>
+	register_role(["cheerleader", "469"], "Town", "Cheerleader", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 469");
 
@@ -286,7 +286,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["reanimator", "470"], "Neutral", "Reanimator", (e) =>
+	register_role(["reanimator", "470"], "Neutral", "Reanimator", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 470");
 
@@ -301,7 +301,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["mercenary", "471"], "Neutral", "Mercenary", (e) =>
+	register_role(["mercenary", "471"], "Neutral", "Mercenary", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 471");
 
@@ -311,12 +311,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Stand guard outside your contract's house.\n- Contract someone else during the day.");
 
-		e.addField("Attributes:", "- Your contract is [player].\n- Each night, you may choose to stand guard outside your contract's house. All abilities targeting your contract will fail. Your target will not be notified if you do this.\n- You may stand guard outside your contract's house four times.\n- If your contract dies, you may choose another player during the day to offer a contract to. They may choose to accept or decline your offer. If they accept, they will become your new contract, but if they decline, you must wait another day before offering another contract.\n- If your second contract dies, you will commit suicide out of shame.");
+		e.addField("Attributes:", "- Your contract is [player].\n- Each night, you may choose to stand guard outside your contract's house. All abilities targeting your contract will fail. Your target will not be notified if you do this.\n- You may stand guard outside your contract's house four times.\n- If your contract dies, you may choose another player during the day to offer a contract to. They may choose to accept or decline your offer. If they accept, they will become your new contract, but if they decline, you must wait another day before offering another contract.\n- If your second contract dies, you will commit suicide out of shame.\n- You may not be contracted to a Mercenary or a role whose goal/abilities revolve around its death (e.g. Bodyguard, Jester, Tantrum)");
 		
 		e.addField("Goal:", "Make sure your contract survives until the end of the game.");
 	});
 
-	register_role(["tallnut", "472"], "Plant", "Tallnut", (e) =>
+	register_role(["tallnut", "472"], "Plant", "Tallnut", {subCat: "Protection"}, (e) =>
 	{
 		e.setDescription("Post 472");
 
@@ -329,7 +329,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Plant Goal");
 	});
 
-	register_role(["stoneweaver", "473"], "Town", "Stoneweaver", (e) =>
+	register_role(["stoneweaver", "473"], "Town", "Stoneweaver", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 473");
 
@@ -344,11 +344,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["semaphore", "sema", "474"], "Neutral", "Semaphore", (e) =>
+	register_role(["semaphore", "sema", "474"], "Neutral", "Semaphore", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 474");
 
-		e.addField("Alignment", "Unique Benign", true);
+		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -359,7 +359,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Make sure you successfully have a conversation with at least two people.");
 	});
 
-	register_role(["hypno_shroom", "hypnoshroom", "hypno", "475"], "Plant", "Hypno Shroom", (e) =>
+	register_role(["hypno_shroom", "hypnoshroom", "hypno", "475"], "Plant", "Hypno Shroom", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 475");
 
@@ -372,7 +372,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Plant Goal");
 	});
 
-	register_role(["chemist", "476"], "Neutral", "Chemist", (e) =>
+	register_role(["chemist", "476"], "Neutral", "Chemist", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 476");
 
@@ -387,7 +387,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "See the Town-aligned roles lose the game. (You can die after your win con is achieved.)");
 	});
 
-	register_role(["suplex", "477"], "Town", "Suplex", (e) =>
+	register_role(["suplex", "477"], "Town", "Suplex", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 477");
 
@@ -396,11 +396,13 @@ module.exports = (g) =>
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Throw one player at another player, causing any abilities targeted toward either of them to actually target both of them.");
+
+		e.addField("Attributes:", "- You may select yourself as one of the two targets.\n- Both targets must be different players.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["synesthesia", "syne", "478"], "Coven", "Synesthesia", (e) =>
+	register_role(["synesthesia", "syne", "478"], "Coven", "Synesthesia", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 478");
 
@@ -415,7 +417,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["pheonix", "479"], "Neutral", "Pheonix", (e) =>
+	register_role(["pheonix", "479"], "Neutral", "Pheonix", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 479");
 
@@ -430,7 +432,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["larcenist", "480"], "Neutral", "Larcenist", (e) =>
+	register_role(["larcenist", "480"], "Neutral", "Larcenist", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 480");
 
@@ -445,7 +447,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Survive until a faction wins and steal the win.");
 	});
 
-	register_role(["vengeful_spirit", "vengefulspirit", "481"], "Neutral", "Vengeful Spirit", (e) =>
+	register_role(["vengeful_spirit", "vengefulspirit", "481"], "Neutral", "Vengeful Spirit", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 481");
 
@@ -460,7 +462,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who oppose you, or have nobody remain if you are dead.");
 	});
 
-	register_role(["vampvestigator", "482"], "Neutral", "Vampvestigator", (e) =>
+	register_role(["vampvestigator", "482"], "Neutral", "Vampvestigator", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 482");
 
@@ -475,7 +477,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill or convert all who would oppose the Vampires.");
 	});
 
-	register_role(["totally_not_a_vampire", "totallynotavampire", "totally", "483"], "Neutral", "\"totally not a vampire\"", (e) =>
+	register_role(["totally_not_a_vampire", "totallynotavampire", "totally", "483"], "Neutral", "\"totally not a vampire\"", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 483");
 
@@ -488,7 +490,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill or convert all who would oppose the Vampires.");
 	});
 
-	register_role(["vampire_clone", "vampireclone", "484"], "Neutral", "Vampire Clone", (e) =>
+	register_role(["vampire_clone", "vampireclone", "484"], "Neutral", "Vampire Clone", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 484");
 
@@ -503,7 +505,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert four different people's factions.");
 	});
 
-	register_role(["dicer", "485"], "Neutral", "Dicer", (e) =>
+	register_role(["dicer", "485"], "Neutral", "Dicer", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 485");
 
@@ -518,7 +520,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who would oppose you.");
 	});
 
-	register_role(["judge", "486"], "Neutral", "Judge", (e) =>
+	register_role(["judge", "486"], "Neutral", "Judge", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 486");
 
@@ -533,11 +535,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Successfully execute two players.");
 	});
 
-	register_role(["made_a_role", "madearole", "marbotm", "488"], "Neutral", "Made a Role Based on this Message", (e) =>
+	register_role(["made_a_role", "madearole", "marbotm", "488"], "Neutral", "Made a Role Based on this Message", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 488");
 
-		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Alignment", "Neutral Other", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -546,7 +548,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "N/A");
 	});
 
-	register_role(["trauma_patient", "traumapatient", "patient", "489"], "Town", "Trauma Patient", (e) =>
+	register_role(["trauma_patient", "traumapatient", "patient", "489"], "Town", "Trauma Patient", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 489");
 
@@ -561,7 +563,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["hot_dog_vendor", "hotdogvendor", "hot_dog", "hotdog", "490"], "Neutral", "Hot Dog Vendor", (e) =>
+	register_role(["hot_dog_vendor", "hotdogvendor", "hot_dog", "hotdog", "490"], "Neutral", "Hot Dog Vendor", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 490");
 
@@ -576,7 +578,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Make at least three sales.");
 	});
 
-	register_role(["unstable", "491"], "Neutral", "The Unstable", (e) =>
+	register_role(["unstable", "491"], "Neutral", "The Unstable", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 491");
 
@@ -589,7 +591,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Complete the objective of whichever role you're currently copying. Although you will shift through many different goals, you only need to complete a single goal at the time that you have said goal, and you automatically win.");
 	});
 
-	register_role(["paradoxist", "492"], "Neutral", "Paradoxist", (e) =>
+	register_role(["paradoxist", "492"], "Neutral", "Paradoxist", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 492");
 
@@ -604,7 +606,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Complete the objective of whichever role you're currently copying. Although you will shift through many different goals, you only need to complete a single goal at the time that you have said goal, and you automatically win.");
 	});
 
-	register_role(["occultist", "493"], "Town", "Occultist", (e) =>
+	register_role(["occultist", "493"], "Town", "Occultist", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 493");
 
@@ -634,7 +636,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "??");
 	});
 
-	register_role(["corruption", "495"], "Neutral", "The Corruption", (e) =>
+	register_role(["corruption", "495"], "Neutral", "The Corruption", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 495");
 
@@ -649,12 +651,12 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who oppose the Corruption **or** see every living player corrupted (you can die once you see all living players corrupted).");
 	});
 
-	register_role("496", "Other", "Silksong Fan", (e) =>
+	register_role("496", "Other", "Silksong Fan", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 496\nPretty sure this one's goal is invalid.");
 	});
 
-	register_role(["double", "497"], "Neutral", "Double", (e) =>
+	register_role(["double", "497"], "Neutral", "Double", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 497");
 
@@ -669,7 +671,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Successfully become another role, then complete that role’s goal.");
 	});
 
-	register_role(["rolehopper", "498"], "Any", "Rolehopper", (e) =>
+	register_role(["rolehopper", "498"], "Any", "Rolehopper", {subCat: "Faction"}, (e) =>
 	{
 		e.setDescription("Post 498");
 
@@ -684,7 +686,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Goal of faction it rolls.");
 	});
 
-	register_role(["amber_heards_lawyer", "amberheardslawyer", "amber_heard", "amberheard", "lawyer", "499"], "Neutral", "Amber Heard's Lawyer", (e) =>
+	register_role(["amber_heards_lawyer", "amberheardslawyer", "amber_heard", "amberheard", "lawyer", "499"], "Neutral", "Amber Heard's Lawyer", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 499");
 
@@ -699,7 +701,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["stealing_slot_500", "stealingslot500", "lmao", "500"], "Mafia", "I'm Stealing Slot 500 LMAO", (e) =>
+	register_role(["stealing_slot_500", "stealingslot500", "lmao", "500"], "Mafia", "I'm Stealing Slot 500 LMAO", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 500");
 

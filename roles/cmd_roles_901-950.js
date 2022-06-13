@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role} = g;
 
-	register_role(["keeper", "901"], "Neutral", "Keeper", (e) =>
+	register_role(["keeper", "901"], "Neutral", "Keeper", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 901");
 
@@ -17,7 +17,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Have a person locked in your vault for **four** full phases.");
 	});
 
-	register_role(["spirit_of_killing", "spiritofkilling", "sok", "902"], "Neutral", "The Spirit of Killing", (e) =>
+	register_role(["spirit_of_killing", "spiritofkilling", "sok", "902"], "Neutral", "The Spirit of Killing", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 902");
 
@@ -32,7 +32,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["bloodbender", "903"], "Coven", "Bloodbender", (e) =>
+	register_role(["bloodbender", "903"], "Coven", "Bloodbender", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 903");
 
@@ -47,7 +47,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill anyone who may oppose you.");
 	});
 
-	register_role(["mortar", "904"], "Town", "Mortar", (e) =>
+	register_role(["mortar", "904"], "Town", "Mortar", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 904");
 
@@ -62,22 +62,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose the Town.");
 	});
 
-	register_role(["amnestic_hunter", "amnestichunter", "904"], "Coven", "Amnestic Hunter", (e) =>
-	{
-		e.setDescription("Post 904");
-
-		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Perform the factional Amnestic Hunter convert at night.");
-
-		e.addField("Attributes:", "- Amnestic Hunters have a factional chat seperate from the Coven chat, which they aren't a part of. The factional Amnestic Hunter convert will be done by the youngest Amnestic Hunter, and will only have any effect on Townies. There may only be up to three Amnestic Hunters in a game ever, counting dead ones.\n- When the last member of the Coven dies, all living Amnestic Hunters will become random Coven roles.");
-		
-		e.addField("Goal:", "Coven Goal");
-	});
-
-	register_role(["theraplanet", "905"], "Rock", "Theraplanet", (e) =>
+	register_role(["theraplanet", "905"], "Rock", "Theraplanet", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 905");
 
@@ -92,7 +77,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Rock Goal");
 	});
 
-	register_role(["neutralkillingpopcorn_boy", "neutralkillingpopcornboy", "nkpopcorn", "906"], "Coven", "Neutralkillingpopcorn Boy", (e) =>
+	register_role(["neutralkillingpopcorn_boy", "neutralkillingpopcornboy", "nkpopcorn", "906"], "Coven", "Neutralkillingpopcorn Boy", {subCat: "Protection"}, (e) =>
 	{
 		e.setDescription("Post 906");
 
@@ -107,7 +92,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["mewtwo", "907"], "Pokemon", "Mewtwo", (e) =>
+	register_role(["mewtwo", "907"], "Pokemon", "Mewtwo", {subCat: "Legendary"}, (e) =>
 	{
 		e.setDescription("Post 907");
 
@@ -124,7 +109,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["giratina", "908"], "Pokemon", "Giratina", (e) =>
+	register_role(["giratina", "908"], "Pokemon", "Giratina", {subCat: "Legendary"}, (e) =>
 	{
 		e.setDescription("Post 908");
 
@@ -141,7 +126,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["lunala", "909"], "Pokemon", "Lunala", (e) =>
+	register_role(["lunala", "909"], "Pokemon", "Lunala", {subCat: "Legendary"}, (e) =>
 	{
 		e.setDescription("Post 909");
 
@@ -149,7 +134,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "Moonblast Deal a Basic Attack at a target.\n- Safeguard Grant all Pokémon members Roleblock, Control and Redirection Immunity and up their defensive value by 1. Includes yourself. 2 uses.\n- Defog Select a player. Remove their Immunities and purge their visitors. 2 uses.");
+		e.addField("Abilities:", "Moonblast - Deal a Basic Attack at a target.\n- Safeguard - Grant all Pokémon members Roleblock, Control and Redirection Immunity and up their defensive value by 1. Includes yourself. 2 uses.\n- Defog - Select a player. Remove their Immunities and purge their visitors. 2 uses.");
 
 		e.addField("Attributes:", "- Any night using Moonblast, you may decide to compare your Attack Value with the target's Defense Value. If their Defense Value Is higher than your Attack Value, up your Attack Value by 1. If It Is lower, your Attack Value Is lowered by 1.");
 
@@ -158,7 +143,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["magikarp", "910"], "Pokemon", "Magikarp", (e) =>
+	register_role(["magikarp", "910"], "Pokemon", "Magikarp", {subCat: "Base"}, (e) =>
 	{
 		e.setDescription("Post 910");
 
@@ -175,7 +160,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["slakoth", "911"], "Pokemon", "Slakoth", (e) =>
+	register_role(["slakoth", "911"], "Pokemon", "Slakoth", {subCat: "Base"}, (e) =>
 	{
 		e.setDescription("Post 911");
 
@@ -183,14 +168,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Yawn Yawn at someone's house. The next night, they are roleblocked.\n- Follow Me Redirect a target player's visitors to yourself tonight. \n- Encore Pick 2 players and lower their attack value to None for the night.\n- Evolve Evolve into Slaking. May only do this if you have stopped at least 3 attacks.");
+		e.addField("Abilities:", "- Yawn - Yawn at someone's house. The next night, they are roleblocked.\n- Follow Me Redirect a target player's visitors to yourself tonight. \n- Encore - Pick 2 players and lower their attack value to None for the night.\n- Evolve - Evolve into Slaking. May only do this if you have stopped at least 3 attacks.");
 
 		e.addField("Pokemon Abilitiy:", "Truant - Every other night, slack off and gain Powerful defense for the night.");
 		
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["mime_jr", "mimejr", "912"], "Pokemon", "Mime Jr", (e) =>
+	register_role(["mime_jr", "mimejr", "912"], "Pokemon", "Mime Jr", {subCat: "Base"}, (e) =>
 	{
 		e.setDescription("Post 912");
 
@@ -198,7 +183,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Teeter Dance Redirect a player into someone else. If they have an attack value, raise It by one. May not target members of the Pokemon Faction\n- Calm MindThe next night, up your Attack and Defense value by 1.\n- Baton Pass (Day Ability) Transfer the Attack and Defense Value that you will have at the end of the next night to a random player.\n- Evolve Evolve into Mr Mime. May only evolve if you have indirectly killed 3 players.");
+		e.addField("Abilities:", "- Teeter Dance - Redirect a player into someone else. If they have an attack value, raise It by one. May not target members of the Pokemon Faction\n- Calm Mind - The next night, up your Attack and Defense value by 1.\n- Baton Pass (Day Ability) - Transfer the Attack and Defense Value that you will have at the end of the next night to a random player.\n- Evolve - Evolve into Mr Mime. May only evolve if you have indirectly killed 3 players.");
 
 		e.addField("Attributes:", "- Calm Mind can stack as long as It Is used multiple nights in a row.");
 
@@ -207,7 +192,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["gyarados", "913"], "Pokemon", "Gyarados", (e) =>
+	register_role(["gyarados", "913"], "Pokemon", "Gyarados", {subCat: "Evolved"}, (e) =>
 	{
 		e.setDescription("Post 913");
 
@@ -215,7 +200,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Waterfall Deal someone a Powerful Attack, and roleblock them for the night.\n- Dragon Rage Deal someone a Basic Attack and bypass everything but permanent defense. 3 uses.\n- Bounce Give yourself Basic Defense for the night. Then, the next night, deal a Powerful Attack at someone. 2 uses.");
+		e.addField("Abilities:", "- Waterfall - Deal someone a Powerful Attack, and roleblock them for the night.\n- Dragon Rage - Deal someone a Basic Attack and bypass everything but permanent defense. 3 uses.\n- Bounce - Give yourself Basic Defense for the night. Then, the next night, deal a Powerful Attack at someone. 2 uses.");
 
 		e.addField("Attributes:", "- This role cant be rolled normally and must be rolled from Magikarp.");
 
@@ -224,7 +209,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["slaking", "914"], "Pokemon", "Slaking", (e) =>
+	register_role(["slaking", "914"], "Pokemon", "Slaking", {subCat: "Evolved"}, (e) =>
 	{
 		e.setDescription("Post 914");
 
@@ -232,7 +217,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Giga Impact Deal an Unstoppable Rampage attack at a player's house. The following night, you have to rest.\n- Earthquake Deal a Powerful Rampage Attack at a player's house.\n- Slack Off If this night Is a night where you're loafing around, grant yourself Powerful Defense. 2 uses.");
+		e.addField("Abilities:", "- Giga Impact - Deal an Unstoppable Rampage attack at a player's house. The following night, you have to rest.\n- Earthquake - Deal a Powerful Rampage Attack at a player's house.\n- Slack Off - If this night Is a night where you're loafing around, grant yourself Powerful Defense. 2 uses.");
 
 		e.addField("Attributes:", "- This role cant be rolled normally and must evolve from Slakoth.\n- You cannot use Giga Impact on nights where you arent loafing around.");
 
@@ -241,7 +226,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["mr_mime", "mrmime", "915"], "Pokemon", "Mr Mime", (e) =>
+	register_role(["mr_mime", "mrmime", "915"], "Pokemon", "Mr Mime", {subCat: "Evolved"}, (e) =>
 	{
 		e.setDescription("Post 915");
 
@@ -249,7 +234,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Substitute Create a Substitute. Your substitute tanks 2 Basic Attacks or 1 Powerful/Unstoppable Attack for you before It breaks. 1 use.\n- Reflect Lower everyone's defense to none, and nullify all attacks Powerful and higher. 2 uses.\n- Light Screen Lower everyone's defense to none, and nullify all attacks Powerful and lower. 2 uses.");
+		e.addField("Abilities:", "- Substitute - Create a Substitute. Your substitute tanks 2 Basic Attacks or 1 Powerful/Unstoppable Attack for you before It breaks. 1 use.\n- Reflect - Lower everyone's defense to none, and nullify all attacks Powerful and higher. 2 uses.\n- Light Screen - Lower everyone's defense to none, and nullify all attacks Powerful and lower. 2 uses.");
 
 		e.addField("Attributes:", "- This role cant be rolled normally and must evolve from Mime Jr.");
 
@@ -258,7 +243,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["smeargle", "916"], "Pokemon", "Smeargle", (e) =>
+	register_role(["smeargle", "916"], "Pokemon", "Smeargle", {subCat: "Single"}, (e) =>
 	{
 		e.setDescription("Post 916");
 
@@ -266,7 +251,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Sketch - Copy your target's ability. If they have multiple, one Is picked at random.");
+		e.addField("Abilities:", "- Sketch - Copy your target's ability. If they have multiple, one is picked at random.");
 
 		e.addField("Attributes:", "- You may only have 3 sketched abilities at all time.\n- You may decide at any point to forget one of your sketched abilities.");
 
@@ -275,7 +260,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["druddigon", "drudd", "917"], "Pokemon", "Druddigon", (e) =>
+	register_role(["druddigon", "drudd", "917"], "Pokemon", "Druddigon", {subCat: "Single"}, (e) =>
 	{
 		e.setDescription("Post 917");
 
@@ -283,14 +268,16 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Dragon Claw Deal a basic attack at a target.\n- Dragon Dance The next night, up your Attack and Priority by 1.\n- Dragon Tail Deal a Basic Rampaging Attack. 3 uses.");
+		e.addField("Abilities:", "- Dragon Claw - Deal a basic attack at a target.\n- Dragon Dance - The next night, up your Attack and Priority by 1.\n- Dragon Tail - Deal a Basic Rampaging Attack. 3 uses.");
+
+		e.addField("Attributes:", "- Dragon Dance can stack as long as you use It multiple times in a row.");
 
 		e.addField("Pokemon Abilitiy:", "Rough Skin - If you die, your attacker Is dealt an Unstoppable Attack.");
 		
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["stonjourner", "ston", "918"], "Pokemon", "Stonjourner", (e) =>
+	register_role(["stonjourner", "ston", "918"], "Pokemon", "Stonjourner", {subCat: "Single"}, (e) =>
 	{
 		e.setDescription("Post 918");
 
@@ -298,7 +285,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Body Press Attack someone. You will use your Defense Value instead of Attack Value.\n- Harden The next night, up your Defense Value.\n- Sandstorm Summon a Sandstorm. For the next 2 nights, gain Powerful Defense. 1 use.");
+		e.addField("Abilities:", "- Body Press - Attack someone. You will use your Defense Value instead of Attack Value.\n- Harden - The next night, up your Defense Value.\n- Sandstorm - Summon a Sandstorm. For the next 2 nights, gain Powerful Defense. 1 use.");
 
 		e.addField("Attributes:", "- Harden can stack as long as you use It multiple nights in a row.");
 
@@ -307,7 +294,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pokemon Goal");
 	});
 
-	register_role(["ballerina", "919"], "Town", "Ballerina", (e) =>
+	register_role(["ballerina", "919"], "Town", "Ballerina", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 919");
 
@@ -322,7 +309,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["veilist", "920"], "Coven", "Veilist", (e) =>
+	register_role(["veilist", "920"], "Coven", "Veilist", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 920");
 
@@ -332,12 +319,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player each night. They gain Hexproof until the end of the next day. (They can't be the target of abilities, votes, whispers, or anything else.)");
 
-		e.addField("Attributes:", "- With the Necronomicon, when you use your ability, you may choose another player who you've made Hexproof at any point in the game previously and they're dealt a Powerful attack.");
+		e.addField("Attributes:", "- With the Necronomicon, when you use your ability, you may choose another player who you've made Hexproof at any point in the game previously and they're dealt a Powerful attack.\n- You may self-target.");
 		
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["tier_list_reviewer", "tierlistreviewer", "tlr", "921"], "Town", "Tier List Reviewer", (e) =>
+	register_role(["tier_list_reviewer", "tierlistreviewer", "tlr", "921"], "Town", "Tier List Reviewer", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 921");
 
@@ -352,7 +339,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["kaze", "922"], "Fox", "Kaze", (e) =>
+	register_role(["kaze", "922"], "Fox", "Kaze", {subCat: "Beta"}, (e) =>
 	{
 		e.setDescription("Post 922");
 
@@ -367,7 +354,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["ongaku", "923"], "Fox", "Ongaku", (e) =>
+	register_role(["ongaku", "923"], "Fox", "Ongaku", {subCat: "Beta"}, (e) =>
 	{
 		e.setDescription("Post 923");
 
@@ -382,7 +369,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["seishin", "924"], "Fox", "Seishin", (e) =>
+	register_role(["seishin", "924"], "Fox", "Seishin", {subCat: "Omega"}, (e) =>
 	{
 		e.setDescription("Post 924");
 
@@ -395,7 +382,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal or Outlive Kukan");
 	});
 
-	register_role(["kukan", "925"], "Fox", "Kukan", (e) =>
+	register_role(["kukan", "925"], "Fox", "Kukan", {subCat: "Omega"}, (e) =>
 	{
 		e.setDescription("Post 925");
 
@@ -410,7 +397,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal or Survive to the end.");
 	});
 
-	register_role(["kasai", "926"], "Fox", "Kasai", (e) =>
+	register_role(["kasai", "926"], "Fox", "Kasai", {subCat: "Beta"}, (e) =>
 	{
 		e.setDescription("Post 926");
 
@@ -425,7 +412,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["chikyu", "927"], "Fox", "Chikyu", (e) =>
+	register_role(["chikyu", "927"], "Fox", "Chikyu", {subCat: "Beta"}, (e) =>
 	{
 		e.setDescription("Post 927");
 
@@ -438,7 +425,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["yama", "928"], "Fox", "Yama", (e) =>
+	register_role(["yama", "928"], "Fox", "Yama", {subCat: "Beta"}, (e) =>
 	{
 		e.setDescription("Post 928");
 
@@ -453,7 +440,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["arctic_fox", "arcticfox", "929"], "Fox", "Arctic Fox", (e) =>
+	register_role(["arctic_fox", "arcticfox", "929"], "Fox", "Arctic Fox", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 929");
 
@@ -468,7 +455,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["ninetales", "930"], "Fox", "Ninetales", (e) =>
+	register_role(["ninetales", "930"], "Fox", "Ninetales", {subCat: "Beta"}, (e) =>
 	{
 		e.setDescription("Post 930");
 
@@ -496,7 +483,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal OR your role's goal.");
 	});
 
-	register_role(["sanda", "932"], "Fox", "Sanda", (e) =>
+	register_role(["sanda", "932"], "Fox", "Sanda", {subCat: "Beta"}, (e) =>
 	{
 		e.setDescription("Post 932");
 
@@ -511,7 +498,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["nogitsune", "nogi", "933"], "Fox", "Nogitsune", (e) =>
+	register_role(["nogitsune", "nogi", "933"], "Fox", "Nogitsune", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 933");
 
@@ -526,7 +513,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["mori", "934"], "Fox", "Mori", (e) =>
+	register_role(["mori", "934"], "Fox", "Mori", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 934");
 
@@ -541,7 +528,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["kawa", "935"], "Fox", "Kawa", (e) =>
+	register_role(["kawa", "935"], "Fox", "Kawa", {subCat: "Beta"}, (e) =>
 	{
 		e.setDescription("Post 935");
 
@@ -556,7 +543,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["umi", "936"], "Fox", "Umi", (e) =>
+	register_role(["umi", "936"], "Fox", "Umi", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 936");
 
@@ -571,7 +558,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["tengoku", "teng", "937"], "Fox", "Tengoku", (e) =>
+	register_role(["tengoku", "teng", "937"], "Fox", "Tengoku", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 937");
 
@@ -586,7 +573,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal or Hide Carrier's Survival");
 	});
 
-	register_role(["jikan", "938"], "Fox", "Jikan", (e) =>
+	register_role(["jikan", "938"], "Fox", "Jikan", {subCat: "Beta"}, (e) =>
 	{
 		e.setDescription("Post 938");
 
@@ -599,7 +586,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["guesser", "941"], "Town", "Guesser", (e) =>
+	register_role(["guesser", "941"], "Town", "Guesser", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 941");
 
@@ -629,7 +616,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "NK Goal but all Ancient Gods win together");
 	});
 
-	register_role(["voidwind", "943"], "Neutral", "Voidwind", (e) =>
+	register_role(["voidwind", "943"], "Neutral", "Voidwind", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 943");
 
@@ -642,7 +629,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see the Town lose the game.");
 	});
 
-	register_role(["anarchist", "944"], "Neutral", "Anarchist", (e) =>
+	register_role(["anarchist", "944"], "Neutral", "Anarchist", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 944");
 
@@ -657,7 +644,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "See the town lose **or** see a Town (Power) get lynched.");
 	});
 
-	register_role(["spite", "945"], "Coven", "Spite", (e) =>
+	register_role(["spite", "945"], "Coven", "Spite", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 945");
 
@@ -672,7 +659,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["driver", "946"], "Neutral", "Driver", (e) =>
+	register_role(["driver", "946"], "Neutral", "Driver", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 946");
 
@@ -687,7 +674,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see the Town lose.");
 	});
 
-	register_role(["alchoholic", "947"], "Mafia", "Alchoholic", (e) =>
+	register_role(["alchoholic", "947"], "Mafia", "Alchoholic", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 947");
 
@@ -702,7 +689,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["sheriff", "948"], "Town", "Sheriff", (e) =>
+	register_role(["sheriff", "948"], "Town", "Sheriff", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 948");
 
@@ -717,7 +704,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["lunatic_hell_fairy", "lunatichellfairy", "lhf", "949"], "Coven", "Lunatic Hell Fairy", (e) =>
+	register_role(["lunatic_hell_fairy", "lunatichellfairy", "lhf", "949"], "Coven", "Lunatic Hell Fairy", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 949");
 
@@ -732,7 +719,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["spirit_thief", "spiritthief", "st", "950"], "Neutral", "Spirit Thief", (e) =>
+	register_role(["spirit_thief", "spiritthief", "st", "950"], "Neutral", "Spirit Thief", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 950");
 

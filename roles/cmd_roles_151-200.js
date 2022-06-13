@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role} = g;
 
-	register_role(["iris", "151"], "Town", "Iris", (e) =>
+	register_role(["iris", "151"], "Town", "Iris", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 151");
 
@@ -17,7 +17,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["sage", "152"], "Town", "Sage", (e) =>
+	register_role(["sage", "152"], "Town", "Sage", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 152");
 
@@ -32,7 +32,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["thyme", "153"], "Town", "Thyme", (e) =>
+	register_role(["thyme", "153"], "Town", "Thyme", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 153");
 
@@ -47,7 +47,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["azalea", "154"], "Town", "Azalea", (e) =>
+	register_role(["azalea", "154"], "Town", "Azalea", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 154");
 
@@ -62,7 +62,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["dahlia", "155"], "Town", "Dahlia", (e) =>
+	register_role(["dahlia", "155"], "Town", "Dahlia", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 155");
 
@@ -77,7 +77,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["nettle", "156"], "Town", "Nettle", (e) =>
+	register_role(["nettle", "156"], "Town", "Nettle", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 156");
 
@@ -92,7 +92,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["wisteria", "157"], "Town", "Wisteria", (e) =>
+	register_role(["wisteria", "157"], "Town", "Wisteria", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 157");
 
@@ -107,7 +107,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["calendula", "158"], "Town", "Calendula", (e) =>
+	register_role(["calendula", "158"], "Town", "Calendula", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 158");
 
@@ -122,7 +122,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["lavender", "159"], "Town", "Lavender", (e) =>
+	register_role(["lavender", "159"], "Town", "Lavender", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 159");
 
@@ -137,7 +137,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["lily", "160"], "Town", "Lily", (e) =>
+	register_role(["lily", "160"], "Town", "Lily", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 160");
 
@@ -152,7 +152,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["mint", "161"], "Town", "Mint", (e) =>
+	register_role(["mint", "161"], "Town", "Mint", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 161");
 
@@ -167,7 +167,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["rosemary", "162"], "Town", "Rosemary", (e) =>
+	register_role(["rosemary", "162"], "Town", "Rosemary", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 162");
 
@@ -182,7 +182,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["dicentra", "163"], "Town", "Dicentra", (e) =>
+	register_role(["dicentra", "163"], "Town", "Dicentra", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 163");
 
@@ -197,7 +197,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["gardenia", "164"], "Town", "Gardenia", (e) =>
+	register_role(["gardenia", "164"], "Town", "Gardenia", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 164");
 
@@ -212,7 +212,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["nightshade", "165"], "Town", "Nightshade", (e) =>
+	register_role(["nightshade", "165"], "Town", "Nightshade", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 165");
 
@@ -227,7 +227,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["phlox", "166"], "Town", "Phlox", (e) =>
+	register_role(["phlox", "166"], "Town", "Phlox", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 166");
 
@@ -242,7 +242,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help the Town win OR help the Plants win.");
 	});
 
-	register_role(["primer", "167"], "Neutral", "Primer", (e) =>
+	register_role(["primer", "167"], "Neutral", "Primer", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 167");
 
@@ -255,7 +255,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Whatever your prime-numbered role's win condition is");
 	});
 
-	register_role(["voidling", "168"], "Neutral", "Voidling", (e) =>
+	register_role(["voidling", "168"], "Neutral", "Voidling", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 168");
 
@@ -270,7 +270,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see the Town lose.");
 	});
 
-	register_role(["simon_bolivar", "simonbolivar", "simon", "bolivar", "spanish", "169"], "Neutral", "Simón Bolívar", (e) =>
+	register_role(["simon_bolivar", "simonbolivar", "simon", "bolivar", "spanish", "169"], "Neutral", "Simón Bolívar", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 169");
 
@@ -285,7 +285,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill everyone who has a role from Spain.");
 	});
 
-	register_role(["scumcaster_mage", "scumcastermage", "scumcaster", "170"], "Coven", "Scumcaster Mage", (e) =>
+	register_role(["scumcaster_mage", "scumcastermage", "scumcaster", "170"], "Coven", "Scumcaster Mage", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 170");
 
@@ -300,7 +300,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["stealer", "171"], "Neutral", "Stealer (Robber is too basic of a name ngl)", (e) =>
+	register_role(["stealer", "171"], "Neutral", "Stealer (Robber is too basic of a name ngl)", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 171");
 
@@ -315,7 +315,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Steal three people's attributes and survive until the end of the game.");
 	});
 
-	register_role(["supergaurd", "172"], "Town", "Superguard", (e) =>
+	register_role(["supergaurd", "172"], "Town", "Superguard", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 172");
 
@@ -325,12 +325,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Keep watch at a player's house at night.");
 
-		e.addField("Attributes:", "- If your target is attacked, you will deal an Unstoppable attack to all of the attackers and give your target Powerful defense.\n- If you are killed by any means other than protection, you will deal a Basic attack to your target and fail to defend them.");
+		e.addField("Attributes:", "- If your target is attacked, you will deal an Unstoppable attack to all of the attackers and give your target Powerful defense.\n- If you are killed by any means other than protection, you will deal a Basic attack to your target and fail to defend them.\n- You may not protect yourself.");
 
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["keymaster", "173"], "Town", "Keymaster", (e) =>
+	register_role(["keymaster", "173"], "Town", "Keymaster", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 173");
 
@@ -345,7 +345,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["eternity", "174"], "Neutral", "Eternity", (e) =>
+	register_role(["eternity", "174"], "Neutral", "Eternity", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 174");
 
@@ -360,7 +360,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["reroler", "reroller", "175"], "Neutral", "Reroler", (e) =>
+	register_role(["reroler", "reroller", "175"], "Neutral", "Reroler", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 175");
 
@@ -375,7 +375,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Reroll all living players' roles.");
 	});
 
-	register_role(["wm_crusader", "wmcrusader", "176"], "Town", "WM Crusader", (e) =>
+	register_role(["wm_crusader", "wmcrusader", "176"], "Town", "WM Crusader", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 176");
 
@@ -390,7 +390,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["ebay_marketer", "ebaymarketer", "ebay", "e-bay", "marketer", "177"], "Neutral", "E-Bay Marketer", (e) =>
+	register_role(["ebay_marketer", "ebaymarketer", "ebay", "e-bay", "marketer", "177"], "Neutral", "E-Bay Marketer", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 177");
 
@@ -405,7 +405,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Sell your organs, and make sure you sell more organs than there are people currently alive.");
 	});
 
-	register_role(["royal", "178"], "Neutral", "Royal", (e) =>
+	register_role(["royal", "178"], "Neutral", "Royal", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 178");
 
@@ -420,7 +420,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["amethyst", "179"], "Rock", "Amethyst", (e) =>
+	register_role(["amethyst", "179"], "Rock", "Amethyst", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 179");
 
@@ -430,12 +430,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Follow a Rock every night.");
 
-		e.addField("Attributes:", "- If the Rock Is a Rock Killing and the target survives the attack, they will be cursed. Cursed players will be dealt an Basic Attack 2 days after. Otherwise, grant your Rock Basic Defense.\n- You may not follow a Rock twice in a row.\n- If you exist in the game, Odd Keystone will be rerolled to another random rock role, because Stones are not rocks, and fuck you Rasen.");
+		e.addField("Attributes:", "- If the Rock Is a Rock Killing and the target survives the attack, they will be cursed. Cursed players will be dealt an Basic Attack 2 days after. Otherwise, grant your Rock Basic Defense.\n- You may not follow a Rock twice in a row.\n-If you're the only Rock left standing, you will autofollow yourself alongside the Factional rock kill every night.\n- If you exist in the game, Odd Keystone will be rerolled to another random rock role, because Stones are not rocks, and fuck you Rasen.");
 
 		e.addField("Goal:", "Rock Goal");
 	});
 
-	register_role(["hitman_with_the_hit_plan", "hitmanwiththehitplan", "hitplan", "180"], "Neutral", "Hitman With The Hit Plan", (e) =>
+	register_role(["hitman_with_the_hit_plan", "hitmanwiththehitplan", "hitplan", "180"], "Neutral", "Hitman With The Hit Plan", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 180");
 
@@ -450,7 +450,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill 3 people.");
 	});
 
-	register_role(["cruella_de_vil", "cruelladevil", "cruella", "181"], "Neutral", "Cruella De Vil", (e) =>
+	register_role(["cruella_de_vil", "cruelladevil", "cruella", "181"], "Neutral", "Cruella De Vil", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 181");
 
@@ -465,7 +465,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Make sure that no players alive at the end of the game have a puppy.");
 	});
 
-	register_role(["two_grams_of_protein", "twogramsofprotein", "grams", "protein", "182"], "Town", "Two Grams of Protein", (e) =>
+	register_role(["two_grams_of_protein", "twogramsofprotein", "grams", "protein", "182"], "Town", "Two Grams of Protein", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 182");
 
@@ -478,7 +478,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["fate", "183"], "Neutral", "Fate", (e) =>
+	register_role(["fate", "183"], "Neutral", "Fate", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 183");
 
@@ -491,7 +491,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Cause infinite chaos (as determined by the host).");
 	});
 
-	register_role(["flying_pumpkin", "flyingpumpkin", "pumpkin", "tfptslbooia", "184"], "Town", "The Flying Pumpkin That Shoots Laser Beams Out Of Its Ass", (e) =>
+	register_role(["flying_pumpkin", "flyingpumpkin", "pumpkin", "tfptslbooia", "184"], "Town", "The Flying Pumpkin That Shoots Laser Beams Out Of Its Ass", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 184");
 
@@ -506,7 +506,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["forum_editor", "forumeditor", "forum", "185"], "Mafia", "Forum Editor", (e) =>
+	register_role(["forum_editor", "forumeditor", "forum", "185"], "Mafia", "Forum Editor", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 185");
 
@@ -516,10 +516,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Each night, choose two non-Mafia roles from the same faction. At the start of the next day, the first of those roles will be replaced by the second one, but its win condition will remain the same. The change will be publicly announced.");
 
+		e.addField("Attributes:", "- If you're redirected, you will choose your target's role as the role to be replaced. If they're a Mafia role, your ability will fail.");
+
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["hangman", "186"], "Town", "Hangman", (e) =>
+	register_role(["hangman", "186"], "Town", "Hangman", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 186");
 
@@ -534,7 +536,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["hammerman", "187"], "Town", "Hammerman", (e) =>
+	register_role(["hammerman", "187"], "Town", "Hammerman", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 187");
 
@@ -549,7 +551,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town or Mafia Goal, whichever you belong to.");
 	});
 
-	register_role(["hammerman", "187"], "Mafia", "Hammerman", (e) =>
+	register_role(["hammerman", "187"], "Mafia", "Hammerman", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 187");
 
@@ -564,7 +566,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town or Mafia Goal, whichever you belong to.");
 	});
 
-	register_role(["oddkeyrockcaster_mage", "oddkeyrockcastermage", "oddkeyrockcaster", "oddkeyrock", "188"], "Coven", "Oddkeyrockcaster Mage", (e) =>
+	register_role(["oddkeyrockcaster_mage", "oddkeyrockcastermage", "oddkeyrockcaster", "oddkeyrock", "188"], "Coven", "Oddkeyrockcaster Mage", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 188");
 
@@ -579,7 +581,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["google_translate", "googletranslate", "japanese", "french", "189"], "Neutral", "Google Translate", (e) =>
+	register_role(["google_translate", "googletranslate", "japanese", "french", "189"], "Neutral", "Google Translate", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 189");
 
@@ -594,12 +596,12 @@ module.exports = (g) =>
 		e.addField("Goal:", "Create a misunderstanding.");
 	});
 
-	register_role("190", "Other", "Super Idol", (e) =>
+	register_role("190", "Other", "Super Idol", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 190\nThis role doesn't really exist. Moving on.");
 	});
 
-	register_role(["caroler", "191"], "Town", "Caroler", (e) =>
+	register_role(["caroler", "191"], "Town", "Caroler", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 191");
 
@@ -607,14 +609,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to sing a carol to the Town during the night.");
+		e.addField("Abilities:", "- Choose to sing a carol to one player during the night.");
 
-		e.addField("Attributes:", "- When you sing a carol, the Town will be given a list of three players at the start of the following day. At least one of these players will be evil.\n- You may only use your ability twice.");
+		e.addField("Attributes:", "- If your target does not visit anyone, they will receive a list of three names. One of these names will be evil.\n- You may use your ability three times successfully.\n- You may sing yourself a carol once, and this will count as a use of your ability.");
 
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["crystal", "192"], "Rock", "Crystal", (e) =>
+	register_role(["crystal", "192"], "Rock", "Crystal", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 192");
 
@@ -629,7 +631,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Rock Goal");
 	});
 
-	register_role(["obsidian", "193"], "Rock", "Obsidian", (e) =>
+	register_role(["obsidian", "193"], "Rock", "Obsidian", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 193");
 
@@ -644,7 +646,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Rock Goal");
 	});
 
-	register_role(["runner", "194"], "Town", "Runner", (e) =>
+	register_role(["runner", "194"], "Town", "Runner", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 194");
 
@@ -654,32 +656,32 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Run around the Town during the day.");
 
-		e.addField("Attributes:", "- When you run around the Town, you will learn the name and roles of three people. You will not learn who is which role.\n- You may run around the town twice.");
+		e.addField("Attributes:", "- When you run around the Town, you will learn the name and roles of three people. You will not learn who is which role.\n- You may run around the town once.");
 
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role("195", "Other", "Village Idiot", (e) =>
+	register_role("195", "Other", "Village Idiot", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 195\nFortunately for you, 'Copium' is not a valid goal that can spawn in a game.");
 	});
 
-	register_role(["addlepate", "addle", "196"], "Town", "Addlepate", (e) =>
+	register_role(["wm_desperado", "wmdesperado", "desperado", "196"], "Town", "WM Desperado", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 196");
 
-		e.addField("Alignment", "Town Support", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
+		e.addField("Alignment", "Town Killing", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Take the role of a random GIM role each night.");
+		e.addField("Abilities:", "- Duel someone at night.");
 
-		e.addField("Attributes:", "- At the beginning of each night, you will be given a random role from the GIM thread. You will be given all statistics, immunities, abilities, and attributes of that role.\n- No matter what role you receive, you will always be Town-aligned. You can become a role even if it is unique or part of an evil faction.\n- If your role has a specific condition that needs to be met, you will bypass those conditions. For example, if you may only perform an ability on a full moon night, you may perform the ability even if it's a non-full moon night.\n- You may not take the role of a role deemed unbalanced by the Role Jury.");
+		e.addField("Attributes:", "- When you duel your target, only you and your target will be able to be voted the following day.\n- It will be announced to the town that you and your target are dueling. No one will be told who enacted the duel.\n- Whoever receives more votes between you and your target will be killed and cleaned. This can happen either by majority or when the day ends.\n- You may only duel someone twice.");
 
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["president", "pres", "197"], "Town", "The President", (e) =>
+	register_role(["president", "pres", "197"], "Town", "The President", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 197");
 
@@ -689,12 +691,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Give two players citizenship at night.");
 
-		e.addField("Attributes:", "- If either of your targets are Town Support, they will both converted into a random GIM Town Investigative.\n- If either of your targets are Town Protective, they will both be granted Powerful Defense for two nights. They will know about this.\n- If either of your targets are Town Investigative, they will both be revealed a role besides each other or The President that is still alive.\n- If either of your targets are Town Killing, they will both be granted a 1-shot Vigi shot that they must use the next night. If they kill a Town, they will be roleblocked for two nights after.\n- If either of your are Town Power, they will both be roleblocked. The one that isn't Town Power will be roleblocked the next night as well.\n- If either of your targets are not Town, you will be converted into a Citizen after 2 nights.\n- Roleblock Immunity");
+		e.addField("Attributes:", "- If either of your targets are Town Support, they will both converted into a random GIM Town Investigative.\n- If either of your targets are Town Protective, they will both be granted Powerful Defense for two nights. They will know about this.\n- If either of your targets are Town Investigative, they will both be revealed a role besides each other or The President that is still alive.\n- If either of your targets are Town Killing, they will both be granted a 1-shot Vigi shot that they must use the next night. If they kill a Town, they will be roleblocked for two nights after.\n- If either of your are Town Power, they will both be roleblocked. The one that isn't Town Power will be roleblocked the next night as well.\n- If either of your targets are not Town, you will be converted into a Citizen after 2 nights.\n- You may not give yourself citizenship.\n- Roleblock Immunity");
 
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["odd_keyrock", "oddkeyrock", "keyrock", "198"], "Rock", "Odd Keyrock", (e) =>
+	register_role(["odd_keyrock", "oddkeyrock", "keyrock", "198"], "Rock", "Odd Keyrock", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 198");
 
@@ -702,12 +704,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Summon Spiritomb each night. A new player named Spiritomb will be added with a random role, but their win condition is changed to that of the Rocks. The host will play all instances of Spiritomb.");
+		e.addField("Abilities:", "- Summon Spiritomb each full moon. A new player named Spiritomb will be added with a random role, but their win condition is changed to that of the Rocks. The host will play all instances of Spiritomb.");
+
+		e.addField("Attributes:", "- You may only summon Spiritomb 108 times.");
 
 		e.addField("Goal:", "Rock Goal");
 	});
 
-	register_role(["coach", "199"], "Town", "Coach", (e) =>
+	register_role(["coach", "199"], "Town", "Coach", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 199");
 
@@ -717,12 +721,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player to coach each night.");
 
-		e.addField("Attributes:", "- The night you coach someone, they will gain a buff of their abilities on the night you coach them depending on what their subalignment is.\n- Investigative roles will receive completely accurate results regardless of any attempts to alter the results.\n- Protective roles will be able to protect against any type of attack, including Unstoppable and Astral. If your target kills an attacker that performed an attack that they normally could not stop, they will not kill the attacker.\n- Killing roles will have their attack value raised to the next-highest value.\n- Support roles will have their ability succeed regardless of any other abilities used on them unless it creates a paradox.\n- Any subalignment not listed will not receive a buff.\n- You will be notified if your coaching is effective.\n- Your target will only be notified that they were coached if the coaching is effective.");
+		e.addField("Attributes:", "- The night you coach someone, they will gain a buff of their abilities on the night you coach them depending on what their subalignment is.\n- Investigative roles will receive completely accurate results regardless of any attempts to alter the results.\n- Protective roles will be able to protect against any type of attack, including Unstoppable and Astral. If your target kills an attacker that performed an attack that they normally could not stop, they will not kill the attacker.\n- Killing roles will have their attack value raised to the next-highest value.\n- Support roles will have their ability succeed regardless of any other abilities used on them unless it creates a paradox.\n- Any subalignment not listed will not receive a buff.\n- You will be notified if your coaching is effective.\n- Your target will only be notified that they were coached if the coaching is effective.\n- You may not coach yourself.");
 
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["devastation_kami", "devastationkami", "devastation", "kami", "200"], "Neutral", "Devastation Kami", (e) =>
+	register_role(["devastation_kami", "devastationkami", "devastation", "kami", "200"], "Neutral", "Devastation Kami", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 200");
 

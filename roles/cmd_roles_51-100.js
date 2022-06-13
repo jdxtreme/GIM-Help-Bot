@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role} = g;
 
-	register_role(["jailor", "51"], "Town", "Jailor", (e) =>
+	register_role(["jailor", "51"], "Town", "Jailor", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 51");
 
@@ -17,7 +17,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["mayor", "52"], "Town", "Mayor", (e) =>
+	register_role(["mayor", "52"], "Town", "Mayor", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 52");
 
@@ -32,7 +32,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["lookout", "lo", "53"], "Town", "Lookout", (e) =>
+	register_role(["lookout", "lo", "53"], "Town", "Lookout", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 53");
 
@@ -45,7 +45,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["tracker", "track", "54"], "Town", "Tracker", (e) =>
+	register_role(["tracker", "track", "54"], "Town", "Tracker", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 54");
 
@@ -58,7 +58,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["psychic", "psy", "55"], "Town", "Psychic", (e) =>
+	register_role(["psychic", "psy", "55"], "Town", "Psychic", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 55");
 
@@ -71,7 +71,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["bodyguard", "bg", "56"], "Town", "Bodyguard", (e) =>
+	register_role(["bodyguard", "bg", "56"], "Town", "Bodyguard", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 56");
 
@@ -86,7 +86,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["crusader", "crus", "57"], "Town", "Crusader", (e) =>
+	register_role(["crusader", "crus", "57"], "Town", "Crusader", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 57");
 
@@ -101,7 +101,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["doctor", "doc", "58"], "Town", "Doctor", (e) =>
+	register_role(["doctor", "doc", "58"], "Town", "Doctor", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 58");
 
@@ -116,7 +116,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["escort", "esc", "59"], "Town", "Escort", (e) =>
+	register_role(["escort", "esc", "59"], "Town", "Escort", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 59");
 
@@ -131,7 +131,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["medium", "med", "60"], "Town", "Medium", (e) =>
+	register_role(["medium", "med", "60"], "Town", "Medium", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 60");
 
@@ -146,7 +146,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["retributionist", "retri", "61"], "Town", "Retributionist", (e) =>
+	register_role(["retributionist", "retri", "61"], "Town", "Retributionist", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 61");
 
@@ -161,7 +161,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["spy", "62"], "Town", "Spy", (e) =>
+	register_role(["spy", "62"], "Town", "Spy", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 62");
 
@@ -176,7 +176,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["transporter", "trans", "63"], "Town", "Transporter", (e) =>
+	register_role(["transporter", "trans", "63"], "Town", "Transporter", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 63");
 
@@ -191,7 +191,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["vampire_hunter", "vampirehunter", "vh", "64"], "Town", "Vampire Hunter", (e) =>
+	register_role(["vampire_hunter", "vampirehunter", "vh", "64"], "Town", "Vampire Hunter", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 64");
 
@@ -206,7 +206,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["conflipper", "65"], "Neutral", "Coinflipper", (e) =>
+	register_role(["conflipper", "65"], "Neutral", "Coinflipper", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 65");
 
@@ -219,7 +219,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["veteran", "vet", "66"], "Town", "Veteran", (e) =>
+	register_role(["veteran", "vet", "66"], "Town", "Veteran", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 66");
 
@@ -234,7 +234,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["vigilante", "vigi", "67"], "Town", "Vigilante", (e) =>
+	register_role(["vigilante", "vigi", "67"], "Town", "Vigilante", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 67");
 
@@ -249,7 +249,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["ambusher", "amby", "68"], "Mafia", "Ambusher", (e) =>
+	register_role(["ambusher", "amby", "68"], "Mafia", "Ambusher", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 68");
 
@@ -264,7 +264,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["blackmailer", "bmer", "69"], "Mafia", "Blackmailer", (e) =>
+	register_role(["blackmailer", "bmer", "69"], "Mafia", "Blackmailer", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 69");
 
@@ -279,7 +279,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["consigliere", "consig", "70"], "Mafia", "Consigliere", (e) =>
+	register_role(["consigliere", "consig", "70"], "Mafia", "Consigliere", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 70");
 
@@ -292,7 +292,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["consort", "cons", "71"], "Mafia", "Consort", (e) =>
+	register_role(["consort", "cons", "71"], "Mafia", "Consort", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 71");
 
@@ -307,7 +307,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["disguiser", "disg", "72"], "Mafia", "Disguiser", (e) =>
+	register_role(["disguiser", "disg", "72"], "Mafia", "Disguiser", {subCat: "Deception"}, (e) =>
 	{
 		e.setDescription("Post 72");
 
@@ -322,7 +322,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["forger", "forg", "73"], "Mafia", "Forger", (e) =>
+	register_role(["forger", "forg", "73"], "Mafia", "Forger", {subCat: "Deception"}, (e) =>
 	{
 		e.setDescription("Post 73");
 
@@ -337,7 +337,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["framer", "74"], "Mafia", "Framer", (e) =>
+	register_role(["framer", "74"], "Mafia", "Framer", {subCat: "Deception"}, (e) =>
 	{
 		e.setDescription("Post 74");
 
@@ -350,7 +350,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["hypnotist", "hypno", "75"], "Mafia", "Hypnotist", (e) =>
+	register_role(["hypnotist", "hypno", "75"], "Mafia", "Hypnotist", {subCat: "Deception"}, (e) =>
 	{
 		e.setDescription("Post 75");
 
@@ -363,7 +363,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["fuck_wolfi_harder", "fuckwolfiharder", "76"], "Mafia", "Fuck Wolfi Harder", (e) =>
+	register_role(["fuck_wolfi_harder", "fuckwolfiharder", "76"], "Mafia", "Fuck Wolfi Harder", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 76");
 
@@ -376,7 +376,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "N/A");
 	});
 
-	register_role(["janitor", "jan", "jani", "77"], "Mafia", "Janitor", (e) =>
+	register_role(["janitor", "jan", "jani", "77"], "Mafia", "Janitor", {subCat: "Deception"}, (e) =>
 	{
 		e.setDescription("Post 77");
 
@@ -386,27 +386,27 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a person to clean at night, preventing their last will and role from being publicly revealed.");
 
-		e.addField("Attributes:", "- You will see the role and last will of your targets when you clean them.")
+		e.addField("Attributes:", "- You will see the role and last will of your targets when you clean them.");
 
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["reporter", "78"], "Town", "Reporter", (e) =>
+	register_role(["reporter", "78"], "Town", "Reporter", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 78");
 
-		e.addField("Alignment", "Town Investigative", true);
+		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Investigate someone to find about their exact action in the previous night phase. This cannot be used in Night 1.\n- Investigate a dead body to learn about every action that targeted it during the night that it died. Cannot be used on people who died in the Day.");
 
-		e.addField("Attributes:", "- When using any ability, you may decide to publish your results anonymously in the following day's announcement. You must decide before you get results, not after.")
+		e.addField("Attributes:", "- When using any ability, you may decide to publish your results anonymously in the following day's announcement. You must decide before you get results, not after.");
 
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["mafioso", "79"], "Mafia", "Mafioso", (e) =>
+	register_role(["mafioso", "79"], "Mafia", "Mafioso", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 79");
 
@@ -416,27 +416,27 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Carry out the Factional Mafia Kill.");
 
-		e.addField("Attributes:", "- You can attack if the Godfather doesn't give you orders.\n- If the Godfather dies you will become the next Godfather.\n- You can talk with the other Mafia at night.\n- You have Control Immunity while following the Godfather's orders.")
+		e.addField("Attributes:", "- You can attack if the Godfather doesn't give you orders.\n- If the Godfather dies you will become the next Godfather.\n- You can talk with the other Mafia at night.\n- You have Control Immunity while following the Godfather's orders.");
 
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["wolfizee", "wolfi", "80"], "Town", "WolfiZee", (e) =>
+	register_role(["gossiper", "gossip", "80"], "Town", "Gossiper", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 80");
 
-		e.addField("Alignment", "Town Investigating", true);
+		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Visit a players house each day and attach yourself to their lamp.");
+		e.addField("Abilities:", "- Gossip with someone every night.");
 
-		e.addField("Attributes:", "- You will learn any notifications the player receives. (such as an invest getting their invest results)")
+		e.addField("Attributes:", "- You will learn any notifications the player receives. (such as an invest getting their invest results)");
 
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["medusa", "medu", "81"], "Coven", "Medusa", (e) =>
+	register_role(["medusa", "medu", "81"], "Coven", "Medusa", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 81");
 
@@ -446,12 +446,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may choose to Stone Gaze all visitors at night. (3 uses)");
 
-		e.addField("Attributes:", "- Stoned players will not have their roles or last wills publicly revealed.\n- With the Necronomicon, you may visit players and turn them to stone.")
+		e.addField("Attributes:", "- Stoned players will not have their roles or last wills publicly revealed.\n- With the Necronomicon, you may visit players and turn them to stone.");
 
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["potion_master", "potionmaster", "pmer", "82"], "Coven", "Potion Master", (e) =>
+	register_role(["potion_master", "potionmaster", "pmer", "82"], "Coven", "Potion Master", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 82");
 
@@ -461,12 +461,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Use an Attack Potion to attack a target.\n- Use a Heal Potion to provide someone with powerful defense.\n- Use a Reveal Potion to learn someone's true role.");
 
-		e.addField("Attributes:", "- Each potion has a three day cooldown.\n- With the Necronomicon, your potions no longer have a cooldown.")
+		e.addField("Attributes:", "- Each potion has a three day cooldown.\n- With the Necronomicon, your potions no longer have a cooldown.");
 
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["necromancer", "necro", "84"], "Coven", "Necromancer", (e) =>
+	register_role(["necromancer", "necro", "84"], "Coven", "Necromancer", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 84");
 
@@ -476,12 +476,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may reanimate a dead player and use their ability on a player.");
 
-		e.addField("Attributes:", "- Each dead player may be reanimated once.\n- With the Necronomicon, select yourself to summon a ghoul to Basic attack your target.")
+		e.addField("Attributes:", "- Each dead player may be reanimated once.\n- With the Necronomicon, select yourself to summon a ghoul to Basic attack your target.");
 
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["poisoner", "poison", "85"], "Coven", "Poisoner", (e) =>
+	register_role(["poisoner", "poison", "85"], "Coven", "Poisoner", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 85");
 
@@ -491,12 +491,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may choose to poison a player each night. If they don't have defense now, they will die the next night.");
 
-		e.addField("Attributes:", "- Your target may survive poison by being healed in the next night, or by gaining permanent defense. Temporary defense won't work.\n- With the Necronomicon, your poison can no longer be Healed.")
+		e.addField("Attributes:", "- Your target may survive poison by being healed in the next night, or by gaining permanent defense. Temporary defense won't work.\n- With the Necronomicon, your poison can no longer be Healed.");
 
 		e.addField("Goal:", "Coven Goal");
 	});
 
-	register_role(["amnesiac", "amne", "86"], "Neutral", "Poisoner", (e) =>
+	register_role(["amnesiac", "amne", "86"], "Neutral", "Amnesiac", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 86");
 
@@ -506,12 +506,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Remember who you were like by selecting a graveyard role. You will become that role permanently.");
 
-		e.addField("Attributes:", "- The role you remembered will be announced for everyone to see at the start of the following Day.")
+		e.addField("Attributes:", "- The role you remembered will be announced for everyone to see at the start of the following Day.");
 
 		e.addField("Goal:", "Remember who you were and complete that role's goal.");
 	});
 
-	register_role(["arsonist", "arso", "87"], "Neutral", "Poisoner", (e) =>
+	register_role(["arsonist", "arso", "87"], "Neutral", "Arsonist", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 87");
 
@@ -521,12 +521,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Douse a player in gasoline.\n- Douse yourself to ignite all doused players.");
 
-		e.addField("Attributes:", "- You will douse anybody that visits you.\n- If you take no action, you will attempt to clean gasoline off yourself.\n- Players you douse will appear to be an Arsonist when investigated.")
+		e.addField("Attributes:", "- You will douse anybody that visits you.\n- If you take no action, you will attempt to clean gasoline off yourself.\n- Players you douse will appear to be an Arsonist when investigated.");
 
 		e.addField("Goal:", "Live to see everyone burn...");
 	});
 
-	register_role(["executioner", "exe", "88"], "Neutral", "Executioner", (e) =>
+	register_role(["executioner", "exe", "88"], "Neutral", "Executioner", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 88");
 
@@ -534,12 +534,12 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Attributes:", "- At the start of the game, you will recieve a Target. Your target will always be a Townie, and cannot be the Jailor, Mayor, or any Town Power.\n- If your target is killed at night, you will become a Jester (Post 90).")
+		e.addField("Attributes:", "- At the start of the game, you will recieve a Target. Your target will always be a Townie, and cannot be the Jailor, Mayor, or any Town Power.\n- If your target is killed at night, you will become a Jester (Post 90).");
 
 		e.addField("Goal:", "Trick the Town into executing your Target.");
 	});
 
-	register_role(["guardian_angel", "guardianangel", "ga", "89"], "Neutral", "Guardian Angel", (e) =>
+	register_role(["guardian_angel", "guardianangel", "ga", "89"], "Neutral", "Guardian Angel", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 89");
 
@@ -549,12 +549,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Heal and Purge your Target, giving them Power Defense and removing all negative effects from them. (2 uses)");
 
-		e.addField("Attributes:", "- At the start of the game, a random person will become your Target.\n- Your healing works even while your Target is in Jail, and can let them survive execution.\n- If your target is killed at night, you will become a Survivor (Post 96) with no vests remaining.\n- Your Target cannot be a Jester, Executioner, or another Guardian Angel.\n- Vampires cannot convert you.")
+		e.addField("Attributes:", "- At the start of the game, a random person will become your Target.\n- Your healing works even while your Target is in Jail, and can let them survive execution.\n- If your target is killed at night, you will become a Survivor (Post 96) with no vests remaining.\n- Your Target cannot be a Jester, Executioner, or another Guardian Angel.\n- Vampires cannot convert you.");
 
 		e.addField("Goal:", "Keep your target alive until the end of the game.");
 	});
 
-	register_role(["jester", "jest", "90"], "Neutral", "Jester", (e) =>
+	register_role(["jester", "jest", "90"], "Neutral", "Jester", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 90");
 
@@ -562,12 +562,12 @@ module.exports = (g) =>
 		e.addField("Attack", "None (Unstoppable)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- If you are lynched, you will attack one of your guilty or abstaining voters the following night with an Unstoppable Attack.")
+		e.addField("Attributes:", "- If you are lynched, you will attack one of your guilty or abstaining voters the following night with an Unstoppable Attack.");
 
 		e.addField("Goal:", "Get yourself lynched by any means necessary.");
 	});
 
-	register_role(["juggernaut", "jugg", "91"], "Neutral", "Juggernaut", (e) =>
+	register_role(["juggernaut", "jugg", "91"], "Neutral", "Juggernaut", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 91");
 
@@ -575,14 +575,14 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful (Unstoppable)", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- You may choose to attack a player on full moon nights. (0 kills)\nYou may choose to attack a player each night. (1+ kills)")
+		e.addField("Abilities:", "- You may choose to attack a player on full moon nights. (0 kills)\nYou may choose to attack a player each night. (1+ kills)");
 
-		e.addField("Attributes:", "- With each kill, your powers grow, until you've killed 3 people.\n- 1st kill lets you attack every night.\n- 2nd kill makes your future attacks into Rampages.\n3rd kill makes your attack Unstoppable.\n- Detection Immunity")
+		e.addField("Attributes:", "- With each kill, your powers grow, until you've killed 3 people.\n- 1st kill lets you attack every night.\n- 2nd kill makes your future attacks into Rampages.\n3rd kill makes your attack Unstoppable.\n- Detection Immunity");
 
 		e.addField("Goal:", "Get yourself lynched by any means necessary.");
 	});
 
-	register_role(["pirate", "92"], "Neutral", "Pirate", (e) =>
+	register_role(["pirate", "92"], "Neutral", "Pirate", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 92");
 		e.author.iconURL = "https://cdn.discordapp.com/emojis/980989425137901588.webp";
@@ -591,14 +591,14 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player to duel each night, which also roleblocks them.")
+		e.addField("Abilities:", "- Choose a player to duel each night, which also roleblocks them.");
 
-		e.addField("Attributes:", "- In a duel, you will secretly choose Scimitar, Rapier, and Pistol, and your target will secretly choose Sidestep, Chainmail, and Backpedal.\n- Scimitar beats Sidestep, Rapier beats Chainmail, and Pistol beats Backpedal.\n- If your target loses, they are dealt a Powerful Attack.\n- You cannot duel the same player twice in a row.\n- Detection Immunity\n- Vampires cannot convert you.")
+		e.addField("Attributes:", "- In a duel, you will secretly choose Scimitar, Rapier, and Pistol, and your target will secretly choose Sidestep, Chainmail, and Backpedal.\n- Scimitar beats Sidestep, Rapier beats Chainmail, and Pistol beats Backpedal.\n- If your target loses, they are dealt a Powerful Attack.\n- You cannot duel the same player twice in a row.\n- Detection Immunity\n- Vampires cannot convert you.");
 
 		e.addField("Goal:", "Win 2 duels.");
 	});
 
-	register_role(["plaguebearer", "pb", "93"], "Neutral", "Plaguebearer", (e) =>
+	register_role(["plaguebearer", "pb", "93"], "Neutral", "Plaguebearer", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 93");
 
@@ -606,14 +606,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- You may choose to infect a player with the Plague each night.")
+		e.addField("Abilities:", "- You may choose to infect a player with the Plague each night.");
 
-		e.addField("Attributes:", "- Players will not know they have been infected.\n- When all living players are infected, you become Pestilence (Post 95).\n- Detection Immunity\n- The Plague is spread by visits to you and infected players, as well as infected players who visit people.")
+		e.addField("Attributes:", "- Players will not know they have been infected.\n- When all living players are infected, you become Pestilence (Post 95).\n- Detection Immunity\n- The Plague is spread by visits to you and infected players, as well as infected players who visit people.");
 
 		e.addField("Goal:", "Infect all living players and become Pestilence (Post 95).");
 	});
 
-	register_role(["pestilence", "pest", "94"], "Neutral", "Pestilence because fuck this let's let it be rolled naturally", (e) =>
+	register_role(["pestilence", "pest", "94"], "Neutral", "Pestilence because fuck this let's let it be rolled naturally", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 94");
 
@@ -621,14 +621,14 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- You may choose to Rampage at a player's house each night.")
+		e.addField("Abilities:", "- You may choose to Rampage at a player's house each night.");
 
-		e.addField("Attributes:", "- You will automatically attack anyone who visits you, including the Jailor.\n- Detection Immunity, Roleblock Immunity, and Control Immunity")
+		e.addField("Attributes:", "- You will automatically attack anyone who visits you, including the Jailor.\n- Detection Immunity, Roleblock Immunity, and Control Immunity");
 
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["serial_killer", "95"], "Neutral", "Serial Killer", (e) =>
+	register_role(["serial_killer", "95"], "Neutral", "Serial Killer", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 95");
 
@@ -643,7 +643,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["survivor", "96"], "Neutral", "Survivor", (e) =>
+	register_role(["survivor", "96"], "Neutral", "Survivor", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 96");
 
@@ -656,7 +656,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live until the end of the game.");
 	});
 
-	register_role(["vampire", "vamp", "97"], "Neutral", "Vampire", (e) =>
+	register_role(["vampire", "vamp", "97"], "Neutral", "Vampire", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 97");
 		e.author.iconURL = "https://cdn.discordapp.com/emojis/975231005713645618.webp";
@@ -672,7 +672,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
 	});
 
-	register_role(["werewolf", "ww", "98"], "Neutral", "Werewolf", (e) =>
+	register_role(["werewolf", "ww", "98"], "Neutral", "Werewolf", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 98");
 
@@ -687,7 +687,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill everyone who would oppose you.");
 	});
 
-	register_role(["witch", "99"], "Neutral", "Witch", (e) =>
+	register_role(["witch", "99"], "Neutral", "Witch", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 99");
 
@@ -702,7 +702,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Survive to see the Town lose the game.");
 	});
 
-	register_role(["unstable", "100"], "Neutral", "Unstable", (e) =>
+	register_role(["unstable", "100"], "Neutral", "Unstable", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 100");
 

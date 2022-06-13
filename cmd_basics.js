@@ -60,7 +60,7 @@ module.exports = (g) =>
 				commands[name[i]] = cmd;
 	}
 
-	register_cmd("list", "[category]", "List", "Create a list of all registered commands, organized by category. If a valid category is provided, this will list commands from only that category instead. Commands with alternate forms will have each form listed on the same line.", (chn, message, e, args) =>
+	register_cmd("list", "[category] [subcategory]", "List", "Create a list of all registered commands, organized by category. If a valid category is provided, this will list commands from only that category instead. A subcategory may be provided to further narrow the list. Commands with alternate forms will have each form listed on the same line.", (chn, message, e, args) =>
 	{
 		if(!args[0] && !message.member.permissions.has("ADMINISTRATOR"))
 		{
@@ -76,6 +76,7 @@ module.exports = (g) =>
 
 		let list = "Command List:";
 		let ordered = {};
+		let atLeastOne = false;
 
 		for(let cmd in commands)
 		{
@@ -84,6 +85,11 @@ module.exports = (g) =>
 			if(args[0] && args[0].toLowerCase() !== data.cat.toLowerCase())
 				continue;
 
+			if(args[1] && (!data.meta.subCat || data.meta.subCat.toLowerCase() !== args[1].toLowerCase()))
+				continue;
+
+			atLeastOne = true;
+
 			if(!ordered[data.cat])
 				ordered[data.cat] = {};
 
@@ -91,6 +97,12 @@ module.exports = (g) =>
 				ordered[data.cat][data.id] = PRE + cmd;
 			else
 				ordered[data.cat][data.id] = ordered[data.cat][data.id] + " " + PRE + cmd;
+		}
+
+		if(!atLeastOne)
+		{
+			msg(chn, "-No roles could be found under those specifications.");
+			return;
 		}
 
 		for(let cat in ordered)

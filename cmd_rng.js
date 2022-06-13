@@ -1,4 +1,14 @@
-//[min, max] or [0, max)
+//<table>, <string>
+function containsString(t, s)
+{
+	for(let i in t)
+		if(t[i].toLowerCase() === s.toLowerCase())
+			return true;
+
+	return false;
+}
+
+//[<min>, <max>] or [0, <max>)
 function randInt(min, max)
 {
 	if(!max)
@@ -8,6 +18,28 @@ function randInt(min, max)
 	}
 
 	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+//<Object: {rate}>
+function randChances(t)
+{
+	let sum = 0;
+
+	for(let i in t)
+		sum = sum + t[i].rate;
+
+	let choice = randInt(sum);
+	sum = 0;
+
+	for(let i in t)
+	{
+		sum = sum + t[i].rate;
+
+		if(sum > choice)
+			return t[i];
+	}
+
+	console.log("Warning: randChances returned null! Sum: " + sum + ", Choice: " + choice);
 }
 
 module.exports = (g) =>
@@ -98,31 +130,42 @@ module.exports = (g) =>
 		msg(chn, args[randInt(args.length)]);
 	});
 
-	register_cmd(["random_role", "randomrole", "rrole", "role"], "[Faction]", "Random Role", "Roll for a random role out of the list of those that are registered in the Bot. A Faction may both be specified in order to narrow down possible rolls. A full role card will be provided based on the results.\n\nSee =categories for a list of Factions.\n\nExact spelling will be required when specifying Factions, but they will not be case-sensitive.", (chn, message, e, args) =>
+	register_cmd(["random_role", "randomrole", "rrole", "role"], "[Faction] [Subalignment]", "Random Role", "Roll for a random role out of the list of those that are registered in the Bot. A Faction and Subalignment may both be specified in order to narrow down possible rolls. A full role card will be provided based on the results.\n\nSee =categories for a list of Factions.\n\nExact spelling will be required when specifying Factions and Subalignments, but they will not be case-sensitive.", (chn, message, e, args) =>
 	{
-		let cat = args[0];
-		let role = roles[Math.random() * roles.length];
-		let incany = randInt(5) == 0;
+		let cat1 = args[0];
+		let subCat = args[1];
+		let role = null;
+		let incany = randInt(10) == 0;
 
-		if(cat)
+		if(cat1)
 		{
+			let accept = false;
 			let rollable = [];
 
 			for(let r in roles)
 			{
-				let cmd = roles[r];
+				let cmd = roles[r].cmd;
+				let cat2 = [cmd.cat];
+				let submatch = !subCat || (cmd.meta.subCat && subCat.toLowerCase() === cmd.meta.subCat.toLowerCase());
 
-				if(cmd.cat.toLowerCase() === cat.toLowerCase() || (incany && cmd.cat.toLowerCase() === "any"))
-					rollable[rollable.length] = cmd;
+				if(cmd.meta.spawnCat)
+					cat2 = ((typeof cmd.meta.spawnCat === "string") && [cmd.meta.spawnCat] || cmd.meta.spawnCat);
+
+				if((containsString(cat2, cat1) && submatch) || (incany && containsString(cat2, "any")))
+					rollable[rollable.length] = {cmd, rate: cmd.meta.spawnRate || 1};
+
+				if(!accept && containsString(cat2, cat1))
+					accept = true;
 			}
 
-			role = rollable[randInt(rollable.length)];
+			if(accept)
+				role = randChances(rollable);
 		}
 		else
-			role = roles[randInt(roles.length)];
+			role = randChances(roles);
 
-		if(role)
-			role.func(chn, msg, e);
+		if(role && role.cmd)
+			role.cmd.func(chn, msg, e);
 		else
 			msg(chn, "-ERROR: No roles could be rolled.");
 	});

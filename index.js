@@ -38,6 +38,8 @@ const factions =
 	Fox: {color: "D67D4D"},
 	Cult: {color: "243A5F", icon: "https://cdn.discordapp.com/emojis/981974951756185680.webp"},
 	Horsemen: {color: "6936DB"},
+	Biohazard: {color: "1FCF1F", icon: "https://cdn.discordapp.com/emojis/677256057940082691.webp"},
+	Unseen: {color: "620035", icon: "https://cdn.discordapp.com/emojis/982379114335989831.webp"},
 	Neutral: {color: "808080", icon: "https://cdn.discordapp.com/emojis/980943261587865650.webp"}
 };
 
@@ -149,10 +151,16 @@ function add_cmd(name, cmd)
 }
 
 let r = 1;
-function register_role(name, cat, desc, func)
+function register_role(name, cat, desc, meta, func)
 {
 	if(!categories[cat])
 		categories[cat] = true;
+
+	if(!func)
+	{
+		func = meta;
+		meta = {};
+	}
 
 	let cmd = 
 	{
@@ -161,6 +169,7 @@ function register_role(name, cat, desc, func)
 		title: desc,
 		desc: "View details of the " + desc + " role.",
 		param: "",
+		meta,
 		func: (chn, message, e, args) =>
 		{
 			let fac = factions[cat] || {color: "808080"};
@@ -198,7 +207,7 @@ function register_role(name, cat, desc, func)
 		for(let i in name)
 			add_cmd(name[i], cmd);
 
-	roles[roles.length] = cmd;
+	roles[roles.length] = {cmd, rate: cmd.meta.spawnRate || 1};
 }
 
 const GLOBAL = {
@@ -234,6 +243,7 @@ require("./roles/cmd_roles_801-850.js")(GLOBAL);
 require("./roles/cmd_roles_851-900.js")(GLOBAL);
 require("./roles/cmd_roles_901-950.js")(GLOBAL);
 require("./roles/cmd_roles_951-1000.js")(GLOBAL);
+require("./roles/cmd_roles_1001-1050.js")(GLOBAL);
 
 
 

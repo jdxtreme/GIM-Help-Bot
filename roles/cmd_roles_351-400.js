@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role} = g;
 
-	register_role(["kindler", "351"], "Underworld", "Kindler", (e) =>
+	register_role(["kindler", "351"], "Underworld", "Kindler", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 351");
 
@@ -17,7 +17,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who oppose the Underworld sect.");
 	});
 
-	register_role(["jailor", "352"], "Neutral", "Jailor", (e) =>
+	register_role(["jailor", "352"], "Neutral", "Jailor", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 352");
 
@@ -27,12 +27,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Throw a grenade at someone every other night. This deals a Powerful attack to them and a random one of their visitors.\n- Phase someone out every night. This negates their ability and all abilities targetting them for that night.");
 
-		e.addField("Attributes:", "- You have a magic box that stores the first non-attacking ability used against you, negating it. You then gain use of that ability.\n- You may use any number of different abilities each night.");
+		e.addField("Attributes:", "- You have a magic box that stores the first non-attacking ability used against you, negating it. You then gain use of that ability.\n- You may use any number of different abilities each night.\n- You may phase yourself out, and if you do, it only negates abilities targetting you.");
 		
 		e.addField("Goal:", "Eliminate all who would oppose you.");
 	});
 
-	register_role(["model", "353"], "Town", "Model", (e) =>
+	register_role(["model", "353"], "Town", "Model", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 353");
 
@@ -42,12 +42,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Sing at someone's house every night, may include yourself.");
 
-		e.addField("Attributes:", "- ALL abilities used on them are revealed to the public the next day.\n- You may only do this twice.");
+		e.addField("Attributes:", "- ALL roles that visit them will be revealed to the public the next day.\n- You may only do this twice.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["animal_behaviorist", "animalbehaviorist", "behaviorist", "354"], "Town", "Animal Behaviorist", (e) =>
+	register_role(["animal_behaviorist", "animalbehaviorist", "behaviorist", "354"], "Town", "Animal Behaviorist", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 354");
 
@@ -62,22 +62,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["mafioso", "355"], "Town", "Mafioso", (e) =>
+	register_role(["mafioso", "355"], "Town", "Mafioso", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 355");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Powerful)", true);
 
 		e.addField("Abilities:", "- Foretell someone every night. At the end of the next night, you will learn 5 random roles they could be. At the end of the night after the night after that, you will learn their role exactly.");
 
-		e.addField("Attributes:", "- Your vote counts as 2 every odd-numbered day.\n- You may not vote \"Innocent\" on odd-numbered days.\n- You have a layer of Powerful defense that can block one attack.");
+		e.addField("Attributes:", "- You may not vote \"Innocent\" on odd-numbered days.\n- You have a layer of Powerful defense that can block one attack.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["inferno", "356"], "Underworld", "Inferno", (e) =>
+	register_role(["inferno", "356"], "Underworld", "Inferno", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 356");
 
@@ -92,7 +92,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who oppose the Underworld sect.");
 	});
 
-	register_role(["magic_clone", "magicclone", "358"], "Coven", "Magic Clone", (e) =>
+	register_role(["magic_clone", "magicclone", "358"], "Coven", "Magic Clone", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 358");
 
@@ -100,19 +100,19 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "Choose someone during the day to learn their ability to use at night.");
+		e.addField("Abilities:", "- Choose someone during the day to learn their ability to use at night.");
 
 		e.addField("Attributes:", "- You can use your target's ability at night.\n- With the Necronomicon, any ability you learn will be permanent.\n- With the Necronomicon, you will get an ability to deal a basic attack to 1 player.\n- With the Necronomicon, you can use all your permanent learned abilities at the same time every night.");
 		
 		e.addField("Goal:", "Kill all who would oppose the Coven.");
 	});
 
-	register_role("359", "Other", "Elkcaster Mage", (e) =>
+	register_role("359", "Other", "Elkcaster Mage", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 359\nGoal is N/A, that means this one is an invalid!");
 	});
 
-	register_role(["sans", "360"], "Town", "Sans", (e) =>
+	register_role(["sans", "360"], "Town", "Sans", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 360");
 
@@ -120,12 +120,12 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- bones or smth (use an attack)");
+		e.addField("Abilities:", "- bones or smth (For god's sake yes this is an attack.)");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["analyst", "361"], "Town", "Analyst", (e) =>
+	register_role(["analyst", "361"], "Town", "Analyst", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 361");
 
@@ -140,22 +140,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["clothing_seller", "clothingseller", "clothing", "362"], "Town", "Clothing Seller", (e) =>
+	register_role(["demon", "362"], "Neutral", "Demon", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 362");
 
-		e.addField("Alignment", "Town Investigative", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "None (Powerful)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Sell clothing to a player every night.");
+		e.addField("Abilities:", "- Curse a player's house every night.\n- Curse a player every night.\n- Possess someone. The next day, they cannot talk, and you will vote for them. Then, the next night, their visit Is converted into a basic attack.\n- Target a player. You will deal a Powerful Attack to up to X people, where X Is the amount of people that visited your target.");
 
-		e.addField("Attributes:", "- At the end of each night, learn how many people with clothes visit another person with clothes. You wont know who visits who.");
+		e.addField("Attributes:", "- Cursed houses' visits are transformed into basic attacks.\n- A cursed player's visit Is transformed into a basic attack.\n- You may use up to 2 abilities each night.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["personal_jesus", "personaljesus", "jesus", "363"], "Neutral", "Personal Jesus", (e) =>
+	register_role(["personal_jesus", "personaljesus", "jesus", "363"], "Neutral", "Personal Jesus", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 363");
 
@@ -165,12 +165,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Call someone to allow them to confess their misdeeds.");
 
-		e.addField("Attributes:", "- Choose someone during the day to call.\n- Players that you call will be notified that they have been reached out to by a Personal Jesus and may choose to confess a sin they have committed in this game.\n- If a player chooses to tell a sin to you (i.e. something they have been informed about), you will receive the details of that sin, and they will receive Powerful defense (or Invincible if they already have Powerful) for that night.\n- Once you have received sins from three players, you must choose someone the next day to reveal their sin publicly. This information will be revealed to everyone at the end of the day.");
+		e.addField("Attributes:", "- Choose someone during the day to call.\n- Players that you call will be notified that they have been reached out to by a Personal Jesus and may choose to confess a sin they have committed in this game.\n- If a player chooses to tell a sin to you, you will receive the details of that sin, and they will receive Powerful defense (or Invincible if they already have Powerful) for that night.\n- A sin is defined as a piece of information that your target knows is true according to their ability results, faction members, or any other method of non-public information gathering.\n- Once you have received sins from three players, you must choose someone the next day to reveal their sin publicly. This information will be revealed to everyone at the end of the day.");
 		
 		e.addField("Goal:", "Receive sins from three players and expose one player's sins.");
 	});
 
-	register_role(["absolute_will", "absolutewill", "364"], "Town", "Absolute Will", (e) =>
+	register_role(["absolute_will", "absolutewill", "364"], "Town", "Absolute Will", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 364");
 
@@ -185,7 +185,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["essence_of_speed", "essenceofspeed", "speed", "365"], "Neutral", "Essence of Speed", (e) =>
+	register_role(["essence_of_speed", "essenceofspeed", "speed", "365"], "Neutral", "Essence of Speed", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 365");
 
@@ -200,7 +200,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Complete your other role’s win con.");
 	});
 
-	register_role(["firebrand", "366"], "Town", "Firebrand", (e) =>
+	register_role(["firebrand", "366"], "Town", "Firebrand", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 366");
 
@@ -215,7 +215,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["butcher", "367"], "Neutral", "Butcher", (e) =>
+	register_role(["butcher", "367"], "Neutral", "Butcher", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 367");
 
@@ -230,20 +230,20 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill anyone who would oppose you.");
 	});
 
-	register_role(["scorcher", "368"], "Underworld", "Scorcher", (e) =>
+	register_role(["scorcher", "368"], "Underworld", "Scorcher", {subCat: "Espionage"}, (e) =>
 	{
 		e.setDescription("Post 368");
 
-		e.addField("Alignment", "Unique Underworld Support", true);
+		e.addField("Alignment", "Unique Underworld Espionage", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Whenever a player is killed, gain the ability to douse.\n- You cannot gain charges unless you have 1 or less charges.\n- If the Apocalypse is dead and there are no Underworld Offensive roles alive, you will become the Apocalypse.\n- Conversion Immunity");
+		e.addField("Attributes:", "- Whenever a player is killed, gain the ability to douse.\n- You cannot gain charges unless you have 1 or less charges.\n- If all other Underworld players are dead, you will become the Apocalypse.\n- Conversion Immunity");
 		
 		e.addField("Goal:", "Kill all who oppose the Underworld sect.");
 	});
 
-	register_role(["courier", "369"], "Town", "Courier", (e) =>
+	register_role(["courier", "369"], "Town", "Courier", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 369");
 
@@ -258,7 +258,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["incarcerator", "370"], "Town", "Incarcerator", (e) =>
+	register_role(["incarcerator", "370"], "Town", "Incarcerator", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 370");
 
@@ -273,7 +273,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["blaster", "371"], "Underworld", "Blaster", (e) =>
+	register_role(["blaster", "371"], "Underworld", "Blaster", {subCat: "Offensive"}, (e) =>
 	{
 		e.setDescription("Post 371");
 
@@ -288,7 +288,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who oppose the Underworld sect.");
 	});
 
-	register_role(["man_in_the_painting", "maninthepainting", "painting", "372"], "Neutral", "Man in the Painting", (e) =>
+	register_role(["man_in_the_painting", "maninthepainting", "painting", "372"], "Neutral", "Man in the Painting", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 372");
 
@@ -303,7 +303,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Successfully have a conversation with at least two people.");
 	});
 
-	register_role(["mfw", "373"], "Neutral", "Mfw", (e) =>
+	register_role(["mfw", "373"], "Neutral", "Mfw", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 373");
 
@@ -316,13 +316,13 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill anyone to winwin\nwin*");
 	});
 
-	register_role(["interrogator", "374"], "Town", "Interrogator", (e) =>
+	register_role(["interrogator", "374"], "Town", "Interrogator", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 374");
 
 		e.addField("Alignment", "Town Investigative", true);
-		e.addField("Attack", "Overkill", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Pick someone to open up a chat with at night every day.");
 
@@ -331,7 +331,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["jailkeep", "375"], "Town", "Jailkeep", (e) =>
+	register_role(["jailkeep", "375"], "Town", "Jailkeep", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 375");
 
@@ -346,7 +346,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["harlequin", "376"], "Neutral", "Harlequin", (e) =>
+	register_role(["harlequin", "376"], "Neutral", "Harlequin", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 376");
 
@@ -361,7 +361,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Die in the night.");
 	});
 
-	register_role(["loudmouth", "377"], "Town", "Loudmouth", (e) =>
+	register_role(["loudmouth", "377"], "Town", "Loudmouth", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 377");
 
@@ -376,7 +376,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["young_boy", "youngboy", "378"], "Town", "Young Boy", (e) =>
+	register_role(["young_boy", "youngboy", "378"], "Town", "Young Boy", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 378");
 
@@ -384,14 +384,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose someone's house to watch during the night.");
+		e.addField("Abilities:", "- Choose someone's house to watch during the night.\n- Choose someone to trust.");
 
-		e.addField("Attributes:", "- If that Person gets attacked, you will tell one random person neighbouring the attacked the name of the attacker.");
+		e.addField("Attributes:", "- If that person gets attacked, you will tell the person that you trusted the name of the attacker, unless they are a TPo, in which case the ability fails, but you wont know It failed.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["practicioner", "379"], "Town", "Practicioner", (e) =>
+	register_role(["practicioner", "379"], "Town", "Practicioner", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 379");
 
@@ -406,7 +406,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "town except pronounced like own would by itself so it’s like tone");
 	});
 
-	register_role(["engineer", "380"], "Town", "Engineer", (e) =>
+	register_role(["engineer", "380"], "Town", "Engineer", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 380");
 
@@ -416,27 +416,27 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Construct a sentry at night.\n- Place a constructed sentry at someone's house. The sentry will deal a Powerful attack to 1 random visitor who is not a member of the same faction as the player whose house the sentry is placed at.\n- Destroy a constructed sentry.");
 
-		e.addField("Attributes:", "- You may only have 1 constructed sentry at a time.\n- Once a sentry attacks a player, it will disappear.");
+		e.addField("Attributes:", "- You may only have 1 constructed sentry at a time.\n- Once a sentry attacks a player, it will disappear.\n- You may not target yourself.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["mole", "381"], "Town", "Mole", (e) =>
+	register_role(["party_host", "partyhost", "party", "381"], "Town", "Party Host", {subCat: "Casual"}, (e) =>
 	{
 		e.setDescription("Post 381");
 
-		e.addField("Alignment", "Town Support", true);
+		e.addField("Alignment", "Town Casual", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Create a tunnel between 2 players.");
+		e.addField("Abilities:", "- Invite someone to your party.\n- During the day, drink an energy drink, granting yourself Basic defense the following night. 0 uses, 1 use for each evil that was **lynched**.");
 
-		e.addField("Attributes:", "- The 2 now share all results they get, like invests, transport, roleblock, etc...if one gets rbed, the other one knows the other was rbed.");
+		e.addField("Attributes:", "- Invited players are forced to use your ability on you. They will also deal a basic attack to you. If their ability Is an attack with a value higher than basic, It Is lowered to basic. If they have multiple abilities, the first one Is picked. They will learn your role.\n- If you invite a TPo, your ability will fail.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["genwunner", "382"], "Neutral", "Genwunner", (e) =>
+	register_role(["genwunner", "382"], "Neutral", "Genwunner", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 382");
 
@@ -449,7 +449,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Defeat Blue and become the Champion of Kanto.");
 	});
 
-	register_role(["dreamwalker", "383"], "Mafia", "Dreamwalker", (e) =>
+	register_role(["dreamwalker", "383"], "Mafia", "Dreamwalker", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 383");
 
@@ -464,7 +464,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["pestilence", "384"], "Neutral", "Pestilence, Horseman of the Apocalypse", (e) =>
+	register_role(["pestilence", "384"], "Neutral", "Pestilence, Horseman of the Apocalypse", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 384");
 
@@ -479,7 +479,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["voidslime", "385"], "Neutral", "Voidslime", (e) =>
+	register_role(["voidslime", "385"], "Neutral", "Voidslime", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 385");
 
@@ -492,7 +492,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Prevent as much fun as possible.");
 	});
 
-	register_role(["werewolf_convert", "werewolfconvert", "ww_conv", "wwconv", "386"], "Neutral", "Werewolf but it can convert", (e) =>
+	register_role(["werewolf_convert", "werewolfconvert", "ww_conv", "wwconv", "386"], "Neutral", "Werewolf but it can convert", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 386");
 
@@ -507,7 +507,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill everyone who would oppose you.");
 	});
 
-	register_role(["suffering", "387"], "Neutral", "Suffering", (e) =>
+	register_role(["suffering", "387"], "Neutral", "Suffering", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 387");
 
@@ -520,7 +520,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["winsconsin", "388"], "Neutral", "Winsconsin", (e) =>
+	register_role(["winsconsin", "388"], "Neutral", "Winsconsin", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 388");
 
@@ -533,7 +533,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Convert the entire town into Winsconsin");
 	});
 
-	register_role(["word_eater", "wordeater", "389"], "Neutral", "Word Eater", (e) =>
+	register_role(["word_eater", "wordeater", "389"], "Neutral", "Word Eater", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 389");
 
@@ -546,7 +546,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town day Basic vote one dead schizophrenia.");
 	});
 
-	register_role(["dimensional_mage", "dimensionalmage", "dimensional", "dm", "390"], "Neutral", "Dimensional Mage", (e) =>
+	register_role(["dimensional_mage", "dimensionalmage", "dimensional", "dm", "390"], "Neutral", "Dimensional Mage", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 390");
 
@@ -556,12 +556,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- At night, split the current playerlist in half, creating 2 separate games out of this one game. The players assigned to each game will be selected randomly. This includes dead players (who will remain dead). (1 use. Cannot be used on the first night.)\n- At night, choose a player. Everyone who visits that player will be dealt a Basic attack. If nobody visits that player, then they will be dealt a Basic attack.");
 
-		e.addField("Attributes:", "- Astral\n- Any roles which have abilities or attributes which depend on another specific player will assume that player is dead if they are separated into different games.");
+		e.addField("Attributes:", "- Astral\n- Any roles which have abilities or attributes which depend on another specific player will assume that player is dead if they are separated into different games.\n- You may target yourself.");
 		
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["drunk", "391"], "Neutral", "Drunk", (e) =>
+	register_role(["drunk", "391"], "Neutral", "Drunk", {subCat: "(Random)"}, (e) =>
 	{
 		e.setDescription("Post 391");
 
@@ -574,11 +574,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Learn your true role and complete its goal.");
 	});
 
-	register_role(["talented", "392"], "Neutral", "Talented", (e) =>
+	register_role(["talented", "392"], "Neutral", "Talented", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 392");
 
-		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Variable", true);
 
@@ -587,7 +587,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "N/A");
 	});
 
-	register_role(["copycat", "393"], "Mafia", "Copycat", (e) =>
+	register_role(["copycat", "393"], "Mafia", "Copycat", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 393");
 
@@ -602,7 +602,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["lighter", "394"], "Underworld", "Lighter", (e) =>
+	register_role(["lighter", "394"], "Underworld", "Lighter", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 394");
 
@@ -617,7 +617,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Underworld Goal");
 	});
 
-	register_role(["topaz", "395"], "Rock", "Topaz", (e) =>
+	register_role(["topaz", "395"], "Rock", "Topaz", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 395");
 
@@ -632,7 +632,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Rock Goal");
 	});
 
-	register_role(["maid", "396"], "Mafia", "Maid", (e) =>
+	register_role(["maid", "396"], "Mafia", "Maid", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 396");
 
@@ -641,11 +641,13 @@ module.exports = (g) =>
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- At night, you may choose to stop the flow of time for all players except for yourself, a random living Mafia (Killing) role, and one player of your choosing. The following day chat will only be accessible by the three of you. (This means nobody else can even see the channel.) For the purposes of both voting and voting majority, only the players inside this restricted day chat are considered. [1 use.]\n- Grant protection to another Mafia player, granting them Basic defense and dealing a Basic attack to one random player who attacks the player you are protecting. [1 use.]");
+
+		e.addField("Attributes:", "- You may not target yourself.");
 		
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["turquiose", "turq", "397"], "Rock", "Turquoise", (e) =>
+	register_role(["turquiose", "turq", "397"], "Rock", "Turquoise", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 397");
 
@@ -660,11 +662,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Rock Goal");
 	});
 
-	register_role(["sexyman", "398"], "Town", "Sexyman", (e) =>
+	register_role(["sexyman", "398"], "Town", "Sexyman", {subCat: "Sexyman"}, (e) =>
 	{
 		e.setDescription("Post 398");
 
-		e.addField("Alignment", "Town Support", true);
+		e.addField("Alignment", "Town Sexyman", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
@@ -675,7 +677,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["wm_caporegime", "wmcaporegime", "caporegime", "399"], "Mafia", "WM Caporegime", (e) =>
+	register_role(["wm_caporegime", "wmcaporegime", "caporegime", "399"], "Mafia", "WM Caporegime", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 399");
 
@@ -690,7 +692,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["philosopher", "400"], "Neutral", "Philosopher", (e) =>
+	register_role(["philosopher", "400"], "Neutral", "Philosopher", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 400");
 
