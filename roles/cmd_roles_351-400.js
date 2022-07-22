@@ -107,9 +107,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose the Coven.");
 	});
 
-	register_role("359", "Other", "Elkcaster Mage", {subCat: "Killing"}, (e) =>
+	register_role(["asmodeus", "asmo", "359"], "FallenAngel", "Asmodeus", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 359\nGoal is N/A, that means this one is an invalid!");
+		e.setDescription("Post 359");
+
+		e.addField("Alignment", "Unique Fallen Angel Killing", true);
+		e.addField("Attack", "Piercing", true);
+		e.addField("Defense", "Aura", true);
+
+		e.addField("Abilities:", "- Maul someone each night. You'll attack them and negate all protective effects against them, and you'll attack any protective visitors.");
+
+		e.addField("Attributes:", "- If you maul a Fallen Angel, you'll be able to attack an additional player the next night. (This only applies to the initial target of your attack.)\n- If you maul a non-Fallen Angel, you'll be roleblock and redirect immune the next night. (Same goes.)\n**Sin of Lust** — If you're the last Fallen Angel remaining, you may choose to convert yourself to any evil faction of your choosing at any time. You may also choose any role from that faction to be converted into, except for Espionage roles. You retain the ability to convert upon converting, but you may never convert to being aligned with the Town through any roles. (No, you can't convert to Florae.)");
+		
+		e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
 	});
 
 	register_role(["sans", "360"], "Town", "Sans", {subCat: "Killing"}, (e) =>
@@ -185,11 +195,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["essence_of_speed", "essenceofspeed", "speed", "365"], "Neutral", "Essence of Speed", {subCat: "Support"}, (e) =>
+	register_role(["essence_of_speed", "essenceofspeed", "speed", "365"], "Neutral", "Essence of Speed", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 365");
 
-		e.addField("Alignment", "Town Support", true);
+		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
@@ -403,7 +413,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "You will know if you *and* how many people you heal with your abilities.");
 		
-		e.addField("Goal:", "town except pronounced like own would by itself so it’s like tone");
+		e.addField("Goal:", "Town except pronounced like own would by itself so it’s like tone");
 	});
 
 	register_role(["engineer", "380"], "Town", "Engineer", {subCat: "Killing"}, (e) =>
@@ -436,17 +446,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["genwunner", "382"], "Neutral", "Genwunner", {subCat: "Benign"}, (e) =>
+	register_role(["mephistopheles", "meph", "382"], "FallenAngel", "Mephistopheles", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 382");
 
-		e.addField("Alignment", "Neutral Benign", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Unique Fallen Angel Killing", true);
+		e.addField("Attack", "Piercing", true);
+		e.addField("Defense", "Aura", true);
 
-		e.addField("Attributes:", "- The game is Pokémon Red Version (1996) and isn't Grand Idea Mafia (hell). \n- You may reroll this role for free if you don't want to play Pokemon. (Even if you're its creator.)");
+		e.addField("Abilities:", "- Bind someone each night. You can give them any set of orders, which, if they fail to obey at any point, you will attack them. Orders must be specific game actions, but can include conditionals. Your contract will only last for two day/night cycles.");
+
+		e.addField("Attributes:", "- If you bind a Fallen Angel, you will also learn all game actions they take while binded.\n- If you bind a non-Fallen Angel, you will also learn their role.\n**Sin of Sloth** — If you're the last Fallen Angel remaining, your targets must follow your orders if possible and your contracts last forever and you may bind two players each night. This applies to contracts made before you became the last Fallen Angel.");
 		
-		e.addField("Goal:", "Defeat Blue and become the Champion of Kanto.");
+		e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
 	});
 
 	register_role(["dreamwalker", "383"], "Mafia", "Dreamwalker", {subCat: "Support"}, (e) =>
@@ -554,9 +566,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- At night, split the current playerlist in half, creating 2 separate games out of this one game. The players assigned to each game will be selected randomly. This includes dead players (who will remain dead). (1 use. Cannot be used on the first night.)\n- At night, choose a player. Everyone who visits that player will be dealt a Basic attack. If nobody visits that player, then they will be dealt a Basic attack.");
+		e.addField("Abilities:", "- At night, split the current playerlist into as equal as possible halves, creating 2 separate games out of this one game. The players assigned to each game will be selected randomly. This includes dead players (who will remain dead). (1 use. Cannot be used on the first night.)\n- At night, choose a player. Everyone who visits that player will be dealt a Basic attack. If nobody visits that player, then they will be dealt a Basic attack.");
 
-		e.addField("Attributes:", "- Astral\n- Any roles which have abilities or attributes which depend on another specific player will assume that player is dead if they are separated into different games.\n- You may target yourself.");
+		e.addField("Attributes:", "- Astral\n- Any roles which have abilities or attributes which depend on another specific player will assume that player is dead if they are separated into different games.\n- You may target yourself with your attack.");
 		
 		e.addField("Goal:", "NK Goal");
 	});

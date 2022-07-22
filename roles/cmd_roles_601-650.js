@@ -64,19 +64,17 @@ module.exports = (g) =>
 		e.addField("Goal:", "NK Goal");
 	});
 
-	register_role(["muffin_baker", "muffinbaker", "muffin", "605"], "Town", "Muffin Baker", {subCat: "Support"}, (e) =>
+	register_role(["solar_tomato", "solartomato", "tomato", "605"], "Plant", "Solar Tomato", {subCat: "Production"}, (e) =>
 	{
 		e.setDescription("Post 605");
 
-		e.addField("Alignment", "Town Support", true);
+		e.addField("Alignment", "Plant Production", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Bake one muffin during the night.\n- Give one of your muffins to a player during the night.");
-
-		e.addField("Attributes:", "- Muffins take a day to bake.\n- Giving a muffin to a player gives them a one-use day ability which deals a basic attack to a target of their choice.\n- You can't self target and you can only use one ability per night.");
+		e.addField("Abilities:", "- Roleblock a player. If you successfully stopped an action with this ability, generate one sun.\n- Grant a non-plant roleblock immunity tonight, generating one sun.\n- Grant an ally plant permanent roleblock immunity. Costs 2 sun.\n- Roleblock one player for every time you've successfully stopped an action and for every time you've negated a roleblock. Costs 4 sun. (One use)");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", "Plant Goal");
 	});
 
 	register_role(["i_won", "iwon", "won", "606"], "Neutral", "I Won!", {subCat: "Chaos"}, (e) =>
@@ -117,9 +115,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "- \"The Senate\" (Unlynchable)", true);
 
-		e.addField("Abilities:", "- Convert to the Dark Side: Converts the role to a Sith (Apprentice) role of the target's choosing. There can only be two Sith roles alive at a time. You cannot convert roles with role chats\n- Unlimited Power: Go in for the factional kill. Your attack will be unstoppable, but your defense will drop to none since you are now exposed as a Sith, Lord? One charge");
+		e.addField("Abilities:", "- Convert to the Dark Side: Converts the role to a Sith (Apprentice) role of the target's choosing.\n- Unlimited Power: Go in for the factional kill. Your attack will be unstoppable, but your defense will drop to none since you are now exposed as a Sith, Lord? One charge");
 
-		e.addField("Attributes:", "- Can perform the factional Sith kill (Basic)\n- Has private chat with the other Sith.\n- If he dies, the current Sith (Apprentice) will become the new Palpatine.");
+		e.addField("Attributes:", "- There can only be two Sith roles alive at a time.\n- You can only convert the roles if they are any of the following: Town, City, Neutral Benign, or Neutral Evils/Chaos with the goal of seeing Town/City lose.\n- Can perform the factional Sith kill (Basic)\n- Has private chat with the other Sith.\n- If he dies, the current Sith (Apprentice) will become the new Palpatine.");
 		
 		e.addField("Goal:", "Eliminate those that do not join to the Dark Side");
 	});
@@ -214,7 +212,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["jedi_apprentice", "jediapprentice", "614.5", "614b"], "Town", "Jedi Master", {subCat: "Killing"}, (e) =>
+	register_role(["jedi_apprentice", "jediapprentice", "614.5", "614b"], "Town", "Jedi Apprentice", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 614.5");
 
@@ -244,19 +242,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["cold-water_snapper", "coldwatersnapper", "snapper", "616"], "Neutral", "Cold-Water Snapper", {subCat: "Killing"}, (e) =>
+	register_role(["jormungandr", "jorm", "616"], "FallenAngel", "Jörmungandr", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 616");
 
-		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Unique Fallen Angel Killing", true);
+		e.addField("Attack", "Piercing", true);
+		e.addField("Defense", "Aura", true);
 
-		e.addField("Abilities:", "- Kill a player each night. (People die when they are killed.)");
+		e.addField("Abilities:", "- Swallow someone each night. Their role and will will appear as \"Devoured\".");
 
-		e.addField("Attributes:", "- Hexproof. (You can't be the target of abilities, votes, whispers, or anything else.)\n- You must attack each night.\n- This role can only role if there are at least two other roles that could kill it without targetting it.");
+		e.addField("Attributes:", "- If you swallow a Fallen Angel, you will have roleblock, redirection, conversion, and detection immunity while doing so, as well as total death immunity except for against other Fallen Angels, and other negative effects against you will be negated.\n- If you judge a non-Fallen Angel, you will learn their role and be able to read their will.\n**Sin of Gluttony** — If you're the last Fallen Angel remaining, you can choose a faction each night instead. You will swallow every member of that faction after (4 - X) days, where X is the number of dead Fallen Angels, and the Town will be informed that you are doing so.");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
 	});
 
 	register_role(["vital_late_game_townie", "vitallategametownie", "vital", "vlgt", "617"], "Town", "VITAL Late Game Townie", {subCat: "Support"}, (e) =>
@@ -372,9 +370,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- You draw a hand of 5 cards at the beginning of the game, and an additional 1 card at the beginning of each day.\n- Cards are random roles from the Grand Idea Mafia roles thread.");
+		e.addField("Abilities:", "- Each night, you may play a card as either a creature or a sorcery. (This uses up the card.)\n> - If you play it as a creature, create a new player with that role named whatever you want at the beginning of the next day. You control that player.\n> - If you play it as a sorcery, use any number of its abilities and gain any number of its attributes that night, then it goes to the Graveyard.");
 
-		e.addField("Attributes:", "- Each night, you may play a card as either a creature or a sorcery. (This uses up the card.)\n- If you play it as a creature, create a new player with that role named whatever you want at the beginning of the next day. You control that player.\n- If you play it as a sorcery, use any number of its abilities and gain any number of its attributes that night, then it goes to the Graveyard.");
+		e.addField("Attributes:", "- You draw a hand of 5 cards at the beginning of the game.\n- After drawing your hand, you may choose to mulligan, drawing a new hand of 4 cards. You may repeat this process any number of times, drawing one less card each time.\n- Cards are random roles from the Grand Idea Mafia roles thread.\n- You draw an additional card at the beginning of each day.");
 		
 		e.addField("Goal:", "Eliminate all who would oppose you.");
 	});
@@ -475,7 +473,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- Call upon the divine cold at night, giving an Everfrost player Basic defense and making them Astral and redirect immune. Their ability that night will have the highest possible priority and, if it's a roleblock, will roleblock players through immunities.\n**Winter's Judgment** — Roleblock up to three players, then coldsnap. (*Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately if Eyisa is alive.*) You may only use this ability once each game and you can't use it until Night 3.");
+		e.addField("Abilities:", "- Call upon the divine cold at night, giving an Everfrost player Basic defense and making them Astral and redirect immune. Their ability that night will have the highest possible priority and, if it's a roleblock, will roleblock players through immunities and any other effects that would prevent it.\n**Winter's Judgment** — Roleblock up to three players, then coldsnap. (*Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately if Eyisa is alive.*) You may only use this ability once each game and you can't use it until Night 3.");
 
 		e.addField("Attributes:", "- This role will appear as long as any other Everfrost role does.\n- Town roles that roleblock players can't be rolled as long as the Everfrost does.\n- At the beginning of Day 1, players will be notified that the eternal winter is coming.\n- Instead of a factional kill, the Everfrost has a factional roleblock each night that any member may spend the night to perform. (This applies even if Eyisa is dead.)\n- Whenever a player is roleblocked by anything while you're alive, they'll be notified that they're covered in frost. If they're not visited by at least two other non-Everfrost players the next night, they're dealt an Astral Basic attack by you at the end of that night. This effect cannot be prevented by anything.\n- If you die, this will only apply to the Everfrost's factional roleblock.\n- You have a veil of ice that makes you appear to be a Town role of your choice to all investigative effects of any kind. You may change the role you appear as at any time.");
 

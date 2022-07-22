@@ -25,11 +25,11 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic (None)", true);
 		e.addField("Defense", "Basic (None)", true);
 
-		e.addField("Abilities:", "- Attack 1 player at night\n- Infest someone.");
+		e.addField("Abilities:", "- Attack a player at night\n- Roleblock a player at night.");
 
-		e.addField("Attributes:", "- If you choose to Infest someone, you will be unable to attack for the next night.\n- If you survive the end of the next night after Infesting, your target will become an Infested, and you will commit suicide after 3 days.\n- You can't Infest another player after successfully Infesting.\n-Conversion and Control Immunity\n- While you are Infesting, you have Redirection and Roleblock immunity.\n- You lose your Attack and Defense after you successfully Infest.");
+		e.addField("Attributes:", "- Conversion and Control Immunity\n- If someone visits you during the night, they will gain the Spored status effect. This can happen up to 3 times.\n- If a player with the Spored status effect dies by something other than lynching, they will instead survive and become a Sporetouched (Post 402-B).\n- You know the identities of all Sporetouched, and may send them anonymous messages at any time. They will know that the Infested sent them this message.\n- If there is a Sporetouched alive, you will be incapable of attacking.");
 		
-		e.addField("Goal:", "Kill all who oppose you, or have another Infested win the game.");
+		e.addField("Goal:", "Kill all who oppose you, or have another Sporetouched win the game.");
 	});
 
 	register_role(["token_vendor", "tokenvendor", "token", "403"], "Neutral", "Token Vendor", {subCat: "Benign"}, (e) =>
@@ -102,9 +102,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Get an Idea. Must be a challenge.");
 
-		e.addField("Attributes:", "- When you get an idea, it is publicly announced to the town.\n- Those who win are granted some form of buff\n- Those who lose get nothing\n- Those who don't participate are RB'd the next night.\n- If you're the first to die, then your attacker is attacked with lynch attack OR everyone who voted guilty is attacked with lynch attack\n- Challenges must be a minigame");
+		e.addField("Attributes:", "- When you get an idea, it is publicly announced to the town.\n- Those who win are granted some form of buff\n- Those who lose get nothing\n- Those who don't participate are RB'd the next night.\n- If you're the first to die, then your attacker is attacked with lynch attack OR everyone who voted guilty is attacked with lynch attack\n- Challenges must be a minigame\n- You choose the minigame and goal of said minigame");
 		
-		e.addField("Goal:", "Live until the end of the game.");
+		e.addField("Goal:", "Have 5 people win one of your minigames.");
 	});
 
 	register_role(["lightkeeper", "407"], "Mafia", "Lightkeeper", {subCat: "Support"}, (e) =>
@@ -175,9 +175,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Learn how many people visit each other at night.\n- After dying, guess your killer's name. If you're correct, attack them.");
+		e.addField("Abilities:", "- Attempt to attack someone at night.");
 
-		e.addField("Attributes:", "- If you die at night, you will revive the next day with the goal of killing the player who killed you.\n- You will know the role of the player who killed you.\n- You cannot kill anyone aside from your killer.");
+		e.addField("Attributes:", "- You will learn how many people visit each other at night.\n- If you die at night, you will revive the next day with the goal of killing the player who killed you.\n- You will know the role of the player who killed you.\n- You cannot kill anyone aside from your killer.");
 		
 		e.addField("Goal:", "Get killed, and get revenge.");
 	});
@@ -394,17 +394,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["cessation", "426"], "Neutral", "Cessation", {subCat: "Evil"}, (e) =>
+	register_role(["gargoyle", "426"], "Rock", "Gargoyle", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 426");
 
-		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Rock Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Aura (*You have no defense if there's four or more Rocks alive, Basic if there's three, Powerful if there's two, and Invincible if there's only one.*)", true);
 
-		e.addField("Abilities:", "- Each night, choose something. It ends.");
+		e.addField("Abilities:", "- Take flight each full moon.\n- Plummet someone after you've taken flight, dealing them a Basic attack.");
+
+		e.addField("Attributes:", "- You gain one charge of plummet each time you take flight.\n- You may multitask, and you may plummet as many times in one night as you have charges.");
 		
-		e.addField("Goal:", "End the game on Night 5.");
+		e.addField("Goal:", "Rock Goal");
 	});
 
 	register_role(["peashooter", "427"], "Plant", "Peashooter", {subCat: "Killing"}, (e) =>
@@ -550,18 +552,18 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose assault, fraud, or gay marriage to make illegal each night.\n> *Assault* — Anyone who attacks that night or the following day will be jailed the next night.\n> *Fraud* — Anyone who uses a deceptive, investigative, roleblocking, redirecting, vote-influencing, or speech-influencing ability that night or the following day will be jailed the next night.\n> *Gay marriage* — Anyone who visits someone that stayed at home that night will be jailed the next night.");
+		e.addField("Abilities:", "- Choose assault, fraud, or gay marriage to make illegal each night.\n> *Assault* — Anyone who attacks that night or the following day will be jailed the next night.\n> *Fraud* — Anyone who uses a deceptive, investigative, roleblocking, redirecting, vote-influencing, or speech-influencing ability that night or the following day will be jailed the next night.\n> *Gay marriage* — Anyone who visits someone that stayed at home that night, as well as the person they visited, will be jailed the next night.");
 
 		e.addField("Attributes:", "- Each choice has a two-night cooldown.\n- Lynch Immunity\n- You can't jail yourself if that would somehow happen.");
 		
 		e.addField("Goal:", "Jail six players.");
 	});
 
-	register_role(["conniver", "437"], "Mafia", "Conniver", {subCat: "Support"}, (e) =>
+	register_role(["conniver", "437"], "Mafia", "Conniver", {subCat: "Deception"}, (e) =>
 	{
 		e.setDescription("Post 437");
 
-		e.addField("Alignment", "Mafia Support", true);
+		e.addField("Alignment", "Mafia Deception", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 

@@ -10,9 +10,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- At the start of the night, learn up to 6 messages sent in private chat channels (except whispers) with the most useful information.");
+		e.addField("Abilities:", "- At the start of the night, select someone to investigate with Post 948's ability, or select yourself learn up to 6 messages sent in private chat channels (except whispers) with the most useful information.");
 
-		e.addField("Attributes:", "- Any player or role names in the messages sent will be redacted.\n- You only see messages sent by players.\n- The host decides what messages are useful. This may include messages like \"I checked the Ret claim, it turns out that they were an NK.\"\n- If you receive no useful messages, you may check someone with Post 948's ability.");
+		e.addField("Attributes:", "- Any player names/nicknames in the messages sent will be redacted.\n- You only see messages sent by players.\n- The host decides what messages are useful. This may include messages like \"I checked the Ret claim, it turns out that they were an NK.\"\n- For every 2 useful messages you would learn, you will also recieve a host-fabricated misleading message (i.e information meant to trick you into believing something untrue or confusing you).");
 		
 		e.addField("Goal:", "Town Goal");
 	});
@@ -671,7 +671,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Successfully become another role, then complete that role’s goal.");
 	});
 
-	register_role(["rolehopper", "498"], "Any", "Rolehopper", {subCat: "Faction"}, (e) =>
+	register_role(["rolehopper", "498"], "Any", "Rolehopper", {anyExCat: ["Neutral"]}, (e) =>
 	{
 		e.setDescription("Post 498");
 

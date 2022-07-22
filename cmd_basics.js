@@ -62,18 +62,6 @@ module.exports = (g) =>
 
 	register_cmd("list", "[category] [subcategory]", "List", "Create a list of all registered commands, organized by category. If a valid category is provided, this will list commands from only that category instead. A subcategory may be provided to further narrow the list. Commands with alternate forms will have each form listed on the same line.", (chn, message, e, args) =>
 	{
-		if(!args[0] && !message.member.permissions.has("ADMINISTRATOR"))
-		{
-			msg(chn, "-Error: You require Admin level permissions to use =list without specifying a Category to list. Use `=help list` for more details.");
-			return;
-		}
-
-		if(args[0] && (args[0].toLowerCase() === "town" || args[0].toLowerCase() === "neutral") && !message.member.permissions.has("ADMINISTRATOR"))
-		{
-			msg(chn, "-Error: You require Admin level permissions to use =list " + args[0]);
-			return;
-		}
-
 		let list = "Command List:";
 		let ordered = {};
 		let atLeastOne = false;

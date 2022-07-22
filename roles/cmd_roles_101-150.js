@@ -12,7 +12,8 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Play truth or dare with another player every night.");
 
-		e.addField("Attributes:", "- When you play truth or dare with someone, you ask them a question and name an action that they can perform. If they don't truthfully answer the question or perform the action, you deal an Overkill attack to them.\n- Detection Immunity and Roleblock Immunity");
+		e.addField("Attributes:", "- When you play truth or dare with someone, you ask them a question they can reasonably answer and name an action that they can reasonably perform. If they don't truthfully answer the question or perform the action, you deal an Basic attack to them.");
+
 		e.addField("Goal:", "Kill three players; or get three players to answer your questions; or get three players to perform your dares.");
 	});
 
@@ -122,7 +123,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Prevent at least 8 deaths throughout the course of the game using your Unblasts. Saving the same person multiple times will count towards this goal.");
 	});
 
-	register_role(["trollcaster_mage", "trollcastermage", "trollcaster", "109"], "Coven", "Trollcaster Mage", {subCat: "Evil"}, (e) =>
+	register_role(["sorceress", "109"], "Coven", "Sorceress", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 109");
 
@@ -130,9 +131,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None (Powerful)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player. For the next 24 hours, they can't take game actions and they can't discuss their role or any information they've learned via their role.");
+		e.addField("Abilities:", "- Bewitch a player each night. For the next day, they can't take game actions and they can't discuss their role or any information they've learned via their role.");
 
-		e.addField("Attributes:", "- You may use your ability at any time, and it resolves immediately, but you may only use it once per day/night cycle.\n- If you have the Necronomicon, your target will be dealt a Powerful attack at the end of those 24 hours.");
+		e.addField("Attributes:", "- If you have the Necronomicon, your target will be dealt a Powerful attack at the end of the day.");
 
 		e.addField("Goal:", "Coven Goal");
 	});
@@ -152,7 +153,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pale Moon Goal");
 	});
 
-	register_role(["samurai", "111"], "Coven", "Samurai", {subCat: "Killing"}, (e) =>
+	register_role(["samurai", "111"], "Town", "Samurai", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 111");
 
@@ -361,7 +362,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["wincaster_mage", "wincastermage", "wincaster", "125"], "Coven", "Wincaster Mage", {subCat: "Evil"}, (e) =>
+	register_role(["djinn", "125"], "Coven", "Djinn", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 125");
 
@@ -369,11 +370,11 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a non-Coven player. They win the game immediately.");
+		e.addField("Abilities:", "- Choose a non-Coven player each night. They win the game immediately.");
 
-		e.addField("Attributes:", "- You may use your ability at any time, and it resolves immediately, but you may only use it once per day/night cycle.\n- If you have the Necronomicon, you may choose to make your target lose the game immediately instead.\n- Redirect Immune");
+		e.addField("Attributes:", "- If you have the Necronomicon, you may choose to make your target commit suicide and lose the game immediately instead.\n- Redirect Immune");
 
-		e.addField("Goal:", "Defeat all players who use she/her pronouns or who have roles that are female by flavour.");
+		e.addField("Goal:", "Coven Goal");
 	});
 
 	register_role(["comet", "126"], "Rock", "Comet", {subCat: "Support"}, (e) =>
@@ -672,7 +673,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose one player to become a Bodyguard for the other at night.");
 
-		e.addField("Attributes:", "- Each night you may select two targets. The first player will be protected by the second player. This will roleblock the second player through immunity.\n- If anyone attacks the first player, both the second player and the player attacking the first target will die.\n- You may only successfully use your ability once.\n- You may not protect yourself");
+		e.addField("Attributes:", "- Each night you may select two targets. The first player will be protected by the second player. This will roleblock the second player through immunity.\n- If anyone attacks the first player, both the second player and the player attacking the first target will die. Once this happens, you may no longer use your ability.\n- You may only enforce each individual player to act as a Bodyguard one time.\n- You may not protect yourself");
 
 		e.addField("Goal:", "Town Goal");
 	});
@@ -692,7 +693,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill everyone who would oppose you.");
 	});
 
-	register_role(["doubling_doubler", "doublingdoubler", "doubler", "148"], "Town", "Doubling Doubler", {subCat: "Chaos"}, (e) =>
+	register_role(["doubling_doubler", "doublingdoubler", "doubler", "148"], "Neutral", "Doubling Doubler", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 148");
 
@@ -719,14 +720,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target is Doused/Framed/Disguised/Hexed you will instead be told you are unsure what your target is.");
 
-		e.addField("Goal:", "Help the Town win OR help the Plants win.");
+		e.addField("Goal:", "Town Goal");
 	});
 
 	register_role(["hydrangea", "150"], "Town", "Hydrangea", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 150");
 
-		e.addField("Alignment", "Unique FloraeTown Investigative", true);
+		e.addField("Alignment", "Unique Florae/Town Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -734,6 +735,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Mafia, Coven, and Neutrals will be notified that a storm is starting at the beginning of the night.\n- Players that visit will be drenched in water.\n- You will be told all of the players who are not drenched the following day.\n- You may only summon 3 rainstorms.");
 
-		e.addField("Goal:", "Help the Town win OR help the Plants win.");
+		e.addField("Goal:", "Town Goal");
 	});
 };

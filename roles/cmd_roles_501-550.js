@@ -336,7 +336,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to father at night. At the start of the next next day, a new player will be added named \"Child\" with a random Rock role. You can only father twice.\n- Choose to god at night. At the start of the next next next day, you will gain Overkill attack, Invincible defense, and the ability to attack people for one day/night cycle. You can only god twice.");
+		e.addField("Abilities:", "- Choose to father at night. At the start of the next next day, a new player will be added named whatever you want with a random Rock role. You can only father twice.\n- Choose to god at night. At the start of the next next next day, you will gain Overkill attack, Invincible defense, and the ability to attack people for one day/night cycle. You can only god twice.");
 		
 		e.addField("Goal:", "Rock Goal");
 	});
@@ -560,7 +560,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "KILL EVERYONE! KILL ANYONE! KILL EVERYTHING THAT ISN'T DEAD!");
 	});
 
-	register_role(["sleepest_agent", "sleepestagent", "sleepest", "538"], "Town", "Sleepest Agent", {subCat: "Killing"}, (e) =>
+	register_role(["trailblazer", "538"], "Town", "Trailblazer", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 538");
 
@@ -568,9 +568,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- When you die, choose any number of players. They die.");
+		e.addField("Abilities:", "- Incinerate someone. If this is the first ability that has resolves on in the game and they are evil, they will be dealt an Unstoppable attack. You may only do this once.\n- Light someone ablaze each night. Players who are lit ablaze will have every ability targetting them be turned into a Basic attack. ");
 
-		e.addField("Attributes:", "- You're asleep until you die or Day 5. (You can't talk, vote, use day abilities, or use night abilities.)");
+		e.addField("Attributes:", "- Your abilities both have the highest possible priority.");
 		
 		e.addField("Goal:", "Town Goal");
 	});
@@ -605,7 +605,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["chaos_mayor", "chaosmayor", "541"], "Town", "Chaos Mayor", {subCat: "Chaos"}, (e) =>
+	register_role(["chaos_mayor", "chaosmayor", "541"], "Neutral", "Chaos Mayor", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 541");
 
@@ -660,7 +660,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Negative Attack: Your attacks will revive dead players however they will die after 1 days and also you cannot target alive players and also you cannot target the same dude twice.");
 		
-		e.addField("Goal:", "Complete the town.");
+		e.addField("Goal:", "Complete the Town.");
 	});
 
 	register_role(["rasen", "545"], "Neutral", "The Rasen", {subCat: "Benign"}, (e) =>

@@ -470,7 +470,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
-	register_role(["oni", "931"], "Any", "Oni", (e) =>
+	register_role(["oni", "931"], "Any", "Oni", {anyExCat: ["Fox"]}, (e) =>
 	{
 		e.setDescription("Post 931");
 
@@ -586,6 +586,21 @@ module.exports = (g) =>
 		e.addField("Goal:", "Fox Goal");
 	});
 
+	register_role(["jack_of_all_trades", "jackofalltrades", "joat", "939"], "Town", "Jack Of All Trades", {subCat: "Support"}, (e) =>
+	{
+		e.setDescription("Post 939");
+
+		e.addField("Alignment", "Town Support", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Kill a player. (1 use)\n- Roleblock a player. (1 use)\n- Investigate a player's role. (1 use)\n- Heal a player. (1 use)");
+
+		e.addField("Attributes:", "- You may not target yourself.");
+
+		e.addField("Goal:", "Town Goal");
+	});
+
 	register_role(["guesser", "941"], "Town", "Guesser", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 941");
@@ -601,7 +616,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town Goal");
 	});
 
-	register_role(["ancient_god", "ancientgod", "942"], "Any", "Ancient God", (e) =>
+	register_role(["master_of_none", "masterofnone", "mon", "940"], "Unseen", "Master of None", {subCat: "Support"}, (e) =>
+	{
+		e.setDescription("Post 940");
+
+		e.addField("Alignment", "Town Support", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Bludgeon (Night):  Kill a player.\n- Distraction (Night): Roleblock a player.\n- Investigate!? (Night): Find a player's exact role.\n- Heal (Night): Heal a player, granting them invincible defense for the night.");
+
+		e.addField("Attributes:", "- You may target yourself.");
+
+		e.addField("Goal:", "Unseen Goal");
+	});
+
+	register_role(["ancient_god", "ancientgod", "942"], "Any", "Ancient God", {anyExCat: ["Neutral"]}, (e) =>
 	{
 		e.setDescription("Post 942");
 

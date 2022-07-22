@@ -246,7 +246,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you shoot another Town member you will commit suicide over the guilt.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", "Town Goal");
 	});
 
 	register_role(["ambusher", "amby", "68"], "Mafia", "Ambusher", {subCat: "Killing"}, (e) =>
@@ -363,7 +363,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["fuck_wolfi_harder", "fuckwolfiharder", "76"], "Mafia", "Fuck Wolfi Harder", {subCat: "Chaos"}, (e) =>
+	register_role(["fuck_wolfi_harder", "fuckwolfiharder", "76"], "Neutral", "Fuck Wolfi Harder", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 76");
 
@@ -462,6 +462,21 @@ module.exports = (g) =>
 		e.addField("Abilities:", "- Use an Attack Potion to attack a target.\n- Use a Heal Potion to provide someone with powerful defense.\n- Use a Reveal Potion to learn someone's true role.");
 
 		e.addField("Attributes:", "- Each potion has a three day cooldown.\n- With the Necronomicon, your potions no longer have a cooldown.");
+
+		e.addField("Goal:", "Coven Goal");
+	});
+
+	register_role(["hex_master", "hexmaster", "hex", "hm", "82"], "Coven", "Hex Master", {subCat: "Evil"}, (e) =>
+	{
+		e.setDescription("Post 82");
+
+		e.addField("Alignment", "Unique Coven Evil", true);
+		e.addField("Attack", "Unstoppable/Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Choose a player to Hex each night.");
+
+		e.addField("Attributes:", "- When the last non-Coven player becomes Hexed, even if you die, all Hexed players will die to an Unstoppable Attack.\n- You will still use your Final Hex even if you are roleblocked.\n- With the Necronomicon you gain Astral and Basic attacks.\n- Players are still Hexed when you have the Necronomicon.\n- Hexed players appear to be a Hex Master when investigated.");
 
 		e.addField("Goal:", "Coven Goal");
 	});
@@ -628,7 +643,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["serial_killer", "95"], "Neutral", "Serial Killer", {subCat: "Killing"}, (e) =>
+	register_role(["serial_killer", "serialkiller", "sk", "95"], "Neutral", "Serial Killer", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 95");
 

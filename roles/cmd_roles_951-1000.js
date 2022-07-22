@@ -561,7 +561,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Suicide: At the end of the night, you will deal an Overkill attack to yourself.\n- Dirty Work (Day): Become the Assassin at the beginning of the night, if no other Unseen members are alive.\n- Convert (Night): Attempt to convert a player into joining the Unseen. Unlimited uses, but 1 day cooldown if successful. No more than 4 Unseen members can be alive at once. Town Power and hardcounter roles are unconvertable");
+		e.addField("Abilities:", "- Suicide (Any): At the end of the night, you will deal an Overkill attack to yourself. This ability cannot fail, under any circumstances.\n- Dirty Work (Day): Become the Assassin at the beginning of the night, if no other Unseen members are alive.\n- Convert (Night): Attempt to convert a player into joining the Unseen. Unlimited uses, but 1 day cooldown if successful. No more than 4 Unseen members can be alive at once. Hardcounter roles are unconvertable");
 
 		e.addField("Attributes:", "- You will appear as a random Town role (you will know which one) to all investigative roles until the end of Night 3. Nothing can bypass this. Afterwards, you will retain Detection Immunity.\n- If you try to convert someone at the same time as someone else (by a Cult Leader or Vampire, for example), both of you will fail.");
 		
@@ -576,9 +576,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Suicide: At the end of the night, you will deal an Overkill attack to yourself.\n- Lacerate (Day): Cause a player to bleed. They will know this, and will die in two nights unless healed. 3 uses.\n- Distract (Day): Silence a player for the rest of the day. They cannot talk or use abilities. 3 uses.\n- Assassinate (Night): Kill a player at night.\n- Two-For-One (Night): Kill two players at night. 1 use. Call now!");
+		e.addField("Abilities:", "- Suicide (Any): At the end of the night, you will deal an Overkill attack to yourself. This ability cannot fail, under any circumstances.\n- Lacerate (Day): Cause a player to bleed instantaneously. They will know this, and will die in two nights unless healed. 3 uses.\n- Distract (Day): Silence a player for the rest of the day. They cannot talk or use abilities. 3 uses.\n- Assassinate (Night): Kill a player at night.\n- Two-For-One (Night): Kill two players at night. 1 use. Call now!");
 
-		e.addField("Attributes:", "- If you are the starting Assassin and the Mastermind dies, you will take their place.");
+		e.addField("Attributes:", "- If you are the starting Assassin and the Mastermind dies, you will take their place.\n- Anyone promoted to Assassin will reset charges of Lacerate, Distract, and Two-For-One (as in, even if the original one used all of the abilities, you will have all abilities available to you at maximum charge)");
 		
 		e.addField("Goal:", "Unseen Goal");
 	});

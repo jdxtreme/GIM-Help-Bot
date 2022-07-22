@@ -349,7 +349,7 @@ module.exports = (g) =>
         e.addField("Goal:", "Kill anyone that will not submit to the Mafia (Can be changed).");
     });
 
-    register_role(["lightning_mage", "lightningmage", "718"], "Neutral", "Lightning Mage", {subCat: "Killing"}, (e) =>
+    register_role(["electromancer", "electro", "718"], "Neutral", "Electromancer", {subCat: "Killing"}, (e) =>
     {
         e.setDescription("Post 718");
 
@@ -394,19 +394,19 @@ module.exports = (g) =>
         e.addField("Goal:", "Lynch every criminal and evildoer.");
     });
 
-    register_role(["fudger", "721"], "Neutral", "Fudger", {subCat: "Evil"}, (e) =>
+    register_role(["asura", "721"], "FallenAngel", "Asura", {subCat: "Killing"}, (e) =>
     {
         e.setDescription("Post 721");
 
-        e.addField("Alignment", "Neutral Evil", true);
-        e.addField("Attack", "None", true);
-        e.addField("Defense", "None", true);
+        e.addField("Alignment", "Unique Fallen Angel Killing", true);
+        e.addField("Attack", "Piercing", true);
+        e.addField("Defense", "Aura", true);
 
-        e.addField("Abilities:", "- Each day, choose two numbers from one through five.");
+        e.addField("Abilities:", "- Annihilate two players each full moon.");
 
-        e.addField("Attributes:", "- For the duration of the next night, all instances of the first number or numeral (i.e. 3 or three) in all roles' rules text and the GIM rules will be replaced with the second number, and vice versa. (Plurals, etc. are updated accordingly.)");
+        e.addField("Attributes:", "- If you annihilate a Fallen Angel, you will permanently be able to annihilate an extra player each full moon for the rest of the game.\n- If you annihilate a non-Fallen Angel, you will be able to an additional time the next night, even if it's not a full moon.\n**Sin of Wrath** — If you're the last Fallen Angel remaining, your attacks rampage and rampage again. (You attack all your target's visitors and all your target's visitors' visitors.)");
 
-        e.addField("Goal:", "Survive to the end of Night (3 * 4 * 1) - 1. The host may choose to fudge these numbers if you convince them that you've caused enough fun interactions.");
+        e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
     });
 
     register_role(["incarnation", "incarnate", "722"], "Town", "Incarnation", {subCat: "Support"}, (e) =>
@@ -792,7 +792,7 @@ module.exports = (g) =>
 
         e.addField("Abilities:", "- Choose three players to dig the scoop up about them at night.\n- Interview one of your previous targets for an update on their story during the day.");
 
-        e.addField("Attributes:", "- Between the three players, you may choose to determine one player's faction, one player's subalignment (Protective, Support, etc.), and one player's abilities.\n- The day after you dig up the scoop about players, you must choose one of the pieces of information that you received to publish to the Town publicly. They will be notified that the News Anchor has published a news report about a certain player. This notification will be given at the end of the day. If you do not choose a piece of information to give to the Town, it will be randomly decided which piece of information will be given.\n- Enacting an interview with a target will give your target a notification that the News Anchor has established an interview with them. You will be able to freely whisper your target with your identity concealed as 'News Anchor'. You may choose to reveal your identity to your interviewee at any time. You will also be able to whisper your target the following night.");
+        e.addField("Attributes:", "- Between the three players, you may choose to determine one player's faction, one player's subalignment (Protective, Support, etc.), and one player's abilities.\n- The day after you dig up the scoop about players, you must choose one of the pieces of information that you received to publish to the Town publicly. They will be notified that the News Anchor has published a news report about a certain player. This notification will be given at the end of the day. If you do not choose a piece of information to give to the Town, it will be randomly decided which piece of information will be given.\n- Enacting an interview with a target will give your target a notification that the News Anchor has established an interview with them. You will be able to freely whisper your target with your identity concealed as \"News Anchor\" for the remainder of the day and the duration of the following night. You may choose to reveal your identity to your interviewee at any time during the interview, and they will receive a notification about the identity of the News Anchor.");
 
         e.addField("Goal:", "Eliminate all who oppose the Insurgency.");
     });
@@ -812,15 +812,13 @@ module.exports = (g) =>
         e.addField("Goal:", "Lynch every criminal and evildoer.");
     });
 
-    register_role(["wrong_evil_lair", "wrongevillair", "wel", "749"], "Neutral", "Wrong Evil Lair", {subCat: "Support"}, (e) =>
+    register_role(["wrong_evil_lair", "wrongevillair", "wel", "749"], "Any", "Wrong Evil Lair", {subCat: "Support", anyExCat: ["Town", "Neutral"]}, (e) =>
     {
         e.setDescription("Post 749");
 
         e.addField("Alignment", "Evil Support", true);
         e.addField("Attack", "N/A", true);
         e.addField("Defense", "N/A", true);
-
-        e.addField("Abilities:", "- N/A.");
 
         e.addField("Attributes:", "Gain the ability and attributes of a random factional evil role, but become part of a faction that is not the one you gained the ability from.");
 
@@ -839,6 +837,6 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Disruption will lower the priority of an action to 6—their action will be the last to resolve:\n- Effects applied to visitors to their target will not affect them.\n- If they or their target die, their action will not resolve.\n- Any disruptive effects they apply to a player will not affect anyone visiting that night. (Arsonist douses, etc)\n- If your target activates a self-targeting ability, it will not affect their visitors. This cannot affect the Commuter.");
 
-        e.addField("Goal:", "Kill anybody who doesn't submit to the mafia.");
+        e.addField("Goal:", "Kill anybody who doesn't submit to the Mafia.");
     });
 };

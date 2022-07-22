@@ -72,9 +72,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose someone to re-hire at night.\n- Use a Town role not in the game to use their abilities at night.");
+		e.addField("Abilities:", "- Choose someone to re-hire at night.\n- Use a Town role not in the game to use their abilities at night. (3 use)");
 
-		e.addField("Attributes:", "- When you choose someone to re-hire, their role will change to a random Town role in the GIM thread. This ability will fail on all non-Town roles and will notify the target regardless of if it is successful or not. You may not re-hire the same person more than once. You may not re-hire a person into a Town Power role, a unique role, or a role deemed unbalanced by the Role Jury.\n- You may choose a Town role from the GIM thread and use its ability at night. You may not use abilities of Town roles already in the game, any Town Power roles, or any roles deemed unbalanced by the Role Jury. You may only choose each individual Town role once.");
+		e.addField("Attributes:", "- - When you choose someone to re-hire, their role will change to a random Town role in the GIM thread. This ability will fail on all non-Town roles and will notify the target regardless of if it is successful or not. You may not re-hire the same person more than once. You may not re-hire a person into a Town Power role, a unique role, or a role deemed unbalanced by the Role Jury. You may rehire yourself, and if you do this, you will be rerolled into a random non-Power Town role.\n- You may choose a Town role from the GIM thread and use one of its abilities. You may not use abilities of Town roles already in the game, any Town Power roles, or any roles deemed unbalanced by the Role Jury. You may only choose each individual Town role once. You may use both day and night abilities, but you may only use an ability once per day.");
 
 		e.addField("Goal:", "Lynch every criminal and evildoer.");
 	});
@@ -94,7 +94,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Help a dead evildoer achieve their cause.");
 	});
 
-	register_role(["hidden_king", "hiddenking", "hking", "207"], "Any", "Hidden King", {subCat: "Support"}, (e) =>
+	register_role(["hidden_king", "hiddenking", "hking", "king", "207"], "Any", "Hidden King", {subCat: "Support", anyExCat: ["Neutral"]}, (e) =>
 	{
 		e.setDescription("Post 207");
 
@@ -325,7 +325,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Stalk a player during the day, marking them for collapse.\n- Collapse a stalked player's house at night.");
 
-		e.addField("Attributes:", "- If you collapse a player's house, everyone targetting them will have their ability fail, and they will go home from assuming the player is dead. The targetted player is not actually affected.\n- If the targetted player visits someone who saw their collapsed house, that visit will still go through.\n- You can collapse houses while dead. You may not mark while dead.\n- If a marked target is attacked by a rampage attack, you will be attacked too.\n- Control immune.");
+		e.addField("Attributes:", "- If you collapse a player's house, everyone targetting them will have their ability fail, and they will go home from assuming the player is dead. The targetted player is not actually affected.\n- If the targetted player visits someone who saw their collapsed house, that visit will still go through.\n- You can collapse houses while dead. You may not mark while dead.\n- If a marked target is attacked by a rampage attack, you will be attacked too.\n- You cannot stalk yourself.\n- Control immune.");
 
 		e.addField("Goal:", "Town Goal");
 	});
@@ -345,19 +345,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Recruit four people into your secret society.");
 	});
 
-	register_role(["pokemon_master", "pokemonmaster", "pokemaster", "224"], "Neutral", "Pokemon Master", {subCat: "Chaos"}, (e) =>
+	register_role(["lucifer", "224"], "FallenAngel", "Lucifer", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 224");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Unique Fallen Angel Killing", true);
+		e.addField("Attack", "Piercing", true);
+		e.addField("Defense", "Aura", true);
 
-		e.addField("Abilities:", "- Play a game of Gen 8 Unrated Random Battles on Pokemon Showdown against a player each night. If you win, they are dealt an Unstoppable attack. If you lose, they gain this ability and their role name is changed to Pokemon Master.");
+		e.addField("Abilities:", "- Tempt someone each night. They'll be forced to visit you the next night through redirect immunity. They'll know they were tempted.\n- Raise Hell to attack all your visitors at night.");
 
-		e.addField("Attributes:", "- On night 5, if you have not won the game and are alive, you will play a game of Gen 8 Unrated Random Battles on Pokemon Showdown against the host. If you lose, you are dealt an Unstoppable attack and lose the game. If you win, you win the game.");
+		e.addField("Attributes:", "- If you tempt a Fallen Angel, their visit won't deal damage to you and you'll be able to take two actions the next night.\n- If you tempt a non-Fallen Angel, your ability will automatically fail if them visiting you would kill you, and you'll be notified of this.\n**Sin of Pride** — If you're the last Fallen Angel remaining, you can use you any number of different abilities each night, your targets won't know they're tempted, you'll have roleblock, redirection, conversion, and detection immunity, you'll appear as a role of your choice to all investigative effects, your attack is Overkill, and you have total death immunity at night.");
 
-		e.addField("Goal:", "Kill 3 people via Gen 8 Unrated Random Battles on Pokemon Showdown, or defeat the host in a Gen 8 Unrated Random Battle on Pokemon Showdown.");
+		e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
 	});
 
 	register_role(["rock_n_roll", "rocknroll", "rock_and_roll", "rockandroll", "225"], "Neutral", "Rock n' Roll", {subCat: "Chaos"}, (e) =>
@@ -540,7 +540,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Pale Moon goal");
 	});
 
-	register_role(["neutralkillingcaster_mage", "neutralkillingcastermage", "nkcaster_mage", "nkcastermage", "nk_mage", "nkmage", "236"], "Coven", "Neutralkillingcaster Mage", {subCat: "Evil"}, (e) =>
+	register_role(["viper", "236"], "Coven", "Viper", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 236");
 
@@ -548,9 +548,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player. Until the next time you use this ability, their alignment is Neutral Killing and their win condition is replaced by \"Kill all who would oppose you.\" and they can't win in any other way.");
+		e.addField("Abilities:", "- Choose a player each night. Until the next time this ability resolves, their alignment is Neutral Killing and their win condition is replaced by \"Kill all who would oppose you.\" and they can't win in any other way.");
 
-		e.addField("Attributes:", "- You may use your ability at any time, and it resolves immediately, but you may only use it once per day/night cycle.\n- If you have the Necronomicon, you may instead choose to dela a Basic attack to your target.\n- You may self-target.");
+		e.addField("Attributes:", "- If you have the Necronomicon, you may instead choose to dela a Basic attack to your target.\n- You may self-target.");
 
 		e.addField("Goal:", "Coven goal");
 		});
@@ -621,11 +621,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Neutral Chaos", true);
 		e.addField("Attack", "Unstoppable", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Powerful", true);
 
 		e.addField("Abilities:", "- Cause a sabotage at night.");
 
-		e.addField("Attributes:", "- Lights sabotage will disable message history for day chats, and blackmail everyone.\n- Comms sabotage will disable message history for private chats and whispers, and disable viewing the graveyard.\n- Reactor sabotage will kill everybody if not fixed the next day.\n- Sabotages can be fixed by a minigame.\n- Only one sabotage can activate at a time.\n- Each sabotage has a cooldown of 2 days.\n- Being jailed canont stop your sabotages.\n- Control immune");
+		e.addField("Attributes:", "- Lights sabotage will disable message history for day chats, and blackmail everyone.\n- Comms sabotage will disable message history for private chats and whispers, and disable viewing the graveyard.\n- Reactor sabotage will kill everybody if not fixed the next day.\n- Sabotages can be fixed by a minigame.\n- Only one sabotage can activate at a time.\n- Each sabotage has a cooldown of 2 days.\n- Being jailed canont stop your sabotages.\n- You can kill AND sabotage in the same night (Witch cannot control sabotages)\n- Control and Conversion immune");
 
 		e.addField("Goal:", "Eliminate everyone else while avoiding being sus");
 	});
@@ -653,7 +653,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Choose another player at night. The host will choose a role from the roles thread that is the closest approximation of their role, not counting faction, and you will become that role but you keep this ability.");
+		e.addField("Attributes:", "- Choose another player at night. The host will choose another role from the roles thread that is the closest approximation of their role, not counting faction, and you will become that role but you keep this ability.");
 
 		e.addField("Goal:", "Morph into another role and win as it.");
 	});

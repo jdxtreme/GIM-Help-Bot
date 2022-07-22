@@ -1,7 +1,7 @@
 /*
 Format:
 
-register_role(["role_cmd_name", "other_role_cmd_name", "###"], "Alignment", "Actual Role Name", (e) =>
+register_role(["role_cmd_name", "other_role_cmd_name", "###"], "Alignment", "Actual Role Name", {subCat: "Subalignment"}, (e) =>
 {
 	e.setDescription("Post ###");
 

@@ -15,11 +15,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "N/A");
 	});
 
-	register_role(["rebel", "552"], "Other", "Rebel", {subCat: "Rebel"}, (e) =>
+	register_role(["rebel", "552"], "Other", "Neutral", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 552");
 
-		e.addField("Alignment", "Unique Rebel", true);
+		e.addField("Alignment", "Unique Neutral Chaos", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
@@ -27,7 +27,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All Rebels will share the same goal as you.\n- You will have a private chat once someone is converted, but not a factional attack.\n- You are immune to Conversion.");
 		
-		e.addField("Goal:", "Kill anyone who would oppose you.");
+		e.addField("Goal:", "Kill anyone who would oppose you and the Rebels.");
 	});
 
 	register_role(["detective", "det", "553"], "Town", "Detective", {subCat: "Investigative"}, (e) =>
@@ -302,7 +302,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 571\n(Unique Neutral Evil)");
 
-		e.setImage("https://cdn.discordapp.com/attachments/630529858920906768/985606194074894406/unknown.png");
+		e.setImage("https://cdn.discordapp.com/attachments/970051770342588467/994679368842494053/unknown.png");
 	});
 
 	register_role(["deadly", "572"], "Neutral", "Deadly", {subCat: "Other"}, (e) =>

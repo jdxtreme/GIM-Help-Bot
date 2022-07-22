@@ -51,7 +51,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 753");
 
-		e.addField("Alignment", "SCP Euclid", true);
+		e.addField("Alignment", "Unique SCP Euclid", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
@@ -197,7 +197,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 764");
 
-		e.addField("Alignment", "SCP Euclid", true);
+		e.addField("Alignment", "Unique SCP Euclid", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
@@ -257,7 +257,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 768");
 
-		e.addField("Alignment", "SCP Euclid", true);
+		e.addField("Alignment", "Unique SCP Euclid", true);
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
@@ -270,7 +270,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 769");
 
-		e.addField("Alignment", "SCP Keter", true);
+		e.addField("Alignment", "Unique SCP Keter", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
@@ -285,7 +285,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 770");
 
-		e.addField("Alignment", "SCP Keter", true);
+		e.addField("Alignment", "Unique SCP Keter", true);
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
@@ -613,14 +613,14 @@ module.exports = (g) =>
 		e.author.iconURL = "https://cdn.discordapp.com/emojis/976566462133174342.webp";
 
 		e.addField("Alignment", "Town Support", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Use 1 bee and bee sting 1 player. This player is stunned on the next night so cannot use an ability.\n- Use 2 bees, investigate 1 player and find his role. 2\n - Use 3 bees and deal a powerful attack to 1 player.");
 
 		e.addField("Attributes:", "- You will earn 1 bee every night. You can use 2 abilities per night.");
 
-		e.addField("Goal:", "Eliminate evil factions and win with other town members");
+		e.addField("Goal:", "Eliminate evil factions and win with other Town members");
 	});
 
 	register_role(["inductor", "793"], "Town", "Inductor", {subCat: "Investigative"}, (e) =>
@@ -722,7 +722,7 @@ module.exports = (g) =>
 		e.addField("Goal", "Ensure the death of every person whose role is B tier or below. This excludes yourself and anyone with a role that hasn't been rated yet.");
 	});
 
-	register_role(["hex_mage", "hexmage", "800"], "Neutral", "Hex Mage", {subCat: "Killing"}, (e) =>
+	register_role(["hexer", "800"], "Neutral", "Hexer", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 800");
 

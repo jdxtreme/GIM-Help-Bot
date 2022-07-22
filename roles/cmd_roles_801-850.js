@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role} = g;
 
-	register_role(["enraged_prostitute", "enragedprostitute", "801"], "Neutral", "Enraged Prostitute", {subCat: "Support"}, (e) =>
+	register_role(["enraged_prostitute", "enragedprostitute", "801"], "Town", "Enraged Prostitute", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 801");
 
@@ -77,11 +77,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
 	});
 
-	register_role(["unicorn", "806"], "Neutral", "Unicorn", {subCat: "Benign"}, (e) =>
+	register_role(["unicorn", "806"], "Neutral", "Unicorn", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 806");
 
-		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Invincible", true);
 
@@ -580,16 +580,16 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack 2 players each night.");
 
-		e.addField("Attributes:", "- You may only attack during Full Moons.\n- Under a Blood Moon, you will rampage at your house in addition to attacking, your defense will be upgraded to Basic, and your attack will be upgraded to Unstoppable.\n- Full Moons provide Roleblock Immunity.\n- The Blood Moon provides Roleblock, Redirect, and Control Immunity.");
+		e.addField("Attributes:", "- You may only attack during Full Moons.\n- Under a Blood Moon, you will rampage at your house in addition to attacking, your defense will be upgraded to Basic, and your attack will be upgraded to Unstoppable.\n- Full Moons provide Roleblock Immunity.\n- The Blood Moon provides Roleblock, Redirect, Control, and Conversion Immunity.");
 
 		e.addField("Goal:", "Umbrae Goal");
 	});
 
-	register_role(["magical_girl", "magicalgirl", "838"], "Neutral", "Magical Girl", {subCat: "Other"}, (e) =>
+	register_role(["magical_girl", "magicalgirl", "838"], "Neutral", "Magical Girl", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 838");
 
-		e.addField("Alignment", "Neutral Other", true);
+		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -620,7 +620,7 @@ module.exports = (g) =>
 		e.setDescription("Post 840");
 
 		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic (Invincible)", true);
 
 		e.addField("Abilities:", "- Attack someone each night.\n- Attack someone each night.");

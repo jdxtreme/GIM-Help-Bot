@@ -70,10 +70,10 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a word that's not already the name of a role. The host will come up with a role that is accurately described by that word. It can't have mechanics that aren't seen on any other roles. You become that role.");
+		e.addField("Attributes:", "- At the beginning of the game, a word that's not already the name of a role. The host will come up with a role that is accurately described by that word. It can't have mechanics that aren't seen on any other roles. You become that role.");
 	});
 
-	register_role(["uncontrollable_mech", "uncontrollablemech", "mech", "um", "306"], "Town", "Uncontrollable Mech", (e) =>
+	register_role(["uncontrollable_mech", "uncontrollablemech", "uncontrollable", "mech", "um", "306"], "Town", "Uncontrollable Mech", (e) =>
 	{
 		e.setDescription("Post 306");
 
@@ -356,7 +356,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "Powerful", true);
 
 		e.addField("Abilities:", "- Attack a player each night. You'll also attack all their visitors.");
 

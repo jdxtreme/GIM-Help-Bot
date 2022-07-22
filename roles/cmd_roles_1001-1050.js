@@ -18,7 +18,7 @@ module.exports = (g) =>
 
 		e.addField("Upper Spells:", "Meteor: Deal a powerful attack to 2 players.\nBlizzard: Roleblock all non-coven players. Roleblocks through immunity. Gain roleblock immunity the night you use this.\nLightning: Deal a powerful attack to a target and all their non-coven visitors and any non-coven player they visit that night.\nTornado: Redirect all abilities to random non-coven members. Gain roleblock immunity while using this.\nEarthquake: Deal a basic attack to 3 targets.");
 		
-		e.addField("Goal:", "Kill all who would oppose the coven.");
+		e.addField("Goal:", "Kill all who would oppose the Coven.");
 	});
 
 	register_role(["deductiletter", "dl", "1002", "37u"], "Unseen", "Deductiletter", {subCat: "Investigative"}, (e) =>
@@ -606,7 +606,7 @@ module.exports = (g) =>
 
 	register_role(["slotvestigator", "1041"], "Town", "Slotvestigator", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1041\nConverted from: Rosemary");
+		e.setDescription("Post 1041");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);

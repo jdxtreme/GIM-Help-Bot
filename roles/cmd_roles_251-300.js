@@ -64,7 +64,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town goal.");
 	});
 
-	register_role(["fuc_king", "fucking", "fking", "255"], "Neutral", "Fuc King", {subCat: "King"}, (e) =>
+	register_role(["fuc_king", "fucking", "fking", "255"], "Neutral", "Fuc King", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 255");
 
@@ -109,17 +109,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill everyone who may oppose you.");
 	});
 
-	register_role(["ebf", "eternitybutfaster", "eternity_but_faster", "258"], "Neutral", "Eternity but Faster", {subCat: "Killing"}, (e) =>
+	register_role(["hades", "258"], "FallenAngel", "Hades", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 258");
 
-		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Unique Fallen Angel Killing", true);
+		e.addField("Attack", "Piercing", true);
+		e.addField("Defense", "Aura", true);
 
-		e.addField("Abilities:", "- Until your death or the end of the game, the day and night happens at the same time.\n- You can attack thrice per day-night.");
+		e.addField("Abilities:", "- Judge someone each night. You'll learn their role, and attack them if they're capable of killing.\n- Use the ability of a dead player at night. Their attack, if applicable, will be changed to Piercing.");
 
-		e.addField("Goal:", "Kill everyone who may oppose you.");
+		e.addField("Attributes:", "- If you judge a Fallen Angel, you can't be roleblocked or redirected while doing so, and they'll be cleaned but you'll still be able to use their ability.\n- If you judge a non-Fallen Angel and fail to kill them, your attack against them will be upgraded to Unstoppable.\n**Sin of Greed** — If you're the last Fallen Angel remaining, you can use the ability of any number of different dead players and judge someone and steal all of someone's abilities and use any number of your stolen abilities each night.");
+
+		e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
 	});
 
 	register_role(["poli", "politician", "259"], "Town", "Politician", {subCat: "Support"}, (e) =>
@@ -426,7 +428,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- You're three Mafia roles in the GIM thread chosen at random, other than those that are in Town of Salem. ");
+		e.addField("Attributes:", "- You're three other Mafia roles in the GIM thread chosen at random, other than those that are in Town of Salem. ");
 
 		e.addField("Goal:", "Mafia goal.");
 	});

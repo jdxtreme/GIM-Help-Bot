@@ -130,9 +130,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Mafia once the last Mafia dies.\n- The Mafia know who you are and cannot perform actions that negatively affect you.\n- Spawns in Random Town slots.");
+		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Mafia once the last Mafia dies.\n- You are unaware you are a Sleeper Agent when the game begins.\n- The Mafia know who you are and cannot perform actions that negatively affect you.\n- Spawns in Random Town slots.");
 
-		e.addField("Goal:", "Kill everyone that won't submit to the mafia.");
+		e.addField("Goal:", "Kill everyone that won't submit to the Mafia.");
 	});
 
 	register_role(["amnestic_wizard", "amnesticwizard", "amnestic", "10"], "Coven", "Amnestic Wizard", {spawnCat: "Town", subCat: "Support"}, (e) =>
@@ -143,7 +143,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Coven once the last Coven dies.\n- The Coven know who you are and cannot perform actions that negatively affect you.\n- Spawns in Random Town slots.");
+		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Coven once the last Coven dies.\n- You are unaware you are an Amnestic Wizard when the game begins.\n- The Coven know who you are and cannot perform actions that negatively affect you.\n- Spawns in Random Town slots.");
 
 		e.addField("Goal:", "Kill all who would oppose the Coven.");
 	});

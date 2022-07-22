@@ -87,7 +87,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Turn an Umbrae's visit astral, you cannot target the Prophet.\n- (Day Ability : {1} Use) Empower the Full Moon and turn it into a Blood Moon.");
 
-		e.addField("Attributes:", "- During the Blood Moon, you have Powerful defense.\n- During a Blood Moon, you may issue a Basic, Astral attack.\n- During the Full Moon, you have Basic defense.\n- If you are the last remaining Umbrae member you will become the Prophet.\n- Detection Immunity");
+		e.addField("Attributes:", "- During the Blood Moon, you have Powerful defense.\n- During a Blood Moon, you may issue a Basic, Astral attack.\n- During the Full Moon, you have Basic defense.\n- If you are the last remaining Umbrae member you will become the Prophet.\n- Detection Immunity\n- Conversion Immunity");
 		
 		e.addField("Goal:", "Umbrae Goal");
 	});
@@ -102,7 +102,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Kill a player each night.");
 
-		e.addField("Attributes:", "- Under a full moon you have basic defense.\n- Under a Blood Moon you have powerful attack.\n- Under no moon, you have no defense.\n- Under a Blood Moon your defense is powerful.\n- If you are jailed twice, you may issue your attack inside of jail.\n- Roleblock Immunity.\n- Detection Immunity during non-moon nights.");
+		e.addField("Attributes:", "- Under a full moon you have basic defense.\n- Under a Blood Moon you have powerful attack.\n- Under no moon, you have no defense.\n- Under a Blood Moon your defense is powerful.\n- If you are jailed twice, you may issue your attack inside of jail.\n- Roleblock Immunity.\n- Detection Immunity during non-moon nights.\n- Conversion Immunity");
 		
 		e.addField("Goal:", "Umbrae Goal");
 	});
@@ -117,7 +117,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Kill one person each night, disguising their cause of death.");
 
-		e.addField("Attributes:", "- You are role block immune.\n- Under a Full Moon, your visit is astral.\n- Under a Blood Moon, you will mimic the mechanics of your disguised cause of death.\n(Werewolf/Pestilence Rampage, Juggernaut's Powerful Attack, Arsonist's Unstoppable Ignition)\n- Detection Immunity during non-moon nights.");
+		e.addField("Attributes:", "- You are role block immune.\n- Under a Full Moon, your visit is astral.\n- Under a Blood Moon, you will mimic the mechanics of your disguised cause of death.\n(Werewolf/Pestilence Rampage, Juggernaut's Powerful Attack, Arsonist's Unstoppable Ignition)\n- Detection Immunity during non-moon nights.\n- Conversion Immunity");
 		
 		e.addField("Goal:", "Umbrae Goal");
 	});
@@ -132,7 +132,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Replace a person's body every Full Moon night.");
 
-		e.addField("Attributes:", "- Killed players will appear as alive to the town until they are voted up to the stand, or if they are visited by another person during the night or any night after they die.\n- A fabricated player being voted up to stand can be pardoned or executed as normal.\n- On Blood Moon nights, you may kill and fabricate a player.\n- A player you have successfully fabricated will be seen as \"Fabricated\" during a death flip, and their last will is not shown.\n- You will know your target's role and will.\n- Detection Immunity during non-moon nights.");
+		e.addField("Attributes:", "- Killed players will appear as alive to the town until they are voted up to the stand, or if they are visited by another person during the night or any night after they die.\n- A fabricated player being voted up to stand can be pardoned or executed as normal.\n- On Blood Moon nights, you may kill and fabricate a player.\n- A player you have successfully fabricated will be seen as \"Fabricated\" during a death flip, and their last will is not shown.\n- You will know your target's role and will.\n- Detection Immunity during non-moon nights.\n- Conversion Immunity");
 		
 		e.addField("Goal:", "Umbrae Goal");
 	});
@@ -147,7 +147,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Empower a teammate when the moon is out.");
 
-		e.addField("Attributes:", "- During a Full Moon, replenish a teammates charge, or let them act twice the next night if they have full charges.\n- During a Blood Moon, choose a teammate to let them use their Blood Moon powers the next night.\n- You can only use the Full Moon ability and the Blood Moon ability on the same person once.\n- You are able to use the Blood Moon ability and the Full Moon ability on the same person.\n- You cannot target the Deity.\n- Detection Immunity during non-moon nights.");
+		e.addField("Attributes:", "- During a Full Moon, replenish a teammates charge, or let them act twice the next night if they have full charges.\n- During a Blood Moon, choose a teammate to let them use their Blood Moon powers the next night.\n- You can only use the Full Moon ability and the Blood Moon ability on the same person once.\n- You are able to use the Blood Moon ability and the Full Moon ability on the same person.\n- You cannot target the Deity.\n- Detection Immunity during non-moon nights.\n- Conversion Immunity");
 		
 		e.addField("Goal:", "Umbrae Goal");
 	});
@@ -162,7 +162,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Visit a player each night, disguising as their role.");
 
-		e.addField("Attributes:", "- During the Blood Moon, you may issue a direct, powerful attack.\n- If the Prophet is killed you will take his place before anyone else.\n- After killing a player, you may choose an untaken Umbrae role to convert into.\n- Roleblock Immunity\n- Control Immunity\n- Detection Immunity during non-moon nights, unless you are disguised.");
+		e.addField("Attributes:", "- During the Blood Moon, you may issue a direct, powerful attack.\n- If the Prophet is killed you will take his place before anyone else.\n- After killing a player, you may choose an untaken Umbrae role to convert into.\n- Roleblock Immunity\n- Control Immunity\n- Detection Immunity during non-moon nights, unless you are disguised.\n- Conversion Immunity");
 		
 		e.addField("Goal:", "Umbrae Goal");
 	});
@@ -177,7 +177,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Cloud a players mind once per game, preventing them from receiving feedback.\n- (Day Ability: {1} Use) Call upon the Full Moon to make a blinding fog once per game.");
 
-		e.addField("Attributes:", "- Anyone who was killed in the fog will have their roles shown as (Unknown) and will have their wills cleaned.\n- Cause of death in the fog will be hidden.\n- Calling fog from a blood moon will cause the next days discussion phase to be skipped.\n- The Umbrae will see the cause of death, roles, and wills of those undiscernable by the fog.\n- Detection Immunity during non-moon nights, unless you are disguised.");
+		e.addField("Attributes:", "- Anyone who was killed in the fog will have their roles shown as (Unknown) and will have their wills cleaned.\n- Cause of death in the fog will be hidden.\n- Calling fog from a blood moon will cause the next days discussion phase to be skipped.\n- The Umbrae will see the cause of death, roles, and wills of those undiscernable by the fog.\n- Detection Immunity during non-moon nights, unless you are disguised.\n- Conversion Immunity");
 		
 		e.addField("Goal:", "Umbrae Goal");
 	});
@@ -338,7 +338,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Vampire Conversion", true);
 		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "None (Unstoppable)", true);
+		e.addField("Defense", "None (Invincible)", true);
 
 		e.addField("Abilities:", "- (The Youngest Progeny will) Carry out the Catacano’s Orders.");
 

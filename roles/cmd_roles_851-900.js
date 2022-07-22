@@ -105,7 +105,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["sk_with_powerful_attack", "sk_powerful", "858"], "Neutral", "SK with powerful attack", {subCat: "Killing"}, (e) =>
+	register_role(["sk", "sk_with_powerful_attack", "sk_powerful", "858"], "Neutral", "SK with powerful attack", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 858");
 
@@ -120,7 +120,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["sk_with_unstoppable_attack", "sk_unstoppable", "859"], "Neutral", "SK with unstoppable attack", {subCat: "Killing"}, (e) =>
+	register_role(["sk", "sk_with_unstoppable_attack", "sk_unstoppable", "859"], "Neutral", "SK with unstoppable attack", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 859");
 
@@ -135,7 +135,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you.");
 	});
 
-	register_role(["sk_with_overkill_attack", "sk_overkill", "860"], "Neutral", "SK with overkill attack", {subCat: "Killing"}, (e) =>
+	register_role(["sk", "sk_with_overkill_attack", "sk_overkill", "860"], "Neutral", "SK with overkill attack", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 860");
 
@@ -175,12 +175,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Send a player to the Abyss at night.");
 
-		e.addField("Attributes:", "- Your target's ability will fail, but they will still visit their targets, rendering them vulnerable to anything which affects or interacts with visitors.\n- Your target will receive a generic roleblock message.\n- You cannot act on full moons.");
+		e.addField("Attributes:", "- Your target's ability will fail, but they will still visit their targets, rendering them vulnerable to anything which affects or interacts with visitors.\n- Your target will receive a generic roleblock message.");
 		
 		e.addField("Goal:", "Kill all who object to the presence of the Stalkers.");
 	});
 
-	register_role(["sk_powerful_kill_all_sks", "skpowerfulkillallsks", "sk_killer", "skkiller", "863"], "Neutral", "SK but with powerful attack, and their goal is only to kill all SKs", {subCat: "Killing"}, (e) =>
+	register_role(["sk", "sk_powerful_kill_all_sks", "skpowerfulkillallsks", "sk_killer", "skkiller", "863"], "Neutral", "SK but with powerful attack, and their goal is only to kill all SKs", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 863");
 
@@ -468,7 +468,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Mafia Goal");
 	});
 
-	register_role(["cleaveland", "883"], "Town", "Lumberjack", {subCat: "Killing"}, (e) =>
+	register_role(["cleaveland", "883"], "Neutral", "Lumberjack", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 883");
 
@@ -700,6 +700,21 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- The four players you choose must pick an item that fits the category. There must be at least five items that fit the category, and the category needs to be fairly common sense. Any players that choose the same item as another player will be dealt a Powerful Astral attack at the end of the night.\n- One random person will also be sent the prompt. You will not be notified who this is, and they will not die if they choose the same item as another player, but if anyone that you chose chooses the same item as this player, that player will be attacked.\n- You may not meld the night after you've killed players.");
 		
 		e.addField("Goal:", "Kill anyone who may oppose you.");
+	});
+
+	register_role(["jest_amne", "jestamne", "899a", "899"], "Neutral", "Jest Amne", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 899A");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Become Psychopath\n- Remember a dead player's role\n- Haunt someone after death");
+
+		e.addField("Attributes:", "- At any point after a jester has died or night 5 has passed, become Psychopath (899B)\n- At any point after night 3, remember a dead players role, this role's attributes, abilities, goals, and chats are added to your role card\n- Haunt someone after death like a jester would");
+		
+		e.addField("Goal:", "Be lynched, become Psychopath (899B), do your new role's Goal");
 	});
 
 	register_role(["psychopath", "899b", "899"], "Neutral", "Psychopath", {subCat: "Killing"}, (e) =>
