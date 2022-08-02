@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["india", "1201"], "Agent", "India", {subCat: "Sabotage"}, (e) =>
 	{
@@ -14,7 +14,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You are capable of multitasking, but you may not multitask the factional kill.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["juliet", "1202"], "Agent", "Juliet", {subCat: "Support"}, (e) =>
@@ -29,7 +29,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You spawn alongside Romeo, and will know each other’s identities (but not share a chat).\n- If you are nightkilled, you will remain alive for the next day to speak and vote before dying at the end of it. Nothing can prevent your death that day.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["kilo", "1203"], "Agent", "Kilo", {subCat: "Killing"}, (e) =>
@@ -44,7 +44,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will counterattack the first two people to attack you, if you survive, with a Basic attack.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["lima", "1204"], "Agent", "Lima", {subCat: "Sabotage"}, (e) =>
@@ -57,7 +57,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Pilfer (3-shot): Target a player. If they have a limited-use ability, you will remove one charge of it. If they have multiple, you will remove one at random.\n- Repurpose (1-shot): Target two players. You will Pilfer from one and use the Pilfered ability on the second. If the Pilfered ability targets more than one player, it will fail.\n- Destroy Stock (1-shot): Target a player. You will learn their role and may choose one ability (including an infinite-use ability) to remove from their ability list.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["mike", "1205"], "Agent", "Mike", {subCat: "Killing"}, (e) =>
@@ -72,7 +72,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Cleanup (Passive): If you use the factional night attack, you will clean your target, hiding their role and will. You will learn their role and the contents of their will.\n- Double Team (Passive): If any other Agents visit your attack target, you will know and deal a Powerful attack to the target instead.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["november", "nov", "1206"], "Agent", "November", {subCat: "Support"}, (e) =>
@@ -87,7 +87,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If the Coven, Unseen, Vampires or Cult spawn, this role has increased priority to spawn.\n- You will know if the Coven, Unseen, Vampires or Cult are present in the game.\n- You are conversion immune.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["oscar", "1207"], "Agent", "Oscar", {subCat: "Communication"}, (e) =>
@@ -102,7 +102,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Careful Code (Passive): You may choose the two codewords used to identify you. Your choices may not be your name or any role name.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["papa", "1208"], "Agent", "Papa", {subCat: "Sabotage"}, (e) =>
@@ -117,7 +117,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may multitask, using as many abilities as you wish, except for the factional attack.\n- If you use Crack the Code and Block Connections at the same time, you will see all attempted whispers, even if they are not actually sent.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["quebec", "1209"], "Agent", "Quebec", {subCat: "Support"}, (e) =>
@@ -132,7 +132,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You cannot be granted any form of immunity, including defense.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["romeo", "1210"], "Agent", "Romeo", {subCat: "Communication"}, (e) =>
@@ -147,7 +147,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You spawn alongside Juliet, and will know each other’s identities.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["sierra", "1211"], "Agent", "Sierra", {subCat: "Sabotage"}, (e) =>
@@ -160,7 +160,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Special Delivery (4-shot): Target a player during the night. You will give them an item that they may use during the night, with two attributes selected from the following list. The first is what the item appears to be, the second is what the item actually does. The two attributes may be the same:\n> -Powerful Heal\n> -Basic Attack\n> -Roleblock Target\n> -Alignment Investigation\n> -Grant Extra Vote on next day\n> -Blackmail on next day\n- Tamper (2-shot): Target a player. If they use an Investigative ability during the night, you will learn what it was and may change the result to whatever you wish. You will not learn who was targeted or what the original result was.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["tango", "1212"], "Agent", "Tango", {subCat: "Killing"}, (e) =>
@@ -175,7 +175,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will roleblock your attack targets.\n- The first time you try to attack an Agent, you will fail and instead gain a permanent private chat with them.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["uniform", "1213"], "Agent", "Uniform", {subCat: "Sabotage"}, (e) =>
@@ -190,7 +190,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All of your abilities are Astral.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["victor", "1214"], "Agent", "Victor", {subCat: "Killing"}, (e) =>
@@ -205,7 +205,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you cannot win with your target, you will deal a Powerful Attack instead of a Basic one when using your factional night attack.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["whiskey", "1215"], "Agent", "Whiskey", {subCat: "Support"}, (e) =>
@@ -220,7 +220,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you are present in the game, all other Agent roles gain 1 more ammo for an ability of their choice.\n- If you are nightkilled, the killer(s) will receive 1 more ammo to an ability of their choice.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["x-ray", "x_ray", "xray", "1216"], "Agent", "X-Ray", {subCat: "Sabotage"}, (e) =>
@@ -235,7 +235,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- This role has priority to spawn if any Jailor or similar roles are present.\n- The jailkept target will know if they were tortured, but not if any other ability was used on them.\n- You may use multiple abilities on your jailed target.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["yankee", "1217"], "Agent", "Yankee", {subCat: "Killing"}, (e) =>
@@ -250,7 +250,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- For every kill you perform, you may leave a 100 character note that only Agents will see and be able to decipher.\n- If anyone attempts to roleblock you, you will attack them in addition to your regular attack.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["zulu", "1218"], "Agent", "Zulu", {subCat: "Killing"}, (e) =>
@@ -265,7 +265,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can multitask up to 2 abilities during the night.\n- If you die during the night, target a player. You will hit them with a Powerful attack.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["mangaka", "1219"], "Town", "Mangaka", {subCat: "Investigative"}, (e) =>
@@ -280,7 +280,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you draw a panel, choose a dead player's page and a panel you received for them. You will learn that information. You can't choose to learn the player that killed them until you have drawn all the other panels on that page.\n- When you redraw a panel, choose a dead player's page and a panel you didn't receive for them. You will learn whether or not that information was faked, and the true information if it was. You may only do this thrice.\n- You may not multitask.\n- Your last will will automatically be a full record of all your pages and panels, and updates with information you learn the night you die on.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["ghost", "1220"], "Neutral", "Ghost", {subCat: "Killing"}, (e) =>
@@ -310,7 +310,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you are the only Neutral (Killing) role at the start of the game, you may attack 2 players instead.\n- You clean everyone you kill, but you still learn their role and receive their will.\n- Once per game, you may attack an additional player at night and all your kills that night will be unstoppable.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["snowball", "1222"], "Neutral", "Snowball", {subCat: "Killing"}, (e) =>
@@ -321,11 +321,11 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Kill a player at night.\n- Build a snowman during the day");
+		e.addField("Abilities:", "- Kill a player at night or build a snowman during the day.");
 
-		e.addField("Attributes:", "- You can kill as many players as the night number (N1 you will kill 1 person, N2 kill 2, etc.)\n- Whenever you successfully kill as many people as possible in a night, you may build a snowman in honor of someone you killed that night. This snowman will be a player with the abilities and attributes of the player it represents, but the win con will be \"Kill all who would oppose the Snowball.\" The snowman cannot be lynched the day it is built.\n- Once per game you may build a snowman even if you were unsuccessful in killing the most players you could in a night.\n- You may only build 1 snowman a day.");
+		e.addField("Attributes:", "- You can kill as many players as the night number (N1 you will kill 1 person, N2 kill 2, etc.)\n- Whenever you successfully kill as many people as possible in a night, you may build a snowman in honor of someone you killed that night. This snowman will be a player with the abilities and attributes of the player it represents, but the win con will be \"Kill all who would oppose the Snowball.\"\n- You may only build 1 snowman a day.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", "Kill all who would oppose you. (You can win if you die but your snowmen live and win.)");
 	});
 
 	register_role(["duplicate", "dupe", "1223"], "Neutral", "Duplicate", {subCat: "Chaos"}, (e) =>
@@ -348,14 +348,14 @@ module.exports = (g) =>
 		e.setDescription("Post 1224");
 
 		e.addField("Alignment", "Town Power", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "None (Basic)", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Place a camera at 2 houses and shoot someone who was seen by a camera last night during the day.");
 
 		e.addField("Attributes:", "- You have 4 cameras.\n- Cameras are permanent.\n- Cameras tell you visitors to your target and who your target visits.\n- You may spend a night to take down a camera, letting you place it on another target.\n- Anyone who dies with a camera on them will have the camera returned to you.\n- Once per game you may let any number of cameras grant the player they are watching Powerful defense for the night.\n- If you shoot a town member, your cameras will be disabled the following night.\n- You may choose 1 camera. When you die, you will still be able to operate the camera, getting the results and shooting people. However, if you shoot a town member while dead, you will lose control of the camera.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["town", "1225"], "Town", "The Town", {subCat: "Killing"}, (e) =>
@@ -370,7 +370,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your lynch is separate from any other lynches.\n- Your vote cannot be interacted with by effects that interact with normal abilities, as it's a vote. Effects that interact with votes will affect your vote.\n- For all intents and purposes, The Town is a Town role.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["geology_teacher_rock", "geologyteacherrock", "gtr", "geology", "1227"], "Rock", "Geology Teacher Rock", {subCat: "Killing"}, (e) =>
@@ -385,7 +385,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The questions should have 3 choices each.\n- The actual answers don't matter, because you can't be bothered marking, but if any students share at least two answers with any others, you'll accuse them of cheating and assault them powerfully.\n- Everyone involved is also roleblocked, because doing night actions while you're taking a pop quiz is harder than you'd think.\n- If anyone points out the irony of a rock teaching geology, they're dealt a Basic attack 862 times.");
 
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["shoe_rock", "shoerock", "annoying", "anrsiys", "tanrsiys", "1228"], "Rock", "The Annoying Rock Stuck in your Shoe", {subCat: "Killing"}, (e) =>
@@ -400,7 +400,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will know who your target visits each night.\n- One day after you hide in someone's shoe, they'll be notified that there's an annoying rock stuck in their shoe.\n- While you're hiding in someone's shoe, you die if your host dies. However, you can't die otherwise. You're always considered visiting your target, but you will visit both your target and who they visit when you attack someone.");
 
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["lieutenant", "lieu", "1229"], "Town", "Lieutenant", {subCat: "Power"}, (e) =>
@@ -415,7 +415,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- May not Detect! a town or neutral benign role.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["commander", "com", "1230", "1229u"], "Unseen", "Commander", {subCat: "Power"}, (e) =>
@@ -428,7 +428,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Command! (Day): Guess a player’s role, if they are that role you will deal an unstoppable attack to them immediately, counting as the day’s lynch. 1 use.\n- Direct! (Night): Select a player, learn their role immediately. Resolves when used.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["redundancy", "redun", "1231"], "Neutral", "Redundancy Maker of Redundancy", {subCat: "Chaos"}, (e) =>
@@ -516,7 +516,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Starts as a townie. Becomes a Random SCP once the last SCP dies\n- You are unaware you are SCP-953 when the game begins\n- The other SCPs know who you are and cannot perform actions that negatively affect you.\n- Spawns in a random town slot\n- May only spawn if another SCP is present");
 
-		e.addField("Goal:", "SCP Goal");
+		e.addField("Goal:", factions.SCP.goal);
 	});
 
 	register_role(["antarctic", "1237"], "Everfrost", "Antarctic", {subCat: "Support"}, (e) =>
@@ -531,7 +531,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a non-Everfrost player is visited by two or more other non-Everfrost players, the next night, they will be roleblocked.");
 
-		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
+		e.addField("Goal:", factions.Everfrost.goal);
 	});
 
 	register_role(["triumvir", "1238"], "Town", "Triumvir", {subCat: "Investigative"}, (e) =>
@@ -546,7 +546,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The three players of the Triumvirate will know each other's roles, share a chat together, and may only perform night abilities if all three players agree.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["rerole", "{re}role", "1239"], "Neutral", "{Re}Role", {subCat: "Other"}, (e) =>
@@ -636,7 +636,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- While you are alive, all night actions will be processed as soon as they are sent in. This attribute can cause a player to be killed in the middle of the night before they can perform their night ability.\n- Any persistent abilities will linger until the end of the night (e.g. a protective role will defend against any attacks sent in after the protection, a Veteran on alert will kill all players who visit them after they go on alert).");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["rat", "1245"], "Neutral", "Rat", {subCat: "Chaos"}, (e) =>
@@ -669,7 +669,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill someone to get their role and win as that role, lose otherwise.");
 	});
 
-	register_role(["wandering_spirit", "wandering_spirit", "wandering", "ws", "1247"], "Neutral", "Wandering Spirit", {subCat: "Other"}, (e) =>
+	register_role(["wandering_spirit", "wanderingspirit", "wandering", "ws", "1247"], "Neutral", "Wandering Spirit", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 1247");
 
@@ -711,7 +711,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of game, The Criminal List is publicly announced with every role in the game plus 5 fake roles who don't exist. The fake roles can exist according to the rolelist.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["hacker", "1250"], "Neutral", "Hacker", {subCat: "Evil"}, (e) =>

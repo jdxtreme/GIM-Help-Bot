@@ -2,7 +2,7 @@
 
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["maiden", "701"], "Neutral", "Maiden", {subCat: "Benign"}, (e) =>
 	{
@@ -31,7 +31,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "You bypass redirection and role block, killing all role blockers against you.");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["ninja_baker", "ninjabaker", "703"], "Town", "Ninja Baker", {subCat: "Support"}, (e) =>
@@ -46,7 +46,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- You may not bake and feed in the same night.\n- The player you feed bread to will become the role of the player you baked that bread of, sans win conditions, in addition to their other roles.\n- You can have multiple breads. You can choose which bread to feed to your target, but you may only feed them one bread at once.\n- You may self-target with either of your abilities.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["wayward", "704"], "Town", "Wayward", {subCat: "Protective"}, (e) =>
@@ -61,7 +61,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Control Immune\n- Astral\n- Connections do nothing.\n- When you intercept, you will redirect all abilities targeting your target to the person they're connected to, and then deal a Powerful attack to everyone you redirected.\n- When you intercept, your connection will be destroyed.\n- You cannot intercept two nights in a row.\n- You may establish connections between yourself. You cannot be killed by intercepting yourself.\n- You can have up to three connections established at once.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["official", "705"], "Town", "Official", {subCat: "Power"}, (e) =>
@@ -76,7 +76,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Invited players will be given frame immunity.\n- You have 2 extra, private 'organization' votes. During the night, all invited players may vote for who these extra votes should be used on. Whoever gets the most votes will be voted by these 2 extra votes.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["firefighter_is_a_good_role", "ffiagr", "706"], "Neutral", "Firefighter Is a Good Role", {subCat: "Benign"}, (e) =>
@@ -106,7 +106,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Roleblock and control immune.\n- You will gain a single charge of every ability used against you as the ability was when it was used (aka you can gain a Necronomicon-boosted Poison charge if the Poisoner had the Necronomicon). You do not gain immunities.\n- Evil roles who target you and fail to kill you (including ones that can't kill) will learn that you are the Treestump.\n- You cannot use your gained abilities as a Treestump.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["tree", "707b"], "Town", "Tree", {subCat: "Casual"}, (e) =>
@@ -121,7 +121,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Attacks you use will be attributed to the original killer, and you will appear to visit the victim as normal.\n- Tree does not roll naturally. You must upgrade from the Treestump");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["blacksmith", "708"], "Town", "Blacksmith", {subCat: "Protective"}, (e) =>
@@ -136,7 +136,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- A player that you give a bulletproof vest to may choose to don their vest during the night. This gives them Basic Defense for that night only.\n- If a player dies without using their vest, you will come back into possession of it the following night and may give it out to another player.\n- You may craft as many bulletproof vests as you like.\n- You may give out as many bulletproof vests are you like in one night, but you may only give out as many vests as you have crafted.\n- You may not craft and give out a vest in the same night.\n- You have no limit on how many vests you can give yourself.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["sleepwalker", "709"], "Town", "Sleepwalker", {subCat: "Support"}, (e) =>
@@ -151,7 +151,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- You will cancel all abilities that would interfere or prevent your target's action from succeeding exactly the way it should. You will not know what you canceled, only how many abilities you did cancel.\n- All forms of deception will simply not take effect.\n- You will visit your target's target instead of your target.\n- Your target will not be notified that you guided them.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["scapegoat", "710"], "Town", "Scapegoat", {subCat: "Support"}, (e) =>
@@ -166,7 +166,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Roleblock and redirection immune.\n- When you choose to take the fall for someone, all of their visitors will be redirected to you through any roleblock immunities.\n- You may roleblock all of your visitors twice per game. You may only do this on nights that you decide to take the fall for someone. Players that you successfully roleblock will only be given the roleblock message and not the redirection message.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["notorious_scoundrel", "notoriousscoundrel", "scoundrel", "711"], "Neutral", "Notorious Scoundrel", {subCat: "Chaos"}, (e) =>
@@ -184,19 +184,19 @@ module.exports = (g) =>
         e.addField("Goal:", "Eliminate all who oppose the Notorious Scoundrels.");
     });
 
-    register_role(["incinerator", "712"], "Underworld", "Incinerator", {subCat: "Offensive"}, (e) =>
+    register_role(["incinerator", "712"], "Underworld", "Incinerator", {subCat: "Support"}, (e) =>
     {
         e.setDescription("Post 712");
 
-        e.addField("Alignment", "Underworld Offensive", true);
+        e.addField("Alignment", "Underworld Support", true);
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "-- Trap your house at night.\n- Choose to incinerate all who burn at night.");
+        e.addField("Abilities:", "- Trap your house at night.\n- Choose to incinerate all who burn at night.");
 
-        e.addField("Attributes:", "- When you trap your house, all players who visit you will become doused. You will also blind all of your visitors through the sheer power of your flames causing them to be roleblocked for two nights after they visit you. This will not give any special notification to your visitors. You will not blind any Underworld members that visit you.\n- When you incinerate, all players killed by the Underworld's ignition will be shown as 'Incinerated' in the graveyard. No wills may be found.\n- You may trap your house three times and incinerate once.\n- If the Apocalypse dies, you will be promoted to Apocalypse.");
+        e.addField("Attributes:", "- Roleblock Immunity\n- When you trap your house, all players who visit you will become doused. You will also blind all of your visitors through the sheer power of your flames causing them to be roleblocked for two nights after they visit you. This will not give any special notification to your visitors. You will not blind any Underworld members that visit you.\n- When you incinerate, all players killed by the Apocalypse's ignition will be shown as \"Incinerated\" in the graveyard. No wills may be found.\n- You may trap your house three times and incinerate once.\n- If the Apocalypse dies, you will be promoted to Apocalypse.");
 
-        e.addField("Goal:", "Kill all who oppose the Underworld sect.");
+        e.addField("Goal:", factions.Underworld.goal);
     });
 
     register_role(["joker_of_all_trades", "jokerofalltrades", "joat", "713"], "Town", "Joker of All Trades", {subCat: "Support"}, (e) =>
@@ -211,7 +211,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- If this role is rolled, it's randomly chosen to be one of the five: Jack, Queen, King, Ace or Joker. (=jack =queen =king =ace =joker).");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["jack"], "Town", "Jack", {subCat: "Support"}, (e) =>
@@ -222,11 +222,11 @@ module.exports = (g) =>
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Choose a player each night. If they die, gain all their abilities and attributes for the rest of the game along with your other abilities and attributes.");
+        e.addField("Abilities:", "- Choose a player each night. If they die, gain all their abilities and attributes for the rest of the game along with your other abilities and attributes, except for factional ones.");
 
         e.addField("Attributes:", "- You may use multiple abilities each night as long as the abilities come from different sources.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["queen"], "Town", "Queen", {subCat: "Support"}, (e) =>
@@ -239,9 +239,9 @@ module.exports = (g) =>
 
         e.addField("Abilities:", "- Choose two players, A and B, each night.");
 
-        e.addField("Attributes:", "- Any Town visits that happen to A will also happen to B. Those visiting players will be notified that they also visited B.\n- You may choose yourself as either A or B.");
+        e.addField("Attributes:", "- Any Town visits that happen to A will also happen to B. The visiting players will not be notified of such, and will not receive feedback for those visits. You may choose yourself as either A or B.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["king"], "Town", "King", {subCat: "Support"}, (e) =>
@@ -252,11 +252,9 @@ module.exports = (g) =>
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Choose to reveal yourself as the King at any point during the night. This takes effect immediately.");
+        e.addField("Abilities:", "- Choose to reveal yourself as the King at any point during the night. This takes effect immediately and grants you a one-use transport as well as immunity to being lynched.");
 
-        e.addField("Attributes:", "- Revealing grants you the ability to give another player Invincible defense each night as well as two votes during the day and immunity to being lynched.");
-
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["ace"], "Town", "Ace", {subCat: "Support"}, (e) =>
@@ -271,7 +269,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- After giving a Mark, if all living non-Town players have Marks, the Town wins the game and all factions opposing the Town lose the game.\n- Non-Town players are notified when they're given Marks.\n- If you're the only Town player left, you'll be notified, and you can choose two targets each night.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["joker"], "Town", "Joker", {subCat: "Support"}, (e) =>
@@ -286,7 +284,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- For the duration of the next night, you'll be one of those roles chosen at random.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["amanojaku", "714"], "Neutral", "Amanojaku", {subCat: "Chaos"}, (e) =>
@@ -316,7 +314,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Whenever you attack someone, copy an ability that's been used at any point in the game previously at random. Then, you may use any number of the abilities that you've copied with this attribute. You can't use those abilities normally.");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["bomb", "716"], "Town", "Bomb", {subCat: "Casual"}, (e) =>
@@ -331,7 +329,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- If the person holding your bomb dies, everyone visiting them and the target themselves are dealt an Unstoppable attack.\n- If the target dies the night they get the bomb, you will also die.\n- The player holding your bomb will return unfavorable results to Investigatives regardless of their role.\n- When your bomb goes off, you must spend 2 nights building another one.\n- You may target yourself to hold your bomb for the night.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["turncoat", "717"], "Mafia", "Turncoat", {subCat: "Espionage"}, (e) =>
@@ -361,7 +359,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- This attack resolves immediately.");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["aufeis", "719"], "Everfrost", "Aufeis", {subCat: "Support"}, (e) =>
@@ -376,7 +374,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Roleblock immune.\n- Whenever a player is roleblocked by anything, you learn who their target and any messages the target would have received from the visit.");
 
-        e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
+        e.addField("Goal:", factions.Everfrost.goal);
     });
 
     register_role(["machiavellian", "720"], "Town", "Machiavellian", {subCat: "Killing"}, (e) =>
@@ -391,7 +389,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- If you are correct in your guess, you will attack your target with a Powerful attack. If you are incorrect, you will instead attack yourself.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["asura", "721"], "FallenAngel", "Asura", {subCat: "Killing"}, (e) =>
@@ -406,7 +404,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- If you annihilate a Fallen Angel, you will permanently be able to annihilate an extra player each full moon for the rest of the game.\n- If you annihilate a non-Fallen Angel, you will be able to an additional time the next night, even if it's not a full moon.\n**Sin of Wrath** — If you're the last Fallen Angel remaining, your attacks rampage and rampage again. (You attack all your target's visitors and all your target's visitors' visitors.)");
 
-        e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
+        e.addField("Goal:", factions.FallenAngel.goal);
     });
 
     register_role(["incarnation", "incarnate", "722"], "Town", "Incarnation", {subCat: "Support"}, (e) =>
@@ -419,9 +417,9 @@ module.exports = (g) =>
 
         e.addField("Abilities:", "- Pick two players and merge their spirits.");
 
-        e.addField("Attributes:", "- If the first player dies, their spirit will enter the second player, allowing them to perform the dead player's ability alongside their own.\n- If both your targets die, you will attempt to heal the second player, then merge the first player with them.");
+        e.addField("Attributes:", "- If either player dies, their spirit will enter the other player, allowing them to perform the dead player's ability alongside their own.\n- If you successfully merge two players, the player who gains the ability is notified that they gain the abilities.\n- If both your targets die, you will attempt to heal the second player, then merge the first player with them.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["jester", "mafia_jester", "jester_mafia", "723"], "Mafia", "Jester", {subCat: "Support"}, (e) =>
@@ -436,7 +434,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- If you are lynched, you may choose a player to deliver an Unstoppable attack to the following night.");
 
-        e.addField("Goal:", "Kill anyone that will not submit to the Mafia.");
+        e.addField("Goal:", factions.Mafia.goal);
     });
 
     register_role(["shadow_of_descent", "shadowofdescent", "shadow_descent", "724"], "Neutral", "Shadow of Descent", {subCat: "Killing"}, (e) =>
@@ -451,7 +449,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Each day, you must choose one of your abilities. You lose that ability.\- You may use any number of different abilities each night. ");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["light_of_ascent", "lightofascent", "light_ascent", "725"], "Neutral", "Light of Ascent", {subCat: "Killing"}, (e) =>
@@ -466,7 +464,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Each day, choose one of the following abilities that you haven't chosen yet. You gain that ability.\n    - Attack a player.\n    - Attack a player.\n    - Roleblock a player.\n    - Change your defense to Basic for the night.\n    - Hide a player's role and will if they die tonight.\n    - Commit suicide.\n- You may use any number of different abilities each night.");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["party_game_host", "partygamehost", "pgh", "726"], "Neutral", "Party Game Host", {subCat: "Chaos"}, (e) =>
@@ -494,7 +492,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Each day, choose one of the following abilities that you haven't chosen yet. You gain that ability.\n> - Be mean to someone, making them deal a Basic attack, or their attack value if it's higher, to themselves.\n> - Stab someone in the aorta, dealing 37 Basic attacks to them.\n> - Roleplay as Aiko, granting yourself Powerful defense for the night.\n> - Speak French, confusing someone and redirecting them to a random target other than you.\n> - Engage in incestuous polycule activities, getting investigative results (see post 35) for up to 3 other players as well as receiving any night messages they get tonight.\n> - Be antisocial, causing all non-attack visits against you to fail for the night.\n> - Catch a Pokemon, increasing the number of votes you have by one.\n> - Eat excessive amounts of sugar, allowing you to perform another one of your abilities an additional time.\n- You may use any number of different abilities each night.");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["monokuma", "728"], "Neutral", "Monokuma", {subCat: "Other"}, (e) =>
@@ -524,7 +522,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Players who visited multiple players will only show up as having visited their first target (or a random one, if not applicable).\n- You will learn the roles of all players who visit you instead of their names.\n- You may only use your ability four times.");
 
-        e.addField("Goal:", "Town Goal");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["plague_doctor", "plaguedoctor", "730"], "Neutral", "Plague Doctor", {subCat: "Killing"}, (e) =>
@@ -539,7 +537,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- They will both be given a disease stage of 0. If they are already infected, their disease stage will increase by 1.\n- At the end of each night, players with a disease will have their disease stage increased by 1.\n- Players who reach disease stage 3 will be dealt a Powerful Attack.\n- Players with a disease will have their disease stage reset if they are healed.\n- If you die, all diseases will be removed.");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["gargoyle", "731"], "Neutral", "Gargoyle", {subCat: "Killing"}, (e) =>
@@ -554,7 +552,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- TStoned players will be revealed at the beginning of the day and cannot do anything at all.\n- Once a stoned player is visited three times, they will be unstoned.\n- You may turn yourself to stone by selecting yourself. You will still be able to use your abilities though.\n- You may select yourself at night to unstone yourself and all stoned players.\n- Once you turn yourself to stone, you may secretly kill a player that has been stoned for two nights during the day.\n- They will not be revealed as dead until they are unstoned and they’ll still count towards the voting majority. If you were the one who unstoned them, they will be cleaned.");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["mass_murderer", "massmurderer", "732"], "Neutral", "Gargoyle", {subCat: "Killing"}, (e) =>
@@ -569,22 +567,22 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- You will deal a Basic Attack to them.\n- If all of the players you attacked tonight die, you have to kill another player each night.\n- If any of your victims survive, you cannot attack for two nights and your attacks per night resets to one.\n- You ignore abilities that stop attacks or stop visits or grant defense that come from one of your targets.");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
-    register_role(["paripapparapappapparappa", "paripappa", "motherfucker", "733"], "Neutral", "Paripapparapappapparappa", {subCat: "Killing"}, (e) =>
+    register_role(["paripapparapappapparappa", "paripappa", "pari", "motherfucker", "733"], "Neutral", "Paripapparapappapparappa", {subCat: "Killing", cannotRoll: true}, (e) =>
     {
         e.setDescription("Post 733");
 
         e.addField("Alignment", "Neutral Killing", true);
         e.addField("Attack", "Parippaparapappapparappowerful", true);
-        e.addField("Defense", "Basic", true);
+        e.addField("Defense", "Parippaparapappapparappowerful", true);
 
         e.addField("Abilities:", "- Choose a player to paripapparapappapparappa each night. You'll deal a Parippaparapappapparappowerful attack to them.");
 
-        e.addField("Attributes:", "- When you die, you don't die. Instead, choose a letter in your role's name. All instances of that letter is removed from every role's name and rules text.\n- If you don't have any letters left in your name, you die when you die. (You're dead.)\n- As long as this role is in the game, even if you're dead, anyone who misspells this role's name or refers to it by something other than its name anywhere, including in private or ooc channels, is removed from the game and banned from the server. (If letters have been removed, that's the new spelling of the name.)\n- Post 752's attributes don't exist and can't affect this role. This is true even if this role isn't in the game.");
+        e.addField("Attributes:", "- As long as this role is in the game, even if you're dead, anyone, including yourself, who misspells this role's name or refers to it by something other than its name in any in-game channel is removed from the game and banned from the server. (Referring to this role as \"it\" when it's already been brought up and it's clear what \"it\" refer to doesn't count.)");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["flavour_judge", "flavourjudge", "734"], "Town", "Flavour Judge", {subCat: "Support"}, (e) =>
@@ -599,7 +597,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- If they say it doesn't, the thing that happened is reversed.\n- If the thing never happened in the first place, you're modkilled for being stupid.\n- You may only use this once per day/night, regardless of whether it's successful. ");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["bootlegger", "735"], "Mafia", "Bootlegger", {subCat: "Support"}, (e) =>
@@ -614,7 +612,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Anyone targeting your first target will be redirected to target the second, and anyone targeting the second will be forced to target the first.\n- Roleblock Immune");
 
-        e.addField("Goal:", "Kill anyone that will not submit to the Mafia.");
+        e.addField("Goal:", factions.Mafia.goal);
     });
 
     register_role(["slayer_of_those_whomst_reside_in_afro-eurasia(or_australia(or_antartica))", "slayerofthosewhomstresideinafroeurasia(oraustralia(orantartica))", "sotwriaeoaoa", "ping_test", "736"], "Neutral", "Slayer of Those Whomst Reside In Afro-Eurasia (Or Australia (Or Antartica))", {subCat: "Killing"}, (e) =>
@@ -629,7 +627,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- The two players will be privately notified they were pitted against. The first person to type any message in their private channel survives, while you immediately attack the player who fails to respond.\n- In the case of a photo finish, both are slain.\n- If you are left against one other person, you will immediately attack that other person. You may attack them again during each night while only 2 people are alive.");
 
-        e.addField("Goal:", "Kill all who would oppose you.");
+        e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["moonstone", "ms", "737"], "Rock", "Moonstone", {subCat: "Support"}, (e) =>
@@ -644,7 +642,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- While you're alive, the factional Rock kill is empowered on Full Moon nights, becoming Powerful and Astral.");
 
-		e.addField("Goal:", "Rock goal.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
     register_role(["legend", "738"], "Town", "Legend", {subCat: "Power"}, (e) =>
@@ -659,7 +657,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Roleblock and control immune.\n- Both of your abilities have three uses.\n- You can't use both your abilities on the same night.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["real_estate_agent", "realestateagent", "rea", "739"], "Town", "Real Estate Agent", {subCat: "Support"}, (e) =>
@@ -674,7 +672,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Swapping player numbers does NOT swap visits towards them, only effects involving 'neighbor' mechanics.\n- After all roles are rolled/rerolled, check if there are any that involved 'neighbor' mechanics, or otherwise ones that rely on player numbers. If none are present, automatically reroll this role.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["protector", "740"], "Neutral", "Protector", {subCat: "Benign"}, (e) =>
@@ -749,7 +747,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- If a player with a pebble in their shoe visits anyone the night that you placed the pebble in their shoe, they will be unable to visit any players for the next two nights due to foot injuries. Ouch.\n- Pelting a player's house will cause any non-Rock players who visit them to be roleblocked that night. You will also pelt your target with pebbles, which increases the Attack value of any Rock member that visits them to the next-highest Attack value.\n- You may pelt two houses with pebbles.");
 
-        e.addField("Goal:", "Kill anyone that may oppose the Rocks.");
+        e.addField("Goal:", factions.Rock.goal);
     });
 
     register_role(["werecat", "were_cat", "745"], "Were", "WereCat", {subCat: "Support"}, (e) =>
@@ -764,7 +762,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Purring roleblocks and blackmails someone.");
 
-        e.addField("Goal:", "Kill all non-lycanthropes.");
+        e.addField("Goal:", factions.Were.goal);
     });
 
     register_role(["arbiter", "746"], "Insurgency", "Arbiter", {subCat: "Informant"}, (e) =>
@@ -779,7 +777,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- When you read into a player's voters, if that player is successfully lynched, you will learn how many people of each faction voted for that person.\n- When you post to Insurgents, you may send a message, however long, to all other Insurgents. In this post, you may not reveal yourself or any other Insurgent.\n- Frame Immunity");
 
-        e.addField("Goal:", "Eliminate all who oppose the Insurgency.");
+        e.addField("Goal:", factions.Insurgency.goal);
     });
 
     register_role(["news_anchor", "newsanchor", "747"], "Insurgency", "News Anchor", {subCat: "Informant"}, (e) =>
@@ -790,11 +788,11 @@ module.exports = (g) =>
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Choose three players to dig the scoop up about them at night.\n- Interview one of your previous targets for an update on their story during the day.");
+        e.addField("Abilities:", "- Choose three players to dig the scoop up about them at night. You will learn the alignment of the first, the subalignment of the second, and the attack and defense values of the third.\n- Interview one of your previous targets for an update on their story during the day. (2 use)");
 
-        e.addField("Attributes:", "- Between the three players, you may choose to determine one player's faction, one player's subalignment (Protective, Support, etc.), and one player's abilities.\n- The day after you dig up the scoop about players, you must choose one of the pieces of information that you received to publish to the Town publicly. They will be notified that the News Anchor has published a news report about a certain player. This notification will be given at the end of the day. If you do not choose a piece of information to give to the Town, it will be randomly decided which piece of information will be given.\n- Enacting an interview with a target will give your target a notification that the News Anchor has established an interview with them. You will be able to freely whisper your target with your identity concealed as \"News Anchor\" for the remainder of the day and the duration of the following night. You may choose to reveal your identity to your interviewee at any time during the interview, and they will receive a notification about the identity of the News Anchor.");
+        e.addField("Attributes:", "- The day after you dig the scoop up about players, you must choose one piece of information to publish to the Town. The Town will receive a news bulletin with this information at the end of the day. If you do not choose a piece of information, one will be published at random.\n- You will establish an interview with your target at the start of the following night. You and your target will be able to whisper each other with your identity being concealed as \"News Anchor\". You may choose to reveal your identity to your target during the night. The interview will end when the night ends.");
 
-        e.addField("Goal:", "Eliminate all who oppose the Insurgency.");
+        e.addField("Goal:", factions.Insurgency.goal);
     });
 
     register_role(["reserved", "748"], "Town", "Reserved", {subCat: "Support"}, (e) =>
@@ -809,7 +807,7 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Once you reveal yourself, it will be announced to the Town, and your vote will count as three.\n- You may only reveal yourself once.\n- Once revealed, you cannot send whispers and you will not hear whispers sent to you.\n- Once revealed, Town roles that grant defense without counterattacking will not be able to use those abilities on you.");
 
-        e.addField("Goal:", "Lynch every criminal and evildoer.");
+        e.addField("Goal:", factions.Town.goal);
     });
 
     register_role(["wrong_evil_lair", "wrongevillair", "wel", "749"], "Any", "Wrong Evil Lair", {subCat: "Support", anyExCat: ["Town", "Neutral"]}, (e) =>
@@ -837,6 +835,6 @@ module.exports = (g) =>
 
         e.addField("Attributes:", "- Disruption will lower the priority of an action to 6—their action will be the last to resolve:\n- Effects applied to visitors to their target will not affect them.\n- If they or their target die, their action will not resolve.\n- Any disruptive effects they apply to a player will not affect anyone visiting that night. (Arsonist douses, etc)\n- If your target activates a self-targeting ability, it will not affect their visitors. This cannot affect the Commuter.");
 
-        e.addField("Goal:", "Kill anybody who doesn't submit to the Mafia.");
+        e.addField("Goal:", factions.Mafia.goal);
     });
 };

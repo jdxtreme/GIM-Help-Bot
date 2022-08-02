@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["unholy_knight", "unholyknight", "unholy", "1101", "57u"], "Unseen", "Unholy Knight", {subCat: "Protective"}, (e) =>
 	{
@@ -14,7 +14,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You *can* kill Vampires.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["rhapsodist", "rhap", "1102"], "Town", "Rhapsodist", {subCat: "Investigative"}, (e) =>
@@ -29,7 +29,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The host will put their role name into https://www.thesaurus.com/ and pick the most fancy-sounding synonym on the page, which you will learn.\n- If their role has multiple words, the root noun is chosen.\n- If there is no page available, you will instead receive a sheriff result (suspicious/not suspicious).\n(Note - Synonyms for words aren't guaranteed to go both ways.)");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["bounty_hunter", "bountyhunter", "bounty", "hunter", "1103"], "Neutral", "Bounty Hunter", {subCat: "Evil"}, (e) =>
@@ -89,7 +89,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will earn 1 bee every night.\n- You can use 3 abilities per night.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["medic", "1107", "58u"], "Unseen", "Medic", {subCat: "Protective"}, (e) =>
@@ -104,7 +104,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your target will be notified if they were bled.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["surprise", "1108"], "Neutral", "Surprise", {subCat: "Chaos"}, (e) =>
@@ -134,7 +134,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You are only able to spawn if a minority faction which has the ability to convert other players into their faction is in the game. This also applies to neutral roles who turn others into their own, but this is determined by the host and is situational.\n- \"Conversion capable faction\" refers to those factions which fit the definition which was previously given.\n- You are able to be converted, unless using Retaliate.\n- If all conversion roles and factions are completely eradicated, you will turn into a random Town Power role. Standard reroll rules apply, however the amount of rerolls you had at the beginning of the game will transfer over.\n- This **cannot be rerolled**, unless a conversion capable faction is guaranteed to exist. This may be overruled by the host.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["deluxe", "del", "1110"], "Any", "Deluxe", {subCat: "Killing", anyExCat: ["Town", "Neutral"]}, (e) =>
@@ -177,7 +177,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- No access to the factional chat.\n- No access to promotion until they are the last member, in which they will become the Umbra (Assault).\n- Does not know team members.\n- Conversion Immunity");
 
-		e.addField("Goal:", "Umbrae Goal");
+		e.addField("Goal:", factions.Umbrae.goal);
 	});
 
 	register_role(["acheron", "1113"], "Coven", "Acheron", {subCat: "Evil"}, (e) =>
@@ -192,7 +192,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Town Power roles turn into Lunatic Hell Fairy (949)\n- Town Investigative roles turn into Synesthesia (478)\n- Town Killing roles turn into M-63 Plamen Artillery Piece (299)\n- Town Protective roles turn into Thaumaturge (300)\n- Town Support roles turn into Familiar (295)\n- Any other subalignments turn into Bloodbender (903)\n- With the Necronomicon, you may use any of the unboosted abilities of the roles above. They function as if you were that role for that night.");
 
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["underdog", "1114"], "Mafia", "Underdog", {subCat: "Killing"}, (e) =>
@@ -207,7 +207,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- **Uppercut** — Attack someone every full moon. [This attack is Powerful and bypasses protective effects.] [You'll also deal a Basic attack to a random one of your target's non-Mafia visitors.] [You can use this ability twice each night.] [You only have one use of this ability.]\n- **Underhanded Deal** — Spend the night to unlock the next set of bracketed text in your Uppercut ability. You may only do this Night 3 and onwards.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["chopper", "1115"], "Mafia", "Chopper", {subCat: "Killing"}, (e) =>
@@ -220,7 +220,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player at night, {mod}killing them. {This uses up a charge, which you only have two of.}\n- **Cleave** during the day.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["jds_curse", "jdscurse", "curse", "jd", "1116"], "Neutral", "JD's Curse", {subCat: "Evil"}, (e) =>
@@ -248,7 +248,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may anonymously talk with your prisoner.\n- You can choose to attack your prisoner.\n- The jailed target can't perform their night ability.\n- If you execute a Town member, you forfeit further executions.\n- All other abilities used on the jailed person will fail; they will be notified that their target was jailed.\n- Your death note can be whatever you want.\n- If another night chat is opened with you you can use both that and your jail chat seperately.\n- You can spawn with Everfrost.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["author", "1118"], "Umbrae", "Author", {subCat: "Agent"}, (e) =>
@@ -263,7 +263,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock, Control, Conversion immune.\n- Does not attend the nightly Umbrae meeting.");
 
-		e.addField("Goal:", "Umbrae Goal");
+		e.addField("Goal:", factions.Umbrae.goal);
 	});
 
 	register_role(["amme", "1119"], "City", "Amme", {subCat: "Support"}, (e) =>
@@ -278,7 +278,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock Immunity");
 
-		e.addField("Goal:", "Protect the City from those who wish to harm it.");
+		e.addField("Goal:", factions.City.goal);
 	});
 
 	register_role(["vladimir_wise", "vladimirwise", "vladimir", "wise", "1120"], "City", "Vladimir Wise", {subCat: "Killing"}, (e) =>
@@ -293,7 +293,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you kill another City member, you cannot kill for the rest of the game.");
 
-		e.addField("Goal:", "Protect the City from those who wish to harm it.");
+		e.addField("Goal:", factions.City.goal);
 	});
 
 	register_role(["europa_tau", "europatau", "europa", "tau", "1121"], "City", "Europa Tau", {subCat: "Investigative"}, (e) =>
@@ -306,7 +306,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Look into a target's opposition at night. You will know how many people opposing your target voted them yesterday.");
 
-		e.addField("Goal:", "Protect the City from those who wish to harm it.");
+		e.addField("Goal:", factions.City.goal);
 	});
 
 	register_role(["kumiho", "1122"], "Fox", "Kumiho", {subCat: "Beta"}, (e) =>
@@ -321,7 +321,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Cannot perform the factional kill and use ability the same night.");
 
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["ahri", "1123"], "Fox", "Ahri", {subCat: "Beta"}, (e) =>
@@ -336,7 +336,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Cannot perform the factional kill and use ability the same night.");
 
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["sirena_luz", "sirenaluz", "sirena", "luz", "1124"], "City", "Sirena Luz", {subCat: "Killing"}, (e) =>
@@ -349,7 +349,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- At night, visit another player. You will kill one random non-city visitor. Your target also gains Basic Defense for the night, if they do not already have defense. All City visitors will learn your name.");
 
-		e.addField("Goal:", "Protect the City from those who wish to harm it.");
+		e.addField("Goal:", factions.City.goal);
 	});
 
 	register_role(["raphael_de_la_pena", "raphaeldelapena", "raphael", "rdlp", "1125"], "City", "Raphael De la Peña", {subCat: "Support"}, (e) =>
@@ -362,7 +362,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Every night, visit one player. If anybody tries to attack them, they will get roleblocked.");
 
-		e.addField("Goal:", "Protect the City from those who wish to harm it.");
+		e.addField("Goal:", factions.City.goal);
 	});
 
 	register_role(["specter", "1125"], "Stalker", "Specter", {subCat: "Espionage"}, (e) =>
@@ -377,7 +377,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will deal a Powerful attack to one random player who is targeting your target. You can attack players who do not visit your target, or leave their homes at all.\n- Your ability cannot be stopped by jail or imprisonment, or any ability which stops other abilities, except by you being directly roleblocked.\n- All those eligible for death who are not attacked will learn your name.\n- You can attack other Stalker players, but you will always attack them last.\n- Your attack is considered a direct and a non-direct attack, meaning you can be killed by Bodyguards, Trappers, etc.");
 
-		e.addField("Goal:", "Kill all who object to the presence of the Stalkers.");
+		e.addField("Goal:", factions.Stalker.goal);
 	});
 
 	register_role(["julia_piero", "juliapiero", "julia", "piero", "1126"], "City", "Julia Piero", {subCat: "Investigative"}, (e) =>
@@ -392,7 +392,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You cannot perform for the same group of 2, nor can you perform for someone twice in a row.");
 
-		e.addField("Goal:", "Protect the City from those who wish to harm it.");
+		e.addField("Goal:", factions.City.goal);
 	});
 
 	register_role(["apparition", "1127"], "Stalker", "Apparition", {subCat: "Espionage"}, (e) =>
@@ -407,7 +407,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock and Control Immunity\n- You will gain 2 charges of the non-killing abilities of the dead player.\n- You can use up to 2 abilities per day/night cycle.\n- Players targeted by your abilities are notified that an Apparition visited them.\n- You cannot absorb abilities that kill. You do not gain Defense from absorbing abilities.\n- You can absorb Town Power abilities.\n- If you absorb a Mayor and reveal, the extra votes will disappear the next day.\n- You can target dead players any number of times, but you cannot absorb and use a stolen ability in the same night.");
 
-		e.addField("Goal:", "Kill all who object to the presence of the Stalkers.");
+		e.addField("Goal:", factions.Stalker.goal);
 	});
 
 	register_role(["alex_wispon", "alexwispon", "alex", "wispon", "1128"], "City", "Alex Wispon", {subCat: "Power"}, (e) =>
@@ -422,7 +422,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have a private chat with your target.\n- Any actions against your target will fail if they are negative (death, convert), but succeed if they are positive (heals, protects)\n- You may choose to execute your target. You may do this 4 times.\n- If you execute another member of the city, you will not be able to kill again until an evil dies. Unless this is your second time, in which case you cannot kill for the rest of the game.");
 
-		e.addField("Goal:", "Protect the City from those who wish to harm it.");
+		e.addField("Goal:", factions.City.goal);
 	});
 
 	register_role(["tsukihi_mizuki", "tsukihimizuki", "tsukihi", "mizuki", "1129"], "City", "Tsukihi Mizuki", {subCat: "Casual"}, (e) =>
@@ -437,7 +437,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you plant a fire ring, everyone who tries to visit you will have their action fail. This includes being kidnapped by Alex and kills.\n- You will learn everyone who failed their action on you at the end of the night.");
 
-		e.addField("Goal:", "Protect the City from those who wish to harm it.");
+		e.addField("Goal:", factions.City.goal);
 	});
 
 	register_role(["boy_scout", "boyscout", "1130"], "Town", "Boy Scout", {subCat: "Protective"}, (e) =>
@@ -452,7 +452,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- They will be defended against literally everything possibly imaginable that could harm them at all period full stop no exceptions. You bypass things that specifically negate protection or literally anything else that could theoretically prevent your protection from working from roleblocks to the end of the world to whatever. Boy Scouts are prepared for everything.\n- You can only defend yourself once (Boy Scouts are upstanding citizens and would never be selfish however sometimes it is required)");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["crow", "1131"], "Thundercry", "Crow", {subCat: "Support"}, (e) =>
@@ -467,7 +467,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If one or more Striked players are alive, you gain access to an extra anonymous vote.\n- If two or more Striked players are alive, you gain basic defense.");
 
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["firebolt", "1132"], "Thundercry", "Firebolt", {subCat: "Support"}, (e) =>
@@ -482,7 +482,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Detection immune players will show up as a random Town role.\n- If a player who was investigated or Striked last night is lynched, a Strike is gained and you may take two actions the following night.\n- If two or more Striked players are alive, you gain basic defense.");
 
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["sunder", "1133"], "Thundercry", "Sunder", {subCat: "Espionage"}, (e) =>
@@ -497,7 +497,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Learn which players are Striked at the start of each night.\n- If two or more Striked players are alive, you gain basic defense.\n- You do not have access to the factional Thundercry chat.");
 
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["buzzard", "1134"], "Thundercry", "Buzzard", {subCat: "Espionage"}, (e) =>
@@ -512,7 +512,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When guarding the graveyard, you will be able to see the roles, wills and last messages received of newly dead players.\n- If one or more Striked players are alive, you may choose to clean one player when guarding the graveyard.\n- If two or more Striked players are alive, you gain basic defense.\n- You do not have access to the factional Thundercry chat.");
 
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["beast_keeper", "beastkeeper", "1135", "231u"], "Unseen", "Beast Keeper", {subCat: "Investigative"}, (e) =>
@@ -527,7 +527,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Give Out Is based on Animal Keeper results.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["architect", "1136", "276u"], "Unseen", "Architect", {subCat: "Investigative"}, (e) =>
@@ -540,7 +540,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Fortify - Learn how many of each type of faction visit the targetted player\n- Guard (2 uses) - Pick a target, and learn the name of a player that visits your target and their role. If nobody visits, learn the role of your target instead.\n- Aim (Day Ability) - Pick a target. For the rest of the game, learn who that target visits each night. You may not have more than 1 aimed target at all times.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["poltroon", "1137", "252u"], "Unseen", "Poltroon", {subCat: "Killing"}, (e) =>
@@ -553,7 +553,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Guide - Pick 2 targets (cannot self target). All attacks dealt towards Target A will be redirected to Target B.\n- Hide (2 uses) - Pick a target. Redirect all attacks dealt towards yourself to that target.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["squid", "1138"], "Neutral", "Squid", {subCat: "Chaos"}, (e) =>
@@ -583,7 +583,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Players will know if they have a clock at the beginning of each night.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["psychiatrist", "1140", "254u"], "Unseen", "Psychiatrist", {subCat: "Investigative"}, (e) =>
@@ -596,7 +596,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Session - Learn a player’s subalignment.\n- Therapy -  Make the Unseen appear “not-suspicious” tonight.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["legislator", "1141", "259u"], "Unseen", "Legislator", {subCat: "Support"}, (e) =>
@@ -611,7 +611,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You are immune to abilities that grant detection immunity or otherwise make you appear not suspicious.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["bombarder", "1142", "281u"], "Unseen", "Bombarder", {subCat: "Killing"}, (e) =>
@@ -626,7 +626,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Bomb deals a Powerful Rampage Attack.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["warden", "1143", "431u"], "Unseen", "Warden", {subCat: "Protective"}, (e) =>
@@ -639,7 +639,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Guard - Stand guard at a target's house, redirecting all of their visitors into another target of your choosing.\n- Distract - Redirect everyone who visits the Unseen into yourself. 2 uses.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["invited", "1144", "346u"], "Unseen", "Invited", {subCat: "Investigative"}, (e) =>
@@ -652,7 +652,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Accompany - Learn who your target visits. 2 uses.\n- Visit - Learn who visits your target.\n- Invite - Pick 2 targets. Target B Is notified of Target A's visitors. May self target.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["president", "1145", "347u"], "Unseen", "President", {subCat: "Power"}, (e) =>
@@ -667,7 +667,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you die, the next night, all Unseen can use their ability twice.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["beast_behaviorist", "beastbehaviorist", "1146", "354u"], "Unseen", "Beast Behaviorist", {subCat: "Investigative"}, (e) =>
@@ -680,7 +680,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Train - Learn if a target player visits an evil faction.\n- Behave - Learn if a target player is visited by an evil faction.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["fashionista", "1147", "353u"], "Unseen", "Fashionista", {subCat: "Power"}, (e) =>
@@ -693,10 +693,10 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Sing - Reveal all roles that visited your target to the Town the following day. 2 uses.\n- Attract - Pick a role and a target. If the role exists in the game, It will be redirected to your target.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["impostor", "1148"], "Mafia", "Impostor", {subCat: "Deception"}, (e) =>
+	register_role(["impersonator", "1148"], "Mafia", "impersonator", {subCat: "Deception"}, (e) =>
 	{
 		e.setDescription("Post 1148");
 
@@ -706,9 +706,22 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- If you perform the factional Mafia kill, your target is cleaned, and you will gain all of their abilities.");
 
-		e.addField("Attributes:", "- The first time you are investigated, you will appear to be the role that you most recently clearned.");
+		e.addField("Attributes:", "- The first time you are investigated, you will appear to be the role that you most recently cleaned.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
+	});
+
+	register_role(["examiner", "1149", "361u"], "Unseen", "Examiner", {subCat: "Investigative"}, (e) =>
+	{
+		e.setDescription("Post 1149\nConverted from: Analyst");
+
+		e.addField("Alignment", "Unseen Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Analyze - Learn the faction of a target player.\n- Examine - Pick 2 targets, and learn if their roles coincide.");
+
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["fire_mage", "firemage", "fire", "1150"], "Neutral", "Fire Mage", {subCat: "Killing"}, (e) =>
@@ -716,13 +729,13 @@ module.exports = (g) =>
 		e.setDescription("Post 1150");
 
 		e.addField("Alignment", "Unique Neutral Killing", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Start a fire on someone and this person is burning until 2 days. If someone visits this person they are on fire as well.\n- Disguise as another role in GIM and when you are investigated you will appear as this role. 1 use");
+		e.addField("Abilities:", "- Start a fire on your target. If someone visits this your target while they're burning, the second person will start burning as well.\n- Disguise as another role in GIM. When you are investigated you will appear as this role. 1 use.");
 
-		e.addField("Attributes:", "When you are attacked you will start a fire on that player.");
+		e.addField("Attributes:", "- You attack burning players after 2 days have passed.");
 
-		e.addField("Goal:", "Kill everyone.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 };

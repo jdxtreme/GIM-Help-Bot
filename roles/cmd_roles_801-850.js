@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["enraged_prostitute", "enragedprostitute", "801"], "Town", "Enraged Prostitute", {subCat: "Support"}, (e) =>
 	{
@@ -14,7 +14,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock Immune\n- You may self-target.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["ptgtowierps", "rock_paper_scissors", "rockpaperscissors", "rps", "802"], "Neutral", "Pirate That Got Tired Of What Is Essentially Rock Paper Scissors", {subCat: "Chaos"}, (e) =>
@@ -74,7 +74,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you are out at sea, you have a 70% chance to return with fish, and a 30% chance to return with treasure. If you are not at sea at night, you may prepare fish that you have, and give it to anyone at night, or give out treasure. It has a 33% chance to increase the attack value of a target for a night, 33% chance to increase their defense for a night, and a 33% chance to poison your target. Treasure has a 50/50 chance to do the first two. You will not trigger protective roles that kill, but they will protect your target if you poison them.");
 
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["unicorn", "806"], "Neutral", "Unicorn", {subCat: "Chaos"}, (e) =>
@@ -104,7 +104,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you successfully get the role, your target will be notified.\n- A wrongful role guess will make your blowgun backfire onto you.\n- A guessed target will die to infection after two days by an unstoppable attack.\n- A Doctor or Guardian Angel can heal a guessed target, a Potion Master cannot.\n- After the first night, your targets infection will leave them voiceless.");
 
-		e.addField("Goal:", "Kill all main factions.");
+		e.addField("Goal:", factions.Crew.goal);
 	});
 
 	register_role(["sailor", "808"], "Crew", "Sailor", {subCat: "Chaotic"}, (e) =>
@@ -119,7 +119,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Evils will be notified of who the bounty is on.\n- The town will only know a bounty was placed.\n- Killing this bounty increases the killers defense by one level for two nights, hanging the bounty will yield no results and allow the Sailor to cast again.\n- If after two days, the bounty is not killed, a powerful attack may be dealt by the Sailor at any given night.\n**- You may only bounty once and the target cannot be switched unless he is hung.**");
 
-		e.addField("Goal:", "Kill all main factions.");
+		e.addField("Goal:", factions.Crew.goal);
 	});
 
 	register_role(["smuggler", "809"], "Crew", "Smuggler", {subCat: "Support"}, (e) =>
@@ -134,7 +134,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Priority over Amnesiac (Remembering).\n- Can select on what night he wishes to remember.\n- Can not be promoted to Crew (Captain) until he has become a role first.\n- Appears as Not Suspicious until they become a role.\n- As Smuggler, can visit once per game whilst doing nothing.\n- CAN remember a crew role of a dead member, but not Quartermaster or Pirate.");
 
-		e.addField("Goal:", "Kill all main factions.");
+		e.addField("Goal:", factions.Crew.goal);
 	});
 
 	register_role(["gunner", "810"], "Crew", "Gunner", {subCat: "Killing"}, (e) =>
@@ -151,7 +151,7 @@ module.exports = (g) =>
 
 		e.addField("System:", "(Night Announcement)\nA Gunner takes aim.");
 
-		e.addField("Goal:", "Kill all main factions.");
+		e.addField("Goal:", factions.Crew.goal);
 	});
 
 	register_role(["pirate", "811"], "Crew", "Pirate", {subCat: "Captain"}, (e) =>
@@ -166,7 +166,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will attack your target with a basic attack no matter what.\n- Winning the duel will give all members of the **Crew** detection immunity for that night, and upgrade the attack to Powerful for that kill alone.\n- You will super role-block your target, preventing **Transporters, Escorts, Consorts, Necromancers, Retributionists, and Serial Killers** from using their ability past their immunity to roleblock.\n- If you die, a member of the crew will become the next **Pirate** to take your place.");
 
-		e.addField("Goal:", "Kill all main factions.");
+		e.addField("Goal:", factions.Crew.goal);
 	});
 
 	register_role(["boatswain", "boat", "812"], "Crew", "Boatswain", {subCat: "Chaotic"}, (e) =>
@@ -181,7 +181,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- This effects ALL notifications, including **Poison**.\n- You cannot target yourself or other Crew members.\n- If no other Crew (Captain) is alive, become a **Pirate.**");
 
-		e.addField("Goal:", "Kill all main factions.");
+		e.addField("Goal:", factions.Crew.goal);
 	});
 
 	register_role(["quartermaster", "quarter", "813"], "Crew", "Quartermaster", {subCat: "Captain"}, (e) =>
@@ -194,7 +194,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- During the day, select a weapon to use the next night.\n\nMUSKET - Kill your target if they have an attack stat above None on their role card, do nothing otherwise. (Jester, Veteran, Crusader, Trapper included, all technicalities.)\n(Physical, Powerful Attack)\n\nNautical Scope - View all visitors to your target, and view who your target visits.\n(Physical)\n\nCannon - Do a basic attack rampage at your targets house, you are revealed to the town. You can do this only once.\n(Astral)");
 
-		e.addField("Goal:", "Kill all main factions.");
+		e.addField("Goal:", factions.Crew.goal);
 	});
 
 	register_role(["psychopath", "psycho", "814"], "Neutral", "The Psychopath", {subCat: "Killing"}, (e) =>
@@ -239,7 +239,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you raid a player, you learn the outcome of all actions they've previously taken at night. A player can become immune to a raid by staying home the night you raid them. This will not remove the scouting on them, but they will learn your name.");
 
-		e.addField("Goal:", "Loyalist Goal");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["ritualist", "817"], "Neutral", "Ritualist", {subCat: "Evil"}, (e) =>
@@ -250,7 +250,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic (None)", true);
 
-		e.addField("Abilities:", "- Attempt to sacrifice someone at night. If they didn't visit and they weren't visited, they'll be forced to commit suicide. The Town will be informed that it was an unnatural suicide. Your defense increases by a level for each player you sacrifice.");
+		e.addField("Abilities:", "- Attempt to sacrifice someone at night. If they didn't visit and they weren't visited by any other players, they'll be forced to commit suicide and the Town will be informed that it was an unnatural suicide. Your target visiting themself doesn't count for either, nor do Astral or indirect abilities. Your defense increases by a level for each player you sacrifice.");
 
 		e.addField("Attributes:", "- You have a layer of Basic defense that can prevent one attack.");
 
@@ -389,7 +389,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "**Pawn** Deal a basic attack to a target. For every 3 players you kill with a pawn, you may decide to promote the pawn into any other chess piece, giving you 1 charge of that piece\n**Knight** Deal a powerful attack to a target, and bypass all defense values for the night (except permanent values). 2 uses\n**Bishop** Grant yourself Powerful defense  for the night and attack a target with Powerful defense. 2 uses\n**Rook** Deal a Powerful Rampage attack to a target player. 2 uses.\n**Queen** You have the combined abilities of the Pawn, Bishop and Rook, and their attacking values are upped by 1. 1 use.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["sports_better", "sportsbetter", "sports", "827"], "Neutral", "Sports better", {subCat: "Chaos"}, (e) =>
@@ -462,7 +462,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Classic ToS factions are listed as \"Vanilla\", everyone else is listed as the original poster in <#970046125065265202>.\n- Neutrals are listed as \"Neutral.\"");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["cupcake_nk", "cupcakenk", "cupcake", "830"], "Neutral", "Cupcake NK", {subCat: "Killing"}, (e) =>
@@ -477,7 +477,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The host decides a completely ridiculous mechanic by which they die. This may result in any number of other unforeseen circumstances, but they cannot lead to your death.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["not_pirate", "notpirate", "pirate", "831"], "Neutral", "Not Pirate", {subCat: "Chaos"}, (e) =>
@@ -507,7 +507,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock, Redirect, Detection, and Conversion Immune\n- Whenever a player is dealt an attack that is greater than the attack value that would've been needed to kill them by anything, you gain an extra attack equal to the difference. (*If an Unstoppable is dealt to someone with no defense, you gain a Powerful attack.*)\n- You may use any number of these extra attacks in addition to your normal night action.\n- This applies to modkills, which are considered one level greater than Overkill. It does not apply to lynches.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["imperfect_clone", "imperfectclone", "imperfect", "833"], "Neutral", "Imperfect Clone", {subCat: "Evil"}, (e) =>
@@ -537,7 +537,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Both of your targets will be roleblocked through immunity and will be notified that they were put in a social experiment.\n- The first target will have a choice of killing either themselves or the other player. If they do not make a decision, they will automatically kill themselves.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["shifter", "835"], "Neutral", "Shifter", {subCat: "Killing"}, (e) =>
@@ -552,7 +552,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may use both your abilities in the same night.\n- You may use your second ability twice each night if one of the uses targets yourself.\n- You may shift yourself.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["shinigami", "death_note", "deathnote", "836"], "Neutral", "Shinigami", {subCat: "Killing"}, (e) =>
@@ -582,7 +582,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only attack during Full Moons.\n- Under a Blood Moon, you will rampage at your house in addition to attacking, your defense will be upgraded to Basic, and your attack will be upgraded to Unstoppable.\n- Full Moons provide Roleblock Immunity.\n- The Blood Moon provides Roleblock, Redirect, Control, and Conversion Immunity.");
 
-		e.addField("Goal:", "Umbrae Goal");
+		e.addField("Goal:", factions.Umbrae.goal);
 	});
 
 	register_role(["magical_girl", "magicalgirl", "838"], "Neutral", "Magical Girl", {subCat: "Chaos"}, (e) =>
@@ -619,15 +619,15 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 840");
 
-		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic (Invincible)", true);
 
-		e.addField("Abilities:", "- Attack someone each night.\n- Attack someone each night.");
+		e.addField("Abilities:", "- Attack someone each night.\n- Make someone Vulnerable for the night.\n- Coldsnap");
 
-		e.addField("Attributes:", "- Unique, roleblock immune, redirect immune, detection immune, conversion immune, rampage, Astral, highest priority, Invincible autovest, may multitask");
+		e.addField("Attributes:", "- Roleblock immune, redirect immune, detection immune, conversion immune, rampage, Astral, highest priority, Invincible autovest, may multitask");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["off_by_one", "offbyone", "error", "oboe", "841"], "Mafia", "Off By One Error", {subCat: "Deception"}, (e) =>
@@ -642,7 +642,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- As long as you are alive, all players that die to a Mafia role will flip the role one post higher than theirs (the highest post number will instead flip post 1)\n- Causing someone's ability to error will cause their ability to act as if they are the role one post lower than theirs (post 1 will instead perform the ability of the highest post number). This ability will fail if the action is impossible, and you will be notified of this.\n- You may cause three people's ability to error. You do not lose a charge if your ability fails.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["vampire_hunter", "vampirehunter", "842"], "Neutral", "Vampire Hunter", {subCat: "Killing"}, (e) =>
@@ -719,7 +719,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Spend two herbs on a Herb of Healing, healing a player for the night and giving them Powerful defense. Spend three herbs on a Herb of Truth, which will force them to reveal their true role. Spend three herbs on a Herb of Poison, either poisoning your target or all your target's visitors. You may only use one type of herb at a time.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["jacksfilms", "847"], "Neutral", "Jacksfilms", {subCat: "Benign"}, (e) =>
@@ -762,7 +762,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock Immune");
 
-		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
+		e.addField("Goal:", factions.Everfrost.goal);
 	});
 
 	register_role(["midnighter", "850"], "Neutral", "Midnighter", {subCat: "Evil"}, (e) =>

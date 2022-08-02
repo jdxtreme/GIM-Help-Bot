@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["questioner", "1151", "374u"], "Unseen", "Questioner", {subCat: "Investigative"}, (e) =>
 	{
@@ -12,7 +12,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Interview - Pick 2 targets to open a chat between them. Target B will show up as Interrogator. May self target. 3 uses.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["red_riding_hood", "redridinghood", "hood", "rrh", "1152", "378u"], "Unseen", "Red Riding Hood", {subCat: "Investigative"}, (e) =>
@@ -25,7 +25,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Watch - Pick a target. If they die, you will learn the name of the attacker. 2 uses.\n- Scream - Pick 2 targets. If one dies, the other learns the name of the attacker.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["entertainer", "1153", "381u"], "Unseen", "Entertainer", {subCat: "Casual"}, (e) =>
@@ -38,7 +38,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Drink - Use up to 2 abilities next night. Day ability. 1 use, gain a use for each non Neutral (except NK) killed.\n- Party - Force someone to target you.\n- Invite - Target a player. They will learn that you are the Party Host. 1 use, gain 1 more for each non Neutral (except NK) killed.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["eros", "1154", "452u"], "Unseen", "Eros", {subCat: "Investigative"}, (e) =>
@@ -51,7 +51,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Matchmake - Matchmake two players. If they are the same faction, you will learn their faction.\n- God's eye (2 uses): Discover who visited the target player on the night they died. Others will not be able to see who you target.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["barman", "1155", "579u"], "Unseen", "Barman", {subCat: "Support"}, (e) =>
@@ -64,7 +64,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Serve Drink - Roleblock all of your target visitors. 2 uses.\n- Hand Drink - Roleblock the player that your target visited. 2 uses.\n- Open Bar - Redirect all of your target's visitors into yourself. 2 uses.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["politician", "1156"], "Neutral", "Politician", {subCat: "Support"}, (e) =>
@@ -124,7 +124,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The attributes of the town role will apply to you unless they harm you or prevent you from acting.\n- You may use any town role, even if it is not in the game.\n- You can only use each town role once.\n- You may only use two day abilities.\n- With the Necronomicon, you may use all night town roles several times, you may act twice at night (no using the same role twice in the same night), you may use all day ability townies once (once per day).");
 
-		e.addField("Goal:", "Kill all who oppose the Coven.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["wrath", "1160"], "Neutral", "Wrath", {subCat: "Killing"}, (e) =>
@@ -139,7 +139,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You need 1 less vote to be lynched. This is disabled if it would result in you only needing 1 vote to be lynched.\n- For every vote you receive, even if the vote is changed later, deal 1 extra attack the next night. Voting yourself does not count for this. Roles that give more then 1 vote count as multiple votes (i.e. Mayor gives 3 attacks.) The total number of kills cannot go over majority. (If majority is 8 you can only kill up to 7 times.)\n- Each player only counts as voting you once, even if they vote you several different times throughout the day.\n- If you are stopped from using your extra attacks, you keep them for the next night. This will not stack with the next days attacks, you will instead kill equal to the highest number of votes you received between the 2 days.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["reserved_part_2", "reservedpart2", "rp2", "1161"], "Town", "Reserved Part 2", {subCat: "Protective"}, (e) =>
@@ -152,7 +152,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- 24 hours after the first game this is in, the host decides what role to make this. This is now that role **forever**. The role must be a Town (Protective) role.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["desire", "1162"], "Neutral", "Wrath", {subCat: "Chaos"}, (e) =>
@@ -212,7 +212,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Anyone you abduct will not be able to act the following night. They will not know this, and only be told they were roleblocked (or roleblocked through immunity if they are roleblock immune.)\n- You take priority over all Jailor-like roles.\n- You will gain 1 random ability from the player you abduct. You may use the ability, or discard it permanently to deal a powerful attack to a player and a basic attack to their visitors.\n- Anyone who tries to visit an abducted target will be told their target isn't home.\n- Anyone who tries to target you will be told their target isn't home. (they aren't expecting you to be a house so they assume you aren't home.)\n- You may use 2 abilities per night.\n- If all other kill capable roles are dead, you will be told this, and may deal a powerful attack to a player and a basic attack to all their visitors every night.\n- You are conversion immune because a house cannot be convinced to become loyal to a faction/player.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["noctambulist", "noctam", "1166", "709u"], "Unseen", "Noctambulist", {subCat: "Support"}, (e) =>
@@ -227,7 +227,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Direction will cancel all of the non-Unseen abilities targeting or affecting that player in any way, shape or form with the exception of roleblock-immune players.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["warlock", "1167", "1109u"], "Unseen", "Warlock", {subCat: "Power"}, (e) =>
@@ -242,7 +242,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- \"Opposing conversion capable faction\" refers to those factions that, besides Unseen, are a minority faction which has the ability to convert other players into their faction is in the game. This also applies to neutral roles who turn others into their own, but this is determined by the host and is situational.\n- If all conversion roles and factions are completely eradicated, you will turn into a random Unseen Power role. Standard reroll rules apply, however the amount of rerolls you had at the beginning of the game will transfer over.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["trace", "1168"], "Town", "Trace", {subCat: "Support"}, (e) =>
@@ -257,7 +257,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You cannot copy any direct attacks. If you attempt to, you will fail unknowingly.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["failsafe", "1169"], "Town", "Failsafe", {subCat: "Power"}, (e) =>
@@ -272,7 +272,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- During a rewinded night:\n> - All players who were killed since the beginning of the previous night are revived as if they had never died. Everything is restored, except for role/faction conversions.\n> - All non-townies are forced to make the same action they did the first time around. Newly converted players are unable to make any action.\n> - Whispers are able to be made.\n- You may only rewind time two times.\n- If both charges of your ability remain and you are killed, you will auto-use your ability from the grave, consuming both charges.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["starscattered", "star", "1170"], "Coven", "Starscattered", {subCat: "Evil"}, (e) =>
@@ -287,7 +287,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may use players who have been cleaned/stoned.\n- Constellations with day abilities will come into effect instantly the following day.\n- Roles with a limited amount of charges will act starting from Player 1 and moving downwards.\n- You may bless yourself.\n- With the Necronomicon,  your blessings deal a cleaning basic attack to any non-Coven visitor and you are permanently blessed.");
 
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["duelspell", "1171"], "Town", "Duelspell", {subCat: "Support"}, (e) =>
@@ -302,7 +302,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Split players cannot be given protection. Protective visits will still go through, but their ability will fail and they will be notified that the player has been split.\n- When split players die the first time, their faction will be revealed, based on what faction they’d show up as if they were dead.\n- After split players die once, they may act twice at night, but have vulnerable defence (dies if two or more players visit them at night).\n- All splits disappear when you die.\n- You may target yourself.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["defective_battlesuit", "defectivebattlesuit", "defective", "battlesuit", "db", "1172", "306u"], "Unseen", "Defective Battlesuit", {subCat: "Support"}, (e) =>
@@ -317,7 +317,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You'll protect yourself with Basic defense the first time you're attacked, and deal a Powerful attack to whoever attacked you. After this is activated, you'll be able to choose your targets at night instead of targeting them randomly.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["bargainer", "1173"], "Neutral", "Bargainer", {subCat: "Killing"}, (e) =>
@@ -334,7 +334,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes (cont.):", "- If you're lynched, everyone who voted you will be dealt an Overkill attack. If you die by any method besides lynching, anyone who contributed to your death will be dealt an Overkill attack. It's up to the host's discretion as to what counts as \"contributing\", but players may ask for clarification on whether or not something qualifies at any time. If you're solo-killed by a Town role, two other Town roles will die at random. If your death would end the game, this attribute does not resolve.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["confectioner", "1174", "563u"], "Unseen", "Confectioner", {subCat: "Support"}, (e) =>
@@ -349,7 +349,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Only one Unseen member may have a Savory Roll at any point, and you may not give it to the Mastermind or Assassin.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["eavesdropper", "eaves", "1175"], "Neutral", "Eavesdropper", {subCat: "Evil"}, (e) =>
@@ -379,7 +379,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- While using Not Yourself, if you attempt to use an ability from an Unseen member that had no uses of their ability remaining, your ability will fail.\n- While using Not Yourself, you may not use the abilities of the Mastermind or Assassin.\n- While using Not Yourself, if you choose to use a day ability, you may choose any point during the following day to use the ability. If the day ends before you use your ability, you will lose the use of that ability.\n- While using Not Yourself, you may only use any given ability one time.\n- While using Associate, you may not become the Assassin or Mastermind.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["delivery_driver", "deliverydriver", "driver", "1177", "278u"], "Unseen", "Delivery Driver", {subCat: "Support"}, (e) =>
@@ -394,7 +394,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Redirect Immune\n- You may not choose an Unseen member as your first target for BOGO Deal.\n- When using BOGO Deal, your ability will fail if you target a redirect immune player.\n- When using BOGO Deal, your first target will not appear to visit your second target unless your first target was initially intending to visit your second target.\n- When using BOGO Deal, your first target will not be made aware that they targeted two players. If they use an investigative ability, they will be told the results of both of their targets, but they will not know whose result is whose.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["piscator", "1178", "264u"], "Unseen", "Piscator", {subCat: "Killing"}, (e) =>
@@ -409,7 +409,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will learn how many players you hooked using Cast Line, you will not learn their names, and the hooker players will know that they have been hooked.\n- You may use both of your abilities in the same night.\n- All Unseen members are immune to being hooked.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["forensic_examiner", "forensicexaminer", "1179", "215u"], "Unseen", "Forensic Examiner", {subCat: "Investigative"}, (e) =>
@@ -424,7 +424,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only use one of your abilities each night.\n- While you are alive, all Unseen members will privately be informed of the actual cause of death and the role of all dead players if either of those were altered.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["ally", "1180", "213u"], "Unseen", "Ally", {subCat: "Support"}, (e) =>
@@ -439,7 +439,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If using Focus on Me would result in your death, your ability will be prevented, and you will be notified as to the reason why.\n- You may not target an Unseen member with Embrace two nights in a row.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["director", "1181", "205u"], "Unseen", "Director", {subCat: "Power"}, (e) =>
@@ -454,7 +454,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may not use or target the Mastermind or Assassin with either of your abilities.\n- Charges of Executive Power are shared between the Day and Night versions.\n- You may only use any given Unseen role once.\n- You may Rehire yourself. If you do this, you will rehire yourself into a random non-Power/Head Unseen role.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["hooker", "1182", "59u"], "Unseen", "Hooker", {subCat: "Support"}, (e) =>
@@ -469,7 +469,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you end up target an Unseen member with Entertain or Advanced Entertainment, your ability will fail.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["bodyguard_bureucrat", "bodyguardbureucrat", "bureucrat", "bobu", "1183", "146u"], "Unseen", "Hooker", {subCat: "Support"}, (e) =>
@@ -484,7 +484,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will lose your Service ability once you successfully protect someone from death.\n- You may not choose an invidivual player as your first target for Service more than once per game.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["contractor", "1184", "143u"], "Unseen", "Contractor", {subCat: "Support"}, (e) =>
@@ -499,7 +499,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have three types of fences: Iron, Electric, and Spirit\n- An Iron fence will grant your target Powerful defense. This fence will collapse once your target has been attacked.\n- An Electric fence will prevent your target from visiting or being visited. This fence will collapse when three visits have been prevented.\n- A Spirit fence will prevent any actions that may negatively impact the Unseen from happening. This fence will collapse once a negative action has been prevented.\n- If the condition for a fence to collapse is met, it will collapse at the end of the night (collapsing resolves last).\n- You may only have one fence installed at any time, but you may have any number of fences built at any time.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["governor", "1185", "197u"], "Unseen", "The Governor", {subCat: "Support"}, (e) =>
@@ -514,7 +514,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you tax a Town Support role, you gain a charge of a random GIM Investigative role that you may use alongside Tax.\n- If you tax a Town Protective role, the Unseen will be granted Powerful Defense for the night.\n- If you tax a Town Investigative role, the Mastermind will be informed of a convertible Town member and their role.\n- If you tax a Town Killing role, the Assassin gains another charge of Lacerate.\n- If you tax a Town Power role, you may choose a player to reveal their role during the day tomorrow.\n- If you tax a Town Casual role, the Unseen will be informed of the roles of all players that visited an Unseen member this night.\n- If you attempt to tax a non-Town member, you will lose your ability to Tax after two nights.\n- You may not tax an Unseen member but like why would you\n- Before your conversion, if you granted a non-Town member citizenship, your Citizen conversion will be cancelled.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["belittler", "1186", "199u"], "Unseen", "Belittler", {subCat: "Support"}, (e) =>
@@ -529,7 +529,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Investigative roles will receive false feedback based on their ability (their results will be framed or randomized if they are unaffected by frames)\n- Protective roles will not be able to protect their target if they are visited by any other player.\n- Killing roles will have their Attack value decreased to the next-lowest value.\n- Support roles will have their visit fail regardless of any other abilities used on them.\n- Any subalignment not listed will not receive a nerf.\n- You will be notified if your belittlement impacted your target's actions.\n- Your target will not be notified about their belittlement.\n- You may not belittle an Unseen member.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["luminary", "1187"], "Town", "Luminary", {subCat: "Killing"}, (e) =>
@@ -542,24 +542,24 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player at night. If you kill a town member, you will lose a random ability (this one has last priority) for the rest of the game.\n- Reduce a player’s defense to none no matter what, including temporary protections.");
 
-		e.addField("Attributes:", "- At the beginning of the game, it will be announced that a Luminary is in the game.\n- As long as you are alive, all town members have access to your first ability and may choose to attack a player instead of performing their night action. Deaths caused by these attacks will show up as have being caused by the Luminary.");
+		e.addField("Attributes:", "- At the beginning of the game, it will be announced that a Luminary is in the game.\n- As long as you are alive, all town members have access to your first ability and may choose to attack a player instead of performing their night action. If they kill a town member, they will lose one of their abilities. Deaths caused by these attacks will show up as have being caused by the Luminary.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["marauder", "1188", "196u"], "Unseen", "Marauder", {subCat: "Killing"}, (e) =>
+	register_role(["contact", "1188"], "Any", "Contact", {subCat: "Support", anyExCat: ["Town", "City", "Neutral", "Insurgency", "Horsemen", "Agent", "Sentry"]}, (e) =>
 	{
-		e.setDescription("Post 1188\nConverted from: Desperado");
+		e.setDescription("Post 1188");
 
-		e.addField("Alignment", "Unseen Killing", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Any Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Duel (Night, 2 use): Choose a target. During the following day, only you and your target will be able to be voted. It will be announced to the Town that you and your target are dueling, but no one will be told who enacted the duel. Whoever receives more votes between you and your target will be killed and cleaned once either majority is reached or the day ends.\n- Maraud (Day, 1 use): Choose a target. During the following night, they will receive an offer to either give up their main ability (this is determined by the host) or be dealt a Powerful attack. If they choose to give up their ability, you will gain the ability, and any charges will be refreshed.");
+		e.addField("Abilities:", "- Visit a player each night to determine if thry are evil or not.\n- In the day, introduce yourself to someone you previously visited, forming an alliance and a private chat with them.");
 
-		e.addField("Attributes:", "- In the case of a tie vote in the duel, you will be favored.\n- If you Maraud a player with no main ability, you will deal an Unstoppable attack to them at the end of the night. They will not receive a notification if this is the case.");
+		e.addField("Attributes:", "- This role can only spawn with factions that have a factional chat, and only if there's at least one other evil faction in the game.\n- Forming an alliance allows your faction to win with your ally, and vice-versa, unless the ally has the NK Goal.\n- If you die, all of your alliances will be lost.\n- Naturally, members of evil factions will appear evil to you. However, roles with the NK Goal will appear evil to you as well.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", "Win with the faction you're in as well as any evils you align with.");
 	});
 
 	register_role(["heliocentrist", "helio", "1189", "298u"], "Unseen", "Heliocentrist", {subCat: "Power"}, (e) =>
@@ -574,7 +574,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- During Day Break, any alive player may be voted for even if they are not present during the Day-Night phase.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["vegetarian", "veget", "1190", "327u"], "Unseen", "Vegetarian", {subCat: "Casual"}, (e) =>
@@ -589,7 +589,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Anyone affected by Talk Your Ear Off will have any feedback that they may receive from their abilities withheld along with any other notifications they would have received.\n- If a player affected by Talk Your Ear Off is killed, they will receive the death notification and nothing else.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["messenger", "1191", "369u"], "Unseen", "Messenger", {subCat: "Support"}, (e) =>
@@ -604,7 +604,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may not target the Unseen with Deliver.\n- You will favor scaring away any Protectives, then Supports, then Investigatives, then Killings with Deliver. Any Unseen members will be prioritized last, but they will be considered.\n- A Delayed Message will still be delivered even if your target dies the night you use your ability.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["timesnatcher", "1192", "424u"], "Unseen", "Timesnatcher", {subCat: "Support"}, (e) =>
@@ -617,7 +617,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Time Snatch (Day, 2 use): Choose a target. If they have been afflicted by any ability that will cause them to die tonight, they will immediately be killed.\n- Dark Dimension (Night, 2 use): All Unseen members gain Detection Immunity tonight.\n- Deadly Resolve (Night, 1 use): All killing abilities will resolve before any other abilities tonight.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["alpha", "1193"], "Agent", "Alpha", {subCat: "Lead"}, (e) =>
@@ -632,7 +632,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At game start, you will learn if any other faction heads or neutral killings are present, and if so, which.\n- You are detection-immune to abilities that determine alignment.\n- If you carry the factional kill, you will rampage.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["bravo", "1194"], "Agent", "Bravo", {subCat: "Lead"}, (e) =>
@@ -647,7 +647,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have Invincible defense against any form of poison.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["charlie", "1195"], "Agent", "Charlie", {subCat: "Lead"}, (e) =>
@@ -662,7 +662,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of the game, you will learn the role of a random player. This does not bypass detection immunity, if such immunity grants the ability to choose a disguise role.\n- You have roleblock, control, and redirection immunity. If any of these are attempted on you, you will learn what role attempted to cause it.\n- If you carry the factional kill, you will roleblock your target.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["delta", "1196"], "Agent", "Delta", {subCat: "Lead"}, (e) =>
@@ -677,7 +677,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You are detection immune. At the beginning of the game, you may choose a role to appear as to investigations. You may change this at any time.\n- If you carry the factional kill, it will be Astral and you may choose what role it appears to come from.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["echo", "1197"], "Agent", "Echo", {subCat: "Support"}, (e) =>
@@ -690,7 +690,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Triple Tap (3-shot): If you use this ability in combination with your factional kill, you will attack the target three times: two basic attacks, then a powerful attack.\n- Payback (2-shot): If you are visited by a one-target non-Astral ability the night you use this, you will use the same ability on the person who used it on you, along with a basic attack.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["foxtrot", "1198"], "Agent", "Foxtrot", {subCat: "Support"}, (e) =>
@@ -705,7 +705,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of the game, you will learn the role of a random player. If Charlie is present, you will not receive the same player. If the target is detection immune, you will see a random Town role or their disguise role.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["golf", "1199"], "Agent", "Golf", {subCat: "Communication"}, (e) =>
@@ -720,7 +720,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may choose to hide your whispers from roles/abilities that can read whispers.\n- You are silence immune.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 
 	register_role(["hotel", "1200"], "Agent", "Hotel", {subCat: "Communication"}, (e) =>
@@ -735,6 +735,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Drive to Excel can only be used once per Agent.\n- If you are lynched, you will signal to the Agents. You will be able to send a 400 character message that only Agents will see.");
 
-		e.addField("Goal:", "Agent Goal");
+		e.addField("Goal:", factions.Agent.goal);
 	});
 };

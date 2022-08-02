@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["creepy_girl", "creepygirl", "651"], "Neutral", "Creepy Girl", {subCat: "Chaos"}, (e) =>
 	{
@@ -29,7 +29,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Once you kill a player, you will join the mafia chat.\n- Once you kill a player, you will be given 5 random mafia roles, pick one to become permanently.\n- You can switch your role once, being given a selection of 5 new mafia roles to choose from.\n- If you pick a Mafia (Espionage) role, you will stay in the mafia chat.\n- You cannot become Wannabe, The Ultimate Mafioso, The Entire Mafia, Turncoat.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["sawbones", "653"], "Mafia", "Sawbones", {subCat: "Support"}, (e) =>
@@ -44,7 +44,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Healing a member of the Mafia will give them Powerful defense for the night.\n- You may only heal four times.\n- You may heal yourself.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["phisher", "654"], "Mafia", "Phisher", {subCat: "Deception"}, (e) =>
@@ -59,7 +59,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock and Redirect Immune\n- Phished players will be forced to target you that night.\n- If your ability would cause you to be killed, it will be cancelled.\n- You will be notified if your target was immune to your phishing.\n- Your target will NOT be notified that they were redirected.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["fox", "655"], "Neutral", "Fox", {subCat: "Chaos"}, (e) =>
@@ -89,7 +89,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- During the Blood Moon, you have Powerful defense.\n- During a Blood Moon, you may issue a Basic, Astral attack.\n- During the Full Moon, you have Basic defense.\n- If you are the last remaining Umbrae member you will become the Prophet.\n- Detection Immunity\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Umbrae Goal");
+		e.addField("Goal:", factions.Umbrae.goal);
 	});
 
 	register_role(["prophet", "657"], "Umbrae", "Prophet", {subCat: "Assault"}, (e) =>
@@ -104,7 +104,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Under a full moon you have basic defense.\n- Under a Blood Moon you have powerful attack.\n- Under no moon, you have no defense.\n- Under a Blood Moon your defense is powerful.\n- If you are jailed twice, you may issue your attack inside of jail.\n- Roleblock Immunity.\n- Detection Immunity during non-moon nights.\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Umbrae Goal");
+		e.addField("Goal:", factions.Umbrae.goal);
 	});
 
 	register_role(["invoker", "658"], "Umbrae", "Invoker", {subCat: "Assault"}, (e) =>
@@ -119,7 +119,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You are role block immune.\n- Under a Full Moon, your visit is astral.\n- Under a Blood Moon, you will mimic the mechanics of your disguised cause of death.\n(Werewolf/Pestilence Rampage, Juggernaut's Powerful Attack, Arsonist's Unstoppable Ignition)\n- Detection Immunity during non-moon nights.\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Umbrae Goal");
+		e.addField("Goal:", factions.Umbrae.goal);
 	});
 
 	register_role(["fabricator", "659"], "Umbrae", "Fabricator", {subCat: "Support"}, (e) =>
@@ -134,7 +134,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Killed players will appear as alive to the town until they are voted up to the stand, or if they are visited by another person during the night or any night after they die.\n- A fabricated player being voted up to stand can be pardoned or executed as normal.\n- On Blood Moon nights, you may kill and fabricate a player.\n- A player you have successfully fabricated will be seen as \"Fabricated\" during a death flip, and their last will is not shown.\n- You will know your target's role and will.\n- Detection Immunity during non-moon nights.\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Umbrae Goal");
+		e.addField("Goal:", factions.Umbrae.goal);
 	});
 
 	register_role(["matriarch", "660"], "Umbrae", "Matriarch", {subCat: "Support"}, (e) =>
@@ -149,7 +149,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- During a Full Moon, replenish a teammates charge, or let them act twice the next night if they have full charges.\n- During a Blood Moon, choose a teammate to let them use their Blood Moon powers the next night.\n- You can only use the Full Moon ability and the Blood Moon ability on the same person once.\n- You are able to use the Blood Moon ability and the Full Moon ability on the same person.\n- You cannot target the Deity.\n- Detection Immunity during non-moon nights.\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Umbrae Goal");
+		e.addField("Goal:", factions.Umbrae.goal);
 	});
 
 	register_role(["tyro", "661"], "Umbrae", "Tyro", {subCat: "Support"}, (e) =>
@@ -164,7 +164,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- During the Blood Moon, you may issue a direct, powerful attack.\n- If the Prophet is killed you will take his place before anyone else.\n- After killing a player, you may choose an untaken Umbrae role to convert into.\n- Roleblock Immunity\n- Control Immunity\n- Detection Immunity during non-moon nights, unless you are disguised.\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Umbrae Goal");
+		e.addField("Goal:", factions.Umbrae.goal);
 	});
 
 	register_role(["seer", "662"], "Umbrae", "Seer", {subCat: "Support"}, (e) =>
@@ -179,7 +179,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Anyone who was killed in the fog will have their roles shown as (Unknown) and will have their wills cleaned.\n- Cause of death in the fog will be hidden.\n- Calling fog from a blood moon will cause the next days discussion phase to be skipped.\n- The Umbrae will see the cause of death, roles, and wills of those undiscernable by the fog.\n- Detection Immunity during non-moon nights, unless you are disguised.\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Umbrae Goal");
+		e.addField("Goal:", factions.Umbrae.goal);
 	});
 
 	register_role(["savior", "663"], "Neutral", "Savior", {subCat: "Chaos"}, (e) =>
@@ -269,22 +269,22 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If they die the same night you send them back in time, their death Is delayed for 2 rounds\n- If they are attacked again while their death Is delayed, they will die.\n- You will revive a dead Pale Moon as a completely lifeless zombie. They cant be voted, talked or whispered to. You may decide to give this Zombie to yourself or any other Pale Moon.\n- If someone attacks a target with a Zombie, the Zombie will die instead.\n- When the PMCS begins, you will gain one charge of revival, and may revive any player. They still cannot be talked, voted or whispered to, nor can they get targeted at night, but you will use them to deal an Astral Unstoppable Attack at a player.");
 		
-		e.addField("Goal:", "Pale Moon Goal");
+		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
-	register_role(["replicant", "669"], "Neutral", "Replicant", {subCat: "Chaos"}, (e) =>
+	register_role(["camerata", "669"], "Mafia", "Camerata", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 669");
 
-		e.addField("Alignment", "Unique Neutral Chaos", true);
+		e.addField("Alignment", "Mafia Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Destroy one or both of your closest living neighbours.");
+		e.addField("Abilities:", "- Wield the Transistor, attacking and absorbing a player.\n- Use one obtained ability.");
 
-		e.addField("Attributes:", "- You are simultaneously also both your living neighbours' roles, sharing their abilities, attributes and goals. You will know which neighbour has which role.\n- You cannot be part of any nightly factional chats or learn the members of an informed minority. Members of an informed minority, however, will know of your existence and actions.\n- If both of your living neighbours have the same win condition, you are forced to attack.");
+		e.addField("Attributes:", "- If you are attacking, the Mafia cannot perform a factional kill that night.\n- Players killed by the Transistor will have their abilities granted to you, and they will be able talk in the Mafia faction chat at night.\n- If you die during the day, the Transistor is passed to a random member of the Mafia, allowing them to make attacks and utilise abilities instead of their regular night action. Absorbed abilities and charges carry over.\n- The Transistor may only make three attacks.");
 		
-		e.addField("Goal:", "Fulfil one of your living neighbours' goals.");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["savior", "670"], "Vampire", "Savior", {subCat: "Conversion"}, (e) =>
@@ -299,7 +299,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target is attacked, reflect one attacker's attack. The other attackers will not know of this.\n- Your target is converted into a Devoted, unless the attack was Unstoppable.\n- If you successfully convert someone, you must wait a day before protecting again.\n- You cannot protect night 1.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["catacano", "671"], "Vampire", "Catacano", {subCat: "Support"}, (e) =>
@@ -314,7 +314,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only bite someone on an Odd night.\n- Biting someone converts them to a Vampire upon death. The attacker is informed their target has high defense.\n- You will know your newest progeny’s notifications.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["devoted", "672"], "Vampire", "Devoted", {subCat: "Support"}, (e) =>
@@ -329,7 +329,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will become the Savior if the Savior dies.\n- You will gain all passive abilities your role had before conversion when using your ability.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["progeny", "673"], "Vampire", "Progeny", {subCat: "Conversion"}, (e) =>
@@ -344,7 +344,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If the Catacano dies, the oldest Progeny takes their place.\n- If there are no kill capable Vampire roles left you will become a Lampir.\n- The night you become a Progeny, you gain Invincible Defense.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["talamaur", "674"], "Vampire", "Talamaur", {subCat: "Support"}, (e) =>
@@ -359,7 +359,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Selecting a Corpse at night destroys the Corpse, and uses it to shield a Vampire granting them a basic defense.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["broxa", "broca", "675"], "Vampire", "Broxa", {subCat: "Support"}, (e) =>
@@ -374,7 +374,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- By selecting a target you create a delayed roleblock.\n- If you die, your lull fails.\n- Anyone who threatens to expose you is lulled into a false sense of security.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["gierach", "676"], "Vampire", "Gierach", {subCat: "Support"}, (e) =>
@@ -389,7 +389,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can talk to the other Vampires at night.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["nelapsi", "677"], "Vampire", "Nelapsi", {subCat: "Manipulation"}, (e) =>
@@ -404,7 +404,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At night you soul bind two players.\n- Both players will now visit the same target as the first player selected.\n- You may only select two new players to bind after both die, or you set them free.\n- Setting the players free takes one night.\n- Players are freed if you die.\n- The selected Players will know who they are tied to, and each other’s roles.\n- If either bound player dies the other one dies at night.\n- Soul bound players cannot be targetted by Vampire Killing Roles.\n- You can talk to the other Vampires at night.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["adze", "678"], "Vampire", "Adze", {subCat: "Killing"}, (e) =>
@@ -419,7 +419,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Killing your target replaces your Investigator and Consigliere results with that of your drained target.\n- You can talk to the other Vampires at night.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["bebarlang", "bebar", "679"], "Vampire", "Bebarlang", {subCat: "Killing"}, (e) =>
@@ -434,7 +434,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your visits are Astral.\n- You can talk to the other Vampires at night.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["lampir", "680"], "Vampire", "Lampir", {subCat: "Killing"}, (e) =>
@@ -449,7 +449,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can talk to the other Vampires at night.\n- If you are roleblocked, you will only attack the player who roleblocked you. Their Last Will will be unreadable.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["pijavica", "pija", "681"], "Vampire", "Pijavica", {subCat: "Manipulation"}, (e) =>
@@ -464,7 +464,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can hear private messages.\n- Only you will learn what each player votes during trials.\n- You may not veil twice in a row.");
 		
-		e.addField("Goal:", "Convert or kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["privateer", "681"], "Mafia", "Privateer", {subCat: "Espionage"}, (e) =>
@@ -479,7 +479,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you perform the Factional Mafia Kill, you will deal a Powerful attack. The Mafia will still decide who you target and not be made aware of this.\n- During the night, you will raid the player you chose during the day. You will roleblock your target, and you will both play the Pirate's Scimitar/Pistol/Rapier minigame. If you win, however, you will reduce their defense to none for the current and next night instead of killing them.\n- If you are in the process of raiding a player, you may not replace the Factional Mafia Kill.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["despot", "682"], "Insurgency", "Despot", {subCat: "Head"}, (e) =>
@@ -494,7 +494,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When given a bomb, the player may, instead of their normal night action, perform a basic attack to a chosen player.\n- If you die, a random Insurgent will be promoted to the Despot. They will have no conversion uses. Insurgent (Informant)s are prioritized last.\n- When you offer to convert a player, they may choose whether to accept. If they do accept, their role will be unchanged, however they will have their goal changed to 'Eliminate all who oppose the Insurgency.'\n- Detection immunity to the Sheriff.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["consultant", "consult", "683"], "Insurgency", "Consultant", {subCat: "Informant"}, (e) =>
@@ -509,7 +509,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you wiretap a player, you will be given all notifications given to them from then on.\n- When you copy a player's last will, you will be able to read it yourself.\n- You will be notified if any whispers to and from you are eavesdropped or interfered with; when this happens, you may choose to edit what the contents of the whisper appears to be to the eavesdropper.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["insider", "684"], "Insurgency", "Insider", {subCat: "Informant"}, (e) =>
@@ -524,7 +524,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The night after inviting a player, they will permanently be put into a private channel with you and any other invited players.\n- Before the start of the game, you will be assigned to infiltrate a random (EXISTANT) evil faction. You may choose a role in that faction to appear as. You will be placed into that evil faction, appearing as that role to all other players in the evil faction.\n- You may not appear to be a \"leader\" type role (i.e. Godfather, Coven Leader/Lich, Sun (Production), Rock (Killing), etc.)\n- Cannot be rolled w/ only one evil faction.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["rogue", "685"], "Insurgency", "Rogue", {subCat: "Saboteur"}, (e) =>
@@ -539,7 +539,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Confused players will be roleblocked, but won't be informed of such. Investigative roles will still gain results, however these results will be randomized. In cases where they view people (i.e. Lookout and Tracker), report the correct number, but randomize which people.\n- When you report to a player during the day, they will gain your exact role if they are an Insurgent.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["elite", "686"], "Insurgency", "Elite", {subCat: "Saboteur"}, (e) =>
@@ -554,7 +554,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you attempt to bribe a player, they will be notified. They may choose to accept or deny the bribe. Accepting the bribe gives you their exact role. Denying the bribe has no effect.\n- You have 2 extra votes you may use each day. They will only be labeled as the Elite's votes, however you may not change them after voting.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["herring", "687"], "Insurgency", "Herring", {subCat: "Saboteur"}, (e) =>
@@ -567,7 +567,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Size up a player's house during the night, removing their defense that night and blocking all Town Protective abilities on them from succeeding.\n- Read into a player during the day, learning whether or not they are a member of the Town or not. 2 Uses.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["deserter", "688"], "Insurgency", "Deserter", {subCat: "Hitman"}, (e) =>
@@ -582,7 +582,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you storm a player's house during the night, you will check if they have a kill-capable ability. If they do, you will attack them, and roleblock them past immunity.\n- Any player capable of performing a factional kill will come up as kill-capable when you check them, along with normal kill-capable roles.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["zealot", "689"], "Insurgency", "Zealot", {subCat: "Hitman"}, (e) =>
@@ -597,7 +597,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- This attack will rampage. You will also attack yourself in the process.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["virtuoso", "virt", "690"], "Insurgency", "Virtuoso", {subCat: "Hitman"}, (e) =>
@@ -612,7 +612,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your confiscation target were to use an ability capable of killing the following night, you will roleblock them past immunity. You will then gain one use of that exact attack. You *may* confiscate bombs, if it isn't implied enough.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["governor", "gov", "691"], "Loyalist", "Governor", {subCat: "Governor"}, (e) =>
@@ -642,7 +642,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only use your ability twice, and it will only succeed on Town roles. This does not affect the factional kill if you perform it.");
 		
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["scribe", "693"], "Loyalist", "Scribe", {subCat: "Investigative"}, (e) =>
@@ -657,7 +657,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- On even number nights, if the role does exist, you will get 5 names, at least one is that role. If it doesn't exist, you will know how many roles of that alignment do. \"Exist\" does not include the dead, unless their role was hidden.");
 		
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["state_knight", "stateknight", "state", "694"], "Loyalist", "State Knight", {subCat: "Protective"}, (e) =>
@@ -672,7 +672,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you visit the same player as a Loyalist, you will instead attack the person the next night. You will not give the target Powerful defense or kill any attackers. You may protect someone the night you are attacking someone.");
 		
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["fraudster", "fraud", "695"], "Loyalist", "Fraudster", {subCat: "Support"}, (e) =>
@@ -687,7 +687,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only do this twice.");
 		
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["deceptionist", "decep", "696"], "Loyalist", "Deceptionist", {subCat: "Support"}, (e) =>
@@ -702,7 +702,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The night after you successfully use your main ability, you cannot use it. You must do nothing or use your stolen ability. If you are the only Loyalist left, aside from the Governor, you may perform the factional kill and use your ability in the same night. You may only do this once.");
 		
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["assassin", "697"], "Loyalist", "Assassin", {subCat: "Killing"}, (e) =>
@@ -717,7 +717,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only use your ability twice. If your target is immune to your attack, both of you will survive, and the Town will receive no notification.");
 		
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["field_medic", "fieldmedic", "fm", "medic", "698"], "Loyalist", "Field Medic", {subCat: "Protective"}, (e) =>
@@ -732,7 +732,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will learn the names of all killers, if multiple target your target.");
 		
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["propogandist", "prop", "699"], "Loyalist", "Propogandist", {subCat: "Support"}, (e) =>
@@ -747,7 +747,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock Immunity");
 		
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["illuminator", "ill", "700"], "Loyalist", "Illuminator", {subCat: "Support"}, (e) =>
@@ -762,6 +762,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Unless this absolutely would break the game, (determined by hosts), Control immunity will not stop this.");
 		
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 };

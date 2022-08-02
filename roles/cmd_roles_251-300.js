@@ -2,7 +2,7 @@
 
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["anti_a_activist", "antiaactivist", "anti_a", "antia", "251"], "Neutral", "Anti A Activist", {subCat: "Chaos"}, (e) =>
 	{
@@ -31,7 +31,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you are attacked, redirect the attack to the player you ran to.\n- If a Town/Florae member Is killed by your redirection, you will deal yourself an Unstoppable attack at the end of the next night.");
 
-		e.addField("Goal:", "Town goal.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["planet", "253"], "Rock", "Planet", {subCat: "Support"}, (e) =>
@@ -46,7 +46,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Blotting out the moon will cause all non-Rock players to, without their knowledge, visit a random non-Rock player.\n- Obscuring one player's vision will cause them to visit a player at random without knowing, or fail to act if they are a killer.\n- You may blot out the moon once during the game.");
 
-		e.addField("Goal:", "Rock goal.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["therapist", "254"], "Town", "Therapist", {subCat: "Investigative"}, (e) =>
@@ -61,7 +61,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will discover if they're a Killing, Support, Investigative or Protection role, but will not know their faction.\n- All roles that do not enter into any of those categories, such as Mafia Deception, are assumed to be into the Support category unless stated otherwise.");
 
-		e.addField("Goal:", "Town goal.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["fuc_king", "fucking", "fking", "255"], "Neutral", "Fuc King", {subCat: "Other"}, (e) =>
@@ -121,7 +121,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you judge a Fallen Angel, you can't be roleblocked or redirected while doing so, and they'll be cleaned but you'll still be able to use their ability.\n- If you judge a non-Fallen Angel and fail to kill them, your attack against them will be upgraded to Unstoppable.\n**Sin of Greed** — If you're the last Fallen Angel remaining, you can use the ability of any number of different dead players and judge someone and steal all of someone's abilities and use any number of your stolen abilities each night.");
 
-		e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
+		e.addField("Goal:", factions.FallenAngel.goal);
 	});
 
 	register_role(["poli", "politician", "259"], "Town", "Politician", {subCat: "Support"}, (e) =>
@@ -136,7 +136,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Taxing players will roleblock them, and steal 1 charge of their night abilities, if they have any. You will know if you stole a charge.\n- Paying taxes gives one charge of an ability to a given player. Ex: \"I'll give the charge I stole from Player Name A to Player Name F.\"\n- You appear evil to TIs.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["god", "260"], "Neutral", "God", {subCat: "Killing"}, (e) =>
@@ -211,7 +211,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you reel in your fishing rod, you will deal a Powerful attack to all of their visitors.\n- You can have fishing rod cast at up to three players at once.\n- If you attack a Townie, all of the other visitors to the visited player will live.");
 
-		e.addField("Goal:", "Town goal.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["ghostenthusiast", "ghost_enthusiast", "ge", "265"], "Neutral", "Ghost Enthusiast", {subCat: "Benign"}, (e) =>
@@ -374,7 +374,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Select two targets are night. The first target will have their action redirected to the second.\n- You may not manipulate yourself.\n- You have roleblock and redirection immunity.");
 
-		e.addField("Goal:", "Lynch every criminal and evildoer.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["fortifier", "276"], "Town", "Fortifier", {subCat: "Investigative"}, (e) =>
@@ -389,7 +389,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Building takes 1 day.\n- You may have as many forts as you would like.\n- You will learn how many of each faction (Town and Neutral included) visit people with forts in them.\n- If an evil faction or a NK visits a target with a fort, the fort Is destroyed at the end of the night.");
 
-		e.addField("Goal:", "Lynch every criminal and evildoer.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["villainteamleader", "villain_team_leader", "vtl", "277"], "Other", "Villain Team Leader", {subCat: "Support"}, (e) =>
@@ -417,7 +417,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your target will be forced to target themselves.\n- You may not use your ability on roleblock or control immune players.");
 
-		e.addField("Goal:", "Lynch every criminal and evildoer.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["asbspotem", "279"], "Mafia", "A Small But Significant Portion Of The Entire Mafia", {subCat: "Support"}, (e) =>
@@ -430,22 +430,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You're three other Mafia roles in the GIM thread chosen at random, other than those that are in Town of Salem. ");
 
-		e.addField("Goal:", "Mafia goal.");
-	});
-
-	register_role(["fivekidsinatrenchcoat", "five_kids_in_a_trenchcoat", "five_kids", "fivekids", "fkiat", "280"], "Town", "Five Kids in a Trenchcoat", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 280");
-
-		e.addField("Alignment", "Town Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Prank up to 5 players each night. You visit them and do nothing. ");
-
-		e.addField("Attributes:", "- You're 5 players. (You have 5 votes, must be killed 5 times, can be targeted as though you were 5 players, etc.)");
-
-		e.addField("Goal:", "Lynch every criminal and evildoer.");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["based_psychiatrist", "basedpsychiatrist", "bp", "280"], "Neutral", "Based Psychiatrist", {subCat: "Chaos"}, (e) =>
@@ -475,7 +460,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Defusing a Bomb deactivates the Bomb.\n- You may only have one active Bomb at all time.\n- Detonating a Bomb deals a powerful rampage attack.");
 
-		e.addField("Goal:", "Town goal.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["difference", "282"], "Town", "Difference", {subCat: "Investigative"}, (e) =>
@@ -490,7 +475,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Target two players each night. You will discover the positive difference between their role numbers.\n- You may not target yourself.");
 
-		e.addField("Goal:", "Town goal.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["caino", "cainoarukat", "caino_arukat", "283"], "Neutral", "Caino Arukat", {subCat: "Chaos"}, (e) =>
@@ -518,10 +503,10 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have one charge of every single ability of the other mafia roles in the game.");
 
-		e.addField("Goal:", "Mafia goal.");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["fuckcaino", "fuck_caino", "285"], "Other", "Fuck Caino", {subCat: "Caino"}, (e) =>
+	register_role(["fuckcaino", "fuck_caino", "285"], "Other", "Fuck Caino", (e) =>
 	{
 		e.setDescription("Post 285");
 
@@ -563,7 +548,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- TIs will see your goon visiting.\n- Bodyguards will kill your goon, but wont die.\n- If your goon dies, you will attack instead.");
 
-		e.addField("Goal:", "Mafia goal.");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["magikill", "288"], "Coven", "Magikill", {subCat: "Evil"}, (e) =>
@@ -578,7 +563,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The electric wall will prevent your target from visiting.\n- The toxic spray will poison your target. This is Astral.\n- The explosion will deal a Basic attack to your target and their visitors.\n- Your abilities have a three night cooldown.\n- With the Necronomicon, you have no cooldowns.");
 
-		e.addField("Goal:", "Coven goal.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["rioter", "289"], "Neutral", "Rioter", {subCat: "Evil"}, (e) =>
@@ -621,7 +606,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you sacrifice another Coven member, you will deal an Astral Unstoppable attack to them.\n- After you sacrifice a player, they may haunt a player of their choice the following night, dealing an Astral Basic attack to their target.\n- With the Necronomicon, you may sacrifice any non-Coven member, dealing a Basic attack to them.\n- If a player were to haunt you after you sacrificed them, their ability will fail.\n- You cannot sacrifice yourself.\n- You cannot sacrifice someone if you had successfully sacrificed someone the night before.\n- <https://wikimafia.fandom.com/wiki/Ritualist>");
 
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["instant_ramen_maker", "instantramenmaker", "irm", "ramen", "292"], "Town", "Instant Ramen Maker", {subCat: "Support"}, (e) =>
@@ -636,7 +621,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The next day, they will be able to take all their day actions twice. This include day abilities, voting, and anything other game action they would do during the day.\n- You may cook for yourself.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["jinx", "293"], "Coven", "Jinx", {subCat: "Support"}, (e) =>
@@ -651,7 +636,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you curse your target, they will have an Astral visit for the night that you curse them.\n- The night after you curse your target, they will roleblock their target for that night, along with performing their original ability.\n- With the Necronomicon, your target will no longer roleblock their target. Instead, they will deal a Basic attack to their target.\n- If any target you cursed does not visit anyone the night after you curse them, or they would roleblock or attack a Coven member when visiting, they will be roleblocked or attacked instead.\n- <https://wikimafia.fandom.com/wiki/Jinx>");
 
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["magician", "294"], "Coven", "Magician", {subCat: "Evil"}, (e) =>
@@ -666,7 +651,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of the game, you will receive a list of all of the roles that are in the game. You will not know who has which role.\n- With the Necronomicon, you may choose a role in the game, and you will deal a Basic attack to the player with that role.");
 
-		e.addField("Goal:", "Coven goal.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["familiar", "295"], "Coven", "Familiar", {subCat: "Evil"}, (e) =>
@@ -681,7 +666,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The next day, the Coven member will have their Necronomicon effect for the night.\n- You may not assist 2 days in a row.\n- When you kill someone, you will devour them until only a skeleton is left, obscuring their role and last will.\n- You may not devour twice in a row.");
 
-		e.addField("Goal:", "Coven goal.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["enchantress", "296"], "Coven", "Enchantress", {subCat: "Support"}, (e) =>
@@ -696,7 +681,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- With the Necronomicon, you will enchant each player you roleblock. The next time an enchanted player is visited by another player, they will be roleblocked and dealt a Basic attack.\n- If an enchanted player is visited by another player on a night after you enchant them, your effect will be Astral. If an enchanted player is visited by another player on the night that you enchant them, your effect will not be Astral.");
 
-		e.addField("Goal:", "Coven goal.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["morphologist", "morph", "297"], "Coven", "Morphologist", {subCat: "Support"}, (e) =>
@@ -711,7 +696,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Transforming a player into a wild beast will force them to deal a Basic attack to your other target. This will replace the action of the player you transform into a beast (i.e. roleblocking bypassing immunities). The player you transform will be given a notification that they were transformed.\n- With the Necronomicon, you may transform a player every night. The transformation notification is also removed.\n- You may not transform other Coven members, but you may transform yourself (this will not roleblock you).");
 
-		e.addField("Goal:", "Coven goal.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["sunsfamiliar", "suns_familiar", "sunfamiliar", "sun_familiar", "sf", "298"], "Town", "Sun's Familiar", {subCat: "Power"}, (e) =>
@@ -724,7 +709,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Night is day as well as night. (Players can talk publicly. There's a lynch. Night abilities can still be used.) When you vote for moonset at night, the night chat is closed immediately. You have two votes at night.");
 
-		e.addField("Goal:", "Town goal.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["m63plamenartillerypiece", "m63", "m63_plamen_artillery_piece", "artillerypiece", "artillery_piece", "299"], "Coven", "M-63 Plamen Artillery Piece", {subCat: "Evil"}, (e) =>
@@ -739,7 +724,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- M-63 Plamen Artillery Piece can attack up to 10 times per night, however these 10 attacks can only target the same person. These kill messages will flood the target's chat log, causing them to be unable to receive any other messages that night.\n- With the Necronomicon, you can target two players per night.");
 
-		e.addField("Goal:", "Coven goal.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["thaumaturge", "thauma", "300"], "Coven", "Thaumaturge", {subCat: "Evil"}, (e) =>
@@ -754,6 +739,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When a force field is placed on a player, all players that attempt to visit the player with a force field will be redirected to visit themselves. The force field will stay active until three people visit your target. (the force field deactivates the night that the third target visits, but if anyone else visits the player after the third player, it will stay active for that night)\n- Force fields take one day to create. (same mechanics as a trapper building a trap)\n- With the Necronomicon, you may create and place a force field every night. Your force fields will also collapse and deal a Basic attack to the player that the force field was on at the end of the night.\n- You may place a force field on yourself and other Coven members. Force fields placed on Coven members will not collapse if you have the Necronomicon.");
 
-		e.addField("Goal:", "Coven goal.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 };

@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["sorcerer", "1001"], "Coven", "Sorcerer", {subCat: "Evil"}, (e) =>
 	{
@@ -18,7 +18,7 @@ module.exports = (g) =>
 
 		e.addField("Upper Spells:", "Meteor: Deal a powerful attack to 2 players.\nBlizzard: Roleblock all non-coven players. Roleblocks through immunity. Gain roleblock immunity the night you use this.\nLightning: Deal a powerful attack to a target and all their non-coven visitors and any non-coven player they visit that night.\nTornado: Redirect all abilities to random non-coven members. Gain roleblock immunity while using this.\nEarthquake: Deal a basic attack to 3 targets.");
 		
-		e.addField("Goal:", "Kill all who would oppose the Coven.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["deductiletter", "dl", "1002", "37u"], "Unseen", "Deductiletter", {subCat: "Investigative"}, (e) =>
@@ -33,7 +33,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Deduce cannot be affected by frames.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["nytimes_games", "nytimesgames", "nytimes", "nyt", "1003", "39u"], "Unseen", "NYTimes Games", {subCat: "Investigative"}, (e) =>
@@ -48,7 +48,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Frames do not affect you.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["forest_ghoul", "forestghoul", "fg", "1004", "45u"], "Unseen", "Forest Ghoul", {subCat: "Investigative"}, (e) =>
@@ -63,7 +63,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If no feedback exists, you’ll simply be told that there is no feedback to receive.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["fallen_angel", "fallenangel", "fa", "1005", "47u"], "Unseen", "Fallen Angel", {subCat: "Protective"}, (e) =>
@@ -78,7 +78,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you kill someone, the Town will know all non-Unseen that visited your target, excluding the attacker. If nobody but the attacker and you visited them, a random non-Unseen player will be said to have visited them.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["suicide_artist", "suicideartist", "suicide", "sa", "1006"], "Neutral", "Suicide Artist", {subCat: "Evil"}, (e) =>
@@ -108,7 +108,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may speak to your jailed and kidnapped target. You and the Unseen will hear your target.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["trick_or_treater", "trickortreater", "treater", "tot", "1008", "191u"], "Unseen", "Trick or Treater", {subCat: "Investigative"}, (e) =>
@@ -123,7 +123,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will not lose a charge of Trick if your target does not stay home.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["consul", "1009", "52u"], "Unseen", "Consul", {subCat: "Support"}, (e) =>
@@ -138,7 +138,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Consul cannot be converted from a Mayor who has already revealed - a revealed Mayor is unconvertable.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["train_station_leader", "trainstationleader", "train", "tsl", "1010"], "Town", "Train Station Leader", {subCat: "Power"}, (e) =>
@@ -153,7 +153,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of day 1, all players will be notified a train has entered the town.\n- Roleblock, Control, Redirect immune.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["atomic_chess_world_champion", "atomicchessworldchampion", "acwc", "1011", "790u"], "Unseen", "Atomic Chess World Champion", {subCat: "Killing"}, (e) =>
@@ -168,7 +168,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can duel someone and send a nuke in the same night.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["olympian", "1012", "194u"], "Unseen", "Olympian", {subCat: "Support"}, (e) =>
@@ -183,7 +183,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Using Sprint will reset the number of skill you have.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["strongman", "sm", "strong", "1013", "952u"], "Unseen", "Strongman", {subCat: "Support"}, (e) =>
@@ -198,7 +198,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your usage of Weaken will persist until the Assassin has lacerated their next target including if you are promoted to Assassin.\n- You will learn what defense value that your target of Test Strength has after all actions are resolved, so any protective abilities will alter your results.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["finger_pointer", "fingerpointer", "finger", "pointer", "fp", "1014", "710u"], "Unseen", "Finger Pointer", {subCat: "Support"}, (e) =>
@@ -213,7 +213,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock and Redirect Immune\n- The visits you redirect from the Unseen member using Blame will prioritize killing abilities, then investigative abilities, then any other visitors priotizing protective abilities at the very bottom. If multiple visitors in the same category visit your target, you will redirect the player that sent in their final action first.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["pirouetter", "piro", "1015", "919u"], "Unseen", "Pirouetter", {subCat: "Support"}, (e) =>
@@ -228,7 +228,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Target of your Spin ability will not be notified who they targeted.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["summoner", "1016", "493u"], "Unseen", "Summoner", {subCat: "Support"}, (e) =>
@@ -243,7 +243,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- While you are alive, all dead Unseen members will be able to talk to the Unseen at night. Keep this attribute if you are converted to Assassin.\n- The player you target with Hopping Realms will not be able to send messages in dead chat and will not appear in the member list of dead chat. Your target will regain access to the day chat after the day is over.\n- If you were converted from Occultist, your spirit list from before your conversion will stay intact. You may choose any number of players to remove from your list, but you will not be able to add any more players. This does not count as an ability.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["bounty_hunter", "bountyhunter", "bounty", "bh", "1017", "795u"], "Unseen", "Bounty Hunter", {subCat: "Protective"}, (e) =>
@@ -258,7 +258,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your Hunt target's role is incorrect, you will lose a charge, but not face any other penalty.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["product", "1018", "282u"], "Unseen", "Protuct", {subCat: "Investigative"}, (e) =>
@@ -273,7 +273,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will not be informed which power of 2 your target's role was multiplied by when using Powers of 2.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["physician", "1019", "846u"], "Unseen", "Physician", {subCat: "Support"}, (e) =>
@@ -288,7 +288,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All herbs will convert into pills. Gain (n/2 rounded up) pills each night, where n is the night number.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["hero", "1020"], "Town", "Hero", {subCat: "Protective"}, (e) =>
@@ -303,7 +303,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you patrol, you will prevent a random evil's attack by saving their target, even if the attack was astral or indirect.\n- You cannot prevent suicides or town-aligned attackers. However, you can prevent an evil from killing another evil.\n- Disguises and frames will not influence who you can protect.\n- You will learn the would-be victim's name, or if (somehow) no evils attacked anyone that night.\n- The person you save won't know you rescued them.\n- If you haven't patrolled in the previous night, the attacker will only learn that their target was rescued by a hero.\n- If you patrol two nights in a row, the attacker will also learn your name, and you will be unable to speak in the following day.\n- If you choose to patrol a third night in a row without resting, you will automatically die at the end of the night, even if someone tries to heal or protect you.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["hydrangea_gardener", "hydrangeagardener", "hydrag", "1021", "150u"], "Unseen", "Hydrangea Gardener", {subCat: "Investigative"}, (e) =>
@@ -318,7 +318,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Thunderstorm will not roleblock if Everfrost is in the game.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["iris_gardener", "irisgardener", "irisg", "1022", "151u"], "Unseen", "Iris Gardener", {subCat: "Investigative"}, (e) =>
@@ -333,7 +333,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you die, you may use your scheduled ability once more (Watch on an odd night, Stalk on an even night). The Unseen will get your result.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["sage_gardener", "sagegardener", "sageg", "1023", "152u"], "Unseen", "Sage Gardener", {subCat: "Investigative"}, (e) =>
@@ -348,7 +348,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You are unaffected by frames.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["silphs_manager", "silphsmanager", "silph", "1024", "404u"], "Unseen", "Silph's Manager", {subCat: "Killing"}, (e) =>
@@ -363,7 +363,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Anybody whose role is deleted dies.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["thyme_gardener", "thymegardener", "thymeg", "1025", "153u"], "Unseen", "Thyme Gardener", {subCat: "Investigative"}, (e) =>
@@ -378,7 +378,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your feedback does not need to be accurate to the target's role - yes, you can tell an Investigator that their target is not suspicious.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["super_idol", "superidol", "idol", "1026"], "Neutral", "Super Idol", {subCat: "Chaos"}, (e) =>
@@ -408,7 +408,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Classic ToS factions are listed by the person who made a role for that faction first in <#970046125065265202>.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["azalea_gardener", "azaleagardener", "azaleag", "1028", "154u"], "Unseen", "Azalea Gardener", {subCat: "Killing"}, (e) =>
@@ -423,7 +423,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If Shoot fails, you will not lose a shot.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["dahlia_gardener", "dahliagardener", "dahliag", "1029", "155u"], "Unseen", "Dahlia Gardener", {subCat: "Killing"}, (e) =>
@@ -438,7 +438,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Decipher is unaffected by frames. Inspect will not roleblock if Everfrost is in the game.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["water_worker", "waterworker", "water", "1030"], "Town", "Water Worker", {subCat: "Support"}, (e) =>
@@ -453,7 +453,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- None of your abilities will notify your targets.\n- All of your abilities are Astral.\n- You may only pollute the town's water supply once.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["nettle_gardener", "nettlegardener", "nettleg", "1031", "156u"], "Unseen", "Nettle Gardener", {subCat: "Killing"}, (e) =>
@@ -468,7 +468,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Stings are the same as with Nettle.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["wisteria_gardener", "wisteriagardener", "wistg", "1032", "157u"], "Unseen", "Wisteria Gardener", {subCat: "Killing"}, (e) =>
@@ -483,7 +483,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can speak to your target. All of the Unseen can hear them.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["calendula_gardener", "calendulagardener", "caleng", "1033", "158u"], "Unseen", "Calendula Gardener", {subCat: "Killing"}, (e) =>
@@ -498,7 +498,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Aid cannot cure poison.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["ultraguard", "1034", "172u"], "Unseen", "Ultraguard", {subCat: "Protective"}, (e) =>
@@ -511,7 +511,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Ultraguard (Night, 1 use): Guard the Unseen tonight. If any of the other Unseen members are attacked, you will deal an Unstoppable Attack to all players that visit the Unseen, give all other Unseen members Powerful Defense for the night, and deal and Unstoppable attack to yourself.\n- Hyperguard (Night): Choose another Unseen player. You will make their visit Astral and up their Defense by one value.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["lavender_gardener", "lavendergardener", "laveng", "1035", "159u"], "Unseen", "Lavender Gardener", {subCat: "Protective"}, (e) =>
@@ -526,7 +526,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Distract is not a roleblock, it simply causes protective roles to visit but not use their ability on their target.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["dungeon_master", "dungeonmaster", "dm", "1036", "173u"], "Unseen", "Dungeon Master", {subCat: "Support"}, (e) =>
@@ -541,7 +541,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- A player who uses your faulty key to lock themselves in their house will have their key stop working. They will not be present during the next day phase due to being locked in their house. They will be locked in their house the next night as well.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["lily_gardener", "lilygardener", "lilyg", "1037", "160u"], "Unseen", "Lily Gardener", {subCat: "Protective"}, (e) =>
@@ -556,7 +556,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Healing Lily can protect anyone - including yourself and Plaguebearers.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["mint_gardener", "mintgardener", "mintg", "1038", "161u"], "Unseen", "Mint Gardener", {subCat: "Protective"}, (e) =>
@@ -571,7 +571,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If a minted target is attacked, you may choose between Self Destructing all of them, or simply letting them die.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["cantaloupe", "canta", "tlctfgrooin", "1039", "184u"], "Unseen", "The Levitating Cantaloupe That Fires Gamma Rays Out Of Its Nipples", {subCat: "Killing"}, (e) =>
@@ -586,7 +586,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Anyone who visits you has a 25% chance of being dealt a Basic Attaack.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["rosemary_gardener", "rosemarygardener", "rmg", "1040", "162u"], "Unseen", "Rosemary Gardener", {subCat: "Protective"}, (e) =>
@@ -601,7 +601,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Control and roleblock immune.\n- You are able to protect from indirect and astral attacks.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["slotvestigator", "1041"], "Town", "Slotvestigator", {subCat: "Investigative"}, (e) =>
@@ -616,7 +616,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only learn a player's exact Rolelist Slot once.\n- This role cannot roll if the Rolelist is All/Any.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["dicentra_gardener", "dicentragardener", "diceng", "1042", "163u"], "Unseen", "Dicentra Gardener", {subCat: "Support"}, (e) =>
@@ -631,7 +631,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Misdirect bypasses control immunity.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["inanod", ":inanod:", "1043"], "Town", ":InaNod:", {subCat: "Investigative"}, (e) =>
@@ -648,7 +648,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Actual role-specific emotes like the Umbrae ones cannot be used, and factional emotes cannot be used.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["persuader", "1044", "275u"], "Unseen", "Persuader", {subCat: "Support"}, (e) =>
@@ -663,7 +663,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- A protective ability means any ability whose intent is to prevent any other player from dying.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["gardenia_gardener", "gardeniagardener", "gg", "1045", "164u"], "Unseen", "Gardenia Gardener", {subCat: "Support"}, (e) =>
@@ -678,7 +678,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Gardenias spread the same as Gardenia's would.\n- Once all living players have a gardenia, you can hear whispers regardless if you reveal or not.\n- You cannot be converted into a Gardenia Gardener after revealing as a Gardenia.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["soldato", "1046", "67u"], "Unseen", "Soldato", {subCat: "Killing"}, (e) =>
@@ -691,7 +691,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Eviscerate (Day): Shoot a player during the day, causing them to bleed, they will die the next night unless a doctor heals them.\n- Frenzy (Night): Shoot a player at night, appear as Vigilante, you no longer have guilt of any kind.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["nightshade_gardener", "nightshadegardener", "nsg", "1047", "165u"], "Unseen", "Nightshade Gardener", {subCat: "Support"}, (e) =>
@@ -706,7 +706,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Using one tonic will restore the other.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["digger", "1048"], "Town", "Digger", {subCat: "Support"}, (e) =>
@@ -721,7 +721,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Trenches and Piles last two nights, including the night that they're made.\n- If a Trench and a Pile is on the same yard, they will cancel each other out and have no effect.\n- If a player's yard has a Trench, one of their visitors will be roleblocked at random.\n- If a player's yard has a Pile, they will have Astral Immunity - Astral abilities will count as visits when used against that player.\n- You are immune to Trenches and Piles.\n- Players will not be notified when Trenches and Piles are left in their yard.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["ultimatum", "1049", "955u"], "Unseen", "Ultimatum", {subCat: "Support"}, (e) =>
@@ -736,7 +736,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your first target of Faith of Others will receive the same exact system messages as your second target instead of their actual night feedback. This includes the feedback from any abilities used.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["phlox_gardener", "phloxgardener", "phloxg", "1050", "166u"], "Unseen", "Phlox Gardener", {subCat: "Support"}, (e) =>
@@ -751,6 +751,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Mistify can cause an Unseen to be killed by accident.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 };

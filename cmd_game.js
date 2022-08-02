@@ -1,3 +1,5 @@
+const HOME = "970041597590929519";
+
 function getPlayerByID(players, id)
 {
 	for(let i = 0; i < players.length; i++)
@@ -42,9 +44,10 @@ module.exports = (g) =>
 			title,
 			desc,
 			param,
+			meta: {},
 			func: (chn, message, e, args) =>
 			{
-				if(!admin_only || message.member.permissions.has("ADMINISTRATOR"))
+				if(!admin_only || message.member.permissions.has("ADMINISTRATOR") && message.guildId === HOME)
 					func(chn, message, e, args);
 				else
 					msg(chn, "-You do not have elevated permissions for this bot.");

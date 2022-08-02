@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["murderer-chan", "murdererchan", "murderer", "chan", "951"], "Neutral", "Murderer-chan", {subCat: "Killing"}, (e) =>
 	{
@@ -29,7 +29,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Submit a player and an Attack value. You will be notified whether your target would survive an Attack of that value if said Attack would apply to them after all other actions resolve.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["soldier", "953"], "Town", "Soldier", {subCat: "Killing"}, (e) =>
@@ -44,7 +44,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When on alert, you will deal a Powerful attack to all players that visit your target that night.\n- Because rasen is unbased, let it be known that you will not kill yourself if you use your ability.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["caretaker", "ct", "care", "954"], "Town", "Caretaker", {subCat: "Protective"}, (e) =>
@@ -59,7 +59,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will heal your target for both the night you target them and the night after.\n- You are immune to being roleblocked on the second night you protect a target.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["destined", "955"], "Town", "Destined", {subCat: "Support"}, (e) =>
@@ -74,7 +74,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Any player that targets one of your targets will also target your other target.\n- You will not duplicate the abilities of any player that is roleblock or redirect immune.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["abomination_of_salem", "abominationofsalem", "abomination", "abom", "aos", "956"], "Neutral", "Abomination of Salem", {subCat: "Killing"}, (e) =>
@@ -89,7 +89,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have all abilities and attributes, except factional ones, of all other roles in the game. You may elect at any time to remove any number of your abilities or attributes, but you will not be able to get them back.");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["towns_fury", "townsfury", "fury", "957"], "Town", "Town's Fury", {subCat: "Support"}, (e) =>
@@ -102,7 +102,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the beginning of the game, you're given three random non-Town Power Town roles. You choose a role to be from among those, except your ability rampages. (*It also applies to all your target's visitors except you. If it already rampaged, it like double rampages? You get it.*)");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["puppetmaster", "puppet", "pm", "958"], "Neutral", "Puppet Master", {subCat: "Killing"}, (e) =>
@@ -117,7 +117,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Player A will visit Player B, dealing a Basic Attack to them.\n- If there are any Protectives on Player B, they will perform their action on Player A rather than you.\n- Player A will not know they were controlled into another player that night; they will perform their regular night action as well as attack another player.\n- You will be seen to have visited Player A rather than Player B.");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["cult_leader", "cultleader", "cleader", "959"], "Cult", "Cult Leader", {subCat: "Killing"}, (e) =>
@@ -132,7 +132,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only perform one ability per phase.\n- If conversion fails 3 times in a row, you will convert a random convertible player.\n- Maximum of 4 living Cult members at once.\n- If you die, the most recently converted Cult member will become the new Cult Leader.");
 		
-		e.addField("Goal:", "Eliminate the Town and all other rival factions.");
+		e.addField("Goal:", factions.Cult.goal);
 	});
 
 	register_role(["acolyte", "960"], "Cult", "Acolyte", {subCat: "Killing"}, (e) =>
@@ -147,7 +147,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only perform one ability per phase.\n- This role is converted from Town Killing members.\n- Once you become the Cult Leader, you gain an additional use of Rupture.");
 		
-		e.addField("Goal:", "Eliminate the Town and all other rival factions.");
+		e.addField("Goal:", factions.Cult.goal);
 	});
 
 	register_role(["invoker", "961"], "Cult", "Invoker", {subCat: "Support"}, (e) =>
@@ -162,7 +162,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only perform one ability per phase.\n- This role is converted from Town Support members that are roleblock and/or redirect immune.\n- This role is roleblock and redirect immune.");
 		
-		e.addField("Goal:", "Eliminate the Town and all other rival factions.");
+		e.addField("Goal:", factions.Cult.goal);
 	});
 
 	register_role(["enforcer", "962"], "Cult", "Enforcer", {subCat: "Protective"}, (e) =>
@@ -177,7 +177,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only perform one ability per phase.\n- This role is converted from Town Protective members.\n- If you die from any attack, all Cult members get an extra use of their ability.");
 		
-		e.addField("Goal:", "Eliminate the Town and all other rival factions.");
+		e.addField("Goal:", factions.Cult.goal);
 	});
 
 	register_role(["apostle", "963"], "Cult", "Apostle", {subCat: "Power"}, (e) =>
@@ -192,7 +192,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only perform one ability per phase.\n- This role is converted from Town Power members.");
 		
-		e.addField("Goal:", "Eliminate the Town and all other rival factions.");
+		e.addField("Goal:", factions.Cult.goal);
 	});
 
 	register_role(["seeker", "964"], "Cult", "Seeker", {subCat: "Investigative"}, (e) =>
@@ -207,7 +207,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only perform one ability per phase.\n- This role is converted from Town Investigative members.");
 		
-		e.addField("Goal:", "Eliminate the Town and all other rival factions.");
+		e.addField("Goal:", factions.Cult.goal);
 	});
 
 	register_role(["ritualist", "965"], "Cult", "Ritualist", {subCat: "Support"}, (e) =>
@@ -222,7 +222,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only perform one ability per phase.\n- This role is converted from Town Support members who are not roleblock or redirect immune.\n- If you are sacrificed, the Cult Leader will gain 3 charges of their double attack ability rather than 2.");
 		
-		e.addField("Goal:", "Eliminate the Town and all other rival factions.");
+		e.addField("Goal:", factions.Cult.goal);
 	});
 
 	register_role(["going_to_sleep", "goingtosleep", "sleep", "gts", "igts", "966"], "Neutral", "I'm Going To Sleep", {subCat: "Benign"}, (e) =>
@@ -282,7 +282,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- As long as a different visitor is available, you will avoid attacking the Harbinger.\n- If nobody visits your target, you will kill your target instead.\n- When Empowered, you will attack every visitor of the house you stalk.\n- Conversion Immune and Astral");
 		
-		e.addField("Goal:", "Kill every other player, including the other Horsemen / Protect the Harbinger and eliminate all who would oppose the Horsemen.");
+		e.addField("Goal:", factions.Horsemen.goal);
 	});
 
 	register_role(["pestilence", "pest", "970"], "Horsemen", "Pestilence", {subCat: "Evil"}, (e) =>
@@ -297,7 +297,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The Disease effect will last indefinitely after it is inflicted, unless purged.\n- Your victims will not know they have been diseased.\n- While Empowered, you are allowed to use both of your abilities each night. Otherwise, you are limited to one.\n- Conversion and Chat-Impairment Immune.");
 		
-		e.addField("Goal:", "Kill every other player, including the other Horsemen / Protect the Harbinger and eliminate all who would oppose the Horsemen.");
+		e.addField("Goal:", factions.Horsemen.goal);
 	});
 
 	register_role(["war", "971"], "Horsemen", "War", {subCat: "Evil"}, (e) =>
@@ -312,7 +312,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your first target will be forced to use their highest-tier attack on the other.\n- Your first target will appear suspicious if investigated by the Sheriff.\n- If your first target has no attack, you will give them a Basic Attack to use on the other player.\n- Your first target will only know they were controlled. Optionally, you may notify them that they were Manipulated instead.\n- If your first target still fails to kill the second, you will kill the first target yourself.\n- You only visit your first target, not the second, even when Empowered.\n- If Empowered, both of your targets will attack each other, and both will appear suspicious.\n- Conversion and Redirect Immune");
 		
-		e.addField("Goal:", "Kill every other player, including the other Horsemen / Protect the Harbinger and eliminate all who would oppose the Horsemen.");
+		e.addField("Goal:", factions.Horsemen.goal);
 	});
 
 	register_role(["famine", "972"], "Horsemen", "Famine", {subCat: "Evil"}, (e) =>
@@ -327,7 +327,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- A Starved player will be notified once the night begins. If they use any ability in the night, they will be killed.\n- You will visit either target to kill them, should they try anything while starving.\n- If you're empowered, you will kill your first target even if they don't do anything. Your first target will not be notified that this will happen.\n- Empowerment will apply to you in the day after you get Empowered, rather than the night.\n- Conversion and Roleblock Immune");
 		
-		e.addField("Goal:", "Kill every other player, including the other Horsemen / Protect the Harbinger and eliminate all who would oppose the Horsemen.");
+		e.addField("Goal:", factions.Horsemen.goal);
 	});
 
 	register_role(["conquest", "conq", "973"], "Horsemen", "Conquest", {subCat: "Evil"}, (e) =>
@@ -342,7 +342,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Conquering a player will attempt to convert them into your minion. They will keep their role, but their new goal will be to live to see you win the game.\n- If you cannot convert those you Conquer, you will kill them instead.\n- You cannot convert a target if:\n```\n- They are Conversion Immune\n- They are a NK or Evil Faction member\n- They are a TPo\n- You already have one living minion\n```\n- You will have a private chat with your Minion. If you get recruited, your Minion will join the Horseman Chat too.\n- You can still Conquer people once you have a Minion; you will simply always attack your target.\n- If Empowered, you will be allowed to convert someone into a second living  Minion.\n- You and your Minions will all have Conversion Immunity.");
 		
-		e.addField("Goal:", "Kill every other player, including the other Horsemen / Protect the Harbinger and eliminate all who would oppose the Horsemen.");
+		e.addField("Goal:", factions.Horsemen.goal);
 	});
 
 	register_role(["yuletide", "yule", "974"], "Everfrost", "Yuletide", {subCat: "Support"}, (e) =>
@@ -357,7 +357,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock Immunity\n- Whenever a player is roleblocked by anything, they gain an Ice Mark, and you learn their name.\n- Whenever a player with an Ice Mark visits another non-Everfrost player or is visited by another non-Everfrost player, that player gains an Ice Mark and you learn their name.\n- One other Everfrost role that uses Ice Marks will always spawn as long as this one does.");
 		
-		e.addField("Goal:", "Eliminate all who don't submit to the endless winter.");
+		e.addField("Goal:", factions.Everfrost.goal);
 	});
 
 	register_role(["servant", "975"], "Neutral", "Servant", {subCat: "Chaos"}, (e) =>
@@ -385,7 +385,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The town will be told you have marked someone for sacrifice.\n- If the target marked for sacrifice is not lynched that day, you can attack your target and one additional player.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["teaspoon", "teaspoons", "tsp", "artttap", "977"], "Neutral", "A Role That Throws Teaspoons At People", {subCat: "Chaos"}, (e) =>
@@ -415,7 +415,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your target will eventually succumb to poison, regardless of defense, unless they are invincible.\n- Poison on players with no days will take effect instantly.\n- Poison on players with basic defense take a day to take effect.\n- Players with powerful defense will take two days to take effect.\nA doctor cannot heal your poison.\n- You are immune to poison.");
 		
-		e.addField("Goal:", "Poison all who would not submit to your chemicals.");
+		e.addField("Goal:", factions.Biohazard.goal);
 	});
 
 	register_role(["polluter", "poll", "979"], "Biohazard", "Polluter", {subCat: "Killing"}, (e) =>
@@ -430,7 +430,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Performing the factional poison will make the poison not take effect until you perform your day ability, where all players will be alerted to being poisoned.\n- You may also perform an immediate kill instead during the night.\n- Players with basic or higher defense are immune to the factional poison.\n- You are immune to poison.");
 		
-		e.addField("Goal:", "Poison all who would not submit to your chemicals.");
+		e.addField("Goal:", factions.Biohazard.goal);
 	});
 
 	register_role(["controller", "980"], "Biohazard", "Controller", {subCat: "Killing"}, (e) =>
@@ -445,7 +445,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you successfully predict your targets visit, both players will be dealt an astral, basic poisoning.\n- If you do not predict your targets visit, only your first target will be poisoned.\n- You are immune to poison.");
 		
-		e.addField("Goal:", "Poison all who would not submit to your chemicals.");
+		e.addField("Goal:", factions.Biohazard.goal);
 	});
 
 	register_role(["hazmat", "981"], "Biohazard", "Hazmat", {subCat: "Support"}, (e) =>
@@ -460,7 +460,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Players who are quarantined are locked inside of their house that night, this is functionally equivalent to the Jailor's jail.\n- Quarantined players will be notified they are quarantined, quarantined players may visit, but will be dealt an unstoppable poison. All visits to the quarantined player will fail.\n- You are immune to poison.");
 		
-		e.addField("Goal:", "Poison all who would not submit to your chemicals.");
+		e.addField("Goal:", factions.Biohazard.goal);
 	});
 
 	register_role(["cleaner", "982"], "Biohazard", "Cleaner", {subCat: "Support"}, (e) =>
@@ -475,7 +475,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your purge will cleanse Hex, Frames, and stop attacks.\n- You may only purge twice.\n- You are the first to promote to a kill-capable Biohazard role.\n- You are immune to poison.");
 		
-		e.addField("Goal:", "Poison all who would not submit to your chemicals.");
+		e.addField("Goal:", factions.Biohazard.goal);
 	});
 
 	register_role(["toxin", "983"], "Biohazard", "Toxin", {subCat: "Support"}, (e) =>
@@ -490,7 +490,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You are immune to poison.");
 		
-		e.addField("Goal:", "Poison all who would not submit to your chemicals.");
+		e.addField("Goal:", factions.Biohazard.goal);
 	});
 
 	register_role(["chemist", "chem", "984"], "Biohazard", "Chemist", {subCat: "Support"}, (e) =>
@@ -505,7 +505,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You are immune to poison.");
 		
-		e.addField("Goal:", "Poison all who would not submit to your chemicals.");
+		e.addField("Goal:", factions.Biohazard.goal);
 	});
 
 	register_role(["defector", "def", "985"], "Any", "Defector", {subCat: "Support", spawnCat: ["Mafia", "Coven", "Rock", "Plant", "Underworld", "Hallow", "Stalker", "Were", "Vampire", "Everfrost", "Umbrae", "PaleMoon", "Sith", "Insurgency", "Loyalist", "SCP", "Thundercry", "Crew", "Pokemon", "Fox", "Cult", "Horsemen", "Biohazard"]}, (e) =>
@@ -565,7 +565,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will appear as a random Town role (you will know which one) to all investigative roles until the end of Night 3. Nothing can bypass this. Afterwards, you will retain Detection Immunity.\n- If you try to convert someone at the same time as someone else (by a Cult Leader or Vampire, for example), both of you will fail.");
 		
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["assassin", "989"], "Unseen", "Assassin", {subCat: "Head"}, (e) =>
@@ -580,7 +580,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you are the starting Assassin and the Mastermind dies, you will take their place.\n- Anyone promoted to Assassin will reset charges of Lacerate, Distract, and Two-For-One (as in, even if the original one used all of the abilities, you will have all abilities available to you at maximum charge)");
 		
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["wanderer", "990", "2u"], "Unseen", "Wanderer", {subCat: "Killing"}, (e) =>
@@ -595,7 +595,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target kills you while using Stalk, you will be unable to kill them. This does not apply to Watch or Guard.");
 		
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["deducticreator", "991", "6u"], "Unseen", "Deducticreator", {subCat: "Investigative"}, (e) =>
@@ -610,7 +610,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Deduce cannot be affected by frames.");
 		
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["weaponsmith", "992", "11u"], "Unseen", "Weaponsmith", {subCat: "Killing"}, (e) =>
@@ -625,7 +625,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Gift is usable at day and night.");
 		
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["marshal", "993", "20u", "948u"], "Unseen", "Marshal", {subCat: "Investigative"}, (e) =>
@@ -640,7 +640,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Brutal Interrogate will not roleblock if Everfrost is in the game. Scout will refund a use if the faction doesn’t exist, but you will not be able to use it for the rest of the day.");
 		
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["nightstalker", "994", "21u"], "Unseen", "Nightstalker", {subCat: "Investigative"}, (e) =>
@@ -655,7 +655,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When watching, you will learn what happens to them, but not who did what. If the action is ambiguous, you will pick it out: if someone is roleblocked, you will learn what specific role the roleblocker is.\n- If you Watch someone and they attack their visitors, you will survive and learn their role. They will be notified that they missed you.\n- Your Watch ability is Astral.");
 		
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["constructionist", "construct", "995", "25u"], "Unseen", "Constructionist", {subCat: "Protective"}, (e) =>
@@ -670,7 +670,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You cannot use Install on the same person two nights in a row, but the hydrant will last until it is triggered, and you may have multiple up at once.");
 		
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["day_archer", "dayarcher", "archer", "996", "30u"], "Unseen", "Day Archer", {subCat: "Killing"}, (e) =>
@@ -685,7 +685,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The first time you use an ability, you’ll lose a charge of both abilities.");
 		
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["deductionist", "997", "35u", "149u"], "Unseen", "Deducitonist", {subCat: "Investigative"}, (e) =>
@@ -700,7 +700,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Deduce’s results will not tell you who has which role.");
 		
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["gargoyle", "gar", "998"], "Neutral", "Gargoyle", {subCat: "Killing"}, (e) =>
@@ -715,7 +715,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Stoned players will be revealed at the beginning of the day and cannot do anything at all, even talk or vote.\n- Once a stoned player is visited three times, they will be unstoned.\n- You may choose to turn yourself to stone but will still be able to use your abilities.\n- Instead, you may unstone yourself and all stoned players.\n- Once you turn yourself to stone, you may secretly attack a player that has been stoned for two nights during the day.\n- Players killed while they are turned to stone will not be revealed as dead until they are unstoned.\n- Stoned players still count towards the voting majority, even if dead.\n- Dead players are cleaned when unstoned if you were the one who unstoned them.");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["polymorph", "poly", "999"], "Neutral", "Polymorph", {subCat: "Benign"}, (e) =>

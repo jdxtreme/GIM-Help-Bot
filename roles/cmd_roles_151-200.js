@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["iris", "151"], "Town", "Iris", {subCat: "Investigative"}, (e) =>
 	{
@@ -14,7 +14,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- On odd nights you will know who visits your target.\n- On even nights you will know who your target visits.\n- When dead, you may select a player once to give them your previous result.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["sage", "152"], "Town", "Sage", {subCat: "Investigative"}, (e) =>
@@ -29,7 +29,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Each night you are alive you will be notified how many players that are in your faction are alive.\n- On Full Moon nights, you may vision a player. You will know if your target is good or evil.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["thyme", "153"], "Town", "Thyme", {subCat: "Investigative"}, (e) =>
@@ -44,7 +44,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will know all the roles of the players that visit your target.\n- Your visit is Astral and ignores Jail.\n- You are not deceived by Douses.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["azalea", "154"], "Town", "Azalea", {subCat: "Killing"}, (e) =>
@@ -59,7 +59,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If someone visits your target, you will shoot them instead.\n- If more than one player visits your target, you will shoot no one.\n- You may only shoot two times.\n- You will not lose a bullet if more than one person visits your target.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["dahlia", "155"], "Town", "Dahlia", {subCat: "Killing"}, (e) =>
@@ -74,7 +74,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will attack your day target if they visit either of your night targets.\n- You may watch yourself.\n- When dead, you may choose one player at night to deliver a Basic attack to them.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["nettle", "156"], "Town", "Nettle", {subCat: "Killing"}, (e) =>
@@ -89,7 +89,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Stings take one day to take effect.\n- Stings can be removed by protections that grant Powerful defense.\n- You may not urticate the same player twice.\n- You may urticate three times.\n- You cannot be roleblocked or controlled.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["wisteria", "157"], "Town", "Wisteria", {subCat: "Killing"}, (e) =>
@@ -104,7 +104,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may anonymously talk with your captive at night.\n- Players can still visit your captive.\n- You may not lock the same person twice in a row.\n- You may only execute three times.\n- You cannot be controlled.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["calendula", "158"], "Town", "Calendula", {subCat: "Protective"}, (e) =>
@@ -119,7 +119,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will know the roles of the players that attack your target.\n- If your target is attacked, they will not know that they were attacked.\n- You will know if your target is attacked.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["lavender", "159"], "Town", "Lavender", {subCat: "Protective"}, (e) =>
@@ -134,7 +134,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Protecting your target provides them Powerful defense against one attack.\n- If your target is attacked you will deliver a Basic attack to their attacker.\n- If your target's attacker has defense or if they’re attacked more than once you will not attack anyone but learn the names of all of your target's attackers.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["lily", "160"], "Town", "Lily", {subCat: "Protective"}, (e) =>
@@ -149,7 +149,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Lilies heal your target and all of their visitors.\n- You may plant at your house.\n- Lilies cannot protect you or Plaguebearers from attacks.\n- When dead, you may plant a lily once.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["mint", "161"], "Town", "Mint", {subCat: "Protective"}, (e) =>
@@ -164,7 +164,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Mint plants take effect the day after they were planted.\n- Mints provide Powerful defense against all direct attacks.\n- When one of your minted targets is attacked, all mint plants will die and you cannot plant for another night.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["rosemary", "162"], "Town", "Rosemary", {subCat: "Protective"}, (e) =>
@@ -179,7 +179,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you infuse a player they will have Roleblock and Control immunity that night.\n- If your target is attacked you cannot infuse a player the next night.\n- You cannot be roleblocked or controlled.\n- You do not protect from indirect or astral attacks.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["dicentra", "163"], "Town", "Dicentra", {subCat: "Support"}, (e) =>
@@ -194,7 +194,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Performing at a player's house prevents anyone from visiting your target. This excludes attacking roles.\n- If a Serial Killer attacks your target, you will die instead.\n- You cannot be roleblocked.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["gardenia", "164"], "Town", "Gardenia", {subCat: "Support"}, (e) =>
@@ -209,7 +209,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Players with gardenias will also give out gardenias when they visit or are visited by a player.\n- When all living players have a gardenia, you will have the ability to reveal during the day.\n- Once you reveal, your vote counts as three.\n- Once you reveal you can hear whispers.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["nightshade", "165"], "Town", "Nightshade", {subCat: "Support"}, (e) =>
@@ -224,7 +224,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Attacking a player uses up your attack tonic.\n- Successfully healing a player from an attack uses up your heal tonic.\n- You may heal yourself once.\n- Visiting one player recharges your tonics once you have used them up.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["phlox", "166"], "Town", "Phlox", {subCat: "Support"}, (e) =>
@@ -239,7 +239,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When a player is purified they cannot be voted the next day. This can be done while dead.\n- Players will be notified if they are purified.\n- You may purify yourself once.\n- You may only purify three times.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["primer", "167"], "Neutral", "Primer", {subCat: "Benign"}, (e) =>
@@ -255,19 +255,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Whatever your prime-numbered role's win condition is");
 	});
 
-	register_role(["voidling", "168"], "Neutral", "Voidling", {subCat: "Evil"}, (e) =>
+	register_role(["actual_inductor", "actualinductor", "inductor", "168"], "Town", "Actual Inductor", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 168");
 
-		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Send a player into the void at night.");
+		e.addField("Abilities:", "- Check someone each night to see if they win with the Mayor.");
 
-		e.addField("Attributes:", "- They're removed from the game entirely, and re-added to the game at the beginning of the next night.\n- All actions that happen to them that night will fail, but won't give notifications that they failed.\n- You may send yourself into the void.");
+		e.addField("Attributes:", "- Roles that win with the Mayor win with the Mayor. Roles that don't win with the Mayor don't win with the Mayor. This only accounts for their current Goal and not any factors which would alter it.");
 
-		e.addField("Goal:", "Live to see the Town lose.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["simon_bolivar", "simonbolivar", "simon", "bolivar", "spanish", "169"], "Neutral", "Simón Bolívar", {subCat: "Chaos"}, (e) =>
@@ -297,7 +297,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you have the Necronomicon, your target's role is changed to a random Coven role (after it's revealed).");
 
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["stealer", "171"], "Neutral", "Stealer (Robber is too basic of a name ngl)", {subCat: "Chaos"}, (e) =>
@@ -327,7 +327,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target is attacked, you will deal an Unstoppable attack to all of the attackers and give your target Powerful defense.\n- If you are killed by any means other than protection, you will deal a Basic attack to your target and fail to defend them.\n- You may not protect yourself.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["keymaster", "173"], "Town", "Keymaster", {subCat: "Protective"}, (e) =>
@@ -342,7 +342,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Players given a key will be able to lock themselves in their house any night after they have been given a key.\n- When a player locks themselves inside of their house, nobody will be able to target them, but they will be roleblocked through immunity.\n- Once a key is used, it cannot be used again.\n- You may give out five keys.\n- You may give yourself one key.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["eternity", "174"], "Neutral", "Eternity", {subCat: "Killing"}, (e) =>
@@ -357,7 +357,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- From the moment Night 3 ends until your death or the end of the game, the day and night happens at the same time.\n- You can attack twice per day-night.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["reroler", "reroller", "175"], "Neutral", "Reroler", {subCat: "Chaos"}, (e) =>
@@ -375,19 +375,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Reroll all living players' roles.");
 	});
 
-	register_role(["wm_crusader", "wmcrusader", "crusader", "176"], "Town", "WM Crusader", {subCat: "Protective"}, (e) =>
+	register_role(["wm_trapper", "wmtrapper", "trapper", "176"], "Town", "WM Trapper", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 176");
 
 		e.addField("Alignment", "Town Protective", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Powerful)", true);
 
-		e.addField("Abilities:", "- Protect one person during the night.");
+		e.addField("Abilities:", "- Set a trap up at someone’s house.");
 
-		e.addField("Attributes:", "- You grant your target Powerful defense.\n- You attack one person that visits your target on the same night.\n- You will know if your target is attacked.\n- You may protect yourself once, attacking one of your own visitors and granting yourself Powerful defense.\n- There is a priotity list. Good luck figuring out where non-WM factions fit in it. https://wikimafia.fandom.com/wiki/Mechanics#Crusader_Priority");
+		e.addField("Attributes:", "- If a player with a trap is visited, the trap will trigger, telling you the role of every visitor.\n- If a player with a trap is attacked, the trap will trigger, attacking the attacker and granting your target Powerful defense.\n- Traps take one day to build.\n- You can tear down a trap if you choose to do so.\n- You may only have one trap out at a time.\n- You have one bulletproof vest that gives you Basic defense.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["ebay_marketer", "ebaymarketer", "ebay", "e-bay", "marketer", "177"], "Neutral", "E-Bay Marketer", {subCat: "Evil"}, (e) =>
@@ -417,7 +417,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Once per game, during the day, instantly execute whoever has the most votes at the time.\n- If they're Town, you can attack twice per night for the rest of the game.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["amethyst", "179"], "Rock", "Amethyst", {subCat: "Support"}, (e) =>
@@ -432,7 +432,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If the Rock Is a Rock Killing and the target survives the attack, they will be cursed. Cursed players will be dealt an Basic Attack 2 days after. Otherwise, grant your Rock Basic Defense.\n- You may not follow a Rock twice in a row.\n-If you're the only Rock left standing, you will autofollow yourself alongside the Factional rock kill every night.\n- If you exist in the game, Odd Keystone will be rerolled to another random rock role, because Stones are not rocks, and fuck you Rasen.");
 
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["hitman_with_the_hit_plan", "hitmanwiththehitplan", "hitplan", "180"], "Neutral", "Hitman With The Hit Plan", {subCat: "Chaos"}, (e) =>
@@ -475,7 +475,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Each night, pick a player. Any player that visits you or them gains Basic Defense and immunity to all other negative effects for tonight and the next.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["fate", "183"], "Neutral", "Fate", {subCat: "Chaos"}, (e) =>
@@ -503,7 +503,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have a 25% chance to survive each attack against you.")
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["forum_editor", "forumeditor", "forum", "185"], "Mafia", "Forum Editor", {subCat: "Support"}, (e) =>
@@ -518,7 +518,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you're redirected, you will choose your target's role as the role to be replaced. If they're a Mafia role, your ability will fail.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["hangman", "186"], "Town", "Hangman", {subCat: "Power"}, (e) =>
@@ -533,22 +533,24 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you attempt to cancel a lynch on a Town, Neutral Evil or Neutral Benign role, the lynch will not occur and night will happen immediately.\n- If the target is not Town or Neutral Evil/Benign, both you and the lynch target will die.\n- You may cancel two lynches.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["wm_renegade", "renegade", "rene", "187"], "Mafia", "WM Renegade", {subCat: "Support"}, (e) =>
+	register_role(["pacifist", "187"], "Neutral", "Pacifist", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 187");
 
-		e.addField("Alignment", "Mafia Support", true);
+		e.addField("Alignment", "Unique Neutral Benign", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Powerful)", true);
 
-		e.addField("Abilities:", "- Duel someone at night.");
+		e.addField("Abilities:", "- At night, visit a player, and attempt to befriend them by permanently reducing their Attack by one level.\n- In the day, decide if you wish to Bandage yourself or not, granting yourself Powerful Defense and removing negative effects in the following night. (2 use)");
 
-		e.addField("Attributes:", "- When you duel your target, only you and your target will be able to be voted the following day.\n- It will be announced to the town that you and your target are dueling. No one will be told who enacted the duel.\n- Whoever receives more votes between you and your target will be killed and cleaned. This can happen either by majority or when the day ends.\n- You may only duel someone twice.\n- You can talk with the other Mafia.\n- You may instead perform the factional Mafia kill.");
+		e.addField("Attributes:", "- If you visit a player and their Attack level is or becomes None, they will become Befriended.\n- Any target you visit will not learn what you did unless they became Befriended by it.\n- Once all living players are unable to attack, you will end the game. Anybody who wasn't Befriended by you will only be able to win if they already satisfied their original goal. Otherwise, they will lose.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Befriended:", "This effect prevents you from using any form of attack whatsoever. However, you will gain an alternate win condition: \"Live to see the Pacifist (187) win the game.\"");
+
+		e.addField("Goal:", "Live to see every surviving player become unable to attack.");
 	});
 
 	register_role(["beelzebub", "beel", "188"], "FallenAngel", "Beelzebub", {subCat: "Killing"}, (e) =>
@@ -563,7 +565,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you attack a Fallen Angel, you will also attack their neighbours other than yourself, all of their other visitors, and whoever they visited that night.\n- If you attack a non-Fallen Angel, you will also learn their role.\n**Sin of Envy** — If you're the last Fallen Angel remaining, you gain all the non-Sin abilities and attributes of all other Fallen Angel roles, including ones that weren't in the game, and can use up to three different abilities each night.");
 
-		e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
+		e.addField("Goal:", factions.FallenAngel.goal);
 	});
 
 	register_role(["google_translate", "googletranslate", "japanese", "french", "189"], "Neutral", "Google Translate", {subCat: "Other"}, (e) =>
@@ -581,7 +583,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Create a misunderstanding.");
 	});
 
-	register_role("190", "Other", "Super Idol", {subCat: "Investigative"}, (e) =>
+	register_role("190", "Other", "Super Idol", {cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 190\nThis role doesn't really exist. Moving on.");
 	});
@@ -598,7 +600,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target does not visit anyone, they will receive a list of three names. One of these names will be evil.\n- You may use your ability three times successfully.\n- You may sing yourself a carol once, and this will count as a use of your ability.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["crystal", "192"], "Rock", "Crystal", {subCat: "Killing"}, (e) =>
@@ -613,7 +615,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- They will be dealt a powerfull attack, and their will and role will be obscured.\n- If you exist in the game, Odd Keystone will be rerolled to another random rock role, because Stones are not rocks, and fuck you Rasen.");
 
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["obsidian", "193"], "Rock", "Obsidian", {subCat: "Killing"}, (e) =>
@@ -628,7 +630,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Distracting someone with an obsidian knife roleblocks them.\n- Hitting them with a baseball bat in your other hand kills them.\n- Can use multiple abilities, but may only use each ability once per night.");
 
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["runner", "194"], "Town", "Runner", {subCat: "Support"}, (e) =>
@@ -643,7 +645,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you run around the Town, you will learn the name and roles of three people. You will not learn who is which role.\n- You may run around the town once.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["village_idiot", "villageidiot", "idiot", "copeium", "bad_role", "195"], "Neutral", "Village Idiot", {subCat: "Benign"}, (e) =>
@@ -661,19 +663,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Copeium");
 	});
 
-	register_role(["wm_desperado", "wmdesperado", "desperado", "196"], "Town", "WM Desperado", {subCat: "Killing"}, (e) =>
+	register_role(["vessel", "196"], "Town", "Vessel", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 196");
 
 		e.addField("Alignment", "Town Killing", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Basic/Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Duel someone at night.");
+		e.addField("Abilities:", "- At night, choose a dead player. You will deal a Powerful attack to the last player they visited. (2 use)\n- During the day, choose a dead player. The following night, they will be able to choose a player to deal a Basic attack to. You will perform this attack. (1 use)");
 
-		e.addField("Attributes:", "- When you duel your target, only you and your target will be able to be voted the following day.\n- It will be announced to the town that you and your target are dueling. No one will be told who enacted the duel.\n- Whoever receives more votes between you and your target will be killed and cleaned. This can happen either by majority or when the day ends.\n- You may only duel someone twice.");
+		e.addField("Attributes:", "- For the first ability, if you choose a player who did not visit anyone, you will not lose a charge of your ability. If your target visited multiple people, you will attack all of them.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["president", "pres", "197"], "Town", "The President", {subCat: "Power"}, (e) =>
@@ -690,7 +692,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes (cont.)", "- You may not give yourself citizenship.\n- Roleblock Immunity");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["odd_keyrock", "oddkeyrock", "keyrock", "198"], "Rock", "Odd Keyrock", {subCat: "Killing"}, (e) =>
@@ -705,7 +707,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only summon Spiritomb 108 times.");
 
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["coach", "199"], "Town", "Coach", {subCat: "Support"}, (e) =>
@@ -720,7 +722,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The night you coach someone, they will gain a buff of their abilities on the night you coach them depending on what their subalignment is.\n- Investigative roles will receive completely accurate results regardless of any attempts to alter the results.\n- Protective roles will be able to protect against any type of attack, including Unstoppable and Astral. If your target kills an attacker that performed an attack that they normally could not stop, they will not kill the attacker.\n- Killing roles will have their attack value raised to the next-highest value.\n- Support roles will have their ability succeed regardless of any other abilities used on them unless it creates a paradox.\n- Any subalignment not listed will not receive a buff.\n- You will be notified if your coaching is effective.\n- Your target will only be notified that they were coached if the coaching is effective.\n- You may not coach yourself.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["devastation_kami", "devastationkami", "devastation", "kami", "200"], "Neutral", "Devastation Kami", {subCat: "Killing"}, (e) =>
@@ -735,6 +737,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All Immunities\n**Divine Power** — You start with 7 power. When you use an ability, add or subtract power according to the ability. You may not use abilities that cost more power than you have. If you would be attacked, instead the attacker learns that your Defense was too strong and you lose power equal to the level of the attack. (Basic: 1, Powerful: 2, Unstoppable: 3, Overkill: 4. You still die if you're lynched.)");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 };

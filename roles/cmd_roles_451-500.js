@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["journalist", "451"], "Town", "Journalist", {subCat: "Investigative"}, (e) =>
 	{
@@ -14,7 +14,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Any player names/nicknames in the messages sent will be redacted.\n- You only see messages sent by players.\n- The host decides what messages are useful. This may include messages like \"I checked the Ret claim, it turns out that they were an NK.\"\n- For every 2 useful messages you would learn, you will also recieve a host-fabricated misleading message (i.e information meant to trick you into believing something untrue or confusing you).");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["cupid", "452"], "Town", "Cupid", {subCat: "Investigative"}, (e) =>
@@ -29,7 +29,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will find out if they're compatible with the person you matchmaked last night. This does nothing night one.\n- Roles are compatible if they win with eachother.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["cupid", "453"], "Neutral", "Cupid", {subCat: "Evil"}, (e) =>
@@ -59,7 +59,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Infatuated players must visit the player they're infatuated with for the two nights after they're infatuated.\n- With the Necronomicon, instead they will become obsessed, visiting that player for the rest of the game and dealing a Basic attack along with their action.\n- Rasen can only be made a Lover with Igu, if she's in the game.");
 		
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["cupid", "455"], "Mafia", "Cupid", {subCat: "Support"}, (e) =>
@@ -74,7 +74,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Blinded players will fall in love with another player of your choice. They can only see that players' messages for the next day, and can only target that player the next night. You may make them fall in love with yourself.\n- Rasen can only fall in love with Igu, if she's in the game.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["sunflower", "455"], "Plant", "Sunflower", {subCat: "Production"}, (e) =>
@@ -87,10 +87,10 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Spend 1 night producing Sun.\n- Transform into a Twin Sunflower. Requires 5 sun.");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
-	register_role(["456"], "Other", "We need more!", {subCat: "Production"}, (e) =>
+	register_role(["456"], "Other", "We need more!", {cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 456\nThis role is now a rule.");
 	});
@@ -107,7 +107,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- This role may not be rolled normally and must instead be upgraded from Sunflower.");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["nucler_warhead", "nuclearwarhead", "458"], "Neutral", "NuclearWarhead", {subCat: "Chaos"}, (e) =>
@@ -135,7 +135,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Produce half of a sun every night.\n- Starting night 4, produce 3 suns every night.");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["chomper", "460"], "Plant", "Chomper", {subCat: "Killing"}, (e) =>
@@ -150,7 +150,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- For an additional 2 sun, you may devour 2 people instead of 1.");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["narrator", "461"], "Neutral", "Narrator", {subCat: "Benign"}, (e) =>
@@ -193,7 +193,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your Basic Attack and Powerful Rampage Attack bypass all immunities such as healing and basic defense immunity. However, your Basic Attack wont go through Powerful and higher defense, and your Powerful Rampage Attack wont go through Invincible and higher defense. This does not apply to the Powerful attack you deal to 4 people.");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["rich_man", "richman", "464"], "Neutral", "Rich Man", {subCat: "Evil"}, (e) =>
@@ -225,7 +225,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The target will receive a buff depending on their alignment for the following night, and they will know this.\nKilling: Attack will rise one tier.\nProduction: Double the sun production.\nProtection: If the role successfully protects someone, the attacker will be dealt a Powerful attack.\nSupport: Their ability may be used for half the sun.\n(if another alignment is added, accent should dm me)");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["imitater", "466"], "Plant", "Imitater", {subCat: "Support"}, (e) =>
@@ -240,7 +240,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can imitate any role from the plant faction, regardless of if it is in the game. This costs 1 sun.\n- You may do their cheapest action for free, any other action will cost the usual amount.\n- After the night, revert back to Imitater.");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["wallnut", "467"], "Plant", "Wallnut", {subCat: "Protection"}, (e) =>
@@ -253,7 +253,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Produce one sun every night.\n- Give yourself Powerful Defense for tonight. One free charge, then It costs 3 suns.\n- Give all plant roles excluding yourself Powerful Defense for the night. 4 suns.\n- Stand guard at a Plant member's house. If they get attacked this night, their death Is delayed for 2 rounds. 3 suns.");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["revealer", "468"], "Town", "Revealer", {subCat: "Investigative"}, (e) =>
@@ -268,7 +268,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Every even night, be told 3 roles. You will not know who has the role.\n- Choose 1 role to reveal publicly. Everyone will be told what the role is and who has it.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["cheerleader", "469"], "Town", "Cheerleader", {subCat: "Support"}, (e) =>
@@ -283,7 +283,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- People you cheer on will know that they were cheered on, and will be able to use all of their night abilities twice that night.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["reanimator", "470"], "Neutral", "Reanimator", {subCat: "Chaos"}, (e) =>
@@ -296,9 +296,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Make corpses into ghouls, and make them do your bidding.");
 
-		e.addField("Attributes:", "- At night, choose someone to secretly raise from the dead, turning them into a ghoul.\n- Ghouls are told who you are, and they now win with you.\n- Ghouls can speak with you in a factional chat.\n- Ghouls can use their action, but cannot vote/speak to everyone.\n- Once per game, you can reveal yourself as the Reanimator. All ghouls will be revived, and they can now vote/speak with other players. Anyone you turn into a ghoul after revealing will automatically be revived. People who were revived by you and died cannot be revived again, but they will still win with you.");
+		e.addField("Attributes:", "- At night, choose someone to secretly raise from the dead, turning them into a ghoul. You cannot turn factional evils or neutrals that have already won into a ghoul.\n- Ghouls are told who you are, and they now win with you.\n- Ghouls can speak with you in a factional chat.\n- Ghouls can use their action, but cannot vote/speak to everyone.\n- Once per game, you can reveal yourself as the Reanimator. All ghouls will be revived, and they can now vote/speak with other players. Anyone you turn into a ghoul after revealing will automatically be revived. People who were revived by you and died cannot be revived again, but they will still win with you.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["mercenary", "471"], "Neutral", "Mercenary", {subCat: "Benign"}, (e) =>
@@ -326,7 +326,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Produce one sun every night.\n- Grant yourself Powerful Defense for tonight. One free charge, then costs 3 suns.\n- Grant you and another Plant Powerful Defense for the night. 3 suns.\n- Grant 2 Plant Roles Invincible Defense for the night. 4 suns.");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["stoneweaver", "473"], "Town", "Stoneweaver", {subCat: "Protective"}, (e) =>
@@ -341,7 +341,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Protecting someone will give them powerful defense.\n- If you make your stones sharp, you will deal a basic attack to all visitors. This has a 1 night cooldown.\n- You may protect yourself at night.\n- You may only place sharp stones at your house once per game.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["semaphore", "sema", "474"], "Neutral", "Semaphore", {subCat: "Benign"}, (e) =>
@@ -369,7 +369,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Produce one sun every night.\n- Roleblock one person tonight. Costs 1 sun.\n- Redirect one person into another. Costs 2 sun.\n- Transport 2 people. Costs 2 sun.");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["chemist", "476"], "Neutral", "Chemist", {subCat: "Evil"}, (e) =>
@@ -399,7 +399,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may select yourself as one of the two targets.\n- Both targets must be different players.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["synesthesia", "syne", "478"], "Coven", "Synesthesia", {subCat: "Evil"}, (e) =>
@@ -414,7 +414,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will perform an action to your target based on the sense that you chose as well as one other random sense.\n- Your sense of sight will reveal your target's faction.\n- Your sense of smell will reveal how many charges of any limited-use abilities your target has remaining. If they do not have a limited-use ability, you will be notified about this.\n- Your sense of touch will reveal your target's attack and defense values.\n- Your sense of hearing will reveal if your target has any night chats and the last message sent in all of them if they do have any night chats.\n- Your sense of taste will reveal if your target has any non-death immunities, such as roleblock or redirection immunity.\n- With the Necronomicon, you unlock the sixth sense, which deals an Astral Basic attack to your target.");
 		
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["pheonix", "479"], "Neutral", "Pheonix", {subCat: "Killing"}, (e) =>
@@ -429,7 +429,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you die, you turn to ashes.\n- After the next phase, come back from the ashes. You can not be killed/voted the phase you come back.\n- If the game would end before you revive, you do not revive.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["larcenist", "480"], "Neutral", "Larcenist", {subCat: "Chaos"}, (e) =>
@@ -486,6 +486,8 @@ module.exports = (g) =>
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Convert another player into \"totally not a vampire\"");
+
+		e.addField("Attributes:", "- Only the oldest living \"totally not a vampire\" can convert.");
 		
 		e.addField("Goal:", "Kill or convert all who would oppose the Vampires.");
 	});
@@ -560,7 +562,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can only remember the role of a dead Town member.\n- You cannot become a unique or Town Killing role.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["hot_dog_vendor", "hotdogvendor", "hot_dog", "hotdog", "490"], "Neutral", "Hot Dog Vendor", {subCat: "Benign"}, (e) =>
@@ -618,7 +620,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Players added to your spirit list will be able to post on the game thread the day after they died. They will not have access to dead chat until the day is over. This does not apply to players that were lynched.\n- If you die, your spirit list will be wiped.\n- If you die, you may send the moderator a message (500-character limit) at night to announce to the Town upon the start of the next day. You may do this once per game.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["mystery", "??", "494"], "Other", "Mystery", (e) =>
@@ -651,7 +653,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who oppose the Corruption **or** see every living player corrupted (you can die once you see all living players corrupted).");
 	});
 
-	register_role("496", "Other", "Silksong Fan", {subCat: "Benign"}, (e) =>
+	register_role("496", "Other", "Silksong Fan", {cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 496\nPretty sure this one's goal is invalid.");
 	});
@@ -698,7 +700,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- As long as you received no \"initial\" votes during the previous day (meaning votes that aren't changed from a different target), you actually have Powerful Defense and can hearsay two players instead.");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["stealing_slot_500", "stealingslot500", "lmao", "500"], "Mafia", "I'm Stealing Slot 500 LMAO", {subCat: "Support"}, (e) =>
@@ -713,6 +715,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you steal their last ability, you have the option to reroll their role into something from the same faction and category.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 };

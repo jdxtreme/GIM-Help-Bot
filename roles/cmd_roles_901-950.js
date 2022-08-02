@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["keeper", "901"], "Neutral", "Keeper", {subCat: "Chaos"}, (e) =>
 	{
@@ -29,7 +29,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of the game, you are given 4 Neutral Killing roles. The roles may not be multi-kill roles. Pick 2 roles and inherit their abilities.\n- You may multitask.\n- Any kill will be attributed to the role that has the ability you used to kill the player.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["bloodbender", "903"], "Coven", "Bloodbender", {subCat: "Evil"}, (e) =>
@@ -44,7 +44,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- With the Necromincon, visits against you will fail, and those that target you at night are dealt a Basic attack.");
 		
-		e.addField("Goal:", "Kill anyone who may oppose you.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["mortar", "904"], "Town", "Mortar", {subCat: "Killing"}, (e) =>
@@ -59,7 +59,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have 3 mortar shells.\n- You may not shoot people 1-2 spots away from you on the player list (Dead players do not count as players near you on the player list).\n- If 7 or less players are alive, your restriction is dropped. Revivals will not reinstate this restriction.\n- If you kill a town member, you will lose all your shells and be unable to vote the next day.");
 		
-		e.addField("Goal:", "Kill all who would oppose the Town.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["theraplanet", "905"], "Rock", "Theraplanet", {subCat: "Support"}, (e) =>
@@ -74,10 +74,10 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you obscure a player's alignment, their ability will fail in a certain way that night based on their alignment without their knowledge.\n> - Killing: They can't deal attacks that night.\n> - Support: Their ability will be redirected to a random target that night without their knowledge.\n> - Investigative: Any information they gain is randomized that night.\n> - Protective: They can't give players defense that night.\n- When you blot out an alignment, choose one of Killing, Support, Investigative, or Protection. All non-Rock roles in that alignment, regardless of faction, will have their abilities fail in the listed way that night without their knowledge.\n- Alignments other than the listed four are assumed to be Support, except for those like Umbrae Assault and Thundercry Onslaught, which are quite obviously Killing.");
 		
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
-	register_role(["neutralkillingpopcorn_boy", "neutralkillingpopcornboy", "nkpopcorn", "906"], "Coven", "Neutralkillingpopcorn Boy", {subCat: "Protection"}, (e) =>
+	register_role(["popcorn_viper", "popcornviper", "pv", "906"], "Coven", "Popcorn Viper", {subCat: "Protection"}, (e) =>
 	{
 		e.setDescription("Post 906");
 
@@ -89,7 +89,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Normal popcorn increases its target's defense value by a stage, after all defense modifiers have been applied.\n- Killing popcorn replaces all its target's non-attacking abilities with a Basic attack, without their knowledge.\n- Neutral popcorn permanently changes its target's win condition to \"Kill all who would oppose you.\" and they can't win in any other way.\n- You may use your first three abilities at any time, and they resolve immediately, but you may only use one of them per day/night cycle.\n- You cannot serve normal popcorn twice in a row.\n- It takes one night to killingify popcorn and two nights to make popcorn neutral.\n- With the Necronomicon, you don't need to killingify or make your popcorn neutral anymore and have full access to all three types of popcorn. Additionally, you may serve explosive popcorn, which deals a Powerful attack.");
 		
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["mewtwo", "907"], "Pokemon", "Mewtwo", {subCat: "Legendary"}, (e) =>
@@ -106,7 +106,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Unnerve - When you active this passive at the beginning of the night, you will bypass healing for the night. 2 uses.");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["giratina", "908"], "Pokemon", "Giratina", {subCat: "Legendary"}, (e) =>
@@ -123,7 +123,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Telepathy - Any attack dealt towards you done by a member of the Pokémon Faction (due to redirection and similar) Is lowered to None.");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["lunala", "909"], "Pokemon", "Lunala", {subCat: "Legendary"}, (e) =>
@@ -140,7 +140,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Shadow Shield - The first time you are attacked, you will automatically heal yourself and purge every Pokémon Faction member.");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["magikarp", "910"], "Pokemon", "Magikarp", {subCat: "Base"}, (e) =>
@@ -157,7 +157,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Swift Swim - If activated, learn the visitors of all houses where the rain Is falling. 2 uses.");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["slakoth", "911"], "Pokemon", "Slakoth", {subCat: "Base"}, (e) =>
@@ -172,7 +172,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Truant - Every other night, slack off and gain Powerful defense for the night.");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["mime_jr", "mimejr", "912"], "Pokemon", "Mime Jr", {subCat: "Base"}, (e) =>
@@ -189,7 +189,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Technician - The player you visit's Attack Value Is upped by 1. 2 uses.");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["gyarados", "913"], "Pokemon", "Gyarados", {subCat: "Evolved"}, (e) =>
@@ -206,7 +206,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Intimidate - The player who you visit's Attack Value Is lowered by one stage. This does not affect the same player more than once.");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["slaking", "914"], "Pokemon", "Slaking", {subCat: "Evolved"}, (e) =>
@@ -223,7 +223,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Truant - Every other night, you loaf around and cannot use abilities (except for Giga Impact and Slack Off)");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["mr_mime", "mrmime", "915"], "Pokemon", "Mr Mime", {subCat: "Evolved"}, (e) =>
@@ -240,7 +240,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Filter - The first time you are attacked, everyone's Attack Value Is lowered by 1 for the night.");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["smeargle", "916"], "Pokemon", "Smeargle", {subCat: "Single"}, (e) =>
@@ -257,7 +257,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Own Tempo - You can use your sketched abilities twice per night (but you cant use more than one sketched ability per night)");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["druddigon", "drudd", "917"], "Pokemon", "Druddigon", {subCat: "Single"}, (e) =>
@@ -274,7 +274,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Rough Skin - If you die, your attacker Is dealt an Unstoppable Attack.");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["stonjourner", "ston", "918"], "Pokemon", "Stonjourner", {subCat: "Single"}, (e) =>
@@ -291,7 +291,7 @@ module.exports = (g) =>
 
 		e.addField("Pokemon Abilitiy:", "Power Spot - If you're killed at night, all of your allies gain Unstoppable Attack and Invincible Defense for the next night.");
 		
-		e.addField("Goal:", "Pokemon Goal");
+		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
 	register_role(["ballerina", "919"], "Town", "Ballerina", {subCat: "Support"}, (e) =>
@@ -306,7 +306,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All players who visit your target will become distracted and instead watch you dance causing them to be roleblocked.\n- When you dance around the Town square, you will receive the next twenty whispers sent. This ability will persist throughout the days until you have received twenty whispers.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["veilist", "920"], "Coven", "Veilist", {subCat: "Evil"}, (e) =>
@@ -321,7 +321,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- With the Necronomicon, when you use your ability, you may choose another player who you've made Hexproof at any point in the game previously and they're dealt a Powerful attack.\n- You may self-target.");
 		
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["tier_list_reviewer", "tierlistreviewer", "tlr", "921"], "Town", "Tier List Reviewer", {subCat: "Investigative"}, (e) =>
@@ -336,7 +336,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will receive the tier that your target's role is ranked as in the tier list pinned in <#972887492359508048>.\n- If your target is not ranked on the tier list, you will instead perform a Sheriff check on them.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["kaze", "922"], "Fox", "Kaze", {subCat: "Beta"}, (e) =>
@@ -351,7 +351,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If this is rolled and no Fox Heads are rolled, roll a Fox Head.\n- Kaze can not perform the factional kill and roleblock someone at the same time.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["ongaku", "923"], "Fox", "Ongaku", {subCat: "Beta"}, (e) =>
@@ -366,7 +366,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If this is rolled and no Fox Heads are rolled, roll a Fox Head.\n- Kaze can not perform the factional kill and roleblock someone at the same time.\n- The first player to say that word during the following day will die at day end.\n- You cannot perform the factional kill and set a cursed word at the same time.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["seishin", "924"], "Fox", "Seishin", {subCat: "Omega"}, (e) =>
@@ -379,7 +379,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- This role must roll alongside Kukan.\n- Their attributes are actually decided by the first 3 roles to die. Seishin will adapt to One attribute from each spirit of the fallen (can be attack/defense and/or ability).\n- If Kukan mis-kills or dies, Seishin will lose two of their attributes and join the Foxes the following night(their choice).");
 		
-		e.addField("Goal:", "Fox Goal or Outlive Kukan");
+		e.addField("Goal:", "Kill anyone that opposes the Foxes or Outlive Kukan");
 	});
 
 	register_role(["kukan", "925"], "Fox", "Kukan", {subCat: "Omega"}, (e) =>
@@ -394,7 +394,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If this is rolled, Seishin must appear too.\n- Your investigation can be fooled by disguises.\n- If you kill Seishin, you will join the rest of the foxes and gain their goal.\n- If your attack kills someone else, the Foxes will learn your name, and your new goal will be to live until all Foxes perish.");
 		
-		e.addField("Goal:", "Fox Goal or Survive to the end.");
+		e.addField("Goal:", "Kill anyone that opposes the Foxes or Survive to the end.");
 	});
 
 	register_role(["kasai", "926"], "Fox", "Kasai", {subCat: "Beta"}, (e) =>
@@ -409,7 +409,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If this is rolled and no Fox Heads are rolled, roll a Fox Head.n\- You may burn your own teammates.\n- You may use your ability and use the night kill at the same time.\n- When using your ability in the day, you must use it before the day ends for it to work.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["chikyu", "927"], "Fox", "Chikyu", {subCat: "Beta"}, (e) =>
@@ -422,7 +422,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If this is rolled and no Fox Heads are rolled, roll a Fox Head.\n- If lynched, you will cause a massive earthquake, shielding any Foxes to for following two nights from basic attacks.\n- While your protection is active, the Foxes cannot use their factional kill unless only one is left.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["yama", "928"], "Fox", "Yama", {subCat: "Beta"}, (e) =>
@@ -437,7 +437,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If this is rolled and no Fox Heads are rolled, roll a Fox Head.\n- If attacked and not killed Yama will perform a counter attack dealing a basic attack towards the attacker.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["arctic_fox", "arcticfox", "929"], "Fox", "Arctic Fox", {subCat: "Head"}, (e) =>
@@ -452,7 +452,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If no other foxes are rolled yet, roll a Fox Beta.\n- Can not perform the factional kill and use ability the same night.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["ninetales", "930"], "Fox", "Ninetales", {subCat: "Beta"}, (e) =>
@@ -467,7 +467,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If this is rolled and no Fox Heads are rolled, roll a Fox Head.\n- Can not perform the factional kill and use ability the same night.\n- Your ability takes the place of the factional kill for the night that you use it.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["oni", "931"], "Any", "Oni", {anyExCat: ["Fox"]}, (e) =>
@@ -480,7 +480,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If this rolls you must roll any one Fox Head if none are present.\n- You have a random non-Fox role that will take the place of this role card, without knowing you are really the Oni.\n- The Foxes will know your name and role, but won't be in a chat with you.\n- 3 times per game, the Foxes can control you.");
 		
-		e.addField("Goal:", "Fox Goal OR your role's goal.");
+		e.addField("Goal:", "Kill anyone that opposes the Foxes OR your role's goal.");
 	});
 
 	register_role(["sanda", "932"], "Fox", "Sanda", {subCat: "Beta"}, (e) =>
@@ -495,7 +495,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You must activate your ability in the night, so it can activate the next day.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["nogitsune", "nogi", "933"], "Fox", "Nogitsune", {subCat: "Head"}, (e) =>
@@ -510,7 +510,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The Nogitsune has a powerful grasp over supernatural entities. If this rolls you must roll an Oni.\n- If the Nogitsune dies the Oni will be released and no longer have the Fox win-con.\n- Can not control the Oni and perform the factional kill the same night.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["mori", "934"], "Fox", "Mori", {subCat: "Head"}, (e) =>
@@ -525,7 +525,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- No actions can happen upon them but in return they must give all their voting power to Mori and reports for the night. (they will not be notified)\n- If the player enclosed in the forest is lynched the following day, Mori will self enclose themselves and lose their voting for one day and their ability permanently. ");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["kawa", "935"], "Fox", "Kawa", {subCat: "Beta"}, (e) =>
@@ -540,7 +540,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If this rolls, replace any fox head with Umi.\n- If no Fox Heads are rolled, roll Umi.\n- Your ability can only be done 3 times and cannot target their own Fox team members. It will take the place of the factional kill.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["umi", "936"], "Fox", "Umi", {subCat: "Head"}, (e) =>
@@ -555,7 +555,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The ability has a one day cool down so can only be done every other day to a maximum of 3 times.\n- Ex: If given to the Kaze, they will rb and deal their target a basic attack.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["tengoku", "teng", "937"], "Fox", "Tengoku", {subCat: "Head"}, (e) =>
@@ -570,7 +570,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If no beta foxes are rolled when this is, you must roll 2.\n- Tengoku can not perform the factional kill unless they are the last ones left in which case they won't be able to use their ability.\n- When Tengoku dies he may reincarnate into another Fox and give them one of two abilities:\n> The ability to silence a player for the following day\n> Steal a players results for the night\n- If no more foxes are alive the Tengoku must choose someone to carry his hide and they must live to the end for him to win. They will be notified.");
 		
-		e.addField("Goal:", "Fox Goal or Hide Carrier's Survival");
+		e.addField("Goal:", "Kill anyone that opposes the Foxes or Hide Carrier's Survival");
 	});
 
 	register_role(["jikan", "938"], "Fox", "Jikan", {subCat: "Beta"}, (e) =>
@@ -583,7 +583,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Controller of time it seems, Jikan can alter time to switch the day/night actions 1 time. Doing so allows for voting to be held at night where no one can speak only vote except for factions with chats, as well as during the day everyone can speak but do their roles actions.");
 		
-		e.addField("Goal:", "Fox Goal");
+		e.addField("Goal:", factions.Fox.goal);
 	});
 
 	register_role(["jack_of_all_trades", "jackofalltrades", "joat", "939"], "Town", "Jack Of All Trades", {subCat: "Support"}, (e) =>
@@ -596,9 +596,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Kill a player. (1 use)\n- Roleblock a player. (1 use)\n- Investigate a player's role. (1 use)\n- Heal a player. (1 use)");
 
-		e.addField("Attributes:", "- You may not target yourself.");
+		e.addField("Attributes:", "- You may not target yourself.\n- If all your abilities are used, regain 1 use of each.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["guesser", "941"], "Town", "Guesser", {subCat: "Investigative"}, (e) =>
@@ -613,14 +613,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of the game, once everyone has confirmed their roles, you will learn a random role that exists within the game, which cannot win with the Town.\n- When you Guess a player, the host will privately ask that player if they are the role that you learned.\n- Whenever your target directly responds to the host's question, their exact response will be relayed to you.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["master_of_none", "masterofnone", "mon", "940"], "Unseen", "Master of None", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 940");
 
-		e.addField("Alignment", "Town Support", true);
+		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
@@ -628,7 +628,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may target yourself.");
 
-		e.addField("Goal:", "Unseen Goal");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["ancient_god", "ancientgod", "942"], "Any", "Ancient God", {anyExCat: ["Neutral"]}, (e) =>
@@ -686,7 +686,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Each day, the first non-Coven player to mention you by name or by any recognizable nickname will automatically become Spited.\n- You will receive a notification each time a player becomes Spited.\n- Astral");
 		
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["driver", "946"], "Neutral", "Driver", {subCat: "Evil"}, (e) =>
@@ -716,7 +716,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you drink beer, all non-Mafia visitors will be redirected to a player of your choice. Next, you will learn all those that visited the player you chose.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["sheriff", "948"], "Town", "Sheriff", {subCat: "Investigative"}, (e) =>
@@ -731,7 +731,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- It's old ToS Sheriff except NKs show as NKs and not their actual role. That's basically it.\nSpecifics can be seen here: https://docs.google.com/document/d/1rMinMSKBpTaMKH0oeDpBGulhK7LsDqNN23PWu_A4OJM/edit?usp=sharing");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["lunatic_hell_fairy", "lunatichellfairy", "lhf", "949"], "Coven", "Lunatic Hell Fairy", {subCat: "Evil"}, (e) =>
@@ -746,7 +746,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If an attack caused by your ability would hit you, it does not hit you.");
 		
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["spirit_thief", "spiritthief", "st", "950"], "Neutral", "Spirit Thief", {subCat: "Killing"}, (e) =>

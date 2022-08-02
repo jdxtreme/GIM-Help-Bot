@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["soul_thief", "soulthief", "851"], "Neutral", "Soul Thief", {subCat: "Killing"}, (e) =>
 	{
@@ -57,7 +57,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you scrutinize a player, you will be given 2 subalignments (Protective, Support, etc.) One of these subalignments is your target's subalignment.- Roleblock & Control Immunity");
 		
-		e.addField("Goal:", "Eliminate all who oppose the Insurgency.");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["free_bird", "freebird", "855"], "Town", "Free Bird", {subCat: "Support"}, (e) =>
@@ -93,6 +93,7 @@ module.exports = (g) =>
 	register_role(["sk", "sk_with_basic_attack", "sk_basic", "857"], "Neutral", "SK", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 857");
+		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -102,12 +103,13 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["sk", "sk_with_powerful_attack", "sk_powerful", "858"], "Neutral", "SK with powerful attack", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 858");
+		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -117,12 +119,13 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["sk", "sk_with_unstoppable_attack", "sk_unstoppable", "859"], "Neutral", "SK with unstoppable attack", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 859");
+		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Unstoppable", true);
@@ -132,12 +135,13 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["sk", "sk_with_overkill_attack", "sk_overkill", "860"], "Neutral", "SK with overkill attack", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 860");
+		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Overkill", true);
@@ -147,7 +151,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["scp-2006", "scp2006", "861"], "SCP", "SCP 2006", {subCat: "Keter"}, (e) =>
@@ -160,9 +164,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Use the attack that you copied from another role.");
 
-		e.addField("Attributes:", "- You originally have 0 attack but you will copy latest attack from any role. Example: on night 1 you have 0 attack but on day 2 someone was killed by shinigami so you will copy that attack on night 2. If there are multiple attacks then choose only one.\n- Doesn't copy self.");
+		e.addField("Attributes:", "- You originally have None attack tier, but you will copy latest attack made from any role. Example: On N1 you have, None attack, but on Day 2 someone was killed by a Shinigami. You copy Shinigami's attack tier which is Overkill.\n- If there are multiple attacks, then just choose one.\n- You can't copy yourself.");
 		
-		e.addField("Goal:", "Kill everyone who is not on the SCP team.");
+		e.addField("Goal:", factions.SCP.goal);
 	});
 
 	register_role(["abyss", "862"], "Stalker", "Abyss", {subCat: "Support"}, (e) =>
@@ -177,12 +181,13 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your target's ability will fail, but they will still visit their targets, rendering them vulnerable to anything which affects or interacts with visitors.\n- Your target will receive a generic roleblock message.");
 		
-		e.addField("Goal:", "Kill all who object to the presence of the Stalkers.");
+		e.addField("Goal:", factions.Stalker.goal);
 	});
 
 	register_role(["sk", "sk_powerful_kill_all_sks", "skpowerfulkillallsks", "sk_killer", "skkiller", "863"], "Neutral", "SK but with powerful attack, and their goal is only to kill all SKs", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 863");
+		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -207,7 +212,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If the person you choose to rob dies that night, you will gain one use of their primary night ability, as determined by the host.\n- When you perform an autopsy on a player, if they die the following night, their cause of death will be obscured, to yourself included. However, you will learn who killed them.");
 		
-		e.addField("Goal:", "Eliminate all who oppose the Insurgency.");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["wiretapper", "865"], "Insurgency", "Wiretapper", {subCat: "Saboteur"}, (e) =>
@@ -222,7 +227,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you Jam a player, the following day, they may not vote, whisper, or talk in non-private channel private chats. Basically, only thing they can do during the day is talk in the day chat & use day abilities.\n- When you Wiretap a player's whispers, the first 3 whispers from each person sent to that player will be eavesdropped by you.");
 		
-		e.addField("Goal:", "Eliminate all who oppose the Insurgency.");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["perceptive", "866"], "Town", "Perceptive", {subCat: "Killing"}, (e) =>
@@ -237,7 +242,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you receive a whisper from any player from an evil faction during the day, your night action will automatically target that player instead of your original target. (If there are multiple players from evil factions who whispered to you, it will select one of them at random.)");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["ayase_rimura_hopes_last_frontier", "ayase_rimura", "ayaserimura", "hopes_last_frontier", "hopeslastfrontier", "867"], "Neutral", "Ayase Rimura, Hope's Last Frontier", {subCat: "Killing"}, (e) =>
@@ -267,7 +272,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You do not (Currently) have a gun. However, you are NOT useless without it.\n- Additionally roles that have guns according to flavor (Like Sniper Post 341) will count as a person that has a gun according to your ability actually.\n- Do not worry though because you can continue to use your foldable chair EVEN AFTER having found your gun, and in fact you are quite good at dual-wielding so you can actually use them both simultaneously.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["duelist", "869"], "Town", "Duelist", {subCat: "Power"}, (e) =>
@@ -282,7 +287,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have a layer of Powerful defense that can block one attack.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["guerilla", "870"], "Insurgency", "Guerilla", {subCat: "Hitman"}, (e) =>
@@ -297,7 +302,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you camp outside a player's house, the following night, if someone attempts to attack that player, their ability will fail and you will attack them. ~~I am putting to many 'RB attacker and replace their attack' roles in this alignment lmao~~\n- When you choose to communicate to Insurgents, they will be informed who's house you chose to camp outside at the start of next night. You will also learn who decides to visit your target the following night.");
 		
-		e.addField("Goal:", "Eliminate all who oppose the Insurgency.");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["sensei", "871"], "Town", "Sensei", {subCat: "Support"}, (e) =>
@@ -310,7 +315,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may grant yourself Basic Defense at night; Additionally, if you are attacked when you do this, you will deal a Basic Attack back to the attacker (Unless the attacker's visit is Astral)\n- At night, you may visit a player. They will gain one of these abilities based on how many times you have already visited them during this game:\n • 0 prior visits: You may grant yourself Basic Defense at night.\n • 1 prior visit: You may grant yourself Basic Defense at night; Additionally, if you are attacked when you do this, you will deal a Basic Attack back to the attacker (Unless the attacker's visit is Astral).\n • 2 prior visits: You may use any of the Sensei (Post 871)'s night abilities.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["defamer", "872"], "Insurgency", "Defamer", {subCat: "Hitman"}, (e) =>
@@ -325,7 +330,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you halve the majority, anyone who exceeds the threshold will be immediately lynched, however the day will be extended afterwards until a (not halved) majority is reached to enter nightfall, or the normal time to end the day phase is reached.\n- You will be immediately revealed as the Defamer after halving majority.\n- When you check bounties, you will learn if any Insurgents are being voted for that day. You will not learn who specifically the Insurgent(s) is/are.");
 		
-		e.addField("Goal:", "Eliminate all who oppose the Insurgency.");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["amputator", "873"], "Town", "Amputator", {subCat: "Protective"}, (e) =>
@@ -338,7 +343,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Protect {another} player at night, granting them Powerful defense {but roleblocking them}.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["marothoner", "maro", "874"], "Town", "Marothoner", {subCat: "Support"}, (e) =>
@@ -353,7 +358,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can either run to as many houses as you can, or not run at all.\n- After not using an ability during the night, your streak is broken and you start at visiting one house per night again.\n- You may only use one of your abilities each night.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["general", "875"], "Insurgency", "General", {subCat: "Informant"}, (e) =>
@@ -368,7 +373,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You know all roles at the start of the game.\n- If you ever reveal yourself, or are correctly suspected of being the General publicly (in a day chat), you will be immediately modkilled. Common sense applies, i.e. if someone guesses everyone to be the General you won't be slain.\n- You may not send whispers, and while whispers towards you will succeed, you may not view the contents.\n- When you send a telegram, you may send a player a message, 64 characters in length or less, requesting an action of them. You may not use this telegram to reveal yourself or anyone else's roles.");
 		
-		e.addField("Goal:", "Eliminate all who oppose the Insurgency.");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["butcher", "876"], "Town", "Butcher", {subCat: "Killing"}, (e) =>
@@ -376,12 +381,12 @@ module.exports = (g) =>
 		e.setDescription("Post 876");
 
 		e.addField("Alignment", "Town Killing", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- {Prepare your blade at night, then} chop up another player {the next night}, dealing a Powerful attack to them {if they don't have defense}. {You commit suicide immediately if you kill a Town member.}\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["archaeologist", "877"], "Town", "Archaeologist", {subCat: "Investigative"}, (e) =>
@@ -394,7 +399,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Dig up remains near a player's house at night, learning {8 roles at random, at least 3 of which are Town and 2 of which are evil, one of which is} their role.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["nimbus", "878"], "Thundercry", "Nimbus", {subCat: "Support"}, (e) =>
@@ -409,7 +414,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes", "- You learn the faction of every Striked player, and the exact role of players you remove Strikes from.\n- If two or more Striked players are alive, you gain basic defense.");
 		
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["sculptor", "879"], "Town", "Sculptor", {subCat: "Support"}, (e) =>
@@ -422,7 +427,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- {Ready a statue at night, then} carve a statue in the likeness of {another} player {the next night}. All visits {except Powerful or higher attacks} will be redirected to the statue.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["eurus", "880"], "Thundercry", "Eurus", {subCat: "Support"}, (e) =>
@@ -437,7 +442,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes", "- Moving Strikes happens before any other actions resolve at night.\n- The new Striked player will be announced in the morning, as if they were normally Striked.\n- You may both prepare a Strike and use your nightly ability on the same night.\n- If two or more Striked players are alive, you gain basic defense.");
 		
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["lumberjack", "881"], "Town", "Lumberjack", {subCat: "Killing"}, (e) =>
@@ -450,7 +455,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- {Saw a tree at night, then} fell it on the house of a player {other than you the next night}. The tree will deal a Powerful attack to all {Townies and} evil faction members who visit them.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["painter", "882"], "Mafia", "Painter", {subCat: "Support"}, (e) =>
@@ -465,7 +470,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes", "- You can use multiple abilities per night.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["cleaveland", "883"], "Neutral", "Lumberjack", {subCat: "Killing"}, (e) =>
@@ -478,7 +483,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player each night, dealing a Basic attack to them. You will {not} deal an Unstoppable attack to them and all the players who visit them and all the players they visit and you will {not} gain all immunities as well as total death immunity for the night.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["easier_egg", "easteregg", "easter", "884"], "Neutral", "Easter Egg!", {subCat: "Benign"}, (e) =>
@@ -536,10 +541,10 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose to {go on alert at night. You will gain Basic defense for the night and} attack anyone {who visits you} with {a Powerful attack that's not as strong as} an extremely large and Unstoppable knife. {This uses up an alert, which you only have three of}.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["obnoxiously_cleaved_executioner", "obnoxiouslycleavedexecutioner", "cleaveexe", "888"], "Neutral", "Obnoxiously Cleaved Executioner", {subCat: "Evil"}, (e) =>
+	register_role(["obnoxiously_cleaved_executioner", "obnoxiouslycleavedexecutioner", "cleavedexe", "oce", "888"], "Neutral", "Obnoxiously Cleaved Executioner", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 888");
 
@@ -592,7 +597,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose <up to> {one <player> to <attack at night, dealing}> three <{Basic attacks to that} player and> role<block{ing them through immunitie>s,} and {you <won't be able to} make {votes to> lynch <people> the< next day, or else you'll} die {due to extre>m<e tiredness th>at day}.\n- **Cleave** the text in braces in your ability during the day.\n- **Chop** the text in chevrons in your ability during the night.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["amber", "892"], "Rock", "Amber", {subCat: "Support"}, (e) =>
@@ -607,7 +612,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The night you preserve them, you will be able to use their ability on any player (including yourself), and their ability now rampages.\n- You cannot preserve someone in Amber more than once in the entire game.");
 		
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["wolfi-induced_game_canning", "wolfiinducedgamecanning", "game_canning", "gamecanning", "wolfi", "893"], "Neutral", "Revenge of The Wolfi-Induced Game Canning", {subCat: "Chaos"}, (e) =>
@@ -669,7 +674,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you perish, all players who's' deaths you halted will immediately die as well.\n- Town Protective visits on you will automatically fail.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["blitzen", "blixem", "897"], "Neutral", "Blitzen (Blixem)", {subCat: "Chaos"}, (e) =>

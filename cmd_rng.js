@@ -66,6 +66,7 @@ module.exports = (g) =>
 			title,
 			desc,
 			param,
+			meta: {},
 			func
 		};
 
@@ -158,43 +159,78 @@ module.exports = (g) =>
 
 	register_cmd(["random_role", "randomrole", "rrole", "role"], "[Faction] [Subalignment(s)...]", "Random Role", "Roll for a random role out of the list of those that are registered in the Bot. A Faction and Subalignment may both be specified in order to narrow down possible rolls. A full role card will be provided based on the results.\n\nSee =categories for a list of Factions.\n\nExact spelling will be required when specifying Factions and Subalignments, but they will not be case-sensitive.", (chn, message, e, args) =>
 	{
-		let cat1 = args[0];
-		let subCat = [];
 		let role = null;
 		let incany = randInt(10) == 0;
+		let specs = null;
+		let accept = false;
+		let rollable = [];
 
-		for(let a = 1; a < args.length; a++)
-			subCat[a-1] = args[a];
-
-		if(cat1)
+		if(args.length > 0)
 		{
-			let accept = false;
-			let rollable = [];
+			specs = {};
 
-			for(let r in roles)
+			for(let i = 0; i < args.length; i++)
 			{
-				let cmd = roles[r].cmd;
-				let cat2 = [cmd.cat];
-				let submatch = subCat.length === 0 || containsString(subCat, cmd.meta.subCat);
+				let splits = args[i].toLowerCase().split(':');
 
-				if(cmd.meta.spawnCat)
-					cat2 = ((typeof cmd.meta.spawnCat === "string") && [cmd.meta.spawnCat] || cmd.meta.spawnCat);
+				if(!specs[splits[0]])
+					specs[splits[0]] = {};
 
-				if(cmd.cat === "Any" && cmd.meta.anyExCat && containsString(cmd.meta.anyExCat, cat1))
-					continue;
+				for(let n = 1; n < splits.length; n++)
+					specs[splits[0]][splits[n]] = true;
+			}
+		}
 
-				if((containsString(cat2, cat1) && submatch) || (incany && containsString(cat2, "any")))
-					rollable[rollable.length] = {cmd, rate: cmd.meta.spawnRate || 1};
+		for(let r in roles)
+		{
+			let cmd = roles[r].cmd;
+			let catMatch = true;
 
-				if(!accept && containsString(cat2, cat1))
-					accept = true;
+			let cats = [cmd.cat];
+			if(cmd.meta.spawnCat) cats = ((typeof cmd.meta.spawnCat === "string") && [cmd.meta.spawnCat] || cmd.meta.spawnCat);
+
+			if(cmd.meta.cannotRoll || (cmd.cat === "Any" && !incany))
+				continue;
+
+			if(specs)
+			{
+				catMatch = false;
+
+				if(cmd.cat === "Any")
+				{
+					for(let cat in specs)
+					{
+						if((!cmd.meta.exAnyCat || containsString(cmd.meta.anyExCat, cat)) && (!cmd.meta.subCat || Object.keys(specs[cat]).length == 0 || specs[cat][cmd.meta.subCat]))
+						{
+							catMatch = true;
+							break;
+						}
+					}
+				}
+				else
+				{
+					for(let i = 0; i < cats.length; i++)
+					{
+						if(specs[cats[i].toLowerCase()] && (Object.keys(specs[cats[i].toLowerCase()]).length == 0 || !cmd.meta.subCat || specs[cats[i].toLowerCase()][cmd.meta.subCat.toLowerCase()]))
+						{
+							catMatch = true;
+							break;
+						}
+					}
+				}
 			}
 
-			if(accept)
-				role = randChances(rollable);
+			if(catMatch)
+			{
+				rollable[rollable.length] = {cmd, rate: cmd.meta.spawnRate || 1};
+
+				if(!accept && cmd.cat !== "Any")
+					accept = true;
+			}
 		}
-		else
-			role = randChances(roles);
+
+		if(accept)
+			role = randChances(rollable);
 
 		if(role && role.cmd)
 			role.cmd.func(chn, msg, e);

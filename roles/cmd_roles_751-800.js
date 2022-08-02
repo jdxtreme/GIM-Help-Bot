@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["robber", "751"], "Neutral", "Robber (Stealer is too unique of a name ngl)", {subCat: "Chaos"}, (e) =>
 	{
@@ -47,9 +47,9 @@ module.exports = (g) =>
 		e.addField("Goal:", "Survive until the end of the game.");
 	});
 
-	register_role(["scp-173", "scp173", "753"], "SCP", "SCP-173", {subCat: "Euclid"}, (e) =>
+	register_role(["scp-173", "scp173", "754"], "SCP", "SCP-173", {subCat: "Euclid"}, (e) =>
 	{
-		e.setDescription("Post 753");
+		e.setDescription("Post 754");
 
 		e.addField("Alignment", "Unique SCP Euclid", true);
 		e.addField("Attack", "Powerful", true);
@@ -57,7 +57,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Every non-full moon night, you may visit somebody. This will either one random visitor, the person you visit themselves, or someone who visits you aside from any SCPs.");
 		
-		e.addField("Goal:", "SCP Goal");
+		e.addField("Goal:", factions.SCP.goal);
 	});
 
 	register_role(["my_various_knives", "myvariousknives", "knives", "mvk", "755"], "Neutral", "My Various Knives", {subCat: "Killing"}, (e) =>
@@ -102,7 +102,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you patrol a player's house, you will give them Powerful Defense. Additionally, any non-attack visits on them will automatically fail.\n- You will be notified the first time each day that a player whispers another; you will not be notified if there's a reply.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["shadow", "758"], "Neutral", "Shadow", {subCat: "Benign"}, (e) =>
@@ -132,7 +132,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you guard a player, you will grant them Powerful Defense. If a player attacks your target, you will both deal a Powerful Attack to each other. Basically an Insurgent Bodyguard.\n- When you preach to players, you will learn if they are capable of winning together.");
 		
-		e.addField("Goal:", "Insurgency Goal");
+		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
 	register_role(["leonard_hofstadter", "leonardhofstadter", "leonard", "hofstadter", "760"], "Town", "Leonard Hofstadter", {subCat: "Support"}, (e) =>
@@ -147,7 +147,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Can only spawn if Nlove is present\n- Cannot be bazinga'd");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["watch_over_us", "watchoverus", "person", "aptwou", "761"], "Neutral", "A person to watch over us.", {subCat: "Benign"}, (e) =>
@@ -190,7 +190,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- They will be informed that they mysteriously blacked out, and they won't know what actions you took for them.\n- You can force players to commit suicide, but the Town will be informed that their suicide was unnatural, and you can't make them take any night actions if you do this.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["scp-096", "scp096", "764"], "SCP", "SCP-096", {subCat: "Euclid"}, (e) =>
@@ -205,7 +205,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will not kill any members of your team.\n- If someone visits you, they die.\n- Your victims are cleaned");
 		
-		e.addField("Goal:", "SCP Goal");
+		e.addField("Goal:", factions.SCP.goal);
 	});
 
 	register_role(["astute_gif_user", "astutegifuser", "gif", "765"], "Neutral", "Astute Gif User", {subCat: "Benign"}, (e) =>
@@ -235,7 +235,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything at night besides an Everfrost Attribute, during the next morning, the first person they vote will be roleblocked the following night.");
 		
-		e.addField("Goal:", "Everfrost Goal");
+		e.addField("Goal:", factions.Everfrost.goal);
 	});
 
 	register_role(["black_hole", "blackhole", "bh", "767"], "Neutral", "Black Hole", {subCat: "Chaos"}, (e) =>
@@ -263,7 +263,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Instead of killing somebody, you may instead revive a dead player secretly as an SCP-049-2 instance. It cannot vote, but can perform a basic attack or roleblock another player. It lasts for 2 days before dying.");
 		
-		e.addField("Goal:", "SCP Goal");
+		e.addField("Goal:", factions.SCP.goal);
 	});
 
 	register_role(["scp-682", "scp682", "769"], "SCP", "SCP-682", {subCat: "Keter"}, (e) =>
@@ -278,7 +278,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will adapt to the environment.\n- If you are roleblocked twice gain roleblock immunity.\n- If you fail attack twice gain powerful attack.\n- If you are attacked twice gain powerful defense.\n- If you are voted twice gain 2 votes.");
 		
-		e.addField("Goal:", "SCP Goal");
+		e.addField("Goal:", factions.SCP.goal);
 	});
 
 	register_role(["scp-106", "scp106", "770"], "SCP", "SCP-106", {subCat: "Keter"}, (e) =>
@@ -293,7 +293,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Once a SCP-106 has been confirmed to be in play, one town member may volunteer to sacrifice themselves (Modkill level attack) to kill SCP-106(Modkill level attack). The vote counts as a lynch and requires the standard trial rules for the game to pass.");
 		
-		e.addField("Goal:", "SCP Goal");
+		e.addField("Goal:", factions.SCP.goal);
 	});
 
 	register_role(["attorney_amber_hard", "attorneyamberhard", "attorney", "amber_hard", "amberhard", "771"], "Mafia", "Attorney Amber Hard", {subCat: "Killing"}, (e) =>
@@ -308,7 +308,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- In the day, you will hear voices of a player at random, which includes anything they type in their player channel, except for votes.\n- This post is based off of a Google misTranslated version of \"Amber Heard's Lawyer\"");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["arsonist", "772"], "Mafia", "Arsonist", {subCat: "Deception"}, (e) =>
@@ -323,7 +323,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have a large titanium wall in front of your house until you syncopate that roleblocks the first 2.5 players who would attack you.\n- You can't say the words \"vote\", \"for\", or \"role\" on Day 4, and you can't vote on Day 4.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["king", "773"], "Town", "The King", {subCat: "Power"}, (e) =>
@@ -332,13 +332,13 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attack\n- 2 Uses: Heal himself by 1 HP\n- 1 Use: Remove all negative status effects off of himself, such as douses, hexes, etc.\n- 1 Use: Learn a player's role. Cannot be used before Night 3.");
+		e.addField("Abilities:", "- Attack\n- 2 Uses: Heal yourself by 1 HP\n- 1 Use: Remove all negative status effects off of yourself, such as douses, hexes, etc.\n- 1 Use: Learn a player's role. Cannot be used before Night 3.");
 
-		e.addField("Attributes:", "- Conversion and Roleblock Immunity\n- The King has 6 HP. Any attack that would kill him will instead reduce his HP by 1.\n- The King can only die if his HP reaches 0, or he is lynched.\n- Anything that heals the King will increased his HP, up to a maximum of 6.\n- The King is automatically revealed at the start of the game.\n- If the King dies, Town has exactly 2 days and 2 nights afterwards to kill all of their enemies. If time is up and Town hasn't won yet, they will automatically lose.\n- The King cannot use whispers.\n- The King can only be rerolled by choice at the start of the game. Other roles are incapable of forcefully rerolling the King into another role.\n- At the start of the game, the King may opt to name his Kingdom (AKA the current game) into anything he wants. This feature is very important and entirely cosmetic.");
+		e.addField("Attributes:", "- The King has 6 HP. Any attack that would kill him will instead reduce his HP by 1.\n- The King can only die if his HP reaches 0, or he is lynched.\n- Anything that heals the King will increased his HP, up to a maximum of 6.\n- The King is automatically revealed at the start of the game.\n- If the King dies, Town has exactly 2 days and 2 nights afterwards to kill all of their enemies. If time is up and Town hasn't won yet, they will automatically lose.\n- The King cannot use or hear whispers.\n- The King can only be rerolled by choice at the start of the game. Other roles are incapable of forcefully rerolling the King into another role.\n- If you kill a townie, you will lose a charge from a random ability that has one. If you don't have ability charges to use, you will instead lose the ability to attack.\n- The M-63 Plamen Artillery Piece can only attack the King up to 2 times per night.\n- At the start of the game, the King may opt to name his Kingdom (AKA the current game) into anything he wants. This feature is very important and entirely cosmetic.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["hypocrite_lawmaker", "hypocritelawmaker", "hypocrite", "lawmaker", "774"], "Neutral", "Hypocrite Lawmaker", {subCat: "Evil"}, (e) =>
@@ -396,7 +396,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If the player dies, you will assume unlimited charges of their abilities, unless those abilities include conversion of any kind.\n- You can appear to players who are killed by an ability which prevents other visits (Jailor, Wisteria, etc)\n- You may only use one ability per night, including appearing to a player.\n- If the player does not die, they will learn you are the Wraith. This will not apply if the player is protected or has their visitors stopped.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["gifted_child", "giftedchild", "gifted", "778"], "Neutral", "Gifted Child", {subCat: "Benign"}, (e) =>
@@ -426,7 +426,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will redirect **any** killing abilities that targets one of your targets to the other target.\n- Your ability does not produce a notification.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["angel_of_wrath", "angelofwrath", "angel", "aow", "780"], "Neutral", "Angel of Wrath", {subCat: "Killing"}, (e) =>
@@ -441,7 +441,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Flying (You can't be blocked by protective roles.)\n- First strike (You have the highest possible priority.)\n- Vigilance (You can attack each night and each day.)\n- Trample (Excess damage you deal is dealt to your target's visitors.)\n- Haste (You can make one attack before the game begins.)\n- Protection from Mafia (You can't be affected in any way by Mafia roles' abilities.)\n- Protection from Neutral Killing (You can't be affected in any way by Neutral Killing roles' abilities.)");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["heavenbound", "hb", "781"], "Thundercry", "Heavenbound", {subCat: "Onslaught"}, (e) =>
@@ -456,7 +456,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When placing a Strike, all players who target you will have their ability fail.\n- If two or more Striked players are alive, you gain basic defense.");
 		
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["osprey", "782"], "Thundercry", "Osprey", {subCat: "Onslaught"}, (e) =>
@@ -471,7 +471,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the beginning of every night, all Striked players alive grants you 1 Volt Point. A Striked player dying causes you to lose 1 Volt Point. As you gain Volt Points, you become more powerful.\n> 2 VP: Basic attack only on Full Moon\n> 3 VP: Basic attack whenever\n> 4 VP: Roleblock and Control Immunity\n> 5 VP: Powerful attack\n> 6 VP: Lynchproof once per game\n> 7 VP: Can make two actions per night\n- If two or more Striked players are alive, gain basic defense.");
 		
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["astra", "783"], "Thundercry", "Astra", {subCat: "Onslaught"}, (e) =>
@@ -486,7 +486,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The night after a Striked player dies, you may make a powerful attack and roleblock on top of your normal action. This does not stack if multiple Striked players die on the same night.\n- If two or more Striked players are alive, gain basic defense.");
 		
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["fulgur", "784"], "Thundercry", "Fulgur", {subCat: "Onslaught"}, (e) =>
@@ -501,7 +501,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may place up a Strike on top of doing your nightly action.\n- If two or more Striked players are alive, gain basic defense.");
 		
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["jackdaw", "785"], "Thundercry", "Jackdaw", {subCat: "Support"}, (e) =>
@@ -516,7 +516,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If one or more Striked players are alive, players who visit your target will also have their defense lowered.\n- If two or more Striked players are alive, gain basic defense.");
 		
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["hurricane", "786"], "Thundercry", "Hurricane", {subCat: "Support"}, (e) =>
@@ -531,7 +531,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If one or more Striked players are alive, learn the faction and alignment of players you visit.\n- If two or more Striked players are alive, gain basic defense.");
 		
-		e.addField("Goal:", "Eliminate all who stand against the Thundercry.");
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["gladiator", "glad", "787"], "Neutral", "Gladiator", {subCat: "Chaos"}, (e) =>
@@ -574,7 +574,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may hear all whispers.");
 		
-		e.addField("Goal:", "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule.");
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
 	register_role(["atomic_international_chess_grandmaster", "atomicinternationalchessgrandmaster", "atomic", "aicm", "790"], "Town", "Atomic International Chess Grandmaster", {subCat: "Killing"}, (e) =>
@@ -589,7 +589,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The following night, both players are required to participate in the chess game, unless for OOC reasons they are physically unable to. You will roleblock your target.\n- Winning by checkmate will deal a Powerful attack to your target. Winning by any other method (resignation, time control, and notably king capture) will deal a rampage Powerful attack from the radiation, and your target will take an Unstoppable attack. Losing will deal a normal Powerful attack to you, regardless of how you lost. If you draw, play another game.\n- At no point during the game may kings come into contact with each other. This is to prohibit stalling. If anyone violates this rule, they will be modkilled and banned.\n- All players that die to this role will have a shared link of the match posted as their cause of death, alongside your role.\n- You may reroll this into another Town Killing for free.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["synaesthesia", "syna", "synae", "791"], "Coven", "Synaesthesia", {subCat: "Evil"}, (e) =>
@@ -604,7 +604,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will perform an action to your target based on the sense that you chose as well as one other random sense.\n- Your sense of sight will reveal your target's faction.\n- Your sense of smell will reveal how many charges of any limited-use abilities your target has remaining. If they do not have a limited-use ability, you will be notified about this.\n- Your sense of touch will reveal your target's attack and defense values.\n- Your sense of hearing will reveal if your target has any night chats and the last message sent in all of them if they do have any night chats.\n- Your sense of taste will reveal if your target has any non-death immunities, such as roleblock or redirection immunity.\n- With the Necronomicon, you unlock the sixth sense, which deals an Astral Basic attack to your target.");
 		
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["beekeeper", "bee", "bk", "792"], "Town", "Beekeeper", {subCat: "Support"}, (e) =>
@@ -616,11 +616,11 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Use 1 bee and bee sting 1 player. This player is stunned on the next night so cannot use an ability.\n- Use 2 bees, investigate 1 player and find his role. 2\n - Use 3 bees and deal a powerful attack to 1 player.");
+		e.addField("Abilities:", "- Use 1 bee to sting a player, preventing them from using an ability the following night.\n- Use 2 bees to investigate a player and find their role.\n- Use 3 bees to deal a powerful attack to a player.");
 
 		e.addField("Attributes:", "- You will earn 1 bee every night. You can use 2 abilities per night.");
 
-		e.addField("Goal:", "Eliminate evil factions and win with other Town members");
+		e.addField("Goal:", "Keybeeper Goal");
 	});
 
 	register_role(["inductor", "793"], "Town", "Inductor", {subCat: "Investigative"}, (e) =>
@@ -635,7 +635,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All town, florae, neutral benigns, neutral evils that do not need to see the town dead, and any conversion roles that can turn town will appear as winnable with mayor. frames will show as the target being unable to win.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["keybeeper", "key", "kb", "794"], "Town", "Keybeeper", {subCat: "Protective"}, (e) =>
@@ -665,7 +665,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Anyone who visits your target for the first time will be roleblocked as you will arrest them for trespassing, then promptly set them free at the end of the night. If this is not their first time, you will arrest them, roleblocking them, then execute them for a repeat offense of trespassing. You will not affect astral visits. You may wear a bulletproof vest twice per game.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["rook", "796"], "Neutral", "The Rook", {subCat: "Other"}, (e) =>
@@ -704,7 +704,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You must use an alternative account to hide your identity. You must play in a private custom game. All rules of the set must remain as default, except for the First To (FT) setting. It must be set to 7. You will wipe the wills of people you kill.");
 
-		e.addField("Goal", "NK Goal");
+		e.addField("Goal", factions.Neutral.goalNK);
 	});
 
 	register_role(["s_tier", "stier", "s", "799"], "Neutral", "S Tier", {subCat: "Chaos"}, (e) =>
@@ -734,6 +734,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your ability requires exactly six legal targets. If there aren't six players to kill, you can't kill.\n- You may self-target with your attack.");
 
-		e.addField("Goal", "NK Goal");
+		e.addField("Goal", factions.Neutral.goalNK);
 	});
 };

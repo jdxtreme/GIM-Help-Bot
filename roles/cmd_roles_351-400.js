@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["kindler", "351"], "Underworld", "Kindler", {subCat: "Support"}, (e) =>
 	{
@@ -14,7 +14,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target is roleblock immune, cannot act, or does not act, they will become doused. You will be notified they were doused, but not why.\n- If there are no Underworld Offensive alive, and the Apocalypse is dead, you will become the Apocalypse.\n- Roleblock Immune\n- Conversion Immune");
 		
-		e.addField("Goal:", "Kill all who oppose the Underworld sect.");
+		e.addField("Goal:", factions.Underworld.goal);
 	});
 
 	register_role(["jailor", "352"], "Neutral", "Jailor", {subCat: "Killing"}, (e) =>
@@ -44,7 +44,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- ALL roles that visit them will be revealed to the public the next day.\n- You may only do this twice.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["animal_behaviorist", "animalbehaviorist", "behaviorist", "354"], "Town", "Animal Behaviorist", {subCat: "Investigative"}, (e) =>
@@ -59,7 +59,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If they visit or are visited by an evil role, their animal will run off.\n- After 2 people are given animals, you will know how many animals run off each night.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["mafioso", "355"], "Town", "Mafioso", {subCat: "Investigative"}, (e) =>
@@ -74,7 +74,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may not vote \"Innocent\" on odd-numbered days.\n- You have a layer of Powerful defense that can block one attack.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["inferno", "356"], "Underworld", "Inferno", {subCat: "Support"}, (e) =>
@@ -89,7 +89,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All visitors to the target Underworld member are, without their knowledge, redirected to the doused player.\n- Anyone who's visit would have produced a notification to the Underworld member will become doused.\n- You may redirect 4 times.\n- If the Apocalypse is dead and there are no Underworld Offensive roles alive, you will become the Apocalypase.\n- Immune to Roleblock, Control, and Conversion.");
 		
-		e.addField("Goal:", "Kill all who oppose the Underworld sect.");
+		e.addField("Goal:", factions.Underworld.goal);
 	});
 
 	register_role(["magic_clone", "magicclone", "358"], "Coven", "Magic Clone", {subCat: "Evil"}, (e) =>
@@ -104,7 +104,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can use your target's ability at night.\n- With the Necronomicon, any ability you learn will be permanent.\n- With the Necronomicon, you will get an ability to deal a basic attack to 1 player.\n- With the Necronomicon, you can use all your permanent learned abilities at the same time every night.");
 		
-		e.addField("Goal:", "Kill all who would oppose the Coven.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["asmodeus", "asmo", "359"], "FallenAngel", "Asmodeus", {subCat: "Killing"}, (e) =>
@@ -119,7 +119,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you maul a Fallen Angel, you'll be able to attack an additional player the next night. (This only applies to the initial target of your attack.)\n- If you maul a non-Fallen Angel, you'll be roleblock and redirect immune the next night. (Same goes.)\n**Sin of Lust** — If you're the last Fallen Angel remaining, you may choose to convert yourself to any evil faction of your choosing at any time. You may also choose any role from that faction to be converted into, except for Espionage roles. You retain the ability to convert upon converting, but you may never convert to being aligned with the Town through any roles. (No, you can't convert to Florae.)");
 		
-		e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
+		e.addField("Goal:", factions.FallenAngel.goal);
 	});
 
 	register_role(["sans", "360"], "Town", "Sans", {subCat: "Killing"}, (e) =>
@@ -132,7 +132,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- bones or smth (For god's sake yes this is an attack.)");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["analyst", "361"], "Town", "Analyst", {subCat: "Investigative"}, (e) =>
@@ -147,7 +147,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will learn their faction. (Town, Mafia, Coven, Neutral, Etc)\n- Framed/Doused/Hexed/Etc players show up as Mafia/Neutral/Coven/Etc\n- Roles with Detection Immunity show up as Town.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["demon", "362"], "Neutral", "Demon", {subCat: "Killing"}, (e) =>
@@ -162,7 +162,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Cursed houses' visits are transformed into basic attacks.\n- A cursed player's visit Is transformed into a basic attack.\n- You may use up to 2 abilities each night.");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["personal_jesus", "personaljesus", "jesus", "363"], "Neutral", "Personal Jesus", {subCat: "Benign"}, (e) =>
@@ -192,7 +192,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Last Wills can't be looked at or edited by players they don't belong to. Last Wills can't be hidden upon death. This attribute persists even if you die or are removed from the game.\n- Your role will be rerolled to another Town Support role if there's no non-Town roles that can look at, edit, or hide other players' wills. However, your first attribute still persists.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["essence_of_speed", "essenceofspeed", "speed", "365"], "Neutral", "Essence of Speed", {subCat: "Benign"}, (e) =>
@@ -222,7 +222,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Only non-Town roles will know if they were doused. However, they will not know if they were hosed down.\n- Hosing down a player removes your gasoline from them. You will not remove another Firebrand's gasoline or an Arsonist's gasoline.\n- You may douse a player and hose down a player on the same night.\n- You may ignite your doused targets and hose down a player on the same night.\n- You may only ignite your doused targets once.\n- You will not ignite another Firebrand's doused targets or an Arsonist’s doused targets, nor will they ignite yours.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["butcher", "367"], "Neutral", "Butcher", {subCat: "Killing"}, (e) =>
@@ -250,7 +250,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Whenever a player is killed, gain the ability to douse.\n- You cannot gain charges unless you have 1 or less charges.\n- If all other Underworld players are dead, you will become the Apocalypse.\n- Conversion Immunity");
 		
-		e.addField("Goal:", "Kill all who oppose the Underworld sect.");
+		e.addField("Goal:", factions.Underworld.goal);
 	});
 
 	register_role(["courier", "369"], "Town", "Courier", {subCat: "Support"}, (e) =>
@@ -265,7 +265,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you guide a player, you will make their visit Astral. You will also temporarily remove any framing from them.\n- If your target would be roleblocked or controlled, you will scare the visitor away.\n- If you attempt to guide a Town Power or Mafia Head role, your ability will fail. You will not be notified of this.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["incarcerator", "370"], "Town", "Incarcerator", {subCat: "Support"}, (e) =>
@@ -280,7 +280,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- While patrolling someone's house, you will detain all visitors except for the Jailor and another Incarcerator.\n- You will know if you detained someone, but they will not know that they were detained.\n- You will not learn the names or roles of people you detain.\n- Detained targets will be roleblocked the night after you detain them.\n- If you are roleblocking your detained targets, you will not be able to patrol at someone's house.\n- If you are roleblocking your detained targets, you will gain control and roleblock immunity.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["blaster", "371"], "Underworld", "Blaster", {subCat: "Offensive"}, (e) =>
@@ -295,10 +295,10 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only target non-doused players.\n- Visitors to your target's house will learn your name, even if your target is protected.\n- You have two attacks.\n- If the Apocalypse dies, you will graduate to the Apocalypse. You have priority for graduation.");
 		
-		e.addField("Goal:", "Kill all who oppose the Underworld sect.");
+		e.addField("Goal:", factions.Underworld.goal);
 	});
 
-	register_role(["man_in_the_painting", "maninthepainting", "painting", "372"], "Neutral", "Man in the Painting", {subCat: "Benign"}, (e) =>
+	register_role(["man_in_the_painting", "maninthepainting", "painting", "matp", "372"], "Neutral", "Man in the Painting", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 372");
 
@@ -338,7 +338,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You'll be shown as \"Interrogator.\"");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["jailkeep", "375"], "Town", "Jailkeep", {subCat: "Support"}, (e) =>
@@ -353,7 +353,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Jailkeeping someone fails all visits against them, while roleblocking them.\n- You may jailkeep yourself.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["harlequin", "376"], "Neutral", "Harlequin", {subCat: "Evil"}, (e) =>
@@ -383,7 +383,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your target will know who their visitors are, unless they are killed or roleblocked.\n- If your target dies, you will learn their attacker's name.\n- If you stay home, you will announce the names of your visitors at the start of the next day, even if you die.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["young_boy", "youngboy", "378"], "Town", "Young Boy", {subCat: "Investigative"}, (e) =>
@@ -398,7 +398,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If that person gets attacked, you will tell the person that you trusted the name of the attacker, unless they are a TPo, in which case the ability fails, but you wont know It failed.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["practicioner", "379"], "Town", "Practicioner", {subCat: "Protective"}, (e) =>
@@ -428,7 +428,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only have 1 constructed sentry at a time.\n- Once a sentry attacks a player, it will disappear.\n- You may not target yourself.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["party_host", "partyhost", "party", "381"], "Town", "Party Host", {subCat: "Casual"}, (e) =>
@@ -443,7 +443,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Invited players are forced to use your ability on you. They will also deal a basic attack to you. If their ability Is an attack with a value higher than basic, It Is lowered to basic. If they have multiple abilities, the first one Is picked. They will learn your role.\n- If you invite a TPo, your ability will fail.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["mephistopheles", "meph", "382"], "FallenAngel", "Mephistopheles", {subCat: "Killing"}, (e) =>
@@ -458,7 +458,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you bind a Fallen Angel, you will also learn all game actions they take while binded.\n- If you bind a non-Fallen Angel, you will also learn their role.\n**Sin of Sloth** — If you're the last Fallen Angel remaining, your targets must follow your orders if possible and your contracts last forever and you may bind two players each night. This applies to contracts made before you became the last Fallen Angel.");
 		
-		e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
+		e.addField("Goal:", factions.FallenAngel.goal);
 	});
 
 	register_role(["dreamwalker", "383"], "Mafia", "Dreamwalker", {subCat: "Support"}, (e) =>
@@ -473,12 +473,13 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your target will be scared away if they attempt to visit the player they have a nightmare about.\n- If a player is given a second nightmare, it will replace their first nightmare.\n- If you die, your targets will no longer have their nightmares.\n- You cannot make someone have a nightmare about themselves.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["pestilence", "384"], "Neutral", "Pestilence, Horseman of the Apocalypse", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 384");
+		e.author.iconURL = "https://cdn.discordapp.com/emojis/998691858207228026.webp";
 
 		e.addField("Alignment", "Unique Neutral Chaos", true);
 		e.addField("Attack", "Unstoppable", true);
@@ -488,7 +489,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will automatically attack anyone who visits you, including the Jailor.\n- Detection Immunity, Roleblock Immunity, and Control Immunity\n- Your Forthcoming is not announced.")
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["voidslime", "385"], "Neutral", "Voidslime", {subCat: "Evil"}, (e) =>
@@ -529,7 +530,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Each night, choose two players. That night, they're roleblocked through immunities. The following day, they can't talk or vote. At the start of the next night, they lose all abilities, attributes, immunities, and Defense, and at the end they're dealt an Overkill attack.");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["winsconsin", "388"], "Neutral", "Winsconsin", {subCat: "Chaos"}, (e) =>
@@ -570,14 +571,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Astral\n- Any roles which have abilities or attributes which depend on another specific player will assume that player is dead if they are separated into different games.\n- You may target yourself with your attack.");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["drunk", "391"], "Neutral", "Drunk", {subCat: "(Random)"}, (e) =>
+	register_role(["drunk", "391"], "Neutral", "Drunk", {subCat: "Random"}, (e) =>
 	{
 		e.setDescription("Post 391");
 
-		e.addField("Alignment", "Neutral (Random)", true);
+		e.addField("Alignment", "Neutral Random", true);
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Invincible (Variable)", true);
 
@@ -611,7 +612,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you copy a killing role, you will only deal a basic attack.\n- The role does not have to be in the game to copy.\n- You may not copy unique roles.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["lighter", "394"], "Underworld", "Lighter", {subCat: "Support"}, (e) =>
@@ -626,7 +627,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If the player you're following visits your marked target, douse them and all other visitors to the marked player.\n- If the Apocalypse is dead and there are no Underworld Offensive, you will become the Apocalypse.\n- Conversion and Control Immune");
 		
-		e.addField("Goal:", "Underworld Goal");
+		e.addField("Goal:", factions.Underworld.goal);
 	});
 
 	register_role(["topaz", "395"], "Rock", "Topaz", {subCat: "Support"}, (e) =>
@@ -641,7 +642,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Covering the tracks at a player will cause any investigative result on a Rock member to return as a member of the Town, and any non-Rock member to return as a Rock. You may only do this three times.\n- The Topaz has 4 extra votes they may use at any time during the day (not the trial tho). These votes will be public, however they won't be tied to the Topaz. Each extra vote is discarded after use.");
 		
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["maid", "396"], "Mafia", "Maid", {subCat: "Support"}, (e) =>
@@ -656,7 +657,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may not target yourself.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["turquiose", "turq", "397"], "Rock", "Turquoise", {subCat: "Protective"}, (e) =>
@@ -671,7 +672,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Barricading gives all Rock members (including yourself) Powerful Defense for the night. You may only do this once.\n- Disarming will roleblock the player if they attack a Rock member that night. Otherwise, it does jack shit. You may only do this three times.");
 		
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["sexyman", "398"], "Town", "Sexyman", {subCat: "Sexyman"}, (e) =>
@@ -686,7 +687,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- They will be forced to visit you every night until you die for the rest of the game.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["wm_caporegime", "wmcaporegime", "caporegime", "399"], "Mafia", "WM Caporegime", {subCat: "Head"}, (e) =>
@@ -701,7 +702,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have one charge of each Mafia role that is not in the game.\n- When you use a charge of another Mafia role, you may use any ability that role has, but may only use that ability one time.\n- You do not have charges of Mafia Head roles, Mafia Espionage roles, or the Mafioso.\n- You may change yourself into a role that you still have the charge of on any night.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["philosopher", "400"], "Neutral", "Philosopher", {subCat: "Chaos"}, (e) =>
@@ -720,6 +721,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes (Alternate):", "When you perform your action, select a target to attack (can be different). If your Ally/Betray target chooses Ally, you must choose an ability from [Sheriff Check, Doctor Heal, Escort Roleblock] for them to be able to use in addition to their regular ability during the next night, and you will attack your attack target at the end of the phase with a Basic attack. If they choose Betray, they will be attacked by an Powerful attack.\n- You are roleblock and redirection immune.");
 		
-		e.addField("Goal (Alternate):", "Kill all who would oppose you.");
+		e.addField("Goal (Alternate):", factions.Neutral.goalNK);
 	});
 };

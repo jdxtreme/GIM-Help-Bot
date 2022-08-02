@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["truth_or_dare", "truthordare", "101"], "Neutral", "Truth Or Dare", {subCat: "Evil"}, (e) =>
 	{
@@ -27,10 +27,10 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Give someone a ticket for the Pale Moon Circus Show.\n- Sacrifice a Pale Moon member.");
 
-		e.addField("Attributes:", "- Detection Immunity, Roleblock Immunity, Redirection Immunity- Giving a ticket roleblocks them for the night, but does not give a special roleblock message.\n- Players with tickets will remove their ticket if they visit any Pale Moon Members. You will be notified of this.\n- Any players will immediately be dealt an Overkill Attack if they have a ticket at the end of Xth day, where X Is the day where the PMCS starts.\n- If the Ringmaster Is killed, all tickets are instantly removed.\n- Sacrificing a Pale Moon member will deal an Overkill Attack to them, and will let you deal an Unstoppable Attack to one player.\n- Players with tickets are notified they have tickets Day 3.");
+		e.addField("Attributes:", "- Detection Immunity, Roleblock Immunity, Redirection Immunity- Giving a ticket roleblocks them for the night, but does not give a special roleblock message.\n- Players with tickets will remove their ticket if they visit any Pale Moon Members. You will be notified of this.\n- Any players will immediately be dealt an Overkill Attack if they have a ticket at the end of Xth day, where X Is the day where the PMCS starts.\n- If the Ringmaster Is killed, all tickets are instantly removed.\n- Sacrificing a Pale Moon member will deal an Overkill Attack to them, and will let you deal an Unstoppable Attack to one player.\n- Players with tickets are notified they have tickets Day 3.\n- You will not kill anybody if the sacrificed Pale Moon does not die.");
 
 
-		e.addField("Goal:", "Pale Moon Goal");
+		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
 	register_role(["guesser", "103"], "Neutral", "Guesser", {subCat: "Killing"}, (e) =>
@@ -45,7 +45,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Correct guesses deal a Basic Attack to the target.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["effort_enforcer", "effortenforcer", "104"], "Neutral", "Effort Enforcer", {subCat: "Evil"}, (e) =>
@@ -135,7 +135,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you have the Necronomicon, your target will be dealt a Powerful attack at the end of the day.");
 
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["beast_tamer", "beasttamer", "beast", "110"], "PaleMoon", "Beast Tamer", {subCat: "Killing"}, (e) =>
@@ -150,7 +150,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "-Your beast will deal a powerful attack, and will clean your target's role, last will, etc.\n-After killing someone with your beast, the beast has to rest the following night. However, you may still decide to send It to devour someone. If you do, there Is a ⅓ chance of failing to tame the beast, resulting in It dealing a Powerful attack to one of your Pale Moon allies (May include yourself)\n-After killing twice, that is upped to a 80% chance \n-After killing thrice, the beast must rest.\n-Once the PMCS begins, your beast deals an Unstoppable Attack, and will not need to rest every night, nor will It accidentally kill one of your allies");
 
-		e.addField("Goal:", "Pale Moon Goal");
+		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
 	register_role(["samurai", "111"], "Town", "Samurai", {subCat: "Killing"}, (e) =>
@@ -165,7 +165,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you attack a Townie, you will immediately commit suicide, dealing an Unstoppable attack to yourself, even if the Townie doesn't die.\n- If you are roleblocked, you will attack your roleblocker unless they're a member of the Everfrost.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["killer_killer", "killerkiller", "kk", "112"], "Neutral", "Killer Killer", {subCat: "Chaos"}, (e) =>
@@ -195,7 +195,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Filling houses with balloons grants every Pale Moon including yourself Invincible Defense, but lowers their attack value to None\n- Eating a candy grants you Powerful defense.\n- Once the PMCS begins, you gain 2 uses of filling houses with balloons. If you fill houses with balloons, all visitors of the filled are dealt a Powerful attack. Additionally, the players whose houses have been filled Attack Values are upped to Powerful.");
 
-		e.addField("Goal:", "Pale Moon Goal");
+		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
 	register_role(["tengu", "114"], "Neutral", "Tengu", {subCat: "Killing"}, (e) =>
@@ -213,7 +213,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes (cont.):", "- When hired, only you will know the results of your attack. Your hirer won't be told anything, even if the attack fails for any reason.\n- You are notified of every person you are hired to kill.\n- If you are hired to kill yourself, your attack will always fail.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["ring", "115"], "Neutral", "Ring", {subCat: "Killing"}, (e) =>
@@ -228,7 +228,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "You can put a ring on yourself.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["the_ultimate_mafioso", "theultimatemafioso", "ultimate", "116"], "Mafia", "The Ultimate Mafioso", {subCat: "Killing"}, (e) =>
@@ -243,7 +243,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- As The Ultimate Mafioso, you’re great at all things Mafia related.\- However, you can only use one ability per night, and each ability only has 1 use.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["sword_master", "swordmaster", "117"], "PaleMoon", "Sword Master", {subCat: "Killing"}, (e) =>
@@ -258,7 +258,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Upgrading takes one day.\n- A wood sword deals a Basic Attack.\n- An iron sword deals a Powerful Attack.\n- A fiery sword deals an Unstoppable Attack.\n- When the PMCS begins, your sword Is instantly upgraded to fiery and you will now rampage.");
 
-		e.addField("Goal:", "Pale Moon Goal");
+		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
 	register_role(["disgruntled_ghost", "disgruntledghost", "118"], "Neutral", "Disgruntled Ghost", {subCat: "Benign"}, (e) =>
@@ -286,7 +286,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Every even night, attack a player, plus an additional one for every lynched Town role.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["corrupt_aid", "corruptaid", "120"], "Mafia", "Corrupt Aid", {subCat: "Support"}, (e) =>
@@ -301,7 +301,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Leaked information: Select a player and predict what one of their next two targets will be. If your prediction is correct they will lose one use of one of their random abilities, and you will immediately gain a use of it. 2 uses.\n- Illicit Supply: Select a player and give them any ability that a role has. If they use the ability within the next two nights, they lose the ability to whisper for the rest of the game. 2 uses, 3 night cooldown.\n- Trade Secrets: When someone whispers to you, you may steal all of their abilities. They lose those abilities. 1 use.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["end_to_all_roles", "endtoallroles", "noodle_ruined", "noodleruined", "trwwbtetarbnhtri", "121"], "Neutral", "The Role Which Would've Been The End To All Roles But Noodle Had To Ruin It", {subCat: "Killing"}, (e) =>
@@ -316,7 +316,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of each day, you gain the abilities and attributes of a random role. This will cumulate. The role you copy does not need to exist in the game. The first role you copy will always have a killing ability of some kind.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["warning_call", "warningcall", "122"], "Neutral", "Warning Call", {subCat: "Killing"}, (e) =>
@@ -329,7 +329,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Each night, choose a player that will be publicly announced at the beginning of the next day. If they are still alive in two days and nights, you will gain the ability to, along with your regular action, deal an Unstoppable Attack to someone per night. This can stack.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["meteor", "123"], "Rock", "Meteor", {subCat: "Killing"}, (e) =>
@@ -344,7 +344,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your rock will deal a Powerful attack to your target and all their visitors.\n- You may do this twice.\n- You may instead perform the factional Rock kill.");
 
-		e.addField("Goal:", "Defeat all players who would oppose the Rocks.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["electrician", "124"], "Neutral", "Electrician", {subCat: "Killing"}, (e) =>
@@ -359,7 +359,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If one of your victims is a role that grants protection, you will ignore the effect that they gave to their target.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["djinn", "125"], "Coven", "Djinn", {subCat: "Evil"}, (e) =>
@@ -374,7 +374,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you have the Necronomicon, you may choose to make your target commit suicide and lose the game immediately instead.\n- Redirect Immune");
 
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["comet", "126"], "Rock", "Comet", {subCat: "Support"}, (e) =>
@@ -389,7 +389,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Your target will be roleblocked, and you will fail all visits against them.\n- You may only act on odd nights.\n- You may instead perform the factional Rock kill.");
 
-		e.addField("Goal:", "Defeat all players who would oppose the Rocks.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["mass_poisoner", "masspoisoner", "127"], "Neutral", "Mass Poisoner", {subCat: "Killing"}, (e) =>
@@ -404,7 +404,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- This poison is immediately cured from a poisoned target if they get a visitor the next night that isn't poisoned.");
 
-		e.addField("Goal:", "Defeat all players who would oppose the Rocks.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["ayase_rimura_hopes_glass_spear", "ayase_rimura", "ayaserimura", "hopes_glass_spear", "hopesglassspear", "128"], "Neutral", "Ayase Rimura, Hope's Glass Spear", {subCat: "Killing"}, (e) =>
@@ -434,7 +434,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Can use multiple abilities, but may only use each ability once per night.");
 
-		e.addField("Goal:", "Defeat all players who would oppose the Rocks.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["icy_rock", "icyrock", "130"], "Rock", "Icy Rock", {subCat: "Killing"}, (e) =>
@@ -449,7 +449,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- They may not perfom any night abilities for this night. You will then deal a Basic Attack to them the 2nd night.\n- Only one player may be frozen at all times.\n- If you exist in the game, Odd Keystone will be rerolled to another random rock role, because Stones are not rocks, and fuck you Rasen.");
 
-		e.addField("Goal:", "Defeat all players who would oppose the Rocks.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["retiree", "131"], "Neutral", "Retiree", {subCat: "Benign"}, (e) =>
@@ -467,7 +467,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Survive to the beginning of Day 2.");
 	});
 
-	register_role(["obnoxiously_complicated_exe", "obnoxiouslycomplicatedexe", "ocexe", "132"], "Neutral", "Obnoxiously Complicated Executioner", {subCat: "Evil"}, (e) =>
+	register_role(["obnoxiously_complicated_executioner", "obnoxiouslycomplicatedexecutioner", "oce", "132"], "Neutral", "Obnoxiously Complicated Executioner", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 132\n(Neutral Evil)");
 
@@ -499,7 +499,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can use your ability in addition to the factional Rock kill.");
 
-		e.addField("Goal:", "Defeat all players who would oppose the Rocks.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["court_wizard", "courtwizard", "cwizard", "135"], "Town", "Court Wizard", {subCat: "Support"}, (e) =>
@@ -514,7 +514,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Redirect players targeting one to the other.\n- Players targeting player a will visit player b.\n- Players not targeting player b will not visit player a.\n- Players targeting player b will visit player c.\n- Players targeting player a will not visit player b.\n- Players targeting player b will visit player a.\n- Players targeting a different player entirely will visit player a.\n- Players targeting player a will visit player a.\n- Players targeting player b will not visit player c.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["heavy", "136"], "Neutral", "Heavy", {subCat: "Benign"}, (e) =>
@@ -544,7 +544,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If no one says Shree, you instead get to kill two players of your choice.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["moo", "138"], "Neutral", "Extremely Creative Cow", {subCat: "Killing"}, (e) =>
@@ -559,7 +559,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If no one says Moo, you instead get to kill two players of your choice.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["eoc_exams", "eocexams", "eoc", "139"], "Neutral", "EOC Exams", {subCat: "Killing"}, (e) =>
@@ -574,7 +574,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Tested players will be roleblocked, bypassing roleblock immunity. Tested players will receive a random question based on day activity, which is decided by the host. Getting the question correct will do nothing, but getting the question wrong will have you kill them.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["ramp_up_ramper", "rampupramper", "ramper", "140"], "Neutral", "Ramp Up Ramper", {subCat: "Killing"}, (e) =>
@@ -587,7 +587,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Every even night, attack a player. For the rest of the game, all visitors to that player (except you) must use their ability twice per night if they can and on different targets. Already affected players go to 3x and then 4x and if they reach 5x, they receive an Unstoppable Attack.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["emerald", "141"], "Neutral", "Emerald", {subCat: "Killing"}, (e) =>
@@ -602,7 +602,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Every Rock will gain Powerful defense. You start with 1 charge. You gain a charge for every dead Rock.\n- If you're the only rock alive, each night, pick 3 players. Target A will protect you with the value of their defense (Basic if None or lower). Target B will attack Target C with the value of their attack (Basic if None or lower)\n- If you exist in the game, Odd Keystone will be rerolled to another random rock role, because Stones are not rocks, and fuck you Rasen.");
 
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["annoying_chess_youtuber", "annoyingchessyoutuber", "guess_the_elo", "guesstheelo", "elo", "142"], "Town", "Annoying Chess Youtuber In My Reccomended Section", {subCat: "Investigative"}, (e) =>
@@ -617,7 +617,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Players playing Guess the ELO will spectate a random chess game on chess.com of the third party's choosing. They must then guess the ELO of the side chosen by said third party. Then, the following shall happen:\n> If the Annoying Chess Youtuber In My Reccomended Section gets the ELO rating closer than the challenged player, they will learn said challenged player's exact role, bypassing any frame effect.\n> If the challenged player gets the ELO rating closer, they will deal an astral basic attack to the Annoying Chess Youtuber In My Reccomended Section.\n- The Host can potentially be the third party.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["builder", "143"], "Town", "Builder", {subCat: "Protective"}, (e) =>
@@ -632,7 +632,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You must spend one night building your fence. This action can be roleblocked, and you will start building the night you decide which fence to build. You can only build one fence at a time.\n- If you build a wooden fence, your target will receive Basic defense for the current and next two nights.\n- If you build a stone fence, your target will receive Powerful defense for the current and next night.\n- If you build an iron fence, your target will receive Invincible defense for the night.\n- You can only have two fences out at a time, and you may not have more than one of the same fence out at a time.\n- A fence will break if the protected player is attacked.\n- You may not place a fence on yourself.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["death_inversion", "deathinversion", "144"], "Neutral", "Death Inversion", {subCat: "Benign"}, (e) =>
@@ -660,7 +660,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- For every player that died last night, heal a player, granting them Unstoppable Defense for tonight and the next.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["bodyguard_boss", "bodyguardboss", "bgboss", "146"], "Town", "Bodyguard Boss", {subCat: "Power"}, (e) =>
@@ -675,7 +675,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Each night you may select two targets. The first player will be protected by the second player. This will roleblock the second player through immunity.\n- If anyone attacks the first player, both the second player and the player attacking the first target will die. Once this happens, you may no longer use your ability.\n- You may only enforce each individual player to act as a Bodyguard one time.\n- You may not protect yourself");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["word_bomber", "wordbomber", "147"], "Neutral", "Word Bomber", {subCat: "Killing"}, (e) =>
@@ -720,7 +720,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target is Doused/Framed/Disguised/Hexed you will instead be told you are unsure what your target is.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["hydrangea", "150"], "Town", "Hydrangea", {subCat: "Investigative"}, (e) =>
@@ -735,6 +735,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Mafia, Coven, and Neutrals will be notified that a storm is starting at the beginning of the night.\n- Players that visit will be drenched in water.\n- You will be told all of the players who are not drenched the following day.\n- You may only summon 3 rainstorms.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 };

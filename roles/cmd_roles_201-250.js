@@ -2,7 +2,7 @@
 
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["revenant", "201"], "Neutral", "Revenant", {subCat: "Killing"}, (e) =>
 	{
@@ -31,7 +31,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Roleblock Immunity\n- You start with 1 charge of each of your abilities.\n- Spending a night to turn your crank up gives you 1 charge of one ability of your choice.\n-Your defense is immediately lowered to none when turning your crank. This means protection is useless for the night.\n-If a Pale Moon you're guarding is attacked, immediately roleblock all visitors, bypassing Roleblock Immunity.\n-Scaring someone lowers their defense value to None.\n-If you die, you deal an Unstoppable attack to a player of your choice.\n-Once the PMCS begins, you gain 1 charge of each of your abilities, and can now deal an unstoppable attack to a player of your choice every night.");
 
-		e.addField("Goal:", "Pale Moon goal.");
+		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
 	register_role(["hi", "203"], "Neutral", "Hi!", {subCat: "Benign"}, (e) =>
@@ -61,7 +61,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You are forced to attack if you have made a whisper.\n- Control / Redirect Immune.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["manager", "205"], "Town", "Manager", {subCat: "Power"}, (e)=>
@@ -76,7 +76,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- - When you choose someone to re-hire, their role will change to a random Town role in the GIM thread. This ability will fail on all non-Town roles and will notify the target regardless of if it is successful or not. You may not re-hire the same person more than once. You may not re-hire a person into a Town Power role, a unique role, or a role deemed unbalanced by the Role Jury. You may rehire yourself, and if you do this, you will be rerolled into a random non-Power Town role.\n- You may choose a Town role from the GIM thread and use one of its abilities. You may not use abilities of Town roles already in the game, any Town Power roles, or any roles deemed unbalanced by the Role Jury. You may only choose each individual Town role once. You may use both day and night abilities, but you may only use an ability once per day.");
 
-		e.addField("Goal:", "Lynch every criminal and evildoer.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["necromorph", "206"], "Neutral", "Necromorph", {subCat: "Evil"}, (e) =>
@@ -121,7 +121,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Placing an Inverting Hoop at a player's house inverts all their values. If they're granted Powerful Defense they will be dealt a Powerful Attack, and If they're dealt a Powerful Attack they will be granted Powerful Defense, etc.\n- You may have 2 Inverting Hoops and up to 2 transporting hoops at all time.\n- Transporting Hoop A redirects all visitors of the hooped target to B. B redirects to A.\n- When the PMCS, two random targets that visited an hooped player will be dealt an Astral Basic Attack.\n- Your Transporting Hoops dont affect the Clown.");
 
-		e.addField("Goal:", "Pale Moon Goal");
+		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
 	register_role(["sandstone", "209"], "Rock", "Sandstone", {subCat: "Protective"}, (e) =>
@@ -136,7 +136,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- They player is further tortured by the Sandstone, who can send pictures of grapes in <#970059745807437876> upon successfully killing someone.");
 
-		e.addField("Goal:", "Kill all who would oppose the Rocks.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["based_detector_but_its_not_a_based_detector_its_actually_just_granite", "bdbinabdiajg", "based_detector", "granite", "210"], "Rock", "Based Detector but it's not a Based Detector it's actually just Granite", {subCat: "Support"}, (e) =>
@@ -149,7 +149,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Break down a target's defenses. Their defense will be set to None for the night. If the target's defense is already None, they will instead gain Powerful defense for the night.");
 
-		e.addField("Goal:", "Kill all who would oppose the Rocks.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["the_royal_guards_which_tend_to_apparently_exist_in_certain_social_deduction_games_despite_not_being_players", "trgwttaeicsdgdnbp", "royal_guards", "royalguards", "211"], "Town", "The Royal Guards Which Tend To Apparently Exist In Certain Social Deduction Games Despite Not Being Players", {subCat: "Power"}, (e) =>
@@ -164,7 +164,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only take one action per night.\n- You don't count as a player. (*You can't be voted for, whispered to, targeted, etc., and you don't count towards majority.*");
 
-		e.addField("Goal:", "Town goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["corpo_s_city_legend", "corponightcitylegend", "cncl", "212"], "Town", "Corpo Night City Legend", {subCat: "Support"}, (e) =>
@@ -179,7 +179,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You are lost in corporate branding hell (a grocery store), and may not access the day or dead chat at any time. Fortunately, you *may* vote (if alive).\n- You may not whisper.");
 
-		e.addField("Goal:", "Standard Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 	
 	register_role(["companion", "213"], "Town", "Companion", {subCat: "Protective"}, (e) =>
@@ -194,7 +194,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you choose to accompany a player, all actions performed against you and your target will fail. Your target will also be forced to use their night action on you, bypassing redirection immunity.\n- You may not use your ability for two consecutive nights.\n- You may not accompany yourself.");
 
-		e.addField("Goal:", "Lynch every criminal and evildoer.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["animal_breeder", "animalbreeder", "ab", "214"], "PaleMoon", "Animal Breeder", {subCat: "Killing"}, (e) =>
@@ -209,7 +209,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your dog will deal a Basic Astral attack to your target.\n- Your tiger will deal a Powerful Astral attack to your target and a random visitor.\n- Your wolf will deal a Powerful Astral attack to your target and, if they survive, will cause them to bleed, dealing an Unstoppable attack to them the night after the next night.\n- After your tiger and wolf attack one night, you must feed them for them to be able to attack ever again.\n- Your dog doesn't need to be fed, but you can feed it to upgrade its attack to Powerful.\n- When the PMCS begins, you no longer need to feed your animals and their attack values are increased to Unstoppable.");
 
-		e.addField("Goal:", "Pale Moon goal");
+		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
 	register_role(["forensic_analyst", "forensicanalyst", "215"], "Town", "Forensic Analyst", {subCat: "Investigative"}, (e) => 
@@ -224,7 +224,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If a player has killed another player in the past, they will have a criminal history.\n- If a player visited a dead player on the night they died, they will leave their fingerprints at the dead player's house.\n- You may only use one of your abilities each night.\n- While you are alive, all players will flip their actual role. Any abilities that affect what players flip upon death will be nullified.");
 
-		e.addField("Goal:", "Lynch every criminal and evildoer.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["damp_rock", "damprock", "216"], "Rock", "Damp Rock", {subCat: "Killing"}, (e) =>
@@ -239,7 +239,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Rain causes any visitors to slip and fall in a puddle, killing them and causing their night ability to fail.");
 
-		e.addField("Goal:", "Kill all who would oppose the Rocks.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["random_adjective_rock", "randomadjectiverock", "randomrock", "random_rock", "217"], "Rock", "Random Adjective Rock", {subCat: "Support"}, (e) =>
@@ -252,7 +252,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will be assigned a random adjective at the beginning of the game. Then, come up with a Rock role based on a rock of that description. It can't have mechanics not seen on any other role. With host approval, you will become that role.");
 
-		e.addField("Goal:", "Kill all who would oppose the Rocks");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["super_executioner", "superexecutioner", "super_exe", "superexe", "218"], "Neutral", "Super executioner", {subCat: "Other"}, (e) =>
@@ -315,7 +315,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill literally everyone who doesn't own the hit 2015 Toby Fox game \"Undertale\"");
 	});
 
-	register_role(["the_man_in_the_wall", "themaninthewall", "man_in_the_wall", "maninthewall", "tmitw", "wallman", "wall_man", "222", "good_argument_however_i_am_in_your_walls"], "Town", "The Man in the Wall", {subCat: "Protective"}, (e) =>
+	register_role(["man_in_the_wall", "maninthewall", "tmitw", "mitw", "wallman", "wall_man", "wall", "222", "good_argument_however_i_am_in_your_walls"], "Town", "The Man in the Wall", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 222");
 
@@ -327,7 +327,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you collapse a player's house, everyone targetting them will have their ability fail, and they will go home from assuming the player is dead. The targetted player is not actually affected.\n- If the targetted player visits someone who saw their collapsed house, that visit will still go through.\n- You can collapse houses while dead. You may not mark while dead.\n- If a marked target is attacked by a rampage attack, you will be attacked too.\n- You cannot stalk yourself.\n- Control immune.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["gatekeeper", "gaslight_gatekeep_girlboss", "223"], "Neutral", "Gatekeeper", {subCat: "Chaos"}, (e) =>
@@ -357,7 +357,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you tempt a Fallen Angel, their visit won't deal damage to you and you'll be able to take two actions the next night.\n- If you tempt a non-Fallen Angel, your ability will automatically fail if them visiting you would kill you, and you'll be notified of this.\n**Sin of Pride** — If you're the last Fallen Angel remaining, you can use you any number of different abilities each night, your targets won't know they're tempted, you'll have roleblock, redirection, conversion, and detection immunity, you'll appear as a role of your choice to all investigative effects, your attack is Overkill, and you have total death immunity at night.");
 
-		e.addField("Goal:", "Live to crush all who would oppose the Fallen Angels.");
+		e.addField("Goal:", factions.FallenAngel.goal);
 	});
 
 	register_role(["rock_n_roll", "rocknroll", "rock_and_roll", "rockandroll", "225"], "Neutral", "Rock n' Roll", {subCat: "Chaos"}, (e) =>
@@ -462,7 +462,7 @@ module.exports = (g) =>
 
 		e.addField("Animals:", "- Dogs are given to town members.\n- Siamese Cats are given to mafia members.\n- Black Cats are given to coven members.\n- Killer Bunnies are given to neutral evils and neutral killers.\n- Beavers are given to the rest of the neutrals and rocks.\n- Lambs are given to plants.\n- Phoenixes are given to underworld.\n- Doves are given to hallow.\n- Jaguars are given to stalkers.\n- Wolves are given to were.\n- Bats are given to vampires.\n- Tuxedo Cats are given to umbrae.\n- Goats are given to everfrost.\n- Elephants are given to the pale moon.\n- Squids are given to the sith\n- Pigeons are given to the insurgency\n- Canaries are given to the loyalists\n- Spiders are given to the SCP\n- Eagles are given to the thundercry\n- Parrots are given to the pirates\n- Deers are given to the pokémon\n- Foxes are given to foxes (lmao)\n- Sheeps are given to the cult\n- Horses are given to the horsemen\n- Owls are given to the unseen\n- Skunks are given to the biohazard");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["revenge_labs", "revengelabs", "232"], "Neutral", "Revenge Labs", {subCat: "Chaos"}, (e) =>
@@ -492,7 +492,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The player you \"see\" will be roleblocked, and you will use their night ability on the target you \"do\".\n- You will visit both players, and be affected by rampaging abilities if one would target either player.\n- Your ability will fail if your target must target multiple players, but you will not be notified of this.\n- If your \"see\" target can kill, your attack value will always be Basic.");
 
-		e.addField("Goal:", "Mafia goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["the_great_equalizer", "thegreatequalizer", "great_equalizer", "greatequalizer", "equalizer", "tge", "234"], "Town", "The Great Equalizer", {subCat: "Protective"}, (e) =>
@@ -507,7 +507,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All attacks are Basic.\n- You may not self-target.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["dog", "235"], "Neutral", "Dog", {subCat: "Benign"}, (e) =>
@@ -537,7 +537,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Normal popcorn increases your target's defense by one. Applies to healing.\n- You cannot serve normal popcorn twice in a row.\n- Salted popcorn redirects everyone away from your target. They will be redirected to the neighbours, at random.\n- Sweet popcorn redirects all visitors from both neighbours to your target.\n- It takes one night to salty or put sugar on your popcorn. You don't need to prepare normal popcorn.\n- When the PMCS begins, you no longer need to prepare your popcorn, and you may choose to deal a Powerful rampage attack by serving salted or sweet popcorn.");
 
-		e.addField("Goal:", "Pale Moon goal");
+		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
 	register_role(["viper", "236"], "Coven", "Viper", {subCat: "Evil"}, (e) =>
@@ -552,7 +552,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you have the Necronomicon, you may instead choose to dela a Basic attack to your target.\n- You may self-target.");
 
-		e.addField("Goal:", "Coven goal");
+		e.addField("Goal:", factions.Coven.goal);
 		});
 
 	register_role(["backup", "237"], "Neutral", "Backup", {subCat: "Other"}, (e) =>
@@ -597,7 +597,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Each day, a random non-Mafia role in the game will be randomly selected. You will be informed which role this is (but not the player whose role it is) at the beginning of the night. \n- You will gain any passives this role has, and you may perform its night ability/abilities. If you perform the role's night ability/abilities, the player with the role will be roleblocked through immunities.");
 
-		e.addField("Goal:", "Kill anyone who will not submit to the Mafia.");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["spectator", "240"], "PaleMoon", "Spectator", {subCat: "Support"}, (e) =>
@@ -612,12 +612,13 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you use your ability on a player, the host chooses a random option from the following\n> Their defense value is increased by one (boost)\n> Their attack value is increased by one (boost)\n> They will use their ability an additional time on a random target.\n- They gain detection, roleblock, redirection, and control immunity.\n> Their defense value is lowered by one.\n> Their attack value is lowered by one.\n> They are redirected to a random target.\n> They lose all immunities and are roleblocked.\n- After the PMCS has begun, you will only boost Pale Moon members and non-NK Neutrals, and will only boo Townies, other evil factions, and NKs.\n- After the PMCS has begun, you may instead choose to deal an Unstoppable attack to a player.");
 
-		e.addField("Goal:", "Pale Moon goal");
+		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
 	register_role(["imposter", "impostor", "amongus_sussy_baka", "241"], "Neutral", "Imposter", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 241");
+		e.author.iconURL = "https://i.pinimg.com/originals/3a/75/da/3a75daaad1172a3c4f7b248718eec2d2.jpg";
 
 		e.addField("Alignment", "Unique Neutral Chaos", true);
 		e.addField("Attack", "Unstoppable", true);
@@ -642,7 +643,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Every night you are not targeted by direct visits, gain an item at random:\n> Gun deals basic attack.\n> Vest gives basic defense.\n> Smokebomb roleblocks target player.\n- You cannot use the same item two nights in a row.\n- You cannot receive an item and use one in the same night.\n- You can give an item to another player. You will not receive an item this night.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["delta_ditto", "deltaditto", "ditto", "243"], "Neutral", "Delta Ditto", {subCat: "Benign"}, (e) =>
@@ -700,7 +701,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- None");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["gambler", "247"], "Neutral", "Gambler", {subCat: "Benign"}, (e) =>

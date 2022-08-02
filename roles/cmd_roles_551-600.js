@@ -1,12 +1,12 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
-	register_role(["top_10_best_gim_roles", "top_10", "551"], "Neutral", "Top 10 Best GIM Roles", {subCat: "(Other)"}, (e) =>
+	register_role(["top_10_best_gim_roles", "top_10", "551"], "Neutral", "Top 10 Best GIM Roles", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 551");
 
-		e.addField("Alignment", "Neutral (Other)", true);
+		e.addField("Alignment", "Neutral Other", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -15,7 +15,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "N/A");
 	});
 
-	register_role(["rebel", "552"], "Other", "Neutral", {subCat: "Chaos"}, (e) =>
+	register_role(["rebel", "552"], "Neutral", "Rebel", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 552");
 
@@ -42,7 +42,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you question a player, you will know if they have a connection to the previously questioned player or not.\n- If two players are connected, then they are part of the same faction. If they are not connected, then they are not part of the same faction.\n- You cannot question a Town Power role or a player that was revived by a Retributionist. If you ever question one, your ability will fail.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["gambler", "554"], "Neutral", "Gambler", {subCat: "Evil"}, (e) =>
@@ -85,7 +85,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You believe you are a random non-Power, non-Unique Town role, and you have all the abilities and attributes that it comes with. However, you do not know that you are actually a this role, nor that you have any of these attributes.\n- You always have secret Invincible Defense that can't be bypassed, no matter what level of defense your supposed role normally has.\n- When investigated, you always seem suspicious.\n- At the start of the game, a random evil role that exists will be selected. If someone checks or reveals your role, the evil role will be revealed instead. This even applies to when you die.\n- In terms of reroll-related rules based on the creator of the role, they are based on the role you believe you are, rather than this one.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["grace", "557"], "Hallow", "Grace", {subCat: "Protective"}, (e) =>
@@ -100,7 +100,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Basking the Hallow in the light of grace will allow all Hallow members to choose a GIM role to show up as to all Investigative abilities for the following night. If they do not choose a role, a random Town GIM role with the same alignment will be chosen for them. Gain 2 Faith Points for each Investigative fooled.\n- Basking the Hallow in the holy grace will prevent anyone from visiting any Hallow member tonight. Anyone who visits a Hallow member will be notified that they were roleblocked. Gain 1 Faith Point for each visit prevented.\n- Once you have reached 4 Faith Points, the Saint will gain a Saint Point.\n- Once the Saint has become the Paragon, you will lose your charge of light of grace. If you have used it already, you will lose a charge of healing grace.");
 		
-		e.addField("Goal:", "Hallow Goal");
+		e.addField("Goal:", factions.Hallow.goal);
 	});
 
 	register_role(["deddedattack", "ded", "decdecattack", "dec", "558"], "Neutral", "DedDedAttack", {subCat: "Evil"}, (e) =>
@@ -130,7 +130,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Rattled players will receive the picture attached to their role card in their private chat and they will be roleblocked the following night.\n- You will not be notified if you rattle someone.\n- Roleblock Immunity");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 
 		e.setImage("https://cdn.discordapp.com/attachments/970046125065265202/972686079981408286/unknown.png");
 	});
@@ -192,7 +192,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your bread will allow the receivers of the bread to use their nightly abilities on TWO targets INSTEAD of just one.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["whirlpool", "564"], "Neutral", "Whirlpool", {subCat: "Killing"}, (e) =>
@@ -209,7 +209,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes (cont.):", "- You cannot make a whirlpool if there are 5 or less players.");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["generic_town_role", "generictownrole", "gtr", "gtr1", "565"], "Town", "Generic Town Role", {subCat: "Killing"}, (e) =>
@@ -224,7 +224,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have one bulletproof vest you can put on at night to give yourself Basic defense for that night. You can't put on your vest and storm in the same night.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["generic_town_role_2", "generictownrole2", "gtr2", "566"], "Town", "Generic Town Role 2", {subCat: "Investigative"}, (e) =>
@@ -237,7 +237,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- On odd nights, choose a slot to research in the rolelist (i.e. Random Zage, Rock Killing, Any). You will learn what role takes up that slot.\n- On even nights, choose a role to research. You will learn whether or not that role is in the game.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["generic_mafia_role", "genericmafiarole", "gmr", "gmr1", "567"], "Mafia", "Generic Mafia Role", {subCat: "Support"}, (e) =>
@@ -252,7 +252,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may watch yourself.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["generic_mafia_role_2", "genericmafiarole2", "gmr2", "568"], "Mafia", "Generic Mafia Role 2", {subCat: "Support"}, (e) =>
@@ -265,7 +265,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a Mafia member to scout for at night. If anything bad would happen to them during their visit, including being attacked or their identity being risked, you will back them out and the visit won't happen.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["generic_mafia_role_3", "genericmafiarole3", "gmr3", "569"], "Mafia", "Generic Mafia Role 3", {subCat: "Support"}, (e) =>
@@ -280,7 +280,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You are immune to being roleblocked or redirected.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["generic_neutral_killing_role", "genericneutralkillingrole", "gnkr", "570"], "Neutral", "Generic Neutral Killing Role", {subCat: "Killing"}, (e) =>
@@ -356,7 +356,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may use your ability at any time, and it resolves immediately.\n- Anything that would happen that phase that hasn't already happened doesn't. End-of-night actions don't resolve, including things like a Vigilante committing suicide from guilt or a Pirate attacking a target who already lost a duel.\n- You may only use your ability once during the day and once during the night.");
 		
-		e.addField("Goal:", "Town goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["vocal_chords", "vocalchords", "576"], "Neutral", "Vocal Chords", {subCat: "Chaos"}, (e) =>
@@ -397,7 +397,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only take one action each night.");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["bartender", "579"], "Town", "Bartender", {subCat: "Support"}, (e) =>
@@ -412,7 +412,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If they are visited by a non Town non Neutral Benign role, all visitors are roleblocked.\n- If they visit a non Town non Neutral Benign role, roleblock your target' visitor.\n- If neither of those happen, redirect all of your target' visitors into yourself instead.\n- You will not know if you roleblocked anyone.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["town_killing", "townkilling", "tk", "580"], "Town", "Town Killing", {subCat: "Killing"}, (e) =>
@@ -425,7 +425,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may preform 1 Town Killing action (any ToS TK or GiM (in <#970046125065265202>) TK role) at night, you may only use each role once.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["vfr", "581"], "Mafia", "VFR", {subCat: "Support"}, (e) =>
@@ -438,7 +438,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose to VFR at any point during the day. If you do, the current vote will be cancelled, a completely random player will be lynched, and the day will immediately end. You may only VFR thrice.");
 		
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["soul_collector", "soulcollector", "sc", "582"], "Neutral", "Soul Collector", {subCat: "Chaos"}, (e) =>
@@ -455,7 +455,7 @@ module.exports = (g) =>
 
 		e.addField("The benefits of souls are:", "0: Nothing\n1: Basic Defense\n2: Basic Attack\n3: Powerful Attack\n4-6: Powerful Defense\n7-8: Target 2 people\n9: Unstoppable Attack\n10: Rampage\n11: Your vote counts as 3\n12: Invincible Defense");
 		
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["duelist", "583"], "Town", "Duelist", {subCat: "Killing"}, (e) =>
@@ -470,7 +470,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will know if you attacked someone.\n- Immune to Control, Redirection, Roleblock, and Conversion.\n- Your visits are Astral");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["vetacide", "veta", "584"], "Town", "Vetacide", {subCat: "Killing"}, (e) =>
@@ -483,7 +483,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Every night mark 2 people\n- Every odd day learn how many of those roles are against the town\n- Every night you may instead (twice) force all marked targets to visit you (even if they normally couldn't) and go on alert (gain basic defense, kill all visiters)");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["cryomancer", "cryo", "585"], "Town", "Cryomancer", {subCat: "Support"}, (e) =>
@@ -498,7 +498,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can: encase someone in ice, impale someone with ice, or chill someone.\n- All abilities have a 1 night cooldown.\n- Encase: Any visitors to your target will fail and go back home.\n- Impale: Deal a Basic Attack to someone.\n- Chill: Your target will be roleblocked for 2 nights. During the day, you can choose to thaw your target, and they will not be roleblocked the following night.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["spikeweed", "586"], "Plant", "Spikeweed", {subCat: "Support"}, (e) =>
@@ -513,10 +513,10 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Weakened enemies will be redirected to you");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
-	register_role(["spikerock", "587"], "Plant", "Spikerock", {subCat: "Support?"}, (e) =>
+	register_role(["spikerock", "587"], "Plant", "Spikerock", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 587");
 
@@ -528,7 +528,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Attacked players will be redirected to you\n- Does not roll by default");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["cry-omancer", "cry", "588"], "Town", "Cry-omancer", {subCat: "Support"}, (e) =>
@@ -543,7 +543,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "You can wallow, sob, or weep each night.\n- Wallow: Wallow at someone's doorstep, roleblocking them and all their visitors.\n- Sob: Sob alongside someone, causing them to be roleblock whoever they next visit.\n- Weep: Weep into the world, roleblocking every non-Town role in the game. (One use)\n- Additionally, those that visit you will be depressed and are roleblocked the following night.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["kernel-pult", "kernelpult", "kernel", "589"], "Plant", "Kernel-Pult", {subCat: "Support"}, (e) =>
@@ -558,7 +558,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may only use one ability at a time lol");
 		
-		e.addField("Goal:", "Plant Goal");
+		e.addField("Goal:", factions.Plant.goal);
 	});
 
 	register_role(["blue-eyes_white_dragon", "blueeyeswhitedragon", "blue-eyes", "blueeyes", "590"], "Neutral", "Blue-Eyes White Dragon", {subCat: "Killing"}, (e) =>
@@ -573,7 +573,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Light\n- When this role spawns in the game by any means, there will be an alert to all players that a Blue-Eyes White Dragon is in the game.\n- At night, evil factions may vote to sacrifice two faction members of their choosing. If they do so, those two members will die, you will be added to that faction, you gain access to that faction's chat, and your win condition becomes that faction's win condition. If multiple evil factions do this on the same night, the host will randomly choose which faction you join, and the factions that you don't join will not have any of their members sacrificed.\n- If you are attacked by yourself or another player with the Blue-Eyes White Dragon's attack ability, you will die unless granted another form of Powerful or higher defense.");
 		
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["world_ender", "worldender", "591"], "Neutral", "World Ender", {subCat: "Chaos"}, (e) =>
@@ -601,7 +601,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player to hypnotise each night. You can cause them to receive a fake night message, which is whatever you want. If you have the Necronomicon, you instead gain control of that player. (You have access to their private channel and you perform all game actions for them. They can't talk.)");
 		
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["hypothetically_hypnotist", "hypotheticallyhypnotist", "hyhy", "hh", "593"], "Town", "Hypothetical Hypnotist", {subCat: "Support"}, (e) =>
@@ -614,7 +614,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Every night you may choose to send someone a fake message\n- N5+ you may instead choose to control that person into another player");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["hypothermia_hypnotist", "hypothermiahypnotist", "hythhy", "594"], "Rock", "Hypothermia Hypnotist", {subCat: "Support"}, (e) =>
@@ -627,7 +627,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player to hypnotise each night. You can cause them to receive a fake night message, which is whatever you want. Then, the next next night, they will be roleblocked and dealt a Basic attack.");
 		
-		e.addField("Goal:", "Rock Goal");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["stormbringer", "595"], "Neutral", "Stormbringer", {subCat: "Chaos"}, (e) =>
@@ -674,7 +674,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Immunity to being controlled by outside forces that would alter the effects of the 597th role.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["temptest", "tempt", "598"], "Town", "Temptest", {subCat: "Killing"}, (e) =>
@@ -689,7 +689,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- One player out of the group of three players that you chose will be dealt the Attack value that you choose.\n- You have three uses of your ability - one with Basic Attack, one with Powerful Attack, and one with Unstoppable Attack.\n- You may not tempt your own fate.");
 		
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["warlock", "599"], "Neutral", "Warlock", {subCat: "Chaos"}, (e) =>
@@ -719,6 +719,6 @@ module.exports = (g) =>
 
 		e.addField("Final Attributes:", "- You cannot die until only two people remain within the game. The final player within the game will win no matter if they have completed their goal.");
 		
-		e.addField("Final Goal:", "Town Goal");
+		e.addField("Final Goal:", factions.Town.goal);
 	});
 };

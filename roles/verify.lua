@@ -19,7 +19,7 @@ function findField(lines, l, f)
 			elseif onquote then
 				if c == '"' and line:sub(i-1, i-1) ~= "\\" then
 					--print("Return: "..field)
-					return field
+					return field, line
 				else
 					--print("Adding "..c)
 					field = c..field
@@ -71,44 +71,16 @@ for _, filename in ipairs(args) do
 			if cat == "" then
 				print(header.."\nNo category!\n")
 			elseif cat ~= "Any" and cat ~= "Other" then
-				local alignment = findField(lines, a+1, "Alignment")
+				local alignment, aline = findField(lines, a+1, "Alignment")
 				local va = (not alignment or not alignment:gsub(' ', ''):find(cat))
-				local goal = findField(lines, a+1, "Goal:")
+				local goal, goaline = findField(lines, a+1, "Goal:")
 				local vg = (cat ~= "Neutral" and (not goal or not goal:gsub(' ', ''):find(cat)))
 
-				if cat == "Biohazard" and goal and goal:find("chemicals") then
-					vg = false
-				end
-
-				if cat == "Everfrost" and goal and goal:find("winter") then
-					vg = false
-				end
-
-				if cat == "Cult" and goal and goal:find("Eliminate the Town") then
-					vg = false
-				end
-
-				if cat == "Town" and goal and goal:find("Lynch every criminal") then
-					vg = false
-				end
-
-				if cat == "Crew" and goal and goal:find("Kill all main") then
-					vg = false
-				end
-
-				if cat == "Vampire" and goal and goal:find("Convert") then
-					vg = false
-				end
-
-				if cat == "Sith" and goal and goal:find("Dark Side") then
+				if goaline and (goaline:find("factions."..cat..".goal") or goaline:find("factions.Neutral.goalNK")) then
 					vg = false
 				end
 
 				if cat == "Loyalist" and goal and goal:find("Governor") then
-					vg = false
-				end
-
-				if cat == "Were" and goal and goal:find("non%-lycanthropes") then
 					vg = false
 				end
 

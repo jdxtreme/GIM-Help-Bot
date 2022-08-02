@@ -48,6 +48,7 @@ module.exports = (g) =>
 			title,
 			desc,
 			param,
+			meta: {},
 			func
 		};
 
@@ -60,20 +61,60 @@ module.exports = (g) =>
 				commands[name[i]] = cmd;
 	}
 
-	register_cmd("list", "[category] [subcategory]", "List", "Create a list of all registered commands, organized by category. If a valid category is provided, this will list commands from only that category instead. A subcategory may be provided to further narrow the list. Commands with alternate forms will have each form listed on the same line.", (chn, message, e, args) =>
+	register_cmd("list", "[category[:subcategory]...]...", "List", "Create a list of all registered commands, organized by category, and when applicable, subcategory. Commands with alternate forms will have each form listed on the same line.\n\nYou may optionally provide category names as parameters. This will limit the created list to only commands from those categories.\n\nYou may also specify a subcategory for each category. This is done using the format of `category:subcategory`. The same category can have more than one listed subcategory, e.g. `category:apple:bannana:cyanide`", (chn, message, e, args) =>
 	{
 		let list = "Command List:";
 		let ordered = {};
 		let atLeastOne = false;
+		let specs = null;
+
+		if(args.length > 0)
+		{
+			specs = {};
+
+			for(let i = 0; i < args.length; i++)
+			{
+				let splits = args[i].toLowerCase().split(':');
+
+				switch(args[i].toLowerCase())
+				{
+					case "tk": splits = ["town", "killing"]; break;
+					case "tp": splits = ["town", "protective"]; break;
+					case "ti": splits = ["town", "investigative"]; break;
+					case "ts": splits = ["town", "support"]; break;
+					case "tpo": splits = ["town", "power"]; break;
+					case "tc": splits = ["town", "casual"]; break;
+					case "to": splits = ["town", "other"]; break;
+					case "nk": splits = ["neutral", "killing"]; break;
+					case "nc": splits = ["neutral", "chaos"]; break;
+					case "ne": splits = ["neutral", "evil"]; break;
+					case "nb": splits = ["neutral", "benign"]; break;
+					case "no": splits = ["neutral", "other"]; break;
+					case "mh": splits = ["mafia", "head"]; break;
+					case "mk": splits = ["mafia", "killing"]; break;
+					case "ms": splits = ["mafia", "support"]; break;
+					case "md": splits = ["mafia", "deception"]; break;
+					case "me": splits = ["mafia", "espionage"]; break;
+					case "ce": splits = ["coven", "evil"]; break;
+					case "cs": splits = ["coven", "support"]; break;
+				}
+
+				if(!specs[splits[0]])
+					specs[splits[0]] = {};
+
+				for(let n = 1; n < splits.length; n++)
+					specs[splits[0]][splits[n]] = true;
+			}
+		}
 
 		for(let cmd in commands)
 		{
 			let data = commands[cmd];
 
-			if(args[0] && args[0].toLowerCase() !== data.cat.toLowerCase())
+			if(specs && !specs[data.cat.toLowerCase()])
 				continue;
 
-			if(args[1] && (!data.meta.subCat || data.meta.subCat.toLowerCase() !== args[1].toLowerCase()))
+			if(specs && Object.keys(specs[data.cat.toLowerCase()]).length > 0 && (!data.meta.subCat || !specs[data.cat.toLowerCase()][data.meta.subCat.toLowerCase()]))
 				continue;
 
 			atLeastOne = true;
@@ -81,35 +122,74 @@ module.exports = (g) =>
 			if(!ordered[data.cat])
 				ordered[data.cat] = {};
 
-			if(!ordered[data.cat][data.id])
-				ordered[data.cat][data.id] = PRE + cmd;
+			let subCat = data.meta.subCat;
+			if(!subCat)
+				subCat = "(none)";
+
+			if(!ordered[data.cat][subCat])
+				ordered[data.cat][subCat] = {}
+
+			if(ordered[data.cat][subCat][data.id])
+				ordered[data.cat][subCat][data.id] = ordered[data.cat][subCat][data.id] + " " + PRE + cmd;
 			else
-				ordered[data.cat][data.id] = ordered[data.cat][data.id] + " " + PRE + cmd;
+				ordered[data.cat][subCat][data.id] = PRE + cmd;
 		}
 
 		if(!atLeastOne)
 		{
-			msg(chn, "-No roles could be found under those specifications.");
+			msg(chn, "-No commands could be found under those specifications.");
 			return;
 		}
 
 		for(let cat in ordered)
 		{
-			list = list + "\n\n" + cat;
-			
-			for(let cmd in ordered[cat])
-				list = list + "\n " + ordered[cat][cmd];
+			for(let sub in ordered[cat])
+			{
+				if(Object.keys(ordered[cat]).length > 1 || sub !== "(none)")
+					list = list + "\n\n" + cat + ' ' + sub;
+				else
+					list = list + "\n\n" + cat;
+
+				for(let cmd in ordered[cat][sub])
+					list = list + "\n " + ordered[cat][sub][cmd];
+			}
 		}
 
 		msg(chn, list);
 	});
 
-	register_cmd("categories", "", "Categories", "Retrieve a list of all known categories that contain at least one command. They can be used with " + PRE + "list [Category]", (chn) =>
+	register_cmd(["categories", "cats"], "", "Categories", "Retrieve a list of all known categories that contain at least one command, as well as any subcategories within them. They can be used with " + PRE + "list [Category:Subcategory]", (chn) =>
 	{
 		let output = "List of Categories:\n";
+		let cats = {}
 
-		for(let cat in categories)
-			output = output + "\n" + cat;
+		for(let cmd in commands)
+		{
+			let data = commands[cmd];
+
+			if(!cats[data.cat])
+				cats[data.cat] = {};
+
+			if(data.meta.subCat)
+				cats[data.cat][data.meta.subCat] = true;
+		}
+
+		for(let cat in cats)
+		{
+			let cstr = cat;
+
+			if(Object.keys(cats[cat]).length > 0)
+			{
+				cstr = cstr + " - ";
+
+				for(let sub in cats[cat])
+					cstr = cstr + sub + ", ";
+
+				cstr = cstr.substring(0, cstr.length-2);
+			}
+
+			output = output + '\n' + cstr;
+		}
 
 		msg(chn, output);
 	});

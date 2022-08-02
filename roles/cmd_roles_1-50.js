@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role} = g;
+	const {register_role, factions} = g;
 
 	register_role(["horse", "1"], "Neutral", "Horse", {subCat: "Chaos"}, (e) =>
 	{
@@ -29,22 +29,22 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target visits someone who dies, deal an Unstoppable attack to them. If they visit you and you die, you will not attack them.\n- If you stay home, you will instead attack your visitors.\n- If you attack a Townie, you cannot act the next night. The first time you do this, degrade to Powerful attack.\n- You may only stay home twice.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["wm_godfather", "wmgodfather", "godfather", "3"], "Mafia", "WM Godfather", {subCat: "Head"}, (e) =>
+	register_role(["power_of_three", "powerofthree", "pot", "3"], "Town", "Power of Three", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 3");
 
-		e.addField("Alignment", "Unique Mafia Head", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Town Power", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Order your goon to perform the factional Mafia kill each night.");
+		e.addField("Abilities:", "- Select a player, and choose a Town alignment. You will use the abilities of 3 random roles from that alignment on your target.");
 
-		e.addField("Attributes:", "- When you order your goon to perform the factional Mafia kill, you will not visit the target. You will also appear to stay home to a Tracker.\n- If a Lookout sees your goon visit their target, they will see that a goon visited their target, instead of seeing a player's name.\n- Your goon can be killed as a result of visiting your target. If they are, you will no longer be able to order them to perform the factional Mafia kill.\n- If your goon is attacked by a Bodyguard, the Bodyguard will still survive, and your goon will not. The Bodyguard will be notified that they killed your goon.\n- You appear to be a member of the Town when investigated.");
+		e.addField("Attributes:", "- You can target yourself.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["role_jury", "rolejury", "4"], "Neutral", "Role Jury", {subCat: "Chaos"}, (e) =>
@@ -70,11 +70,11 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "-Choose a player to stalk at night. For this night and the next, you will learn who they visit. Two nights from now, you will attack whoever they visited. If your target visited nobody during either night, you will attack your target instead.");
+		e.addField("Abilities:", "- Choose a player to stalk at night.");
 
-		e.addField("Attributes:", "-Everything you do is Astral.\n-You can only stalk two players at a time.");
+		e.addField("Attributes:", "- At the end of the night you stalk them, as well as the night after, you will learn who they visited that night.\n- After two nights, you will deal a Powerful attack to the players they visited the last two nights.\n- If they did not visit, you will deal a Powerful attack to them.\n- You are Astral.\n- You can only be stalking two players at time.");
 
-		e.addField("Goal:", "Be the last player standing.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["investicreator", "6"], "Town", "Investicreator", {subCat: "Investigative"}, (e) =>
@@ -132,7 +132,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Mafia once the last Mafia dies.\n- You are unaware you are a Sleeper Agent when the game begins.\n- The Mafia know who you are and cannot perform actions that negatively affect you.\n- Spawns in Random Town slots.");
 
-		e.addField("Goal:", "Kill everyone that won't submit to the Mafia.");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["amnestic_wizard", "amnesticwizard", "amnestic", "10"], "Coven", "Amnestic Wizard", {spawnCat: "Town", subCat: "Support"}, (e) =>
@@ -145,7 +145,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Coven once the last Coven dies.\n- You are unaware you are an Amnestic Wizard when the game begins.\n- The Coven know who you are and cannot perform actions that negatively affect you.\n- Spawns in Random Town slots.");
 
-		e.addField("Goal:", "Kill all who would oppose the Coven.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["tinkerer", "11"], "Town", "Tinkerer", {subCat: "Killing"}, (e) =>
@@ -160,7 +160,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can attack a player with your gun, dealing a Powerful attack to them.\n- You may only hold one gun at a time.\n- If you attack a player with a gun, you cannot craft a gun that night.\n- Your gun is consumed even if your target does not die.\n- You can give guns to other players, which thry can use to deal a Basic attack in place of their normal ability. Each player can only recieve one gun.\n- If you are resurrected for any reason, you will not have a gun even if you had one when you died.\n- Control Immune");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["god", "12"], "Neutral", "God", {subCat: "Chaos"}, (e) =>
@@ -203,7 +203,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Detection Immunity to Sheriff");
 
-		e.addField("Goal:", "Mafia Goal.");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["mafia_traitor", "mafiatraitor", "15"], "Mafia", "Mafia Traitor", {subCat: "Support"}, (e) =>
@@ -216,7 +216,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Gain all abilities and attributes of a random Town role. You may use the Mafia chat. You may *not* perform the factional Mafia kill.");
 
-		e.addField("Goal:", "Mafia Goal.");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["coven_traitor", "coventraitor", "16"], "Coven", "Coven Traitor", {subCat: "Support"}, (e) =>
@@ -229,7 +229,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Gain all abilities and attributes of a random Town role. You may use the Coven chat. You may *not* inherit the Necronomicon.");
 
-		e.addField("Goal:", "Coven Goal.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["n-escapable_killer", "nescapablekiller", "n-escapable", "17"], "Neutral", "N-escapable Killer", {subCat: "Chaos"}, (e) =>
@@ -280,6 +280,7 @@ module.exports = (g) =>
 	register_role(["sheriff", "20"], "Town", "Sheriff", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 20");
+		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/d/de/RoleIcon_Sheriff.png";
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -289,7 +290,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Town, and Neutral (not killing) roles are automatically assumed to be Not Suspicious, unless stated otherwise.\n- Mafia, Coven, and Neutral Killing roles are all assumed to be Suspicious, unless stated otherwise.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["nightwatch", "21"], "Town", "Nightwatch", {subCat: "Investigative"}, (e) =>
@@ -304,7 +305,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will learn what happens to them, but not who did what. If the action is ambiguous, you will pick it out: if someone is roleblocked, you will learn what specific role the roleblocker is.\n- If you visit someone and they attack their visitors, you will survive and learn their role. They will be notified that they missed you.\n- Your ability is Astral.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["saboteur", "22"], "Neutral", "Saboteur", {subCat: "Chaos"}, (e) =>
@@ -362,7 +363,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If the Hydrant triggers, it will roleblock all visitors.\n- The Hydrant will trigger if a circumstance is met, chosen by the Plumber at the start of the night.\n- The next night, the Hydrant will desactivate and you can put a new one on another person's\n- You cannot place an hydrant on the same player's house two nights in a row.\n\nWhat Plumber can choose:\n1. If your target gets attacked, your Hydrant will activate.\n2. If your target gets roleblocked or controlled, your Hydrant will activate.\n3. If any active nighttimes abilities are used on your target, your Hydrant will activate\n4.  If your target gets visited by someone suspicious (based on sheriff results), your Hydrant will activate.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["artificial_disease_developer", "artificialdiseasedeveloper", "artificial_disease", "artificialdisease", "add", "27"], "Neutral", "Artificial Disease Developer", {subCat: "Killing"}, (e) =>
@@ -377,7 +378,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Your disease spreads similarly to Plaguebearer's plague, but each person can only spread it to one other person per night, including you. Everyone will know when they are infected if you have a Basic (or higher) attack, and if they were infected by visiting a target, or by getting visited (activates at Powerful or higher attack). Each night that someone is infected, they have a 33% chance of being dealt an astral attack at the current attack level. Your attack level increases at the very end of all full moon nights.");
 
-		e.addField("Goal:", "NK Goal");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["coven_leader", "covenleader", "cl", "28"], "Coven", "Coven Leader", {subCat: "Evil"}, (e) =>
@@ -392,7 +393,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Detection immunity to Sheriff, Basic Defense & Controlling also deals a Basic Attack w/ Necronomicon\n- Necronomicon priority");
 
-		e.addField("Goal:", "Coven Goal");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["civilian", "29"], "Town", "Civilian", {subCat: "Power"}, (e) =>
@@ -405,9 +406,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack someone each night.");
 
-		e.addField("Attributes:", "- Civilian has all abilities and attributes of three random Town roles from the game Town of Salem in addition to its other abilities.");
+		e.addField("Attributes:", "- You have all abilities and attributes of three different random Town roles from the game Town of Salem in addition to your other abilities.\n- Mayor and Jailor can't be among these roles.\n- If Investigator is among these roles, it's Post 35: Investigator.\n- If Spy is among these roles, you can see the visits of all evil factions.\n- If Vigilante is among these roles, instead, your base attack is upgraded to Powerful.\n- If Vampire Hunter is among these roles, you hunt and are immune to all conversion roles.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["day_vigilante", "dayvigilante", "day_vigi", "dayvigi", "30"], "Town", "Day Vigilante", {subCat: "Killing"}, (e) =>
@@ -422,7 +423,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You can only use your ability thrice.\n- Shooting a town member disables your ability the following day.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["bloodthirsty", "31"], "Mafia", "Bloodthirsty", {subCat: "Killing"}, (e) =>
@@ -437,10 +438,10 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If, when you perform the factional mafia kill, the target will not end up dead the next day, you may choose to deal a Powerful Attack to 2 players in the game. If you do, you may not perform the FMK.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role("32", "Other", "No", {subCat: "Chaos"}, (e) =>
+	register_role(["no", "32"], "Other", "No", {cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 32 cannot be rolled. F tier. Next.");
 	});
@@ -475,9 +476,10 @@ module.exports = (g) =>
 		e.addField("Goal:", "Exterminate the Firefighter scum");
 	});
 
-	register_role(["investigator", "35"], "Town", "Investigator", {subCat: "Investigative"}, (e) =>
+	register_role(["inv", "invest", "investigator", "35"], "Town", "Investigator", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 35");
+		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/6/6b/RoleIcon_Investigator.png";
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -487,7 +489,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will receive 5 roles. Two will always be Town roles, one will always be a role that opposes the Town, and one will always be their actual role. Investigating them again will not give a new result.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["effort_murderer", "effortmurderer", "36"], "Neutral", "Effort Murderer", {subCat: "Chaos"}, (e) =>
@@ -517,7 +519,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will learn what letter their role starts with.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["tenacious", "38"], "Mafia", "Tenacious", {subCat: "Killing"}, (e) =>
@@ -530,9 +532,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Perform the Factional Mafia Kill.");
 
-		e.addField("Attributes:", "- Once the rolelist has been rolled by the host, if Tenacious was rolled, before the roles are given out, 3 other roles must be rerolled into non killing roles, UNLESS the rolelist already gas guaranteed Evil Faction slots.\n- Once you are the last mafia standing, your Factional Mafia Kill Is an Unstoppable Rampaging attack.\n- Players will know at the start of the day when a Tenacious Is the last mafia standing.");
+		e.addField("Attributes:", "- Once the rolelist has been rolled by the host, if Tenacious was rolled, before the roles are given out, 3 other roles must be rerolled into non mafia killing roles, UNLESS the rolelist already has guaranteed Evil Faction slots.\n- Once you are the last mafia standing, your Factional Mafia Kill Is an Unstoppable Rampaging attack.\n- Players will know at the start of the day when a Tenacious Is the last mafia standing.");
 
-		e.addField("Goal:", "Mafia Goal");
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["wordle", "39"], "Town", "Wordle", {subCat: "Investigative"}, (e) =>
@@ -545,7 +547,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Guess the first 5 letters of your target's role. You'll know which letters were correct and in the correct spots, you'll know which letters exist but are in the wrong spots, and you'll know which letters don't exist at all.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["locust", "40"], "Neutral", "Locust", {subCat: "Chaos"}, (e) =>
@@ -575,12 +577,13 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All players that do a night action after your target does theirs will also be roleblocked.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["nlove", "bazinga", "42"], "Neutral", "Nlove", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 42");
+		e.author.iconURL = "https://cdn.discordapp.com/avatars/282820835318693889/9cf66288ac7e61b93e30893b25c247ac.png";
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -603,7 +606,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will know whenever you save a target from death.\n- For every player that you’ve saved in the past, you may, instead, attack two players. Your attacks cannot be saved by your own heals.");
 
-		e.addField("Goal:", "Kill everyone who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["attributor", "44"], "Neutral", "Attributor", {subCat: "Chaos"}, (e) =>
@@ -621,9 +624,9 @@ module.exports = (g) =>
 		e.addField("Goal:", "Give someone an attribute that makes a difference in the game, i.e. it actually changes something. They must die before the game ends, though, and not via your attributes. Also survive until the end of the game.");
 	});
 
-	register_role(["forest_spirit", "forestspirit", "46"], "Town", "Forest Spirit", {subCat: "Investigative"}, (e) =>
+	register_role(["forest_spirit", "forestspirit", "45"], "Town", "Forest Spirit", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 46");
+		e.setDescription("Post 45");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -633,7 +636,22 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your dead target was visited by someone you have a memory of, you will know.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["exterminator", "46"], "Town", "Exterminator", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 46");
+
+		e.addField("Alignment", "Town Killing", true);
+		e.addField("Attack", "Overkill", true);
+		e.addField("Defense", "None (Basic)", true);
+
+		e.addField("Abilities:", "- Spray DDT on two players' houses every night.");
+
+		e.addField("Attributes:", "- Sprayed players will gain Conversion Immunity, until they are visited, upon which the Spray is removed.\n- Players capable of converting will be dealt an Unstoppable Attack if they visit a Sprayed player\n- Other players will be roleblocked upon visiting a Sprayed player.\n- Conversion immunity by default. Additionally, you will attack any players capable of converting whom visit you.\n- Basic Defense until no conversion capable players are alive. You will regain this if any are ressurected.");
+
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["stardust_angel", "stardustangel", "stardust", "47"], "Town", "Stardust Angel", {subCat: "Protective"}, (e) =>
@@ -648,7 +666,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If someone covered in stardust attacks a target, grant the target Powerful defense.\n- Stardust lasts only for the night (meaning the next night they're no longer covered in stardust unless you cover them again)\n- You will not know if you healed anybody.");
 
-		e.addField("Goal:", "Town Goal");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["admin", "48"], "Neutral", "Admin", {subCat: "Chaos"}, (e) =>
@@ -691,6 +709,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- During the day, your targets choose privately whether they want to be dealt a Basic Attack the following night or not.\n If none of them say yes, they will all be dealt a Powerful Attack the following night instead.");
 
-		e.addField("Goal:", "Kill all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 };
