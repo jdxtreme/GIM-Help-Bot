@@ -107,7 +107,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Town goal (or current linked player's)");
 	});
 
-	register_role(["darth_sidious", "darthsidious", "sidious", "608"], "Sith", "Darth Sidious", {subCat: "Commanding"}, (e) =>
+	register_role(["darth_sidious", "darthsidious", "sidious", "palpatine", "608"], "Sith", "Darth Sidious", {subCat: "Commanding"}, (e) =>
 	{
 		e.setDescription("Post 608");
 
@@ -137,7 +137,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Sith.goal);
 	});
 
-	register_role(["darth_vader", "darthvader", "vader", "610"], "Sith", "Darth Vader", {subCat: "Support"}, (e) =>
+	register_role(["darth_vader", "darthvader", "vader", "anakin_skywalker", "anakinskywalker", "anakin", "610"], "Sith", "Darth Vader", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 610");
 

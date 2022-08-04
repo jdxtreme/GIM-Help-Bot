@@ -415,7 +415,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Deliver your target a surprise.");
 
-		e.addField("Attributes:", "- Your target will be forced to target themselves.\n- You may not use your ability on roleblock or control immune players.");
+		e.addField("Attributes:", "- Redirection Immune\n- Your target will be forced to target themselves.\n- You may not use your ability on roleblock or control immune players.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

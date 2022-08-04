@@ -17,7 +17,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Spirit.goal);
 	});
 
-	register_role(["darth_krayt", "darthkrayt", "krayt", "1302"], "Sith", "Darth Krayt", {subCat: "Commanding"}, (e) =>
+	register_role(["darth_krayt", "darthkrayt", "krayt", "a'sharad_hett", "a'sharadhett", "hett", "asharad_hett", "asharadhett", "a'sharad", "asharad", "1302"], "Sith", "Darth Krayt", {subCat: "Commanding"}, (e) =>
 	{
 		e.setDescription("Post 1302");
 

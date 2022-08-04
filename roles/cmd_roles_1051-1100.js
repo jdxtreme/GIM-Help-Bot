@@ -137,7 +137,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["programmer", "1060"], "Town", "Birdkeeper", {subCat: "Investigative"}, (e) =>
+	register_role(["programmer", "1060"], "Town", "Programmer", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1060");
 
@@ -749,7 +749,7 @@ module.exports = (g) =>
 
 	register_role(["hunter", "1100", "54u"], "Unseen", "Hunter", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1100\nConverted from: Retributionist");
+		e.setDescription("Post 1100\nConverted from: Tracker");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "Powerful", true);

@@ -593,7 +593,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Sith.goal);
 	});
 
-	register_role(["darth_traya", "darthtraya", "traya", "1291"], "Sith", "Darth Traya", {subCat: "Commanding"}, (e) =>
+	register_role(["darth_traya", "darthtraya", "traya", "kreia", "1291"], "Sith", "Darth Traya", {subCat: "Commanding"}, (e) =>
 	{
 		e.setDescription("Post 1291");
 
@@ -666,7 +666,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Subtract three people's role numbers, but don't subtract someone into a negative number.");
 	});
 
-	register_role(["darth_tyranus", "darthtyranus", "tyranus", "1296"], "Sith", "Darth Tryanus", {subCat: "Support"}, (e) =>
+	register_role(["darth_tyranus", "darthtyranus", "tyranus", "count_dooku", "countdooku", "dooku", "1296"], "Sith", "Darth Tryanus", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1296");
 

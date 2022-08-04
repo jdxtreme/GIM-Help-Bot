@@ -53,7 +53,7 @@ const factions =
 	Sentry: {color: "4CB9D4", goal: "Rid the town of any dissidents to the Sentries."},
 	Toppat: {color: "B01C12", icon: "https://cdn.discordapp.com/emojis/1002935333723328572.webp", goal: "Destroy all who refuse to submit to the Toppats."},
 	Koopa: {color: "4D8A45", icon: "https://cdn.discordapp.com/emojis/1003311828283162725.webp", goal: "Kill all who would oppose Lord Bowser"},
-	Neutral: {color: "808080", icon: "https://cdn.discordapp.com/emojis/980943261587865650.webp", goalNK: "Kill all who would oppose you."}
+	Neutral: {color: "808080", icon: "https://cdn.discordapp.com/emojis/980943261587865650.webp", goalNK: "Kill all who would oppose you.", goalNG: "Eliminate all other residents who have yet to fulfill their purpose."}
 };
 
 var day = false;
@@ -176,13 +176,13 @@ function add_cmd(name, cmd)
 			while(commands[newname]);
 
 			commands[newname] = cmd;
-			conflicts[name][i-1] = {com: newname, title: cmd.title, cat: cmd.cat};
+			conflicts[name][i-1] = {com: newname, title: cmd.title, cat: cmd.cat, subCat: cmd.meta.subCat};
 		}
 		else
 		{
 			commands[n1] = commands[name];
 			commands[n2] = cmd;
-			conflicts[name] = [{com: n1, title: commands[name].title, cat: commands[name].cat}, {com: n2, title: cmd.title, cat: cmd.cat}]
+			conflicts[name] = [{com: n1, title: commands[name].title, cat: commands[name].cat, subCat: commands[name].meta.subCat}, {com: n2, title: cmd.title, cat: cmd.cat, subCat: cmd.meta.subCat}]
 			categories["Conflict"] = true;
 
 			commands[name] =
@@ -200,7 +200,7 @@ function add_cmd(name, cmd)
 					for(let c in conflicts[name])
 					{
 						let con = conflicts[name][c];
-						txt = txt + "\n" + PRE + con.com + " - " + con.title + " (" + con.cat + ")";
+						txt = txt + "\n" + PRE + con.com + " - " + con.title + " (" + con.cat + (con.subCat && (" " + con.subCat) || "") + ")";
 					}
 
 					msg(chn, txt);
@@ -310,7 +310,7 @@ require("./cmd_basics.js")(GLOBAL);
 require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
-for(let i = 50; i <= 1450; i+=50)
+for(let i = 50; i <= 1500; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
 

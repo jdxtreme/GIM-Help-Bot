@@ -47,7 +47,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Survive until the end of the game.");
 	});
 
-	register_role(["scp-173", "scp173", "754"], "SCP", "SCP-173", {subCat: "Euclid"}, (e) =>
+	register_role(["scp-173", "scp173", "peanut", "754"], "SCP", "SCP-173", {subCat: "Euclid"}, (e) =>
 	{
 		e.setDescription("Post 754");
 
@@ -193,7 +193,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["scp-096", "scp096", "764"], "SCP", "SCP-096", {subCat: "Euclid"}, (e) =>
+	register_role(["scp-096", "scp096", "shy_guy", "shyguy", "764"], "SCP", "SCP-096", {subCat: "Euclid"}, (e) =>
 	{
 		e.setDescription("Post 764");
 
@@ -253,7 +253,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see every living player joined with you within the Blob. The other players in the Blob will lose if this comes to pass, unless they have already fulfilled their goal.");
 	});
 
-	register_role(["scp-049", "scp049", "768"], "SCP", "SCP-049", {subCat: "Euclid"}, (e) =>
+	register_role(["scp-049", "scp049", "plague_doctor", "plaguedoctor", "768"], "SCP", "SCP-049", {subCat: "Euclid"}, (e) =>
 	{
 		e.setDescription("Post 768");
 
@@ -281,7 +281,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.SCP.goal);
 	});
 
-	register_role(["scp-106", "scp106", "770"], "SCP", "SCP-106", {subCat: "Keter"}, (e) =>
+	register_role(["scp-106", "scp106", "larry", "770"], "SCP", "SCP-106", {subCat: "Keter"}, (e) =>
 	{
 		e.setDescription("Post 770");
 

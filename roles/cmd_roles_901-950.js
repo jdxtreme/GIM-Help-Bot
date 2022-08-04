@@ -704,7 +704,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see the Town lose.");
 	});
 
-	register_role(["alchoholic", "947"], "Mafia", "Alchoholic", {subCat: "Support"}, (e) =>
+	register_role(["alcoholic", "947"], "Mafia", "Alcoholic", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 947");
 

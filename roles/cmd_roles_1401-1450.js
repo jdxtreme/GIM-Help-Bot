@@ -246,7 +246,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Dig under someone, you will hear all their whispers until you use this on another target.\n- Throw dirt at the person you are under, Roleblocking them. Can't be used on the same person twice in a row.");
+		e.addField("Abilities:", "- Dig under someone, you will hear all their whispers until you use this on another target.\n- Dig under Bowser's castle for this night, Learning the roles of Koopa visitors in addition to your Attribute. (2 uses)");
 
 		e.addField("Attributes:", "- While you are alive, Learn the names of everyone who visits a Koopa member.");
 
@@ -491,7 +491,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Successfully predict and create exposition for three events.");
 	});
 
-	register_role(["rat", "1434"], "Neutral", "Rat", {subCat: "Evil"}, (e) =>
+	register_role(["ravenous_rat", "ravenousrat", "ravenous", "rat", "rr", "1434"], "Neutral", "Ravenous Rat", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 1434");
 
@@ -501,9 +501,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Steal all of a player's **Rations**, reducing them to 0 and adding them to your total.");
 
-		e.addField("Attributes:", "- At the start of the game, it's announced that *\"A rat is scurrying around the town. Keep your rations safe.\"* Each player is given five **Rations** other than you. When a player has no **Rations**, they cannot use their abilities. You're not affected by this. However, all players can give other players any amount of **Rations** as a night action.\n- You have Basic defense for the first time you're attacked.");
+		e.addField("Attributes:", "- At the start of the game, it's announced that *\"A ravenous rat is scurrying around the town. Keep your rations safe.\"* Each player is given five **Rations** other than you. When a player has no **Rations**, they cannot use their abilities. You're not affected by this. However, all players can give other players any amount of **Rations** as a night action.\n- You have Basic defense for the first time you're attacked.");
 
-		e.addField("Goal:", "Successfully predict and create exposition for three events.");
+		e.addField("Goal:", "Live to see the town lose the game.");
 	});
 
 	register_role(["undead_attention_seeker", "undeadattentionseeker", "attention", "uas", "1435"], "Neutral", "Undead Attention Seeker", {subCat: "Benign"}, (e) =>
@@ -577,5 +577,172 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- Other Unseen members will see the jailed target's messages.\n- Your kills will appear as a Jailor kill.\n- You keep priority over other jailing type roles. This includes ones on your own team, but have you tried coordinating?");
 
 		e.addField("Goal:", factions.Unseen.goal);
+	});
+
+	register_role(["sans_infectious_insomnia", "sansinfectiousinsomnia", "sbhhii", "infectious_insomnia", "infectiousinsomnia", "sans", "1440", "1329u"], "Unseen", "Sans {But He Has Infectious Insomnia}", {subCat: "Support"}, (e) =>
+	{
+		e.setDescription("Post 1440\nConverted from: Sans {But He Has Insomnia}");
+
+		e.addField("Alignment", "Unseen Support", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "**Normal Attack** (Night): {Don't} attack a player {but instead all their visitors} with bones and stuff.\n**Special Attack** (Night): Use your special attack, roleblocking a player {every night for the rest of the game. Anyone who visits them also is permanently roleblocked. This also applies to anyone who was affected by visiting - it can spread. Unseen members are immune. 2 uses.}\n**{Fake} Mercy** (Night): If you are attacked, {pretend to} offer mercy. The attacker will be told to select a new target. If they select you again, this won't activate again. {However, you will retaliate, and kill them, while you will survive.}\n**Cleave** during the day. Infinite uses.");
+
+		e.addField("Attributes:", "- You are roleblock immune.");
+
+		e.addField("Goal:", factions.Unseen.goal);
+	});
+
+	register_role(["sk_army", "skarmy", "skbiaaa", "sk", "army", "1441"], "Neutral", "SK but it's actually an army", {subCat: "Genocidal"}, (e) =>
+	{
+		e.setDescription("Post 1441");
+		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
+
+		e.addField("Alignment", "Neutral Genocidal", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Stab someone at night.\n- Send out your living soldiers to stab someone at night.");
+
+		e.addField("Attributes:", "- You have [# of Players]/4 (rounded down) soldiers at the start of the game.\n- You can command all of them to attack different people at the same time you attack someone.\n- If you die, you don't. A soldier dies in your place instead. The soldiers all have Basic defense. Yes, this applies to lynches too.\n- If you don't have soldiers, and die, you die. (You're dead)\n- Roleblock immune. Additionally, if you are roleblocked, you may have all of your soldiers stab the roleblocker all at once.");
+
+		e.addField("Goal:", factions.Neutral.goalNG);
+	});
+
+	register_role(["sk_anarchist", "skanarchist", "skbiaa", "sk", "anarchist", "1442"], "Neutral", "SK but it's an anarchist", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1442");
+		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Stab someone.");
+
+		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.\n- If this exists, every other player in the game has their goal permanently switched to NK goal. Even if they change it to something else. Faction chats also close and factional kills are now independent of others and multiple people can use them at once.");
+
+		e.addField("Goal:", "Survive to the end of the game except not really because you also switch your own goal");
+	});
+
+	register_role(["sheriff_basic", "sheriffbasic", "sbwba", "1442"], "Town", "Sheriff but with basic attack", {subCat: "Investigative"}, (e) =>
+	{
+		e.setDescription("Post 1443");
+
+		e.addField("Alignment", "Town Investigative", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Interrogate someone at night.");
+
+		e.addField("Attributes:", "- Results are the same as normal Sheriff.\n- When you interrogate someone, you begin by shooting them in the face. If they die, great! Simply move on with your day.\n- If they survive, then check their Sheriff result.");
+
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["undercover_agent", "undercoveragent", "undercover", "agent", "ua", "1444"], "Toppat", "Undercover Agent", {subCat: "Support"}, (e) =>
+	{
+		e.setDescription("Post 1444");
+
+		e.addField("Alignment", "Toppat Clan Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Roleblock a player during the night.\n- Bypass roleblock immunity. 1 use.");
+
+		e.addField("Attributes:", "- At the beginning of the game, you are given a role in a rival REF that has a factional chat. This role cannot be a faction (Head) role. If no other REFs exist, or none have a factional chat, automatically reroll into another Toppat.\n- You gain the attributes and abilities of that role, as well as your own ability. You can use your own ability with your copied one. You may still survey players, as you are still a TcS role.\n- You lose access to the Toppat chat, but gain access to the chat of the faction you're disguised as. The Toppats will know your true identity, and you will know your fellow Toppats, however you cannot whisper to them.\n- You cannot become the Chief unless you are the only remaining Toppat. If the faction you're disguised as is eliminated, rejoin the Toppat chat and you can become Chief normally. You do not lose any abilities.\n**Chief Modifier** - Gain the ability to roleblock all members of the faction you're disguised as, with 2 uses. If undisguised, you will always bypass Roleblock immunity.");
+
+		e.addField("Goal:", factions.Toppat.goal);
+	});
+
+	register_role(["base_guard", "baseguard", "bg", "1445"], "Toppat", "Base Guard", {subCat: "Operator"}, (e) =>
+	{
+		e.setDescription("Post 1445");
+
+		e.addField("Alignment", "Toppat Clan Operator", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Stand guard at the Toppat Headquarters. You will automatically kill all Investigative, Killing, and other roles deemed to be a negative visit to a Toppat member. Other roles will not be affected, but you can kill multiple people at once. 3 uses.");
+
+		e.addField("Attributes:", "**Chief Modifier** - Gain the ability to order a goon to stand guard while you specifically hunt down another player to kill them. 2 uses.");
+
+		e.addField("Goal:", factions.Toppat.goal);
+	});
+
+	register_role(["government_traitor", "governmenttraitor", "gt", "1446"], "Toppat", "Government Traitor", {subCat: "Executive"}, (e) =>
+	{
+		e.setDescription("Post 1446");
+
+		e.addField("Alignment", "Toppat Clan Executive", true);
+		e.addField("Attack", "Basic (Powerful)", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Have a player report to you during the day. Learn their faction and alignment. 4 uses.\n- Interrogate a player during the night, learning their faction.\n- Anonymously threaten a player to reveal their role to you. If they accept, you learn their exact role. If they decline, you will attack them. If they are immune, they can choose what role to appear as. 1 use.");
+
+		e.addField("Attributes:", "**Chief Modifier** - Gain 2 uses of anonymously threatening a player. The attack is also increased to Powerful.");
+
+		e.addField("Goal:", factions.Toppat.goal);
+	});
+
+	register_role(["dry_bones", "drybones", "db", "1447"], "Koopa", "Dry Bones", {subCat: "Defender"}, (e) =>
+	{
+		e.setDescription("Post 1447");
+
+		e.addField("Alignment", "Koopa Defender", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Protect your Target, Redirecting all attacks on them to you.");
+
+		e.addField("Attributes:", "- If you die, you will automatically be revived on the second night after you die, cannot activate if there are no other Koopas alive.");
+
+		e.addField("Goal:", factions.Koopa.goal);
+	});
+
+	register_role(["myling", "1448"], "Spirit", "Myling", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1448");
+
+		e.addField("Alignment", "Spirit Killing", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Check a player to see if they were your murderer. If they are, attack the player.");
+
+		e.addField("Attributes:", "- At the beginning of the game, two players will have been assigned to be your murderer, but you will only know their roles.\n- Once you kill both of these players, you may attack twice per night and you are able to kill anyone.");
+
+		e.addField("Goal:", factions.Spirit.goal);
+	});
+
+	register_role(["professional_vehicle_operator", "professionalvehicleoperator", "operator", "pvo", "1449"], "Toppat", "Professional Vehicle Operator", {subCat: "Operator"}, (e) =>
+	{
+		e.setDescription("Post 1449");
+
+		e.addField("Alignment", "Toppat Clan Operator", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Ram a vehicle into a person's home, each dealing a rampage attack. You have 1 of each vehicle.\n> - A car deals a Basic attack.\n> - A truck deals a Powerful attack.\n> - A helicopter deals an Unstoppable attack while Charles laughs from the sidelines.\n> - A rocket deals an Overkill attack.");
+
+		e.addField("Attributes:", "- The rocket can only be used once you are out of all other vehicles.\n- The rocket will kill the player's neighbors as well, but also yourself.\n**Chief Modifier** - Gain 2 cars and 1 truck. You will not die from the rocket.");
+
+		e.addField("Goal:", factions.Toppat.goal);
+	});
+
+	register_role(["goombario", "1450"], "Koopa", "Goombario", {subCat: "Informer"}, (e) =>
+	{
+		e.setDescription("Post 1450");
+
+		e.addField("Alignment", "Koopa Informer", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Tattle your Target, Learning their role and what action they did tonight.\n- Roleblock a Player you have previously Tattled, can be used alongside any action and on as many people as possible.");
+
+		e.addField("Attributes:", "- You can only Roleblock each Tattled player once.");
+
+		e.addField("Goal:", factions.Koopa.goal);
 	});
 };
