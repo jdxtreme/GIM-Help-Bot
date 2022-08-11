@@ -615,11 +615,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Insurgency.goal);
 	});
 
-	register_role(["governor", "gov", "691"], "Loyalist", "Governor", {subCat: "Governor"}, (e) =>
+	register_role(["governor", "gov", "691"], "Loyalist", "Governor", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 691");
 
-		e.addField("Alignment", "Loyalist Governor", true);
+		e.addField("Alignment", "Loyalist Head", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Powerful (None)", true);
 

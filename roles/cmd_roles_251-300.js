@@ -64,7 +64,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["fuc_king", "fucking", "fking", "255"], "Neutral", "Fuc King", {subCat: "Other"}, (e) =>
+	register_role(["fuc_king", "fucking", "fking", "255"], "Other", "Fuc King", (e) =>
 	{
 		e.setDescription("Post 255");
 
@@ -259,7 +259,7 @@ module.exports = (g) =>
 
 	register_role(["stargazer", "sg", "268"], "Neutral", "Stargazer", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 268");
+		e.setDescription("Post 268\n*Sorry, I couldn't help committing identity thief to several innocent people! It's just a Scorpio thing!*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -267,7 +267,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attempt to match two people based on their horoscopes.");
 
-		e.addField("Attributes:", "- Each player in the game will have a star sign assigned to them. This will either be from their birthday or randomly assigned. Every horoscope will be present among all players in the game. If this is not possible, reroll.\n- If you match two players whose star signs are compatible, they will learn each other's roles, and they may now win with each other.\n- You have two bulletproof vests you may use throughout the game. You may not matchmake and use a vest in the same night.\n- Refer to the following image to see which signs are compatible with each other.\n- You may match yourself with another player as long as your star signs are compatible.");
+		e.addField("Attributes:", "- Each player in the game will have a star sign assigned to them. Every star sign will be present among all players in the game. (if this is not possible, this role is rerolled)\n- If you match two players whose star signs are compatible, they will learn each other's roles, and they may now win with each other. Players with the same sign star sign are **not** compatible with each other\n- You may not match players that are already matched.\n- You may match yourself with another player as long as your star signs are compatible.\n- You lose the ability to match players once you achieve your win condition.\n- Refer to the following image to see which signs are compatible with each other.");
 
 		e.setImage("https://cdn.discordapp.com/attachments/970046125065265202/970107395273527336/unknown.png");
 
@@ -336,15 +336,15 @@ module.exports = (g) =>
 
 	register_role(["conway", "273"], "Neutral", "Conway", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 273");
+		e.setDescription("Post 273\n*This is a matter of life and death.*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Iterate your target through one iteration of Conway's Game of Life.");
 
-		e.addField("Attributes:", "- Based on who you target and their dead or alive status as well as the dead or alive status of their neighbors, they will either die or be revived.\n--- If you target an alive player, and at least one of their neighbors is dead, they will die.\n--- If you target a dead player, and both of their neighbors are alive, they will be revived.\n- You may not kill once you have killed three players nor may you revive after you have revived a player.\n- You have Basic Defense until you are attacked for the first time.\n- You may not kill yourself, but you may revive yourself.");
+		e.addField("Attributes:", "- If you target an alive player, and at least one of their neighbors is dead, they will die.\n- If you target a dead player, and both of their neighbors are alive, they will be revived.\n- You may not kill once you have killed three players nor may you revive after you have revived a player.\n- You have Basic Defense until you are attacked for the first time.\n- You may not kill yourself, but you may revive yourself.");
 
 		e.addField("Goal:", "Kill three players and revive one player.");
 	});
@@ -364,7 +364,7 @@ module.exports = (g) =>
 
 	register_role(["manipulator", "275"], "Town", "Manipulator", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 275");
+		e.setDescription("Post 275\n*:pleading_face\:*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -407,7 +407,7 @@ module.exports = (g) =>
 
 	register_role(["deliveryboy", "delivery_boy", "db", "278"], "Town", "Delivery Boy", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 278");
+		e.setDescription("Post 278\n*If you don't get your pizza in 30 minutes or less, it's not my problem.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -415,7 +415,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Deliver your target a surprise.");
 
-		e.addField("Attributes:", "- Redirection Immune\n- Your target will be forced to target themselves.\n- You may not use your ability on roleblock or control immune players.");
+		e.addField("Attributes:", "- Your target will be redirected to themselves.\n- Your ability will fail against roleblock and/or redirect immune players.\n- You are redirection immune.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -465,15 +465,15 @@ module.exports = (g) =>
 
 	register_role(["difference", "282"], "Town", "Difference", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 282");
+		e.setDescription("Post 282\n*What's the difference between forgiveness your opinion? I am asking for forgiveness.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Discover the positive difference between two players.");
+		e.addField("Abilities:", "- Select two players to discover the positive difference between the post numbers of their roles.");
 
-		e.addField("Attributes:", "- Target two players each night. You will discover the positive difference between their role numbers.\n- You may not target yourself.");
+		e.addField("Attributes:", "- You may not target yourself.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -521,19 +521,19 @@ module.exports = (g) =>
 
 	register_role(["genius", "286"], "Neutral", "Genius", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 286");
+		e.setDescription("Post 286\n*Congratulations. You have been invited to The Genius Game.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Play the 1, 2, 3 game with an opponent each night.");
+		e.addField("Abilities:", "- Choose a player during the day to challenge them to a match of the 1, 2, 3 Game tonight.");
 
-		e.addField("Attributes:", "- During the day, select a player to challenge them to a match of the 1, 2, 3 game. This will roleblock them, but will not activate any abilities that activate from being roleblocked.\n- If you win, you will gain one of your three wins.\n- If you lose, your target's defense will raise by one value for the night.\n- If there is a tie, nobody profits.\n- You may not challenge yourself.");
+		e.addField("Attributes:", "- You will override your target's night ability similarly to a Jailor or Pirate.\n- If you win, you will gain one of your three wins and Basic Defense for the night..\n- If you lose, your target's defense will raise by one value for the night.\n- If there is a tie, nobody profits.\n- You may not challenge yourself you nincompoop.");
 
-		e.addField("Goal:", "Win three matches.");
+		e.addField("Goal:", "Win two matches of the 1, 2, 3 Game.");
 
-		e.addField("HOW THE 1, 2, 3 GAME WORKS:", "- Both players receive a hand of nine cards: three 1s, three 2s, and three 3s.\n- The game has nine rounds in which each player plays either a 1, 2, 3.\n- The player who played the higher value card will receive a point. If both players played the same card, then neither of them receive a point.\n- The player who has the most points after the ninth round wins.");
+		e.addField("How the 1, 2, 3 Game Works:", "- Both players receive a hand of nine cards: three 1s, three 2s, and three 3s.\n- The game has nine rounds in which each player plays either a 1, 2, 3.\n- The player who played the higher value card will receive a point. If both players played the same card, then neither of them receive a point.\n- The player who has the most points after the ninth round wins.\n- If the night ends before the match ends, the player with the higher number of points when the night ends will win, or neither if there is a tie.");
 	});
 
 	register_role(["leader", "287"], "Mafia", "Leader", {subCat: "Killing"}, (e) =>
@@ -566,19 +566,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["rioter", "289"], "Neutral", "Rioter", {subCat: "Evil"}, (e) =>
+	register_role(["rioter", "accent's_worst_nightmare", "289"], "Neutral", "Rioter", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 289");
+		e.setDescription("Post 289\n*I don't play by your goddamn rules.*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Reassign everyone's roles once you are lynched.");
+		e.addField("Abilities:", "- None.");
 
 		e.addField("Attributes:", "- Once you are lynched, all of the roles of every alive player will be randomly reassigned to another player.\n- Nobody will receive the role they already had.");
 
-		e.addField("Goal:", "Get yourself lynched.");
+		e.addField("Goal:", "Be lynched.");
 	});
 
 	register_role(["timelordjester", "timelord_jester", "tj", "290"], "Neutral", "Timelord Jester", {subCat: "Benign"}, (e) =>
@@ -641,15 +641,15 @@ module.exports = (g) =>
 
 	register_role(["magician", "294"], "Coven", "Magician", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 294");
+		e.setDescription("Post 294\n*This ain't a fairy tale.*");
 
 		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "None (Basic)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Receive a list of all of the roles in the game.");
+		e.addField("Abilities:", "- **(Necronomicon Required)** Choose a role in the game. Deal a Basic attack to the player with that role.");
 
-		e.addField("Attributes:", "- At the start of the game, you will receive a list of all of the roles that are in the game. You will not know who has which role.\n- With the Necronomicon, you may choose a role in the game, and you will deal a Basic attack to the player with that role.");
+		e.addField("Attributes:", "- At the start of the game, you will receive a list of all of the roles that are in the game. You will not know who has which role.\n- If possible, you will receive the Necronomicon last.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -684,11 +684,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["morphologist", "morph", "297"], "Coven", "Morphologist", {subCat: "Support"}, (e) =>
+	register_role(["morphologist", "morph", "297"], "Coven", "Morphologist", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 297");
+		e.setDescription("Post 297\n*Who's a good boy?*");
 
-		e.addField("Alignment", "Coven Support", true);
+		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
@@ -727,17 +727,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["thaumaturge", "thauma", "300"], "Coven", "Thaumaturge", {subCat: "Evil"}, (e) =>
+	register_role(["thaumaturge", "thauma", "the_one_with_the_force_fields", "300"], "Coven", "Thaumaturge", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 300");
+		e.setDescription("Post 300\n*There are negative auras radiating from this house. I'm an empath, I would know these things.*");
 
 		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "None (Powerful)", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Create a force field and place it on a player.");
 
-		e.addField("Attributes:", "- When a force field is placed on a player, all players that attempt to visit the player with a force field will be redirected to visit themselves. The force field will stay active until three people visit your target. (the force field deactivates the night that the third target visits, but if anyone else visits the player after the third player, it will stay active for that night)\n- Force fields take one day to create. (same mechanics as a trapper building a trap)\n- With the Necronomicon, you may create and place a force field every night. Your force fields will also collapse and deal a Basic attack to the player that the force field was on at the end of the night.\n- You may place a force field on yourself and other Coven members. Force fields placed on Coven members will not collapse if you have the Necronomicon.");
+		e.addField("Attributes:", "- When a force field is placed on a player, all players that attempt to visit the player with a force field will be redirected to visit themselves. The force field will stay active until the night that three people visit your target. \n- Force fields take one night to create.\n- With the Necronomicon, you may create and place a force field every night. Your force fields will also collapse and deal a Powerful attack to the player that the force field was on at the end of the night.\n- You may place a force field on yourself and other Coven members. Force fields placed on Coven members will not collapse if you have the Necronomicon.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});

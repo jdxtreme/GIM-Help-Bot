@@ -2,11 +2,11 @@ module.exports = (g) =>
 {
 	const {register_role, factions} = g;
 
-	register_role(["iris", "151"], "Town", "Iris", {subCat: "Investigative"}, (e) =>
+	register_role(["iris", "151"], "Florae", "Iris", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 151");
 
-		e.addField("Alignment", "Florae/Town Investigative", true);
+		e.addField("Alignment", "Florae Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -14,14 +14,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- On odd nights you will know who visits your target.\n- On even nights you will know who your target visits.\n- When dead, you may select a player once to give them your previous result.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["sage", "152"], "Town", "Sage", {subCat: "Investigative"}, (e) =>
+	register_role(["sage", "152"], "Florae", "Sage", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 152");
 
-		e.addField("Alignment", "Florae/Town Investigative", true);
+		e.addField("Alignment", "Florae Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -29,14 +29,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Each night you are alive you will be notified how many players that are in your faction are alive.\n- On Full Moon nights, you may vision a player. You will know if your target is good or evil.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["thyme", "153"], "Town", "Thyme", {subCat: "Investigative"}, (e) =>
+	register_role(["thyme", "153"], "Florae", "Thyme", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 153");
 
-		e.addField("Alignment", "Florae/Town Investigative", true);
+		e.addField("Alignment", "Florae Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -44,14 +44,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will know all the roles of the players that visit your target.\n- Your visit is Astral and ignores Jail.\n- You are not deceived by Douses.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["azalea", "154"], "Town", "Azalea", {subCat: "Killing"}, (e) =>
+	register_role(["azalea", "154"], "Florae", "Azalea", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 154");
 
-		e.addField("Alignment", "Florae/Town Killing", true);
+		e.addField("Alignment", "Florae Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
@@ -59,14 +59,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If someone visits your target, you will shoot them instead.\n- If more than one player visits your target, you will shoot no one.\n- You may only shoot two times.\n- You will not lose a bullet if more than one person visits your target.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["dahlia", "155"], "Town", "Dahlia", {subCat: "Killing"}, (e) =>
+	register_role(["dahlia", "155"], "Florae", "Dahlia", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 155");
 
-		e.addField("Alignment", "Florae/Town Killing", true);
+		e.addField("Alignment", "Florae Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
@@ -74,14 +74,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will attack your day target if they visit either of your night targets.\n- You may watch yourself.\n- When dead, you may choose one player at night to deliver a Basic attack to them.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["nettle", "156"], "Town", "Nettle", {subCat: "Killing"}, (e) =>
+	register_role(["nettle", "156"], "Florae", "Nettle", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 156");
 
-		e.addField("Alignment", "Unique Florae/Town Killing", true);
+		e.addField("Alignment", "Unique Florae Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
@@ -89,14 +89,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Stings take one day to take effect.\n- Stings can be removed by protections that grant Powerful defense.\n- You may not urticate the same player twice.\n- You may urticate three times.\n- You cannot be roleblocked or controlled.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["wisteria", "157"], "Town", "Wisteria", {subCat: "Killing"}, (e) =>
+	register_role(["wisteria", "157"], "Florae", "Wisteria", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 157");
 
-		e.addField("Alignment", "Unique Florae/Town Killing", true);
+		e.addField("Alignment", "Unique Florae Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
@@ -104,14 +104,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may anonymously talk with your captive at night.\n- Players can still visit your captive.\n- You may not lock the same person twice in a row.\n- You may only execute three times.\n- You cannot be controlled.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["calendula", "158"], "Town", "Calendula", {subCat: "Protective"}, (e) =>
+	register_role(["calendula", "158"], "Florae", "Calendula", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 158");
 
-		e.addField("Alignment", "Florae/Town Protective", true);
+		e.addField("Alignment", "Florae Protective", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -119,14 +119,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will know the roles of the players that attack your target.\n- If your target is attacked, they will not know that they were attacked.\n- You will know if your target is attacked.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["lavender", "159"], "Town", "Lavender", {subCat: "Protective"}, (e) =>
+	register_role(["lavender", "159"], "Florae", "Lavender", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 159");
 
-		e.addField("Alignment", "Florae/Town Protective", true);
+		e.addField("Alignment", "Florae Protective", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
@@ -134,14 +134,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Protecting your target provides them Powerful defense against one attack.\n- If your target is attacked you will deliver a Basic attack to their attacker.\n- If your target's attacker has defense or if they’re attacked more than once you will not attack anyone but learn the names of all of your target's attackers.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["lily", "160"], "Town", "Lily", {subCat: "Protective"}, (e) =>
+	register_role(["lily", "160"], "Florae", "Lily", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 160");
 
-		e.addField("Alignment", "Florae/Town Protective", true);
+		e.addField("Alignment", "Florae Protective", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -149,14 +149,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Lilies heal your target and all of their visitors.\n- You may plant at your house.\n- Lilies cannot protect you or Plaguebearers from attacks.\n- When dead, you may plant a lily once.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["mint", "161"], "Town", "Mint", {subCat: "Protective"}, (e) =>
+	register_role(["mint", "161"], "Florae", "Mint", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 161");
 
-		e.addField("Alignment", "Florae/Town Protective", true);
+		e.addField("Alignment", "Florae Protective", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -164,14 +164,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Mint plants take effect the day after they were planted.\n- Mints provide Powerful defense against all direct attacks.\n- When one of your minted targets is attacked, all mint plants will die and you cannot plant for another night.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["rosemary", "162"], "Town", "Rosemary", {subCat: "Protective"}, (e) =>
+	register_role(["rosemary", "162"], "Florae", "Rosemary", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 162");
 
-		e.addField("Alignment", "Florae/Town Protective", true);
+		e.addField("Alignment", "Florae Protective", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -179,14 +179,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When you infuse a player they will have Roleblock and Control immunity that night.\n- If your target is attacked you cannot infuse a player the next night.\n- You cannot be roleblocked or controlled.\n- You do not protect from indirect or astral attacks.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["dicentra", "163"], "Town", "Dicentra", {subCat: "Support"}, (e) =>
+	register_role(["dicentra", "163"], "Florae", "Dicentra", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 163");
 
-		e.addField("Alignment", "Florae/Town Support", true);
+		e.addField("Alignment", "Florae Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -194,14 +194,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Performing at a player's house prevents anyone from visiting your target. This excludes attacking roles.\n- If a Serial Killer attacks your target, you will die instead.\n- You cannot be roleblocked.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["gardenia", "164"], "Town", "Gardenia", {subCat: "Support"}, (e) =>
+	register_role(["gardenia", "164"], "Florae", "Gardenia", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 164");
 
-		e.addField("Alignment", "Unique Florae/Town Support", true);
+		e.addField("Alignment", "Unique Florae Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -209,14 +209,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Players with gardenias will also give out gardenias when they visit or are visited by a player.\n- When all living players have a gardenia, you will have the ability to reveal during the day.\n- Once you reveal, your vote counts as three.\n- Once you reveal you can hear whispers.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["nightshade", "165"], "Town", "Nightshade", {subCat: "Support"}, (e) =>
+	register_role(["nightshade", "165"], "Florae", "Nightshade", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 165");
 
-		e.addField("Alignment", "Florae/Town Support", true);
+		e.addField("Alignment", "Florae Support", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
@@ -224,14 +224,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Attacking a player uses up your attack tonic.\n- Successfully healing a player from an attack uses up your heal tonic.\n- You may heal yourself once.\n- Visiting one player recharges your tonics once you have used them up.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["phlox", "166"], "Town", "Phlox", {subCat: "Support"}, (e) =>
+	register_role(["phlox", "166"], "Florae", "Phlox", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 166");
 
-		e.addField("Alignment", "Florae/Town Support", true);
+		e.addField("Alignment", "Florae Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -239,7 +239,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When a player is purified they cannot be voted the next day. This can be done while dead.\n- Players will be notified if they are purified.\n- You may purify yourself once.\n- You may only purify three times.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
 	register_role(["primer", "167"], "Neutral", "Primer", {subCat: "Benign"}, (e) =>
@@ -317,7 +317,7 @@ module.exports = (g) =>
 
 	register_role(["supergaurd", "172"], "Town", "Superguard", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 172");
+		e.setDescription("Post 172\n*DON'T FUCK WITH M— fuck.*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "Unstoppable/Basic", true);
@@ -332,7 +332,7 @@ module.exports = (g) =>
 
 	register_role(["keymaster", "173"], "Town", "Keymaster", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 173");
+		e.setDescription("Post 173\n*Sometimes the best protection is just staying in your own little cave of solitude.*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
@@ -340,7 +340,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Give a player a key each day.");
 
-		e.addField("Attributes:", "- Players given a key will be able to lock themselves in their house any night after they have been given a key.\n- When a player locks themselves inside of their house, nobody will be able to target them, but they will be roleblocked through immunity.\n- Once a key is used, it cannot be used again.\n- You may give out five keys.\n- You may give yourself one key.");
+		e.addField("Attributes:", "- Players given a key will be able to lock themselves in their house any night after they have been given a key.\n- When a player locks themselves inside of their house, nobody will be able to target them, but they may not perform any of their other night abilities **unless** it is a self-targeting ability.\n- Each key may only be used once.\n- You may give out five keys in total and one key to yourself.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -377,7 +377,7 @@ module.exports = (g) =>
 
 	register_role(["wm_trapper", "wmtrapper", "trapper", "176"], "Town", "WM Trapper", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 176");
+		e.setDescription("Post 176\n*Workin' nine to five*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "Powerful", true);
@@ -452,7 +452,7 @@ module.exports = (g) =>
 
 	register_role(["cruella_de_vil", "cruelladevil", "cruella", "181"], "Neutral", "Cruella De Vil", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 181");
+		e.setDescription("Post 181\n*Watching you from underneath a rokk.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -460,7 +460,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Check someone each night to determine if they are in possession of a puppy.");
 
-		e.addField("Attributes:", "- At the end of Night 1, all players that were visited will receive a puppy. They will know they received one.\n- Each night, select a player to check them for puppies. If they have one, you will roleblock them and take it.");
+		e.addField("Attributes:", "- At the end of Night 1, all players that were visited by any player will receive a puppy. They will know they received one.\n- Each night, select a player to check them for puppies. If they have one, you will roleblock them and take it, and you will gain Basic Defense for the night.\n- If a player with a puppy attempts to visit you, their ability will fail. Additionally, any visits to you on Night 1 will fail.");
 
 		e.addField("Goal:", "Make sure that no players alive at the end of the game have a puppy.");
 	});
@@ -493,7 +493,7 @@ module.exports = (g) =>
 
 	register_role(["flying_pumpkin", "flyingpumpkin", "pumpkin", "tfptslbooia", "184"], "Town", "The Flying Pumpkin That Shoots Laser Beams Out Of Its Ass", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 184");
+		e.setDescription("Post 184\n*wh—*");
 
 		e.addField("Alignment", "Town Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -590,15 +590,15 @@ module.exports = (g) =>
 
 	register_role(["caroler", "191"], "Town", "Caroler", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 191");
+		e.setDescription("Post 191\n*Crimmas!*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to sing a carol to one player during the night.");
+		e.addField("Abilities:", "- Choose to sing a carol to one player during the night. (3 use, do not lose a charge if ability fails)");
 
-		e.addField("Attributes:", "- If your target does not visit anyone, they will receive a list of three names. One of these names will be evil.\n- You may use your ability three times successfully.\n- You may sing yourself a carol once, and this will count as a use of your ability.");
+		e.addField("Attributes:", "- f your target visits anyone but themselves, they will receive a list of three names. One of these names will be evil. If they visit someone else, your ability will fail.\n- You may sing yourself a carol once, and this will count as a use of your ability.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -635,15 +635,15 @@ module.exports = (g) =>
 
 	register_role(["runner", "194"], "Town", "Runner", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 194");
+		e.setDescription("Post 194\n*Running out of patience for your nonsense.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Run around the Town during the day.");
+		e.addField("Abilities:", "- Run around the Town during the day. (1 use)");
 
-		e.addField("Attributes:", "- When you run around the Town, you will learn the name and roles of three people. You will not learn who is which role.\n- You may run around the town once.");
+		e.addField("Attributes:", "- When you run around the Town, you will learn the name and roles of three people. You will not learn who is which role.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -678,9 +678,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["president", "pres", "197"], "Town", "The President", {subCat: "Power"}, (e) =>
+	register_role(["president", "pres", "the_president", "thepresident", "197"], "Town", "The President", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 197");
+		e.setDescription("Post 197\n*My favorite number is 47.*");
 
 		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "None", true);
@@ -688,9 +688,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Give two players citizenship at night.");
 
-		e.addField("Attributes:", "- If either of your targets are Town Support, they will both gain a charge of a random GIM Town Investigative role.\n- If either of your targets are Town Protective, they will both be granted Powerful Defense for two nights. They will know about this.\n- If either of your targets are Town Investigative, they will both be revealed a role besides each other or The President that is still alive.\n- If either of your targets are Town Killing, they will both be granted a 1-shot Vigi shot that they must use the next night or they lose it. If they kill a Town, they will be roleblocked for two nights after.\n- If either of your are targets are Town Power, they will both be roleblocked. The one that isn't Town Power will be roleblocked the next night as well.\n- If either of your targets are Town Casual, all visits on them tonight and tomorrow night will be prevented, excluding your visit and if they visit each other.\n- If either of your targets are not Town, you will be converted into a Citizen after 2 nights.");
+		e.addField("Attributes:", "- If either of your targets are Town Support, they will both gain a charge of a random GIM Town Investigative role.\n- If either of your targets are Town Protective, they will both be granted Powerful Defense for two nights. They will know about this.\n- If either of your targets are Town Investigative, they will both be revealed a role besides each other or The President that is still alive.\n- If either of your targets are Town Killing, they will both be granted a 1-shot Vigi shot that they must use the next night or they lose it. If they kill a Town, they will be roleblocked for two nights after.\n- If either of your are targets are Town Power, they will both be roleblocked. The one that isn't Town Power will be roleblocked the next night as well.\n- If either of your targets are Town Casual, all visits on them tonight and tomorrow night will be prevented, excluding your visit and if they visit each other.");
 
-		e.addField("Attributes (cont.)", "- You may not give yourself citizenship.\n- Roleblock Immunity");
+		e.addField("Attributes (cont.)", "- If either of your targets are not Town, you will be converted into a Citizen after 2 nights, and your ability is canceled for the night.\n- You may not give yourself citizenship.\n- You have roleblock immunity.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -712,7 +712,7 @@ module.exports = (g) =>
 
 	register_role(["coach", "199"], "Town", "Coach", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 199");
+		e.setDescription("Post 199\n*There's no crying in Salem.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);

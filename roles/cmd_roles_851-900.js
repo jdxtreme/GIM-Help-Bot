@@ -90,7 +90,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "See At Least Two Converted Players Win");
 	});
 
-	register_role(["sk", "sk_with_basic_attack", "sk_basic", "857"], "Neutral", "SK", {subCat: "Killing"}, (e) =>
+	register_role(["sk", "sk_with_basic_attack", "sk_basic", "skwithbasicattack", "skbasic", "857"], "Neutral", "SK", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 857");
 		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
@@ -106,7 +106,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["sk", "sk_with_powerful_attack", "sk_powerful", "858"], "Neutral", "SK with powerful attack", {subCat: "Killing"}, (e) =>
+	register_role(["sk", "sk_with_powerful_attack", "sk_powerful", "skwithpowerfulattack", "skpowerful", "858"], "Neutral", "SK with powerful attack", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 858");
 		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
@@ -122,7 +122,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["sk", "sk_with_unstoppable_attack", "sk_unstoppable", "859"], "Neutral", "SK with unstoppable attack", {subCat: "Killing"}, (e) =>
+	register_role(["sk", "sk_with_unstoppable_attack", "sk_unstoppable", "skwithunstoppableattack", "skunstoppable", "859"], "Neutral", "SK with unstoppable attack", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 859");
 		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
@@ -138,7 +138,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["sk", "sk_with_overkill_attack", "sk_overkill", "860"], "Neutral", "SK with overkill attack", {subCat: "Killing"}, (e) =>
+	register_role(["sk", "sk_with_overkill_attack", "sk_overkill", "skwithoverkillattack", "skoverkill", "860"], "Neutral", "SK with overkill attack", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 860");
 		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/7/7c/RoleIcon_SerialKiller.png";
@@ -245,7 +245,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["ayase_rimura_hopes_last_frontier", "ayase_rimura", "ayaserimura", "hopes_last_frontier", "hopeslastfrontier", "867"], "Neutral", "Ayase Rimura, Hope's Last Frontier", {subCat: "Killing"}, (e) =>
+	register_role(["ayase_hopes_last_frontier", "ayasehopeslastfrontier", "ayase", "hopes_last_frontier", "hopeslastfrontier", "ahlf", "867"], "Neutral", "Ayase Rimura, Hope's Last Frontier", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 867");
 
@@ -341,12 +341,12 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Protect {another} player at night, granting them Powerful defense {but roleblocking them}.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
+		e.addField("Abilities:", "- Protect {another} player at night, granting them Powerful defense {but roleblocking them} if they're a member of the Town.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["marothoner", "maro", "874"], "Town", "Marothoner", {subCat: "Support"}, (e) =>
+	register_role(["marathoner", "mara", "874"], "Town", "Marathoner", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 874");
 
@@ -397,7 +397,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Dig up remains near a player's house at night, learning {8 roles at random, at least 3 of which are Town and 2 of which are evil, one of which is} their role.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
+		e.addField("Abilities:", "- Dig up remains near a player's house at night, learning {10 random roles that could be in this game, at least 4 of which are Town and 3 of which are evil, one of which is} their role. {If they're evil, they will learn that you dug up remains near their house, and will learn the result you received.}\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -410,9 +410,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Secretly remove a Strike from a player.\n- Prepare a Strike on a player. Strikes will activate the following morning.");
+		e.addField("Abilities:", "- Obscure a Striked player, secretly removing the Strike and learning their role.\n- Prepare a Strike on a player. Strikes will activate the following morning.");
 
-		e.addField("Attributes", "- You learn the faction of every Striked player, and the exact role of players you remove Strikes from.\n- If two or more Striked players are alive, you gain basic defense.");
+		e.addField("Attributes", "- You learn the faction of every Striked player.\n- Obscuring a player means they receive no night feedback, and you instead learn it.\n- If two or more Striked players are alive, you gain basic defense.");
 		
 		e.addField("Goal:", factions.Thundercry.goal);
 	});
@@ -425,7 +425,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- {Ready a statue at night, then} carve a statue in the likeness of {another} player {the next night}. All visits {except Powerful or higher attacks} will be redirected to the statue.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
+		e.addField("Abilities:", "- {Ready your tools at night, then} carve a statue in the likeness of a player {other than you the next night}. All visits {except Powerful or higher attacks} will be redirected to the statue.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -440,7 +440,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Move a Strike from a player to another player.\n- Prepare a Strike on a player. Strikes will activate the following morning.");
 
-		e.addField("Attributes", "- Moving Strikes happens before any other actions resolve at night.\n- The new Striked player will be announced in the morning, as if they were normally Striked.\n- You may both prepare a Strike and use your nightly ability on the same night.\n- If two or more Striked players are alive, you gain basic defense.");
+		e.addField("Attributes", "- Moving Strikes happens before any other actions resolve at the end of night.\n- The new Striked player will be announced in the morning, as if they were normally Striked.\n- Every time a new Striked player is announced, you gain an extra anonymous vote for the day.\n- If two or more Striked players are alive, you gain basic defense.");
 		
 		e.addField("Goal:", factions.Thundercry.goal);
 	});
@@ -453,7 +453,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- {Saw a tree at night, then} fell it on the house of a player {other than you the next night}. The tree will deal a Powerful attack to all {Townies and} evil faction members who visit them.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
+		e.addField("Abilities:", "- {Sharpen your saw at night, then} fell a tree on the house of a player {other than you the next night}. The tree will deal a Powerful attack to all {other Townies and} evil faction members who visit them.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -572,7 +572,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Cause someone to die as a direct result of cleaving.");
 	});
 
-	register_role(["necropheonix", "890"], "Neutral", "Necropheonix", {subCat: "Killing"}, (e) =>
+	register_role(["necrophoenix", "necropheonix", "890"], "Neutral", "Necrophoenix", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 890");
 

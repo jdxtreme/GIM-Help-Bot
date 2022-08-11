@@ -22,7 +22,7 @@ const factions =
 	Mafia: {color: "FF0000", icon: "https://cdn.discordapp.com/emojis/974880541298020402.webp", goal: "Kill anyone that will not submit to the Mafia."},
 	Coven: {color: "BF5FFF", icon: "https://cdn.discordapp.com/emojis/974880541180575784.webp", goal: "Kill all who would oppose the Coven."},
 	Rock: {color: "404040", icon: "https://cdn.discordapp.com/emojis/975690756390010891.webp", goal: "Kill anyone that may oppose the Rocks."},
-	Plant: {color: "008000", icon: "https://cdn.discordapp.com/emojis/977636071884087326.webp", goal: "Kill anyone who may oppose the Plants."},
+	Plant: {color: "008000", icon: "https://cdn.discordapp.com/emojis/1005325782215819376.webp", goal: "Kill anyone who may oppose the Plants."},
 	Underworld: {color: "C51C00", icon: "https://cdn.discordapp.com/emojis/987959165341294592.webp", goal: "Kill all who oppose the Underworld sect."},
 	Hallow: {color: "FFC272", icon: "https://cdn.discordapp.com/emojis/993413133597147247.webp", goal: "Kill all who object to the Hallow's will."},
 	Stalker: {color: "000000", icon: "https://cdn.discordapp.com/emojis/988001997477269535.webp", goal: "Kill all who object to the presence of the Stalkers."},
@@ -37,7 +37,7 @@ const factions =
 	SCP: {color: "AAAAAA", icon: "https://cdn.discordapp.com/emojis/976658193323282462.webp", goal: "Kill everyone who is not on the SCP team."},
 	Thundercry: {color: "FFFF00", icon: "https://cdn.discordapp.com/emojis/996214265012813944.webp", goal: "Eliminate all who stand against the Thundercry."},
 	Crew: {color: "EDC240", icon: "https://cdn.discordapp.com/emojis/980989425137901588.webp", goal: "Kill all main factions. (The Crew can win with all Neutrals.)"},
-	Pokemon: {color: "BB2F2F", icon: "https://cdn.discordapp.com/emojis/978766215155707924.webp", goal: "Kill anyone that opposes the Pokemon."},
+	Pokemon: {color: "BB2F2F", icon: "https://cdn.discordapp.com/emojis/1007197839576809492.webp", goal: "Kill anyone that opposes the Pokemon."},
 	Fox: {color: "D67D4D", icon: "https://cdn.discordapp.com/emojis/999505172503994450.webp", goal: "Kill anyone that opposes the Foxes."},
 	Cult: {color: "243A5F", icon: "https://cdn.discordapp.com/emojis/981974951756185680.webp", goal: "Eliminate the Town and all other rival factions."},
 	Horsemen: {color: "6936DB", icon: "https://cdn.discordapp.com/emojis/998691858207228026.webp", goal: "Kill every other player, including the other Horsemen. / Protect the Harbringer and eliminate all who would oppose the Horsemen. (when recruited)"},
@@ -49,10 +49,17 @@ const factions =
 	Random: {color: "random", icon: "https://cdn.discordapp.com/emojis/994284946225115176.webp", goal: "Kill all who would oppose the Randoms."},
 	Last: {color: "376f4E", goal: "See the end brought about, and your enemies erased.", goal: "See the end brought about, and your enemies erased."},
 	Spirit: {color: "CEFDFC", icon: "https://cdn.discordapp.com/emojis/1003046177698234388.webp", goal: "Eradicate the living who you seek revenge of. / Eradicate the living who you seek revenge of whilst keeping yourself in your undead form. (Night 7+)"},
-	Mathematic: {color: "E8EAEC", icon: "https://cdn.discordapp.com/emojis/1003046176888737864.webp", goal: "Erase all who don’t believe in the power of numbers"},
-	Sentry: {color: "4CB9D4", goal: "Rid the town of any dissidents to the Sentries."},
+	Mathematic: {color: "E8EAEC", icon: "https://cdn.discordapp.com/emojis/1005331570607005758.webp", goal: "Erase all who don’t believe in the power of numbers"},
+	Sentry: {color: "4CB9D4", icon: "https://cdn.discordapp.com/emojis/1005334084983193674.webp", goal: "Rid the town of any dissidents to the Sentries."},
 	Toppat: {color: "B01C12", icon: "https://cdn.discordapp.com/emojis/1002935333723328572.webp", goal: "Destroy all who refuse to submit to the Toppats."},
 	Koopa: {color: "4D8A45", icon: "https://cdn.discordapp.com/emojis/1003311828283162725.webp", goal: "Kill all who would oppose Lord Bowser"},
+	Creator: {color: "D95252", goal: "Witness the end of the chaos that you have created. Kill absolutely every non-Creator."},
+	Warfleet: {color: "0000BB", goal: "Destroy your landfaring opposition, and conquer their territory as your own."},
+	Florae: {color: "81B17A", goal: "Exterminate all who would harm your tribe."},
+	SK: {color: "000080", icon: "https://cdn.discordapp.com/emojis/1007310929278554173.webp", goal: "Stab everyone who would oppose you in a very serial way."},
+	Army: {color: "E8D578", goal: "Eliminate all who would not follow martial law."},
+	Discordian: {color: "7289DA", goal: "Eliminate everyone who doesn't actually exist."},
+	Android: {color: "AAFF40", goal: "Crush all inferior beings."},
 	Neutral: {color: "808080", icon: "https://cdn.discordapp.com/emojis/980943261587865650.webp", goalNK: "Kill all who would oppose you.", goalNG: "Eliminate all other residents who have yet to fulfill their purpose."}
 };
 
@@ -244,7 +251,7 @@ function register_role(name, cat, desc, meta, func)
 		desc: "View details of the " + desc + " role.",
 		param: "",
 		meta,
-		func: (chn, message, e, args) =>
+		func: (chn, message, e, args, nosend) =>
 		{
 			let fac = factions[cat] || {color: "808080"};
 			let color = fac.color
@@ -257,7 +264,7 @@ function register_role(name, cat, desc, meta, func)
 
 			try
 			{
-				func(e);
+				func(e, chn, message, args);
 
 				for(let f in e.fields)
 				{
@@ -268,7 +275,8 @@ function register_role(name, cat, desc, meta, func)
 					}
 				}
 
-				chn.send({embeds: [e]});
+				if(!nosend)
+					chn.send({embeds: [e]});
 			}
 			catch(error)
 			{
@@ -283,8 +291,20 @@ function register_role(name, cat, desc, meta, func)
 	if(typeof name === "string")
 		add_cmd(name, cmd);
 	else
+	{
+		let usedNames = {};
+
 		for(let i in name)
-			add_cmd(name[i], cmd);
+		{
+			if(usedNames[name[i]])
+				console.log("Error: Role \"" + cmd.title + " (" + cmd.cat + (cmd.meta.subCat && (" " + cmd.meta.subCat) || "") + ")\" tries to use the name \"" + PRE + name[i] + "\" more than once.");
+			else
+			{
+				usedNames[name[i]] = true;
+				add_cmd(name[i], cmd);
+			}
+		}
+	}
 
 	roles[roles.length] = {cmd, rate: cmd.meta.spawnRate || 1};
 }
@@ -310,8 +330,10 @@ require("./cmd_basics.js")(GLOBAL);
 require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
-for(let i = 50; i <= 1500; i+=50)
+for(let i = 50; i <= 1550; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
+
+require("./roles/cmd_androids.js")(GLOBAL);
 
 
 

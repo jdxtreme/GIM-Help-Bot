@@ -165,17 +165,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "See one life spared by your cause.");
 	});
 
-	register_role(["paradox", "762"], "Neutral", "Paradox", {subCat: "Benign"}, (e) =>
+	register_role(["unknown", "762"], "Any", "Unknown", {anyExCat: ["Neutral"]}, (e) =>
 	{
 		e.setDescription("Post 762");
 
-		e.addField("Alignment", "Neutral Benign", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Powerful", true);
+		e.addField("Alignment", "Any (Non-Neutral)", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Variable", true);
 
-		e.addField("Attributes:", "- Attributes:- Each day, you will be given a random goal, selected from the list below:\n1. Submit a vote for a person.\n2. Ensure that nobody dies today.\n3. Spell someone's name correctly.\n4. Send more than 5 messages in the day chat.\n5. Allow someone to vote for you.");
+		e.addField("Abilities:", "- In the day or night, choose any players, living or dead, and choose an ability number to attempt to use. (e.g. first ability, second, third, etc.) If your role has that ability and it can target the player(s) you choose, it will happen.\n- In the day or night, guess your role and learn if you are correct.");
+
+		e.addField("Attributes:", "- You are given a random role that can roll in your rolelist slot, along with its abilities, attributes, and goal, but you do not know what it is.\n- If you attempt to use an ability from your goal but fail, you will learn the exact reason; wrong number of targets, cannot be used that phase, etc.\n- Until you guess yourself, you can only use one ability per phase.\n- If your role normally uses a factional chat, it cannot do so until you guess yourself correctly.\n- You cannot copy any role with the ability to reveal itself publicly.");
 		
-		e.addField("Goal:", "Fail every listed goal until someone kills you at night.");
+		e.addField("Goal:", "Correctly Guess your role. Alternatively, you can win if you fulfill your role's goal before guessing yourself.");
 	});
 
 	register_role(["willbreaker", "763"], "Neutral", "Willbreaker", {subCat: "Killing"}, (e) =>
@@ -336,7 +338,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack\n- 2 Uses: Heal yourself by 1 HP\n- 1 Use: Remove all negative status effects off of yourself, such as douses, hexes, etc.\n- 1 Use: Learn a player's role. Cannot be used before Night 3.");
 
-		e.addField("Attributes:", "- The King has 6 HP. Any attack that would kill him will instead reduce his HP by 1.\n- The King can only die if his HP reaches 0, or he is lynched.\n- Anything that heals the King will increased his HP, up to a maximum of 6.\n- The King is automatically revealed at the start of the game.\n- If the King dies, Town has exactly 2 days and 2 nights afterwards to kill all of their enemies. If time is up and Town hasn't won yet, they will automatically lose.\n- The King cannot use or hear whispers.\n- The King can only be rerolled by choice at the start of the game. Other roles are incapable of forcefully rerolling the King into another role.\n- If you kill a townie, you will lose a charge from a random ability that has one. If you don't have ability charges to use, you will instead lose the ability to attack.\n- The M-63 Plamen Artillery Piece can only attack the King up to 2 times per night.\n- At the start of the game, the King may opt to name his Kingdom (AKA the current game) into anything he wants. This feature is very important and entirely cosmetic.");
+		e.addField("Attributes:", "- The King has 6 HP. Any attack that would kill him will instead reduce his HP by 1.\n- The King can only die if his HP reaches 0, or he is lynched.\n- Anything that heals the King will increased his HP, up to a maximum of 6.\n- The King is automatically revealed at the start of the game.\n- If the King dies, Town has exactly 2 days and 2 nights afterwards to kill all of their enemies. If time is up and Town hasn't won yet, they will automatically lose.\n- The King cannot use or hear whispers.\n- The King can only be rerolled by choice at the start of the game. Other roles are incapable of forcefully rerolling the King into another role.\n- If you kill a townie, you will lose a charge from a random ability that has one. If you don't have ability charges to use, you will instead lose the ability to attack.\n- The M-63 Plamen Artillery Piece can only attack the King up to 2 times per night.");
+
+		e.addField("Attributes (cont.)", "- At the start of the game, the King may opt to name his Kingdom (AKA the current game) into anything he wants. This feature is very important and entirely cosmetic.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

@@ -207,7 +207,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Once the night starts, you will gain the abilities, attributes, attack level, and defense level (if it is higher than Basic), of a random role that the target has won as. If the role was nerfed/buffed after they won with it, you still get the original version they won as. You will keep your win con.\n- Once the night ends, you will revert back to Echo of Victory.\n- If you target someone who has never won, your role glitches out, causing you to die. Pick someone who has a winner role.\n- You can target yourself during the day.");
 
-		e.addField("Goal:", "See the Town lose the game (You can die once you've won).");
+		e.addField("Goal:", "Have the good faction lose (this can win while dead).");
 	});
 
 	register_role(["loud_fanatic", "loudfanatic", "loud", "fanatic", "lf", "1415"], "PaleMoon", "Loud Fanatic", {subCat: "Support"}, (e) =>
@@ -458,7 +458,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target has a limited use ability, you will steal a charge, letting you use the ability once. If your target is evil, you will instead copy a charge, letting you use their ability once but not taking a charge from the target. You will also be told they are evil (evil meaning against the Town).\n- If your target does not have a limited use ability, roleblock them the current night and the next night. If your target is evil, you will only roleblock them the current night. You will also be told they are evil (evil meaning against the Town).\n- Roleblock Immunity.");
 
-		e.addField("Goal:", "See the Town lose the game.");
+		e.addField("Goal:", "Have the good faction lose (this can win while dead).");
 	});
 
 	register_role(["lurking_in_the_shadows", "lurkingintheshadows", "lurking", "shadows", "lits", "1432"], "Mafia", "Lurking In The Shadows", {subCat: "Espionage"}, (e) =>
@@ -501,7 +501,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Steal all of a player's **Rations**, reducing them to 0 and adding them to your total.");
 
-		e.addField("Attributes:", "- At the start of the game, it's announced that *\"A ravenous rat is scurrying around the town. Keep your rations safe.\"* Each player is given five **Rations** other than you. When a player has no **Rations**, they cannot use their abilities. You're not affected by this. However, all players can give other players any amount of **Rations** as a night action.\n- You have Basic defense for the first time you're attacked.");
+		e.addField("Attributes:", "- At the start of the game, it's announced that *\"A ravenous rat is scurrying around the town. Keep your rations safe.\"* Each player is given five **Rations** other than you. When a player has no **Rations**, they cannot use their abilities. You're not affected by this. However, all players can give other players any amount of **Rations** as a night action.\n- A player's ability will still go through on the night a Ravenous Rat steals from them. Giving a player Rations will happen after the Ravenous Rat steals at night.\n- You have Basic defense for the first time you're attacked.");
 
 		e.addField("Goal:", "Live to see the town lose the game.");
 	});
@@ -557,7 +557,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Compare 6 players tonight. Their player numbers in the player list will be taken. You will receive the sum of all the evil's numbers as your feedback.\nExample: Player 3, 4, 6, 7, 10 and 12 are chosen. Player 3, 4 and 12 are the only evil roles in that list, so you will receive \"19\" as feedback.");
+		e.addField("Abilities:", "- Compare 10 players tonight. Their player numbers in the player list will be taken. You will receive the sum of all the evil's numbers as your feedback.\nExample: Player 1, 3, 4, 6, 7, 10, 12, 15, 19 and 20 are chosen. Player 3, 4, 12 and 20 are the only evil roles in that list, so you will receive \"39\" as feedback.");
 
 		e.addField("Attributes:", "- REF roles, NE, NC and NK will appear as evil to you. You can't bypass detection immunity though.");
 
@@ -731,7 +731,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Toppat.goal);
 	});
 
-	register_role(["goombario", "1450"], "Koopa", "Goombario", {subCat: "Informer"}, (e) =>
+	register_role(["goombario", "goombella", "goom", "1450"], "Koopa", "Goombario/Goombella", {subCat: "Informer"}, (e) =>
 	{
 		e.setDescription("Post 1450");
 
@@ -739,9 +739,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Tattle your Target, Learning their role and what action they did tonight.\n- Roleblock a Player you have previously Tattled, can be used alongside any action and on as many people as possible.");
+		e.addField("Abilities:", "- Tattle your Target, Learning their role.\n- Roleblock a Player you have previously Tattled, can be used alongside any action and on as many people as possible. (Goombario exclusive)\n- Rally Wink another Koopa to let them use their night action twice, can only be used on Attackers 2 times, Day action. (Goombella exclusive)");
 
-		e.addField("Attributes:", "- You can only Roleblock each Tattled player once.");
+		e.addField("Attributes:", "- At the start of the game, choose between Goombario or Goombella, Unlocking different abilities.\n- You can only Roleblock each Tattled player once.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});

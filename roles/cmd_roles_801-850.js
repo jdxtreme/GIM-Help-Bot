@@ -321,17 +321,19 @@ module.exports = (g) =>
 		e.addField("FOR HOSTING:", "I recommend using https://rps101.pythonanywhere.com/ for dealing with who wins. Organizes the information very well.");
 	});
 
-	register_role(["pirate_invasion", "pirateinvasion", "822"], "Neutral", "Pirate Invasion", {subCat: "Chaos"}, (e) =>
+	register_role(["shall_not_be_named", "shallnotbenamed", "one", "otsnbn", "totsnbn", "822"], "Neutral", "The One That Shall Not Be Named", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 822");
 
-		e.addField("Alignment", "Unique Neutral Chaos", true);
+		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- If this rolls and doesn't get rerolled by whoever gets it, every other player is rerolled into a random role that is a version of the TOS Pirate.");
+		e.addField("Abilities:", "- Each night, pick a Role to place a Curse on.");
 
-		e.addField("Goal:", "Survive every Pirate and live to see the end of the game.");
+		e.addField("Attributes:", "- The day after you use your ability, the first person to say the Cursed Role's name, post number, or command in the day chat will be converted to that role.\n- Your conversion cannot change someone's goal if they are part of an informed minority, and their new role isn't. But it can make someone turncoat from one evil faction to another.\n- You cannot Curse unique roles, Town Powers, Factional Leaders, 822, 733, or any role that cannot be copied according to <#978786268597063700>.\n- You win with all players you convert, and they are able to win together regardless of their current alignments.\n- The conversion occurs immediately and targets of it will be notified that they can win with role 822.\n- If you win, other factions will not win.\n- Basic Defense\n- 733 Immunity");
+
+		e.addField("Goal:", "Ensure that the only living players are ones you converted using your Curses. You may fulfill this dead or alive.");
 	});
 
 	register_role(["pirate_but_with_defense", "piratebutwithdefense", "pwbd", "823"], "Neutral", "Pirate but with defense", {subCat: "Chaos"}, (e) =>
@@ -349,17 +351,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Win 2 duels.");
 	});
 
-	register_role(["flummery", "hfwatsmpaoas", "824"], "Neutral", "Holy flummery why are there so many pirates all of a sudden?", {subCat: "Chaos"}, (e) =>
+	register_role(["bailor", "824"], "Mafia", "Bailor", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 824");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "\"No Bullshit\"", true);
+		e.addField("Alignment", "Mafia Support", true);
+		e.addField("Attack", "None (Basic)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Know how many pirates are in the game, and if you're visited by a pirate, automatically kill them. No bullshit.\n- If post 822 roles, force all pirates to reroll, including post 822.\n- You can only spawn if at least one pirate exists.");
+		e.addField("Abilities:", "- Can Perform the Factional Mafia Kill OR visit another player.");
 
-		e.addField("Goal:", "Kil all pirates.");
+		e.addField("Attributes:", "- If you visit somebody who is not in jail, they will be given something to get out of jail once.\n- If you visit someone in jail, you will break them out and direct their ability before the night is over. They will be informed of this\n- If you are jailed, you will escape and kill the person who jailed you\n- If you visit either a Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, or Warden, you will kill them.\n- If either the Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, or Warden dies by any means, you will become a Random Mafia. If any of the listed roles are still alive, you will not change roles\n- This role cannot exist without either a Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, or Warden.");
+
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["equalization_above_all", "equalizationaboveall", "equalization", "eaa", "825"], "Neutral", "The Equalization Above All", {subCat: "Chaos"}, (e) =>

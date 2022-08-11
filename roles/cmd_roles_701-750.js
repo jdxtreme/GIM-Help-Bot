@@ -79,7 +79,7 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Town.goal);
     });
 
-    register_role(["firefighter_is_a_good_role", "ffiagr", "706"], "Neutral", "Firefighter Is a Good Role", {subCat: "Benign"}, (e) =>
+    register_role(["firefighter_is_a_good_role", "firefighterisagoodrole", "ffiagr", "706"], "Neutral", "Firefighter Is a Good Role", {subCat: "Benign"}, (e) =>
     {
         e.setDescription("Post 706");
 

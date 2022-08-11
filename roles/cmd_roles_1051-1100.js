@@ -236,15 +236,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Underworld.goal);
 	});
 
-	register_role(["telepath", "1067", "425u"], "Unseen", "Telepath", {subCat: "Support"}, (e) =>
+	register_role(["ask_grandma", "askgrandma", "grandma", "1067", "425u"], "Unseen", "Ask Grandma", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1067\nConverted from: Clairvoyant");
+		e.setDescription("Post 1067\nConverted from: Zoltar");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Implant (Night): Choose a player. You may give them any night message of your choosing other than a death message.\n- Circle of Truth (Night, 2 use): Choose a word. You will learn all players with that word in their role card.");
+		e.addField("Abilities:", "- Old Wise One (Night): Choose a player. If they die tonight, you will learn the identity and roles of all players who visited or were visited by your target. If nobody visited your target and they didn’t visit anyone, you may choose someone the following day to learn the role of.\n- Grandma Always Knows (Night, 2 use): Choose a word. You will learn all players with that word in their role card.");
+
+		e.addField("Attributes:", "- You may not use Old Wise One on the player(s) that the Assassin is attempting to kill that night.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});

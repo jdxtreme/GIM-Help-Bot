@@ -35,30 +35,30 @@ module.exports = (g) =>
 
 	register_role(["spoiler", "303"], "Neutral", "Spoiler", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 303");
+		e.setDescription("Post 303\n*Snape kills Dumbledore.*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Resurrect a dead non-Townie or non-Florae at night.");
+		e.addField("Abilities:", "- Resurrect a dead player who is not part of a \"good\" faction in #factions (1 use).");
 
-		e.addField("Attributes:", "- You may only use your ability once.\n- Roleblock and Redirect Immune");
+		e.addField("Attributes:", "- You are roleblock and redirect immune.");
 		
 		e.addField("Goal:", "Win with the person you resurrected.");
 	});
 
 	register_role(["soulbinder", "304"], "Coven", "Soulbinder", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 304");
+		e.setDescription("Post 304\n*You belong with me.*");
 
 		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Basic (Unstoppable)", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Bind a player's soul to yours each night.");
 
-		e.addField("Attributes:", "- When a player's soul is binded to yours, they will be dealt an Unstoppable attack when you die.\n- If a binded player dies, all other binded players will be dealt an Astral Attack and will become unbound.\n- With the Necronomicon, you may either bind two players' souls at night or choose to kill all binded players.");
+		e.addField("Attributes:", "- If a bound player dies, all other bound players will be dealt an Astral Basic Attack and will become unbound.\n- If you die, all bound players will be dealt an Astral Unstoppable Attack.\n- With the Necronomicon, you may either bind two players' souls at night or choose to kill all bound players.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -74,11 +74,11 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- At the beginning of the game, choose a word that's not already the name of a role. The host will come up with a role that is accurately described by that word. It can't have mechanics that aren't seen on any other roles. You become that role.");
 	});
 
-	register_role(["uncontrollable_mech", "uncontrollablemech", "uncontrollable", "mech", "um", "306"], "Town", "Uncontrollable Mech", (e) =>
+	register_role(["uncontrollable_mech", "uncontrollablemech", "uncontrollable", "mech", "um", "306"], "Town", "Uncontrollable Mech", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 306");
 
-		e.addField("Alignment", "Town", true);
+		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Basic)", true);
 
@@ -121,7 +121,7 @@ module.exports = (g) =>
 
 	register_role(["dice_roller", "diceroller", "dice", "309"], "Mafia", "Dice Roller", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 309");
+		e.setDescription("Post 309\n*I LOST THE RUN TO RNG!*");
 
 		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "None", true);
@@ -129,7 +129,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Target one player each night and roll the dice.");
 
-		e.addField("Attributes:", "- You will target your target with another Mafia role's night ability based on the number you roll from the dice.\n- You will use the ability of the Wiki Mafia version of your role.\n- The host will roll the dice for you at the end of the night.\n- You may not target yourself or any other Mafia members.\n- The results for dice rolls are as follows:\n--- 1: Consigliere\n--- 2: Consort\n--- 3: Agent\n--- 4: Musician\n--- 5: Watcher\n--- 6: Bartender");
+		e.addField("Attributes:", "- You will target your target with another Mafia role's night ability based on the number you roll from the dice.\n- You will use the ability of the Wiki Mafia version of your role.\n- - The host will roll the dice for you. You will not be notified what role's ability you will perform until you perform it.\n- You may not target yourself or any other Mafia members.\n- The results for dice rolls are as follows:\n--- 1: Consigliere\n--- 2: Consort\n--- 3: Agent\n--- 4: Musician\n--- 5: Watcher\n--- 6: Bartender");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -164,7 +164,7 @@ module.exports = (g) =>
 
 	register_role(["rumor", "312"], "Mafia", "Rumor", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 312");
+		e.setDescription("Post 312\n*I'm the one you're leaving her for.*");
 
 		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "None", true);
@@ -172,22 +172,22 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Spread a rumor about a player each night.");
 
-		e.addField("Attributes:", "- Spreading a rumor about a player will cause them to become Hated. Only they will be notified about this.\n- Hated players will require one less vote to lynch.\n- You may not spread a rumor about yourself.");
+		e.addField("Attributes:", "- Spreading a rumor about a player will cause them to become Hated. Only they will be notified about this.\n- Hated players will require one less vote to lynch.\n- You may not spread a rumor about yourself or any other Mafia members.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["wm_seditionist", "wmseditionist", "seditionist", "313"], "Mafia", "WM Seditionist", {subCat: "Head"}, (e) =>
 	{
-		e.setDescription("Post 313");
+		e.setDescription("Post 313\n*We the members of the Mafia, in order to form an even more perfect Union...*");
 
 		e.addField("Alignment", "Unique Mafia Head", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Send a private message to fellow Mafia members each day.\n- Prepare a speech during the day.");
+		e.addField("Abilities:", "- Prepare a speech during the day.");
 
-		e.addField("Attributes:", "- After sending a private message to the other Mafia, each member may send one private message back to you. Private messages are not announced to the town.\n- When you prepare a speech, you will inspire your fellow Mafia, including yourself, the following night.\n- Being inspired temporarily gives all Mafia members roleblock and control immunity, and they cannot be scared away for the night.\n- When the Mafia are inspired, members may use the ability of a dead Mafia member instead of their own. However, they cannot use the abilities of Mafia Head roles.\n- You cannot prepare a speech two days in a row.\n- You may only prepare a speech twice.");
+		e.addField("Attributes:", "- When you prepare a speech, you will inspire your fellow Mafia, including yourself, the following night.\n- Being inspired temporarily gives all Mafia members roleblock and redirect immunity.\n- When the Mafia are inspired, members may use the ability of a dead Mafia member instead of their own; however, they cannot use the abilities of Mafia Head roles.\n- You may only prepare two speeches and cannot prepare them two days in a row.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -297,7 +297,7 @@ module.exports = (g) =>
 
 	register_role(["bill_wurtz", "billwurtz", "bill", "wurtz", "320"], "Neutral", "Bill Wurtz", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 320");
+		e.setDescription("Post 320\n*hi. you're on a rock floating in space.*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Basic", true);
@@ -306,6 +306,8 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- Your first post of each day must contain a quote from the video \"history of the entire world, i guess\" by bill wurtz.\n- Each night, you may play jazz msuci. Every player that visits you will become a fan. If nobody visits you, you will randomly auto-kill 2 players.");
 		
 		e.addField("Goal:", "Get 3 fans.");
+		
+		e.addField("Notifications (this is essential to hosting):", "\"looks like it's time to play some *smooth jazz*\" (action confirmation message)\n\"no jazz tonight. it's sad. it makes me sad.\" (night feedback if player did not play jazz msuci)\n\"thanks for checking in i'm still a piece of garbage.\" (night feedback if player played jazz msuci and was visited)\n\"uh oh. it looks like nobody visited you last night. you will clobber two random people because that's just what you do.\" (night feedback if player played jazz msuci but was not visited)\n\"**You were clobbered by bill wurtz! You have died!**\" (night feedback for anyone killed by bill wurtz)");
 	});
 
 	register_role(["wraith", "321"], "Neutral", "Wraith", {subCat: "Killing"}, (e) =>
@@ -361,9 +363,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player each night. You'll also attack all their visitors.");
 
-		e.addField("Attributes:", "- As long as you are alive, all roles' win conditions are replaced by \"Eliminate all players except for you.\"");
+		e.addField("Attributes:", "- As long as you are alive, all roles' win conditions are replaced by \"Eliminate all players except for Hatred and you.\"");
 		
-		e.addField("Goal:", "Eliminate all players except for you.");
+		e.addField("Goal:", "Eliminate all players except for up to one other player and you.");
 	});
 
 	register_role(["insomniac", "325"], "Neutral", "Insomniac", {subCat: "Benign"}, (e) =>
@@ -374,11 +376,11 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Give someone a drink of coffee, allowing them to stay awake the night as well. They may use their ability five times on that night.");
+		e.addField("Abilities:", "- During the day, give someone a drink of coffee, allowing them to stay awake. They may use their ability twice tonight and can speak during the night alongside you. Not usable on D1.");
 
-		e.addField("Attributes:", "- You are muted during the day, but can talk during night.");
+		e.addField("Attributes:", "- You are muted during the day, but can talk during night.\n- Cannot self-target.");
 		
-		e.addField("Goal:", "Give three people cups of coffee.");
+		e.addField("Goal:", "Give at least one cup of coffee to all factions in the game before the game ends. Neutrals are included.");
 	});
 
 	register_role(["sheep", "326"], "Neutral", "Sheep", {subCat: "Benign"}, (e) =>
@@ -402,15 +404,15 @@ module.exports = (g) =>
 
 	register_role(["vegan", "327"], "Town", "Vegan", {subCat: "Casual"}, (e) =>
 	{
-		e.setDescription("Post 327");
+		e.setDescription("Post 327\n*Well, let's just hope you're not a teacher.*");
 
 		e.addField("Alignment", "Town Casual", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Inform someone that you are Vegan each night.");
+		e.addField("Abilities:", "- Inform someone that you are Vegan each night.\n- Choose someone who you have informed that you are a Vegan at night. You will give them a lecture on veganism roleblocking them through immunity. If you target someone that you have not informed, your ability will fail.");
 
-		e.addField("Attributes:", "- The player you notify will receive your name and role.");
+		e.addField("Attributes:", "- Players who visit you will automatically be informed that you are a Vegan. You will be told how many people you inform each night, but not who you inform.\n- Players who you have informed will receive your name and your role.\n- You may not multitask.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -462,15 +464,17 @@ module.exports = (g) =>
 
 	register_role(["shifter", "331"], "Coven", "Shifter", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 331");
+		e.setDescription("Post 331\n*Goddamn sticky keys...*");
 
 		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "None (Powerful)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Shift everyone's targets.");
+		e.addField("Abilities:", "- Choose whether to shift the Town during the day. (3 use)\n- **(Necronomicon Required)** Choose whether to faux shift the Town during the day.\n- Choose a shift offset during the night if you chose to shift during the day.");
 
-		e.addField("Attributes:", "- During the day, you may decide to shift each player's targets the following night. If you do this, every player's target will be shifted to a different player. The Town will receive a message notifying them that a shift is occurring.\n- At night, you decide the shift amount. This will determine how much the players' targets will be shifted. (For example, if you shifted -8, then players targeting #10 will instead target #2 - this also wraps around, so players targeting #5 instead target #12 in a 15-player game).\n- You may only do this three times.\n- Other members of the Coven are immune to your shifts.\n- With the Necronomicon, a Powerful attack will be dealt to the player in slot #1 after your shift takes effect. You may also choose to do a \"faux shift\" which has unlimited uses and will only kill the player in the #1 slot (it will not redirect any targets and will not notify the Town).\n- Roleblock Immune");
+		e.addField("Attributes:", "- When you choose to shift the Town, the player list will be shifted forward by a certain amount at the end of the night. For example, a shift of 1 will shift the player at slot #1 to slot #2, the player at slot #13 to slot #14, and the player in the highest-numbered spot to slot #1. The Town will be notified that you have chosen to shift at the beginning of the night.\n- During a night you choose to shift, everyone must use their targeted abilities on a slot number as opposed to a particular player. Everyone will perform their abilities on the player that ends up at the spot they chose after your shift takes affect.\n- With the Necronomicon, the player at slot #1 after your shift will be dealt a Powerful Attack. Choosing to do a faux shift will not offset anyone's targets, but it will offset the player list at the end of the night changing who ends up at slot #1. The Town will not be notified when you choose to do a faux shift.\n- Other members of the Coven are immune to shifts.");
+		
+		e.addField("Attributes (cont.):", "- Your night ability cannot be stopped for any reason.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -550,7 +554,7 @@ module.exports = (g) =>
 
 	register_role(["wm_judge", "wmjudge", "judge", "337"], "Neutral", "WM Judge", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 337");
+		e.setDescription("Post 337\n*Plaintiff... smack his nuts.*");
 
 		e.addField("Alignment", "Unique Neutral Chaos", true);
 		e.addField("Attack", "Powerful", true);
@@ -732,7 +736,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Unmask someone each night. You'll get a description of their appearance based on a literal interpretation of their role's name.");
 

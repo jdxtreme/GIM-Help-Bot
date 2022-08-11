@@ -17,15 +17,15 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see no kills occur on any given night. You can't win on Night 1.");
 	});
 
-	register_role(["nervous_sleeper", "nervoussleeper", "2"], "Town", "Nervous Sleeper", {subCat: "Killing"}, (e) =>
+	register_role(["nervous_sleeper", "nervoussleeper", "ns", "2"], "Town", "Nervous Sleeper", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 2");
 
-		e.addField("Alignment", "Town Killing", true);
+		e.addField("Alignment", "Unique Town Killing", true);
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Follow a player at night.");
+		e.addField("Abilities:", "- Follow a player at night. Your ability is mandatory.");
 
 		e.addField("Attributes:", "- If your target visits someone who dies, deal an Unstoppable attack to them. If they visit you and you die, you will not attack them.\n- If you stay home, you will instead attack your visitors.\n- If you attack a Townie, you cannot act the next night. The first time you do this, degrade to Powerful attack.\n- You may only stay home twice.");
 
@@ -102,9 +102,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Shoot a player with your shotgun at night.");
 
-		e.addField("Attributes:", "- You will also shoot anyone who visits your target. This counts as using your main ability, which means that anyone who visits them will get shot, and anyone who visits them also gets shot, and so on.");
+		e.addField("Attributes:", "- You will also shoot anyone who visits your target. This counts as using your main ability, which means that anyone who visits them will get shot, and anyone who visits them also gets shot, and so on.\n- Powerful and a Half is above Powerful defense.");
 
-		e.addField("Goal:", "Shoot everyone.");
+		e.addField("Goal:", "Shoot everyone. (NK Goal)");
 	});
 
 	register_role(["angel_of_death", "angelofdeath", "aod", "8"], "Neutral", "Angel of Death", {subCat: "Killing"}, (e) =>
@@ -366,6 +366,21 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
+	register_role(["knight", "26"], "Neutral", "Knight", {subCat: "Benign"}, (e) =>
+	{
+		e.setDescription("Post 26");
+
+		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None (Basic)", true);
+
+		e.addField("Abilities:", "- Protect someone once per game.\n- Use your shield once to protect yourself.");
+
+		e.addField("Attributes:", "- At night, choose someone to protect.\n- You cannot protect someone twice.\n- If you successfully protect someone once, your armor will break. This will make the next successful protection fatal.\n- If you cannot protect anyone anymore, you will commit suicide.\n- Protecting someone will grant them Powerful defense.\n- Your shield grants you Basic defense.");
+
+		e.addField("Goal:", "Die protecting someone.");
+	});
+
 	register_role(["artificial_disease_developer", "artificialdiseasedeveloper", "artificial_disease", "artificialdisease", "add", "27"], "Neutral", "Artificial Disease Developer", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 27");
@@ -487,7 +502,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Investigate a player.");
 
-		e.addField("Attributes:", "- You will receive 5 roles. Two will always be Town roles, one will always be a role that opposes the Town, and one will always be their actual role. Investigating them again will not give a new result.");
+		e.addField("Attributes:", "- You will receive 5 roles. Two will always be Town roles, while one will always be a role that opposes the Town. The Town or opposing Town role(s) in the result will always include the target's role, and if it doesn't fit in either category, it will still appear in the result.\n- Investigating them again will not give a new result.\n- If your target is non-Town, they'll learn they were investigated, and the result you were given.\n- If your target was framed, their original role is not guaranteed to appear in your result.\n- Your results can only contain roles that can exist.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

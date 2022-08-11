@@ -70,7 +70,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1005\nConverted from: Stardust Angel");
 
-		e.addField("Alignment", "Unseen Investigative", true);
+		e.addField("Alignment", "Unseen Protective", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 

@@ -736,7 +736,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Every full moon, predict the fate of a player.");
+		e.addField("Abilities:", "- Each night, predict the fate of a player.");
 
 		e.addField("Attributes:", "- If you're lynched, all the players that you selected will have their roles revealed publicly the next day.");
 		

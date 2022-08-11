@@ -192,7 +192,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
-	register_role(["gyarados", "913"], "Pokemon", "Gyarados", {subCat: "Evolved"}, (e) =>
+	register_role(["gyarados", "913"], "Pokemon", "Gyarados", {subCat: "Evolved", cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 913");
 
@@ -209,7 +209,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
-	register_role(["slaking", "914"], "Pokemon", "Slaking", {subCat: "Evolved"}, (e) =>
+	register_role(["slaking", "914"], "Pokemon", "Slaking", {subCat: "Evolved", cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 914");
 
@@ -226,7 +226,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
-	register_role(["mr_mime", "mrmime", "915"], "Pokemon", "Mr Mime", {subCat: "Evolved"}, (e) =>
+	register_role(["mr_mime", "mrmime", "915"], "Pokemon", "Mr Mime", {subCat: "Evolved", cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 915");
 
@@ -671,7 +671,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may visit someone and learn their exact role. This ignores any framing or disguising effect.\n- Once per game, at night you can choose to start a riot, lowering the amount of votes needed to lynch someone the next day by 3.");
 		
-		e.addField("Goal:", "See the town lose **or** see a Town (Power) get lynched.");
+		e.addField("Goal:", "See the town lose **or** see a Town (Power) get lynched (this can win while dead).");
 	});
 
 	register_role(["spite", "945"], "Coven", "Spite", {subCat: "Evil"}, (e) =>

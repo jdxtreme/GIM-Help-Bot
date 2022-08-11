@@ -49,19 +49,19 @@ module.exports = (g) =>
 
 	register_role(["token_vendor", "tokenvendor", "token", "403"], "Neutral", "Token Vendor", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 403");
+		e.setDescription("Post 403\n*Someone's gonna get their butt kicked.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Give a player a token each night.\n- Choose to don a bulletproof vest.");
+		e.addField("Abilities:", "- Give one player one token at night.\n- Choose to don a bulletproof vest at night granting yourself Basic Defense. (2 use)\n- If a player with a non-played token dies, choose to give their token to another player. This does not count towards your win condition.");
 
-		e.addField("Attributes:", "- A player with a token may choose to play their token at any point during the day. They may choose to play the token on themselves or another player.\n- The identity of the player who plays a token will not be revealed, but the fact that a token has been played will be revealed.\n- If a player dies with a non-played token, you may choose to give the token to another player, but this will not count towards your win condition.\n- You will receive a list of tokens that you need to give out to fulfill your win condition at the start of each night.\n- You have two bulletproof vests to use throughout the game. You may don a vest the same night you give out a token.\n- You may give yourself one token throughout the game.");
+		e.addField("Attributes:", "- A player with a token may choose to play their token at any point during the day. They may choose to play the token on themselves or another player. When a token is played, its effect persists for the rest of the day that it is played.\n- The identity of the player who plays a token will not be revealed, but the token played will be. If the token has a minus next to it on the token list, the identity of the target will be revealed; if it has a plus, the identity of the target will not be revealed.\n- You have one of each of your tokens to give out. You will receive a list of tokens that you need to give out to fulfill your win condition at the start of each night.\n- You may give yourself one token throughout the game.\n- You may multitask.");
 		
 		e.addField("Goal:", "Give out one of each of your distinct tokens.");
 		
-		e.addField("Token List:", "Immunity Token - Target cannot be voted for the rest of the day.\nDisfranchisement Token - Target cannot vote for the rest of the day.\nTriple Token - Target's vote counts as 3 for the rest of the day.\nPressure Token - Control the votes of another player for the rest of the day.\n(Used in games w/ trial system) Acquittal Token - Target will immediately be voted innocent (can only be played when someone is on the stand).\n(Used in games w/ plurality system) Bar Token - In order to be lynched, target must acquire 3/4 of the votes. If target has majority at the end of the day, but does not reach 3/4 of the votes, then the person with the second-most votes will be lynched instead.");
+		e.addField("Token List:", "- Immunity Token - Target cannot be voted for.\n- Triple Token - Target's vote counts as three.\n+ Disfranchisement Token - Target cannot vote.\n+ Pressure Token - Player that plays this token controls the votes of target.\n+ Bar Token - Target must acquire 3/4 of the votes to be lynched.");
 	});
 
 	register_role(["missingno", "404"], "Town", "MissingNo", {subCat: "Killing"}, (e) =>
@@ -81,30 +81,17 @@ module.exports = (g) =>
 
 	register_role(["wm_revolutionary", "wmrevolutionary", "revolutionary", "405"], "Town", "WM Revolutionary", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 405");
+		e.setDescription("Post 405\n*Who would ever want to be king?*");
 
 		e.addField("Alignment", "Unique Town Power", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Hold an anonymous council each night.");
 
-		e.addField("Attributes:", "- Each night you are alive, all other players in the game will be able to send a vote to your council. You may also vote in your council.\n- Players may cast their vote for any other living player in the game, or they may abstain.\n- If a majority of the votes are cast for one player, you will attack them. You will know the name of the player you attack.\n- If a majority of the votes abstain, you will attack no one.\n- Votes for you will not count for or against the majority in your council.\n- When you attack a player, you will gain control and roleblock immunity.\n- If a player does not send in a vote, they will automatically abstain.\n- If there is a tie, you will be the final deciding vote. If you voted for a target that is not one of the majority votes, you will attack no one.\n- If you kill a member of the Town, you will no longer hold your councils.");
+		e.addField("Attributes:", "- Each night you are alive, all other Town members in the game will be able to send a vote to your council. You may also vote in your council.\n- Players may cast their vote for any other living player in the game, or abstain. If a player does not send in a vote, they will abstain.\n- If a majority of the votes are cast for one player, you will attack them. You will know the name of the player you attack.\n- If a majority of the votes abstain, you will attack no one.\n- Votes for you will not count towards the majority in your council.\n- When you attack a player, you will gain roleblock and redirect immunity.\n- If there is a tie, you will be the final deciding vote. If you voted for a target that is not one of the majority votes, you will attack no one.\n- If you kill a member of the Town, you will no longer hold your councils.");
 		
 		e.addField("Goal:", factions.Town.goal);
-	});
-
-	register_role(["late_bloomer", "latebloomer", "406"], "Neutral", "Late Bloomer", {subCat: "Benign"}, (e) =>
-	{
-		e.setDescription("Post 406");
-
-		e.addField("Alignment", "Neutral Benign", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None (Basic)", true);
-
-		e.addField("Abilities:", "- On day 4, you will become your actual role. This will be announced to the town.\n- You may choose to don one bulletproof vest granting you Basic Defense before you become your actual role.");
-		
-		e.addField("Goal:", "Become your actual role and fulfill its win condition.");
 	});
 
 	register_role(["jd", "406"], "Neutral", "Jd", {subCat: "Benign"}, (e) =>
@@ -139,15 +126,15 @@ module.exports = (g) =>
 
 	register_role(["conspirator", "408"], "Neutral", "Conspirator", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 408");
+		e.setDescription("Post 408\n*Pretty soon they'll discover me in the Super Sargasso Sea!*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "Basic", true);
 
 		e.addField("Abilities:", "- Plan a conspiracy between three players during the night.");
 
-		e.addField("Attributes:", "- If one of the players mentions the name of any of the other players you planned a conspiracy about, you will become frantic. This does not trigger upon voting.\n- When you are frantic, you will force the third player to choose to kill by the end of the day. This player will be dealt a Powerful attack at the end of the day. If they do not choose a player, one will be randomly selected.\n- Your conspiracy only stands that day after you plan it.\n- You may not plan a conspiracy about yourself.");
+		e.addField("Attributes:", "- If one of the players you planned a conspiracy about mentions the name of any of the other two players, your conspiracy will be proven. This does not trigger upon voting.\n- When your conspiracy is proven, you will force the third player to choose to kill one of the other two players before the day ends. You will deal a Powerful Attack to this player at the end of the day. If they do not choose a player by the end of the day, one will be randomly selected. \n- Your conspiracy only stands that day after you plan it.\n- You may not plan a conspiracy about yourself you nincompoop.");
 		
 		e.addField("Goal:", "Have your conspiracies proven three times.");
 	});
@@ -199,17 +186,17 @@ module.exports = (g) =>
 
 	register_role(["comedian", "412"], "Neutral", "Comedian", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 412");
+		e.setDescription("Post 412\n*You gotta stand up for yourself.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Invite up three people to your nightly comedy show during the day.\n- Tell a hilarious joke.");
+		e.addField("Abilities:", "- Invite up three people to your nightly comedy show and plan a hilarious joke during the day.\n- Don a bulletproof vest at night. (2 use)");
 
-		e.addField("Attributes:", "- Each day, you may choose three players to invite to your comedy show at night.\n- You must send the moderator the joke you will tell at your show before/at the same time as you invite people.\n- All three of your audience members will receive your joke at the start of the night. This will not affect their night action.\n- Your audience members will give either a positive or negative review about your joke. These will be anonymous.\n- You will receive the number of positive and negative reviews you received at the end of the night.\n- You have two bulletproof vests that grant you Basic Defense that you may use throughout the game.\n- You may not put yourself in your own audience.");
+		e.addField("Attributes:", "- You must send the host the joke you will tell at your show before/at the same time you invite people.\n- All three of your audience members will receive your joke at the start of the night. This will not affect their night action.\n- Your audience members will give either a positive or negative review of your joke. These will be anonymous.\n- You will receive the number of positive and negative reviews you received at the end of the night.\n- You may not put yourself in your own audience you nincompoop.");
 		
-		e.addField("Goal:", "Receive eight positive reviews.");
+		e.addField("Goal:", "Receive seven positive reviews.");
 	});
 
 	register_role(["less_annoying_chess_grandmaster", "lessannoyingchessgrandmaster", "lagcpimrs", "chess", "413"], "Town", "Less Annoying Grandmaster Chess Player In My Reccomended Section", {subCat: "Killing"}, (e) =>
@@ -319,7 +306,7 @@ module.exports = (g) =>
 
 	register_role(["stoner", "420"], "Neutral", "Stoner", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 420");
+		e.setDescription("Post 420\n*Drop it like it's hot.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -394,9 +381,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["clairvoyant", "clair", "425"], "Town", "Clairvoyant", {subCat: "Investigative"}, (e) =>
+	register_role(["zoltar", "425"], "Town", "Zoltar", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 425");
+		e.setDescription("Post 425\n*Ladies and gentlemen, boys and girls. Let Zoltar the Great read your mind!*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -404,7 +391,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Read the mind of a player at night to discover if they are thinking about something.");
 
-		e.addField("Attributes:", "- You may choose a player to read their mind and a word. You will discover if the player has the given word in their role card's abilities and attributes.\n- You may read the minds of the players five times.");
+		e.addField("Attributes:", "- You may choose a player to read their mind and a word. You will discover if the player has the given word in their role card's abilities and/or attributes.\n- You may read the minds of five players.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -496,7 +483,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The host will give you 5 roles at the start of every day, and you pick one to transform into. You will gain all of that roles abilities, attributes (not including access to factional kills or factional chats), and attack/defense values.\n- You will keep The Shifter's win condition, and you will revert back to The Shifter at the start of the day. You keep this attribute whenever you shift info another role.");
 		
-		e.addField("Goal:", "See the Town lose the game. (You may die and still win if Town lost before your death.");
+		e.addField("Goal:", "Have the good faction lose (this can win while dead).");
 	});
 
 	register_role(["collector", "432"], "Coven", "Collector", {subCat: "Evil"}, (e) =>

@@ -141,7 +141,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 610");
 
-		e.addField("Alignment", "Sith Apprentice", true);
+		e.addField("Alignment", "Sith Support", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
@@ -263,11 +263,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Town Support", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Varies", true);
+		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Wait until the late game and then become vital.");
 
-		e.addField("Attributes:", "- You start the game with no abilities.\n- At the start of the game, get a random Town (Protective) role. This role will be assumed to be on you every night until the first time you would die from an attack.\n- Once only half the players remain, gain 3 town abilities of your choice. The abilities must be from different subalignments.\n- You cannot get abilities that harm you.\n- Once you use all your abilities, gain a new set of abilities.");
+		e.addField("Attributes:", "- You start the game with no abilities.\m- Once only half the players remain, gain 3 town abilities of your choice. The abilities must be from different subalignments. You can not pick the same subalignment again, even if you are picking a new set of abilities.\n- You can only get 1 day ability per set of abilities.\n- Once you use all your abilities, gain a new set of abilities. You may not repeat abilities.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -413,9 +413,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Make a bomb to toss at someone.");
+		e.addField("Abilities:", "- Make a bomb during the day and toss a bomb at someone during the night.");
 
-		e.addField("Attributes:", "- At night, you can make a bomb.\n- You will say an ingredient to put in your bomb, and the host will give you an effect based on your word. \n- Making a bomb takes 1 night.\n- After making a bomb, you may throw it at someone, dealing a powerful attack as well as doing whatever the ingredient adds to it.\n- You may only have 1 bomb at a time.");
+		e.addField("Attributes:", "- During the day, you can make a bomb.\n- You will say an ingredient to put in your bomb, and the host will give you an effect based on your word.\n- After making a bomb, you may throw it at someone, dealing a powerful attack as well as doing whatever the ingredient adds to it.\n- If you do not make a bomb during the day, you will be given a Basic Bomb which has no effect (just a plain powerful attack).");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});

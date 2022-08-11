@@ -90,15 +90,15 @@ module.exports = (g) =>
 
 	register_role(["grace", "557"], "Hallow", "Grace", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 557");
+		e.setDescription("Post 557\n*Go towards the light.*");
 
 		e.addField("Alignment", "Hallow Protective", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Bask the Hallow in the light of grace during the day. You may do this once.\n- Bask the Hallow in your holy grace during the night. You may do this three times.");
+		e.addField("Abilities:", "- Bask the Hallow in the light of grace during the day. (1 use)\n- Bask the Hallow in your holy grace during the night. (4 use)");
 
-		e.addField("Attributes:", "- Basking the Hallow in the light of grace will allow all Hallow members to choose a GIM role to show up as to all Investigative abilities for the following night. If they do not choose a role, a random Town GIM role with the same alignment will be chosen for them. Gain 2 Faith Points for each Investigative fooled.\n- Basking the Hallow in the holy grace will prevent anyone from visiting any Hallow member tonight. Anyone who visits a Hallow member will be notified that they were roleblocked. Gain 1 Faith Point for each visit prevented.\n- Once you have reached 4 Faith Points, the Saint will gain a Saint Point.\n- Once the Saint has become the Paragon, you will lose your charge of light of grace. If you have used it already, you will lose a charge of healing grace.");
+		e.addField("Attributes:", "- Basking the Hallow in the light of grace will allow all Hallow members to choose a GIM role to show up as to all Investigative abilities for the following night. If they do not choose a role, a random Town GIM role with the same subalignment will be chosen for them, and they will be notified what this role is. Gain 2 Faith Points for each Investigative fooled.\n- Basking the Hallow in the holy grace will prevent anyone from visiting any Hallow member tonight. Anyone who visits a Hallow member will be notified that they were roleblocked. Gain 1 Faith Point for each visit prevented.\n- Once you have reached 4 Faith Points, the Saint will gain a Saint Point.\n- Once the Saint has become the Paragon, you will lose all but one use of your holy grace (if you have used all charges, nothing happens).");
 		
 		e.addField("Goal:", factions.Hallow.goal);
 	});
@@ -120,7 +120,7 @@ module.exports = (g) =>
 
 	register_role(["rattler", "559"], "Town", "Rattler", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 559");
+		e.setDescription("Post 559\n*I've got a bone to pick with you!*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -298,11 +298,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Murder murder murder MURDER MURDER MURDER MURDER MURDER MURDER MURDER MURDER MURDER MURDER");
 	});
 
-	register_role(["this_is_a_role", "thisisarole", "minder", "571"], "Neutral", "This Is A Role - Minder", {subCat: "Evil"}, (e) =>
+	register_role(["minder", "571"], "Neutral", "Minder", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 571\n(Unique Neutral Evil)");
+		e.setDescription("Post 571");
 
-		e.setImage("https://cdn.discordapp.com/attachments/970051770342588467/994679368842494053/unknown.png");
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None (Basic)", true);
+
+		e.addField("Abilities:", "- Choose a player to investigate at night. You will find out whether or not they are a member of the Town.\n- Choose another player to become your Target at night.\n- Choose to protect your Target at night. They will gain Invincible Defense that night and won't be able to be voted up in the following day.");
+
+		e.addField("Abilities:", "- If you choose a member of the Town as your Target, you will commit suicide and lose.\n- You may not investigate and choose a target on the same night.\n- You may only choose a target once.\n- You may only protect your target twice.\n- You have a layer of Basic Defense that can block one attack.");
+		
+		e.addField("Goal:", "Ensure that your Target is alive at the end of the game, regardless of whether or not you are alive.");
 	});
 
 	register_role(["deadly", "572"], "Neutral", "Deadly", {subCat: "Other"}, (e) =>

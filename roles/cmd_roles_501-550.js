@@ -369,7 +369,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["mastermind", "525"], "Neutral", "Mastermind", {subCat: "Evil"}, (e) =>
+	register_role(["overlord", "525"], "Neutral", "Overlord", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 525");
 

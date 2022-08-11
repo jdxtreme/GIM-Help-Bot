@@ -261,7 +261,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1368");
 
-		e.addField("Alignment", "Sentry Protective", true);
+		e.addField("Alignment", "Sentry Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
@@ -274,7 +274,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1369");
 
-		e.addField("Alignment", "Sentry Protective", true);
+		e.addField("Alignment", "Sentry Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
@@ -289,7 +289,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1370");
 
-		e.addField("Alignment", "Sentry Protective", true);
+		e.addField("Alignment", "Sentry Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Basic)", true);
 
@@ -471,9 +471,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Protect a Target, Attacking anyone that visits them, if your target would die, you will die instead and they will survive.\n- Move somewhere else in the playerlist, You will be Chained in that spot, This is secret but will be revealed on your death.");
+		e.addField("Abilities:", "- Protect a Target, Attacking anyone that visits them, if your target would die, you will die instead and they will survive.");
 
-		e.addField("Attributes:", "- You are Chained to your place in the Playerlist, You can only Protect people within 3 spaces of you.");
+		e.addField("Attributes:", "- Cannot protect the same player twice in a row.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -493,7 +493,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["cannon_fodder", "cannonfodder", "fodder", "cf", "1384"], "Neutral", "Cannon Fodder", {subCat: "Evil"}, (e) =>
+	register_role(["cannon_fodder", "cannonfodder", "fodder", "cf", "1384"], "Neutral", "Cannon Fodder", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 1384");
 

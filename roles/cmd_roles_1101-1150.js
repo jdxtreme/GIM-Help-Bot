@@ -59,7 +59,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have one-time Basic Defense\n- Anyone you wrap in webs will be unable to vote the next day, and will be unable to act the next night. Roleblock immune roles will still be roleblocked.\n- You will learn the role of anyone you wrap in webs.\n- Once per game, you may copy another role's powers, gaining their attack, defense (if it is higher than yours), abilities, and attributes. You will not take their win con.\n- You may use multiple different abilities per night. This overrides any attribute.");
 
-		e.addField("Goal:", "See the Town lose the game. (You may win while dead as long as all townies die first.)");
+		e.addField("Goal:", "Have the good faction lose (this can win while dead).");
 	});
 
 	register_role(["clone", "1105"], "Any", "Clone", {anyExCat: ["Town", "Neutral"]}, (e) =>
@@ -81,7 +81,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1106\nConverted from: Beekeeper");
 
-		e.addField("Alignment", "Unseen Protective", true);
+		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
@@ -223,7 +223,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["jds_curse", "jdscurse", "curse", "jd", "1116"], "Neutral", "JD's Curse", {subCat: "Evil"}, (e) =>
+	register_role(["curse_of_first_blood", "curseoffirstblood", "curse", "first_blood", "firstblood", "cofb", "1116"], "Neutral", "Curse of First Blood", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 1116");
 

@@ -210,7 +210,7 @@ module.exports = (g) =>
 
 		e.addField("Prices:", "Killing alignments (TK, UO, RK, CE, MK, NK, NCs that can kill, etc.): 100 gold to buy, 50 gold per night.\nProtective alignments (TP, RP, Neutrals that protect, etc.): 50 gold to buy, 20 gold per night.\nSupport alignments (TS, MS, MD, RS, etc.): 25 gold to buy, 10 gold per night\nOther alignments: (NB, NC's that can't kill, TI, etc.): 10 gold to buy, 5 gold per night.");
 		
-		e.addField("Goal:", "See the Town-aligned roles lose the game (You can die after your win con is achieved.)");
+		e.addField("Goal:", "Have the good faction lose (this can win while dead).");
 	});
 
 	register_role(["coffee_bean", "coffeebean", "coffee", "465"], "Plant", "Coffee Bean", {subCat: "Support"}, (e) =>
@@ -303,15 +303,15 @@ module.exports = (g) =>
 
 	register_role(["mercenary", "471"], "Neutral", "Mercenary", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 471");
+		e.setDescription("Post 471\n*You are welcome for the protectionary services. That will be 7 brilders.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Stand guard outside your contract's house.\n- Contract someone else during the day.");
+		e.addField("Abilities:", "- Stand guard outside your contract's house (4 use, carries across all contracts).\n- Contract someone else during the day.");
 
-		e.addField("Attributes:", "- Your contract is [player].\n- Each night, you may choose to stand guard outside your contract's house. All abilities targeting your contract will fail. Your target will not be notified if you do this.\n- You may stand guard outside your contract's house four times.\n- If your contract dies, you may choose another player during the day to offer a contract to. They may choose to accept or decline your offer. If they accept, they will become your new contract, but if they decline, you must wait another day before offering another contract.\n- If your second contract dies, you will commit suicide out of shame.\n- You may not be contracted to a Mercenary or a role whose goal/abilities revolve around its death (e.g. Bodyguard, Jester, Tantrum)");
+		e.addField("Attributes:", "- Your contract is [player].\n- Each night, you may choose to stand guard outside your contract's house. All abilities targeting your contract will fail. Your target will not be notified if you do this.\n- You may stand guard outside your contract's house four times.\n- If your contract dies, you may choose another player during the day to offer a contract to. They may choose to accept or decline your offer. If they accept, they will become your new contract, but if they decline, you must wait another day before offering another contract.\n- If your second contract dies, you will commit suicide out of shame.\n- You may not be contracted to another Mercenary or a role whose goal/abilities revolve around its death (e.g. Bodyguard, Jester, Moody).");
 		
 		e.addField("Goal:", "Make sure your contract survives until the end of the game.");
 	});
@@ -384,7 +384,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have one-time Basic Defense.\n- Your potions can heal and they can kill.\n- You will choose 2 actions. Whichever one is best for you will be the one you do.\n- Order of what is best: You living > an evil being saved > a Town/Florae member dying > nothing happening > a Town/Florae being saved > an evil dying (worst outcome)");
 		
-		e.addField("Goal:", "See the Town-aligned roles lose the game. (You can die after your win con is achieved.)");
+		e.addField("Goal:", "Have the good faction lose (this can win while dead).");
 	});
 
 	register_role(["suplex", "477"], "Town", "Suplex", {subCat: "Support"}, (e) =>
@@ -404,7 +404,7 @@ module.exports = (g) =>
 
 	register_role(["synesthesia", "syne", "478"], "Coven", "Synesthesia", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 478");
+		e.setDescription("Post 478\n*I see, smell, feel, hear, and taste dead people. All at once.*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "None", true);
@@ -417,7 +417,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["pheonix", "479"], "Neutral", "Pheonix", {subCat: "Killing"}, (e) =>
+	register_role(["phoenix", "pheonix", "479"], "Neutral", "Phoenix", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 479");
 
@@ -567,15 +567,15 @@ module.exports = (g) =>
 
 	register_role(["hot_dog_vendor", "hotdogvendor", "hot_dog", "hotdog", "490"], "Neutral", "Hot Dog Vendor", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 490");
+		e.setDescription("Post 490\n*No, don't call the Better Business Bureau. They don't exist here.*");
 
 		e.addField("Alignment", "Unique Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You can go on \"sales alert\" four times in an attempt to sell your low-quality product.");
+		e.addField("Abilities:", "- Go on sales alert at night (4 use). While on sales alert, you gain Basic defense, and you will sell everyone that visits you a terrible, sub-standard hot dog.");
 
-		e.addField("Attributes:", "- You are night immune while on alert and everyone who visits you buys a terrible, sub-standard hot dog.\n- If a sale is successfully made, all visitors are sick from the bad hot dogs that they ate, cannot speak the next day (being blackmailed) and must stay home the next night (being role blocked).\n- Death is irrelevant, all visitors are sold one hot dog regardless of whether they survive till morning or not.\n- If you use up all four of your alerts and don't sell your required three hot dogs, you die of shame.");
+		e.addField("Attributes:", "- Any player who buys one of your hot dogs will become sick from the hot dog they ate. They will be unable to speak the following day and must stay home the following night preventing them from performing any night abilities.\n- If you use up all of your sales alerts without achieving your goal, you will commit suicide out of shame.");
 		
 		e.addField("Goal:", "Make at least three sales.");
 	});
@@ -593,32 +593,32 @@ module.exports = (g) =>
 		e.addField("Goal:", "Complete the objective of whichever role you're currently copying. Although you will shift through many different goals, you only need to complete a single goal at the time that you have said goal, and you automatically win.");
 	});
 
-	register_role(["paradoxist", "492"], "Neutral", "Paradoxist", {subCat: "Chaos"}, (e) =>
+	register_role(["non_binary", "non-binary", "nonbinary", "nb", "492"], "Town", "Non Binary", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 492");
 
-		e.addField("Alignment", "Unique Neutral Chaos", true);
-		e.addField("Attack", "Unstoppable", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Town Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Send someone through time each night.");
+		e.addField("Abilities:", "- Make a LGBTQ+ interview at someone's house at night, each night. You will learn all visitors' pronouns, but not who visited.\n- Guess a role. If its in the game, you will learn the pronouns of the player who has it.");
 
-		e.addField("Attributes:", "- When you send someone through time, you will roleblock them, and prevent anyone from visiting them.\n- If you send someone through time a second time, you will cut them out of reality, and they will die.\n- You will be notified of what time your watch shows at the end of each night.\n- Your watch starts at eight o'clock.\n- Detection Immunity\n- You ignore Roleblock Immunity");
+		e.addField("Attributes:", "- This role has the same abbreviation as Neutral (Benign)");
 		
-		e.addField("Goal:", "Complete the objective of whichever role you're currently copying. Although you will shift through many different goals, you only need to complete a single goal at the time that you have said goal, and you automatically win.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["occultist", "493"], "Town", "Occultist", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 493");
+		e.setDescription("Post 493\n*I'm not sure what these symbols mean...*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player at night to add to your spirit list.\n- Send a message to the Town in death.");
+		e.addField("Abilities:", "- Choose a player at night to add to your spirit list.\n- Send a message to the Town in death (1 use).");
 
-		e.addField("Attributes:", "- Players added to your spirit list will be able to post on the game thread the day after they died. They will not have access to dead chat until the day is over. This does not apply to players that were lynched.\n- If you die, your spirit list will be wiped.\n- If you die, you may send the moderator a message (500-character limit) at night to announce to the Town upon the start of the next day. You may do this once per game.");
+		e.addField("Attributes:", "- Players added to your spirit list will be able to post in the day chat on the day after they died. They will not have access to dead chat until the day is over. This does not apply to players that were lynched.\n- If you die, your spirit list will be wiped.\n- While dead, you may send the host a message (500-character limit) at night to announce to the Town upon the start of the next day.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -675,15 +675,15 @@ module.exports = (g) =>
 
 	register_role(["rolehopper", "498"], "Any", "Rolehopper", {anyExCat: ["Neutral"]}, (e) =>
 	{
-		e.setDescription("Post 498");
+		e.setDescription("Post 498\n*Taking things day by day.*");
 
-		e.addField("Alignment", "Random Faction", true);
+		e.addField("Alignment", "[Random Faction] Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Become a new role each day.");
 
-		e.addField("Attributes:", "- Each night, your role will be changed to that of a different GIM role of your faction. You will gain the abilities and attributes of said role as well as keeping this role's abilities and attributes.\n- You will receive your first role card at the start of D1.");
+		e.addField("Attributes:", "- At the start of each day, your role will be changed to that of a different GIM role of your faction. You will gain the abilities and attributes of said role as well as keeping this role's abilities and attributes.\n- You can only become a member of a faction in the game.");
 		
 		e.addField("Goal:", "Goal of faction it rolls.");
 	});

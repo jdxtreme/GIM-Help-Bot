@@ -66,7 +66,7 @@ module.exports = (g) =>
 
 	register_role(["manager", "205"], "Town", "Manager", {subCat: "Power"}, (e)=>
 	{
-		e.setDescription("Post 205");
+		e.setDescription("Post 205\n*Hello, Karen. Please politely fuck off.*");
 
 		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "Variable", true);
@@ -74,7 +74,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose someone to re-hire at night.\n- Use a Town role not in the game to use their abilities at night. (3 use)");
 
-		e.addField("Attributes:", "- - When you choose someone to re-hire, their role will change to a random Town role in the GIM thread. This ability will fail on all non-Town roles and will notify the target regardless of if it is successful or not. You may not re-hire the same person more than once. You may not re-hire a person into a Town Power role, a unique role, or a role deemed unbalanced by the Role Jury. You may rehire yourself, and if you do this, you will be rerolled into a random non-Power Town role.\n- You may choose a Town role from the GIM thread and use one of its abilities. You may not use abilities of Town roles already in the game, any Town Power roles, or any roles deemed unbalanced by the Role Jury. You may only choose each individual Town role once. You may use both day and night abilities, but you may only use an ability once per day.");
+		e.addField("Attributes:", "- When you choose someone to re-hire, their role will change to a random Town role in the GIM thread. This ability will fail on all non-Town roles and will notify the target regardless of if it is successful or not. You may not re-hire the same person more than once. You may not re-hire a person into a Town Power role, a unique role, a role deemed unbalanced by the Role Jury, or a role banned by Rule 16. You may rehire yourself, and if you do this, you will be rehired into a random non-Power Town role.\n- You may choose a Town role from the GIM thread and use one of its abilities. You may not use abilities of any Town Power roles, any roles deemed unbalanced by the Role Jury, or any roles banned by Rule 16. You may only choose each individual Town role once. You may use both day and night abilities, but you may only use an ability once per day.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -184,7 +184,7 @@ module.exports = (g) =>
 	
 	register_role(["companion", "213"], "Town", "Companion", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 213");
+		e.setDescription("Post 213\n*Never gonna run around and desert you.*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
@@ -192,7 +192,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose to accompany one player during the night.");
 
-		e.addField("Attributes:", "- When you choose to accompany a player, all actions performed against you and your target will fail. Your target will also be forced to use their night action on you, bypassing redirection immunity.\n- You may not use your ability for two consecutive nights.\n- You may not accompany yourself.");
+		e.addField("Attributes:", "- When you choose to accompany a player, all actions performed against you and your target will fail. Your target will also be forced to use their night action on you bypassing redirection immunity. You are immune to any roleblock or redirect abilities used by your target.\n- You may not use your ability for two consecutive nights.\n- You may not accompany yourself.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -214,7 +214,7 @@ module.exports = (g) =>
 
 	register_role(["forensic_analyst", "forensicanalyst", "215"], "Town", "Forensic Analyst", {subCat: "Investigative"}, (e) => 
 	{
-		e.setDescription("Post 215");
+		e.setDescription("Post 215\n*Yeaaaaaaaaaaaaaaaaaaaaaaaaah!*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -222,7 +222,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Check if a player's fingerprints were found at a dead player's house each night.\n- Check if a player has a criminal history each night.");
 
-		e.addField("Attributes:", "- If a player has killed another player in the past, they will have a criminal history.\n- If a player visited a dead player on the night they died, they will leave their fingerprints at the dead player's house.\n- You may only use one of your abilities each night.\n- While you are alive, all players will flip their actual role. Any abilities that affect what players flip upon death will be nullified.");
+		e.addField("Attributes:", "- If a player has killed another player in the past, they will have a criminal history.\n- If a player visited a dead player on the night they died, they will leave their fingerprints at the dead player's house.\n- You may not multitask.\n- While you are alive, all players will flip their actual role. Any abilities that affect what players flip upon death will be nullified.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -287,7 +287,7 @@ module.exports = (g) =>
 
 	register_role(["fate_decider", "fatedecider", "220"], "Neutral", "Fate Decider", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 220");
+		e.setDescription("Post 220\n*Do you believe in karma?*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -295,7 +295,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Decide whether the dead players should be sent to heaven or hell.");
 
-		e.addField("Attributes:", "- All players will appear as cleaned in the graveyard before you have made your decision on whether to send them to heaven or hell. This includes lynched players, but not yourself. You will automatically send yourself to heaven.\n- If the player in question is a member of the Town, a Florae role, or a Neutral Benign role, you must send them to heaven. Otherwise, you must send them to hell.\n- You will have twelve hours after a player has died to make your decision. Once you have made your decision on a player, the actual role of the player will be revealed.\n- Your decision will not affect dead chat.\n- Your ability will persist once you are dead.\n- You will not have access to dead chat once you die.\n- You will not have to decide the fate of anyone who died on the last day/night of the game once the game ends. They will not count towards your win condition.");
+		e.addField("Attributes:", "- All players will appear as cleaned in the graveyard before you have made your decision on whether to send them to heaven or hell. This includes lynched players, but not yourself. You will automatically send yourself to heaven.\n- If the player in question is a member of a faction considered \"good\" in factions or a Neutral Benign role, you must send them to heaven. Otherwise, you must send them to hell.\n- You will have twelve hours after a player has died to make your decision. Once you have made your decision on a player, the actual role of the player will be revealed.\n- Your decision will not affect dead chat.\n- Your ability will persist once you are dead.\n- You will not have access to dead chat once you die.\n- You will not have to decide the fate of anyone who died on the last day/night of the game once the game ends. They will not count towards your win condition.");
 
 		e.addField("Goal:", "Send at least two-thirds of the dead players to their correct afterlife.");
 	});
@@ -332,7 +332,7 @@ module.exports = (g) =>
 
 	register_role(["gatekeeper", "gaslight_gatekeep_girlboss", "223"], "Neutral", "Gatekeeper", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 223");
+		e.setDescription("Post 223\n*Drink the Kool-Aid.*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
@@ -340,7 +340,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Initiate someone into your secret society each night.");
 
-		e.addField("Attributes:", "- All players you have initiated into your society will receive an extra night chat that you may not access. The name of each player will show up as \"Member\" in the chat.\n- Once four other people have been initiated into your society, all four players and yourself will commit suicide, dealing an Unstoppable attack. This will happen the night after you have recruited the fourth member. Dead members will not count towards this objective.\n- All players in your secret society will gain Basic defense.\n- If you die before you have met your win condition, all players in your secret society will leave the society.\n- You may not initiate yourself into your own secret society.");
+		e.addField("Attributes:", "- All players you have initiated into your society will receive an extra night chat that you may not access.\n- Once four other people have been initiated into your society, all four players and yourself will commit suicide dealing an Unstoppable attack. This will happen the night after you have recruited the fourth member. Dead members will not count towards this objective.\n- All players in your secret society will gain Basic defense.\n- If you die before you have met your win condition, all players in your secret society will leave the society.\n- You may not initiate yourself into your own secret society.");
 
 		e.addField("Goal:", "Recruit four people into your secret society.");
 	});
@@ -377,15 +377,15 @@ module.exports = (g) =>
 
 	register_role(["corruptionist", "226"], "Neutral", "Corruptionist", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 226");
+		e.setDescription("Post 226\n*A tiny little man holding your arteries shut. Yeah, that's right, motherfucker, then what?*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Choose someone to corrupt each night.");
+		e.addField("Abilities:", "- Choose someone to corrupt each night. (2 use, only lose a charge if target is attacked)");
 
-		e.addField("Attributes:", "- When a player is corrupted, all attempts to kill that player will succeed. The player's defense will drop to None for the night, all attacks on the player will bypass any healing effects, and all attacks on the player will be Astral.\n- Your target will not be notified that they were corrupted unless your target dies the night they were corrupted.\n- You have Basic defense until you are attacked for the first time.");
+		e.addField("Attributes:", "- When a player is corrupted, all attempts to kill that player **will** succeed.\n- If your target is attacked, their Defense will drop to None, all attacks on the player will bypass any protective effects, all attacks on the player will be Astral, and any other actions needed to ensure that this player will die will be taken.\n- Your target will not be notified that they were corrupted unless your target dies the night they were corrupted.\n- You have Basic defense until you are attacked for the first time.");
 
 		e.addField("Goal:", "Live to see the Town lose the game.");
 	});
@@ -435,15 +435,15 @@ module.exports = (g) =>
 
 	register_role(["overseer", "230"], "Neutral", "Overseer", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 230");
+		e.setDescription("Post 230\n*Time for a paradigm shift.*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Choose two people to swap their roles at night.");
 
-		e.addField("Attributes:", "- Your ability only works on members of the same faction.\n- You cannot swap the role of a player whose role has been publicly revealed for any reason (this means that the host has confirmed the role of the player for any reason).\n- You may no longer use your ability after you have achieved your win condition.\n- You may not swap your own role.");
+		e.addField("Attributes:", "- Your ability only works on members of the same faction.\n- You cannot swap the role of a player whose role has been publicly revealed for any reason.\n- You may not swap your own role.\n- You have Basic Defense until you are attacked for the first time.\n- You may no longer use your ability and you lose your defense after you have achieved your win condition.");
 
 		e.addField("Goal:", "Swap two players' roles three times.");
 	});
@@ -467,7 +467,7 @@ module.exports = (g) =>
 
 	register_role(["revenge_labs", "revengelabs", "232"], "Neutral", "Revenge Labs", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 232");
+		e.setDescription("Post 232\n*Oh that? It means you should probably buy the game instead of pirate it. o:)*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
@@ -475,7 +475,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Target a player each night to give them a peculiar message.");
 
-		e.addField("Attributes:", "- Every player you visit will receive a nonsensical message.\n- If any player you have visited mentions this message, they will be instantly modkilled for being a filthy pirate.\n- A list of nonsensical messages will bep rovided to the game host before the start of the game, and you will receive a list of these possible messages once you receive this role card.\n- You may not target yourself.");
+		e.addField("Attributes:", "- Every player you visit will receive a nonsensical message. The host will make up a list of nonsensical messages to send and one of them must be \"*What is the square root of a fish? Now I'm sad.*\"\n- If any player you have visited mentions this message, they will be instantly modkilled for being a filthy pirate.\n- You may not target yourself.");
 
 		e.addField("Goal:", "Live to see at least one person modkilled because of you");
 	});
@@ -512,15 +512,17 @@ module.exports = (g) =>
 
 	register_role(["dog", "235"], "Neutral", "Dog", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 235");
+		e.setDescription("Post 235\n*bork bork*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Select an owner during the day if you don't have one.");
+		e.addField("Abilities:", "- Select an owner during the day if you don't have one.\n- Run away from your owner at night. This will process at the end of the night.");
 
-		e.addField("Attributes:", "- The player you select as your owner will receive a message telling them a Dog has chosen them as their owner.\n- Your owner must feed you every night. If your owner does not feed you at night, you will run away and select a new owner the next day. You cannot select a previous owner as your new owner.\n- Your owner may choose to feed you treats. If they do this, you will gain Powerful defense, and you will instantly kill your owner's attacked if they are attacked. You may only be fed treats twice, and your owner wil be notified at the start of each night how many treats are left.\n- If anyone attempts to attack your owner, your owner gains Powerful defense, and youw ill cause the attacker to start bleeding (Powerful attack). If they are not healed the following night, the attacker will die.\n- If an attacker targets you, you and your owner will be dealt the attack applied to you.\n- You may not be your own owner.");
+		e.addField("Attributes:", "- The player you select as your owner will receive a message telling them a Dog has chosen them as their owner at the beginning of the following night. You and your owner will be given a private chat that stays open as long as that player is still your owner.\n- Your owner must feed you every night. If your owner does not choose to feed you at night, you will run away and select a new owner the next day. Feeding does not count as a night ability. You cannot select a previous owner as your new owner.\n- If anyone attempts to attack your owner, your owner gains Powerful Defense, and you will cause the attacker to start bleeding. If they are not healed the following night, the attacker will die.");
+		
+		e.addField("Attributes (cont.)", "- Your owner may choose to feed you treats alongside feeding you normally. If they do this, you will protect yourself from attackers the same way as you protect your owner for the night. You may only be fed treats twice across all of your owners. Your owner will be notified how many treats are left when they become your owner.\n- If an attacker targets you, you and your owner will be dealt the attack applied to you unless you were fed treats that night.\n- You may not be your own owner you nincompoop.");
 
 		e.addField("Goal:", "Survive to the end of the game with an owner");
 	});
@@ -555,9 +557,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 		});
 
-	register_role(["backup", "237"], "Neutral", "Backup", {subCat: "Other"}, (e) =>
+	register_role(["backup", "back_it_up_back_it_up", "237"], "Neutral", "Backup", {subCat: "Other"}, (e) =>
 	{
-		e.setDescription("Post 237");
+		e.setDescription("Post 237\n*How unoriginal.*");
 
 		e.addField("Alignment", "Neutral Other", true);
 		e.addField("Attack", "None", true);
@@ -585,9 +587,9 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live until the end of the game.");
 	});
 
-	register_role(["ability_thief", "abilitythief", "239"], "Mafia", "Ability Thief", {subCat: "Support"}, (e) =>
+	register_role(["ability_thief", "abilitythief", "at", "239"], "Mafia", "Ability Thief", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 239");
+		e.setDescription("Post 239\n*Yar har fiddle dee dee!*");
 
 		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "Variable", true);
@@ -595,7 +597,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Steal the abilities of a random role in the game.");
 
-		e.addField("Attributes:", "- Each day, a random non-Mafia role in the game will be randomly selected. You will be informed which role this is (but not the player whose role it is) at the beginning of the night. \n- You will gain any passives this role has, and you may perform its night ability/abilities. If you perform the role's night ability/abilities, the player with the role will be roleblocked through immunities.");
+		e.addField("Attributes:", "- Each day, a random non-Mafia role in the game will be randomly selected. You will be informed which role this is at the beginning of the night.\n- You will gain any passives this role has, and you may perform its night ability/abilities. If you perform the role's night ability/abilities, the player with that role will be roleblocked through immunities.\n- You may not steal from any roles that have a day ability that enables the usage of the night ability (e.g. Jailor's jail, Pirate's duel, Less Annoying Grandmaster In My Recommended Section's duel)");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -676,15 +678,15 @@ module.exports = (g) =>
 
 	register_role(["kirby", "245"], "Neutral", "Kirby", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 245");
+		e.setDescription("Post 245\n*Poyo!*");
 
 		e.addField("Alignment", "Neutral Benign", true);
-		e.addField("Attack", "Unstoppable", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Attack", "Unstoppable (sucking)", true);
+		e.addField("Defense", "Basic (pre-suck)", true);
 
-		e.addField("Abilities:", "- Choose someone to suck up at night (usable any night).");
+		e.addField("Abilities:", "- Choose someone to suck up at night.");
 
-		e.addField("Attributes:", "- When you suck up someone, they will be killed with an Unstoppable attack. Their role in the graveyard will appear as \"Warped\".\n- You will become your target's role.\n- You and your target will have a one-on-one permanent chat.\n- Your target is still in control of their night and day actions; they will be performed through you instead.\n- You will chat with your faction's night chat if they have one.\n- When you die, your role will be shown as [your new role] Kirby. For example, Sheriff Kirby or Coven Leader Kirby. This does not apply if you die before you suck up a player.\n- You may not suck yourself up.");
+		e.addField("Attributes:", "- When you suck up someone, they are killed, and their role in the graveyard will appear as \"Warped\".\n- You will become the role of the player that you sucked up while retaining the following attributes.\n- You and your target will have a one-on-one permanent chat.\n- Your target will not be able to access dead chat.\n- Your target is still in control of their night and day actions, but you will be the one to carry them out.\n- You will chat with your faction's night chat if they have one.\n- When you die, your role will be shown as [your new role] Kirby (e.g. Sheriff Kirby or Coven Leader Kirby). This does not apply if you die before you suck up a player.\n- You may not suck yourself up you nincompoop.");
 
 		e.addField("Goal:", "Suck up a player and fulfill their win condition.");
 	});
@@ -706,7 +708,7 @@ module.exports = (g) =>
 
 	register_role(["gambler", "247"], "Neutral", "Gambler", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 247");
+		e.setDescription("Post 247\n*You lose all bets that you don't take.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -714,14 +716,14 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a person to gamble on at night.");
 
-		e.addField("Attributes:", "- When you choose a person to gamble on, you are gambling on them surviving until the end of the game.\n- If a player you have gambled on dies, you must wait one night before gambling on another player.\n- You may gamble on three players.\n- If all three of the players you gambled on die, you will commit suicide out of shame.\n- If you die, your gamble still rides on the last person you gambled on.\n- You may not gamble on yourself.");
+		e.addField("Attributes:", "- When you choose a person to gamble on, you are gambling on them surviving until the end of the game.\n- If a player you have gambled on dies, you must wait one night before gambling on another player.\n- You may gamble on three players. You may not change your gamble unless the player you gambled on dies.\n- If all three of the players you gambled on die, you will commit suicide out of shame.\n- If you die, your gamble still rides on the last person you gambled on.\n- You may not gamble on yourself.");
 
 		e.addField("Goal:", "Gamble on a person who survives until the end of the game.");
 	});
 
 	register_role(["salesman", "248"], "Neutral", "Salesman", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 248");
+		e.setDescription("Post 248\n*Hi, Billy Mays here with a special TV offer!*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);

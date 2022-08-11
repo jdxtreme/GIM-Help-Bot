@@ -207,7 +207,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic/Powerful", true);
 		e.addField("Defense", "Basic (Powerful)", true);
 
-		e.addField("Abilities:", "- **Attack:** Use Basic Attack on a player in the night.\n- **Fire Bomb:** In the night, use a Powerful Attack a player, clean their role if they die, and deal a Basic Attack to anyone else who visits your target.\n- **Shock Bomb:** In the night, use a Basic Attack on a player and roleblock them and their visitors.\n- **Smoke Bomb:** In the night, use a Basic Attack on a player and hide the feedback messages of them and their visitors. They will only be told \"There was too much to see anything!\" and if they survived the night or not.");
+		e.addField("Abilities:", "- **Attack:** Use Basic Attack on a player in the night.\n- **Fire Bomb:** In the night, use a Powerful Attack a player, clean their role if they die, and deal a Basic Attack to anyone else who visits your target.\n- **Shock Bomb:** In the night, use a Basic Attack on a player and roleblock them and their visitors.\n- **Smoke Bomb:** In the night, use a Basic Attack on a player and hide the feedback messages of them and their visitors. They will only be told \"There was too much smoke to see anything!\" and if they survived the night or not.");
 
 		e.addField("Attributes:", "- At the start of the game, certain people will each gain 1 use of the Hire Tengu ability. Those people are the Town Power, every Head of an evil faction, and one random additional player other than them and Tengu. If any lacks a Power/Head, a random member will be given this ability instead.\n**Hire Tengu:** In the night, make the Tengu use a Unstoppable Attack against your target, without visiting Tengu.\n- When hired, you will gain Powerful Defense, Roleblock Immunity, and Control Immunity. Otherwise, you only have Basic Defense.\n- If you're hired, your chosen ability for that night will be cancelled without depleting limited charges. However, if you get hired multiple times, you will attack every target you were hired to kill.\n- Fire Bomb, Shock Bomb, and Smoke Bomb all start at 0 charges. However, each time you are hired, you will gain a charge for one at random, even if you fail to kill your target.");
 
@@ -407,7 +407,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Rock.goal);
 	});
 
-	register_role(["ayase_rimura_hopes_glass_spear", "ayase_rimura", "ayaserimura", "hopes_glass_spear", "hopesglassspear", "128"], "Neutral", "Ayase Rimura, Hope's Glass Spear", {subCat: "Killing"}, (e) =>
+	register_role(["ayase_hopes_glass_spear", "ayasehopesglassspear", "ayase", "hopes_glass_spear", "hopesglassspear", "ahgs", "128"], "Neutral", "Ayase, Hope's Glass Spear", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 128");
 
@@ -469,9 +469,17 @@ module.exports = (g) =>
 
 	register_role(["obnoxiously_complicated_executioner", "obnoxiouslycomplicatedexecutioner", "oce", "132"], "Neutral", "Obnoxiously Complicated Executioner", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 132\n(Neutral Evil)");
+		e.setDescription("Post 132");
 
-		e.setImage("https://cdn.discordapp.com/attachments/970046125065265202/970074968475971594/unknown.png");
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "None (Basic)", true);
+
+		e.addField("Abilities:", "- Choose a player to investigate each night. You will learn whether or not they are a member of the Town.\n- Choose a player to become your Target at night if they are a member of the Town.\n- Choose a player to execute at night. If they're a member of the Town, they will be dealt an Unstoppable Attack.");
+
+		e.addField("Attributes:", "- If your chosen Target is not a member of the Town, you will commit suicide and lose.\n- If your Target dies at night, you will commit suicide and lose.\n- You may only have one Target at a time.\n- You may not investigate and choose a Target in the same night.\n- You may only execute after your Target has been lynched.\n- Once you successfully execute a member of the Town, you may no longer execute.\n- Choosing a Target is Astral and immune to transports.\n- You have a layer of Basic Defense that can block one attack.");
+
+		e.addField("Goal:", "Ensure that your Target gets lynched, and then successfully execute someone.");
 	});
 
 	register_role(["shrooms", "133"], "Neutral", "Shrooms", {subCat: "Chaos"}, (e) =>
@@ -519,7 +527,7 @@ module.exports = (g) =>
 
 	register_role(["heavy", "136"], "Neutral", "Heavy", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 136");
+		e.setDescription("Post 136\n*It is good day to be not dead!*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "Unstoppable", true);
@@ -527,9 +535,11 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Check someone each night to discover if they killed you.\n- Shoot someone during the day.");
 
-		e.addField("Attributes:", "- At the start of the game, the entire town will receive the message in the photo attached to this role card.\n- You are listed as dead in the graveyard, but you can still talk and vote during the day.\n- Your presence does not count towards voting majority.\n- You cannot be target at night nor can you be voted against during the day.\n- A random player in the game killed you. They will be notified when they receive their role card.\n- You will be notified if the player who killed you dies.\n- You may check three people.\n- You may kill one person.");
+		e.addField("Attributes:", "- At the start of the game, the entire town will receive the message in the photo attached to this role card.\n- You are considered dead, but you function as if you are alive meaning that you can perform abilities and talk/whisper during the day. However, you cannot vote.\n- No players in the game may use their abilities or vote against you, but you can be whispered to.\n- A random player in the game killed you. They will be notified when they receive their role card. You will be notified if this player dies.\n- You may check three people and kill one person.");
 
 		e.addField("Goal:", "Make sure the person that killed you is not alive at the end of the game.");
+
+		e.setImage("https://media.discordapp.net/attachments/970046125065265202/970075692089896990/unknown.png");
 	});
 
 	register_role(["shree", "137"], "Neutral", "Shree Shree Shree Shree Shree Shree Shree Shreeeeeeeeeeee", {subCat: "Killing"}, (e) =>
@@ -622,7 +632,7 @@ module.exports = (g) =>
 
 	register_role(["builder", "143"], "Town", "Builder", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 143");
+		e.setDescription("Post 143\n*Offenceive joke goes here.*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
@@ -665,7 +675,7 @@ module.exports = (g) =>
 
 	register_role(["bodyguard_boss", "bodyguardboss", "bgboss", "146"], "Town", "Bodyguard Boss", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 146");
+		e.setDescription("Post 146\n*You don't want to hear from the chairman.*");
 
 		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "None", true);
@@ -708,11 +718,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Cause infinite chaos (as judged by the host).");
 	});
 
-	register_role(["daffodil", "149"], "Town", "Daffodil", {subCat: "Investigative"}, (e) =>
+	register_role(["daffodil", "149"], "Florae", "Daffodil", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 149");
 
-		e.addField("Alignment", "Florae/Town Investigative", true);
+		e.addField("Alignment", "Florae Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -720,14 +730,14 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target is Doused/Framed/Disguised/Hexed you will instead be told you are unsure what your target is.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
-	register_role(["hydrangea", "150"], "Town", "Hydrangea", {subCat: "Investigative"}, (e) =>
+	register_role(["hydrangea", "150"], "Florae", "Hydrangea", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 150");
 
-		e.addField("Alignment", "Unique Florae/Town Investigative", true);
+		e.addField("Alignment", "Unique Florae Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -735,6 +745,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Mafia, Coven, and Neutrals will be notified that a storm is starting at the beginning of the night.\n- Players that visit will be drenched in water.\n- You will be told all of the players who are not drenched the following day.\n- You may only summon 3 rainstorms.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Florae.goal);
 	});
 };

@@ -33,6 +33,35 @@ function findField(lines, l, f)
 	end
 end
 
+function findMeta(line, f)
+	--print(line)
+	--print('("'..f..'"),')
+
+	local _, start = line:find(f..':')
+	
+	if start then
+		local meta = ""
+		local onquote = false
+		
+		for i = start, #line do
+			local c = line:sub(i, i)
+			--print(c)
+			
+			if not onquote and c == '"' then
+				onquote = true
+			elseif onquote then
+				if c == '"' and line:sub(i-1, i-1) ~= "\\" then
+					--print("Return: "..meta)
+					return meta:gsub("%-", "%%-")
+				else
+					--print("Adding "..c)
+					meta = meta..c
+				end
+			end
+		end
+	end
+end
+
 for _, filename in ipairs(args) do
 	local lines = {}
 	for line in io.lines(filename) do
@@ -72,9 +101,11 @@ for _, filename in ipairs(args) do
 				print(header.."\nNo category!\n")
 			elseif cat ~= "Any" and cat ~= "Other" then
 				local alignment, aline = findField(lines, a+1, "Alignment")
-				local va = (not alignment or not alignment:gsub(' ', ''):find(cat))
 				local goal, goaline = findField(lines, a+1, "Goal:")
+				local subCat = findMeta(header, "subCat")
+				local va = (not alignment or not alignment:gsub(' ', ''):find(cat))
 				local vg = (cat ~= "Neutral" and (not goal or not goal:gsub(' ', ''):find(cat)))
+				local vs = (not subCat or not alignment or not alignment:find(subCat))
 
 				if goaline and (goaline:find("factions."..cat..".goal") or goaline:find("factions.Neutral.goalNK")) then
 					vg = false
@@ -96,19 +127,19 @@ for _, filename in ipairs(args) do
 					va = false
 				end
 
-				if va or vg then
+				if va or vg or vs then
 					print(header)
 				end
 
-				if va then
-					print("Mismatched Alignment: "..(alignment or "nil"))
+				if va or vs then
+					print("Mismatched Alignment or subCat: "..(alignment or "nil"))
 				end
 
 				if vg then
 					print("Mismatched Goal: "..(goal or "nil"))
 				end
 
-				if va or vg then
+				if va or vg or vs then
 					print()
 					sum = sum + 1
 				end

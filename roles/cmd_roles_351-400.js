@@ -167,15 +167,15 @@ module.exports = (g) =>
 
 	register_role(["personal_jesus", "personaljesus", "jesus", "363"], "Neutral", "Personal Jesus", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 363");
+		e.setDescription("Post 363\n*Someone to hear your prayers, someone who cares.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Call someone to allow them to confess their misdeeds.");
+		e.addField("Abilities:", "- Call on someone to allow them to confess their misdeeds.");
 
-		e.addField("Attributes:", "- Choose someone during the day to call.\n- Players that you call will be notified that they have been reached out to by a Personal Jesus and may choose to confess a sin they have committed in this game.\n- If a player chooses to tell a sin to you, you will receive the details of that sin, and they will receive Powerful defense (or Invincible if they already have Powerful) for that night.\n- A sin is defined as a piece of information that your target knows is true according to their ability results, faction members, or any other method of non-public information gathering.\n- Once you have received sins from three players, you must choose someone the next day to reveal their sin publicly. This information will be revealed to everyone at the end of the day.");
+		e.addField("Attributes:", "- Players that you call on will be notified that they have been reached out to by a Personal Jesus at the beginning of the night and may choose to confess a sin they have committed in this game.\n- If a player chooses to tell a sin to you, you will receive the details of that sin, and they will receive Powerful defense (or Invincible if they already have Powerful) for that night.\n- A sin is defined as a piece of information that your target knows is true according to their ability results, faction members, or any other method of non-public information gathering. The host has the final say on what counts as a sin.\n- Once you have received sins from three players, you must choose someone the next day to reveal their identity and sin publicly. This information will be revealed to everyone at the end of the day. If you do not choose a player, one will be chosen randomly.");
 		
 		e.addField("Goal:", "Receive sins from three players and expose one player's sins.");
 	});
@@ -692,7 +692,7 @@ module.exports = (g) =>
 
 	register_role(["wm_caporegime", "wmcaporegime", "caporegime", "399"], "Mafia", "WM Caporegime", {subCat: "Head"}, (e) =>
 	{
-		e.setDescription("Post 399");
+		e.setDescription("Post 399\n*Anyone is at your disposal.*");
 
 		e.addField("Alignment", "Unique Mafia Head", true);
 		e.addField("Attack", "None", true);

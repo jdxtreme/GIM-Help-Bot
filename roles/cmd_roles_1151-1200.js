@@ -67,7 +67,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["politician", "1156"], "Neutral", "Politician", {subCat: "Support"}, (e) =>
+	register_role(["politician", "1156"], "Neutral", "Politician", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 1156");
 
@@ -79,7 +79,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Learning a player's role is Astral since you actually send your spies. If your spies die from the visit you are told why, and you hire new spies. You hide the fact that your spies died from the town to appear good in the public eye.\n- Once per game you may replace the normal voting with a new vote. In this vote, you vote someone, and they die. Your vote will be anonymous, attributed to \"The Politician.\" They will receive 1000 votes as well, because you are very influential during this phase. Nobody else can vote during this.");
 
-		e.addField("Goal:", "Be elected by the evils by seeing town lose the game.");
+		e.addField("Goal:", "Have the good faction lose (this can win while dead).");
 	});
 
 	register_role(["puzzle_box", "puzzlebox", "puzzle", "1157"], "Neutral", "Puzzle Box", {subCat: "Chaos"}, (e) =>
@@ -680,7 +680,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Agent.goal);
 	});
 
-	register_role(["echo", "1197"], "Agent", "Echo", {subCat: "Support"}, (e) =>
+	register_role(["echo", "1197"], "Agent", "Echo", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1197");
 

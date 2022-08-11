@@ -157,7 +157,7 @@ module.exports = (g) =>
 		msg(chn, args[randInt(args.length)]);
 	});
 
-	register_cmd(["random_role", "randomrole", "rrole", "role"], "[Faction] [Subalignment(s)...]", "Random Role", "Roll for a random role out of the list of those that are registered in the Bot. A Faction and Subalignment may both be specified in order to narrow down possible rolls. A full role card will be provided based on the results.\n\nSee =categories for a list of Factions.\n\nExact spelling will be required when specifying Factions and Subalignments, but they will not be case-sensitive.", (chn, message, e, args) =>
+	register_cmd(["random_role", "randomrole", "rrole", "role"], "[category[:subcategory]...]...", "Random Role", "Roll for a random role out of the list of those that are registered in the Bot. A full role card will be provided based on the results.\n\nYou may optionally provide a list of categories as parameters. Only a role that can fit at least one category will be provided.\n\nYou may also specify a subcategory for each category. This is done using the format of `category:subcategory`. The same category can have more than one listed subcategory, e.g. `category:apple:bannana:cyanide`\n\nSee =categories for a list of categories and subcategories.\n\nExact spelling will be required when specifying categories and subcategories, but they will not be case-sensitive.", (chn, message, e, args, nosend) =>
 	{
 		let role = null;
 		let incany = randInt(10) == 0;
@@ -233,7 +233,7 @@ module.exports = (g) =>
 			role = randChances(rollable);
 
 		if(role && role.cmd)
-			role.cmd.func(chn, msg, e);
+			role.cmd.func(chn, msg, e, [], nosend);
 		else
 			msg(chn, "-ERROR: No roles could be rolled.");
 	});
