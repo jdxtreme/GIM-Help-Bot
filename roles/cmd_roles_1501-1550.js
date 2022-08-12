@@ -708,4 +708,49 @@ module.exports = (g) =>
 		
 		e.addField("Goal:", factions.Army.goal);
 	});
+
+	register_role(["mafia_traitor", "mafiatraitor", "mt", "1548"], "Town", "Mafia Traitor", {subCat: "Support"}, (e) =>
+	{
+		e.setDescription("Post 1548");
+
+		e.addField("Alignment", "Town Support", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Use the abilities of the role you get.");
+
+		e.addField("Attributes:", "- You will be given a random Mafia role. That is your role, but you win with the Town.\n- You will not gain permanent defense, even if your role grants that.\n- You will not get access to the factional chat, you will also not get access to the factional kill.\n- You will not get roles who can only target/affect members of the Mafia.\n- You will not get Mafia (Head) roles.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["coven_traitor", "coventraitor", "ct", "1549"], "Town", "Coven Traitor", {subCat: "Support"}, (e) =>
+	{
+		e.setDescription("Post 1549");
+
+		e.addField("Alignment", "Town Support", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Use the abilities of the role you get.");
+
+		e.addField("Attributes:", "- You will be given a random Coven role. That is your role, but you win with the Town.\n- You will not gain permanent defense, even if your role grants that.\n- You will not get access to the factional chat, you will also get the Necronomicon last.\n- You will not get roles who can only target/affect members of the Coven.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["rock_traitor", "rocktraitor", "rt", "1550"], "Town", "Rock Traitor", {subCat: "Support"}, (e) =>
+	{
+		e.setDescription("Post 1550");
+
+		e.addField("Alignment", "Town Support", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Use the abilities of the role you get.");
+
+		e.addField("Attributes:", "- You will be given a random Rock role. That is your role, but you win with the Town.\n- You will not gain permanent defense, even if your role grants that.\n- You will not get access to the factional chat, you will also not get access to the factional kill.\n- You will not get roles who can only target/affect members of the Rocks.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
 };

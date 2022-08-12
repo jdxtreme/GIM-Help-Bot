@@ -264,7 +264,8 @@ function register_role(name, cat, desc, meta, func)
 
 			try
 			{
-				func(e, chn, message, args);
+				if(func(e, chn, message, args) || nosend)
+					return;
 
 				for(let f in e.fields)
 				{
@@ -275,8 +276,7 @@ function register_role(name, cat, desc, meta, func)
 					}
 				}
 
-				if(!nosend)
-					chn.send({embeds: [e]});
+				chn.send({embeds: [e]});
 			}
 			catch(error)
 			{
@@ -324,16 +324,18 @@ const GLOBAL = {
 	PLAYER_DATA,
 	is_day,
 	toggle_day,
+
+	MessageEmbed
 };
 
 require("./cmd_basics.js")(GLOBAL);
 require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
-for(let i = 50; i <= 1550; i+=50)
+for(let i = 50; i <= 1600; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
-require("./roles/cmd_androids.js")(GLOBAL);
+require("./roles/cmd_roles_misc.js")(GLOBAL);
 
 
 

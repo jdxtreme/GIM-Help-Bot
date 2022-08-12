@@ -135,34 +135,36 @@ module.exports = (g) =>
 		e.setImage("https://cdn.discordapp.com/attachments/970046125065265202/972686079981408286/unknown.png");
 	});
 
-	register_role(["no_faces", "nofaces", "560"], "Neutral", "There Are No Faces", {subCat: "Evil"}, (e) =>
+	register_role(["there_are_no_faces", "therearenofaces", "no_faces", "nofaces", "tanf", "560"], "Neutral", "There Are No Faces", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 560");
+		e.setDescription("Post 560\n*Sequence 3: Ablation of Subconscious*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Choose to perform a real sleep experiment during the night.");
+		e.addField("Abilities:", "- Choose to perform a real sleep experiment during the night. (2 uses)");
 
-		e.addField("Attributes:", "- When you choose to perform a real sleep experiment, the host will post the following message at the start of the day:\n> https://youtu.be/NZ-vBhGk9F4?t=226 (include the embed - i only excluded it here to save space)\n> **THERE ARE NO FACES.**\n> **THERE ARE NO FACES.**\n> **THERE ARE NO FACES.**\n- The identities of all players will be masked. All messages must be relayed through private chats. All players will be distinguishable from each other, but their names will appear as pseudonyms.\n- During a real sleep experiment, any message attempting to reveal the speaker's identity will be redacted and replaced with a random message. A list of messages will be provided to the host before the game begins.\n- Players may vote, whisper, and use day abilities during the day, but they must refer to each player's pseudonyms when conducting any action. Any private whisper channels will be closed.\n- You will have Basic defense until you are attacked for the first time.\n- You may perform 2 real sleep experiments.");
+		e.addField("Attributes:", "- When you choose to perform a real sleep experiment, it will be performed the following day. At the start of the day, the host will post the following message:\n> https://youtu.be/NZ-vBhGk9F4?t=226 (include the embed - i only excluded it here to save space)\n> **THERE ARE NO FACES.**\n> **THERE ARE NO FACES.**\n> **THERE ARE NO FACES.**");
+
+		e.addField("Attributes (cont.)", "- During a real sleep experiment, each alive player will be assigned a pseudonym that they must talk through. A list of these pseudonyms will be provided upon day start. Players cannot send messages in the day chat - they must post any messages they wish to send in their private message and the host will relay them through their pseudonym. Any messages that attempt to reveal the identity of the speaker will be replaced a random message from the timestamp in the video posted at the start of the day (there is a highly liked comment from Charlotte Louche with all of the phrases in it). Players may still vote, whisper, and use day abilities, but they must refer to other players using their pseudonyms.\n- The pseudonyms assigned to each player will be different between the two days you decide to perform a real sleep experiment.\n- You have Basic defense until you are attacked for the first time.");
 		
-		e.addField("Goal:", "Live to see Town lose the game.");
+		e.addField("Goal:", "Live to see the good faction lose the game.");
 	});
 
-	register_role(["five_dimensional_being", "fivedimensionalbeing", "5d_being", "5dbeing", "561"], "Neutral", "Five Dimensional Being", {subCat: "Killing"}, (e) =>
+	register_role(["referee", "561"], "Neutral", "Referee", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 561");
+		e.setDescription("Post 561\n*I want a good, clean match. Now kill each other.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Challenge a player to a five-dimensional quiz each day.");
+		e.addField("Abilities:", "- Select two players during the day to force them to fight tonight. You may not target yourself until there are only four players remaining.\n- Decide what type of match will be conducted during the night.");
 
-		e.addField("Attributes:", "- When you challenge a player, they will be sent a video clip of a random rotation of a five-dimensional cube the following night.\n- If they successfully identify what this rotation is, you will give them Invincible defense out of pure respect; otherwise, you will deal an Unstoppable attack to them.\n- If you target Asew54321, you will be told not to do that because that is a bad idea. You can still do it but it will be a bad idea.");
+		e.addField("Attributes:", "- The two players you target will receive a message at the start of the night informing them that a Referee has forced them into combat.\n- At night, you may decide whether the player with the higher post number or the lower post number wins. The player that wins the fight will deal a Powerful Attack to the player that loses the fight. In the case of a tie, the player higher or lower on the role list (depending on what you chose) will be the one to attack the other.\n- If you choose yourself to duel, you will bring in an outside fighter. This fighter is assumed to have a post number of infinity.\n- All Android roles are assumed to have 10000 taken off of their role number for the purposes of your fight.");
 		
-		e.addField("Goal:", "Kill all who may oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["know-it-all", "knowitall", "kia", "562"], "Neutral", "Know-It-All", {subCat: "Evil"}, (e) =>
@@ -640,15 +642,17 @@ module.exports = (g) =>
 
 	register_role(["stormbringer", "595"], "Neutral", "Stormbringer", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 595");
+		e.setDescription("Post 595\n*Don't touch that 4th place item box!*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Summon a thundercloud on a player each night.");
+		e.addField("Abilities:", "- Summon a thundercloud on a player each night.\n- Create a thunderstorm outside of your house at night (1 use).");
 
-		e.addField("Attributes:", "- You have three thunderclouds to summon throughout the game.\n- The player you summon the thundercloud on will be notified at the start of the day that a thundercloud has been summoned on them. They must pass it onto another player. They will not be told who passed the thundercloud onto them, and they may pass it onto any player that is present during the day. Once the thundercloud has been passed to five players, it’s effect will take place. The thundercloud will also activate if three hours pas without any activity.\n- It will be publicly announced who the thundercloud has effected.\n- The first thundercloud will blackmail the target for the remainder of the day and the following day.\n- The second thundercloud will prevent the target from performing any of their abilities and will drop their Defense value to None for the night (this overrides any protective abilities).\n- The third thundercloud will deal an Unstoppable attack to the target.");
+		e.addField("Attributes:", "- You have three thunderclouds to summon throughout the game.\n- The player you summon the thundercloud on will be notified at the start of the day that a thundercloud has been summoned on them. They must pass it onto another player. They will not be told who passed the thundercloud onto them, and they may pass it onto any player that is present during the day. Once the thundercloud has been passed to five players, its effect will take place. The thundercloud will also activate if one-third of the day phase passes without any activity.\n- It will be publicly announced who the thundercloud has effected.\n- The first thundercloud will blackmail the target for the remainder of the day and the following day.\n- The second thundercloud will prevent the target from performing any of their abilities and will drop their Defense value to None for the night overriding any protective abilities.\n- The third thundercloud will deal an Unstoppable attack to the target.");
+
+		e.addField("Attributes:", "- Creating a thunderstorm outside of your house will prevent any visits made towards you that night.\n- You may multitask.");
 		
 		e.addField("Goal:", "Have three players who are not yourself struck by a thundercloud.");
 	});
@@ -687,7 +691,7 @@ module.exports = (g) =>
 
 	register_role(["temptest", "tempt", "598"], "Town", "Temptest", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 598");
+		e.setDescription("Post 598\n*Trust me.*");
 
 		e.addField("Alignment", "Town Killing", true);
 		e.addField("Attack", "Variable", true);
