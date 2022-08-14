@@ -103,9 +103,13 @@ for _, filename in ipairs(args) do
 				local alignment, aline = findField(lines, a+1, "Alignment")
 				local goal, goaline = findField(lines, a+1, "Goal:")
 				local subCat = findMeta(header, "subCat")
+				local abilities = findField(lines, a+1, "Abilities:");
+				local attributes = findField(lines, a+1, "Attributes:");
 				local va = (not alignment or not alignment:gsub(' ', ''):find(cat))
 				local vg = (cat ~= "Neutral" and (not goal or not goal:gsub(' ', ''):find(cat)))
 				local vs = (not subCat or not alignment or not alignment:find(subCat))
+				local vab = (abilities and #abilities:gsub('\\', '') > 1024 and #abilities)
+				local vat = (attributes and #attributes:gsub('\\', '') > 1024 and #attributes)
 
 				if goaline and (goaline:find("factions."..cat..".goal") or goaline:find("factions.Neutral.goalNK")) then
 					vg = false
@@ -127,7 +131,11 @@ for _, filename in ipairs(args) do
 					va = false
 				end
 
-				if va or vg or vs then
+				if cat == "SK" and alignment and alignment:find("Serial Killer") then
+					va = false
+				end
+
+				if va or vg or vs or vab or vat then
 					print(header)
 				end
 
@@ -139,7 +147,15 @@ for _, filename in ipairs(args) do
 					print("Mismatched Goal: "..(goal or "nil"))
 				end
 
-				if va or vg or vs then
+				if vab then
+					print("Abilities field exceeds 1024 characters! ("..vab..")")
+				end
+
+				if vat then
+					print("Attributes field exceeds 1024 characters! ("..vat..")")
+				end
+
+				if va or vg or vs or vab or vat then
 					print()
 					sum = sum + 1
 				end

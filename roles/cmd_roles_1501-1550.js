@@ -379,7 +379,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Stab two people at night.\n- Recruit other SKs that aren't in the Serial Killer faction.");
 
-		e.addField("Attributes:", "- Detection immune.\n- Can spawn even without non-Serial Killer faction SKs in the game.\n- Recruiting players will turn them into a member of the Serial Killers. They keep their original abilities and attributes, but can see the factional chat.");
+		e.addField("Attributes:", "- Detection immune.\n- Can spawn even without non-Serial Killer faction SKs in the game.\n- Recruiting players will turn them into a member of the Serial Killers. They keep their original abilities and attributes, but can see the factional chat.\n" + factions.SK.attributes);
 		
 		e.addField("Goal:", factions.SK.goal);
 	});
@@ -394,7 +394,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Stab people with your gasoline knife, dousing them.\n- Stab all doused players with your very hot firey knife.");
 
-		e.addField("Attributes:", "- Your douses don't interact with other dousing roles and vice versa.");
+		e.addField("Attributes:", "- Your douses don't interact with other dousing roles and vice versa.\n" + factions.SK.attributes);
 		
 		e.addField("Goal:", factions.SK.goal);
 	});
@@ -408,6 +408,8 @@ module.exports = (g) =>
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Stab people with your thunder knife, dealing a rampage attack because you strike them with lightning.");
+
+		e.addField("Attributes:", factions.SK.attributes);
 		
 		e.addField("Goal:", factions.SK.goal);
 	});
@@ -422,7 +424,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Stab people.");
 
-		e.addField("Attributes:", "- Astral.\n- You bypass protective roles.");
+		e.addField("Attributes:", "- Astral.\n- You bypass protective roles.\n" + factions.SK.attributes);
 		
 		e.addField("Goal:", factions.SK.goal);
 	});
@@ -436,6 +438,8 @@ module.exports = (g) =>
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Stab people with an icy knife, killing them.\n- Slice people with an icy knife, giving them hypothermia and roleblocking them.");
+
+		e.addField("Attributes:", factions.SK.attributes);
 		
 		e.addField("Goal:", factions.SK.goal);
 	});
@@ -449,6 +453,8 @@ module.exports = (g) =>
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Stab people with your knife, killing them.\n- Threaten to stab someone with your knife, revealing their role.");
+
+		e.addField("Attributes:", factions.SK.attributes);
 		
 		e.addField("Goal:", factions.SK.goal);
 	});
@@ -462,6 +468,8 @@ module.exports = (g) =>
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Stab someone with your knife made out of honey, killing them. Some bees might help you with that.\n- Stab someone with your knife made out of flowers. This won't kill them, but all the bees in Salem will go to their house, scaring off everyone who would visit them.");
+
+		e.addField("Attributes:", factions.SK.attributes);
 		
 		e.addField("Goal:", factions.SK.goal);
 	});
@@ -471,7 +479,7 @@ module.exports = (g) =>
 		e.setDescription("Post 1531\nThis isn't a valid role format.");
 	});
 
-	register_role(["cereal_killer", "cerealkiller", "ck", "1532"], "SK", "Cereal Killer", {subCat: "Support"}, (e) =>
+	register_role(["cereal_killer", "cerealkiller", "cereal", "ck", "1532"], "SK", "Cereal Killer", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1532");
 
@@ -481,7 +489,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Serve someone cereal of poison.\n- Serve someone cereal of life.\n- Serve someone cereal of truth.");
 
-		e.addField("Attributes:", "- Cereal of poison will poison the target.\n- Cereal of life will heal the target.\n- Cereal of truth will reveal the target's role.");
+		e.addField("Attributes:", "- Cereal of poison will poison the target.\n- Cereal of life will heal the target.\n- Cereal of truth will reveal the target's role.\n" + factions.SK.attributes);
 		
 		e.addField("Goal:", factions.SK.goal);
 	});
@@ -634,7 +642,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Army.goal);
 	});
 
-	register_role(["first_sergeant", "firstsergeant", "fs", "1543"], "Army", "The First Sergeant", {subCat: "Protective"}, (e) =>
+	register_role(["first_sergeant", "firstsergeant", "fs", "1543"], "Army", "The First Sergeant", {subCat: "Protector"}, (e) =>
 	{
 		e.setDescription("Post 1543");
 

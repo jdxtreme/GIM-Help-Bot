@@ -56,7 +56,7 @@ const factions =
 	Creator: {color: "D95252", goal: "Witness the end of the chaos that you have created. Kill absolutely every non-Creator."},
 	Warfleet: {color: "0000BB", goal: "Destroy your landfaring opposition, and conquer their territory as your own."},
 	Florae: {color: "81B17A", goal: "Exterminate all who would harm your tribe."},
-	SK: {color: "000080", icon: "https://cdn.discordapp.com/emojis/1007310929278554173.webp", goal: "Stab everyone who would oppose you in a very serial way."},
+	SK: {color: "000080", icon: "https://cdn.discordapp.com/emojis/1007310929278554173.webp", goal: "Stab everyone who would oppose you in a very serial way.", attributes: "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their wills covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead."},
 	Army: {color: "E8D578", goal: "Eliminate all who would not follow martial law."},
 	Discordian: {color: "7289DA", goal: "Eliminate everyone who doesn't actually exist."},
 	Android: {color: "AAFF40", goal: "Crush all inferior beings."},
