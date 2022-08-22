@@ -102,7 +102,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose someone during the day to learn their ability to use at night.");
 
-		e.addField("Attributes:", "- You can use your target's ability at night.\n- With the Necronomicon, any ability you learn will be permanent.\n- With the Necronomicon, you will get an ability to deal a basic attack to 1 player.\n- With the Necronomicon, you can use all your permanent learned abilities at the same time every night.");
+		e.addField("Attributes:", "- You can use your target's ability at night.\n- With the Necronomicon, any ability you learn will be permanent. You can't have 2 permanent copies of the same role.\n- With the Necronomicon, you will get an ability to deal a basic attack to 1 player.\n- With the Necronomicon, you can use all your permanent learned abilities at the same time every night.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -180,34 +180,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Receive sins from three players and expose one player's sins.");
 	});
 
-	register_role(["absolute_will", "absolutewill", "364"], "Town", "Absolute Will", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 364");
-
-		e.addField("Alignment", "Town Support", true);
-		e.addField("Attack", "Overkill", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Attack a player each night. If they have an ability or attribute that can look at, edit, or hide the will of a player other than them, deal an Overkill attack to them.");
-
-		e.addField("Attributes:", "- Last Wills can't be looked at or edited by players they don't belong to. Last Wills can't be hidden upon death. This attribute persists even if you die or are removed from the game.\n- Your role will be rerolled to another Town Support role if there's no non-Town roles that can look at, edit, or hide other players' wills. However, your first attribute still persists.");
-		
-		e.addField("Goal:", factions.Town.goal);
-	});
-
-	register_role(["essence_of_speed", "essenceofspeed", "speed", "365"], "Neutral", "Essence of Speed", {subCat: "Benign"}, (e) =>
+	register_role(["viewer", "365"], "Neutral", "Viewer", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 365");
 
-		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Alignment", "Unique Neutral Evil", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Passively speed up the game.");
+		e.addField("Abilities:", "View someone at night or use an ability you have seen.");
 
-		e.addField("Attributes:", "- All phases are half their length while you are alive.\n- When only 5 players (excluding yourself) remain, all phases are reduced to 1/3rd their duration.\n- You have another role along with this role. You will have that role’s abilities and attributes in addition to this role. \n- If your other role has no defense, you keep the basic defense of Essence of Time.");
+		e.addField("Attributes:", "- Whenever you view someone, you will receive all feedback they did. You may choose 1 feedback message they received, and you will gain the ability that caused that feedback message to be produced.\n- You may view and use one other ability per night.");
 		
-		e.addField("Goal:", "Complete your other role’s win con.");
+		e.addField("Goal:", "Have the good faction lose the game (this can win while dead).");
 	});
 
 	register_role(["firebrand", "366"], "Town", "Firebrand", {subCat: "Killing"}, (e) =>
@@ -313,19 +298,6 @@ module.exports = (g) =>
 		e.addField("Goal:", "Successfully have a conversation with at least two people.");
 	});
 
-	register_role(["mfw", "373"], "Neutral", "Mfw", {subCat: "Killing"}, (e) =>
-	{
-		e.setDescription("Post 373");
-
-		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Overkill", true);
-		e.addField("Defense", "Basic", true);
-
-		e.addField("Attributes:", "- Everyone Sends an emote everyday showing their current mode (can be emoji instead)\n- If anyone sends a emote/emoji that is opposite yours, attack them with over 9000 attack power");
-		
-		e.addField("Goal:", "Kill anyone to winwin\nwin*");
-	});
-
 	register_role(["interrogator", "374"], "Town", "Interrogator", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 374");
@@ -358,15 +330,15 @@ module.exports = (g) =>
 
 	register_role(["harlequin", "376"], "Neutral", "Harlequin", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 376");
+		e.setDescription("Post 376\n*This role cannot die during the night, at all. Meaning, it is above every single other attacking value in the game, including Overkill. Additionally, you may not be banned or modkilled by roles that ban or modkill.*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "Unstoppable", true);
-		e.addField("Defense", "Invincible", true);
+		e.addField("Defense", "Immortal", true);
 
 		e.addField("Abilities:", "- Choose someone's home to stay at.\n- Or choose someone to follow.");
 
-		e.addField("Attributes:", "- If you stay at someone's home and they get attacked, your defense value Is lowered to none and you get attacked instead.\n- If you follow someone and they attack someone else, your defense value Is lowered to none and you will get attacked instead.\n- You will deal an Unstoppable atk to someone of your choice after dying.");
+		e.addField("Attributes:", "- If you stay at someone's home and they get attacked, your defense value Is lowered to none and you get attacked instead.\n- If you follow someone and they attack someone else, your defense value Is lowered to none and you will get attacked instead.\n- You will haunt (Post 90, Jester) the player that killed you.");
 		
 		e.addField("Goal:", "Die in the night.");
 	});
@@ -520,17 +492,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill everyone who would oppose you.");
 	});
 
-	register_role(["suffering", "387"], "Neutral", "Suffering", {subCat: "Killing"}, (e) =>
+	register_role(["your_best_nightmare", "yourbestnightmare", "nightmare", "ybn", "387"], "Neutral", "Your Best Nightmare", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 387");
 
 		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Overkill", true);
-		e.addField("Defense", "Invincible", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Each night, choose two players. That night, they're roleblocked through immunities. The following day, they can't talk or vote. At the start of the next night, they lose all abilities, attributes, immunities, and Defense, and at the end they're dealt an Overkill attack.");
+		e.addField("Abilities:", "- Target a player tonight and give them a nightmare. You will attack everyone who they visit tonight.\n- Eat a player's will tonight. It will become completely empty and they won't be able to use it anymore.");
+
+		e.addField("Attributes:", "- Your abilities are astral.\n- You can multitask.\n- Everyone who investigates you will be given a nightmare and can't speak, whisper or vote during the next Day phase. You will know their identity too.\n- When you kill someone, you will take their SOUL and steal all of their attributes unless they would be negative utility.");
 		
-		e.addField("Goal:", factions.Neutral.goalNK);
+		e.addField("Goal:", "Give everyone an eternal nightmare... " + factions.Neutral.goalNK);
 	});
 
 	register_role(["winsconsin", "388"], "Neutral", "Winsconsin", {subCat: "Chaos"}, (e) =>
@@ -703,24 +677,5 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- You have one charge of each Mafia role that is not in the game.\n- When you use a charge of another Mafia role, you may use any ability that role has, but may only use that ability one time.\n- You do not have charges of Mafia Head roles, Mafia Espionage roles, or the Mafioso.\n- You may change yourself into a role that you still have the charge of on any night.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
-	});
-
-	register_role(["philosopher", "400"], "Neutral", "Philosopher", {subCat: "Chaos"}, (e) =>
-	{
-		e.setDescription("Post 400");
-
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None (Basic)", true);
-
-		e.addField("Abilities:", "- Once per phase, during the first 12 hours of that phase, you may target someone, presenting them with a simple choice:  Ally or Betray. If no response is received by the end of the phase, their choice will default to Ally.");
-
-		e.addField("Attributes (Initial):", "- If they select Ally, you will gain a point and have basic defense in the next phase. Also, you must choose an ability from [Sheriff Check, Doctor Heal, Escort Roleblock] for them to be able to use in addition to their regular ability during the next night. If they select Betray, you will lose a point, and they may choose an ability from [Consigliere Check, Doctor Heal, Escort Roleblock, Extra Basic Attack, Extra Powerful Attack (only useable once for all players)] to use during the next night in addition to their regular ability.\n- You are roleblock and redirection immune.\n- You start with 2 points. If you reach 5 points, you will leave the game in victory(die)... However, if you reach 0, your Attributes and Goal will be swapped out for their Alternate versions.");
-		
-		e.addField("Goal (Initial):", "Obtain 5 points.");
-
-		e.addField("Attributes (Alternate):", "When you perform your action, select a target to attack (can be different). If your Ally/Betray target chooses Ally, you must choose an ability from [Sheriff Check, Doctor Heal, Escort Roleblock] for them to be able to use in addition to their regular ability during the next night, and you will attack your attack target at the end of the phase with a Basic attack. If they choose Betray, they will be attacked by an Powerful attack.\n- You are roleblock and redirection immune.");
-		
-		e.addField("Goal (Alternate):", factions.Neutral.goalNK);
 	});
 };

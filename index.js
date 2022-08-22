@@ -34,7 +34,7 @@ const factions =
 	Sith: {color: "800000", icon: "https://cdn.discordapp.com/emojis/974882271783968839.webp", goal: "Eliminate those that do not submit to the Dark Side/Live to see the town lose."},
 	Insurgency: {color: "B00B69", icon: "https://cdn.discordapp.com/emojis/993409239764717569.webp", goal: "Eliminate all who oppose the Insurgency."},
 	Loyalist: {color: "93C47D", icon: "https://cdn.discordapp.com/emojis/996214205982187681.webp", goal: "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule."},
-	SCP: {color: "AAAAAA", icon: "https://cdn.discordapp.com/emojis/976658193323282462.webp", goal: "Kill everyone who is not on the SCP team."},
+	SCP: {color: "AAAAAA", icon: "https://cdn.discordapp.com/emojis/976658193323282462.webp", goal: "Prevent the Foundation from recontaining you at all costs."},
 	Thundercry: {color: "FFFF00", icon: "https://cdn.discordapp.com/emojis/996214265012813944.webp", goal: "Eliminate all who stand against the Thundercry."},
 	Crew: {color: "EDC240", icon: "https://cdn.discordapp.com/emojis/980989425137901588.webp", goal: "Kill all main factions. (The Crew can win with all Neutrals.)"},
 	Pokemon: {color: "BB2F2F", icon: "https://cdn.discordapp.com/emojis/1007197839576809492.webp", goal: "Kill anyone that opposes the Pokemon."},
@@ -54,9 +54,9 @@ const factions =
 	Toppat: {color: "B01C12", icon: "https://cdn.discordapp.com/emojis/1002935333723328572.webp", goal: "Destroy all who refuse to submit to the Toppats."},
 	Koopa: {color: "4D8A45", icon: "https://cdn.discordapp.com/emojis/1003311828283162725.webp", goal: "Kill all who would oppose Lord Bowser"},
 	Creator: {color: "D95252", goal: "Witness the end of the chaos that you have created. Kill absolutely every non-Creator."},
-	Warfleet: {color: "0000BB", goal: "Destroy your landfaring opposition, and conquer their territory as your own."},
+	Warfleet: {color: "000080", goal: "Destroy your landfaring opposition, and conquer their territory as your own."},
 	Florae: {color: "81B17A", goal: "Exterminate all who would harm your tribe."},
-	SK: {color: "000080", icon: "https://cdn.discordapp.com/emojis/1007310929278554173.webp", goal: "Stab everyone who would oppose you in a very serial way.", attributes: "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their wills covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead."},
+	SK: {color: "336EFF", icon: "https://cdn.discordapp.com/emojis/1007310929278554173.webp", goal: "Stab everyone who would oppose you in a very serial way.", attributes: "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their wills covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead."},
 	Army: {color: "E8D578", goal: "Eliminate all who would not follow martial law."},
 	Discordian: {color: "7289DA", goal: "Eliminate everyone who doesn't actually exist."},
 	Android: {color: "AAFF40", goal: "Crush all inferior beings."},
@@ -336,6 +336,8 @@ for(let i = 50; i <= 1600; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
 require("./roles/cmd_roles_misc.js")(GLOBAL);
+
+console.log(roles.length);
 
 
 

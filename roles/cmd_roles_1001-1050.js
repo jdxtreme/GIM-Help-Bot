@@ -111,15 +111,15 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["trick_or_treater", "trickortreater", "treater", "tot", "1008", "191u"], "Unseen", "Trick or Treater", {subCat: "Investigative"}, (e) =>
+	register_role(["trick_or_treater", "trickortreater", "treater", "tot", "1008", "191u"], "Unseen", "Trick or Treater", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1008\nConverted from: Caroler");
+		e.setDescription("Post 1008\n*Halowen!*\nConverted from: Caroler");
 
-		e.addField("Alignment", "Unseen Investigative", true);
+		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Trick (Night, 3 uses): Choose a player. If your target stays at home, they will receive a list of three random alive non-Unseen players and will be informed that one of them is evil. This will appear as if a Caroler sung to them.\n- Treat (Night, 2 uses): Choose to treat the Unseen. At the end of the night, the Unseen will receive a list of three players and the role of one of them.");
+		e.addField("Abilities:", "- Trick (Night, 3 uses): Choose a player to trick. If your target does not visit another player, they will receive a list of three random alive non-Unseen players and will be informed that one of them is evil. This will appear as if a Caroler sung to them. If your target visits another player, your ability fails.\n- Treat (Night, 2 uses): Choose to treat the Unseen. At the end of the night, the Unseen will receive a list of three players and the role of one of them.");
 
 		e.addField("Attributes:", "- You will not lose a charge of Trick if your target does not stay home.");
 
@@ -188,60 +188,60 @@ module.exports = (g) =>
 
 	register_role(["strongman", "sm", "strong", "1013", "952u"], "Unseen", "Strongman", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1013\nConverted from: Macho Man");
+		e.setDescription("Post 1013\n*Kanye West approves of this role.*\nConverted from: Macho Man");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Motivate (Night, 1 use): The Assassin's attack will be upgraded to Unstoppable tonight.\n- Weaken (Night, 1 use): The next target of the Assassin's Lacerate ability will be unable to be healed.\n- Test Strength (Night): Test someone's strength. You will learn their exact defense value for the night.");
+		e.addField("Abilities:", "- Motivate (Night, 1 use): The Assassin's attack will be upgraded to Unstoppable tonight.\n- Weaken (Night, 1 use): The next target of the Assassin's Lacerate ability will be unable to be healed.\n- Test Strength (Night): Test someone's strength. You will learn their exact defense value for the night after all other actions resolve.");
 
-		e.addField("Attributes:", "- Your usage of Weaken will persist until the Assassin has lacerated their next target including if you are promoted to Assassin.\n- You will learn what defense value that your target of Test Strength has after all actions are resolved, so any protective abilities will alter your results.");
+		e.addField("Attributes:", "- Your usage of Weaken will persist until the Assassin has lacerated their next target including if you are promoted to Assassin.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["finger_pointer", "fingerpointer", "finger", "pointer", "fp", "1014", "710u"], "Unseen", "Finger Pointer", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1014\nConverted from: Scapegoat");
+		e.setDescription("Post 1014\n*It wasn't me.*\nConverted from: Scapegoat");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Blame (Night): Choose an Unseen player and another target. You will redirect one visit from the Unseen member to your second target.\n- Talk to the Hand (Night, 1 use): All players that visit an Unseen member tonight will be roleblocked");
+		e.addField("Abilities:", "- Blame (Night): Choose an Unseen player and another target. You will redirect one visit from the Unseen member to your second target.\n- Talk to the Hand (Night, 1 use): All players that visit an Unseen member tonight will be roleblocked.");
 
-		e.addField("Attributes:", "- Roleblock and Redirect Immune\n- The visits you redirect from the Unseen member using Blame will prioritize killing abilities, then investigative abilities, then any other visitors priotizing protective abilities at the very bottom. If multiple visitors in the same category visit your target, you will redirect the player that sent in their final action first.");
+		e.addField("Attributes:", "- The visits you redirect from the Unseen member using Blame will prioritize killing abilities, then investigative abilities, then any other visitors prioritizing protective abilities at the very bottom. If multiple visitors in the same category visit your target, you will redirect the player that sent in their final action first.\n- You are roleblock and redirect immune.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["pirouetter", "piro", "1015", "919u"], "Unseen", "Pirouetter", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1015\nConverted from: Ballerina");
+		e.setDescription("Post 1015\n*We're running in circles!*\nConverted from: Ballerina");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Spin (Night): Choose a target. If they used an ability, they will be forced to target a random different alive non-Unseen player.\n- Take for a Whirl (Night, 1 use): The Unseen will receive all whispers sent for the day after this ability is used.");
+		e.addField("Abilities:", "- Spin (Night): Choose a target. If they used an ability, they will be redirected to a different alive non-Unseen player.\n- Perform (Night, 2 use): Choose a target. You will perform at their house roleblocking all of their visitors.\n- Take for a Whirl (Night, 1 use): The Unseen will receive all whispers sent for the day after this ability is used.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Target of your Spin ability will not be notified who they targeted.");
+		e.addField("Attributes:", "- Roleblock Immune");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["summoner", "1016", "493u"], "Unseen", "Summoner", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1016\nConverted from: Occultist");
+		e.setDescription("Post 1016\n*...but I suspect they have something to do with the occult.*\nConverted from: Occultist");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Final Words (Night): Choose a dead player. Receive any feedback from abilities used by or on that player on the night they died.\n- Hopping Realms (Day, 1 use): Choose an alive player. Your target will be able to read dead chat for the remainder of the day, but will not be able to access the current day chat.");
+		e.addField("Abilities:", "- Final Words (Night): Choose a dead player. Receive any feedback from abilities used by or on that player on the night they died.\n- Hopping Realms (Day, 1 use): Choose an alive player. Your target will receive all messages sent in dead chat for the remainder of the day, but will not be able to access the current day chat. Your target will regain access to the current day chat after the day ends.");
 
-		e.addField("Attributes:", "- While you are alive, all dead Unseen members will be able to talk to the Unseen at night. Keep this attribute if you are converted to Assassin.\n- The player you target with Hopping Realms will not be able to send messages in dead chat and will not appear in the member list of dead chat. Your target will regain access to the day chat after the day is over.\n- If you were converted from Occultist, your spirit list from before your conversion will stay intact. You may choose any number of players to remove from your list, but you will not be able to add any more players. This does not count as an ability.");
+		e.addField("Attributes:", "- While you are alive, all dead Unseen members will be able to talk to the Unseen at night. Keep this attribute if you are converted to Assassin.\n- If you were converted from Occultist, your spirit list from before your conversion will stay intact. You may choose any number of players to remove from your list, but you will not be able to add any more players. This does not count as an ability.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -263,13 +263,13 @@ module.exports = (g) =>
 
 	register_role(["product", "1018", "282u"], "Unseen", "Protuct", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1018\nConverted from: Difference");
+		e.setDescription("Post 1018\n*What is the product of number 1 and number 2? A right mess.*\nConverted from: Difference");
 
 		e.addField("Alignment", "Unseen Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Calculate (Night, 2 use): Choose two players. You will receive the product of both of their role numbers.\n- Powers of 2 (Night, 2 use): Choose a player. You will receive the product of their role number and a random power of 2 up to 64.");
+		e.addField("Abilities:", "- Calculate (Night, 2 use): Choose two players. You will receive the product of both of their post numbers.\n- Powers of 2 (Night, 2 use): Choose a player. You will receive the product of their post number and a random power of 2 up to 256.");
 
 		e.addField("Attributes:", "- You will not be informed which power of 2 your target's role was multiplied by when using Powers of 2.");
 
@@ -503,13 +503,13 @@ module.exports = (g) =>
 
 	register_role(["ultraguard", "1034", "172u"], "Unseen", "Ultraguard", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 1034\nConverted from: Superguard");
+		e.setDescription("Post 1034\n*COME ON, MOTHERFUCKER, COME ON.*\nConverted from: Superguard");
 
 		e.addField("Alignment", "Unseen Protective", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Ultraguard (Night, 1 use): Guard the Unseen tonight. If any of the other Unseen members are attacked, you will deal an Unstoppable Attack to all players that visit the Unseen, give all other Unseen members Powerful Defense for the night, and deal and Unstoppable attack to yourself.\n- Hyperguard (Night): Choose another Unseen player. You will make their visit Astral and up their Defense by one value.");
+		e.addField("Abilities:", "- Ultraguard (Night, 1 use): Guard the Unseen tonight. If any of the other Unseen members are attacked, you will deal an Unstoppable Attack to all players that visit the Unseen, give all other Unseen members Powerful Defense for the night, and deal an Unstoppable attack to yourself.\n- Hyperguard (Night): Choose another Unseen player. You will make their visit Astral and up their Defense by one value.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -531,7 +531,7 @@ module.exports = (g) =>
 
 	register_role(["dungeon_master", "dungeonmaster", "dm", "1036", "173u"], "Unseen", "Dungeon Master", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1036\nConverted from: Keymaster");
+		e.setDescription("Post 1036\n*Sometimes it's in my best interest if your door never unlocks.*\nConverted from: Keymaster");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
@@ -576,15 +576,15 @@ module.exports = (g) =>
 
 	register_role(["cantaloupe", "canta", "tlctfgrooin", "1039", "184u"], "Unseen", "The Levitating Cantaloupe That Fires Gamma Rays Out Of Its Nipples", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1039\nConverted from: The Flying Pumpkin That Shoots Laser Beams Out Of Its Ass");
+		e.setDescription("Post 1039\n*hu--*\nConverted from: The Flying Pumpkin That Shoots Laser Beams Out Of Its Ass");
 
 		e.addField("Alignment", "Unseen Killing", true);
 		e.addField("Attack", "Basic (Powerful)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Cantaloupe Things (Night): Choose a target. You will have a 50% chance to fire gamma rays at them dealing a Basic attack, a 25% chance to learn their exact role, and a 25% chance to permanently lower their Defense to None (they may still be protected, however).\n- Aim (Night, 1 use): Choose a target. You will deal a Powerful Attack to them if they cannot win with you. You will have a 75% chance of dealing a Basic Atack to them if they do win with you.");
+		e.addField("Abilities:", "- Cantaloupe Things (Night): Choose a target. You will have a 50% chance to fire gamma rays at them dealing a Basic attack, a 25% chance to learn their exact role, and a 25% chance to permanently lower their Defense to None.\n- Aim (Night, 1 use): Choose a target. You will deal a Powerful Attack to them if they cannot win with you. You will have a 75% chance of dealing a Basic Attack to them if they do win with you.");
 
-		e.addField("Attributes:", "- Anyone who visits you has a 25% chance of being dealt a Basic Attaack.");
+		e.addField("Attributes:", "- Anyone who visits you has a 25% chance of being dealt a Basic Attack.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -653,15 +653,15 @@ module.exports = (g) =>
 
 	register_role(["persuader", "1044", "275u"], "Unseen", "Persuader", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1044\nConverted from: Manipulator");
+		e.setDescription("Post 1044\n*:smirk:*\nConverted from: Manipulator");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Persuasion (Night): Choose a player. Redirect their target to another player.\n- Offer (Night, 1 use): All players using a protective ability during this night will be redirected to a player of your choosing.");
+		e.addField("Abilities:", "- Persuasion (Night): Choose a player. Redirect their target to another alive player.\n- Offer (Night, 1 use): All players using a protective ability during this night will be redirected to a player of your choosing.");
 
-		e.addField("Attributes:", "- A protective ability means any ability whose intent is to prevent any other player from dying.");
+		e.addField("Attributes:", "- You are roleblock and redirect immune.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -726,15 +726,13 @@ module.exports = (g) =>
 
 	register_role(["ultimatum", "1049", "955u"], "Unseen", "Ultimatum", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1049\nConverted from: Destined");
+		e.setDescription("Post 1049\n*Don't you dare look back.*\nConverted from: Destined");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Ultimate Destiny (Night, 3 use): Choose two players. If one player dies, the other will die via the same method immediately after.\n- Faith of Others (Night, 2 use): Choose two players. The first player's night feedback will be the same as the second player's night feedback.");
-
-		e.addField("Attributes:", "- Your first target of Faith of Others will receive the same exact system messages as your second target instead of their actual night feedback. This includes the feedback from any abilities used.");
+		e.addField("Abilities:", "- Ultimate Destiny (Night, 3 use): Choose two players. If one of them dies, the other will die via the same method immediately after.\n- Faith of Others (Night, 2 use): Choose two players. The second player will receive all night feedback sent to the first player instead of their actual night feedback, including ability feedback.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});

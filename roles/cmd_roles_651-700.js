@@ -4,15 +4,15 @@ module.exports = (g) =>
 
 	register_role(["creepy_girl", "creepygirl", "651"], "Neutral", "Creepy Girl", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 651");
+		e.setDescription("Post 651\n*Probably not even cursed.*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Give someone your doll on night one.\n- Force your doll onto another player at night.\n- Choose to roleblock the player with your doll at night.");
+		e.addField("Abilities:", "- Give someone your doll at night. Only usable on Night 1 or if you come back into possession of your doll.\n- Force your doll onto another player at night (1 use).\n- Choose to roleblock the player with your doll at night (2 use).");
 
-		e.addField("Attributes:", "- A player who possesses your doll may choose to give the doll to another player during the night.\n- Forcing your doll onto another player will override the player choosing to give their doll to another player. You may do this once.\n- When you roleblock the player with your doll, you will also learn their identity. You may do this twice.\n- If the player with your doll is lynched, you will come into possession with the doll again at the beginning of the night and may choose another player to receive the doll.");
+		e.addField("Attributes:", "- Players that receive your doll will be notified that they have come into possession of a creepy doll.\n- The player who possesses your doll may choose to give the doll to another player during the night. They may not do this alongside their normal night ability unless they can multitask.\n- Forcing the doll onto another player will override the decision of the player with the doll. They will be notified if this is the case.\n- When you roleblock the player with your doll, you will also learn their identity.\n- If the player with your doll is lynched, you will come into possession with the doll again at the beginning of the night and may choose another player to receive the doll.");
 		
 		e.addField("Goal:", "Have the player in possession of your doll die at night.");
 	});
@@ -34,22 +34,22 @@ module.exports = (g) =>
 
 	register_role(["sawbones", "653"], "Mafia", "Sawbones", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 653");
+		e.setDescription("Post 653*Joining an organized crime syndicate is one way to get your student loans paid off.*");
 
 		e.addField("Alignment", "Mafia Support", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose one member of the Mafia to heal each night.");
+		e.addField("Abilities:", "- Choose one member of the Mafia to heal each night. (4 use)");
 
-		e.addField("Attributes:", "- Healing a member of the Mafia will give them Powerful defense for the night.\n- You may only heal four times.\n- You may heal yourself.");
+		e.addField("Attributes:", "- Healing a member of the Mafia acts exactly like a Doctor heal.\n- You may heal yourself.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["phisher", "654"], "Mafia", "Phisher", {subCat: "Deception"}, (e) =>
 	{
-		e.setDescription("Post 654");
+		e.setDescription("Post 654\n*THIS IS [One Purchase] YOU WILL [Regret] FOR THE REST OF YOUR LIFE!*");
 
 		e.addField("Alignment", "Mafia Deception", true);
 		e.addField("Attack", "None", true);
@@ -57,7 +57,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose someone to phish each night.");
 
-		e.addField("Attributes:", "- Roleblock and Redirect Immune\n- Phished players will be forced to target you that night.\n- If your ability would cause you to be killed, it will be cancelled.\n- You will be notified if your target was immune to your phishing.\n- Your target will NOT be notified that they were redirected.");
+		e.addField("Attributes:", "- Phished players will be forced to target you.\n- If your ability would cause you to be killed (including delayed kills, i.e. poison), it will be cancelled, and you will be notified.\n- You will be notified if your target was immune to your phishing.\n- Your target will **not** be notified that they were redirected.\n- You are roleblock and redirect immune.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -229,15 +229,15 @@ module.exports = (g) =>
 
 	register_role(["striker", "666"], "Neutral", "Striker", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 666");
+		e.setDescription("Post 666\n*You little thangs ain't worth the cleanup.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Choose to wrangle a player each night.\n- Choose to shoot a player with your carmine-crafted blessing-tipped rifle.");
+		e.addField("Abilities:", "- Choose to wrangle a player at night.\n- Choose to shoot a player with your carmine-crafted blessing-tipped rifle at night (3 use, only usable on Full Moons).");
 
-		e.addField("Attributes:", "- Wrangling a player will roleblock them through immunity and deal an Astral Basic attack to them. It will appear as if your target visited you.\n- Shooting a player with your carmine-crafted blessing-tipped rifle will deal an Unstoppable Astral attack to them. However, if you are visited while using your rifle, you will instead deal a Powerful attack to all players visiting you. You may shoot three players, and you may only shoot during a full moon.\n- You show up as incapable of killing to any Investigative abilities.\n- You may win with **Loona** if you both spawn.");
+		e.addField("Attributes:", "- Wrangling a player will roleblock them through immunity and deal an Astral Basic attack to them. It will appear as if your target visited you.\n- Shooting a player with your carmine-crafted blessing-tipped rifle will deal an Unstoppable Astral attack to them. If there's a blood moon out, your attack will be Rampaging. However, if you are visited while using your rifle, you will instead deal a Powerful attack to all players visiting you. You may shoot three players, and you may only shoot during a full moon.\n- Any investigative abilities will show you as innocent and incapable of killing.\n- You are sensible enough to not kill yourself if you somehow end up targeting yourself.\n- You may win with **Loona** if you both spawn.");
 		
 		e.addField("Goal:", "Kill all who may oppose you.");
 	});

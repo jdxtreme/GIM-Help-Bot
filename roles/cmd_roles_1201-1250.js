@@ -504,7 +504,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who would oppose you or your faction.");
 	});
 
-	register_role(["scp-953", "scp953", "1236"], "SCP", "SCP-953", {subCat: "Keter"}, (e) =>
+	register_role(["scp-953", "scp953", "1236"], "SCP", "SCP-953", {subCat: "Keter", spawnCat: "Town"}, (e) =>
 	{
 		e.setDescription("Post 1236");
 
@@ -527,9 +527,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player each night. If they would visit a player who was roleblocked last night, roleblock them; otherwise, force them to visit another player of your choice, even if they don't have a visiting ability.\n**Aurora Borealis** — Choose two players. You may roleblock them or force them to visit players of your choice, even if they don't have a visiting ability. Then, coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
+		e.addField("Abilities:", "- Choose a player each night. If they would visit a player who was roleblocked last night, roleblock them; otherwise, force them to visit another player of your choice, even if they don't have a visiting ability.\n**Aurora Borealis** — Choose a player. You may roleblock them or redirect them to a player of your choice. Then, coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a non-Everfrost player is visited by two or more other non-Everfrost players, the next night, they will be roleblocked.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a non-Everfrost player is visited by three or more other non-Everfrost players, the next night, they will be roleblocked.");
 
 		e.addField("Goal:", factions.Everfrost.goal);
 	});
@@ -707,7 +707,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Analyse someone and their role will be from three roles from The Criminal List.");
+		e.addField("Abilities:", "- Analyse someone and find their role. It will be from three roles written on The Criminal List.");
 
 		e.addField("Attributes:", "- At the start of game, The Criminal List is publicly announced with every role in the game plus 5 fake roles who don't exist. The fake roles can exist according to the rolelist.");
 

@@ -103,7 +103,8 @@ module.exports = (g) =>
 				id: user.id,
 				channel: player_channel.id,
 				nicknames: [],
-				alive: true
+				alive: true,
+				tags: {}
 			};
 
 			for(let i = 2; i < args.length; i++)
@@ -231,7 +232,8 @@ module.exports = (g) =>
 		{
 			let plr = PLAYER_DATA[i];
 
-			if(plr !== sender && plr !== recipient && plr.overhear_all)
+			if(plr.tags && plr !== sender && plr !== recipient && (plr.tags.overhear_all || 
+					(plr.tags.overhear_target === sender.id || plr.tags.overhear_target === recipient.id)))
 			{
 				let pchannel = message.guild.channels.cache.get(plr.channel);
 
@@ -239,4 +241,41 @@ module.exports = (g) =>
 			}
 		}
 	});
+
+	register_cmd("tag", "<Player Name or Number> <Key> [Value]", "Tag", "Give a player a Tag, a type of variable related to gameplay.\n\nTo check what a Tag currently is, use this command without providing a Value.\n\nTo remove a Tag, use this command with the Value set to \"-\" (without the quotes).\n\nCurrent tags:\n> overhear_all <true> (Tagged player overhears all whispers)\n> overhear_target <Player ID> (Tagged player overhears all whispers sent to and from the player with that ID)", (chn, message, e, args) =>
+	{
+		if(!args[0] || !args[1])
+		{
+			msg(chn, "-Usage: " + PRE + "tag <Player Name or Number> <Key> [Value]");
+			return;
+		}
+
+		let player = isInt(args[0])
+			&& PLAYER_DATA[parseInt(args[0])-1]
+			|| getPlayerByName(PLAYER_DATA, args[0]);
+
+		if(!player)
+		{
+			msg(chn, "-ERROR: Player \"" + args[0] + "\" is not valid.");
+			return;
+		}
+
+		if(!player.tags)
+			player.tags = {};
+
+		if(args[2] === "-")
+		{
+			delete player.tags[args[1]];
+			msg(chn, "+Tag \"" + args[1] + "\" deleted.");
+		}
+		else if(args[2])
+		{
+			player.tags[args[1]] = args[2];
+			msg(chn, "+Tag \"" + args[1] + "\" set to \"" + args[2] + "\".");
+		}
+		else
+			msg(chn, "+Tag \"" + args[1] + "\" is currently set to \"" + (player.tags[args[1]] || "null") + "\".");
+
+		overwrite();
+	}, true);
 };

@@ -7,10 +7,10 @@ module.exports = (g) =>
 		e.setDescription("Post 951");
 
 		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Unstoppable", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Murder a player each night.\n- Murder a player each night.\n- Murder a player each night.");
+		e.addField("Abilities:", "- Murder a player each night.\n- Murder a player each night.");
 
 		e.addField("Attributes:", "- Detection Immune\n- You may multitask.\n- Protection from Rasen (You can't be negatively affected in any way by Rasen. This includes lynches and mod actions.)\n- Rasen can't roll this role.");
 		
@@ -19,7 +19,7 @@ module.exports = (g) =>
 
 	register_role(["macho_man", "machoman", "macho", "952"], "Town", "Macho Man", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 952");
+		e.setDescription("Post 952\n*The Village People approve of this role.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -34,7 +34,7 @@ module.exports = (g) =>
 
 	register_role(["soldier", "953"], "Town", "Soldier", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 953");
+		e.setDescription("Post 953\n*I took a strict drug-free oath when I applied for this position.*");
 
 		e.addField("Alignment", "Town Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -49,7 +49,7 @@ module.exports = (g) =>
 
 	register_role(["caretaker", "ct", "care", "954"], "Town", "Caretaker", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 954");
+		e.setDescription("Post 954\n*I've loved and I've lost...*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
@@ -64,7 +64,7 @@ module.exports = (g) =>
 
 	register_role(["destined", "955"], "Town", "Destined", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 955");
+		e.setDescription("Post 955\n*We were bound to get together!*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -242,7 +242,7 @@ module.exports = (g) =>
 
 	register_role(["delinquent", "967"], "Neutral", "Delinquent", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 967");
+		e.setDescription("Post 967\n*Mr. Steal Yo Stuff*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
@@ -252,7 +252,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If your target has any charges of a limited use ability, you will steal the charge. If they have multiple abilities with a charge left, you will take the first ability listed on the role card with a charge.\n- You may choose to use any charges that you have taken, but you may not steal and use a charge at night.");
 		
-		e.addField("Goal:", "Live to see Town lose the game.");
+		e.addField("Goal:", "Steal three charges from other players.");
 	});
 
 	register_role(["harbinger", "968"], "Horsemen", "Harbinger", {subCat: "Head"}, (e) =>
@@ -353,7 +353,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player each night. They gain an Ice Mark if they don't have one and are roleblocked if they do.\n**Winter Miracle** — Choose a player with an Ice Mark. They're converted to the Everfrost. You may only use this ability once per game, but you get your charge back if your target is conversion immune.");
+		e.addField("Abilities:", "- Choose a player each night. They gain an Ice Mark if they don't have one and are roleblocked if they do.\n**Winter Miracle** — Choose a player with an Ice Mark. They're converted to the Everfrost. You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Roleblock Immunity\n- Whenever a player is roleblocked by anything, they gain an Ice Mark, and you learn their name.\n- Whenever a player with an Ice Mark visits another non-Everfrost player or is visited by another non-Everfrost player, that player gains an Ice Mark and you learn their name.\n- One other Everfrost role that uses Ice Marks will always spawn as long as this one does.");
 		
@@ -540,15 +540,15 @@ module.exports = (g) =>
 
 	register_role(["privateer", "987"], "Neutral", "Privateer", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 987");
+		e.setDescription("Post 987\n*Many people fear the unknown. I embrace it.*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Choose to prevent the usage of day abilities during the night. (2 uses)\n- Choose to withhold public information from the Town during the night. (2 uses)\n- Choose to disable whispers the following day during the night. (2 uses)");
+		e.addField("Abilities:", "- Choose to prevent the usage of day abilities tomorrow during the night. (2 uses)\n- Choose to withhold public information from the Town tomorrow during the night. (2 uses)\n- Choose to disable whispers tomorrow during the night. (2 uses)");
 
-		e.addField("Attributes:", "- Your ability is applied to the day after you use your night ability.\n- Public information includes any system messages that would be produced due to any Town roles (e.g. Mayor reveal, pre-nerf Caroler carol, etc.). This does not include death announcements.\n- Your ability will not be publicly announced when you use it. If someone tried to whisper or use a day ability when you have disabled them, they will be privately notified that it was unsuccessful.\n- You may only use one of your abilities per night.");
+		e.addField("Attributes:", "- Public information includes any system messages that would be produced due to any Town roles (e.g. Mayor reveal, pre-nerf Caroler carol, etc.). This does not include death announcements.\n- Your ability will not be publicly announced when you use it. If someone tries to whisper or use a day ability when you have disabled them, they will be privately notified that it was unsuccessful.\n- You may only use one of your abilities per night.\n- You have a one-use autovest that grants you Basic defense the first time you are attacked.");
 		
 		e.addField("Goal:", "Live to see Town lose the game.");
 	});

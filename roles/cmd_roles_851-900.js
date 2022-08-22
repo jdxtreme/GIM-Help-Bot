@@ -281,9 +281,9 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Powerful)", true);
 
-		e.addField("Abilities:", "*Size Up the Competition* — Choose two players at night. You'll learn their role's post number, rounded to the nearest 10.\n*Make a Challenge* — Choose a player during the day. The next night, both of you will be unable to use night abilities and instead be placed in a public duel. You'll each secretly choose a player other than either of you. Whichever player picked the player with the higher post number is dealt a Powerful attack; if you both picked the same player, youw in. The players' roles aren't revealed.");
+		e.addField("Abilities:", "*Size Up the Competition* — Choose a player each night. You'll learn their role's post number, rounded to the nearest 100.\n*Make a Challenge* — Choose an opponent during the day. The next night, both of you will be unable to use night abilities and instead be placed in a public duel. You'll each secretly choose a player other than either of yourselves. Whoever picked the player with the lower post number is dealt a Powerful attack; if the post numbers are equal, you win. The players' roles aren't revealed.");
 
 		e.addField("Attributes:", "- You have a layer of Powerful defense that can block one attack.");
 		
@@ -677,24 +677,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["blitzen", "blixem", "897"], "Neutral", "Blitzen (Blixem)", {subCat: "Chaos"}, (e) =>
+	register_role(["mind_melder", "mindmelder", "mm", "898"], "Neutral", "Mind Melder", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 897");
-
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "None/Modkill", true);
-		e.addField("Defense", "None/\"True\"", true);
-
-		e.addField("Abilities:", "- Pick someone to play against in the day.\n- Falsify the game in the night.");
-
-		e.addField("Attributes:", "- The host picks the kind of game you play (atomic, FoW, giveaway, etc...)\n- Every game is blitz 1|1\n- Falsifying a game means whoever lost will instead win\n- Falsifying must happen before the 10th move\n- Whoever loses is dealt a modkill\n- Whoever wins gets true defense (not even a mod kill can kill)");
-		
-		e.addField("Goal:", "Win 2 games or be the last person standing");
-	});
-
-	register_role(["mind_melder", "mindmelder", "898"], "Neutral", "Mind Melder", {subCat: "Killing"}, (e) =>
-	{
-		e.setDescription("Post 898");
+		e.setDescription("Post 898\n*Oh, you chose the same African country that begins with the letter S as me? What a shame! Ahaha!*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -702,39 +687,24 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose four players and a category of items during the day.");
 
-		e.addField("Attributes:", "- The four players you choose must pick an item that fits the category. There must be at least five items that fit the category, and the category needs to be fairly common sense. Any players that choose the same item as another player will be dealt a Powerful Astral attack at the end of the night.\n- One random person will also be sent the prompt. You will not be notified who this is, and they will not die if they choose the same item as another player, but if anyone that you chose chooses the same item as this player, that player will be attacked.\n- You may not meld the night after you've killed players.");
+		e.addField("Attributes:", "- The four players you choose must pick an item that fits the category. There must be at least five items that fit the category, and the category needs to be fairly common sense. Any players that choose the same item as another player and any player that does not answer the prompt will be dealt a Powerful Astral attack at the end of the night.\n- You will be able to answer your own prompt. If you answer the same as any other player, you will not be attacked, but you will attack any other player who answers the same as you.\n- If you killed more than one player in one night, you may not perform your day ability the following day.");
 		
 		e.addField("Goal:", "Kill anyone who may oppose you.");
 	});
 
-	register_role(["jest_amne", "jestamne", "899a", "899"], "Neutral", "Jest Amne", {subCat: "Killing"}, (e) =>
+	register_role(["horse", "899"], "Neutral", "Horse", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 899A");
+		e.setDescription("Post 899");
 
-		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Unstoppable", true);
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Become Psychopath\n- Remember a dead player's role\n- Haunt someone after death");
+		e.addField("Abilities:", "- Roleblock someone each night, deceptively telling them to \"listen\" and then not saying anything. The next person they visit will also be roleblocked.\n- Redirect someone each night, deceptively telling them the person they're visiting is a corpse. The next person they visit will be redirected to you, because word of your lies spread around quick. (2 uses)");
 
-		e.addField("Attributes:", "- At any point after a jester has died or night 5 has passed, become Psychopath (899B)\n- At any point after night 3, remember a dead players role, this role's attributes, abilities, goals, and chats are added to your role card\n- Haunt someone after death like a jester would");
+		e.addField("Attributes:", "- Roleblock immune.\n- You can use multiple abilities (you're great at multitasking), but may only use one ability each per night (you suck at multitasking).");
 		
-		e.addField("Goal:", "Be lynched, become Psychopath (899B), do your new role's Goal");
-	});
-
-	register_role(["psychopath", "899b", "899"], "Neutral", "Psychopath", {subCat: "Killing"}, (e) =>
-	{
-		e.setDescription("Post 899B");
-
-		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
-
-		e.addField("Abilities:", "- At night, finish the job.\n- Trap: Prepare in the day. Gain Invincible Defense and deal a Basic Attack to all your visitors except for one. 2 uses.\n- Premeditate: Prepare in the day. Gain Powerful Defense, use an Astral Powerful Attack on a player of your choice, and automatically use a Powerful Attack on one person who visits you.\n- Snap: Prepare in the day. Gain Basic Defense, deal an Unstoppable Attack to a player of your choice, and deal a Powerful Attack to everyone else who visits your target. (2 uses)");
-
-		e.addField("Attributes:", "- Cannot be rolled naturally.\n- If you remembered a role as the Jest Amne, you will keep that role when you become the Psychopath. However, you will lose your previous goal.");
-		
-		e.addField("Goal:", "Kill all who stand in your way. You may choose to spare a solo member of an evil faction, but you may not spare the Mafia, Neutral Benigns, or Neutral Evils.");
+		e.addField("Goal:", "Live to see no kills occur on any given night. You can't win on Night 1.");
 	});
 
 	register_role(["perfectionist", "900"], "Neutral", "Perfectionist", {subCat: "Chaos"}, (e) =>

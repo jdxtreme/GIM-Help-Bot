@@ -2,19 +2,19 @@ module.exports = (g) =>
 {
 	const {register_role, factions} = g;
 
-	register_role(["horse", "1"], "Neutral", "Horse", {subCat: "Chaos"}, (e) =>
+	register_role(["edge_of_existence", "edgeofexistence", "edge", "existence", "eoe", "1"], "Neutral", "The Edge of Existence", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "Basic (None)", true);
 
-		e.addField("Abilities:", "- Roleblock someone each night. The next person they visit will be roleblocked.\n- Redirect someone each night. The next person they visit will be redirected to you. (2 uses)");
+		e.addField("Abilities:", "- Cause a player to fade into non-existence.\n- Cause all your visitors to fade into non-existence. Costs 2 life energy.\n- Send yourself into non-existence. Costs 2 life energy.");
 
-		e.addField("Attributes:", "- Roleblock immune.\n- Can use multiple abilities, but may only use one ability each per night.");
+		e.addField("Attributes:", "- Sending other players into non-existence will cause them to die without a cause of death, will, or role shown.\n- Sending yourself into non-existence will do the same, but automatically revive yourself after a full day of non-existence. \n- You start with 1 life energy. You gain 1 for each person you kill. You do not gain any for killing yourself.\n- If you are attacked with any life energy, consume 1 life energy to automatically block the attack, regardless of the attack's value. If this is from a limited use attack, you will cause the attacker to lose a charge.\n- If you have no life energy left and are attacked, you have a one-time use Basic defense auto-use shield. Once this is depleted, and you are attacked without life energy, you will die.");
 
-		e.addField("Goal:", "Live to see no kills occur on any given night. You can't win on Night 1.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["nervous_sleeper", "nervoussleeper", "ns", "2"], "Town", "Nervous Sleeper", {subCat: "Killing"}, (e) =>
@@ -107,7 +107,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Shoot everyone. (NK Goal)");
 	});
 
-	register_role(["angel_of_death", "angelofdeath", "aod", "8"], "Neutral", "Angel of Death", {subCat: "Killing"}, (e) =>
+	register_role(["oct2", "8"], "Neutral", "Oct2", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 8");
 
@@ -169,11 +169,13 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Overkill", true);
-		e.addField("Defense", "Overprotective", true);
+		e.addField("Defense", "Immortal", true);
 
-		e.addField("Abilities:", "- Use the ability of any role that exists at night. You may use multiple different abilities at once. You may use multiple of the same ability at a time.");
+		e.addField("Abilities:", "- Use the ability of any role in <#970046125065265202> at night. Any. Role.\n- Die someone. They die.");
 
-		e.addField("Attributes:", "- You can always talk in any Day chat, regardless of the phase or what day it actually is. Even if it's Day 9, you can still talk in the Day 1 chat. You may also talk in all private chats (informed minority, dead, see jailor/wisteria, etc) but cannot see player chats.\n- Lynch Immunity");
+		e.addField("Attributes:", "- You may use multiple different abilities at once.\n- You may use multiple of the same ability at a time.\n- You can always talk in any Day chat, regardless of the phase or what day it actually is. Even if it's Day 9, you can still talk in the Day 1 chat. You may also talk in all private chats (informed minority, dead, see jailor/wisteria, etc) but cannot see player chats.\n- Lynch immunity.\n- Death immunity.\n- Modkill immunity.\n- Kick immunity.\n- Ban immunity.\n- Mute/timeout immunity.\n- Conversion immunity.\n- Control immunity.\n- Redirect immunity.\n- Roleblock immunity.\n- Your ability cannot fail.\n- None of your immunities or other attributes can be bypassed under any circumstance.\n- Your abilities and attributes cannot be removed. They can be copied, but only if it's actually allowed.\n- Your defense will always be set to Immortal.\n- You cannot be removed from the game.\n- The wording of this role can only be modified when a game is not running.");
+
+		e.addField("Attributes (cont.):", "- If your role is removed, delay the removing. Automatically and secretly create a new role with a completely random name, which if ever is mentioned, immediately is changed to a new one. This new role has the exact same abilities and attributes as God.\n- An outside party cannot forcefully switch your role. Only you can switch your role.\n- If the game would only be blocked by you and a Survivor, the game will end and you will lose. So yes, you can technically lose.\n- If you somehow manage to die or exit the game in any way, immediately revive yourself and/or add yourself back into the game. If the game is closed, automatically reopen it. If something prevents revives, immediately attack whatever prevents it then try again. If you still can't, remove them from the game.");
 
 		e.addField("Goal:", "Eliminate all Survivors.");
 	});
@@ -272,7 +274,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- During the day, choose two players that are not yourself, and predict the outcome of your ability.");
 
-		e.addField("Attributes:", "- Both players are given a prompt: Share, or Steal? If both players select Share, then you will choose to give one player a permanent attack increase (if the role does not have an attacking ability, they will gain one), or a permanent defense increase. If one player selects Share and the other chooses Steal, the player who chose Steal receives both a permanent attack and defense upgrade, and the person who chose Share gets nothing. If both player select Steal, neither gets any permanent upgrade, and both are dealt a Powerful attack.");
+		e.addField("Attributes:", "- Both players are given a prompt: Share, or Steal? If both players select Share, then you will choose to give one player a permanent attack increase (if the role does not have an attacking ability, they will gain one), and the other a permanent defense increase. If one player selects Share and the other chooses Steal, the player who chose Steal receives both a permanent attack and defense upgrade, and the person who chose Share gets nothing. If both player select Steal, neither gets any permanent upgrade, and both are dealt a Powerful attack.");
 
 		e.addField("Goal:", "Correctly predict the outcome of your ability twice.");
 	});
@@ -451,7 +453,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Perform the Factional Mafia Kill.");
 
-		e.addField("Attributes:", "- If, when you perform the factional mafia kill, the target will not end up dead the next day, you may choose to deal a Powerful Attack to 2 players in the game. If you do, you may not perform the FMK.");
+		e.addField("Attributes:", "- If, when you perform the factional mafia kill, the target will not end up dead the next day, you may choose to deal a Powerful Attack to 2 players in the game the next night. If you do, the mafia may not perform the FMK.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});

@@ -77,11 +77,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Rock.goal);
 	});
 
-	register_role(["goomba", "1356"], "Koopa", "Goomba", {subCat: "Attacker"}, (e) =>
+	register_role(["goomba", "1356"], "Koopa", "Goomba", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1356");
 
-		e.addField("Alignment", "Koopa Attacker", true);
+		e.addField("Alignment", "Koopa Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Invincible", true);
 
@@ -147,7 +147,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Authorize an investigation on 3 players during the day. Mandatory or random.\n- Blend in as a chosen Sentry role during the night.");
 
-		e.addField("Attributes:", "- Your Authorized targets will be revealed each night.\n- Targets will remain authorized until the end of the following day.\n- You may not authorize yourself as a target.\n- Blending in as a Sentry role will frame yourself as that role.\n- 1 Powerful Autovest");
+		e.addField("Attributes:", "- Your Authorized targets will be revealed each night.\n- Targets will remain authorized until the end of the following day.\n- You may not authorize yourself as a target.\n- Blending in as a Sentry role will frame yourself as that role.\n- 1 Powerful Autovest\n- Conversion Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -315,7 +315,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["minister", "1372"], "Sentry", "Advocator", {subCat: "Support"}, (e) =>
+	register_role(["minister", "1372"], "Sentry", "Minister", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1372");
 
@@ -325,7 +325,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Authorize an investigation on an additional player during the day.");
 
-		e.addField("Attributes:", "- If you attempt to authorize an investigation on a player already authorized, that player will instead be **prioritized**.\n- **Prioritized** targets will have:\n>  - Their base/vest defense removed until they are no longer prioritized.\n> - Visitors be given frame & roleblock immunity\n- Your Authorized & prioritized targets will be revealed each night.\n- Targets will remain authorized/prioritized until the end of the following day.\n- If you attempt to authorize the Censor, it will automatically fail.");
+		e.addField("Attributes:", "- If you attempt to authorize an investigation on a player already authorized, that player will instead be **prioritized**.\n- **Prioritized** targets will have:\n>  - Their base/vest defense removed until they are no longer prioritized.\n> - Visitors be given frame & roleblock immunity\n- Your Authorized & prioritized targets will be revealed each night.\n- Targets will remain authorized/prioritized until the end of the following day.\n- If you attempt to authorize the Censor, it will automatically fail.\n- Conversion Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -456,18 +456,18 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Transform someone into a block, Roleblocking and giving Powerful defense to them.\n- Disappear briefly, players targeting you will instead target random people that are not in your faction.");
+		e.addField("Abilities:", "- Transform someone into a block, Roleblocking, giving Powerful defense to them and Learning their role\n- Disappear briefly, players targeting you will instead target random people that are not in your faction.");
 
-		e.addField("Attributes:", "- Your Faction will learn the roles of people affected by your abilities.");
+		e.addField("Attributes:", "- If you are killed you will learn your killed and their role");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
 
-	register_role(["chain_chomp", "chainchomp", "cc", "1382"], "Koopa", "Chain Chomp", {subCat: "Defender"}, (e) =>
+	register_role(["chain_chomp", "chainchomp", "cc", "1382"], "Koopa", "Chain Chomp", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 1382");
 
-		e.addField("Alignment", "Koopa Defender", true);
+		e.addField("Alignment", "Koopa Protective", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 

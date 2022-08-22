@@ -1,3 +1,5 @@
+let lastGTR = {};
+
 function censor(length)
 {
 	let c = "";
@@ -10,7 +12,7 @@ function censor(length)
 
 module.exports = (g) =>
 {
-	const {register_role, factions, commands} = g;
+	const {register_role, factions, commands, msg} = g;
 
 	register_role(["frigade", "1501"], "Warfleet", "Frigade", {subCat: "Support"}, (e) =>
 	{
@@ -127,9 +129,10 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Cult.goal);
 	});
 
-	register_role(["guesstherole", "1508"], "Any", "Guess The Role", (e, chn, message, args) =>
+	register_role(["guesstherole", "guess_the_role", "gtr", "1508"], "Any", "Guess The Role", (e, chn, message, args) =>
 	{
 		commands.random_role.func(chn, message, e, args, true);
+		lastGTR[chn.id] = {author: e.author, desc: e.description};
 		let truename = e.author.name.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 		let censorname = censor(truename.length);
 
@@ -145,7 +148,21 @@ module.exports = (g) =>
 		}
 	});
 
-	register_role(["not_a_role", "notarole", "1509"], "Other", "Guess The Role", {cannotRoll: true}, (e) =>
+	register_role(["answer", "1508a"], "Other", "Guess The Role: Answer", {cannotRoll: true}, (e, chn) =>
+	{
+		let last = lastGTR[chn.id];
+
+		if(!last)
+		{
+			msg(chn, "-ERROR: You must use the GuessTheRole command before recieving an answer.");
+			return true;
+		}
+
+		e.setAuthor(last.author);
+		e.setDescription(last.desc);
+	});
+
+	register_role(["not_a_role", "notarole", "1509"], "Other", "not a role", {cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 1509\nThis isn't actually a role.");
 	});
@@ -348,7 +365,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack your target");
 
-		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.\n- Your attack will not only deal a Basic attack, but also ban the target. Even if the attack fails.\n- If you get lynched, no you don't. Immediately trigger nightfall.\n- The host cannot ban or kick you for any reason while you're alive, regardless if it's an actual ban or a @BANNED ban. After you die or the game ends, they are free to do whatever.");
+		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.\n- Your attack will not only deal a Basic attack, but also ban the target. Even if the attack fails.\n- If you get lynched, no you don't. Immediately trigger nightfall.\n- The host cannot ban or kick you for any reason while you're alive, regardless if it's an actual ban or a @BANNED ban. After you die or the game ends, they are free to do whatever.\n- You're also modkill immune.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -474,9 +491,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.SK.goal);
 	});
 
-	register_role(["1531"], "Other", "Aiko, Dreamer's Last Hope", {cannotRoll: true}, (e) =>
+	register_role(["aiko", "dreamers_last_hope", "dreamerslasthope", "adlh", "1531"], "Neutral", "Aiko, Dreamer's Last Hope", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 1531\nThis isn't a valid role format.");
+		e.setDescription("Post 1531\n*\"You can't give up just yet! Fight on!\"*\nThis isn't a valid role format.");
+
+		e.addField("Alignment", "Unique Neutral Benign", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Powerful", true);
+
+		e.addField("Abilities:", "- Choose someone to protect each night. You will completely nullify any attacks dealt towards them, and lower your defense by one for the rest of the game.");
+
+		e.addField("Attributes:", "- Your defense may never be tampered with by any role other than yourself. Meaning protective roles cant grant you defense, other roles cant lower your defense, etc etc\n- If you ever go below None Defense, you die.");
+		
+		e.addField("Goal:", "Save 3 people from death.");
 	});
 
 	register_role(["cereal_killer", "cerealkiller", "cereal", "ck", "1532"], "SK", "Cereal Killer", {subCat: "Support"}, (e) =>
@@ -536,7 +563,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Debug someone at night.");
 
-		e.addField("Attributes:", "- You will learn the 50-role file their post number falls into (e.g. 1401-1450).\n- They will be immune to effects that would change their role itself tonight, such as conversion, ability granting/stealing effects, and being given defense (even temporarily).\n- c is not defined");
+		e.addField("Attributes:", "- You will learn the 50-role file their post number falls into (e.g. 1401-1450).\n- They will be immune to effects that would permanently change their role itself tonight, such as conversion, ability granting/stealing effects, etc.\n- c is not defined");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

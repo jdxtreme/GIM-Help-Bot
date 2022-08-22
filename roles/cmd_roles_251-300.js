@@ -364,7 +364,7 @@ module.exports = (g) =>
 
 	register_role(["manipulator", "275"], "Town", "Manipulator", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 275\n*:pleading_face\:*");
+		e.setDescription("Post 275\n*:pleading_face\\:*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -392,7 +392,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["villainteamleader", "villain_team_leader", "vtl", "277"], "Other", "Villain Team Leader", {subCat: "Support"}, (e) =>
+	register_role(["villainteamleader", "villain_team_leader", "vtllain", "277"], "Other", "Villain Team Leader", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 277");
 
@@ -400,7 +400,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Evil faction roles aren't part of those factions and are Villains. (Villains are an informed minority with a night chat, a factional kill, and win by eliminating all who would oppose them.)\n- This role can only spawn if there are two or more other evil factions in the game.");
+		e.addField("Attributes:", "- Evil faction roles aren't part of those factions and are Villains, even if you're dead or removed from the game. See <#1007412413949280368> for how this works.\n- This role can only spawn if there are two or more other evil factions in the game.");
 
 		e.addField("Goal:", "Eliminate all who oppose the Villains. ");
 	});
@@ -607,21 +607,6 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- When you sacrifice another Coven member, you will deal an Astral Unstoppable attack to them.\n- After you sacrifice a player, they may haunt a player of their choice the following night, dealing an Astral Basic attack to their target.\n- With the Necronomicon, you may sacrifice any non-Coven member, dealing a Basic attack to them.\n- If a player were to haunt you after you sacrificed them, their ability will fail.\n- You cannot sacrifice yourself.\n- You cannot sacrifice someone if you had successfully sacrificed someone the night before.\n- <https://wikimafia.fandom.com/wiki/Ritualist>");
 
 		e.addField("Goal:", factions.Coven.goal);
-	});
-
-	register_role(["instant_ramen_maker", "instantramenmaker", "irm", "ramen", "292"], "Town", "Instant Ramen Maker", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 292");
-
-		e.addField("Alignment", "Town Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Cook instant ramen for someone each night.");
-
-		e.addField("Attributes:", "- The next day, they will be able to take all their day actions twice. This include day abilities, voting, and anything other game action they would do during the day.\n- You may cook for yourself.");
-
-		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["jinx", "293"], "Coven", "Jinx", {subCat: "Support"}, (e) =>

@@ -387,17 +387,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["fuck_wolfi_harder", "fuckwolfiharder", "76"], "Neutral", "Fuck Wolfi Harder", {subCat: "Chaos"}, (e) =>
+	register_role(["curiosity_killed_the_copycat", "curiositykilledthecopycat", "curiosity", "copycat", "cktc", "ckc", "76"], "Neutral", "Curiosity Killed The Copycat", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 76");
 
-		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- If this role is rolled, instead reroll this roll and all roles from Town of Salem and roles from Town of Salem can't be rolled for the rest of the game.");
+		e.addField("Abilities:", "- Use another role's ability while dead.");
 
-		e.addField("Goal:", "N/A");
+		e.addField("Attributes:", "- You will kill and clean yourself on Night 1.\n- While dead, you may use the ability of any other role that can use that ability while dead (i.e. Medium seance, Phlox, etc.)");
+
+		e.addField("Goal:", "Die to see the Town lose the game.");
 	});
 
 	register_role(["janitor", "jan", "jani", "77"], "Mafia", "Janitor", {subCat: "Deception"}, (e) =>
@@ -626,9 +628,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful (Unstoppable)", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- You may choose to attack a player on full moon nights. (0 kills)\nYou may choose to attack a player each night. (1+ kills)");
+		e.addField("Abilities:", "- Attack a player at night.");
 
-		e.addField("Attributes:", "- With each kill, your powers grow, until you've killed 3 people.\n- 1st kill lets you attack every night.\n- 2nd kill makes your future attacks into Rampages.\n3rd kill makes your attack Unstoppable.\n- Detection Immunity");
+		e.addField("Attributes:", "- With each kill, your powers grow, until you've killed 3 people.\n- If you haven't killed anyone yet, you can only attack during Full Moon Nights.\n- 1st kill lets you attack every night.\n- 2nd kill makes your future attacks into Rampages.\n3rd kill makes your attack Unstoppable.\n- Detection Immunity");
 
 		e.addField("Goal:", "Get yourself lynched by any means necessary.");
 	});
@@ -660,9 +662,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may choose to infect a player with the Plague each night.");
 
-		e.addField("Attributes:", "- Players will not know they have been infected.\n- When all living players are infected, you become Pestilence (Post 95).\n- Detection Immunity\n- The Plague is spread by visits to you and infected players, as well as infected players who visit people.");
+		e.addField("Attributes:", "- Players will not know they have been infected.\n- When all living players are infected, you become Pestilence (Post 94).\n- Detection Immunity\n- The Plague is spread by visits to you and infected players, as well as infected players who visit people.");
 
-		e.addField("Goal:", "Infect all living players and become Pestilence (Post 95).");
+		e.addField("Goal:", "Infect all living players and become Pestilence (Post 94).");
 	});
 
 	register_role(["pestilence", "pest", "94"], "Neutral", "Pestilence because fuck this let's let it be rolled naturally", {subCat: "Chaos"}, (e) =>

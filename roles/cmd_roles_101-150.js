@@ -48,34 +48,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["effort_enforcer", "effortenforcer", "104"], "Neutral", "Effort Enforcer", {subCat: "Evil"}, (e) =>
+	register_role(["effort_enforcer", "effortenforcer", "104"], "Neutral", "Effort Enforcer", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 104");
 
-		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Check someone's house each night. If they are a role with less than 200 characters (as written in <#970046125065265202>), kill them immediately.");
+		e.addField("Abilities:", "- Check someone's house each night. If they are a role with less than 600 characters (as written in <#970046125065265202>), kill them immediately.");
 
 		e.addField("Attributes:", "- You will die upon completing your goal.");
 
 		e.addField("Goal:", "Goal: Kill three people.");
-	});
-
-	register_role(["psycho_psycho", "psychopsycho", "psychopath", "psycho", "105"], "Neutral", "Psychotic Psychopath", {subCat: "Evil"}, (e) =>
-	{
-		e.setDescription("Post 105");
-
-		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None (Basic)", true);
-
-		e.addField("Abilities:", "- Choose someone to kill at night.");
-
-		e.addField("Attributes:", "- They are given every negative effect in the game except attacks.\n- You have a layer of Basic defense that can prevent one attack.");
-
-		e.addField("Goal:", "Live to see the Town lose.");
 	});
 
 	register_role(["senator", "despot", "106"], "Neutral", "Senator", {subCat: "Benign"}, (e) =>
@@ -123,17 +108,17 @@ module.exports = (g) =>
 		e.addField("Goal:", "Prevent at least 8 deaths throughout the course of the game using your Unblasts. Saving the same person multiple times will count towards this goal.");
 	});
 
-	register_role(["sorceress", "109"], "Coven", "Sorceress", {subCat: "Evil"}, (e) =>
+	register_role(["forcefield", "109"], "Coven", "Forcefield", {subCat: "Protection"}, (e) =>
 	{
 		e.setDescription("Post 109");
 
-		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "None (Powerful)", true);
+		e.addField("Alignment", "Coven Protection", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Bewitch a player each night. For the next day, they can't take game actions and they can't discuss their role or any information they've learned via their role.");
+		e.addField("Abilities:", "- Protect someone at night, making them immune to all non-Coven harmful effects.");
 
-		e.addField("Attributes:", "- If you have the Necronomicon, your target will be dealt a Powerful attack at the end of the day.");
+		e.addField("Attributes:", "- If you have the Necronomicon, you may instead choose to use all Coven roles' non-Necronomicon harmful effects on them. You must also choose all additional targets for those effects, like who you're redirecting them into.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -437,7 +422,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Rock.goal);
 	});
 
-	register_role(["icy_rock", "icyrock", "130"], "Rock", "Icy Rock", {subCat: "Killing"}, (e) =>
+	register_role(["iceberg", "130"], "Rock", "Iceberg", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 130");
 
@@ -475,9 +460,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Choose a player to investigate each night. You will learn whether or not they are a member of the Town.\n- Choose a player to become your Target at night if they are a member of the Town.\n- Choose a player to execute at night. If they're a member of the Town, they will be dealt an Unstoppable Attack.");
+		e.addField("Abilities:", "- Choose a player to investigate at night. You will learn whether or not they are a member of the Town.\n- Choose a player to become your target at night. If they are lynched, you will win. You may only do this once.\n- Choose a player to execute at night. If they're a member of the Town, they will be dealt an Unstoppable attack. You may only do this after your target has been lynched, and once you successfully execute a member of the Town, you may no longer execute.");
 
-		e.addField("Attributes:", "- If your chosen Target is not a member of the Town, you will commit suicide and lose.\n- If your Target dies at night, you will commit suicide and lose.\n- You may only have one Target at a time.\n- You may not investigate and choose a Target in the same night.\n- You may only execute after your Target has been lynched.\n- Once you successfully execute a member of the Town, you may no longer execute.\n- Choosing a Target is Astral and immune to transports.\n- You have a layer of Basic Defense that can block one attack.");
+		e.addField("Attributes:", "- If you choose someone that isn't a member of the Town as your target, you will commit suicide and lose.\n- If your target dies through any means other than lynching, you will commit suicide and lose.\n- You have a layer of Basic defense that can block one attack.");
 
 		e.addField("Goal:", "Ensure that your Target gets lynched, and then successfully execute someone.");
 	});
@@ -728,7 +713,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may search a player for a clue of their role.");
 
-		e.addField("Attributes:", "- If your target is Doused/Framed/Disguised/Hexed you will instead be told you are unsure what your target is.");
+		e.addField("Attributes:", "- If your target is Doused/Framed/Disguised/Hexed you will instead be told you are unsure what your target is.\n- You will still see the Arsonist/Framer/Disguiser/Hex Master as their results if they aren't Doused/Framed/Disguised/Hexed.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -743,7 +728,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may dance during the day to summon a rainstorm for the night.");
 
-		e.addField("Attributes:", "- Mafia, Coven, and Neutrals will be notified that a storm is starting at the beginning of the night.\n- Players that visit will be drenched in water.\n- You will be told all of the players who are not drenched the following day.\n- You may only summon 3 rainstorms.");
+		e.addField("Attributes:", "- Mafia, Coven, and Neutrals will be notified that a storm is starting at the beginning of the night.\n- Players that visit will be drenched in water.\n- You will be told all of the players who are not drenched the following day.\n- You may only summon 3 rainstorms.\n- Doused players will always appear as drenched. If a player is purged the same night it rains, they will only be drenched if the player visited that night.\n- Framed players will appear as dry. Frames will be removed if a Framed player visits the night it rains.\n- The storm summoned will still happen, regardless if you are roleblocked, controlled, or jailed. It will not rain if you are lynched during the day.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});

@@ -304,21 +304,21 @@ module.exports = (g) =>
 		e.addField("Goal:", "Avoid two modkills.");
 	});
 
-	register_role(["nerd", "821"], "Neutral", "Nerd", {subCat: "Chaos"}, (e) =>
+	register_role(["nerd", "821"], "Neutral", "Nerd", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 821");
+		e.setDescription("Post 821\n*Monkey smashes T.V.*");
 
-		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Duel a player to a match of RPS-101 each night.");
+		e.addField("Abilities:", "- Choose a player to challenge to a match of RPS-101 tonight during the day.");
 
-		e.addField("Attributes:", "- You will perform five rounds of the infamous game RPS-101 with your target. Both players must send an action in their private channels, and once both players have sent an action, the outcome is decided and told to the players.\n- If your target wins, their defense raises by one value for the night (including any protective abilities used on them), but they will not be told what their defense is.");
+		e.addField("Attributes:", "- You will conduct a match of the infamous game RPS-101 with your target. Your target will be notified that a Nerd has challenged them a to a match of RPS-101. Both players will send a hand gesture in their private channel, and once both players have sent a gesture, the winner is determined, and both will be notified who wins the round. Repeat this process until someone wins three rounds and, therefore, the match.\n- If your target wins the match, their defense raises by one value for the night (including any protective abilities used on them). They will not be told what their defense is. If you win, you will gain Basic defense for the night.");
 
-		e.addField("Goal:", "Win 3 duels.");
+		e.addField("Goal:", "Win 2 duels.");
 
-		e.addField("FOR HOSTING:", "I recommend using https://rps101.pythonanywhere.com/ for dealing with who wins. Organizes the information very well.");
+		e.addField("FOR HOSTING:", "- The following website is useful for determining what the hand gestures are and what the results of the matchups are: https://rps101.pythonanywhere.com/");
 	});
 
 	register_role(["shall_not_be_named", "shallnotbenamed", "one", "otsnbn", "totsnbn", "822"], "Neutral", "The One That Shall Not Be Named", {subCat: "Chaos"}, (e) =>
@@ -474,7 +474,7 @@ module.exports = (g) =>
 		e.setDescription("Post 830");
 
 		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Basic", true);
 
 		e.addField("Abilities:", "- Select a player at night to kill.");
@@ -531,15 +531,15 @@ module.exports = (g) =>
 
 	register_role(["psychoanalyst", "psycho", "pa", "834"], "Neutral", "Psychoanalyst", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 834");
+		e.setDescription("Post 834\n*Very... very... interesting.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Choose two players to put through a social experiment during the day.");
 
-		e.addField("Attributes:", "- Both of your targets will be roleblocked through immunity and will be notified that they were put in a social experiment.\n- The first target will have a choice of killing either themselves or the other player. If they do not make a decision, they will automatically kill themselves.");
+		e.addField("Attributes:", "- Both of your targets will be roleblocked through immunity and will be notified that they were put in a social experiment. They will also be notified what their role in the experiment is based on the next attribute.\n- The first target will have a choice of killing either themselves or the other player. If they do not make a decision, they will automatically kill themselves. This player will deal an Astral Powerful attack to whoever they kill.");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -606,13 +606,13 @@ module.exports = (g) =>
 
 	register_role(["akimbo", "839"], "Neutral", "Akimbo", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 839");
+		e.setDescription("Post 839\n*Double or nothing. Final offer.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Basic (Powerful)", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Kill two people at night.");
+		e.addField("Abilities:", "- Kill two people at night.\n- Choose to upgrade your attack to Powerful tonight during the day (2 use).");
 
 		e.addField("Attributes:", "- If either of your targets would not normally die to your attack, your ability will be cancelled.");
 
@@ -636,7 +636,7 @@ module.exports = (g) =>
 
 	register_role(["off_by_one", "offbyone", "error", "oboe", "841"], "Mafia", "Off By One Error", {subCat: "Deception"}, (e) =>
 	{
-		e.setDescription("Post 841");
+		e.setDescription("Post 841\n*Ooooh, you almost had it!*");
 
 		e.addField("Alignment", "Mafia Deception", true);
 		e.addField("Attack", "None", true);
@@ -644,7 +644,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Cause someone's ability to error at night.");
 
-		e.addField("Attributes:", "- As long as you are alive, all players that die to a Mafia role will flip the role one post higher than theirs (the highest post number will instead flip post 1)\n- Causing someone's ability to error will cause their ability to act as if they are the role one post lower than theirs (post 1 will instead perform the ability of the highest post number). This ability will fail if the action is impossible, and you will be notified of this.\n- You may cause three people's ability to error. You do not lose a charge if your ability fails.");
+		e.addField("Attributes:", "- As long as you are alive, all players that die to a Mafia role will flip the role one post number higher than theirs. If there is no post number one higher than their role’s post number, this affect is cancelled for that particular role flip, and you will be notified.\n- Causing someone's ability to error will cause their ability to act as if they are the role one post number lower than theirs. This ability will fail if the action could not happen under normal circumstances, and you will be notified of this. This ability will also fail if there is no post number one lower than your target’s post number. You will be notified in both of these cases with the reason why your ability was cancelled.\n- You may cause three people's ability to error. You do not lose a charge if your ability fails.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -762,7 +762,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to freeze the town over at night. If you do, all players who were roleblocked last night will be forced to target themselves tonight. They will not be notified of this. You may only freeze the town over three times.\n**Nevermelt** — All players who have been roleblocked at any point in the game lose all defense and can't have defense tonight. Then, force them to target themselves. You may only use this ability once.");
+		e.addField("Abilities:", "- Choose to freeze the town over at night. If you do, all players who were roleblocked last night will be forced to target themselves tonight. They will not be notified of this. You may only freeze the town over three times.\n**Nevermelt** — Choose up to two players. Their defense is set to None tonight and they can't have defense tonight. Then, force them to target themselves. You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Roleblock Immune");
 

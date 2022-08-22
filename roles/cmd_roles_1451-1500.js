@@ -282,7 +282,7 @@ module.exports = (g) =>
 		e.setDescription("Post 1470\nConverted from: Sensei");
 
 		e.addField("Alignment", "Unseen Support", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Basic (Variable)", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Meditation (Night): Grant yourself Basic defense, and deal a Basic attack to anyone who attacks you, even if the attack is Astral.\n- Private Training (Night): Select another Unseen member. They gain the following abilities based on how many times you visited them:\n• 0 prior visits: You may grant yourself Basic Defense at night.\n• 1 prior visit: You may grant yourself Basic Defense at night; Additionally, if you are attacked when you do this, you will deal a Basic Attack back to the attacker (Unless the attacker's visit is Astral).\n• 2 prior visits: You may use any of the Ninja Brigadier (Post 1470)'s night abilities.\n- Organized Fighting (Night): Roleblock all Unseen members and select a target. Deal an attack for each living Unseen member (including yourself), each attack is one tier higher than the last. (If you have 4 members, the target will take a Basic, Powerful, Unstoppable, and Overkill attack).");
@@ -749,17 +749,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Warfleet.goal);
 	});
 
-	register_role(["doopliss", "1500"], "Koopa", "Doopliss", {subCat: "Supporter"}, (e) =>
+	register_role(["doopliss", "1500"], "Koopa", "Doopliss", {subCat: "King"}, (e) =>
 	{
 		e.setDescription("Post 1500");
 
-		e.addField("Alignment", "Koopa Supporter", true);
+		e.addField("Alignment", "Koopa King", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Powerful", true);
 
 		e.addField("Abilities:", "- Engulf your target in Shadows for this night.\n- Steal a random Ability from a target that can be useful on its own, You will recieve that ability as a new one while they will get Engulfed in shadows for a night if they use it while you are alive. (2 uses)");
 
-		e.addField("Attributes:", "- Targets engulfed in shadows will:\n> • Have their defense reduced by a tier.\n> • Get torched on death.\n> • Roleblock visitors who aren't attacking.\n- 2 random Townies will get the following ability in the start of the game:\n> Check someone, If they are Doopliss(Number), Deal an Unstoppable attack to them, This Bypasses Roleblocks and Frames.\n- If either Townie dies, this ability is passed down to another random Townie.");
+		e.addField("Attributes:", "- Targets engulfed in shadows will:\n• Have their defense reduced by a tier.\n• Get torched on death.\n• Roleblock visitors who aren't attacking.\n\n- 1 random Townie will get the following ability in the start of the game:\n> Check someone, If they are Doopliss(1500), Deal an Unstoppable attack to them, This Bypasses Roleblocks and Frames.\nIf they die, this ability is passed down to another random Townie.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});

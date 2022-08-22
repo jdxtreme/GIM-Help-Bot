@@ -113,7 +113,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Use another role's powers.");
 
-		e.addField("Attributes:", "- You will have the defense, attack, abilities, attributes, and investigative results of another role.\n- This role cannot be: Town, Neutral (Benign), Florae, Lynch Immune Roles.");
+		e.addField("Attributes:", "- You will have the defense, attack, abilities, attributes, and investigative results of another role.\n- This role cannot be: Any role from a good faction (Town, City, Army, etc.), Neutral (Benign), Lynch Immune Roles.");
 		
 		e.addField("Goal:", "Get lynched during the day.");
 	});
@@ -177,7 +177,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose two players to quiz on Grand Idea Mafia roles each day.");
 
-		e.addField("Attributes:", "- At the start of the next night, both players will be made unable to see the roles thread or any channels related to GIM roles. Then, they will each receive the names of the same five roles from the GIM roles thread, chosen at random. Whichever player can describe the general functions of more of the roles wins; the other is dealt an Unstoppable attack. (The host judges what counts as being correct.) If it's a tie, both die, unless they both get all 5 correct, in which case neither does.");
+		e.addField("Attributes:", "- At the start of the next night, both players will be locked out of all channels in the GIM server except a new private one for each of them. Then, they will each receive the names of the same five roles from the GIM roles thread that neither of them made, chosen at random. Whichever player can describe the general functions of more of the roles wins; the other is dealt an Unstoppable attack. (*The host judges what counts as being correct.*) If it's a tie, both die, unless they both get all 5 correct, in which case neither does.");
 		
 		e.addField("Goal:", "Kill three players with your quizzes.");
 	});
@@ -190,7 +190,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Bake bread numerous (3) times.\nDistribute your bread to players.");
+		e.addField("Abilities:", "- Bake bread numerous (3) times.\n- Distribute your bread to players.");
 
 		e.addField("Attributes:", "- Your bread will allow the receivers of the bread to use their nightly abilities on TWO targets INSTEAD of just one.");
 		
@@ -207,9 +207,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Throw visitors in a whirlpool and take abilities found in the wreckage.");
 
-		e.addField("Attributes:", "- You can make a whirlpool, and any visitors to you and the players next to you (as found in the player list) will be thrown in the whirlpool.\n- If you are player 6 and player 7 is dead, visitors to player 8 go in the whirlpool.\n- Anyone in the whirlpool will use their ability on **everyone** in the whirlpool. If they have limited uses of an ability, they will only use one charge.\n- You will get 1 use of the ability of every person in the whirlpool.\n- If you have abilities to use, you will no longer make a whirlpool, and instead use one of your abilities.\n- Once you use (# of killing abilities) + 1, you can choose during the day to lose the abilities to make.\n- another whirlpool. You can choose every day this condition has been met.\n- Once you use all abilities, you will be able to make a whirlpool the next day.\n- In the final 5, you will be able to lose any stored abilities you have every day, and will instead be able to do a powerful attack each night.");
+		e.addField("Attributes:", "- You can make a whirlpool, and any visitors to you and the players next to you (as found in the player list) will be thrown in the whirlpool. You will also be in the whirlpool.\n- If you are player 6 and player 7 is dead, visitors to player 8 go in the whirlpool.\n- Anyone in the whirlpool will use their ability on **everyone** in the whirlpool (including you). If they have limited uses of an ability, they will only use one charge.\n- You cannot be killed by an ability used on you due to a whirlpool.\n- You will get 1 use of the ability of every person in the whirlpool.\n- If you have abilities to use, you will no longer make a whirlpool, and instead use one of your abilities.\n- Once you use (# of killing abilities) + 1 ability found in the whirlpool, you can choose during the day to lose the abilities to make another whirlpool. You can choose every day this condition has been met.\n- Once you use all abilities, you will be able to make a whirlpool the next day.");
 
-		e.addField("Attributes (cont.):", "- You cannot make a whirlpool if there are 5 or less players.");
+		e.addField("Attributes (cont.):", "- In the final 5, you will be able to lose any stored abilities you have every day, and will instead be able to do a powerful attack each night.\n- You cannot make a whirlpool if there are 5 or less players.\n- Roleblock Immunity.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -304,13 +304,13 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 571");
 
-		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Alignment", "Unique Neutral Evil", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Choose a player to investigate at night. You will find out whether or not they are a member of the Town.\n- Choose another player to become your Target at night.\n- Choose to protect your Target at night. They will gain Invincible Defense that night and won't be able to be voted up in the following day.");
+		e.addField("Abilities:", "- Choose a player to investigate at night. You will out whether or not they are a member of the Town.\n- Choose another player to target at night. You must keep them alive to win. You may only do this once.\n- Choose to protect your target at night. They will gain Invincible defense for the night. The next day, they cannot be voted up. You may only do this twice.");
 
-		e.addField("Abilities:", "- If you choose a member of the Town as your Target, you will commit suicide and lose.\n- You may not investigate and choose a target on the same night.\n- You may only choose a target once.\n- You may only protect your target twice.\n- You have a layer of Basic Defense that can block one attack.");
+		e.addField("Attributes:", "- Roleblock and Redirect Immune\n- If you choose a member of the Town as your target, you will commit suicide and lose.\n- If your target dies at night, you will commit suicide and loes.\n- You have a layer of Basic defense that can block one attack.");
 		
 		e.addField("Goal:", "Ensure that your Target is alive at the end of the game, regardless of whether or not you are alive.");
 	});
@@ -326,32 +326,6 @@ module.exports = (g) =>
 		e.addField("Abilities:", "- N1: Turn Someone into Flowey no matter their current role (if they are an informed minority they will become both Flowey and their original role, but may only win with floweys wincon)\nN4+: Kill anybody with a TrueKill attack (kills no matter what)");
 		
 		e.addField("Goal:", "EITHER: Kill anyone who opposes you and Flowey, OR: calm down and become yourself again (be the only one alive with a faction of over 5 members, and no Flowey)");
-	});
-
-	register_role(["flowey", "573"], "Neutral", "Flowey", {subCat: "Other"}, (e) =>
-	{
-		e.setDescription("Post 573\n*You are a monster with no soul*");
-
-		e.addField("Alignment", "Neutral Other", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "Basic", true);
-
-		e.addField("Abilities:", "- Kill someone every night\n- (As informed minority): Additionally preform you previous role");
-		
-		e.addField("Goal:", "Make sure Deadly kills everything in their path and never calms down");
-	});
-
-	register_role(["abilitor", "574"], "Neutral", "Abilitor", {subCat: "Other"}, (e) =>
-	{
-		e.setDescription("Post 574");
-
-		e.addField("Alignment", "Neutral Other", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
-
-		e.addField("Attributes:", "- Every night, you may select another player and come up with a night ability. They will have that ability starting tomorrow morning, as long as the host approves (host shouldn't approve if it's unfun or unbalanced). They may not use their new ability at the same time as any of their other abilities. (*This isn't an ability, so it's unaffected by roleblocks/etc.*)");
-		
-		e.addField("Goal:", "Give someone an ability that makes a difference in the game, i.e. it actually changes something. They must die before the game ends, though, and not via your attributes. Also survive until the end of the game.");
 	});
 
 	register_role(["chronologist", "chrono", "575"], "Town", "Chronologist", {subCat: "Power"}, (e) =>
@@ -463,7 +437,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Whenever anyone dies, you collect a soul, getting stronger.\n- If somebody comes back from the dead, you do not lose a soul.\n- If a resurrected player dies again, you do not get a new soul.");
 
-		e.addField("The benefits of souls are:", "0: Nothing\n1: Basic Defense\n2: Basic Attack\n3: Powerful Attack\n4-6: Powerful Defense\n7-8: Target 2 people\n9: Unstoppable Attack\n10: Rampage\n11: Your vote counts as 3\n12: Invincible Defense");
+		e.addField("The benefits of souls are:", "0: Nothing\n1: Basic Defense\n2: Basic Attack\n3: Powerful Attack\n4-6: Powerful Defense\n7-8: Target 2 people\n9: Unstoppable Attack\n10: Rampage\n11: Your vote secretly counts as 3\n12: Invincible Defense");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -506,7 +480,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Use your ice powers for good.");
 
-		e.addField("Attributes:", "- You can: encase someone in ice, impale someone with ice, or chill someone.\n- All abilities have a 1 night cooldown.\n- Encase: Any visitors to your target will fail and go back home.\n- Impale: Deal a Basic Attack to someone.\n- Chill: Your target will be roleblocked for 2 nights. During the day, you can choose to thaw your target, and they will not be roleblocked the following night.");
+		e.addField("Attributes:", "- You can: encase someone in ice, impale someone with ice, or chill someone.\n- All abilities have a 1 night cooldown.\n- Encase: Any visitors to your target will fail and go back home.\n- Impale: Deal a Basic Attack to someone.\n- Chill: Your target will be roleblocked.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -596,7 +570,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Give people false messages while waiting for your time to end the world.");
 
-		e.addField("Attributes:", "- Choose someone at night to receive a notification. This can be any notification besides a death notification.\n- You can make the flavor text for the notification or you can make the host make the flavor text for you.\n- On day 6, you end the world, automatically winning.\n- On Day 5, people will be told \"The **World Ender** is about to end the world!\"");
+		e.addField("Attributes:", "- Choose someone at night to receive a notification. This can be any notification besides a death notification.\n- You can make the flavor text for the notification or you can make the host make the flavor text for you.\n- On Day 5, you end the world, automatically winning.\n- On Day 4, people will be told \"The **World Ender** is about to end the world!\"\n- The game cannot end if you are alive.\n- The world will not end if you are dead.");
 		
 		e.addField("Goal:", "End the world.");
 	});

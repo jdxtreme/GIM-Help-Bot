@@ -154,4 +154,19 @@ module.exports = (g) =>
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
+
+	register_role(["blackstoner", "bs", "69420"], "Neutral", "Blackstoner", {subCat: "Evil"}, (e) =>
+	{
+		e.setDescription("Post 69420");
+
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- 69: Blackmailer\n- 420: Stoner");
+
+		e.addField("Attributes:", "- You have a layer of Basic defense that can prevent one attack.");
+		
+		e.addField("Goal:", "Live to see the Town lose.");
+	});
 };

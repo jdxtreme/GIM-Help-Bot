@@ -17,7 +17,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["criminal", "1252", "1249u"], "Unseen", "Criminal", {subCat: "Investigative"}, (e) =>
+	register_role(["lawbreaker", "1252", "1249u"], "Unseen", "Lawbreaker", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1252\nConverted From: Criminalist");
 
@@ -27,7 +27,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Alter a player's role. They will appear as which role you choose for the rest of the game, including when they're dead. The role must be from The Criminal List.");
 
-		e.addField("Attributes:", "- If you're a Criminal during the start of game, The Criminal List switches all evil roles to random roles. If you're converted by the Unseen, this won't happen.");
+		e.addField("Attributes:", "- If you're a Lawbreaker during the start of game, The Criminal List switches all evil roles to random roles. If you're converted by the Unseen, this won't happen.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -70,7 +70,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Use the ability you received.");
 
-		e.addField("Attributes:", "- Gain the ability of a random killing role at the beginning of the night, overriding the previous one.\n- You are guaranteed to spawn if the Randoms spawn, as the Randoms lack a factional kill.\n- Sax, you are not funny.");
+		e.addField("Attributes:", "- Gain the ability of a random killing role at the beginning of the day, overriding the previous one.\n- You can only gain abilities that are guaranteed to allow you to kill tonight.\n- You are guaranteed to spawn if the Randoms spawn, as the Randoms lack a factional kill.\n- Sax, you are not funny.");
 
 		e.addField("Goal:", factions.Random.goal);
 	});
@@ -156,7 +156,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Call upon the divine cold at night, increasing an Everfrost player's defense level by two stages.\n**Winter's Retribution** — Roleblock up to two players, then coldsnap. You may only use this ability once each game and you can't use it until Night 3. You get another use once Eyisa uses Winter's Judgment.");
+		e.addField("Abilities:", "- Call upon the divine cold at night, increasing an Everfrost player's defense level by two stages.\n**Winter's Retribution** — Roleblock up to one player, then coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
 
 		e.addField("Attributes:", "- Roleblock Immunity\n- All Everfrost players are Astral and redirect immune.\n- You have a layer of Basic defense that can prevent one attack.\n- If Eyisa dies, you gain the attribute \"Whenever a player is roleblocked by anything while you're alive, they'll be notified that they're covered in frost. If they're not visited by at least two other non-Everfrost players the next night, they're dealt an Astral Basic attack by you at the end of that night. This effect cannot be prevented by anything.\" and Powerful defense.");
 
@@ -348,7 +348,7 @@ module.exports = (g) =>
 
 		e.addField("Evolutions:", "Umbreon: Wins with the Umbrae, the blood moon is permanently out while the Umbreon lives, the Umbreon will become the Umbra (Assault) once the current UA dies.\nLeafeon: Wins with the Plants and Florae, adds 2 sun per night for each night the Leafeon lives.\nFlareon: Wins with the Underworld, may perform an extra douse on top of the factional one.\nEspeon: Wins with the Coven, may cause the Necronomicon to be inherited by two members of the Coven while alive, when the Sylveon dies, the first coven member to die will not give another the necronomicon.\nGlaceon: Wins with the Everfrost, may roleblock a player each night, will die in Eyisa's place should Eyisa ever have the ability to die.\nSylveon: Wins with the Pale Moon Circus, secretly shortens the amount of time until the Circus by one day while living, no longer has an effect after the Circus has begun.\nJolteon: Wins with the Thundercry, may strike one player each night, if all living players are striked, the Thundercry win the game.");
 
-		e.addField ("Evolutions (cont.):", "Shiny Eevee: wins with any faction not listed above, but only that faction selected, allows an additional factional kill by it's hands. If there is no factional kill, create one for this game. (Ex: the Fallen Angels would now have a factional kill that only Shiny Eevee could perform)");
+		e.addField ("Evolutions (cont.):", "Vaporeon: Wins with the Warfleet, may upgrade one member of the Warfleet each night.\nShiny Eevee: wins with any faction not listed above, but only that faction selected, allows an additional factional kill by it's hands. If there is no factional kill, create one for this game. (Ex: the Fallen Angels would now have a factional kill that only Shiny Eevee could perform)");
 		
 		e.addField("Goal:", "Pokemon Goal (as Eevee) / Faction Goal (As Evolution)");
 	});
@@ -400,22 +400,22 @@ module.exports = (g) =>
 		e.addField("Goal:", "Complete your new goal. If you somehow end up Neutral again, live to see the Town lose.");
 	});
 
-	register_role(["koopa_troopa", "koopatroopa", "koopa", "1278"], "Koopa", "Koopa Troopa", {subCat: "Attacker"}, (e) =>
+	register_role(["koopa_troopa", "koopatroopa", "koopa", "1278"], "Koopa", "Koopa Troopa", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1278");
 
-		e.addField("Alignment", "Koopa Attacker", true);
+		e.addField("Alignment", "Koopa Killing", true);
 		e.addField("Attack", "Basic/Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Visit someone, you will attack them and a random non-attacking player visiting them.\n- Throw your Shell away, Losing it, to deal a Powerful Rampaging Astral attack to a target.");
+		e.addField("Abilities:", "- Visit someone, you will attack them and a random non-attacking player visiting them.\n- Throw your Shell away, Modkilling yourself to deal a Powerful Rampaging Astral attack to a target and your visitors, Can only be used if you have your Shell.");
 
-		e.addField("Attributes:", "- You have a Shell you can use for your Abilities and Attributes once, when you lose it, your defense is reduced to None.\n- If you were to die with your Shell, you will lose it and survive.");
+		e.addField("Attributes:", "- You start with a 1 time use Shell, if you were to die, you will lose it and survive, but your defense will be reduced to none.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
 
-	register_role(["bird", "btcyoadsp", "1279"], "Town", "Bird That Carries You Over A Disproportionately Small Gap", {subCat: "Support"}, (e) =>
+	register_role(["bird", "btcyoadsg", "1279"], "Town", "Bird That Carries You Over A Disproportionately Small Gap", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1279");
 
@@ -635,7 +635,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player at night. If they were also attacked by another player, your attack is upgraded to Unstoppable.\n- Spend a day preparing for a ritual. During the next day, everyone who you've killed at night will be revived as a minion. They will have their original roles, but their goals are changed to: \"Ensure the Wicked Necromancer is the last player standing.\" They also can't vote and don't count towards the majority vote count. You can only use this ability once.");
 		
-		e.addField("Goal:", "Be the last player standing. Minions from the second ability don't count and you can win with them.");
+		e.addField("Goal:", factions.Neutral.goalNK + " Minions from the second ability don't count and you can win with them.");
 	});
 
 	register_role(["ancient_ghost", "ancientghost", "ancient", "1294"], "Spirit", "Ancient Ghost", {subCat: "Head"}, (e) =>
@@ -740,7 +740,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Each night, predict the fate of a player.");
 
-		e.addField("Attributes:", "- If you're lynched, all the players that you selected will have their roles revealed publicly the next day.");
+		e.addField("Attributes:", "- You will know who each of your targets visits every night. If you have multiple targets, who visited who will not be distinguished.\n- If you're lynched, all the players that you selected will have their roles revealed publicly the next day.\n- Evil roles will be notified that they were targeted by an Oracle.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

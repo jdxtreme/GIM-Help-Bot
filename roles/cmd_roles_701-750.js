@@ -126,15 +126,15 @@ module.exports = (g) =>
 
     register_role(["blacksmith", "708"], "Town", "Blacksmith", {subCat: "Protective"}, (e) =>
     {
-        e.setDescription("Post 708");
+        e.setDescription("Post 708\n*Thankfully, unlike my blades, these vests do not suffer from cracks and stress fractures.*");
 
         e.addField("Alignment", "Town Protective", true);
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Choose to craft a bulletproof vest at night.\n- Choose to give any number of players a bulletproof vest at night.");
+        e.addField("Abilities:", "- Choose to craft a bulletproof vest at night.\n- Choose to give any number of players a bulletproof vest at night. (0 vests)");
 
-        e.addField("Attributes:", "- A player that you give a bulletproof vest to may choose to don their vest during the night. This gives them Basic Defense for that night only.\n- If a player dies without using their vest, you will come back into possession of it the following night and may give it out to another player.\n- You may craft as many bulletproof vests as you like.\n- You may give out as many bulletproof vests are you like in one night, but you may only give out as many vests as you have crafted.\n- You may not craft and give out a vest in the same night.\n- You have no limit on how many vests you can give yourself.");
+        e.addField("Attributes:", "- A player that you give a bulletproof vest to may choose to don their vest during the night instead of performing their normal night ability. This gives them Basic Defense for that night only.\n- If a player dies without using their vest, you will come back into possession of it the following night and may give it out to another player.\n- You may craft as many bulletproof vests as you like.\n- You may give out as many bulletproof vests are you like in one night, but you may only give out as many vests as you have crafted.\n- You may not multitask.\n- You may not give yourself a vest.");
 
         e.addField("Goal:", factions.Town.goal);
     });
@@ -156,7 +156,7 @@ module.exports = (g) =>
 
     register_role(["scapegoat", "710"], "Town", "Scapegoat", {subCat: "Support"}, (e) =>
     {
-        e.setDescription("Post 710");
+        e.setDescription("Post 710\n*You've caught me red-handed.*");
 
         e.addField("Alignment", "Town Support", true);
         e.addField("Attack", "None", true);
@@ -164,7 +164,7 @@ module.exports = (g) =>
 
         e.addField("Abilities:", "- Choose someone to take the fall for each night.\n- Choose to roleblock all of your visitors at night.");
 
-        e.addField("Attributes:", "- Roleblock and redirection immune.\n- When you choose to take the fall for someone, all of their visitors will be redirected to you through any roleblock immunities.\n- You may roleblock all of your visitors twice per game. You may only do this on nights that you decide to take the fall for someone. Players that you successfully roleblock will only be given the roleblock message and not the redirection message.");
+        e.addField("Attributes:", "- When you choose to take the fall for someone, all of their visitors will be redirected to you through any redirect immunities.\n- You may roleblock all of your visitors twice per game. You may only do this on nights that you decide to take the fall for someone. Players that you successfully roleblock will only be given the roleblock message and not the redirection message.\n- You are roleblock and redirect immune.");
 
         e.addField("Goal:", factions.Town.goal);
     });
@@ -192,9 +192,9 @@ module.exports = (g) =>
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Trap your house at night.\n- Choose to incinerate all who burn at night.");
+        e.addField("Abilities:", "- Trap your house at night. (3 use)\n- Choose to incinerate all who burn at night. (1 use)");
 
-        e.addField("Attributes:", "- Roleblock Immunity\n- When you trap your house, all players who visit you will become doused. You will also blind all of your visitors through the sheer power of your flames causing them to be roleblocked for two nights after they visit you. This will not give any special notification to your visitors. You will not blind any Underworld members that visit you.\n- When you incinerate, all players killed by the Apocalypse's ignition will be shown as \"Incinerated\" in the graveyard. No wills may be found.\n- You may trap your house three times and incinerate once.\n- If the Apocalypse dies, you will be promoted to Apocalypse.");
+        e.addField("Attributes:", "- When you trap your house, all players who visit you will be doused. You will also blind all of your visitors through the sheer power of your flames causing them to be roleblocked the night after they visit you. This will not give any special notification to your visitors. You will not blind any Underworld members that visit you.\n- When you incinerate, all players killed by the Apocalypse's ignition will be shown as \"Incinerated\" in the graveyard. Wills of incinerated players will be burned to ash.\n- If the Apocalypse dies, you will be promoted to Apocalypse.\n- You are roleblock immune.");
 
         e.addField("Goal:", factions.Underworld.goal);
     });
@@ -302,7 +302,7 @@ module.exports = (g) =>
         e.addField("Goal:", "Ensure that all players with any Defense are dead by the end of the game. You may win while dead.");
     });
 
-    register_role(["arcane_bombardment", "arcanebombardment", "arcane_bomb", "715"], "Neutral", "Arcane Bombardment", {subCat: "Killing"}, (e) =>
+    register_role(["arcane_bombardment", "arcanebombardment", "arcane_bomb", "arcanebomb", "ab", "715"], "Neutral", "Arcane Bombardment", {subCat: "Killing"}, (e) =>
     {
         e.setDescription("Post 715");
 
@@ -310,9 +310,9 @@ module.exports = (g) =>
         e.addField("Attack", "Basic", true);
         e.addField("Defense", "Basic", true);
 
-        e.addField("Abilities:", "- Attack someone each night.");
+        e.addField("Abilities:", "- Bombard someone each night, dealing to them a Basic attack.");
 
-        e.addField("Attributes:", "- Whenever you attack someone, copy an ability that's been used at any point in the game previously at random. Then, you may use any number of the abilities that you've copied with this attribute. You can't use those abilities normally.");
+        e.addField("Attributes:", "- You may not change your target after choosing it.\n- Whenever you choose a target for bombardment, you will copy one other ability that has resolved at any point during the game. Then, you may use all abilities copied with this attribute. You can't use those abilities normally.");
 
         e.addField("Goal:", factions.Neutral.goalNK);
     });
@@ -370,7 +370,7 @@ module.exports = (g) =>
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Each night, choose a player. If they are targeted by two or more players, for the two following nights you'll learn their action immediately when they choose it.\nCryosphere Lash — Roleblock all players who you've learned the action of and their targets for tonight. Then, coldsnap. You may only use this ability once each game.");
+        e.addField("Abilities:", "- Each night, choose a player. If they are targeted by two or more players, for the two following nights you'll learn their action immediately when they choose it.\nCryosphere Lash — Choose up to two players and predict who they'll visit. If you're correct about both, turn their action into a roleblock, then coldsnap. You may only use this ability once each game.");
 
         e.addField("Attributes:", "- Roleblock immune.\n- Whenever a player is roleblocked by anything, you learn who their target and any messages the target would have received from the visit.");
 
@@ -424,13 +424,11 @@ module.exports = (g) =>
 
     register_role(["jester", "mafia_jester", "jester_mafia", "723"], "Mafia", "Jester", {subCat: "Support"}, (e) =>
     {
-        e.setDescription("Post 723");
+        e.setDescription("Post 723\n*Ain't it fun?*");
 
         e.addField("Alignment", "Mafia Support", true);
         e.addField("Attack", "Unstoppable", true);
         e.addField("Defense", "None", true);
-
-        e.addField("Abilities:", "- None.");
 
         e.addField("Attributes:", "- If you are lynched, you may choose a player to deliver an Unstoppable attack to the following night.");
 
@@ -482,7 +480,7 @@ module.exports = (g) =>
         e.addField("Goal:", "Completely fucking roflstomp as many long-lasting friendships as you can possibly manage (Complete 3 Party Games).");
     });
 
-    register_role(["light_of_accent", "lightofaccent", "light_accent", "727"], "Neutral", "Light of Accent", {subCat: "Killing"}, (e) =>
+    register_role(["light_of_accent", "lightofaccent", "light_accent", "lightaccent", "loa", "la", "727"], "Neutral", "Light of Accent", {subCat: "Killing"}, (e) =>
     {
         e.setDescription("Post 727");
 
@@ -490,7 +488,7 @@ module.exports = (g) =>
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Attributes:", "- Each day, choose one of the following abilities that you haven't chosen yet. You gain that ability.\n> - Be mean to someone, making them deal a Basic attack, or their attack value if it's higher, to themselves.\n> - Stab someone in the aorta, dealing 37 Basic attacks to them.\n> - Roleplay as Aiko, granting yourself Powerful defense for the night.\n> - Speak French, confusing someone and redirecting them to a random target other than you.\n> - Engage in incestuous polycule activities, getting investigative results (see post 35) for up to 3 other players as well as receiving any night messages they get tonight.\n> - Be antisocial, causing all non-attack visits against you to fail for the night.\n> - Catch a Pokemon, increasing the number of votes you have by one.\n> - Eat excessive amounts of sugar, allowing you to perform another one of your abilities an additional time.\n- You may use any number of different abilities each night.");
+        e.addField("Attributes:", "- Each day, choose one of the following abilities that you haven't chosen yet. You gain that ability.\n> - Be mean to someone, roleblocking them.\n> - Stab someone in the aorta, dealing 37 Basic attacks to them.\n> - Roleplay as Aiko, granting yourself Powerful defense for the night.\n> - Speak French, confusing someone and redirecting them to a random target other than you.\n> - Engage in incestuous polycule activities, getting investigative results (see post 35) for up to 3 other players as well as receiving any night messages they get tonight.\n> - Be antisocial, causing all non-attack visits against you to fail for the night.\n> - Catch a Pokemon, increasing the number of votes you have by one.\n> - Eat excessive amounts of sugar, allowing you to perform another one of your abilities an additional time.\n- You may use any number of different abilities each night.");
 
         e.addField("Goal:", factions.Neutral.goalNK);
     });
@@ -570,7 +568,7 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Neutral.goalNK);
     });
 
-    register_role(["paripapparapappapparappa", "paripappa", "pari", "motherfucker", "733"], "Neutral", "Paripapparapappapparappa", {subCat: "Killing", cannotRoll: true}, (e) =>
+    register_role(["paripapparapappapparappa", "paripappa", "pari", "motherfucker", "733"], "Neutral", "Paripapparapappapparappa", {subCat: "Killing"}, (e) =>
     {
         e.setDescription("Post 733");
 
@@ -602,7 +600,7 @@ module.exports = (g) =>
 
     register_role(["bootlegger", "735"], "Mafia", "Bootlegger", {subCat: "Support"}, (e) =>
     {
-        e.setDescription("Post 735");
+        e.setDescription("Post 735\n*I don't really know where the borders are in Salem, but I have a really indiscriminate van and like to force people into it.*");
 
         e.addField("Alignment", "Mafia Support", true);
         e.addField("Attack", "None", true);
@@ -610,7 +608,7 @@ module.exports = (g) =>
 
         e.addField("Abilities:", "- Choose to bootleg two players around the Town tonight.");
 
-        e.addField("Attributes:", "- Anyone targeting your first target will be redirected to target the second, and anyone targeting the second will be forced to target the first.\n- Roleblock Immune");
+        e.addField("Attributes:", "- Anyone targeting your first target will be redirected to the second and vice versa.\n- Roleblock Immune");
 
         e.addField("Goal:", factions.Mafia.goal);
     });
@@ -677,7 +675,7 @@ module.exports = (g) =>
 
     register_role(["protector", "740"], "Neutral", "Protector", {subCat: "Benign"}, (e) =>
     {
-        e.setDescription("Post 740");
+        e.setDescription("Post 740\n*You've never to fear for your savior always stands near.*");
 
         e.addField("Alignment", "Neutral Benign", true);
         e.addField("Attack", "None", true);
@@ -685,9 +683,9 @@ module.exports = (g) =>
 
         e.addField("Abilities:", "- Protect a player with the power of a GIM role each night.");
 
-        e.addField("Attributes:", "- Each night, you may choose a role in the GIM thread with the Protective subalignment. You will use be able to use this role's abilities for the night.\n- You may use any protective role on yourself, but any deaths that you prevent on yourself will not contribute towards your win condition.\n- If you choose a Protective role that would normally result in someone dying as a result of your target being protected, nobody will die in the process. Your target will just live.\n- You may not use a Protective role more than once.");
+        e.addField("Attributes:", "- Each night, you may choose a role in the GIM thread with the Protective subalignment. You will be able to use this role's abilities for the night.\n- You may use any protective role on yourself, but any deaths that you prevent on yourself will not contribute towards your win condition.\n- If you choose a Protective role that would normally result in someone dying as a result of your target being protected, nobody will die in the process, but the protective effects will still protect your target.\n- You may not use the same Protective role more than once.");
 
-        e.addField("Goal:", "Prevent three deaths using your abilities.");
+        e.addField("Goal:", "Prevent two deaths using your abilities.");
     });
 
     register_role(["tax_collector", "taxcollector", "741"], "Neutral", "Tax Collector", {subCat: "Chaos"}, (e) =>
@@ -737,20 +735,20 @@ module.exports = (g) =>
 
     register_role(["pebble", "744"], "Rock", "Pebble", {subCat: "Support"}, (e) =>
     {
-        e.setDescription("Post 744");
+        e.setDescription("Post 744\n*Fruity or chocolate?*");
 
         e.addField("Alignment", "Rock Support", true);
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Choose to place a pebble in a player's shoe.\n- Choose to pelt the house of a Rock member's target with pebbles.");
+        e.addField("Abilities:", "- Choose to place a pebble in a player's shoe at night.\n- Choose to pelt the house of a Rock member's target with pebbles at night. (2 use)");
 
-        e.addField("Attributes:", "- If a player with a pebble in their shoe visits anyone the night that you placed the pebble in their shoe, they will be unable to visit any players for the next two nights due to foot injuries. Ouch.\n- Pelting a player's house will cause any non-Rock players who visit them to be roleblocked that night. You will also pelt your target with pebbles, which increases the Attack value of any Rock member that visits them to the next-highest Attack value.\n- You may pelt two houses with pebbles.");
+        e.addField("Attributes:", "- If a player with a pebble in their shoe visits anyone the night that you placed the pebble in their shoe, they will be unable to visit any players for the next two nights due to foot injuries. Ouch.\n- Pelting a player's house will cause any non-Rock players who visit them to be roleblocked that night. You will also pelt your target with pebbles, which increases the Attack value of any Rock member that visits them to the next-highest Attack value.");
 
         e.addField("Goal:", factions.Rock.goal);
     });
 
-    register_role(["werecat", "were_cat", "745"], "Were", "WereCat", {subCat: "Support"}, (e) =>
+    register_role(["werecat", "wc", "745"], "Were", "WereCat", {subCat: "Support"}, (e) =>
     {
         e.setDescription("Post 745");
 
@@ -758,9 +756,11 @@ module.exports = (g) =>
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Purr at someone's house each night.");
+        e.addField("Abilities:", "- During a Full Moon, Purr at another player's house, Roleblocking and Blackmailing them.\n- Before a New Moon, Learn all whispers sent that day.");
 
-        e.addField("Attributes:", "- Purring roleblocks and blackmails someone.");
+        e.addField("Attributes:", "- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres\n- Visit results are shared with other Weres.\n- You cannot target other Weres\n- You have a powerful autovest");
+
+        e.addField("Hunting Moon Enchancement: Fierce but Cute", "You will scratch your target tonight. Scratching a target permanently roleblocks them until they're healed.");
 
         e.addField("Goal:", factions.Were.goal);
     });
@@ -780,9 +780,9 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Insurgency.goal);
     });
 
-    register_role(["news_anchor", "newsanchor", "747"], "Insurgency", "News Anchor", {subCat: "Informant"}, (e) =>
+    register_role(["news_anchor", "newsanchor", "na", "747"], "Insurgency", "News Anchor", {subCat: "Informant"}, (e) =>
     {
-        e.setDescription("Post 747");
+        e.setDescription("Post 747\n*Breaking news: a group of rebellious scoundrels have recently been spreading revolutionary ideas across the Town. Sounds pretty based to me.*");
 
         e.addField("Alignment", "Unique Insurgency Informant", true);
         e.addField("Attack", "None", true);

@@ -196,7 +196,7 @@ module.exports = (g) =>
 			{
 				catMatch = false;
 
-				if(cmd.cat === "Any")
+				if(cmd.cat === "Any" && (!cmd.meta.spawnCat || containsString(cmd.meta.spawnCat, "Any")))
 				{
 					for(let cat in specs)
 					{

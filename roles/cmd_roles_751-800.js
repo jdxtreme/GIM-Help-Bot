@@ -233,7 +233,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Each night, select two targets. If Target A votes Target B the following morning, roleblock Target A.\n**Piercing Death** — Roleblock all players that have voted you over the course of the game, then coldsnap. Can be used the night after your death. You may only use this ability once each game.");
+		e.addField("Abilities:", "- Each night, select two targets. If Target A votes Target B the following morning, roleblock Target A.\n**Piercing Death** — Roleblock three random players that voted you during the preveious day phase, then coldsnap. Can be used the night after your death. You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything at night besides an Everfrost Attribute, during the next morning, the first person they vote will be roleblocked the following night.");
 		
@@ -360,15 +360,15 @@ module.exports = (g) =>
 
 	register_role(["gerrymanderer", "gerry", "775"], "Neutral", "Gerrymanderer", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 775");
+		e.setDescription("Post 775\n*I'll be gerrymandering more than your pizza.*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic (None)", true);
 
-		e.addField("Abilities:", "- Split the town into voting sects at night.");
+		e.addField("Abilities:", "- Split the town into voting sects at night. (2 use)");
 
-		e.addField("Attributes:", "- The night you gerrymander, you may distribute all alive players into any number of sects with the minimum number of sects being three. Every sect counts as one vote, and the player that the sect votes for is the player with majority of votes within the sect (if there is a tie, the player who achieved the most votes first will be voted for).\n- The voting sects will take effect the day after you establish them and will only last for that day.\n- You may gerrymander twice.\n- You have Basic defense until the first time you are attacked.");
+		e.addField("Attributes:", "- The night you gerrymander, you may distribute all alive players into any number of sects with the minimum number of sects being three. Every sect counts as one vote, and the player that the sect votes for is the player with majority of votes within the sect (if there is a tie, the player who achieved the most votes first will be voted for).\n- The voting sects will take effect the day after you establish them and will only last for that day.\n- You have Basic defense until the first time you are attacked.");
 		
 		e.addField("Goal:", "Live to see Town lose the game.");
 	});
@@ -405,22 +405,22 @@ module.exports = (g) =>
 
 	register_role(["gifted_child", "giftedchild", "gifted", "778"], "Neutral", "Gifted Child", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 778");
+		e.setDescription("Post 778\n*I've developed my skill set after spending far too many hours staring a television screen.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Predict a player's allegiance at night.\n- Choose to don a bulletproof vest at night.");
+		e.addField("Abilities:", "- Predict a player's allegiance at night.\n- Choose to don a bulletproof vest at night to grant yourself Basic defense. (2 use).");
 
-		e.addField("Attributes:", "- Choose a player and give a guess at what their faction is. If you are correct, your streak raises by one. If you are incorrect, the streak resets.\n- Your results are not affected by frames.\n- You have two bulletproof vests that you may use at any point throughout the game.\n- You may no longer use your first ability once you have won.\n- You may not predict your own alignment.");
+		e.addField("Attributes:", "- Choose a player and give a guess at what their faction is. If you are correct, your streak raises by one. If you are incorrect, the streak resets.\n- Your results are not affected by any abilities that alter investigative results.\n- You may no longer use your first ability once you have won.\n- You may not predict your own alignment.");
 		
 		e.addField("Goal:", "Gain a streak of 3.");
 	});
 
 	register_role(["translethal", "779"], "Town", "Translethal", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 779");
+		e.setDescription("Post 779\n*Have you ever wanted to project someone's suicidal tendencies onto someone else? No? Just me?*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
@@ -433,19 +433,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["angel_of_wrath", "angelofwrath", "angel", "aow", "780"], "Neutral", "Angel of Wrath", {subCat: "Killing"}, (e) =>
+	register_role(["undertale", "ut", "780"], "Neutral", "UNDERTALE", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 780");
 
-		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "Powerful", true);
 
-		e.addField("Abilities:", "- Attack a player.");
+		e.addField("Abilities:", "- Protect the fallen child tonight. They will gain Invincible defense for the night, and any negative effects will be purged (2 use).");
 
-		e.addField("Attributes:", "- Flying (You can't be blocked by protective roles.)\n- First strike (You have the highest possible priority.)\n- Vigilance (You can attack each night and each day.)\n- Trample (Excess damage you deal is dealt to your target's visitors.)\n- Haste (You can make one attack before the game begins.)\n- Protection from Mafia (You can't be affected in any way by Mafia roles' abilities.)\n- Protection from Neutral Killing (You can't be affected in any way by Neutral Killing roles' abilities.)");
+		e.addField("Attributes:", "- The fallen child is [player]. They will be notified that they are the fallen child at the start of the game. Any whispers between you and the fallen child will be completely undetectable by any means. The fallen child is guaranteed to be a player that does not have defense nor has any method of granting themselves defense.\n- You cannot claim your role publicly. If you do, the Town will believe you are a monster and will deal an instant Unstoppable attack to you. If the Town suspects you are this role, this attribute is not triggered.\n- If the fallen child dies at any point, you will absorb their soul that night. The following day, you will attempt to place them in their final resting place at the golden flowers in their town. If you receive two votes at this point, you will instantly be dealt an Unstoppable attack. If you survive the day phase, you will successfully let the fallen child rest and will leave the town permanently.");
 		
-		e.addField("Goal:", factions.Neutral.goalNK);
+		e.addField("Goal:", "Have the fallen child live until the end of the game OR successfully let the fallen child rest in the golden flowers.");
 	});
 
 	register_role(["heavenbound", "hb", "781"], "Thundercry", "Heavenbound", {subCat: "Onslaught"}, (e) =>
@@ -693,7 +693,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- This role is random role that won a previous GIM game. If the role's been changed since then, it's the original version (the one that won that game).");
+		e.addField("Attributes:", "- This role is random role that won a previous GIM game. If the role's been changed since then, it's the original version (the one that won that game). If a role's won multiple times (i.e. Eyisa, Locust), only the first one is considered.");
 	});
 
 	register_role(["onlyshots", "798"], "Neutral", "OnlyShots", {subCat: "Killing"}, (e) =>

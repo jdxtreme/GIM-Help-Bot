@@ -150,17 +150,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["spiky_goomba", "spikygoomba", "spiky", "1411"], "Koopa", "Spiky Goomba", {subCat: "Defender"}, (e) =>
+	register_role(["spiky_goomba", "spikygoomba", "spiky", "1411"], "Koopa", "Spiky Goomba", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 1411");
 
-		e.addField("Alignment", "Koopa Defender", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Alignment", "Koopa Protective", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
 		e.addField("Abilities:", "- Stand outside someone's house, all attacks will be redirected to you.\n- Headbonk someone dealing a Weak attack, The attack will be Powerful and will Roleblock if they are attacking a member of your Faction.");
 
-		e.addField("Attributes:", "- Deal a Powerful attack to anyone who deals a Basic attack to you.");
+		e.addField("Attributes:", "- Deal a Basic attack to anyone who deals a Basic attack to you.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -238,11 +238,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["monty_mole", "montymole", "mm", "monty", "1417"], "Koopa", "Monty Mole", {subCat: "Informer"}, (e) =>
+	register_role(["monty_mole", "montymole", "mm", "monty", "1417"], "Koopa", "Monty Mole", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1417");
 
-		e.addField("Alignment", "Koopa Informer", true);
+		e.addField("Alignment", "Koopa Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -253,15 +253,15 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Koopa.goal);
 	});
 
-	register_role(["boo", "1418"], "Koopa", "Boo", {subCat: "Supporter"}, (e) =>
+	register_role(["boo", "1418"], "Koopa", "Boo", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1418");
 
-		e.addField("Alignment", "Koopa Supporter", true);
+		e.addField("Alignment", "Koopa Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Scare someone, Roleblocking them and muting them the next day.\n- Possess and control someone, Learning their role and doing their night action for them. (2 uses).");
+		e.addField("Abilities:", "- Scare someone, Roleblocking them and muting them the next day, Can't be used on the same person twice in a row.\n- Possess and control someone, Learning their role and doing their night action for them. (2 uses).");
 
 		e.addField("Attributes:", "- You will get Basic defense and Roleblock Immunity on odd numbered Nights.");
 
@@ -319,7 +319,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Go inside your Shell this night, Gaining Overprotective defense, can't be used again for the next 2 nights.\n- Breathe Flames on 2 targets, Attacking both, Can only be used on day 3, 6, 9 and so on.");
+		e.addField("Abilities:", "- Go inside your Shell this night, Gaining Overprotective defense, can't be used again for the next 2 nights.\n- Breathe Flames on 3 targets, Attacking both, Can only be used on day 3, 6, 9 and so on.");
 
 		e.addField("Attributes:", "- Anyone visiting you will be dealt a Basic attack if they aren't from your Faction.");
 
@@ -341,11 +341,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Plant.goal);
 	});
 
-	register_role(["item_shop_koopa", "itemshopkoopa", "isk", "1424"], "Koopa", "Item Shop Koopa", {subCat: "Supporter"}, (e) =>
+	register_role(["item_shop_koopa", "itemshopkoopa", "isk", "1424"], "Koopa", "Item Shop Koopa", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1424");
 
-		e.addField("Alignment", "Koopa Supporter", true);
+		e.addField("Alignment", "Koopa Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -422,20 +422,20 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "Basic/Unstoppable", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Haunt a player. Players will know if they have been haunted.\n- Once per game during the day, unleash a nightmare for the following night and choose either odd-numbered players or even-numbered players. This will be publicly announced at the start of the night.");
+		e.addField("Abilities:", "- Haunt a player. Players will know if they have been haunted.\n- Once per game during the day, unleash a nightmare for the following night and choose either odd-numbered players or even-numbered players. Nightmares will be publicly announced at the start of the night.");
 
-		e.addField("Attributes:", "- You learn the roles of players you haunt, bypassing all detection immunity.\n- If a haunted player visits you for the rest of the game, you will rampage at their house, bloodying their will and gaining basic defense for the night.\n- During a nightmare, all town visits that target even/odd (the one you chose) numbered players will fail, unless they are targeting you, and will also be dealt an unstoppable attack.");
+		e.addField("Attributes:", "- You learn the roles of players you haunt, bypassing all detection immunity.\n- If a haunted player visits you for the rest of the game, you will rampage at their house, bloodying their will and gaining basic defense for the night.\n- During a nightmare, all town visits that target even/odd (the one you chose) numbered players will fail, unless they are targeting you, and will also be dealt an unstoppable attack.\n- You have a layer of basic defence that blocks one attack.");
 
 		e.addField("Goal:", "Live to see the Town lose the game.");
 	});
 
-	register_role(["hammer_bro", "hammerbro", "hammer", "hb", "1430"], "Koopa", "Hammer Bro", {subCat: "Attacker"}, (e) =>
+	register_role(["hammer_bro", "hammerbro", "hammer", "hb", "1430"], "Koopa", "Hammer Bro", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1430");
 
-		e.addField("Alignment", "Koopa Attacker", true);
+		e.addField("Alignment", "Koopa Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
@@ -534,19 +534,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["innkeeper", "inn", "1437"], "Town", "Innkeeper", {subCat: "Protective"}, (e) =>
+	register_role(["innkeeper", "inn", "1437"], "Neutral", "Innkeeper", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 1437");
 
-		e.addField("Alignment", "Town Protective", true);
+		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Kick a player out of your inn at night. They will not be allowed inside your inn in the future.");
+		e.addField("Abilities:", "- Kick a player out of your inn at night. They will not be allowed inside your inn in the future.\n- Encourage a player to visit your inn tonight, redirecting them to yourself. (2 uses)");
 
 		e.addField("Attributes:", "- Those who visit you at night will enter your inn. Players inside your inn are healed every night, including the night they visit. However, while inside your inn, they cannot use nightly abilities. They can choose to leave your inn at night, losing the Powerful defense at the start of the next day. You will know when someone visits your inn, when someone leaves, and have a list of everyone inside.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", "Have every alive player have visited your inn at least once.");
 	});
 
 	register_role(["harsh_critic", "harshcritic", "harsh", "critic", "hc", "1438"], "Town", "Harsh Critic", {subCat: "Investigative"}, (e) =>
@@ -558,8 +558,6 @@ module.exports = (g) =>
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Compare 10 players tonight. Their player numbers in the player list will be taken. You will receive the sum of all the evil's numbers as your feedback.\nExample: Player 1, 3, 4, 6, 7, 10, 12, 15, 19 and 20 are chosen. Player 3, 4, 12 and 20 are the only evil roles in that list, so you will receive \"39\" as feedback.");
-
-		e.addField("Attributes:", "- REF roles, NE, NC and NK will appear as evil to you. You can't bypass detection immunity though.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -626,7 +624,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Survive to the end of the game except not really because you also switch your own goal");
 	});
 
-	register_role(["sheriff_basic", "sheriffbasic", "sbwba", "1442"], "Town", "Sheriff but with basic attack", {subCat: "Investigative"}, (e) =>
+	register_role(["sheriff_basic", "sheriffbasic", "sbwba", "1443"], "Town", "Sheriff but with basic attack", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1443");
 
@@ -688,17 +686,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Toppat.goal);
 	});
 
-	register_role(["dry_bones", "drybones", "db", "1447"], "Koopa", "Dry Bones", {subCat: "Defender"}, (e) =>
+	register_role(["dry_bones", "drybones", "db", "1447"], "Koopa", "Dry Bones", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 1447");
 
-		e.addField("Alignment", "Koopa Defender", true);
+		e.addField("Alignment", "Koopa Protective", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Protect your Target, Redirecting all attacks on them to you.");
 
-		e.addField("Attributes:", "- If you die, you will automatically be revived on the second night after you die, cannot activate if there are no other Koopas alive.");
+		e.addField("Attributes:", "- If you die, you will automatically be revived on the start of second night after you die, cannot activate if there are no other Koopas alive.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -733,11 +731,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Toppat.goal);
 	});
 
-	register_role(["goombario", "goombella", "goom", "1450"], "Koopa", "Goombario/Goombella", {subCat: "Informer"}, (e) =>
+	register_role(["goombario", "goombella", "goom", "1450"], "Koopa", "Goombario/Goombella", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1450");
 
-		e.addField("Alignment", "Koopa Informer", true);
+		e.addField("Alignment", "Koopa Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 

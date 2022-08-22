@@ -4,19 +4,19 @@ module.exports = (g) =>
 
 	register_role(["keeper", "901"], "Neutral", "Keeper", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 901");
+		e.setDescription("Post 901\n*We all need a little alone time. Wouldn’t you agree?*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose someone to hide in your vault each day/night locked with a passcode.");
+		e.addField("Abilities:", "- Choose someone to lock them in your vault and set their lock with a passcode.");
 
-		e.addField("Attributes:", "- If someone is not locked in your vault, you may choose someone at any time to lock them in your vault at the start of the next phase. You must also choose a passcode.\n- The player who is locked in your vault will not have access to **any** of the channels in the category of the current game. Their lack of presence will be announced to the town.\n- The player who is locked in your vault may take a guess at the passcode at any time in their private channel. They will be told if any letters in their guess are in the word as well as any letters in the correct position.\n- Once the player has correctly guessed their passcode, they will instantly escape your vault. They will instantly rejoin all chats, and it will be announced to the Town even during the night.\n- Your first passcode must be four characters, and for each further person locked in your vault, the passcode will gain another character.");
+		e.addField("Attributes:", "- If someone is not locked in your vault, you may choose someone at any time to lock them in your vault at the start of the next phase. You must also choose a passcode.\n- The player who is locked in your vault will not have access to **any** of the channels in the category of the current game. Their lack of presence will be announced to the town.\n- Your vault has a lock that is unlocked with a passcode. This passcode must be an actual English word. The player locked in the vault must take guesses as to what this passcode is. With each guess, the player will be informed of any letters in the same position as the passcode and their guess as well as any letters that are in the passcode but in a different position from the guess.\n- Once the player has correctly guessed their passcode, they will instantly escape your vault. They will instantly rejoin all chats, and it will be announced to the Town even during the night.");
 
-		e.addField("Attributes (cont.):", "- If a player is stuck in your vault for four full phases, they will die of starvation. They will regain access to the game chats if this happens.");
+		e.addField("Attributes (cont.):", "- Your first passcode must be four characters, and for each further person locked in your vault, the passcode will gain another character.\n- If a player is stuck in your vault for four full phases, they will die of starvation. They will regain access to the game chats if this happens.");
 		
-		e.addField("Goal:", "Have a person locked in your vault for **four** full phases.");
+		e.addField("Goal:", "Have a person locked in your vault die of starvation.");
 	});
 
 	register_role(["spirit_of_killing", "spiritofkilling", "sok", "902"], "Neutral", "The Spirit of Killing", {subCat: "Killing"}, (e) =>
@@ -44,7 +44,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Select a player each night. For the rest of the game, whenever that player attempts to target one of their closest alive neighbours, their visit will fail. (Imagine all dead players are removed from the player list, and look at the two players adjacent to you on it. Those are your closest alive neighbours.)");
 
-		e.addField("Attributes:", "- With the Necromincon, visits against you will fail, and those that target you at night are dealt a Basic attack.");
+		e.addField("Attributes:", "- With the Necromincon, visits against you will fail, and those that target you at night are dealt a Basic attack. This attribute won't apply to actions which would roleblock you, and will actually be completely disabled on nights you're roleblocked.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -79,19 +79,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Rock.goal);
 	});
 
-	register_role(["popcorn_viper", "popcornviper", "pv", "906"], "Coven", "Popcorn Viper", {subCat: "Protection"}, (e) =>
+	register_role(["copydog", "906"], "Town", "Copydog", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 906");
 
-		e.addField("Alignment", "Coven Protection", true);
+		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player. You feed normal popcorn to them.\n- Choose a player. You feed killing popcorn to them.\n- Choose a player. You feed neutral popcorn to them.\n- Killingify your popcorn at night.\n- Make your popcorn neutral at night.");
-
-		e.addField("Attributes:", "- Normal popcorn increases its target's defense value by a stage, after all defense modifiers have been applied.\n- Killing popcorn replaces all its target's non-attacking abilities with a Basic attack, without their knowledge.\n- Neutral popcorn permanently changes its target's win condition to \"Kill all who would oppose you.\" and they can't win in any other way.\n- You may use your first three abilities at any time, and they resolve immediately, but you may only use one of them per day/night cycle.\n- You cannot serve normal popcorn twice in a row.\n- It takes one night to killingify popcorn and two nights to make popcorn neutral.\n- With the Necronomicon, you don't need to killingify or make your popcorn neutral anymore and have full access to all three types of popcorn. Additionally, you may serve explosive popcorn, which deals a Powerful attack.");
+		e.addField("Abilities:", "- Each day, you may use the day ability of any other role except those that reveal themselves.");
 		
-		e.addField("Goal:", factions.Coven.goal);
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["mewtwo", "907"], "Pokemon", "Mewtwo", {subCat: "Legendary"}, (e) =>
@@ -298,7 +296,7 @@ module.exports = (g) =>
 
 	register_role(["ballerina", "919"], "Town", "Ballerina", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 919");
+		e.setDescription("Post 919\n*What a stunning performance! Let us clap for them.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -306,7 +304,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Gracefully dance around someone's house at night.\n- Choose to dance around the Town square during the day. (1 use)");
 
-		e.addField("Attributes:", "- All players who visit your target will become distracted and instead watch you dance causing them to be roleblocked.\n- When you dance around the Town square, you will receive the next twenty whispers sent. This ability will persist throughout the days until you have received twenty whispers.");
+		e.addField("Attributes:", "- All players who visit your target will become distracted and instead watch you dance causing them to be roleblocked.\n- When you dance around the Town square, you will receive the next twenty whispers sent. This ability will persist throughout all day phases until you have received twenty whispers. This will not be publicly announced. You will not be able to speak while dancing around the Town.\n- You are roleblock immune.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -328,7 +326,7 @@ module.exports = (g) =>
 
 	register_role(["tier_list_reviewer", "tierlistreviewer", "tlr", "921"], "Town", "Tier List Reviewer", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 921");
+		e.setDescription("Post 921\n*This role was retweeted by TierMaker.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -336,9 +334,24 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Check the tier of someone's role.");
 
-		e.addField("Attributes:", "- You will receive the tier that your target's role is ranked as in the tier list pinned in <#972887492359508048>.\n- If your target is not ranked on the tier list, you will instead perform a Sheriff check on them.");
+		e.addField("Attributes:", "- You will receive the tier that your target's role is ranked in the tier list pinned in <#972887492359508048>.\n- If your target is not ranked on the tier list, you will instead perform a Sheriff (984) check on them.");
 		
 		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["wm_drunk_driver", "wmdrunkdriver", "drunk_driver", "drunkdriver", "wmdd", "922"], "Neutral", "WM Drunk Driver", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 922\n*This role was retweeted by TierMaker.*");
+
+		e.addField("Alignment", "Unique Neutral Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Get someone drunk on Full Moon nights.\n- Go on a drive on non-Full Moon nights.");
+
+		e.addField("Attributes:", "- When you get someone drunk, you will roleblock and attack them.\n- When you go on a drive, you may choose to attack one or two players.\n- When you go on a drive and attack one player, you will clean them.\n- When you go on a drive and attack two players, you may choose one target. Your second target will be chosen randomly within the players that are one or two spaces from them on the player list.\n- If you go on a drive and would attack yourself as the random target, you will not die, and will instead only attack your first target, cleaning them.\n- If you go on a drive and your second target is protected by something other than a heal, is being visited by an Incarcerator or Fisherman, is an alerted Veteran, or is Medusa that is stone gazing visitors, you will instead only attack your first target, cleaning them.\n- You gain roleblock immunity on non-Full Moon nights.");
+		
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["kaze", "922"], "Fox", "Kaze", {subCat: "Beta"}, (e) =>

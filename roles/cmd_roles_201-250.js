@@ -34,21 +34,6 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
-	register_role(["hi", "203"], "Neutral", "Hi!", {subCat: "Benign"}, (e) =>
-	{
-		e.setDescription("Post 203");
-
-		e.addField("Alignment", "Neutral Benign", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Choose someone to say \"Hi!\" to during the day.");
-
-		e.addField("Attributes:", "- At the start of the next night, a private chat will be opened between you two. You may only say \"hi\", \"yes\", or \"no\". You will automatically say \"Hi!\" when the chat is opened. The other player may say anything.");
-
-		e.addField("Goal:", "Ensure that at least 3 other players lose at the end of the game. You do not need to be alive to win.");
-	});
-
 	register_role(["soundless", "204"], "Town", "Soundless", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 204");
@@ -59,7 +44,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack an amount of players equal to the amount of whispers you made the previous day.");
 
-		e.addField("Attributes:", "- You are forced to attack if you have made a whisper.\n- Control / Redirect Immune.");
+		e.addField("Attributes:", "- You are forced to attack if you have made a whisper.\n- If you kill a member of the town, you will be dealt an unstoppable attack at the end of the following night\n- Control / Redirect Immune.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -162,7 +147,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Protect a player at night, granting them Powerful defense.\n- Attack a player at night, dealing to them a Powerful attack.");
 
-		e.addField("Attributes:", "- You may only take one action per night.\n- You don't count as a player. (*You can't be voted for, whispered to, targeted, etc., and you don't count towards majority.*");
+		e.addField("Attributes:", "- You don't count as a player. (*You can't be voted for, whispered to, targeted, etc., and you don't count towards majority.*");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -541,21 +526,6 @@ module.exports = (g) =>
 
 		e.addField("Goal:", factions.PaleMoon.goal);
 	});
-
-	register_role(["viper", "236"], "Coven", "Viper", {subCat: "Evil"}, (e) =>
-	{
-		e.setDescription("Post 236");
-
-		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Choose a player each night. Until the next time this ability resolves, their alignment is Neutral Killing and their win condition is replaced by \"Kill all who would oppose you.\" and they can't win in any other way.");
-
-		e.addField("Attributes:", "- If you have the Necronomicon, you may instead choose to dela a Basic attack to your target.\n- You may self-target.");
-
-		e.addField("Goal:", factions.Coven.goal);
-		});
 
 	register_role(["backup", "back_it_up_back_it_up", "237"], "Neutral", "Backup", {subCat: "Other"}, (e) =>
 	{

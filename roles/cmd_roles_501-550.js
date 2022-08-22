@@ -42,7 +42,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player at night.");
 
-		e.addField("Attributes:", "- You will attack all visitors to your target, and roleblock your initial target.\n- You will automatically attack anyone who targets you, astral or not.\n- If you are jailed, locked in the garden or trapped in the void but not executed, you will attack your jailor.\n- This role cannot roll normally. It must upgrade from the Saint.\n- If you are dead, the Hallow will gain a factional kill ability.\n- All Immunities");
+		e.addField("Attributes:", "- All Immunities\n- You will attack all visitors to your target, and roleblock your initial target.\n- You will automatically attack anyone who targets you, astral or not.\n- Your immunities cannot be bypassed whatsoever, even by things which bypass immunities.\n- This role cannot roll normally. It must upgrade from the Saint.\n- If you are dead, the Hallow will gain a factional kill ability.");
 		
 		e.addField("Goal:", factions.Hallow.goal);
 	});
@@ -399,38 +399,42 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live until the end of the game.");
 	});
 
-	register_role(["werewolf", "527"], "Were", "WereWolf", {subCat: "Killing"}, (e) =>
+	register_role(["werewolf", "ww", "527"], "Were", "WereWolf", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 527");
 		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/b/b8/RoleIcon_Werewolf.png";
 
-		e.addField("Alignment", "Unique Were Killing", true);
+		e.addField("Alignment", "Were Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- During a Full Moon, transform into a Werewolf and rampage at your target's house.");
+		e.addField("Abilities:", "- During a Full Moon, rampage at your target's house.\n- During a New Moon, Mark another player's house.");
 
-		e.addField("Attributes:", "- If you don't select a target, you will rampage at your own house on Full Moon Nights.\n- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres");
+		e.addField("Attributes:", "- If you don't select a target, you will rampage at your own house on Full Moon Nights.\n- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres\n- Marking a house will roleblock all visitors that night.");
+
+		e.addField("Hunting Moon Enhancement: Canine Origins", "Learn everyone who visited you at any point in the game who is still alive, alongside their faction. You will not learn other Weres");
 		
 		e.addField("Goal:", factions.Were.goal);
 	});
 
-	register_role(["wererat", "528"], "Were", "WereRat", {subCat: "Killing"}, (e) =>
+	register_role(["wererat", "wr", "528"], "Were", "WereRat", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 528");
 
 		e.addField("Alignment", "Were Killing", true);
-		e.addField("Attack", "Basic/Powerful", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Kill 1 person every night with a Powerful Attack");
+		e.addField("Abilities:", "- During a Full Moon, poison another player\n- During a New Moon, steal another player's rations");
 
-		e.addField("Attributes:", "- Your visitors will become Poisoned.\n- You have a night chat with other Weres");
+		e.addField("Attributes:", "- Your poison cannot be cured\n- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres\n- For information on rations, please see Ravenous Rat (Post 1434)");
+
+		e.addField("Hunting Moon Enhancement: Infestation", "Your Target's Visitors will be poisoned.");
 		
 		e.addField("Goal:", factions.Were.goal);
 	});
 
-	register_role(["werelion", "529"], "Were", "WereLion", {subCat: "Killing"}, (e) =>
+	register_role(["werelion", "wl", "529"], "Were", "WereLion", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 529");
 
@@ -438,14 +442,16 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Mark two people and their visiters every odd day,\n- Powerfully attack up to 3 Marked people every even day.");
+		e.addField("Abilities:", "- During a Full Moon, kill and clean a random visitor\n- During a New Moon, roleblock one other player");
 
-		e.addField("Attributes:", "- You have a night chat with other Weres");
+		e.addField("Attributes:", "- If you don't select a target, you will kill one random visitor at your home on Full Moon Nights.\n- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres");
+
+		e.addField("Hunting Moon Enhancement: Pride", "Roleblock your target in addition to killing a random visitor");
 		
 		e.addField("Goal:", factions.Were.goal);
 	});
 
-	register_role(["werebear", "530"], "Were", "WereBear", {subCat: "Killing"}, (e) =>
+	register_role(["werebear", "wb", "530"], "Were", "WereBear", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 530");
 
@@ -453,29 +459,33 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Mark Two players during the discussion phase(not d1)\n- Powerfully rampage one of them the next night.");
+		e.addField("Abilities:", "- During a Full Moon, kill and clean your target\n- During a New Moon, get investigator results of your target");
 
-		e.addField("Attributes:", "- You have a night chat with other Weres");
+		e.addField("Attributes:", "- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres\n- Investigation results are shared with other Weres.");
+
+		e.addField("Hunting Moon Enhancement: Charge", "Kill and clean your target's visitors as well");
 		
 		e.addField("Goal:", factions.Were.goal);
 	});
 
-	register_role(["werebat", "531"], "Were", "WereBat", {subCat: "Support"}, (e) =>
+	register_role(["werebat", "wb", "531"], "Were", "WereBat", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 531");
 
 		e.addField("Alignment", "Were Support", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Shroud someone every night, giving them no feedback at all, but putting their action through anyways. They will still get death feedback and will be told that they \"had a nightmare.\"");
+		e.addField("Abilities:", "- During a Full Moon, Shroud a player\n- During a New Moon, learn what happens to a player");
 
-		e.addField("Attributes:", "- You have a night chat with other Weres");
+		e.addField("Attributes:", "- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres\n- Shrouding another player will prevent them from reciveing end-of-night notifications, excluding death messages.\n- Investigation results are shared with other Weres.\n- You cannot target other Weres");
+
+		e.addField("Hunting Moon Enhancement: Night Overhang", "Learn who your target visits as well as shrouding them.");
 		
 		e.addField("Goal:", factions.Were.goal);
 	});
 
-	register_role(["werebird", "532"], "Were", "WereBird", {subCat: "Support"}, (e) =>
+	register_role(["werebird", "wb", "532"], "Were", "WereBird", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 532");
 
@@ -483,14 +493,16 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Visit one person astrally, and see all visitors on odd nights, on even nights see where all those visiters and the original target go, though not who went where (like you learn all targets, not in order or with the actual visiter)");
+		e.addField("Abilities:", "- During a Full Moon, learn who visits your target\n- During a New Moon, learn what happens to your target");
 
-		e.addField("Attributes:", "- You have a night chat with other Weres");
+		e.addField("Attributes:", "- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres\n- Investigation results are shared with other Weres.\n- You cannot target other Weres");
+
+		e.addField("Hunting Moon Enhancement: From The Skies Above", "You will also learn what happens to your taget's neighbors. In addition, Learn who your target visits.");
 		
 		e.addField("Goal:", factions.Were.goal);
 	});
 
-	register_role(["weresquirrel", "533"], "Were", "WereSquirrel", {subCat: "Support"}, (e) =>
+	register_role(["weresquirrel", "ws", "533"], "Were", "WereSquirrel", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 533");
 
@@ -498,14 +510,16 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may also rb 1 person every even night");
+		e.addField("Abilities:", "- Roleblock your target. You may do this on a new moon and a full moon. You may do this on a Hunting Moon.\n- During Full Moons, learn 3 roles your target might be.");
 
-		e.addField("Attributes:", "- You can see all whispers (rasen can figure out whisper channels lol)\n- You have a night chat with other Weres");
+		e.addField("Attributes:", "- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres\n- Investigation results are shared with other Weres.\n- You cannot target other Weres\n- You are Roleblock Immune");
+
+		e.addField("Hunting Moon Enhancement: Places You Shouldn't Be", "You will learn your target's exact role instead");
 		
 		e.addField("Goal:", factions.Were.goal);
 	});
 
-	register_role(["wereturtle", "534"], "Were", "WereTurtle", {subCat: "Support"}, (e) =>
+	register_role(["wereturtle", "wt", "534"], "Were", "WereTurtle", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 534");
 
@@ -513,9 +527,11 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- You may protect another Were every night with powerful defense.\n- You may once give yourself powerful defense and another Were basic defense");
+		e.addField("Abilities:", "- During a New Moon, Learn who visits you and your teammates\n- During a Full Moon, Provide Basic Defense to one other player");
 
-		e.addField("Attributes:", "- You can see all whispers (rasen can figure out whisper channels lol)\n- You have a night chat with other Weres");
+		e.addField("Attributes:", "- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres\n- Visit results are shared with other Weres.\n- You cannot target other Weres");
+
+		e.addField("Hunting Moon Enhancement: Strong Spell", "You will learn who visits your target, in addition to granting them Powerful defense. You may only target another Were.");
 		
 		e.addField("Goal:", factions.Were.goal);
 	});
@@ -569,7 +585,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Incinerate someone. If this is the first ability that has resolves on in the game and they are evil, they will be dealt an Unstoppable attack. You may only do this once.\n- Light someone ablaze each night. Players who are lit ablaze will have every ability targetting them be turned into a Basic attack. ");
+		e.addField("Abilities:", "- Incinerate someone. If this is the first ability targetting them that has resolved in the game and they are evil, they will be dealt an Unstoppable attack. You may only do this once.\n- Light someone ablaze each night. Players who are lit ablaze will have every ability targetting them be turned into a Basic attack.");
 
 		e.addField("Attributes:", "- Your abilities both have the highest possible priority.");
 		
@@ -591,19 +607,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["sleepless_agent", "sleeplessagent", "sleepless", "540"], "Town", "Sleepless Agent", {subCat: "Killing"}, (e) =>
+	register_role(["dogsong", "ds", "540"], "Neutral", "Dogsong", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 540");
 
-		e.addField("Alignment", "Town Killing", true);
+		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Each night and once at the beginning of the game, choose a player. During the day, you may choose to deal a Basic attack to a chosen player.");
+		e.addField("Abilities:", "- (Night) **Beckon**: Choose to be beckoned tonight. The first player that visited you will beckon you towards them (order determined by when actions were sent). You will be redirected to them tomorrow night. If nobody visits you, this ability fails. Gain 1 charge of Pet. (1 use)\n- (Night) **Play**: Choose a player to play with you. If they stayed home, they will play with you; if they did not stay home, their first visitor will play with you; if they did not stay home and were not visited, this ability fails. Your target will become energized tonight causing their action to Rampage (any non-attackers will be notified who they visited and any results associated with those players). Gain 2 charges of Pet. (0 use)\n- (Night) **Pet**:  Choose a player to pet you tonight. They will spend the entire night petting you which roleblocks them. The first time you use this, gain a charge of Play. This ability fails on roleblock immune players. (0 use)");
 
-		e.addField("Attributes:", "- You can't be put asleep, blackmailed, roleblocked, or prevented from talking, voting, using day abilities, or using night abilities in any way.");
+		e.addField("Attributes:", "- If the game would normally end but you have not yet achieved your win condition, the game will continue.\n- You have a suit of armor on you that allows you to survive two Basic attacks before it breaks.");
 		
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", "Beckon, then pet, then play, then pet, then pet. (Only successful uses of actions will register for the win condition)");
 	});
 
 	register_role(["chaos_mayor", "chaosmayor", "541"], "Neutral", "Chaos Mayor", {subCat: "Chaos"}, (e) =>
@@ -621,17 +637,21 @@ module.exports = (g) =>
 		e.addField("Goal:", "Lynch at least 3 members of the Town after revealing yourself. Town Lynches before you reveal don't count.");
 	});
 
-	register_role(["every_tol_role", "everytolrole", "tol", "542"], "Town", "Every ToL Role", {subCat: "Power"}, (e) =>
+	register_role(["metal_crusher", "metalcrusher", "metal", "crusher", "ms", "542"], "Neutral", "Metal Crusher", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 542");
 
-		e.addField("Alignment", "Town Power", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Attributes:", "- You have the abilities of every Throne of Lies class as indicated by https://docs.google.com/document/d/1vqp6YDm7mG9XUVIqK6hugLoOxZF95vpLyP6BcR8FIQg/edit.\n- You may only use one ability each night and each day.");
+		e.addField("Abilities:", "- (Day) **Cooking Show**: Duel someone in a cooking show. During the night, you and the target will choose three ingredients, who are other players. When you have finished deciding, every player can vote for one of the dishes. They will know the ingredients but the votes are anonymous. Which dish gains the most votes will win, but the loser's dish will be discarded and those three targets will be roleblocked.\n- (Day) **Dance Battle**: Duel someone in a dance battle. During the night, you and the target will choose another player, who's a dance move. They will be controlled and target each other tonight.");
+
+		e.addField("Abilities (cont.):", "- (Day) **Bombs Search**: Duel someone in a bombs search. You will basically play Battleship. During the night, you and the target will hide a bomb in another player's house. You and the target will alternate and visit a player and check for the bomb. If the enemy's bomb isn't there, you will roleblock your target. Then the cycle repeats, on the enemy's turn. Your enemy will use their ability on the target if they fail instead of just a roleblock. If you lose, nothing will happen but if you win, the loser and the player who they gave a bomb to will be attacked.");
+
+		e.addField("Attributes:", "- All of your abilities are astral.\n- You cannot be affected by your abilities. For example, if you're given a Bomb by the enemy, you will not attack yourself if you win. And if you're chosen as an ingredient and your dish loses, you will not be roleblocked.\n- You have a suit of metal that allows you to survive two Basic attacks before it breaks.");
 		
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", "Live to see the Town or good faction lose the game.");
 	});
 
 	register_role(["500_kilogram_brain", "500kilogrambrain", "500kg", "543"], "Town", "500 Kilogram Brain", {subCat: "Killing"}, (e) =>
@@ -733,20 +753,5 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- Any night visits on you that are not Unstoppable/Overkill attacks will automatically fail.\n- You have a private chat with anyone you indocrinate");
 		
 		e.addField("Goal:", "Eliminate all who oppose the overmind before another faction wins.");
-	});
-
-	register_role(["undermind", "550"], "Neutral", "The Undermind", {subCat: "Benign"}, (e) =>
-	{
-		e.setDescription("Post 550");
-
-		e.addField("Alignment", "Neutral Benign", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Powerful", true);
-
-		e.addField("Abilities:", "- Indocrinate a player during the day, immediately kicking them from that day chat, and adding the following goal to them along with their original:\n> Eliminate all who oppose the undermind before another faction wins.\n- Fucking assassinate another player, making an indocrinated player of your choice deal a Basic attack to them\n- If you or the overmind try to indoctrinate a indoctrinated player of the others, they will be dealt overkill attack\n- If you or the overmind try to indoctrinate one another, the indoctrinated one will be dealt a overkill attack");
-
-		e.addField("Attributes:", "- Any night visits on you that are not Unstoppable/Overkill attacks will automatically fail.\n- You have a private chat with anyone you indocrinate");
-		
-		e.addField("Goal:", "Eliminate all who oppose the undermind before another faction wins.");
 	});
 };

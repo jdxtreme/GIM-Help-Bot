@@ -351,17 +351,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["savior", "423"], "Town", "Savior", {subCat: "Support"}, (e) =>
+	register_role(["savior", "423"], "Town", "Savior", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 423");
 
-		e.addField("Alignment", "Unique Town Support", true);
+		e.addField("Alignment", "Unique Town Protective", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Convince someone to abandon their evil ways and join the Town.");
+		e.addField("Abilities:", "- Save someone at night.");
 
-		e.addField("Attributes:", "- You may visit someone at night and convert them to the town. They will keep their abilities.\n- You may only do this twice.\n- If you target someone who has already won, or someone with a permanent night chat, your ability will fail and you will get your charge back.");
+		e.addField("Attributes:", "- If your target would die at night, you will instantly revive them. You will also learn their role.\n- The town will not know they were revived, but the target and you will know.\n- You cannot target the Town (Power).\n- You cannot target someone you have already revived.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -404,9 +404,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Aura (*You have no defense if there's four or more Rocks alive, Basic if there's three, Powerful if there's two, and Invincible if there's only one.*)", true);
 
-		e.addField("Abilities:", "- Take flight each full moon.\n- Plummet someone after you've taken flight, dealing to them an attack equivalent to your Defense.");
-
-		e.addField("Attributes:", "- You gain one charge of plummet each time you take flight.\n- You may multitask, and you may plummet as many times in one night as you have charges.");
+		e.addField("Abilities:", "- Go berserk at someone's house each night, dealing a Powerful attack to them and everyone who visits them, including you.");
 		
 		e.addField("Goal:", factions.Rock.goal);
 	});
@@ -451,9 +449,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Shroud someone during the night.");
 
-		e.addField("Attributes:", "- A shaded player will receive a basic attack the next night.\n- You may visit a previously shaded player to deal a powerful attack.\n- If there are 4 or less players, your attacks become powerful and unstoppable respectively.");
+		e.addField("Attributes:", "A shrouded player will receive a basic attack the next night.\n- You may visit a previously shrouded player to deal a powerful attack.\n- If there are 4 or less players, your attacks become powerful and unstoppable respectively.\n- If every living player had been shrouded, you instantly win and end the game.");
 		
-		e.addField("Goal:", factions.Neutral.goalNK);
+		e.addField("Goal:", factions.Neutral.goalNK + " Or shroud all living players.");
 	});
 
 	register_role(["blood_finder", "bloodfinder", "430"], "Town", "Blood Finder", {subCat: "Investigative"}, (e) =>
@@ -466,7 +464,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Check someone at night to see if they have killed someone.");
 
-		e.addField("Attributes:", "- People who kill someone will be covered in blood. It is assumed there is no water to clean off said blood.\n- If someone tried to kill someone but failed, they will have plans detailing who they wanted to kill lying around.\n- You will know if someone is covered in blood, or who they planned to kill.\n- Someone can have multiple plans if they fail multiple times.");
+		e.addField("Attributes:", "- People who kill someone will be covered in blood. It is assumed there is no water to clean off said blood.\n- If someone tried to kill someone but failed for any reason, they will have plans detailing who they wanted to kill lying around.\n- If someone has done an action that negatively impacted someone, they will write about it in their journal, and you will know how many times their visit has negatively impacted someone. You will not read the journal if the target is covered in blood or has plans to kill someone. )Some examples of negative impacts include: roleblocking, stealing feedback, lowering defense, etc.)\n- You will know if someone is covered in blood, or who they planned to kill.\n- Someone can have multiple plans if they fail multiple times.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -507,11 +505,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
+		e.addField("Defense", "Basic (Invincible)", true);
 
-		e.addField("Abilities:", "- Kill someone at night and protect yourself.");
+		e.addField("Abilities:", "- Choose a form at night and use your form.");
 
-		e.addField("Attributes:", "- You can choose between 3 forms every night.\n> Assault Form: Unstoppable Attack, Basic Defense, you will be unable to act the next night. You will have Basic Defense the day you rest.\n> Dual Form: Powerful Attack, Basic Defense.\n> Shield Form: No Attack, Invincible Defense.");
+		e.addField("Attributes:", "- You can choose between 4 forms every night.\n- Predator Form: 2 Unstoppable Attacks, you will not be able to act the following night.\n- Precision Form: Unstoppable Attack.\n- Frenzy Form: Powerful Rampage.\n- Shield Form: Basic Attack, Invincible Defense.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -522,11 +520,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Neutral Benign", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic (None)", true);
+		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Move where you are in the player list.");
 
-		e.addField("Attributes:", "- Whenever a non-Slime player adjacent to you dies, they will become a Slime instead.\n- Once per game, you may secretly move to a new spot on the player list for 1 night.\n- Anyone who is adjacent to your new spot and dies that night will become a Slime.\n- You know all Slimes.");
+		e.addField("Attributes:", "- One-Time Basic Defense\n- Whenever a non-Slime player adjacent to you on the Slime Player List dies, they will become a Slime instead.\n- You can't move your spot two nights in a row.\n- You cannot move your spot if you converted someone last night.\n- You cannot move your spot the night after you are converted.\n- All Slimes have access to a private Slime chat, and all Slimes will be able to see the Slime player list.\n- Conversion Immunity.");
 		
 		e.addField("Goal:", "Have a majority of living players be a Slime.");
 	});
@@ -541,7 +539,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Make a black hole at a house.");
 
-		e.addField("Attributes:", "Making a black hole at someone's house creates a Powerful rampage.\n- Your visit is astral.\n- Making a black hole on yourself gives you Powerful defense, and you deal a Powerful attack to anyone who visits you.\n- You can only make a black hole on yourself twice.\n- Anyone who you kill will have their role lost to the void and it will not be shown.");
+		e.addField("Attributes:", "- Making a black hole at someone's house creates a Powerful rampage.\n- Your visit is astral.\n- Making a black hole on yourself gives you Powerful defense, and you deal a Powerful attack to anyone who visits you.\n- Anyone who you kill will have their role and last will lost to the void and it will not be shown.");
 		
 		e.addField("Goal:", "Kill all who oppose the void.");
 	});
@@ -644,9 +642,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Play cards to defeat your opponents.");
 
-		e.addField("Attributes:", "- At the start of the game, draw 5 cards. You can not have 2 of the same card in your starting hand.\n- You have 2 health. Any action that would kill you (besides lynching) makes you lose 1 health.\n- You can play up to 2 cards per night.\n- At the start of the night, draw a card.\n- Twice per game, you can draw 2 cards of your choice at night.");
+		e.addField("Attributes:", "- At the start of the game, draw 5 cards. You can not have 2 of the same card in your starting hand.\n- You have 2 health. Any action that would kill you (besides lynching) makes you lose 1 health.\n- You can play up to 2 cards per night.\n- At the start of the night, draw a card.\n- Once per game, you can draw 2 cards of your choice at night.");
 
-		e.addField("Cards:", "Attack! - Deal a powerful attack to a player.\nBlock! - Give yourself powerful defense at night.\nHeal! - Give yourself 1 HP (can only get 2 per game).\nInvestigate! - Find out someone's exact role.\nFrenzy! - Deal a basic attack to your target and all who visit them.\nPersuasion! - Add a vote to a player during the day. This vote can not be changed. This vote will be attributed to \"a card.\" This card can only be used during the day.");
+		e.addField("Cards:", "Attack! - Deal a powerful attack to a player.\n- Block! - Give yourself powerful defense at night.\n- Heal! - Give yourself 1 HP (can only get 2 per game).\n- Investigate! - Find out someone's exact role.\n- Frenzy! - Deal a basic attack to your target and all who visit them.\n- Persuasion! - Add a vote to a player during the day. This vote can not be changed. This vote will be attributed to \"a card.\" This card can only be used during the day.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -706,7 +704,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Check someone during the day to buy their ability at night.");
 
-		e.addField("Attributes:", "- You start the game with a bartering chip.\n- During the day, select someone. You learn their ability at the start of the night.\n- You can choose to trade with them, taking their ability and giving them the ability of the bartering chip.\n- If you take the ability of an informed minority, the informed minority will be informed you are on their team, but you will not join their chat.\n- People who have their ability traded for the bartering chip will keep their original win condition.");
+		e.addField("Attributes:", "- You start the game with a bartering chip.\n- During the day, select someone. You learn their abilities at the start of the night.\n- You can choose to trade with them, taking their abilities and giving them your original ability.\n- If you take the ability of an informed minority, the informed minority will be informed you are on their team, but you will not join their chat.\n- People who have their ability traded for the bartering chip will keep their original win condition.");
 		
 		e.addField("Goal:", "Complete the goal of the ability you have.");
 	});
@@ -721,7 +719,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Butcher someone at night to collect meat.");
 
-		e.addField("Attributes:", "- Killing someone gives you a piece of meat.\n- If your target could possibly be part of the Animal faction, you will instead get double the meat.\n- You can use meat to get bonuses.");
+		e.addField("Attributes:", "- Killing someone gives you a piece of meat.\n- You can use meat to get bonuses.");
 
 		e.addField("Bonuses from meat:", "Upgrade attack by 1 stage for a night = 1 Meat\nUpgrade defense by 1 stage for a night = 1 Meat\nAttack one extra time = 2 Meat\nPermanent +1 Meat per kill = 2 Meat\nPermanent attack upgrade = 3 Meat (Max = Unstoppable)\nPermanent defense upgrade = 3 Meat (Max = Invincible)\nPermanent extra vote = 3 Meat\nPermanent +1 attack per night = 3 Meat");
 		
@@ -749,11 +747,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "None (Variable)", true);
-		e.addField("Defense", "Invincible (Variable)", true);
+		e.addField("Defense", "Overprotective (Variable)", true);
 
 		e.addField("Abilities:", "- Wear away to kill people.");
 
-		e.addField("Attributes:", "- You start with invincible defense.\n- If someone attacks you, you lose a level of defense and gain a level of attack.\n- You can visit yourself to erode yourself. If you erode yourself and someone attacks you, your self-erode will fail.\n- It is assumed that the highest level attacker attacks first.\n- If nobody visits you and you do not attack at night, you will gain a level of defense and lose a level of attack.");
+		e.addField("Attributes:", "- You start with overprotective defense.\n- If someone attacks you, you lose a level of defense and gain a level of attack.\n- You can visit yourself to erode yourself. If you erode yourself and someone attacks you, your self-erode will fail.\n- It is assumed that the highest level attacker attacks first.\n- If nobody visits you and you do not attack at night, you will gain a level of defense and lose a level of attack.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -766,9 +764,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Select yourself at night to heal anyone that visits you, or select someone to shoot.");
+		e.addField("Abilities:", "- Select yourself at night to heal and purge all visitors, or select someone else to shoot them.");
 
-		e.addField("Attributes:", "- You have one bullet.\n- Roleblock Immunity");
+		e.addField("Attributes:", "- Roleblock Immunity\n- You gain a First Aid Kit at the start of every odd-numbered night.\n- Players who visit you will receive one of your held First Aid Kits at the end of the night, but they will not be notified.\n- If someone with a First Aid Kit would die to an attack of Basic or lower, they will be healed by their First Aid Kit, destroying it.\n- First Aid Kits persist even after you die.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

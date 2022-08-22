@@ -417,36 +417,6 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["car", "328"], "Town", "Car", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 328");
-
-		e.addField("Alignment", "Town Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Take another player on a ride each day.");
-
-		e.addField("Attributes:", "- When you take a player on a ride, at the beginning of that night, they may choose journey or destination.\n*Journey* — All visits against them fail that night.\n*Destination* — Their ability is used on an additional target of your choice that night.\n- You may only take each player on a ride once.");
-		
-		e.addField("Goal:", "Car Goal");
-	});
-
-	register_role(["squirrel_apprentice", "squirrelapprentice", "squirrel", "apprentice", "329"], "Neutral", "Squirrel Apprentice", {subCat: "Chaos"}, (e) =>
-	{
-		e.setDescription("Post 329");
-
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
-
-		e.addField("Abilities:", "- Visit 1 player a night a gain their role, abilities, and wincon (you do not convert to uniques, tho you still gain their wincon)");
-
-		e.addField("Attributes:", "- You may multitask\n- You are not stuck to 1 role, and may have multiple roles at once\n- You will flip as 'Squirell Apprentice —(any/all roles you learned from)'");
-		
-		e.addField("Goal:", "win with any role that you learn fromfrom\nfromz\nfrom*");
-	});
-
 	register_role(["zero_kids_in_a_trenchcoat", "zerokidsinatrenchcoat", "zero_kids", "zerokids", "zkiat", "330"], "Town", "Zero Kids in a Trenchcoat", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 330");
@@ -479,17 +449,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["piñata", "pinata", "332"], "Neutral", "Piñata", {subCat: "Chaos"}, (e) =>
+	register_role(["piñata", "pinata", "332"], "Neutral", "Piñata", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 332");
 
-		e.addField("Alignment", "Unique Neutral Chaos", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Alignment", "Unique Neutral Benign", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Visit someone at night, giving them a piece of candy.");
 
-		e.addField("Attributes:", "- Players can eat their candy during the night to be healed and purged.\n- Players are notified they have candy.\n- Once you die, you pop. After 1 day/night cycle, come back to life. You will have powerful attack. You will have full immunity the phase you come back.");
+		e.addField("Attributes:", "Players can eat their candy during the night to be healed and purged.\n- Players are notified they have candy.\n- Once you die, you pop. After 1 day/night cycle, come back to life. You will have full immunity the phase you come back. You can only pop/come back to life once.\n- The first night after you pop, everyone will be targeted by a random ability from a random role. The ability will not kill.");
 		
 		e.addField("Goal:", "Be popped once.");
 	});
@@ -627,19 +597,6 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["pet_shop_owner", "petshopowner", "pet_shop", "petshop", "pet", "342"], "Other", "Pet Shop Owner", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 342");
-
-		e.addField("Alignment", "Animal Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
-
-		e.addField("Attributes:", "- Roles that are named after animals or other non-Human living beings are part of the Animal faction instead of their factions. (*Animals are an informed minority with a night chat, a factional kill, and win by eliminating all who would oppose them.*)\n- This role can only roll if there would be at least 2 other Animals.");
-		
-		e.addField("Goal:", "Eliminate all who would oppose the Animals.");
-	});
-
 	register_role(["enflamer", "343"], "Underworld", "Enflamer", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 343");
@@ -665,7 +622,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Control someone at night.");
 
-		e.addField("Attributes:", "- If your target is control immune, you will instead roleblock them. If they are immune to roleblocks, they will still be roleblocked.\n- You will learn your target's role when you control therm.\n- Twice per game you can deal a basic attack to your target. You may use both attack charges on the same night to deal an attack to your target and who you control your target into.");
+		e.addField("Attributes:", "- If your target is control immune, you will instead roleblock them. If they are immune to roleblocks, they will still be roleblocked.\n- You will learn your target's role when you control therm.\n- Twice per game you can deal a basic attack to your target. You may use both attack charges on the same night to deal an attack to your target and who you control your target into. If you use both charges on the same night, the person who you control will not use their ability on the person they visit.");
 		
 		e.addField("Goal:", factions.Rock.goal);
 	});

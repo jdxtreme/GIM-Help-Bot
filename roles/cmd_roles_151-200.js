@@ -12,7 +12,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may observe someone at night.");
 
-		e.addField("Attributes:", "- On odd nights you will know who visits your target.\n- On even nights you will know who your target visits.\n- When dead, you may select a player once to give them your previous result.");
+		e.addField("Attributes:", "- On odd nights you will know who visits your target.\n- On even nights you will know who your target visits.\n- When dead, you may select a player once to give them your previous result.\n- Unlike Lookout, you do not have a limit if you see more than 3 people visit your target.\n- Like Lookout, your watch ability can be deceived by disguises.\n- Your track ability can be deceived by Framers. If you track a Framed target, you will see that your target didn’t visit.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -25,9 +25,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Learn about the Florae each night or vision someone’s goal.");
+		e.addField("Abilities:", "- You may inspect a player at night.");
 
-		e.addField("Attributes:", "- Each night you are alive you will be notified how many players that are in your faction are alive.\n- On Full Moon nights, you may vision a player. You will know if your target is good or evil.");
+		e.addField("Attributes:", "- Each night you are alive, you will be told how many Florae are still alive.\n- The player you inspect will not be included in your count.\n- Florae that die during the night will count towards your total for how many Florae are alive that night.\n- Your visits are Astral.\n- A player Disguised as a Florae counts as Florae for this purpose.\n- You cannot be fooled by Frames, Hexes, or Douses.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -42,7 +42,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may spy on someone's house at night.");
 
-		e.addField("Attributes:", "- You will know all the roles of the players that visit your target.\n- Your visit is Astral and ignores Jail.\n- You are not deceived by Douses.");
+		e.addField("Attributes:", "- You will know all the roles of the players that visit your target.\n- Your visit is Astral and ignores Jail.\n- You are not deceived by Douses. However, Disguised players will show up whatever role they are disguised as. Hexed players will show up as the Hex Master. Framed players will not show up to you (Frames will be removed if it were to get in the way of you seeing a Framed player).\n- You cannot see astral or indirect visitors to your target (such as a Hex Master with the Necronomicon, a Guardian Angel protecting, or a Crusader attacking your target).");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -57,7 +57,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may shoot a target at night, dealing a Powerful attack.");
 
-		e.addField("Attributes:", "- If someone visits your target, you will shoot them instead.\n- If more than one player visits your target, you will shoot no one.\n- You may only shoot two times.\n- You will not lose a bullet if more than one person visits your target.");
+		e.addField("Attributes:", "- If someone visits your target, you will shoot them instead.\n- If more than one player visits your target, you will shoot no one.\n- You may only shoot two times.\n- Your attack dealt to a visitor to your target is indirect. This is not the case if you attack your intended target.\n- You will not lose a bullet if more than one person visits your target.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -70,9 +70,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may inspect a player during the day.\n- Choose another two players at night.");
+		e.addField("Abilities:", "- You may inspect a player during the day.\n- Choose another two players to watch at night.");
 
-		e.addField("Attributes:", "- You will attack your day target if they visit either of your night targets.\n- You may watch yourself.\n- When dead, you may choose one player at night to deliver a Basic attack to them.");
+		e.addField("Attributes:", "- You will attack your day target if they visit either of your night targets.\n- You may watch yourself.\n- When dead, you may choose one player at night to deliver a Basic attack to them.\n- If either of your targets are jailed, you cannot inspect or watch them.\n- Your day target cannot be transported, however your night target can.\n- You can still attack your day target if they visit more than one person.\n- If one of your night targets are jailed, you will still watch the other target.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -87,7 +87,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may urticate a player at night, stinging anyone that visits them.");
 
-		e.addField("Attributes:", "- Stings take one day to take effect.\n- Stings can be removed by protections that grant Powerful defense.\n- You may not urticate the same player twice.\n- You may urticate three times.\n- You cannot be roleblocked or controlled.");
+		e.addField("Attributes:", "- Stings take one day to take effect.\n- Stings can be removed by protections that grant Powerful defense.\n- You may not urticate the same player twice.\n- You may urticate three times.\n- You cannot be roleblocked or controlled.\n- You will not attack your target.\n- Your attack dealt to visitors is indirect.\n- You will know how many people you sting.\n- Both stages of a sting will go through Basic defense.\n- Stings can be removed by the Doctor, Potion Master, Guardian Angel, Calendula, Lily, and Nightshade. They cannot be removed by the Bodyguard, Crusader, Trapper, Lavender, Mint, or Rosemary.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -95,6 +95,7 @@ module.exports = (g) =>
 	register_role(["wisteria", "157"], "Florae", "Wisteria", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 157");
+		e.setColor("EBA8FF");
 
 		e.addField("Alignment", "Unique Florae Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -102,7 +103,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may choose one person during the day to lock in your Garden for the night, giving them Basic defense.");
 
-		e.addField("Attributes:", "- You may anonymously talk with your captive at night.\n- Players can still visit your captive.\n- You may not lock the same person twice in a row.\n- You may only execute three times.\n- You cannot be controlled.");
+		e.addField("Attributes:", "- You may anonymously talk with your captive at night.\n- Players can still visit your captive.\n- You may not lock the same person twice in a row.\n- You may only execute three times.\n- You cannot be controlled.\n- Wisteria cannot lock the Jailor, as Jailor cannot jail Wisteria.\n- Wisteria cannot attack Night 1.\n- If Jailor and Wisteria choose the same target, Wisteria has priority over the Jailor.\n- Protective roles can go on the captured target to prevent an execution. This will not make Wisteria lose an execution (including Guardian Angel watching over their target).\n- The Bodyguard or Trapper will not attack Wisteria, as the attack dealt is indirect.\n- Wisteria: This is the Wisteria's chat color. (#eba8ff)");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -117,7 +118,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may aid a player at night, granting them Powerful Defense.");
 
-		e.addField("Attributes:", "- You will know the roles of the players that attack your target.\n- If your target is attacked, they will not know that they were attacked.\n- You will know if your target is attacked.");
+		e.addField("Attributes:", "- You will know the roles of the players that attack your target.\n- If your target is attacked, they will not know that they were attacked.\n- You will know if your target is attacked.\n- You will still protect from indirect attacks (such as Veteran on alert, or Ambusher attacking).\n- You will learn the roles of all players that attack your target, regardless if the attack is direct, indirect, or astral.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -130,9 +131,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may protect a player’s house at night.");
+		e.addField("Abilities:", "- You may protect a player's house at night, providing Power Defense against one attack.");
 
-		e.addField("Attributes:", "- Protecting your target provides them Powerful defense against one attack.\n- If your target is attacked you will deliver a Basic attack to their attacker.\n- If your target's attacker has defense or if they’re attacked more than once you will not attack anyone but learn the names of all of your target's attackers.");
+		e.addField("Attributes:", "- You will know if your target was attacked.\n- If your target is directly attacked, you will attack anyone that visits your target.\n- You will know how many people you attack.\n- Your attacks dealt are indirect.\n- You can only protect from direct attacks.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -147,7 +148,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may plant a lily at a player's house on odd nights.");
 
-		e.addField("Attributes:", "- Lilies heal your target and all of their visitors.\n- You may plant at your house.\n- Lilies cannot protect you or Plaguebearers from attacks.\n- When dead, you may plant a lily once.");
+		e.addField("Attributes:", "- Lilies heal your target and all of their visitors.\n- You may plant at your house.\n- Lilies cannot protect you or Plaguebearers from attacks.\n- When dead, you may plant a lily once.\n- You will not know if you protect any visitors to your target.\n- You cannot be protected by your own lilies. This applies to lilies from other Lily players as well.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -162,7 +163,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may sow a mint plant at a player's house at night.");
 
-		e.addField("Attributes:", "- Mint plants take effect the day after they were planted.\n- Mints provide Powerful defense against all direct attacks.\n- When one of your minted targets is attacked, all mint plants will die and you cannot plant for another night.");
+		e.addField("Attributes:", "- Mint plants take effect the day after they were planted.\n- Mints provide Powerful defense against all direct attacks.\n- When one of your minted targets is attacked, all mint plants will die and you cannot plant for another night.\n- Your plants protect players from all direct attacks (such as Mafioso, Serial Killer, and Pirate).\n- Your plants will not save players from indirect attacks (such as Medusa stone gazing at home and an Ambusher's attack). However, you will protect your target from direct astral attacks (such as the Hex Master's Basic attack when they have the Necronomicon).");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -177,7 +178,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may infuse a player at night, granting them Basic defense.");
 
-		e.addField("Attributes:", "- When you infuse a player they will have Roleblock and Control immunity that night.\n- If your target is attacked you cannot infuse a player the next night.\n- You cannot be roleblocked or controlled.\n- You do not protect from indirect or astral attacks.");
+		e.addField("Attributes:", "- When you infuse a player they will have Roleblock and Control immunity that night.\n- If your target is attacked you cannot infuse a player the next night.\n- You cannot be roleblocked or controlled.\n- Hypnotists will have access to the \"Roleblocked but immune\" and \"Controlled but immune\" messages since this role exists.\n- A Coven Leader will still know your target's role.\n- You do not protect from indirect or astral attacks.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -192,7 +193,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may perform for a player at night.");
 
-		e.addField("Attributes:", "- Performing at a player's house prevents anyone from visiting your target. This excludes attacking roles.\n- If a Serial Killer attacks your target, you will die instead.\n- You cannot be roleblocked.");
+		e.addField("Attributes:", "- Performing at a player's house prevents anyone from visiting your target. This excludes attacking roles.\n- If a Serial Killer attacks your target, you will die instead.\n- You cannot be roleblocked.\n- You cannot prevent the following roles to visit your target: attackers (excluding Serial Killers and Ambushers), Pirates, Coven Leaders, Transporters, Jesters, Escorts, Consorts.\n- Your Last Will is still readable if you prevent a Serial Killer from killing your target.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -207,7 +208,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may hand out gardenias to a player at night.");
 
-		e.addField("Attributes:", "- Players with gardenias will also give out gardenias when they visit or are visited by a player.\n- When all living players have a gardenia, you will have the ability to reveal during the day.\n- Once you reveal, your vote counts as three.\n- Once you reveal you can hear whispers.");
+		e.addField("Attributes:", "- Players with gardenias will also give out gardenias when they visit or are visited by a player.\n- When all living players have a gardenia, you will have the ability to reveal during the day.\n- Once you reveal, your vote counts as three.\n- Once you reveal you can hear whispers.\n- There will be a white flower symbol next to anyone's name who has a gardenia in the UI.\n- Players with a gardenia will not know they have one.\n- You do not give out a gardenia to players who visit you.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -222,7 +223,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may use a heal or attack tonic at night.");
 
-		e.addField("Attributes:", "- Attacking a player uses up your attack tonic.\n- Successfully healing a player from an attack uses up your heal tonic.\n- You may heal yourself once.\n- Visiting one player recharges your tonics once you have used them up.");
+		e.addField("Attributes:", "- Attacking a player uses up your attack tonic.\n- Successfully healing a player from an attack uses up your heal tonic.\n- You may heal yourself once.\n- Visiting one player recharges your tonics once you have used them up.\n- If you are controlled you will use your selected tonic on the controller's target. If you did not select one you will do nothing.\n- If you are controlled when you are gathering resources, it will still count as a visit towards your recharge.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -235,9 +236,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may purify a player at night.");
+		e.addField("Abilities:", "- You may purify a player at night, pardoning any of their trials the next day.");
 
-		e.addField("Attributes:", "- When a player is purified they cannot be voted the next day. This can be done while dead.\n- Players will be notified if they are purified.\n- You may purify yourself once.\n- You may only purify three times.");
+		e.addField("Attributes:", "- You may purify yourself once.\n- While dead, you may purify a player once.\n- You may only purify three times.\n- Players will not be notified if they are purified.\n- Unlike the Guardian Angel, your visits are direct. This means you can't protect someone who is Jailed.");
 
 		e.addField("Goal:", factions.Florae.goal);
 	});
@@ -293,7 +294,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player. Their role is revealed to everyone.");
+		e.addField("Abilities:", "- Choose a player. Their role is revealed to everyone. You may use this ability at any time, and it resolves immediately, but you may only use it once each day/night cycle.");
 
 		e.addField("Attributes:", "- If you have the Necronomicon, your target's role is changed to a random Coven role (after it's revealed).");
 
@@ -596,9 +597,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to sing a carol to one player during the night. (3 use, do not lose a charge if ability fails)");
+		e.addField("Abilities:", "- Choose to sing a carol to one player during the night. (3 use, do not lose a use if ability fails)");
 
-		e.addField("Attributes:", "- f your target visits anyone but themselves, they will receive a list of three names. One of these names will be evil. If they visit someone else, your ability will fail.\n- You may sing yourself a carol once, and this will count as a use of your ability.");
+		e.addField("Attributes:", "- If your target does not visit another player, they will receive a list of three names. One of these names will be evil. If they visit another player, your ability will fail.\n- You may sing yourself a carol once, and this will count as a use of your ability.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -643,7 +644,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Run around the Town during the day. (1 use)");
 
-		e.addField("Attributes:", "- When you run around the Town, you will learn the name and roles of three people. You will not learn who is which role.");
+		e.addField("Attributes:", "- When you run around the Town, you will learn the name and roles of three people. You will not learn who is which role.\n- Your run will always include at least one Town role and one role that cannot win with the Town. Any players that are you informed about that cannot win with the Town will be informed that they noticed a Runner running around the Town and any Town roles that they discovered during their run.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

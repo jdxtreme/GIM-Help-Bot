@@ -193,9 +193,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a faction during the day. Any player whose role is in this faction will have their ability fail if they target you.");
+		e.addField("Abilities:", "- Choose a faction during the day. Any player whose role is in this faction will have their ability fail if they target you the following night.");
 
-		e.addField("Attributes:", "- All abilities that target you will fail if they are from the faction that you chose during the day. Any abilties that were processed before yours will still take affect except for any abilities that resolve at the beginning of the night.\n- When this role rolls, it will be determined what this role will become at the end of the game.\n- If the player with this role survives until the end of the game, they will be able to make the role that this slot will turn into.\n- If you are killed at night, the first player that sent in their ability that led to your death will be able to make the role that this slot will turn into.\n- If you are lynched during the day, the last player that voted you will be able to make the role that this slot will turn into.\n- This slot must turn into another Neutral Benign role.");
+		e.addField("Attributes:", "- All abilities that target you will fail if they are from the faction that you chose during the day. Any abilities that were processed before yours will still take affect except for any abilities that resolve at the beginning of the night.\n- When this role rolls, it will be determined what this role will become at the end of the game.\n- If the player with this role survives until the end of the game, they will be able to make the role that this slot will turn into.\n- If you are killed at night, the first player that sent in their ability that led to your death will be able to make the role that this slot will turn into.\n- If you are lynched during the day, the last player that voted you will be able to make the role that this slot will turn into.\n- This slot must turn into another Neutral Benign role.");
 
 		e.addField("Goal:", "Survive until the end of the game.");
 	});
@@ -339,105 +339,103 @@ module.exports = (g) =>
 
 	register_role(["confectioner", "1174", "563u"], "Unseen", "Confectioner", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1174\nConverted from: Baker");
+		e.setDescription("Post 1174\n*Sweet dreams are made of wheat.*\nConverted from: Baker");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Muffin Man (Night): Choose 2 targets. If the first player has not visited you, you will redirect them to your second target.\n- Savory Roll (Night, 3 use): Give a player a savory roll. They may use their night abilities on two targets at night. This will appear as if a Baker has given them bread.\n- We Have Cookies (Night, 1 use): The Mastermind may choose to convert two targets tonight. If either conversion fails, both conversions will fail.");
+		e.addField("Abilities:", "- Muffin Man (Night): Choose two targets. If the first player has not visited you, you will redirect them to your second target.\n- Savory Roll (Night, 3 use): Give a player a savory roll. They may use their night abilities on two targets at night. This will appear as if a Baker has given them bread.\n- We Have Cookies (Night, 1 use): The Mastermind may choose to convert two targets tonight. If either conversion fails, both conversions will fail.");
 
-		e.addField("Attributes:", "- Only one Unseen member may have a Savory Roll at any point, and you may not give it to the Mastermind or Assassin.");
+		e.addField("Attributes:", "- Only one Unseen member may have a Savory Roll at any point, and you may not give it to the Mastermind or Assassin.\n- You are roleblock and redirect immune.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["eavesdropper", "eaves", "1175"], "Neutral", "Eavesdropper", {subCat: "Evil"}, (e) =>
+	register_role(["beekeeper_hivemind", "beekeeperhivemind", "bkhm", "1175"], "Town", "Beekeeper Hivemind", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1175");
 
-		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Town Support", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- During the day, intercept a player's whispers, causing all whispers sent to and by them to fail, and allowing you to send whispers as if you were them for the rest of the day.\n- During the night, send the full logs of all whispers sent over the entire course of the game to any number of players. You may only do this once.");
+		e.addField("Abilities:", "- Use 1 bee to sting a player, preventing them from using an abiliity the following night.\n- Use 2 bees to investigate a player, learning their role.\n- Use 3 bees to deal a Powerful attack to a player.");
 
-		e.addField("Attributes:", "- You hear all whispers.");
+		e.addField("Attributes:", "- You will earn 1 bee every night. You may use up to two bee abilities each night.\n- All other players have your other abilities and attributes in addition to their own. ");
 
-		e.addField("Goal:", "Live to see the Town lose the game.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["dissociator", "diss", "1176", "489u"], "Unseen", "Dissociator", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1176\nConverted from: Trauma Patient");
+		e.setDescription("Post 1176\n*I can't see straight...*\nConverted from: Trauma Patient");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Not Yourself (Night): Choose an Unseen role in the graveyard. You may choose one of their abilities to perform either tonight or the following day.\n- Associate (Night, 1 use): Choose an Unseen role in the graveyard. You will become that role at the beginning of the next day. This will not be announced to the Town.");
-
-		e.addField("Attributes:", "- While using Not Yourself, if you attempt to use an ability from an Unseen member that had no uses of their ability remaining, your ability will fail.\n- While using Not Yourself, you may not use the abilities of the Mastermind or Assassin.\n- While using Not Yourself, if you choose to use a day ability, you may choose any point during the following day to use the ability. If the day ends before you use your ability, you will lose the use of that ability.\n- While using Not Yourself, you may only use any given ability one time.\n- While using Associate, you may not become the Assassin or Mastermind.");
+		e.addField("Abilities:", "- Associate (Night, 1 use): Choose a role in the graveyard. You will become that role at the beginning of the next day keeping your allegiance to the Unseen. You may not choose a Killing or Power-type role. This will not be announced to the Town.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["delivery_driver", "deliverydriver", "driver", "1177", "278u"], "Unseen", "Delivery Driver", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1177\nConverted from: Delivery Boy");
+		e.setDescription("Post 1177\n*Your package has been delayed.*\nConverted from: Delivery Boy");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Surprise Package (Night): Choose a player. They will be redirected to themselves.\n- BOGO Deal (Night, 2 use): Choose two players. If your first player uses a night ability that targets other players, your second target will also be targeted with that ability.");
+		e.addField("Abilities:", "- Surprise Package (Night): Choose a player. They will be redirected to themselves.\n- BOGO Deal (Night, 2 use): Choose two players. If your first target uses a night ability that targets other players, you will force them to additionally target the second player. Your ability will fail if your first target is redirect immune, but you will regain your charge. Your first target's additional visit is Astral. Your first target will receive the results of both of their ability usages, but they will not be informed who they targeted nor the fact that they targeted two players.");
 
-		e.addField("Attributes:", "- Redirect Immune\n- You may not choose an Unseen member as your first target for BOGO Deal.\n- When using BOGO Deal, your ability will fail if you target a redirect immune player.\n- When using BOGO Deal, your first target will not appear to visit your second target unless your first target was initially intending to visit your second target.\n- When using BOGO Deal, your first target will not be made aware that they targeted two players. If they use an investigative ability, they will be told the results of both of their targets, but they will not know whose result is whose.");
+		e.addField("Attributes:", "- You are redirect immune.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["piscator", "1178", "264u"], "Unseen", "Piscator", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1178\nConverted from: Fisherman");
+		e.setDescription("Post 1178\n*I think I got a bite!*\nConverted from: Fisherman");
 
 		e.addField("Alignment", "Unseen Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Cast Line (Night): Choose a target. You will cast your line at their house tonight. Anyone who visits your target will be hooked on your line.\n- Release or Reel (Night): If you hooked any players on your line last night, choose to release or reel in all hookes players. This must be done the night after you hook anyone.");
+		e.addField("Abilities:", "- Cast Line (Night, 1 use): Choose a target. You will cast your line at their house tonight. Anyone who visits your target will be hooked.\n- Release or Reel (Night): If you hooked any players on your line last night, choose to release or reel in all hooked players. If you release your hooked players, they will not be attacked, and you will gain a charge of Cast Line; otherwise, you will deal a Powerful attack to all hooked players. This **must** be done the night after you hook anyone.");
 
-		e.addField("Attributes:", "- You will learn how many players you hooked using Cast Line, you will not learn their names, and the hooker players will know that they have been hooked.\n- You may use both of your abilities in the same night.\n- All Unseen members are immune to being hooked.");
+		e.addField("Attributes:", "- You will learn how many players you hooked using Cast Line, but you will not learn their names.\n- Hooked players will not be notified that they have been hooked.\n- All Unseen members are immune to being hooked.\n- Your kills will be attributed to a Fisherman.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["forensic_examiner", "forensicexaminer", "1179", "215u"], "Unseen", "Forensic Examiner", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1179\nConverted from: Forensic Analyst");
+		e.setDescription("Post 1179\n*I really wanna know!*\nConverted from: Forensic Analyst");
 
 		e.addField("Alignment", "Unseen Investigative", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Dust Fingerprints (Night): Choose a dead player. You will learn all players that visited them the night they died.\n- Criminal Research (Night): Choose a player. You will learn the names of all players that they have killed.");
 
-		e.addField("Attributes:", "- You may only use one of your abilities each night.\n- While you are alive, all Unseen members will privately be informed of the actual cause of death and the role of all dead players if either of those were altered.");
+		e.addField("Attributes:", "- You may not multitask\n- While you are alive, all Unseen members will be privately informed of any modified causes of death or role flips of any dead players including roles that were withheld from the graveyard by cleaning or any other role obfuscation method.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["ally", "1180", "213u"], "Unseen", "Ally", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1180\nConverted from: Companion");
+		e.setDescription("Post 1180\n*You and me? We go way back. Don't you remember?*\nConverted from: Companion");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Focus on Me (Night): Choose a player. They will be redirected to you tonight.\n- Embrace (Night): Choose a player. Any abilities targeting either you or your target will fail. Your target will also be roleblocked through immunity.");
+		e.addField("Abilities:", "- Focus on Me (Night): Choose a player. They will be redirected to you tonight.\n- Embrace (Night): Choose a player. Any abilities targeting either you or your target will fail. Your target will be roleblocked through immunity.");
 
-		e.addField("Attributes:", "- If using Focus on Me would result in your death, your ability will be prevented, and you will be notified as to the reason why.\n- You may not target an Unseen member with Embrace two nights in a row.");
+		e.addField("Attributes:", "- If using Focus on Me would result in your death, your ability will fail, and you will be notified as to the reason why.\n- You may not target an Unseen member with Embrace two nights in a row.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -620,11 +618,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["alpha", "1193"], "Agent", "Alpha", {subCat: "Lead"}, (e) =>
+	register_role(["alpha", "1193"], "Agent", "Alpha", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 1193");
 
-		e.addField("Alignment", "Unique Agent Lead", true);
+		e.addField("Alignment", "Unique Agent Head", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
@@ -635,11 +633,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Agent.goal);
 	});
 
-	register_role(["bravo", "1194"], "Agent", "Bravo", {subCat: "Lead"}, (e) =>
+	register_role(["bravo", "1194"], "Agent", "Bravo", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 1194");
 
-		e.addField("Alignment", "Unique Agent Lead", true);
+		e.addField("Alignment", "Unique Agent Head", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
@@ -650,11 +648,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Agent.goal);
 	});
 
-	register_role(["charlie", "1195"], "Agent", "Charlie", {subCat: "Lead"}, (e) =>
+	register_role(["charlie", "1195"], "Agent", "Charlie", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 1195");
 
-		e.addField("Alignment", "Unique Agent Lead", true);
+		e.addField("Alignment", "Unique Agent Head", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
@@ -665,11 +663,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Agent.goal);
 	});
 
-	register_role(["delta", "1196"], "Agent", "Delta", {subCat: "Lead"}, (e) =>
+	register_role(["delta", "1196"], "Agent", "Delta", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 1196");
 
-		e.addField("Alignment", "Unique Agent Lead", true);
+		e.addField("Alignment", "Unique Agent Head", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 

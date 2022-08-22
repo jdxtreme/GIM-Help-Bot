@@ -90,9 +90,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Plant.goal);
 	});
 
-	register_role(["456"], "Other", "We need more!", {cannotRoll: true}, (e) =>
+	register_role(["mathematician", "math", "456"], "Town", "Mathematician", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 456\nThis role is now a rule.");
+		e.setDescription("Post 456");
+
+		e.addField("Alignment", "Unique Town Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Perform mathematical theories at someone's house at night.");
+
+		e.addField("Attributes:", "- You will learn a fact about your targets number. You will learn the most specific fact possible.\n- You will not learn facts that make it too obvious what the number is, and will instead learn the most specific fact that doesn't go against this attribute. (For example, if only 2 numbers have that fact, you won't learn it). (The host can decide what is reasonable.)\n\nSample Facts (more facts can be added):\n> The number is prime.\n> The number is a perfect square.\n> The number is the same forwards and backwards.\n> The number is odd/even.");
+		
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["twin_sunflower", "twinsunflower", "457"], "Plant", "Twin Sunflower", {subCat: "Production"}, (e) =>
@@ -256,17 +266,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Plant.goal);
 	});
 
-	register_role(["revealer", "468"], "Town", "Revealer", {subCat: "Investigative"}, (e) =>
+	register_role(["revealer", "468"], "Town", "Revealer", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 468");
 
-		e.addField("Alignment", "Unique Town Investigative", true);
+		e.addField("Alignment", "Unique Town Power", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Reveal someone's role publicly.");
 
-		e.addField("Attributes:", "- Every even night, be told 3 roles. You will not know who has the role.\n- Choose 1 role to reveal publicly. Everyone will be told what the role is and who has it.");
+		e.addField("Attributes:", "- Your visits are astral.\n- Your target's name and role will be revealed to the whole town.\n- Once per game you can target 2 people instead of 1.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -292,11 +302,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Neutral Chaos", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "None (Invincible)", true);
 
 		e.addField("Abilities:", "- Make corpses into ghouls, and make them do your bidding.");
 
-		e.addField("Attributes:", "- At night, choose someone to secretly raise from the dead, turning them into a ghoul. You cannot turn factional evils or neutrals that have already won into a ghoul.\n- Ghouls are told who you are, and they now win with you.\n- Ghouls can speak with you in a factional chat.\n- Ghouls can use their action, but cannot vote/speak to everyone.\n- Once per game, you can reveal yourself as the Reanimator. All ghouls will be revived, and they can now vote/speak with other players. Anyone you turn into a ghoul after revealing will automatically be revived. People who were revived by you and died cannot be revived again, but they will still win with you.");
+		e.addField("Attributes:", "- One-Time Invincible Defense\n- At night, choose someone to secretly raise from the dead, turning them into a ghoul. You cannot turn factional evils or neutrals that have already won into a ghoul.\n- Ghouls are told who you are, and they now win with you.\n- Ghouls can speak with you in a factional chat.\n- Ghouls can use their action, but cannot vote/speak to everyone.\n- Once per game, you can reveal yourself as the Reanimator. All ghouls will be revived, and they can now vote/speak with other players. Anyone you turn into a ghoul after revealing will automatically be revived. People who were revived by you and died cannot be revived again, but they will still win with you.\n- You can't have more than 3 ghouls alive/pseudo-alive at any time.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -378,11 +388,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Neutral Evil", true);
 		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "Basic (None)", true);
+		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Use 2 potions at night, but only use the one that benefits you the most.");
 
-		e.addField("Attributes:", "- You have one-time Basic Defense.\n- Your potions can heal and they can kill.\n- You will choose 2 actions. Whichever one is best for you will be the one you do.\n- Order of what is best: You living > an evil being saved > a Town/Florae member dying > nothing happening > a Town/Florae being saved > an evil dying (worst outcome)");
+		e.addField("Attributes:", "- You have one-time Basic Defense.\n- Your potions can heal and they can kill.\n- You will choose 2 actions. Whichever one is best for you will be the one you do.\n- Order of what is best: You living > an evil being saved > a Town member dying > nothing happening > a Town member being saved > an evil dying (worst outcome)");
 		
 		e.addField("Goal:", "Have the good faction lose (this can win while dead).");
 	});
@@ -457,24 +467,24 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Kill someone at night.");
 
-		e.addField("Attributes:", "- Once you die, you will be able to deal 2 unstoppable attack the next night.\n- If you are dead, the game can not end until you do your attack from the grave.");
+		e.addField("Attributes:", "- Once you die, you will be able to deal 2 unstoppable attacks the next night.\n- If you are dead, the game can not end until you do your attack from the grave.");
 		
 		e.addField("Goal:", "Kill all who oppose you, or have nobody remain if you are dead.");
 	});
 
-	register_role(["vampvestigator", "482"], "Neutral", "Vampvestigator", {subCat: "Chaos"}, (e) =>
+	register_role(["vampvestigator", "vampvest", "vv", "482"], "Vampire", "Vampvestigator", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 482");
 
-		e.addField("Alignment", "Unique Neutral Chaos", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Alignment", "Unique Vampire Support", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Bite people and investigate people at night.");
+		e.addField("Abilities:", "- Investigate people at night.");
 
-		e.addField("Attributes:", "- You can check someone every night, learning their exact role.\n- Your conversion bite works the same as regular vampires.\n- You are in a night chat with regular vampires.\n- If any Vampvestigator exists, all converted vampires will become \"Studious Vampires.\"\n- The oldest Studious Vampire will become Vampvestigator.");
+		e.addField("Attributes:", "- You can check someone every night, learning their exact role.\n- You will not be fooled by frames or disguises.");
 		
-		e.addField("Goal:", "Kill or convert all who would oppose the Vampires.");
+		e.addField("Goal:", factions.Vampire.goal);
 	});
 
 	register_role(["totally_not_a_vampire", "totallynotavampire", "totally", "483"], "Neutral", "\"totally not a vampire\"", {subCat: "Evil"}, (e) =>
@@ -537,17 +547,34 @@ module.exports = (g) =>
 		e.addField("Goal:", "Successfully execute two players.");
 	});
 
-	register_role(["made_a_role", "madearole", "marbotm", "488"], "Neutral", "Made a Role Based on this Message", {subCat: "Other"}, (e) =>
+	register_role(["feedback", "487"], "Town", "Feedback", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 488");
+		e.setDescription("Post 487");
 
-		e.addField("Alignment", "Neutral Other", true);
+		e.addField("Alignment", "Unique Town Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- When the first non-host message is sent in the public day chat every day, the host will make a role based on that message. It can't have abilities not seen in any other role. You become that role for the following day-night cycle, except you keep this attribute.");
+		e.addField("Abilities:", "- Check people at night to learn feedback about their role.");
+
+		e.addField("Attributes:", "- The host will give their honest opinion of your target's role.");
 		
-		e.addField("Goal:", "N/A");
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["spider_dance", "spiderdance", "spider", "dance", "sd", "488"], "Neutral", "Spider Dance", {subCat: "Benign"}, (e) =>
+	{
+		e.setDescription("Post 488");
+
+		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None (Basic)", true);
+
+		e.addField("Abilities:", "- Visit someone at night, giving them a donut. It's the same as Pinata's candy. You can eat it during the night to be healed and purged. However, your target will be in debt.");
+
+		e.addField("Attributes:", "- Players who are in debt will sell a donut to everyone they visit at night. Those players will gain a donut but they'll be in debt too.\n- Every player can only get 1 donut.\n- You have a spider army who will protect you from the first Basic attack.");
+		
+		e.addField("Goal:", "Force everyone other than you to be in debt, so you can save all of the spiders!");
 	});
 
 	register_role(["trauma_patient", "traumapatient", "patient", "489"], "Town", "Trauma Patient", {subCat: "Support"}, (e) =>
@@ -648,7 +675,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Corrupt someone during the day and kill at night.");
 
-		e.addField("Attributes:", "- The more living people who are corrupted, the stronger you are.\n- You can corrupt Day 1.\n- Players know they are corrupted.\n- If a corrupted player dies during the night, your action is processed as if they were living unless they die before the night ends.\n0 Corrupted: Basic Attack/Defense\n1 Corrupted: Powerful Attack\n2 Corrupted: Powerful rampage Attack\n3 Corrupted: People who visit corrupted players are corrupted\n4 Corrupted: Unstoppable attack and Powerful defense.");
+		e.addField("Attributes:", "The more living people who are corrupted, the stronger you are.\n- You can corrupt Day 1.\n- If a corrupted player dies during the night, your action is processed as if they were living unless they die before the night ends.\n> 0 Corrupted: Basic Attack/Defense.\n> 1 Corrupted: Powerful Attack + Roleblock Immunity.\n> 2 Corrupted: Powerful Rampage Attack + Redirect Immunity.\n> 3 Corrupted: People who visit corrupted players are corrupted + Control Immunity.\n> 4 Corrupted: Unstoppable attack and Powerful defense.");
 		
 		e.addField("Goal:", "Kill all who oppose the Corruption **or** see every living player corrupted (you can die once you see all living players corrupted).");
 	});

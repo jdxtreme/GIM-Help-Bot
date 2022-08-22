@@ -132,7 +132,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Scout (Day): Learn if your target was visited by any conversion capable faction last night. You will learn which faction visited them, or all if multiple did.\n- Listen In (Day): Select a conversion capable faction, you will hear their messages. Messages that refer to a player by name will have the name censored, regardless of who is being referred to. 1 use only.\n- Examine (Night): Check a player to see if they are a member of a conversion capable faction. You will learn which faction and will bypass Detection Immunity.\n- Retaliate (Night): If you or your target is converted, block the conversion and attack the converter. You may prevent multiple conversions, but will not attack other non-converting roles, including killing roles. 2 uses.");
 
-		e.addField("Attributes:", "- You are only able to spawn if a minority faction which has the ability to convert other players into their faction is in the game. This also applies to neutral roles who turn others into their own, but this is determined by the host and is situational.\n- \"Conversion capable faction\" refers to those factions which fit the definition which was previously given.\n- You are able to be converted, unless using Retaliate.\n- If all conversion roles and factions are completely eradicated, you will turn into a random Town Power role. Standard reroll rules apply, however the amount of rerolls you had at the beginning of the game will transfer over.\n- This **cannot be rerolled**, unless a conversion capable faction is guaranteed to exist. This may be overruled by the host.");
+		e.addField("Attributes:", "- \"Conversion capable faction\" refers to those factions which fit the definition which was previously given.\n- You are able to be converted, unless using Retaliate.\n- If all conversion roles and factions are completely eradicated, you will turn into a random Town Power role. Standard reroll rules apply, however the amount of rerolls you had at the beginning of the game will transfer over.\n- If you spawn without a conversion capable faction in the game, immediately become a new Town Power role.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -734,7 +734,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Start a fire on your target. If someone visits this your target while they're burning, the second person will start burning as well.\n- Disguise as another role in GIM. When you are investigated you will appear as this role. 1 use.");
 
-		e.addField("Attributes:", "- You attack burning players after 2 days have passed.");
+		e.addField("Attributes:", "- You attack burning players after 2 days have passed. This attribute will activate even though you're dead.");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});

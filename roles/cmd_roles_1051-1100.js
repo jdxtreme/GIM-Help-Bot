@@ -4,30 +4,30 @@ module.exports = (g) =>
 
 	register_role(["drug_dealer", "drugdealer", "drug", "dealer", "1051", "620u"], "Unseen", "Drug Dealer", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1051\nConverted from: Adrenaline Doctor");
+		e.setDescription("Post 1051\n*It is amazing what the human brain can come up with when someone falls under the influence. Let us laugh as their body reacts to this overwhelming stimulus.*\nConverted from: Adrenaline Doctor");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Shady Deal (Night, 3 use): Give someone a shot of heroin at night. They will not be notified.\n- Acid Trip (Night, 2 use): Force someone through an acid trip.");
+		e.addField("Abilities:", "- Shady Deal (Night, 3 use): Give someone a shot of heroin at night. They will not be notified.\n- Acid Trip (Night, 2 use): Force someone through an acid trip tonight. They will perform the abilities of a different role in their exact alignment on the target they chose. They will receive false feedback based on the ability they think they performed. If they did not perform a night ability, your ability fails.");
 
-		e.addField("Attributes:", "- If a person with a shot of heroin is attacked, they will automatically inject themselves with heroin. This will appear as if they are injecting themselves with adrenaline. They will survive the attack, but the following night, they will be dealt an Unstoppable attack, and they will deal a Rampage Basic attack to whoever they visit\n- A person on an acid trip will perform the abilities of a different role in their alignment and receive false results from their actual ability.");
+		e.addField("Attributes:", "- If a person with a shot of heroin is attacked, they will automatically inject themselves with heroin. This will appear as if they injected themselves with adrenaline. They will survive the attack, but the following night, they will be dealt an Unstoppable Attack and will deal a Basic Attack to all of their visitors.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["playlist_creator", "playlistcreator", "playlist", "1052"], "Neutral", "Playlist Creator", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 1052");
+		e.setDescription("Post 1052\n*Music keep you in control.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose someone during the day to ask them to add a song to the playlist.\n- Add a song to the playlist during the night.");
+		e.addField("Abilities:", "- Choose someone during the day to ask them to add one song to the playlist.\n- Add one song to the playlist during the night.");
 
-		e.addField("Attributes:", "- Throughout the game, you will be creating a playlist of songs. At the end of the game, the host will rate all of the songs out of 10 in the playlist.\n- Each player you ask may choose whether or not they want to add a song to the playlist. If they do, you may choose to discard their song selection from the playlist after they choose it. They will make their decision during the night after you asked them.\n- You may choose one song per night phase to add to the playlist.\n- You retain your abilities even when you're dead.");
+		e.addField("Attributes:", "- Throughout the game, you will be creating a playlist of songs. At the end of the game, the host will rate all of the songs in the playlist out of 10.\n- Each player you ask may choose whether or not they want to add a song to the playlist. If they do, you may choose to discard their song selection from the playlist after they choose it. They may add their song to the playlist at any time after you ask.\n- You retain your abilities even when you're dead.");
 
 		e.addField("Goal:", "Create a playlist that the host rates at least an average of 7/10.");
 	});
@@ -238,13 +238,13 @@ module.exports = (g) =>
 
 	register_role(["ask_grandma", "askgrandma", "grandma", "1067", "425u"], "Unseen", "Ask Grandma", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1067\nConverted from: Zoltar");
+		e.setDescription("Post 1067\n*Is this your luck day? Grandma sees, knows, tells all*\nConverted from: Zoltar");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Old Wise One (Night): Choose a player. If they die tonight, you will learn the identity and roles of all players who visited or were visited by your target. If nobody visited your target and they didn’t visit anyone, you may choose someone the following day to learn the role of.\n- Grandma Always Knows (Night, 2 use): Choose a word. You will learn all players with that word in their role card.");
+		e.addField("Abilities:", "- Old Wise One (Night): Choose a player. If they die tonight, you will learn the identity and roles of all players who visited or were visited by your target. If nobody visited your target and they didn’t visit anyone, you may choose someone the following day to learn the role of.\n- Grandma Always Knows (Night, 1 use): Choose a word. You will learn all players with that word in their role card.");
 
 		e.addField("Attributes:", "- You may not use Old Wise One on the player(s) that the Assassin is attempting to kill that night.");
 
@@ -268,7 +268,7 @@ module.exports = (g) =>
 
 	register_role(["pile_of_bones", "pileofbones", "bones", "1069", "559u"], "Unseen", "Pile of Bones", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 1069\nConverted from: Rattler");
+		e.setDescription("Post 1069\n*Nothing ever gets under my skin.*\nConverted from: Rattler");
 
 		e.addField("Alignment", "Unseen Protective", true);
 		e.addField("Attack", "None", true);
@@ -322,15 +322,13 @@ module.exports = (g) =>
 
 	register_role(["temptation", "tempt", "1071", "598u"], "Unseen", "Temptation", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1071\nConverted from: Temptest");
+		e.setDescription("Post 1071\n*I am your ideal.*\nConverted from: Temptest");
 
 		e.addField("Alignment", "Unseen Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Irresistibility (Night, 3 use): Choose a player. You will redirect them to yourself and deal a Basic Attack to them. You will also deal a Basic attack to one other player that visits you this being the player that sent in their action last.\n- Desire to Kill (Night, 1 use): Select three players. You will deal a Basic attack to all players that your targets visit.");
-
-		e.addField("Attributes:", "- If you use Irresistibility on a Redirect immune target, your ability will fail, and you will not regain a charge.\n- If any of your targets of Desire to Kill do not visit anyone, your ability will fail, but you will regain your charge. If a target is roleblocked, they will not count towards this passive.");
+		e.addField("Abilities:", "- Irresistible (Night, 3 use): You will deal a Basic attack to the first player that visited you tonight. The first player who visited you is defined as the first player who sent in their action.\n- Desire to Kill (Night, 1 use): Select three players. You will deal a Basic attack to all players that your targets visit. If any of your targets that were not roleblocked do not visit anyone, your ability will fail, and you will regain your charge.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -352,15 +350,15 @@ module.exports = (g) =>
 
 	register_role(["transcendentalist", "transcend", "1073", "639u"], "Unseen", "Transcendentalist", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1073\nConverted from: Judicator");
+		e.setDescription("Post 1073\n*Elevate your soul to another plane of existence today!*\nConverted from: Judicator");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Begone (Night, 3 use): Choose a player. They will transcend humanity tonight causing all abilities used against them this night to be cancelled. They will also stay transcended during the following day causing any actions directed towards your target to be cancelled, but they may not perform any actions or speak themselves. The Town will not be publicly notified of this, but if anyone is to perform an action towards your target, they will be notified that they have transcended humanity.\n- Ascension (Night, 1 use): Deal an Unstoppable Attack to the player that you used Begone on last night.");
+		e.addField("Abilities:", "- Transcend (Day, 3 use): Choose a player. They will transcend humanity tonight causing anything that should happen to them tonight to not happen - all visits will fail, all kills will fail, all abilities will fail including those that resolve at the beginning of the night. They will remain transcended the following day causing any day abilities targeting them to fail. They will also be unable to do anything during this phase (they are essentially dead but are presented as alive).\n- Ascension (Night, 1 use): Deal an Unstoppable Attack to the player that you used Begone on last night.");
 
-		e.addField("Attributes:", "- You may not use Ascension if you did not use Begone the previous night.\n- The target of Begone will still count towards voting majority and will still be able to read the day chat.");
+		e.addField("Attributes:", "- A transcended player will still count towards voting majority.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -427,7 +425,7 @@ module.exports = (g) =>
 
 	register_role(["craftsman", "1078", "708u"], "Unseen", "Craftsman", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1078\nConverted from: Blacksmith");
+		e.setDescription("Post 1078\n*Unfortunately, everything I craft suffers from cracks and stress fractures.*\nConverted from: Blacksmith");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "Basic", true);
@@ -437,7 +435,7 @@ module.exports = (g) =>
 
 		e.addField("Items:", "- Bulletproof Vest: Owner of this item will be able to don it giving themselves Basic Defense for the night.\n- Faulty Gun: Owner of the item will be able to shoot someone during the day dealing a Powerful attack to the target. There is a 25% chance of the gun malfunctioning and shooting the attacker. If a member of the Unseen is targeted with the gun, the gun will malfunction.\n- Dreamcatcher: Owner of this item will be immune to roleblocks until the night after they are roleblocked for the first time.");
 
-		e.addField("Attributes:", "- You may Craft any number of any item up to three items.\n- You may give multiple items to the same player, but not in the same phase.\n- If a player dies without using their item (including Dreamcatcher owners who were never roleblocked), you will regain possession of the item and will be able to Deal it to someone else. Keep this attribute if your role changes.");
+		e.addField("Attributes:", "- You may Craft any number of any item up to three items.\n- You may give more than one item to the same player.\n- If a player dies without using their item (including Dreamcatcher owners who were never roleblocked), you will regain possession of the item and will be able to Deal it to someone else. Keep this attribute upon conversion to Assassin.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -493,16 +491,16 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Cross Reference (Night, 2 use): Select a tier. You will learn all roles present in the game in that tier.\n- Comparison (Night, 2 use): Select a tier. You will learn all players whose roles are in that tier.\n- Unranked (Night, 2 use): Select a player. If their role is not in the tier list, you will learn their exact role.");
+		e.addField("Abilities:", "- Cross Reference (Night, 2 use): Select a tier. You will learn all roles present in the game in that tier.\n- Comparison (Night, 2 use): Select a tier. You will learn all players whose roles are in that tier.\n- Unranked (Night, 2 use): Select a player. If their role is not in the tier list, you will learn their exact role. If you select a player whose role is on the tier list, your ability fails, and you lose a charge.");
 
-		e.addField("Attributes:", "- Your abilities reference the tier list pinned in <#972887492359508048> at the time of your role card being sent. You will be sent an image of the most up-to-date tier list along with your role card.\n- You will not lose a charge of Unranked if your target's role is present on the tier list.");
+		e.addField("Attributes:", "- Your abilities reference the tier list pinned in <#972887492359508048> at the time of your role card being sent. You will be sent an image of the most up-to-date tier list along with your role card.\n- If you targeted a tier with Cross Reference or Comparison, you may not use the other ability on the same tier.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["private", "1083", "953u"], "Unseen", "Privateer", {subCat: "Killing"}, (e) =>
+	register_role(["private", "1083", "953u"], "Unseen", "Private", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1083\nConverted from: Soldier");
+		e.setDescription("Post 1083\n*You know... nobody will find out if I break my strict drug-free oath if I keep it private.*\nConverted from: Soldier");
 
 		e.addField("Alignment", "Unseen Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -530,15 +528,15 @@ module.exports = (g) =>
 
 	register_role(["aide", "1085", "954u"], "Unseen", "Aide", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 1085\nConverted from: Caretaker");
+		e.setDescription("Post 1085\n*The truth hurts and the lies heal.*\nConverted from: Caretaker");
 
 		e.addField("Alignment", "Unseen Protective", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- House of the Damned (Night, 1 use): You will heal all members of the Unseen other than yourself for this night and the next.\n- Household Duties (Night): Choose an Unseen member. If they do not use a night ability, you will give them Invincible defense for the night.");
+		e.addField("Abilities:", "- House of the Damned (Night, 1 use): You will heal all members of the Unseen other than yourself for this night and the next.\n- Household Duties (Night): Choose an Unseen member. If they do not perform a night ability, you will give them Invincible defense for the night.");
 
-		e.addField("Attributes:", "- If you die the night that you use House of the Damned, the Unseen will still be healed the following night.\n- You are immune to roleblocks on the second night you heal the Unseen.");
+		e.addField("Attributes:", "- If you die the night that you use House of the Damned, the Unseen will still be healed the following night.\n- You are roleblock immune on the second night you heal the Unseen.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -560,35 +558,35 @@ module.exports = (g) =>
 
 	register_role(["soothsayer", "sooth", "1087", "55u"], "Unseen", "Soothsayer", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1087\nConverted from: Psychic");
+		e.setDescription("Post 1087\n*There is one thing certain in life: death.*\nConverted from: Psychic");
 
 		e.addField("Alignment", "Unseen Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Visions of Grandeur (Night, 3 use): Choose a role. You will be notified whether the role exists in the current game or not. If it does, you will receive a list of three people with one of them being the role that you chose.\n- Dark Fate (Day, 1 use): Predict a player to die tonight. If you are correct, that player will show up as Cleaned in the graveyard, you will learn their role and will, and they will not be able to access dead chat.");
+		e.addField("Abilities:", "- Visions of Grandeur (Night): Choose a role. You will be notified whether the role exists in the current game or not. If it does, you will receive a list of three people with one of them being the role that you chose.\n- Dark Fate (Day, 1 use): Predict a player to die tonight. If you are correct, that player will show up as Cleaned in the graveyard, you will learn their role and will, and they will not be able to access dead chat.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["soulcatcher", "1088", "60u"], "Unseen", "Soulcatcher", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1088\nConverted from: Medium");
+		e.setDescription("Post 1088\n*Without a soul, can you really call yourself human?*\nConverted from: Medium");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Gather Souls (Night): Choose two players. You will reap the souls of these players if they die tonight.\n- Unleash (Night): Learn the roles of a number of alive non-Unseen players equal to the number of souls you have gathered.\n- Bind (Day, 1 use): Choose a player. They will gain Basic Defense for the night.");
+		e.addField("Abilities:", "- Gather Souls (Night): Choose two players. You will reap the souls of these players if they die tonight.\n- Unleash (Night): Choose a number of players equal to the number of souls you have gathered. You will learn their roles.\n- Bind (Day, 1 use): Choose a player. They will gain Basic Defense for the night.");
 
-		e.addField("Attributes:", "- You have gathered [x] souls.\n- Any players whose soul you have gathered will be unable to be used in any abilities of a living player that involves dead players (e.g. They cannot speak if they were added to the Occultist’s spirit list, Forensic Analyst cannot check for fingerprints at their house, etc.).");
+		e.addField("Attributes:", "- You will be told how many souls you have gathered at the start of each night.\n- Any abilities that interact with dead players will fail if they target a player whose soul you gathered.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["omniscient", "omni", "1089", "204u"], "Unseen", "Omniscient", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1089\nConverted from: Sounless");
+		e.setDescription("Post 1089\n*This is the story of a Town called Salem.*\nConverted from: Sounless");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "Basic", true);
@@ -704,32 +702,32 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["random_adjective_generator", "randomadjectivegenerator", "adjective", "adj", "rag", "1097"], "Town", "Random Adjective Generator", {subCat: "Support"}, (e) =>
+	register_role(["uwa!", "uwa", "1097"], "Town", "Uwah!", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1097");
+		e.setDescription("Post 1097\n*Let’s get to configging that joystick.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Give someone a random adjective at night.");
+		e.addField("Abilities:", "- *sweep a leaf sweep away a troubles* (Autumn): Choose someone to sweep away the leaves on their lawn tonight. The path of their house will become much clearer, so they will gain redirect immunity, and any abilities that prevent visits to your target will fail.\n- *cold outside but stay warm inside of you* (Winter): Choose a target to warm them up tonight. They will gain roleblock and coldsnap immunity.\n- *spring time back to school* (Spring): Give a player a lesson in medicine tonight. The next time they visit a player who is attacked, they will heal their target alongside their normal ability.\n- *try to withstand the sun’s life-giving rays* (Summer): Apply sunscreen to a player. They will be able to perform their abilities much more efficiently making their visits Astral.");
 
-		e.addField("Attributes:", "- At the start of each night, generate a random adjective at https://randomwordgenerator.com/adjective.php.\n- You will be allowed to give another player that adjective, which acts as an attribute and like yeah you get the gist they like yknow the host figures out wtf it means and makes it apply and yeah.\n- And yeah only that night.");
+		e.addField("Attributes:", "- You may only use one of your abilities each night depending on what season it was on the actual day that Day 1 began. You may use the ability of that season on Night 1, then the ability of the next season on Night 2, and so on.\n- All of your abilities are Night abilities, and the effects persist for the rest of the game. Your targets are not notified about any effects that you give them unless that affect would normally give a notification (e.g. if your target gains roleblock immunity and gets roleblocked).");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["witness", "1098", "53u"], "Unseen", "Witness", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1098\nConverted from: Lookout");
+		e.setDescription("Post 1098\n*You don't need to join a protection program if you join the dark side.*\nConverted from: Lookout");
 
 		e.addField("Alignment", "Unseen Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Sharp Eyes (Night): Choose a player. Find out all players who visited them and all players who they visit.\n- Little Birdie (Day): Choose a player. You will send a birdie to their house tonight. Your birdie will report back to you at the start of the following day letting you know whether your target left their house last night.\n- All Seeing (Night, 1 use): Choose a player and predict who they visit tonight. If you are correct, you will learn their role.");
+		e.addField("Abilities:", "- Sharp Eyes (Night): Choose a player. Find out all players who visited them and all players who they visit.\n- Little Birdie (Day): Choose a player. You will send a birdie to their house tonight. Your birdie will report back to you at the start of the following day letting you know whether your target left their house last night.\n- All Seeing (Night, 1 use): Choose a player and predict who they visit tonight. If you are correct, you will learn their role. You may predict that your target will not visit anyone.");
 
-		e.addField("Attributes:", "- Your Little Birdie will notify you if your target uses any ability that would cause them to leave their house, including Astral abilities.\n- You may choose to predict that your target visits themselves or visits nobody with All Seeing. If your target visits multiple people, you will be informed of their role if they visit the player you predicted even if they visit anyone else.");
+		e.addField("Attributes:", "- Your Little Birdie will notify you if your target uses any ability that would cause them to leave their house, including Astral abilities.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -749,17 +747,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["hunter", "1100", "54u"], "Unseen", "Hunter", {subCat: "Support"}, (e) =>
+	register_role(["hunter", "1100", "54u"], "Unseen", "Hunter", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1100\nConverted from: Tracker");
+		e.setDescription("Post 1100\n*The art of hunting requires a steady aim and a quiet tongue.*\nConverted from: Tracker");
 
-		e.addField("Alignment", "Unseen Support", true);
+		e.addField("Alignment", "Unseen Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Hunter’s Mark (Day): Choose a player to give them a Hunter’s Mark.\n- Prey (Night): Choose a player. If they visit a player with a Hunter’s Mark, you will deal a Powerful Attack to whoever they visit.\n- Aim and Fire (Night, 1 use): Choose a player with a Hunter’s Mark to deal a Powerful Astral attack to them.");
+		e.addField("Abilities:", "- Hunter’s Mark (Day): Choose a player to give them a Hunter’s Mark.\n- Prey (Night): Choose a player. If they visit a player with a Hunter’s Mark, you will deal a Powerful Attack to whoever they visit. If they do not visit anyone and they have a Hunter's Mark, you will attack them instead.\n- Aim and Fire (Night, 1 use): Choose a player with a Hunter’s Mark to deal a Powerful Astral attack to them.");
 
-		e.addField("Attributes:", "- If you use Prey on a player with a Hunter’s Mark and they do not visit anyone, you will attack them.");
+		e.addField("Attributes:", "- You will be informed of all players with a Hunter's Mark at the beginning of each night.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
