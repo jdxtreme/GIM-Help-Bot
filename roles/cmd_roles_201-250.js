@@ -34,6 +34,21 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.PaleMoon.goal);
 	});
 
+	register_role(["ultimate_supreme_leader", "ultimatesupremeleader", "supreme_leader", "supremeleader", "usl", "203"], "Town", "Ultimate Supreme Leader", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 203");
+
+		e.addField("Alignment", "Town Killing", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Mark someone each night. The Town factional kill is Powerful against a player with a mark and Unstoppable against a player with two.");
+
+		e.addField("Attributes:", "- If this role spawns, the Town gains a factional kill for the rest of the game. See the Agents faction post for how this works. The hierarchy is Power > Killing > Protective > Support > Investigative > all other subalignments. All players are made aware that this exists.\n- Guys listen I promise this doesn't violate the \"<#977547294293504060> overrides <#970046125065265202>\" rule its not changing the rule its just adding something after the game already starts the rule is meant to be like you can't make an Everfrost role that spawns instead of Eyisa etc.");
+
+		e.addField("Goal:", factions.Town.goal);
+	});
+
 	register_role(["soundless", "204"], "Town", "Soundless", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 204");
@@ -104,7 +119,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Place an Inverting Hoop at a player's house.\n- Place two Transporting Hoops at two player's houses.\n- Move a Hoop.");
 
-		e.addField("Attributes:", "- Placing an Inverting Hoop at a player's house inverts all their values. If they're granted Powerful Defense they will be dealt a Powerful Attack, and If they're dealt a Powerful Attack they will be granted Powerful Defense, etc.\n- You may have 2 Inverting Hoops and up to 2 transporting hoops at all time.\n- Transporting Hoop A redirects all visitors of the hooped target to B. B redirects to A.\n- When the PMCS, two random targets that visited an hooped player will be dealt an Astral Basic Attack.\n- Your Transporting Hoops dont affect the Clown.");
+		e.addField("Attributes:", "- Placing an Inverting Hoop at a player's house inverts all their values. If they're granted Powerful Defense they will be dealt a Powerful Attack, and If they're dealt a Powerful Attack they will be granted Powerful Defense, etc.\n- You may have 2 Inverting Hoops and up to 2 transporting hoops at all time.\n- Transporting Hoop A redirects all visitors of the hooped target to B. B redirects to A.\n- When the PMCS starts, you may place 2 more hoops at any player's house. You choose the type of hoops. Then, all targets with an Hoop on them are dealt an Astral Unstoppable Attack that Is unaffected by the Inverting Hoop.\n- Your Transporting Hoops dont affect the Clown.");
 
 		e.addField("Goal:", factions.PaleMoon.goal);
 	});
@@ -433,21 +448,21 @@ module.exports = (g) =>
 		e.addField("Goal:", "Swap two players' roles three times.");
 	});
 
-	register_role(["animal_keeper", "animalkeeper", "231"], "Town", "Animal Keeper", {subCat: "Investigative"}, (e) =>
+	register_role(["blade_of_a_silver_tongue_kaori", "bladeofasilvertonguekaori", "blade_of_a_silver_tongue", "bladeofasilvertongue", "silver_tongue", "silvertongue", "kaori", "boastk", "231"], "Neutral", "Blade of a Silver Tongue, Kaori", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 231");
 
-		e.addField("Alignment", "Town Investigative", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Give someone an animal every night.\n- Blow your whistle to make all the animals run away.");
+		e.addField("Abilities:", "- Attack a player.");
 
-		e.addField("Attributes:", "- You will not know what animal is given to a player.\n- When you blow your whistle, you may know how many of each type of animal ran away.\n- You may not blow your whistle until youve given animals to at least 3 people.");
+		e.addField("Attributes:", "- if you target __**Wielder of Hope, Asahi**__ with any of your abilities, your ability will fail, and you will be notified that it failed, but you wont know why it did.\n- For every successfull kill, you may choose any of the following abilities. You gain that ability:\n> Manipulate (Post 275) two targets.\n> Lie (Post 1306) a target, but you will change their wincon to yours. You will also gain a chat with all lied targets, and all lied targets gain access to your \"Attack a target.\" ability, and all of your attributes.\n> Become someone's significant other during the day, which functionally works the same as Post 1389, Girlfriend.\n> Seduce (Post 1306) a target. However they will target you because of how cute you are and not because of how sexy (important)\n> Use your candle trick, dealing an Unstoppable Astral Attack upon someone. 3 uses because you only have 3 candles.\n> Create a candle, giving you another use of the above ability.\n- You may multitask.");
 
-		e.addField("Animals:", "- Dogs are given to town members.\n- Siamese Cats are given to mafia members.\n- Black Cats are given to coven members.\n- Killer Bunnies are given to neutral evils and neutral killers.\n- Beavers are given to the rest of the neutrals and rocks.\n- Lambs are given to plants.\n- Phoenixes are given to underworld.\n- Doves are given to hallow.\n- Jaguars are given to stalkers.\n- Wolves are given to were.\n- Bats are given to vampires.\n- Tuxedo Cats are given to umbrae.\n- Goats are given to everfrost.\n- Elephants are given to the pale moon.\n- Squids are given to the sith\n- Pigeons are given to the insurgency\n- Canaries are given to the loyalists\n- Spiders are given to the SCP\n- Eagles are given to the thundercry\n- Parrots are given to the pirates\n- Deers are given to the pokémon\n- Foxes are given to foxes (lmao)\n- Sheeps are given to the cult\n- Horses are given to the horsemen\n- Owls are given to the unseen\n- Skunks are given to the biohazard");
+		e.addField("Attributes (cont.):", " If you are in the game, force __**Wielder of Hope, Asahi**__ to roll.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Neutral.goalNK + " You may, however, spare __**Wielder of Hope, Asahi**__ and any other targets you lied to.");
 	});
 
 	register_role(["revenge_labs", "revengelabs", "232"], "Neutral", "Revenge Labs", {subCat: "Chaos"}, (e) =>
@@ -580,9 +595,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None (Unstoppable)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Bosost or boo a player every night.");
+		e.addField("Abilities:", "- Boost or boo a player every night.");
 
-		e.addField("Attributes:", "- When you use your ability on a player, the host chooses a random option from the following\n> Their defense value is increased by one (boost)\n> Their attack value is increased by one (boost)\n> They will use their ability an additional time on a random target.\n- They gain detection, roleblock, redirection, and control immunity.\n> Their defense value is lowered by one.\n> Their attack value is lowered by one.\n> They are redirected to a random target.\n> They lose all immunities and are roleblocked.\n- After the PMCS has begun, you will only boost Pale Moon members and non-NK Neutrals, and will only boo Townies, other evil factions, and NKs.\n- After the PMCS has begun, you may instead choose to deal an Unstoppable attack to a player.");
+		e.addField("Attributes:", "- The host must rng between 1 and 8:\n> Your target's defense value Is upped by one (Boost)\n> Your target's attack value Is upped by one (Boost)\n> Your target will do their abilities twice, the 2nd time on a random target (Boost)\n> Your target gains Detection, Roleblock, Redirection and Control Immunity (Boost)\n> Your target's defense value Is lowered by one (Boo)\n> Your target's attack value Is lowered by one (Boo)\n> Your target Is redirected to a random target (Boo)\n> Your target loses all immunities and Is roleblocked (Boo)\n- When the PMCS begins, you will automatically boost Pale Moons and Neutrals and automatically boo Town/Florae, all other evil factions and Neutral Killers.\n- You may decide to instead boo someone, dealing an Unstoppable Attack to them. You may still decide to go for the non lethal Boo.");
 
 		e.addField("Goal:", factions.PaleMoon.goal);
 	});

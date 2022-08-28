@@ -137,7 +137,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["deluxe", "del", "1110"], "Any", "Deluxe", {subCat: "Killing", anyExCat: ["Town", "Neutral"]}, (e) =>
+	register_role(["deluxe", "del", "1110"], "Any", "Deluxe", {subCat: "Killing", anyExCat: ["Town", "City", "Sentry", "Army", "Neutral"]}, (e) =>
 	{
 		e.setDescription("Post 1110");
 
@@ -515,21 +515,6 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
-	register_role(["beast_keeper", "beastkeeper", "1135", "231u"], "Unseen", "Beast Keeper", {subCat: "Investigative"}, (e) =>
-	{
-		e.setDescription("Post 1135\nConverted from: Animal Keeper");
-
-		e.addField("Alignment", "Unseen Investigative", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Give Out - Give someone an animal during the night. You will know which animal you give.\n- Whistle (2 uses) - Learn how many of each faction visit this night.");
-
-		e.addField("Attributes:", "- Give Out Is based on Animal Keeper results.");
-
-		e.addField("Goal:", factions.Unseen.goal);
-	});
-
 	register_role(["architect", "1136", "276u"], "Unseen", "Architect", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1136\nConverted from: Fortifier");
@@ -666,19 +651,6 @@ module.exports = (g) =>
 		e.addField("Abilities:", "- Reveal - The next day, you have a secret 3 vote. 1 use.\n- Shoot - Deal a basic attack to someone. 2 uses.");
 
 		e.addField("Attributes:", "- If you die, the next night, all Unseen can use their ability twice.");
-
-		e.addField("Goal:", factions.Unseen.goal);
-	});
-
-	register_role(["beast_behaviorist", "beastbehaviorist", "1146", "354u"], "Unseen", "Beast Behaviorist", {subCat: "Investigative"}, (e) =>
-	{
-		e.setDescription("Post 1146\nConverted from: Animal Behaviorist");
-
-		e.addField("Alignment", "Unseen Investigative", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Train - Learn if a target player visits an evil faction.\n- Behave - Learn if a target player is visited by an evil faction.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});

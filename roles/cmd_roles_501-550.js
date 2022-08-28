@@ -17,9 +17,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["saint", "502"], "Hallow", "Saint", {subCat: "Killing"}, (e) =>
+	register_role(["saint", "502", "502a"], "Hallow", "Saint", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 502");
+		e.setDescription("Post 502A");
 
 		e.addField("Alignment", "Unique Hallow Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -32,9 +32,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Hallow.goal);
 	});
 
-	register_role(["paragon", "502"], "Hallow", "Paragon", {subCat: "Killing", cannotRoll: true}, (e) =>
+	register_role(["paragon", "502b"], "Hallow", "Paragon", {subCat: "Killing", cannotRoll: true}, (e) =>
 	{
-		e.setDescription("Post 502");
+		e.setDescription("Post 502B");
 
 		e.addField("Alignment", "Unique Hallow Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -72,7 +72,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player to invite to the Hallowed grounds during the day.");
 
-		e.addField("Attributes:", "- The player you invite will be roleblocked through immunity. They can, however, be visited.\n- Your target can be protected, but you cannot be killed by Town Protective while executing.\n- You may converse with your prisoner anonymously. You will appear to be the Jailor, or if he is dead, the Missionary.\n- You may execute your prisoner. You have one execution.\n- If you execute an enemy player, the Saint will gain a Saint point.\n- Gain access to the Hallow factional kill if you are the last Hallow player alive. Lose if it another player becomes a non-espionage Hallow role by any means.\n- Conversion and Control Immunity");
+		e.addField("Attributes:", "- Conversion and Control Immunity\n- The player you invite will be roleblocked through immunity. They can, however, be visited.\n- Your target can be protected, but you cannot be killed by Town Protective while executing.\n- You may converse with your prisoner anonymously. You will appear to be the Jailor, or if he is dead, the Missionary.\n- You may execute your prisoner. You have one execution.\n- If you execute an enemy player, the Saint will gain a Saint point.\n- You cannot attack on Night One or Night Two.\n- Gain access to the Hallow factional kill if you are the last Hallow player alive. Lose if it another player becomes a non-espionage Hallow role by any means.");
 		
 		e.addField("Goal:", factions.Hallow.goal);
 	});
@@ -384,7 +384,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Lead all the evils to victory without letting them betray you.");
 	});
 
-	register_role(["mary_sue", "marysue", "526"], "Neutral", "Mary Sue", {subCat: "Evil"}, (e) =>
+	register_role(["mary_sue", "marysue", "526"], "Neutral", "Mary Sue", {subCat: "Evil", cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 526");
 
@@ -609,15 +609,15 @@ module.exports = (g) =>
 
 	register_role(["dogsong", "ds", "540"], "Neutral", "Dogsong", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 540");
+		e.setDescription("Post 540\n*It's so excited that it thinks fighting is just play.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- (Night) **Beckon**: Choose to be beckoned tonight. The first player that visited you will beckon you towards them (order determined by when actions were sent). You will be redirected to them tomorrow night. If nobody visits you, this ability fails. Gain 1 charge of Pet. (1 use)\n- (Night) **Play**: Choose a player to play with you. If they stayed home, they will play with you; if they did not stay home, their first visitor will play with you; if they did not stay home and were not visited, this ability fails. Your target will become energized tonight causing their action to Rampage (any non-attackers will be notified who they visited and any results associated with those players). Gain 2 charges of Pet. (0 use)\n- (Night) **Pet**:  Choose a player to pet you tonight. They will spend the entire night petting you which roleblocks them. The first time you use this, gain a charge of Play. This ability fails on roleblock immune players. (0 use)");
+		e.addField("Abilities:", "- (Night) **Beckon**: Choose to be beckoned tonight. The first player that visited you will beckon you towards them (order determined by when actions were sent). You will be redirected to them tomorrow night. If nobody visits you, this ability fails. Gain 1 charge of Pet. (1 use)\n- (Night) **Play**: Choose a player to play with you. If they stayed home, they will play with you; if they did not stay home, their first visitor will play with you; if they did not stay home and were not visited, this ability fails. Your target will become energized tonight causing their action to Rampage (any non-attackers will be notified who they visited and any results associated with those players). Gain 2 charges of Pet. (0 use)\n- (Night) **Pet**:  Choose a player to pet you tonight. They will spend the entire night petting you which roleblocks them. The first time you successfully use this, gain a charge of Play. This ability fails on roleblock immune players. (0 use)");
 
-		e.addField("Attributes:", "- If the game would normally end but you have not yet achieved your win condition, the game will continue.\n- You have a suit of armor on you that allows you to survive two Basic attacks before it breaks.");
+		e.addField("Attributes:", "- If the game would normally end but you have not yet achieved your win condition, the game will continue. This attribute is nullified upon your death.\n- You have a suit of armor on you that allows you to survive two Basic attacks before it breaks.");
 		
 		e.addField("Goal:", "Beckon, then pet, then play, then pet, then pet. (Only successful uses of actions will register for the win condition)");
 	});
@@ -753,5 +753,20 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- Any night visits on you that are not Unstoppable/Overkill attacks will automatically fail.\n- You have a private chat with anyone you indocrinate");
 		
 		e.addField("Goal:", "Eliminate all who oppose the overmind before another faction wins.");
+	});
+
+	register_role(["speedrunner", "550"], "Neutral", "Speedrunner", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 550");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Basic/Powerful", true);
+		e.addField("Defense", "None (Basic)", true);
+
+		e.addField("Abilities:", "- Deal a Basic Attack to a player.\n- Wear a bulletproof vest, granting you Basic Defense.\n- Guard another player, granting them Powerful Defense. If another player attacks this player, you will deal a Powerful Attack to them, and you will also die unless another player grants you a defense level of Powerful or higher.\n- Control a living player into performing their night action on a second player of your choice.\n- Control a dead player into performing their night action on a second player of your choice.\n- Transport two players of your choice, causing any abilities targeted towards either player to instead target the other one.\n- Go on Alert, granting you Basic Defense and dealing a Powerful Attack to all players who visit you tonight. (1 use)");
+
+		e.addField("Attributes:", "- Cannot be stopped from performing a night action by any means.\n- If the Speedrunner chooses not to perform a night action on any given night, they may use an extra night action in the following night.");
+		
+		e.addField("Goal:", "Eliminate the Town, Mafia, Coven, etc. End the game by the beginning of Day 5. Additionally, the Speedrunner must be the first player to perform a night action on at least one night in the game in order to win. (If the Speedrunner is the first to choose their night action, but then changes their night action at any point after someone else chooses their night action, then it will not count as being the first to choose their night action for that night.");
 	});
 };

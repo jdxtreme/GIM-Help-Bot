@@ -147,7 +147,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Authorize an investigation on 3 players during the day. Mandatory or random.\n- Blend in as a chosen Sentry role during the night.");
 
-		e.addField("Attributes:", "- Your Authorized targets will be revealed each night.\n- Targets will remain authorized until the end of the following day.\n- You may not authorize yourself as a target.\n- Blending in as a Sentry role will frame yourself as that role.\n- 1 Powerful Autovest\n- Conversion Immunity");
+		e.addField("Attributes:", "- Your Authorized targets will be revealed each night.\n- Targets will remain authorized until the end of the following day.\n- You may not authorize yourself as a target.\n- Blending in as a Sentry role will frame yourself as that role.\n- When you die, a random Sentry is promoted to a Minister (1372), unless there is already one.\n- 1 Powerful Autovest\n- Conversion Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -235,7 +235,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Guard an authorized target from direct attacks at night.\n- Guard the Censor instead of an authorized target during the night. 1 Use");
+		e.addField("Abilities:", "- Guard an authorized target from direct attacks at night.\n- Guard the Sentry Power instead of an authorized target during the night. 1 Use");
 
 		e.addField("Attributes:", "- If your target is directly attacked or is the victim of a harmful visit, you and the visitor will fight.\n- If you successfully protect someone you can still be Healed.\n- If you guard the Censor, your visit will be Astral.");
 		
@@ -250,7 +250,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Powerful)", true);
 
-		e.addField("Abilities:", "- Supervise the visitors of an Authorized target during the night. 2 Uses.\n- Supervise the Censor during the night instead of an authorized target. 1 Use.");
+		e.addField("Abilities:", "- Supervise the visitors of an Authorized target during the night. 2 Uses.\n- Supervise the Sentry Power during the night instead of an authorized target. 1 Use.");
 
 		e.addField("Attributes:", "- Supervised visitors will be given Powerful defense.");
 		
@@ -310,7 +310,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- License a player during the night.");
 
-		e.addField("Attributes:", "- Licensed players, if a Sentry, may target/vote non-authorized targets for the duration of the night & proceeding day.");
+		e.addField("Attributes:", "- Licensed players, if a Sentry, may target non-authorized targets the proceeding night.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -325,7 +325,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Authorize an investigation on an additional player during the day.");
 
-		e.addField("Attributes:", "- If you attempt to authorize an investigation on a player already authorized, that player will instead be **prioritized**.\n- **Prioritized** targets will have:\n>  - Their base/vest defense removed until they are no longer prioritized.\n> - Visitors be given frame & roleblock immunity\n- Your Authorized & prioritized targets will be revealed each night.\n- Targets will remain authorized/prioritized until the end of the following day.\n- If you attempt to authorize the Censor, it will automatically fail.\n- Conversion Immunity");
+		e.addField("Attributes:", "- If you attempt to authorize an investigation on a player already authorized, that player will instead be **prioritized**.\n- **Prioritized** targets will have:\n> - Their base/vest defense removed until they are no longer prioritized.\n> - Visitors be given frame & roleblock immunity\n- Your Authorized & prioritized targets will be revealed each night.\n- Targets will remain authorized/prioritized until the end of the following day.\n- If you attempt to authorize a Sentry Power, it will automatically fail.\n- Conversion Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -340,12 +340,12 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Reveal yourself as the Chairman during the day.");
 
-		e.addField("Attributes:", "- After revealing yourself as Chairman:\n> - Your vote will count as 3.\n> - Other Sentries may vote who you vote.\n- If you are ever protected/visited by a (Sentry) Protective role 3+ times total after revealing, your superiors will become paranoid of you and immediately deal an Overkill attack to you.");
+		e.addField("Attributes:", "- After revealing yourself as Chairman:\n> - Your vote will count as 3.\n> - Other Sentries may vote who you vote.\n- If you are ever protected/visited by a (Sentry) Protective role 3+ times total **after revealing**, your superiors will become paranoid of you and immediately deal an Overkill attack to you.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["strongman", "1374"], "Sentry", "Strongman", {subCat: "Support"}, (e) =>
+	register_role(["strongman", "1374"], "Sentry", "(Sentry) Strongman", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1374");
 
@@ -355,7 +355,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Intimidate an authorized target during the night.");
 
-		e.addField("Attributes:", "- Intimidated targets will be roleblocked.");
+		e.addField("Attributes:", "- Intimidated targets will be roleblocked.\n- Roleblock Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -458,7 +458,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Transform someone into a block, Roleblocking, giving Powerful defense to them and Learning their role\n- Disappear briefly, players targeting you will instead target random people that are not in your faction.");
 
-		e.addField("Attributes:", "- If you are killed you will learn your killed and their role");
+		e.addField("Attributes:", "- If you are killed, the Koopas will learn the name and role of your killer(s).");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -521,21 +521,21 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal + "**}**");
 	});
 
-	register_role(["forboder", "fber", "1386"], "Neutral", "Forboder", {subCat: "Chaos"}, (e) =>
+	register_role(["foreboder", "fber", "1386"], "Neutral", "Foreboder", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 1386");
+		e.setDescription("Post 1386\n*If you can't take the heat...*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Invincible)", true);
 
-		e.addField("Abilities:", "- Give someone an omen each night.");
+		e.addField("Abilities:", "- Choose an omen and give it to someone each night.");
 
-		e.addField("Attributes:", "- A player with an omen will be given a disadvantage for the rest of the game based on the omen they received.\n- You are able to choose which omen to give to your target.\n- You may not give the same player more than one omen nor the same omen to more than one player.");
+		e.addField("Attributes:", "- A player with an omen will be given a disadvantage for the rest of the game based on the omen they received.\n- You may not give the same player more than one omen nor the same omen to more than one player.\n- You have a one-use Invincible autovest that will protect you from all attacks on the first night you are attacked.");
 
-		e.addField("List of Omens:", "- Anxiety: You will die if you are visited by 2 or more people.\n- Blindfold: You will no longer receive any night feedback apart from death messages.\n- Earache: Once you receive 20 whispers after receiving this omen, you will immediately die (whispers from the Forboder do not count).\n- Eyepatch: You have a 50% chance to target a random player when you use your ability.\n- Forced Hand: You will lose a use of all of your limited use abilities every time a phase passes when you could have used it regardless of whether you used it.\n- Fragile: Your abilities have a 75% chance of failing. Lose this omen the first time it causes an ability to fail.\n- Off-Centered: Your targeted abilities will target the player lower in the player list (wrapping around) by a specific number of positions.\n- Narcolepsy: After using an ability, you must wait for another full day and night cycle to pass before using another ability.\n- PR Team: You may not send more than ten messages each day.\n- Pretty Face: You will roleblock whoever you visit.");
+		e.addField("List of Omens:", "- **Anxiety**: Your defense is now Vulnerable.\n- **Attrition**: Every full day and night cycle, lose a charge of a random limited-use ability that you did not use.\n- **Blindfold**: You will no longer receive any night feedback apart from death messages (does not include ability feedback)\n- **Earache**: Once you receive 20 whispers after receiving this omen excluding whispers from the Foreboder, you will immediately be dealt an Unstoppable Astral attack.\n- **Eyepatch**: You have a 50% chance to target a random player when you use your ability.\n- **Fragile**: Your abilities have a 75% chance of failing. Lose this omen the first time it causes an ability to fail.\n- **Narcolepsy**: After using an ability, you must wait for another full day and night cycle to pass before using another ability.\n- **PR Team**: You may not send more than ten messages each day.\n- **Revenge**: When you visit a player, you will be dealt an Attack equal to their Attack value.");
 
-		e.addField("List of Omens (cont.):", "- Revenge: When you visit a player, you will be dealt an attack equal to their Attack value.\n- Scurvy: Your abilities and attributes are replaced by the Pirate’s. You will regain your original abilities once you win a duel.\n- Unruly: If you do not perform your night ability, you will be poisoned.\n- Wanted Poster: You require one less vote to be lynched.\n- Whistleblower: All of your whispers will be shown publicly.");
+		e.addField("List of Omens (cont.):", "- **Unruly**: If you do not perform your night ability, and you have a night ability, you will be poisoned.\n- **Wanted Poster**: You require one less vote to be lynched.\n- **Whistleblower**: All of your whispers will be shown publicly.");
 
 		e.addField("Goal:", "Give out three omens that negatively impact the player receiving the omen.");
 	});
@@ -557,7 +557,7 @@ module.exports = (g) =>
 
 	register_role(["yekpeeber", "yek", "1388", "794u"], "Unseen", "Yekpeeber", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 1388\nConverted from: Ummmmm");
+		e.setDescription("Post 1388\n*James Nond's having a stronk. Call a bondulence.*\nConverted from: Keybeeper");
 
 		e.addField("Alignment", "Unseen Protective", true);
 		e.addField("Attack", "Powerful", true);
@@ -585,17 +585,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["ultimate_landlord", "ultimatelandlord", "ul", "1390"], "Town", "Ultimate Landlord", {subCat: "Power"}, (e) =>
+	register_role(["thundersnail", "ts", "1390"], "Neutral", "Thundersnail", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1390");
 
-		e.addField("Alignment", "Unique Town Power", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "\"Inverted\"", true);
 
-		e.addField("Abilities:", "- Give two players permissions to stay in their house. They will not be roleblocked when you use your third ability.\n- Revoke a player permission to stay in their house. They will once again be roleblocked when you use your third ability.\n- Kick all players in the game who you haven’t given permission. Every one of these players will be roleblocked other than yourself. You can‘t use this ability for three nights in a row.");
+		e.addField("Abilities:", "- **Intercept** - Redirect all attacks against your target to yourself tonight.\n- **Zap** - Attack someone. The tier is equal to the amount of charges in your Lightning Tower (basic, powerful, unstoppable, overkill). You gain a charge for this every time you are attacked. 0 uses.\n- **Shell Shield** - Give yourself basic defense tonight. 1 use.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- You can multitask.");
+		e.addField("Attributes:", "- **Snail Armor** - You have inverted defense. None and Weak attacks will kill you and Basic attacks will just injure you. If you're injured thrice, you will die. Anything more powerful than that will have no effect on you. Doesn't work against lynches.\n- **Lightning Tower** - Each night where you take a hit, this attribute will gain a charge, up to a maximum of 4. It cannot be filled by any other means.\n- This role is shamelessly plagiarized from Noodle. 👍");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

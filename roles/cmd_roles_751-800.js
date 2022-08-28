@@ -233,9 +233,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Each night, select two targets. If Target A votes Target B the following morning, roleblock Target A.\n**Piercing Death** — Roleblock three random players that voted you during the preveious day phase, then coldsnap. Can be used the night after your death. You may only use this ability once each game.");
+		e.addField("Abilities:", "- Each night, select two targets. If Target A votes Target B the following morning, roleblock Target A.\n**Piercing Death** — Roleblock three random players that voted you during the previous day phase, then coldsnap. Can be used the night after your death. You may only use this ability once each game.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything at night besides an Everfrost Attribute, during the next morning, the first person they vote will be roleblocked the following night.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything at night besides an Everfrost passive, the first person they vote next morning will be roleblocked the following night.");
 		
 		e.addField("Goal:", factions.Everfrost.goal);
 	});
@@ -388,19 +388,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Whatever the goal of your faction is. (*You have the Survivor's goal if you're Neutral Benign, the Witch's if you're Neutral Evil, etc.*)");
 	});
 
-	register_role(["wraith", "777"], "Mafia", "Wraith", {subCat: "Espionage"}, (e) =>
+	register_role(["redeemer", "777"], "Hallow", "Redeemer", {subCat: "Espionage"}, (e) =>
 	{
 		e.setDescription("Post 777");
 
-		e.addField("Alignment", "Unique Mafia Espionage", true);
+		e.addField("Alignment", "Unique Hallow Espionage", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Appear to a player at night.");
 
-		e.addField("Attributes:", "- If the player dies, you will assume unlimited charges of their abilities, unless those abilities include conversion of any kind.\n- You can appear to players who are killed by an ability which prevents other visits (Jailor, Wisteria, etc)\n- You may only use one ability per night, including appearing to a player.\n- If the player does not die, they will learn you are the Wraith. This will not apply if the player is protected or has their visitors stopped.");
+		e.addField("Attributes:", "- If the player dies, you will assume unlimited charges of their abilities, unless those abilities include conversion of any kind.\n- You can appear to players who are killed by an ability which prevents other visits (Jailor, Wisteria, etc)\n- You may only use one ability per night, including appearing to a player.\n- If the player does not die, they will learn you are the Redeemer. This will not apply if the player is protected or has their visitors stopped.\n- When you have gained two abilities, the Saint will gain a Saint point.");
 		
-		e.addField("Goal:", factions.Mafia.goal);
+		e.addField("Goal:", factions.Hallow.goal);
 	});
 
 	register_role(["gifted_child", "giftedchild", "gifted", "778"], "Neutral", "Gifted Child", {subCat: "Benign"}, (e) =>
@@ -443,7 +443,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Protect the fallen child tonight. They will gain Invincible defense for the night, and any negative effects will be purged (2 use).");
 
-		e.addField("Attributes:", "- The fallen child is [player]. They will be notified that they are the fallen child at the start of the game. Any whispers between you and the fallen child will be completely undetectable by any means. The fallen child is guaranteed to be a player that does not have defense nor has any method of granting themselves defense.\n- You cannot claim your role publicly. If you do, the Town will believe you are a monster and will deal an instant Unstoppable attack to you. If the Town suspects you are this role, this attribute is not triggered.\n- If the fallen child dies at any point, you will absorb their soul that night. The following day, you will attempt to place them in their final resting place at the golden flowers in their town. If you receive two votes at this point, you will instantly be dealt an Unstoppable attack. If you survive the day phase, you will successfully let the fallen child rest and will leave the town permanently.");
+		e.addField("Attributes:", "- The fallen child is [player]. They will be notified that they are the fallen child at the start of the game. Any whispers between you and the fallen child will be completely undetectable by any means. The fallen child is guaranteed to be a player that does not have defense nor has any method of granting themselves defense.\n- You cannot claim your role publicly. If you do, the Town will believe you are a monster and will deal an instant Unstoppable attack to you. If the Town suspects you are this role, this attribute is not triggered; however, it will be triggered if the fallen child points out that you are this role.");
+
+		e.addField("Attributes (cont.):", "- If the fallen child dies at any point, you will absorb their soul that night. The following day, you will attempt to place them in their final resting place at the golden flowers in their town. If you receive two votes at this point, you will instantly be dealt an Unstoppable attack. If you survive the day phase, you will successfully let the fallen child rest and will leave the town permanently.");
 		
 		e.addField("Goal:", "Have the fallen child live until the end of the game OR successfully let the fallen child rest in the golden flowers.");
 	});
@@ -453,7 +455,7 @@ module.exports = (g) =>
 		e.setDescription("Post 781");
 
 		e.addField("Alignment", "Unique Thundercry Onslaught", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Call down divine lightning, rampaging at all Striked players' houses. For every non-Striked player you kill, you gain one Strike to use.\n- Prepare a Strike on a player. Strikes will activate the following morning.");
@@ -501,9 +503,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Attack one living neighbour of every Striked player OR attack a single player.\n- Prepare a Strike on a player. Strikes will activate the following morning.");
+		e.addField("Abilities:", "- Attack both living neighbours of a Striked player.\n- Once per game, attack all four living neighbours of a Strike player. However, if one of them would survive your attack, you perform a regular attack, consuming this ability.\n- Prepare a Strike on a player. Strikes will activate the following morning.");
 
-		e.addField("Attributes:", "- You may place up a Strike on top of doing your nightly action.\n- If two or more Striked players are alive, gain basic defense.");
+		e.addField("Attributes:", "- You may place as many Strikes are you like on top of doing your nightly action.\n- If two or more Striked players are alive, gain basic defense.");
 		
 		e.addField("Goal:", factions.Thundercry.goal);
 	});

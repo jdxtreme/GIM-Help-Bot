@@ -426,9 +426,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Investigate someone to find about their exact action in the previous night phase. This cannot be used in Night 1.\n- Investigate a dead body to learn about every action that targeted it during the night that it died. Cannot be used on people who died in the Day.");
+		e.addField("Abilities:", "- Investigate someone to learn every other action that targeted them that night.\n- Investigate a dead body at night to learn about every other action that targeted it during the night that it died. Cannot be used on people who died in the Day.");
 
-		e.addField("Attributes:", "- When using any ability, you may decide to publish your results anonymously in the following day's announcement. You must decide before you get results, not after.");
+		e.addField("Attributes:", "- You will only know the effects of abilities that you learn, such as attacking the target with a specific tier, or investigating something specific about it.\n- If an action you learn is one-of-a-kind effect, and is otherwise **only** usable by roles that copy effects, then you will only see it as a \"one-of-a-kind effect\".\n- You won't learn about self-targeting abilities, or ones that only indirectly affected your target such as Rampages.\n- When using any ability, you may decide to publish your results anonymously in the following day's announcement. You must decide before you get results, not after. You may only do so once.\n- You will bypass any attempt to redirect visitors away from your target.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

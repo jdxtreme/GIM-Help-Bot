@@ -359,9 +359,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None (Basic)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Can Perform the Factional Mafia Kill OR visit another player.");
+		e.addField("Abilities:", "- Perform the Factional Mafia Kill\n- Visit another player.");
 
-		e.addField("Attributes:", "- If you visit somebody who is not in jail, they will be given something to get out of jail once.\n- If you visit someone in jail, you will break them out and direct their ability before the night is over. They will be informed of this\n- If you are jailed, you will escape and kill the person who jailed you\n- If you visit either a Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, or Warden, you will kill them.\n- If either the Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, or Warden dies by any means, you will become a Random Mafia. If any of the listed roles are still alive, you will not change roles\n- This role cannot exist without either a Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, or Warden.");
+		e.addField("Attributes:", "- If you visit somebody who is not in jail, they will be given something to get out of jail once.\n- If you visit someone in jail, you will break them out and direct their ability before the night is over. They will be informed of this\n- If you are jailed, you will escape and kill the person who jailed you\n- If you visit either a Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, Xray, or Warden, you will kill them.\n- If either the Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, Xray, or Warden dies by any means, you will become a Random Mafia. If any of the listed roles are still alive, you will not change roles\n- This role cannot exist without either a Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, Xray, or Warden.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -484,19 +484,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["not_pirate", "notpirate", "pirate", "831"], "Neutral", "Not Pirate", {subCat: "Chaos"}, (e) =>
+	register_role(["anemone", "ane", "831"], "Florae", "Anemone", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 831");
 
-		e.addField("Alignment", "Unique Neutral Chaos", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Alignment", "Unique Florae Support", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose someone during the day to challenge to Rock Paper Scissors.\n- Use a vest to protect yourself.");
+		e.addField("Abilities:", "- Plant yourself outside someone's house, redirecting their visitors to someone else.");
 
-		e.addField("Attributes:", "- Anyone you duel will be roleblocked that night.\n- Both players put their choice in their channel.\n- If you win, you deal a powerful attack to your target. If you lose or draw, nothing happens.\n- You cannot duel someone two times in a row.\n- Because this is not Pirate, you get 2 vests that give you basic defense for a night. See? It is not Pirate.\n- This is not a pirate. Any rules/effects that effect pirates do not effect Not Pirate");
+		e.addField("Attributes:", "- You pick 2 targets. The visitors to the first target instead go to the second target.\n- Roleblock, Control, Redirect Immunity.");
 
-		e.addField("Goal:", "Win Rock Paper Scissors twice.");
+		e.addField("Goal:", factions.Florae.goal);
 	});
 
 	register_role(["trisyara_goddess_of_thunder", "trisyaragoddessofthunder", "trisyara", "goddess_of_thunder", "goddessofthunder", "tgot", "832"], "Neutral", "Trisyara, Goddess of Thunder", {subCat: "Killing"}, (e) =>
@@ -507,9 +507,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- Strike someone down each night, dealing to them an Unstoppable attack.");
+		e.addField("Abilities:", "- Strike someone down each night, dealing to them an Unstoppable attack.\n- Mark a player or remove a mark from a player. This ability resolves immediately and you may use it at any time, even multiple times a phase.");
 
-		e.addField("Attributes:", "- Roleblock, Redirect, Detection, and Conversion Immune\n- Whenever a player is dealt an attack that is greater than the attack value that would've been needed to kill them by anything, you gain an extra attack equal to the difference. (*If an Unstoppable is dealt to someone with no defense, you gain a Powerful attack.*)\n- You may use any number of these extra attacks in addition to your normal night action.\n- This applies to modkills, which are considered one level greater than Overkill. It does not apply to lynches.");
+		e.addField("Attributes:", "- Roleblock, Redirect, Detection, and Conversion Immune\n- Whenever a player is dealt an attack that is greater than the attack value that would've been needed to kill them by anything, an attack equal to the difference is dealt to a random Marked player. (*If an Unstoppable is dealt to someone with no defense, a Powerful attack is dealt. If that target also has no defense, another Basic attack is dealt to another target.*) This applies to modkills, which are considered one level greater than Overkill. It does not apply to lynches.");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -649,19 +649,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["vampire_hunter", "vampirehunter", "842"], "Neutral", "Vampire Hunter", {subCat: "Killing"}, (e) =>
+	register_role(["initiate", "842"], "Cult", "Initiate", {subCat: "Espionage"}, (e) =>
 	{
-		e.setDescription("Post 842");
+		e.setDescription("Post 842\n*\"Finally joining the Cult, they didn't trust you enough to give you their names, just a weapon and a job. The job is simple: Kill all enemies of the Cult. If you do this, you will finally be a full member of the Cult.\"*");
 
-		e.addField("Alignment", "Unique Neutral Killing", true);
-		e.addField("Attack", "Basic (Powerful)", true);
+		e.addField("Alignment", "Cult Espionage", true);
+		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Attack a player at night.");
+		e.addField("Abilities:", "- During the day, learn someone's true role. This is not fooled by frames or disguises. 1 use.\n- During the night, deal a Basic attack to someone. 2 uses. +1 use if you find a Cult Member with your day ability.\n- During the night, attack someone with an Unstoppable wound. This acts like a poison, and if they are not healed they die at the end of the next night. 1 use.");
 
-		e.addField("Attributes:", "- If you attack a conversion role, deal a Powerful attack instead of a Basic attack.\n- You can hear the factional chat of conversion roles.\n- If a conversion role visits you, you will be immune to all of their effects.");
+		e.addField("Attributes:", "- This role is converted from Town (Espionage) roles.\n- If you are converted, the Cult will know who you are, but will not be able to whisper you until you whisper them first.\n- You are roleblock immune when using your Unstoppable wound.");
 
-		e.addField("Goal:", "Kill all conversions roles. If no conversion roles exist in the game, kill all who would oppose you.");
+		e.addField("Goal:", factions.Cult.goal);
 	});
 
 	register_role(["crazy_dave", "crazydave", "dave", "843"], "Neutral", "Crazy Dave", {subCat: "Killing"}, (e) =>

@@ -96,7 +96,7 @@ module.exports = (g) =>
 
     register_role(["treestump", "707a", "707"], "Town", "Treestump", {subCat: "Casual"}, (e) =>
     {
-        e.setDescription("Post 707");
+        e.setDescription("Post 707A");
 
         e.addField("Alignment", "Unique Town Casual", true);
         e.addField("Attack", "None", true);
@@ -111,7 +111,7 @@ module.exports = (g) =>
 
     register_role(["tree", "707b"], "Town", "Tree", {subCat: "Casual"}, (e) =>
     {
-        e.setDescription("Post 707");
+        e.setDescription("Post 707B");
 
         e.addField("Alignment", "Unique Town Casual", true);
         e.addField("Attack", "Varies", true);
@@ -199,7 +199,7 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Underworld.goal);
     });
 
-    register_role(["joker_of_all_trades", "jokerofalltrades", "joat", "713"], "Town", "Joker of All Trades", {subCat: "Support"}, (e) =>
+    register_role(["joker_of_all_trades", "jokerofalltrades", "joat", "713"], "Town", "Joker of All Trades", {subCat: "Support", cannotRoll: true}, (e) =>
     {
         e.setDescription("Post 713");
 
@@ -214,7 +214,7 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Town.goal);
     });
 
-    register_role(["jack"], "Town", "Jack", {subCat: "Support"}, (e) =>
+    register_role(["jack"], "Town", "Jack", {subCat: "Support", spawnRate: 0.2}, (e) =>
     {
         e.setDescription("Post 713");
 
@@ -229,7 +229,7 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Town.goal);
     });
 
-    register_role(["queen"], "Town", "Queen", {subCat: "Support"}, (e) =>
+    register_role(["queen"], "Town", "Queen", {subCat: "Support", spawnRate: 0.2}, (e) =>
     {
         e.setDescription("Post 713");
 
@@ -244,7 +244,7 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Town.goal);
     });
 
-    register_role(["king"], "Town", "King", {subCat: "Support"}, (e) =>
+    register_role(["king"], "Town", "King", {subCat: "Support", spawnRate: 0.2}, (e) =>
     {
         e.setDescription("Post 713");
 
@@ -257,7 +257,7 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Town.goal);
     });
 
-    register_role(["ace"], "Town", "Ace", {subCat: "Support"}, (e) =>
+    register_role(["ace"], "Town", "Ace", {subCat: "Support", spawnRate: 0.2}, (e) =>
     {
         e.setDescription("Post 713");
 
@@ -272,7 +272,7 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Town.goal);
     });
 
-    register_role(["joker"], "Town", "Joker", {subCat: "Support"}, (e) =>
+    register_role(["joker"], "Town", "Joker", {subCat: "Support", spawnRate: 0.2}, (e) =>
     {
         e.setDescription("Post 713");
 

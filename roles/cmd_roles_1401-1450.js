@@ -90,17 +90,32 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["corrupted_landlord", "corruptedlandlord", "cl", "1407", "1390u"], "Unseen", "Corrupted Landlord", {subCat: "Power"}, (e) =>
+	register_role(["chönigiinsamchiit", "chonigiinsamchiit", "chonig", "1407", "1407a", "364u", "364au"], "Unseen", "Chönigiinsamchiit", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 1407\nConverted from: Ultimate Landlord");
+		e.setDescription("Post 1407A\nConverted from: Bergentrückung");
 
-		e.addField("Alignment", "Unique Unseen Power", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Alignment", "Unseen Protective", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Force a player to pay rent with their Defense tier. Steal 1 Defense tier and give it to yourself or one of your teammates. If they have None defense, then attacc them because they didn't pay.\n- Kick all players out of their house other than Unseen. Every one of these players will be roleblocked other than yourself. (1 use)");
+		e.addField("Abilities:", "- Protect two people tonight with Basic defense. Those who they visit will have the Defense value reduced by 1.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- You can multitask.");
+		e.addField("Attributes:", "- You think you do not deserve to be spared, so you can't defend yourself. Even when you're unseen...\n- If you successfully protect someone with your ability, you can turn into CORRUPTED ASGORE during the day.");
+
+		e.addField("Goal:", factions.Unseen.goal);
+	});
+
+	register_role(["corrupted_asgore", "corruptedasgore", "corrupted", "asgore", "ca", "1407b", "364bu"], "Unseen", "CORRUPTED ASGORE", {subCat: "Protective"}, (e) =>
+	{
+		e.setDescription("Post 1407B\nConverted from: ASGORE");
+
+		e.addField("Alignment", "Unseen Protective", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Send a flaming spear to your target. They will be basic attacked, but if they survive they will burn. After burning for two days, you will use another unstoppable attack. You can't be affected by abilities from a player who is burning.\n- Spin your trident, gain basic defense and powerful attack all of your visitors. (2 uses)\n- Steal the target's SOUL and overkill attack them. If you use this ability, you will deal an overkill attack to yourself after 1 day. (1 use)");
+
+		e.addField("Attributes:", "- Everyone who will visit you will be informed you're CORRUPTED ASGORE.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -238,11 +253,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["monty_mole", "montymole", "mm", "monty", "1417"], "Koopa", "Monty Mole", {subCat: "Investigative"}, (e) =>
+	register_role(["monty_mole", "montymole", "mm", "monty", "1417"], "Koopa", "Monty Mole", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1417");
 
-		e.addField("Alignment", "Koopa Investigative", true);
+		e.addField("Alignment", "Koopa Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -319,7 +334,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Go inside your Shell this night, Gaining Overprotective defense, can't be used again for the next 2 nights.\n- Breathe Flames on 3 targets, Attacking both, Can only be used on day 3, 6, 9 and so on.");
+		e.addField("Abilities:", "- Ground pound to create an earthquake that Roleblocks everyone through Immunity, Ignores Koopas, can't be used again for the next 3 nights.\n- Breathe Flames on 3 targets, Attacking and Torching them, Can only be used on day 3, 6, 9 and so on.\n- Use the Star rod to give a Koopa Overprotective and Lynchproof defense until the start of the next night. (1 use)");
 
 		e.addField("Attributes:", "- Anyone visiting you will be dealt a Basic attack if they aren't from your Faction.");
 
@@ -441,7 +456,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose up to 4 targets, you will attack 2 of them randomly if you chose 4 targets, 1 if you chose 3 or less.");
 
-		e.addField("Attributes:", "- If Bowser chose you as the Normal Attacker of the night, you will also attack 1 random player visiting you.");
+		e.addField("Attributes:", "- If chosen as the normal attacker, you will gain basic defense for the night if you attack someone with basic defense or higher.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -478,7 +493,7 @@ module.exports = (g) =>
 
 	register_role(["playwright", "pw", "1433"], "Neutral", "Playwright", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 1433");
+		e.setDescription("Post 1433\n*The Tragedy of Salem: directed by yours truly.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -486,7 +501,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Predict something that will happen during the night and write an exposition for it.");
 
-		e.addField("Attributes:", "- You must predict that one player will perform a specific action towards another player for your prediction to count. You cannot predict something as vague as “A visited B”, but you can predict something like “A investigated B” or “A protected B”.\n- Along with your prediction, you must send a detailed exposition of the predicted event as if it were to occur during a play. It is the host’s discretion as to how much detail is necessary.\n- Upon a correct prediction, you will gain Basic Defense for the night, and the player that you predicted the action happening to (the second player) will receive your exposition.\n- You have Basic Defense on Night 1.");
+		e.addField("Attributes:", "- You must predict that one player will perform a specific action towards another player for your prediction to count. You cannot predict something as vague as “A visited B”, but you can predict something like “A investigated B” or “A protected B”. It is the host's final decision as to how specific your predicted actions must be.\n- Along with your prediction, you must send a detailed exposition of the predicted event as if it were to occur during a play. It is the host’s discretion as to how much detail is necessary.\n- Upon a correct prediction, you will gain Basic Defense for the night, and the player that you predicted the action happening to (the second player) will receive your exposition.\n- You have Basic Defense on Night 1 for it is so cliché for the author of the story to die immediately.");
 
 		e.addField("Goal:", "Successfully predict and create exposition for three events.");
 	});
@@ -692,11 +707,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Koopa Protective", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "\"Frail\"", true);
 
 		e.addField("Abilities:", "- Protect your Target, Redirecting all attacks on them to you.");
 
-		e.addField("Attributes:", "- If you die, you will automatically be revived on the start of second night after you die, cannot activate if there are no other Koopas alive.");
+		e.addField("Attributes:", "- If you die, you will automatically be revived on the start of second night after you die, cannot activate if there are no other Koopas alive.\n- Frail defense means that you will die if you are targeted by any single-target negative effect that doesn't choose a random target. (Roleblocks, Redirects, Etc.)");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -731,11 +746,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Toppat.goal);
 	});
 
-	register_role(["goombario", "goombella", "goom", "1450"], "Koopa", "Goombario/Goombella", {subCat: "Investigative"}, (e) =>
+	register_role(["goombario", "goombella", "goom", "1450"], "Koopa", "Goombario/Goombella", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1450");
 
-		e.addField("Alignment", "Koopa Investigative", true);
+		e.addField("Alignment", "Koopa Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 

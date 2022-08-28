@@ -191,7 +191,7 @@ module.exports = (g) =>
 
 	register_role(["uwu_tang_clan", "uwutangclan", "utc", "1464"], "Neutral", "UwU Tang Clan", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 1464");
+		e.setDescription("Post 1464\n*C.W.E.A.M.*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "\"Standawd\" (Basic)", true);
@@ -292,7 +292,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["stage_caster", "stagecaster", "stage", "sc", "1471"], "Neutral", "Ninja Brigadier", {subCat: "Other"}, (e) =>
+	register_role(["stage_caster", "stagecaster", "stage", "sc", "1471"], "Neutral", "Stage Caster", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 1471");
 
@@ -754,12 +754,12 @@ module.exports = (g) =>
 		e.setDescription("Post 1500");
 
 		e.addField("Alignment", "Koopa King", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Powerful", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Engulf your target in Shadows for this night.\n- Steal a random Ability from a target that can be useful on its own, You will recieve that ability as a new one while they will get Engulfed in shadows for a night if they use it while you are alive. (2 uses)");
+		e.addField("Abilities:", "- Engulf your target in Shadows for 2 nights\n- Copy an random Ability from a target that can be useful on its own, You will recieve that ability as a new one. (2 uses)\n- Attack up to 3 random targets engulfed in shadows. (1 use)");
 
-		e.addField("Attributes:", "- Targets engulfed in shadows will:\n• Have their defense reduced by a tier.\n• Get torched on death.\n• Roleblock visitors who aren't attacking.\n\n- 1 random Townie will get the following ability in the start of the game:\n> Check someone, If they are Doopliss(1500), Deal an Unstoppable attack to them, This Bypasses Roleblocks and Frames.\nIf they die, this ability is passed down to another random Townie.");
+		e.addField("Attributes:", "- Targets engulfed in shadows will:\n• Hide the role that killed them.\n• Roleblock visitors of the same faction who aren't attacking\n• Have their defense reduced by a tier (If it was none, they can get killed by weak Koopa attacks).\n\n- If a player uses an ability you copied, they will Engulf their target and visitors in shadows for 2 nights, This will ignore Koopas.\n- You will learn the names of all Engulfed players at the start of the Night.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});

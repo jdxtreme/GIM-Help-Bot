@@ -1,3 +1,23 @@
+function checkSubCats(targets, meta, ind)
+{
+	let subcat = meta.subCat;
+
+	if(meta.spawnSubCat)
+		subcat = meta.spawnSubCat;
+
+	if(!subcat || Object.keys(targets).length === 0)
+		return true;
+
+	if(typeof subcat === "string")
+		return targets[subcat.toLowerCase()];
+	else
+	{
+		for(let i = 0; i < subcat.length; i++)
+			if(targets[subcat[i].toLowerCase()] && (!meta.syncCats || !isInt(ind) || ind === i))
+				return targets[subcat[i].toLowerCase()];
+	}
+}
+
 //<table>, <string>
 function containsString(t, s)
 {
@@ -29,14 +49,14 @@ function randChances(t)
 	let sum = 0;
 
 	for(let i in t)
-		sum = sum + Math.round(100 * t[i].rate);
+		sum = sum + Math.max(Math.round(100 * t[i].rate), 0);
 
 	let choice = randInt(sum);
 	sum = 0;
 
 	for(let i in t)
 	{
-		sum = sum + Math.round(100 * t[i].rate);
+		sum = sum + Math.max(Math.round(100 * t[i].rate), 0);
 
 		if(sum > choice)
 			return t[i];
@@ -47,7 +67,15 @@ function randChances(t)
 
 function isInt(v)
 {
+	if(typeof v !== "string")
+		v = String(v);
+
 	return parseInt(v, 10).toString() === v;
+}
+
+function isNeg(arg)
+{
+	return arg.charAt(0) === "-" || arg.charAt(0) === "!";
 }
 
 module.exports = (g) =>
@@ -157,27 +185,104 @@ module.exports = (g) =>
 		msg(chn, args[randInt(args.length)]);
 	});
 
-	register_cmd(["random_role", "randomrole", "rrole", "role"], "[category[:subcategory]...]...", "Random Role", "Roll for a random role out of the list of those that are registered in the Bot. A full role card will be provided based on the results.\n\nYou may optionally provide a list of categories as parameters. Only a role that can fit at least one category will be provided.\n\nYou may also specify a subcategory for each category. This is done using the format of `category:subcategory`. The same category can have more than one listed subcategory, e.g. `category:apple:bannana:cyanide`\n\nSee =categories for a list of categories and subcategories.\n\nExact spelling will be required when specifying categories and subcategories, but they will not be case-sensitive.", (chn, message, e, args, nosend) =>
+	g.randomRole = (chn, message, e, args, nosend) =>
 	{
 		let role = null;
 		let incany = randInt(10) == 0;
 		let specs = null;
+		let exSpecs = null;
 		let accept = false;
 		let rollable = [];
 
 		if(args.length > 0)
 		{
-			specs = {};
-
 			for(let i = 0; i < args.length; i++)
 			{
 				let splits = args[i].toLowerCase().split(':');
 
-				if(!specs[splits[0]])
-					specs[splits[0]] = {};
+				switch(args[i].toLowerCase())
+				{
+					case "tk": splits = ["town", "killing"]; break;
+					case "tp": splits = ["town", "protective"]; break;
+					case "ti": splits = ["town", "investigative"]; break;
+					case "ts": splits = ["town", "support"]; break;
+					case "tpo": splits = ["town", "power"]; break;
+					case "tc": splits = ["town", "casual"]; break;
+					case "to": splits = ["town", "other"]; break;
+					case "nk": splits = ["neutral", "killing"]; break;
+					case "nc": splits = ["neutral", "chaos"]; break;
+					case "ne": splits = ["neutral", "evil"]; break;
+					case "nb": splits = ["neutral", "benign"]; break;
+					case "no": splits = ["neutral", "other"]; break;
+					case "mh": splits = ["mafia", "head"]; break;
+					case "mk": splits = ["mafia", "killing"]; break;
+					case "ms": splits = ["mafia", "support"]; break;
+					case "md": splits = ["mafia", "deception"]; break;
+					case "me": splits = ["mafia", "espionage"]; break;
+					case "ce": splits = ["coven", "evil"]; break;
+					case "cs": splits = ["coven", "support"]; break;
+				}
 
-				for(let n = 1; n < splits.length; n++)
-					specs[splits[0]][splits[n]] = true;
+				let cat = splits[0];
+				let exc = false;
+
+				if(isNeg(cat))
+				{
+					cat = cat.substring(1);
+					exc = true;
+				}
+
+				if(exc)
+				{
+					if(!exSpecs)
+						exSpecs = {};
+
+					if(!exSpecs[cat])
+						exSpecs[cat] = {};
+
+					for(let n = 1; n < splits.length; n++)
+					{
+						let sub = splits[n];
+
+						if(isNeg(sub))
+							sub = sub.substring(1);
+
+						exSpecs[cat][sub] = true;
+					}
+				}
+				else
+				{
+					if(!specs)
+						specs = {};
+
+					if(!specs[cat])
+						specs[cat] = {};
+
+					for(let n = 1; n < splits.length; n++)
+					{
+						let sub = splits[n];
+						let exs = false;
+
+						if(isNeg(sub))
+						{
+							sub = sub.substring(1);
+							exs = true;
+						}
+
+						if(exs)
+						{
+							if(!exSpecs)
+								exSpecs = {};
+
+							if(!exSpecs[cat])
+								exSpecs[cat] = {};
+
+							exSpecs[cat][sub] = true;
+						}
+						else
+							specs[cat][sub] = true;
+					}
+				}
 			}
 		}
 
@@ -192,29 +297,63 @@ module.exports = (g) =>
 			if(cmd.meta.cannotRoll || (cmd.cat === "Any" && !incany))
 				continue;
 
-			if(specs)
+			if(specs || exSpecs)
 			{
 				catMatch = false;
 
 				if(cmd.cat === "Any" && (!cmd.meta.spawnCat || containsString(cmd.meta.spawnCat, "Any")))
 				{
-					for(let cat in specs)
+					if(specs)
 					{
-						if((!cmd.meta.exAnyCat || containsString(cmd.meta.anyExCat, cat)) && (!cmd.meta.subCat || Object.keys(specs[cat]).length == 0 || specs[cat][cmd.meta.subCat]))
+						for(let cat in specs)
 						{
-							catMatch = true;
-							break;
+							if((!cmd.meta.anyExCat || containsString(cmd.meta.anyExCat, cat)) && checkSubCats(specs[cat.toLowerCase()], cmd.meta))
+							{
+								catMatch = true;
+								break;
+							}
+						}
+					}
+					else
+						catMatch = true;
+
+					if(exSpecs)
+					{
+						for(let cat in exSpecs)
+						{
+							if((!cmd.meta.anyExCat || containsString(cmd.meta.anyExCat, cat)) && checkSubCats(exSpecs[cat.toLowerCase()], cmd.meta))
+							{
+								catMatch = false;
+								break;
+							}
 						}
 					}
 				}
 				else
 				{
-					for(let i = 0; i < cats.length; i++)
+					if(specs)
 					{
-						if(specs[cats[i].toLowerCase()] && (Object.keys(specs[cats[i].toLowerCase()]).length == 0 || !cmd.meta.subCat || specs[cats[i].toLowerCase()][cmd.meta.subCat.toLowerCase()]))
+						for(let t = 0; t < cats.length; t++)
 						{
-							catMatch = true;
-							break;
+							if(specs[cats[t].toLowerCase()] && checkSubCats(specs[cats[t].toLowerCase()], cmd.meta, t))
+							{
+								catMatch = true;
+								break;
+							}
+						}
+					}
+					else
+						catMatch = true;
+
+					if(exSpecs)
+					{
+						for(let t = 0; t < cats.length; t++)
+						{
+							if(exSpecs[cats[t].toLowerCase()] && checkSubCats(exSpecs[cats[t].toLowerCase()], cmd.meta, t))
+							{
+								catMatch = false;
+								break;
+							}
 						}
 					}
 				}
@@ -236,5 +375,7 @@ module.exports = (g) =>
 			role.cmd.func(chn, msg, e, [], nosend);
 		else
 			msg(chn, "-ERROR: No roles could be rolled.");
-	});
+	};
+
+	register_cmd(["random_role", "randomrole", "rrole", "role"], "[category[:subcategory]...]...", "Random Role", "Roll for a random role out of the list of those that are registered in the Bot. A full role card will be provided based on the results.\n\nYou may optionally provide a list of categories as parameters. Only a role that can fit at least one category will be provided.\n\nYou may also specify a subcategory for each category. This is done using the format of `category:subcategory`. The same category can have more than one listed subcategory, e.g. `category:apple:bannana:cyanide`\n\nPut a - or a ! before specified categories or subcategories to instead exclude them.\n\nSee =categories for a list of categories and subcategories.\n\nExact spelling will be required when specifying categories and subcategories, but they will not be case-sensitive.", g.randomRole);
 };

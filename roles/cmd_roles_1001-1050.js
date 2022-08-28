@@ -10,13 +10,13 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Learn or Upgrade a spell at day, use a learned spell at night.");
+		e.addField("Abilities:", "- Learn or Upgrade a spell at day\n- Use a learned spell at night.");
 
-		e.addField("Attributes:", "- During Day 1, choose 3 spells to learn.\n- Every day after Day 1, you may choose to learn a new spell, or upgrade a spell you have learned, making it stronger.\n- All spells have a 2 night cooldown.\n- With the Necronomicon, your base spells have no cooldown, you learn the upgraded version of all base spells, and can learn upper spells, which each have a 1 night cooldown and cannot be upgraded. Gain detection immunity.");
+		e.addField("Attributes:", "- During Day 1, choose 3 spells to learn.\n- Every day after Day 1, you may choose to learn a new spell, or upgrade a spell you have learned.\n- All spells have a 2 night cooldown.\n- With the Necronomicon, your base spells have no cooldown, you learn the upgraded version of all base spells, and can learn upper spells, which each have a 1 night cooldown and cannot be upgraded. Gain detection immunity. You gain the Necronomicon last.");
 
-		e.addField("Base Spells:", "Fireball: Deal a basic attack.\nUpgraded Fireball: Deal a powerful attack.\nFreeze: Roleblock your target.\nUpgraded Freeze: Roleblock 2 targets tonight and the following night.\nStatic: Charge 2 players. If a charged player visits another charged player, both are dealt a basic attack and lose their charge. This has no cooldown, and players do not know they are charged.\nUpgraded Lightning: Charge 4 players.\nWhirlwind: Players visiting your target unknowingly visit themselves instead. This cannot target coven members.\nUpgraded Whirlwind: Target 2 players, 1 may be coven.\nNatural Protection: Give yourself and another player basic defense. Any player protected by you will be told they were attacked and protected.\nUpgraded Natural Protection: Give powerful defense instead, and attack 1 visitor.");
+		e.addField("Base Spells:", "Fireball: Deal a basic attack.\nUpgraded Fireball: Deal a powerful attack.\n\nFreeze: Roleblock your target.\nUpgraded Freeze: Roleblock 2 targets tonight and the following night.\n\nStatic: Charge 2 players. If a charged player visits another charged player, both are dealt a basic attack and lose their charge. This has no cooldown, and players do not know they are charged.\nUpgraded Lightning: Charge 4 players.\n\nWhirlwind: Players visiting your target unknowingly visit themselves instead. This cannot target coven members.\nUpgraded Whirlwind: Target 2 players, 1 may be coven.\n\nNatural Protection: Give yourself and another player basic defense. Any player protected by you will be told they were attacked and protected.\nUpgraded Natural Protection: Give powerful defense instead, and attack 1 visitor.");
 
-		e.addField("Upper Spells:", "Meteor: Deal a powerful attack to 2 players.\nBlizzard: Roleblock all non-coven players. Roleblocks through immunity. Gain roleblock immunity the night you use this.\nLightning: Deal a powerful attack to a target and all their non-coven visitors and any non-coven player they visit that night.\nTornado: Redirect all abilities to random non-coven members. Gain roleblock immunity while using this.\nEarthquake: Deal a basic attack to 3 targets.");
+		e.addField("Upper Spells:", "Meteor: Deal a powerful attack to 2 players.\n\nBlizzard: Roleblock all non-coven players. Roleblocks through immunity. Gain roleblock immunity the night you use this.\n\nLightning: Deal a powerful attack to a target and all their non-coven visitors and any non-coven player they visit that night.\n\nTornado: Redirect all abilities to random non-coven members. Gain roleblock immunity while using this.\n\nEarthquake: Deal a basic attack to 3 targets.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -151,7 +151,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- The Train Station Leader may give a player a ticket, letting them ride the train for the rest of the game, giving them invincible defense when they choose to ride the train, they may use their ability while riding once.");
 
-		e.addField("Attributes:", "- At the start of day 1, all players will be notified a train has entered the town.\n- Roleblock, Control, Redirect immune.");
+		e.addField("Attributes:", "- At the start of day 1, all players will be notified a train has entered the town.\n- Roleblock, Control, Redirect immune.\n- You may ride your train without suffering the one-use effect.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

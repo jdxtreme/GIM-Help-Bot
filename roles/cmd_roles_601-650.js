@@ -77,6 +77,21 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Plant.goal);
 	});
 
+	register_role(["president", "606"], "Town", "President", {subCat: "Head"}, (e) =>
+	{
+		e.setDescription("Post 606");
+
+		e.addField("Alignment", "Town Head", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Pass a law forbidding an action.");
+
+		e.addField("Attributes:", "- If a player suspects someone of breaking a law, they may report it to the host. If it is true, the suspect is modkilled. If it is false, the player loses reporting permissions.\n- The host has the right to bar ridiculously stupid and/or broken laws from being passed.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
 	register_role(["lunar_telepath", "lunartelepath", "telepath", "607"], "Town", "Lunar Telepath", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 607");
@@ -257,6 +272,21 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
+	register_role(["excommunicator", "excum", "618"], "Town", "Excommunicator", {subCat: "Assault"}, (e) =>
+	{
+		e.setDescription("Post 618");
+
+		e.addField("Alignment", "Town Assault", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Attack someone each night. You must disguise their cause of death as a killing role that could possibly appear in the current game.");
+
+		e.addField("Attributes:", "- Roleblock Immune\n- Under a Full Moon, your ability is Astral.\n- During Night 4, you will mimic the mechanics of your disguised cause of death.\n- You will appear to be 658: Invoker to all investigative effects.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
 	register_role(["weredolphin", "wd", "619"], "Were", "WereDolphin", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 619");
@@ -297,9 +327,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Each night, make someone horny. They won't know it, but their direct neighbors will.");
+		e.addField("Abilities:", "- Each night, make someone horny. They won't know it, but their direct neighbors will\\");
 
-		e.addField("Attributes:", "- Horny players will occasionally miss their action due to... ...sus.\n- Members of the Were faction has a higher chance of missing.\n- You can only attack players that have horn.");
+		e.addField("Attributes:", "- Horny players will occasionally miss their action due to... ...sus.\n- Members of the Were faction has a higher chance of missing.\n- You can only attack players that have horn.\n- Your ability will fail on Asmodeus (Post 359)\n\nMiss chances:\nregular:20%\nWeres:40%");
 		
 		e.addField("Goal:", "Be the last player standing");
 	});
@@ -522,9 +552,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player at night. At the beginning of the next day, if they don't have any attributes, they gain the attribute \"You can't use abilities, talk, whisper, or vote.\"\n**Glacial Dawn** — Set up to two players' defences to Vulnerable. You may only use this ability once each game.");
+		e.addField("Abilities:", "- Chill up to two players at night, visiting them but doing nothing. You may choose the same player as both targets.\n**Glacial Dawn** — Set up to two players' defences to Vulnerable. You may only use this ability once each game.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, they temporarily lose all attributes for the rest of that night and the following day except for the one given by your ability.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, their defence is lowered by a stage the following night.");
 		
 		e.addField("Goal:", factions.Everfrost.goal);
 	});
@@ -599,7 +629,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Transcend humanity during the day.");
 
-		e.addField("Attributes:", "- Beginning of the night abilites (such as being jailed by the Jailor, pirated by a Pirate, etc.) will fail if they are targeting you.\n- While you are transcending humanity, everything that should happen to you will not. All attacks will fail, all visits will fail, all abilities will fail. This cannot be overidden.\n- At the end of the night, you will recieve a list of everyone who had an ability fail against you. You will also not recieve any notifications that you should've.\n- Commuting will also purge negative effects such as Ice Marks, douses, hexes, etc the first time you do so.\n- All Immunities while Transcending\n- You may commute three times.");
+		e.addField("Attributes:", "- All Immunities while Transcending\n- Beginning of the night abilites (such as being jailed by the Jailor, pirated by a Pirate, etc.) will fail if they are targeting you.\n- While you are transcending humanity, everything that should happen to you will not. All attacks will fail, all visits will fail, all abilities will fail. This ability is absolute.\n- At the end of the night, you will recieve a list of everyone who had an ability fail against you. You will also not recieve any notifications that you should've.\n- Transcending humanity will also purge negative effects such as Ice Marks, douses, hexes, etc the first time you do so.\n- You may transcend humanity three times.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -724,18 +754,18 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Everfrost.goal);
 	});
 
-	register_role(["editor", "650"], "Mafia", "Editor", {subCat: "Support"}, (e) =>
+	register_role(["snow_globe", "snowglobe", "sg", "650"], "Everfrost", "Snow Globe", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 650");
 
-		e.addField("Alignment", "Unique Mafia Support", true);
+		e.addField("Alignment", "Everfrost Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- See what happened at night, and change the script of what happened.");
+		e.addField("Abilities:", "- Choose a player not covered in frost. Roleblock all their visitors.\n**Super Snowy Sphere** - Roleblock a player. Super Freeze them and all of their non-Everfrost visitors. A player who has been Super Frozen requires 3 non-Everfrost players to visit them to be bale to survive. Roleblock immune roles can be Super Frozen. This is not usable until Night 3.");
 
-		e.addField("Attributes:", "- At the end of the night, see 3 actions that happened. You may choose to remove one of these actions, and the night will process as if it never happened.\n- You only get 1 hour after night ends to choose to delete something.\n- If you do not delete an action, learn 2 more actions that happened.\n- Actions are formatted as follows:\n> [Role] used [Ability] on [Role].");
+		e.addField("Attributes:", "- Roleblock Immune.\nWhile this is alive, players covered in frost are not able to help defrost other players.");
 		
-		e.addField("Goal:", factions.Mafia.goal);
+		e.addField("Goal:", factions.Everfrost.goal);
 	});
 };

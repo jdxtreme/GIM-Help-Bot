@@ -514,11 +514,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["slime", "434"], "Neutral", "Slime", {subCat: "Benign"}, (e) =>
+	register_role(["slime", "434"], "Neutral", "Slime", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 434");
 
-		e.addField("Alignment", "Unique Neutral Benign", true);
+		e.addField("Alignment", "Unique Neutral Chaos", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 

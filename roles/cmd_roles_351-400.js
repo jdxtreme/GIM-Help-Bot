@@ -47,19 +47,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["animal_behaviorist", "animalbehaviorist", "behaviorist", "354"], "Town", "Animal Behaviorist", {subCat: "Investigative"}, (e) =>
+	register_role(["wielder_of_hope_asahi", "wielderofhopeasahi", "wielder_of_hope", "wielderofhope", "asahi", "woha", "354"], "Neutral", "Wielder of Hope, Asahi", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 354");
 
-		e.addField("Alignment", "Town Investigative", true);
+		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Give someone an animal every night.");
+		e.addField("Abilities:", "- Target a player, if they have an Accent OC as a role, you will gain an ability depending on the role they are (see attributes), and you will create a chat with them. If you target another Accent OC after you have created a chat with the other one, you will add the second one to the already existent chat.");
 
-		e.addField("Attributes:", "- If they visit or are visited by an evil role, their animal will run off.\n- After 2 people are given animals, you will know how many animals run off each night.");
+		e.addField("Attributes:", "- List of Accent OCs Roles: Aiko, Akasuki, Daichi, Taizo, Aito, Airi, Kaori and Asahi.\n- You will gain:\n> Target someone, and raise their defense by one.\n- If you target __**Aiko, Dreamer's Last Hope.**__\n> **Twin Drive** a player.\n- If you target __**Corrupted Hero, Akasuki**__ or __**Love River Star, Aito**__\n> Move a player anywhere on the playerlist. This change Is secret.\n- If you target __**Apprentice Fighter, Daichi**__\n> **Boost+1** a player\n- If you target Love __**River Kid, Taizo**__ or __**Blade of a Silver Tongue, Kaori**__\n> Allow a player to multitask.\n- If you target Love __**River Warrior, Akihiko**__ or __**Love River Hero, Airi**__\n> Target someone during the day, and they will be able to perform their night action twice the following night.\n- If you target __**Wielder of Hope, Asahi**__\n- All of the abilities above are night actions unless specified otherwise.\n- If you are in the game, force at least one other slot in the game to be an Accent OC.");
 		
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", "Aid Accent OCs to victory. If at least one Accent OC wins the game, you also win the game.");
 	});
 
 	register_role(["mafioso", "355"], "Town", "Mafioso", {subCat: "Investigative"}, (e) =>
@@ -180,6 +180,36 @@ module.exports = (g) =>
 		e.addField("Goal:", "Receive sins from three players and expose one player's sins.");
 	});
 
+	register_role(["bergentrückung", "bergentruckung", "bergen", "364", "364a"], "Town", "Bergentrückung", {subCat: "Protective"}, (e) =>
+	{
+		e.setDescription("Post 364A");
+
+		e.addField("Alignment", "Town Protective", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Protect two people tonight with Basic defense. If both of them are attacked during the same night, it will become invincible.");
+
+		e.addField("Attributes:", "- You think you do not deserve to be spared, so you can't defend yourself.\n- If you successfully protect someone with your ability, you can turn into ASGORE during the day.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["asgore", "364b"], "Town", "ASGORE", {subCat: "Protective"}, (e) =>
+	{
+		e.setDescription("Post 364B");
+
+		e.addField("Alignment", "Town Protective", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Send a flaming spear to your target. They will be basic attacked, but if they survive they will burn. After burning for two days, you will use another unstoppable attack. You can't be affected by abilities from a player who is burning.\n- Spin your trident, gain basic defense and powerful attack all of your visitors. If you judged a player as innocent, then you won't attack them. (1 use)\n- Judge two players as innocent and guilty. You will not learn their roles or faction or anything but the host will tell about which one is the more negative for town. (1 use)");
+
+		e.addField("Attributes:", "- If they're both town members, you will judge whoever is the least useful as guilty. If they're both evil, you will judge whoever is the most powerful as guilty.\n- If you targeted yourself with the final ability for some reason, you will always judge yourself as guilty with the highest priority.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
 	register_role(["viewer", "365"], "Neutral", "Viewer", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 365");
@@ -296,6 +326,21 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- You may only communicate in reactions, including in your private channel. If the host forgot to/just didn't post anything there, then like skill issue I guess\n- You can't use regional indicators >:(");
 		
 		e.addField("Goal:", "Successfully have a conversation with at least two people.");
+	});
+
+	register_role(["magus_of_the_traitor", "magusofthetraitor", "magus", "mott", "373"], "Coven", "Magus of the Traitor", {subCat: "Evil"}, (e) =>
+	{
+		e.setDescription("Post 373");
+
+		e.addField("Alignment", "Coven Evil", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Roleblock someone each night.\n- If you have the Necronomicon, you may attack them instead.");
+
+		e.addField("Attributes:", "- There's a Town Traitor allied with the Coven. See https://town-of-salem.fandom.com/wiki/Game_Modes#Town_Traitor for details.");
+		
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["interrogator", "374"], "Town", "Interrogator", {subCat: "Investigative"}, (e) =>
@@ -675,6 +720,21 @@ module.exports = (g) =>
 		e.addField("Abilities:", "- Use a Mafia ability each night.");
 
 		e.addField("Attributes:", "- You have one charge of each Mafia role that is not in the game.\n- When you use a charge of another Mafia role, you may use any ability that role has, but may only use that ability one time.\n- You do not have charges of Mafia Head roles, Mafia Espionage roles, or the Mafioso.\n- You may change yourself into a role that you still have the charge of on any night.");
+		
+		e.addField("Goal:", factions.Mafia.goal);
+	});
+
+	register_role(["renewed_mastermind", "renewedmastermind", "renewed", "mastermind", "rm", "400"], "Other", "Renewed Mastermind", {subCat: "Power"}, (e) =>
+	{
+		e.setDescription("Post 400");
+
+		e.addField("Alignment", "Seen Power", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None (Basic)", true);
+
+		e.addField("Abilities:", "- Bleed (Day): Immediately cause a target to bleed. If they are Seen, your attack drops to None and you cannot attack anyone. 2 uses.\n- Stab (Night): Attack a player. If they are Seen, your attack drops to None and you cannot attack anyone.\n- Convert (Night): Attempt to convert a player. If they are part of an opposing good faction, convert them to the Seen. 3 uses.");
+
+		e.addField("Attributes:", "- Seen is a \"good faction\" without a factional kill or chat. It uses Unseen roles to spawn.\n- Mastermind (988) and Assassin (989) cannot be part of Seen.\n- One-use Basic Defense");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});

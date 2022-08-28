@@ -27,8 +27,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Give someone a ticket for the Pale Moon Circus Show.\n- Sacrifice a Pale Moon member.");
 
-		e.addField("Attributes:", "- Detection Immunity, Roleblock Immunity, Redirection Immunity- Giving a ticket roleblocks them for the night, but does not give a special roleblock message.\n- Players with tickets will remove their ticket if they visit any Pale Moon Members. You will be notified of this.\n- Any players will immediately be dealt an Overkill Attack if they have a ticket at the end of Xth day, where X Is the day where the PMCS starts.\n- If the Ringmaster Is killed, all tickets are instantly removed.\n- Sacrificing a Pale Moon member will deal an Overkill Attack to them, and will let you deal an Unstoppable Attack to one player.\n- Players with tickets are notified they have tickets Day 3.\n- You will not kill anybody if the sacrificed Pale Moon does not die.");
-
+		e.addField("Attributes:", "- Giving a ticket roleblocks them for the night, but does not give a special roleblock message.\n- Players with tickets will remove their ticket if they visit any Pale Moon Members. You will be notified of this.\n- Any players will immediately be dealt an Apocalyptic Attack if they have a ticket at the start of the PMCS.\n- If the Ringmaster Is killed, all tickets that were given out by the Ringmaster are instantly removed.\n- Sacrificing a Pale Moon member will deal an Apocalyptic Attack to them, and will let you deal an Unstoppable Attack to one player.\n- Players with tickets are notified they have tickets Day 3.\n- You will not kill anybody if the sacrificed Pale Moon does not die.");
 
 		e.addField("Goal:", factions.PaleMoon.goal);
 	});
@@ -61,6 +60,21 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- You will die upon completing your goal.");
 
 		e.addField("Goal:", "Goal: Kill three people.");
+	});
+
+	register_role(["super_sneaky_spy", "supersneakyspy", "sneaky", "spy", "sss", "105"], "Town", "Super Sneaky Spy", {subCat: "Espionage"}, (e) =>
+	{
+		e.setDescription("Post 105");
+
+		e.addField("Alignment", "Town Espionage", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Tail someone each night, learning all external night feedback they get (not from their own role) and who they visit.");
+
+		e.addField("Attributes:", "- You know what evil factions are in the game and how many members each has.\n- You start the game with five clues, which are completely random and almost entirely useless pieces of information about the game decided about the host (e.g. Player 13's role does not start with A or F).");
+
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["senator", "despot", "106"], "Neutral", "Senator", {subCat: "Benign"}, (e) =>
@@ -216,7 +230,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["the_ultimate_mafioso", "theultimatemafioso", "ultimate", "116"], "Mafia", "The Ultimate Mafioso", {subCat: "Killing"}, (e) =>
+	register_role(["ultimate_mafioso", "ultimatemafioso", "ultimate", "mafioso", "um", "116"], "Mafia", "The Ultimate Mafioso", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 116");
 
@@ -224,7 +238,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Can perform an extra kill (besides the faction Mafia kill), from Mafioso.\n -Can find out a person’s exact role at night, from Consigliere.\n -Can disguise as someone’s role at night, from Disguiser.\n -Can see whispers and blackmail someone at night, from Blackmailer.\n -Can roleblock someone at night, from Consort.\n -Can frame someone at night, from Framer.\n -Can forge someone at night, from Forger.\n -Can clean someone at night, from Janitor.\n -Can hypnotize someone at night, from Hypnotist. (The message can be from any role in the GIM, probably.)\n -You can ambush someone, from Ambusher. Those who visit your target will not learn your name.");
+		e.addField("Abilities:", "- Can perform an extra kill (besides the faction Mafia kill), from Mafioso.\n- Can find out a person’s exact role at night, from Consigliere.\n- Can disguise as someone’s role at night, from Disguiser.\n- Can see whispers and blackmail someone at night, from Blackmailer.\n- Can roleblock someone at night, from Consort.\n- Can frame someone at night, from Framer.\n- Can forge someone at night, from Forger.\n- Can clean someone at night, from Janitor.\n- Can hypnotize someone at night, from Hypnotist. (The message can be from any role in the GIM, probably.)\n- You can ambush someone, from Ambusher. Those who visit your target will not learn your name.");
 
 		e.addField("Attributes:", "- As The Ultimate Mafioso, you’re great at all things Mafia related.\- However, you can only use one ability per night, and each ability only has 1 use.");
 

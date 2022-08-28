@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role, factions, commands, MessageEmbed} = g;
+	const {register_role, factions, MessageEmbed, androidRole} = g;
 
 	register_role(["sk_traitor", "sktraitor", "skt", "sk", "1551"], "Town", "SK Traitor", {subCat: "Support"}, (e) =>
 	{
@@ -54,8 +54,12 @@ module.exports = (g) =>
 				rng = 10074;
 
 			let android = new MessageEmbed();
-			commands.android_role.func(chn, message, android, [rng.toString()], true);
+			android.setAuthor({name: "", iconURL: factions.Android.icon});
+			android.setColor(factions.Android.color);
+			androidRole(android, chn, message, [rng.toString()]);
+
 			chn.send({embeds:[e, android]});
+
 			return true;
 		}
 	});
@@ -216,14 +220,14 @@ module.exports = (g) =>
 		e.addField("Attack", "Piercing", true);
 		e.addField("Defense", "Aura", true);
 
-		e.addField("Abilities:", "- Go to McDonalds and buy large fries and a large iced coffee.\n- Ask someone to watch your belongings in exchange for medium fries.");
+		e.addField("Abilities:", "- Go to McDonalds and buy large fries and a large iced coffee.\n- Ask someone to watch your belongings in exchange for medium fries.\n**Sin of Fast Food** - If you are the last Fallen Angel, open your own McDonalds at your home. You may choose to serve your customers so much food, that their ability's effect doesn't take place, and they die the next night.");
 
-		e.addField("Attributes:", "- The salt from the fries fills you with rage, while the coffee fills you with energy. The next night, you may attack someone.\n- While you're at McDonalds, all visits against you fail.\n- You may go to McDonalds multiple times in a row.\n- Asking someone to watch over your belongings roleblocks them. The medium fries do nothing, but they're pretty tasty!");
+		e.addField("Attributes:", "- The salt from the fries fills you with rage, while the coffee fills you with energy. The next night, you may attack as many people as you've ever gotten fries and coffee.\n- While you're at McDonalds, all visits against you fail.\n- You may go to McDonalds multiple times in a row.\n- Asking someone to watch over your belongings roleblocks them. The medium fries do nothing, but they're pretty tasty!\n- Asking a Fallen Angel to watch your belongings will also allow you to go to McDonalds the same night. You also bypass roleblock immunity.\n- Attacking a Fallen Angel will allow you to go to McDonalds twice tomorrow.");
 		
 		e.addField("Goal:", factions.FallenAngel.goal);
 	});
 
-	register_role(["degree", "1565"], "Any", "Degree", {subCat: "Support", spawnCat: ["Underworld", "Mathematic", "Everfrost", "Agent"]}, (e) =>
+	register_role(["degree", "1565"], "Other", "Degree", {subCat: "Support", spawnCat: ["Underworld", "Mathematic", "Everfrost", "Agent"]}, (e) =>
 	{
 		e.setDescription("Post 1565");
 
@@ -238,6 +242,21 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- If Mathematics exist, you will always know the exact amount of points left.\n- Your abilities never cost points, but getting visited will still generate points for the faction.\n- You may still spend points to attack.\n- You cannot spend points to change roles. Nor can this role be changed into by spending points.\n- For spawning purposes, you count as all Mathematic alignments but Head.\n- You cannot be promoted, unless you are only part of one living faction.");
 		
 		e.addField("Goal:", "Underworld, Everfrost, Agent, or Mathematic goal");
+	});
+
+	register_role(["condor", "1566"], "Thundercry", "Condor", {subCat: "Support"}, (e) =>
+	{
+		e.setDescription("Post 1566");
+
+		e.addField("Alignment", "Thundercry Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None (Basic)", true);
+
+		e.addField("Abilities:", "- Watch a player's house tonight, learning who visits them and roleblocking them if they're not Thundercry. If they're visited by two or more non-Thundercry players, your visit becomes astral and those visitors will be roleblocked the following night.\n- Prepare a Strike on a player. Strikes will activate the following morning.");
+
+		e.addField("Attributes:", "- Roleblock immune.\n- If one or more Striked players are alive, all Thundercry members are roleblock immune.\n- If two or more Striked players are alive, gain basic defense.");
+		
+		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
 	register_role(["corrupted_hero_akasuki", "corruptedheroakasuki", "corrupted_hero", "corruptedhero", "akasuki", "cha", "1567"], "Neutral", "Corrupted Hero, Akasuki", {subCat: "Killing"}, (e) =>
@@ -334,7 +353,7 @@ module.exports = (g) =>
 
 	register_role(["love_river_kid_taizo", "loveriverkidtaizo", "love_river_kid", "loveriverkid", "taizo", "lrkt", "1573", "1573a"], "Neutral", "Love River Kid, Taizo", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1573A");
+		e.setDescription("Post 1573A\n*The \"Love River\" is a group of 4 vigilantes that dont quite agree with the Town's way of enacting justice, but also condemn evils in their own way.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -394,7 +413,7 @@ module.exports = (g) =>
 
 	register_role(["sk", "comedic_sk", "comedicsk", "comedic", "csk", "1574"], "Neutral", "Comedic SK", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1574");
+		e.setDescription("Post 1574\n*Hilarious and original!*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -496,7 +515,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Powerful", true);
 
-		e.addField("Abilities:", "- Activate a 5 Minute slowmode and disable Whispers on the next day chat, The night after that, you can report 1 player who edited their message to modkill them alongside your action, This counts for your goal.\n- Make the next day chat a Voice channel with a Voice chat log channel `Recommended bot: Scriptly`, Players can't send messages on the VC log, The start of the day post will be posted on the VC log, Whispers are also disabled this day.\n- Choose someone to publically reveal their role , if they are a townie, it will be revealed on all faction chats, you also gain message delete perms for the next day.\n- Make the Host ping @playing followed by a message of your choice, This ignores your first attribute. (3 uses, Instant, Day Action)");
+		e.addField("Abilities:", "- Activate a 5 Minute slowmode and disable Whispers on the next day chat, The night after that, you can report 1 player who edited their message to modkill them alongside your action, This counts for your goal.\n- Make the next day chat a Voice channel with a Voice chat log channel (Recommended bot: Scriptly), Players can't send messages on the VC log, The start of the day post will be posted on the VC log, Whispers are also disabled this day.\n- Choose someone to publically reveal their role , if they are a townie, it will be revealed on all faction chats, all alive players except you lose cannot read message history for the next day.\n- Make the Host ping @playing followed by a message of your choice, This ignores your first attribute. (3 uses, Instant, Day Action)");
 
 		e.addField("Attributes:", "- Once you have used an ability, you can't use it again until you have used all other abilities once.\n- At the start of the day, the previous day channel will be hidden until the end of the game, only takes effect while you are alive.\n- If players reach the required votes to lynch you, it will be revealed your role and that you need [Number of players - 2] votes to be lynched.\n- Once you hit your win condition, you will be modkilled.\n- Roleblock and Control Immunity.");
 		
@@ -743,9 +762,39 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["spymaster", "1596"], "Neutral", "Spymaster", {subCat: "Benign"}, (e) =>
+	register_role(["electrician", "1597"], "Mafia", "Electrician", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1596");
+		e.setDescription("Post 1597");
+
+		e.addField("Alignment", "Mafia Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Paralyze someone during the day. Their ability will be completely nullified the night after, but they will still get their feedback as if their night action had actually gone through. For roles that gain information such as Investigator (35), they will receive completely random results.\n- Paralyze someone during the night, completely stopping them from performing any abilities the following day.");
+		
+		e.addField("Goal:", factions.Mafia.goal);
+	});
+
+	register_role(["abomination", "1598"], "Rock", "Abomination", {subCat: "Espionage"}, (e) =>
+	{
+		e.setDescription("Post 1598");
+
+		e.addField("Alignment", "Rock Espionage", true);
+		e.addField("Attack", "\"Spirit Power\"", true);
+		e.addField("Defense", "\"Fallen Angel Aura\"", true);
+
+		e.addField("Abilities:", "- (First) Attack a target with the effect of a random killing role.\n- (Second) Select a target to douse. Or, ignite your doused targets.\n- (Third) Infect someone with a Biohazard plague, except Biohazards can catch it and Rocks can't.\n- During the day, spend 2 sun or 10 points for an extra vote.\n- At any phase, produce (night # / 2) sun.\n- With the Necronomicon, choose a player. You will control them and poison them. They will be redirected to the target you controlled them to tomorrow night.\n- **Final Judgement** - Select a target. Roleblock all your visitors and their visitors, then coldsnap.\n- Deathly Gaze (Blood Moon) - Attack all your visitors and negate all negative abilities that were used against you.\n- Place a strike on a target, then rehearse.\n- (Concert) Offer to recruit a player to the Rock. This will only change their goal. They may choose to accept or decline your offer. 2 uses.\n- After killing two people, evolve during the day. You gain the ability to perform a Raid.");
+
+		e.addField("Attributes:", "- Each kill grants 1 Not Saint point. Gain 4 Not Saint points to regain access to the factional chat.\n- You existing can allow Hunting Moons to spawn.\n- If Umbrae doesn't exist, you may call Blood Moons. Otherwise, you are buffed when they call one.\n- On a Hunting Moon, you are also the number ahead of you. You may multitask both abilities.\n- During the Pale Moon Circus Show, you are also the number behind you. You may multitask both abilities.\n- If a Hunting moon occurs during a Pale Moon Circus Show, you are all 3 and may mutlitask all abilities.\n- You have 3 codewords. Your teammates know your role and codewords.\n- Your attack is based on the attacks Spirits do/would have that night.\n- Your defense is based on how many teammates are alive, similar to Fallen Angels.\n- You gain the Necronomicon when no Coven are left.\n- At the beginning of the game, you are randomly the First, Second, or Third. You switch spots similar to the Last, at the beginning of each night.");
+
+		e.addField("Attributes (cont.):", "- For every other striked player, you may perform an extra ability at the same time.\n- Roleblock immune. If someone tries to roleblock you, you will attack them.\n- You have two attributes from a random Android role.\n- Your Concert begins on Day 5. Rehearsing works the same. Your radius is 3.");
+		
+		e.addField("Goal:", factions.Rock.goal);
+	});
+
+	register_role(["spymaster", "1599"], "Neutral", "Spymaster", {subCat: "Benign"}, (e) =>
+	{
+		e.setDescription("Post 1599");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -760,16 +809,16 @@ module.exports = (g) =>
 		e.addField("Goal:", "Get at least 6 roles that are in the game to be successfully guessed.");
 	});
 
-	register_role(["electrician", "1597"], "Mafia", "Electrician", {subCat: "Support"}, (e) =>
+	register_role(["self-confirmer", "self_confirmer", "selfconfirmer", "sc", "1600"], "Town", "Self-confirmer", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1597");
+		e.setDescription("Post 1600");
 
-		e.addField("Alignment", "Mafia Support", true);
+		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Paralyze someone during the day. Their ability will be completely nullified the night after, but they will still get their feedback as if their night action had actually gone through. For roles that gain information such as Investigator (35), they will receive completely random results.\n- Paralyze someone during the night, completely stopping them from performing any abilities the following day.");
+		e.addField("Abilities:", "- Pick a player. If they are town, they self-confirm instantly. If not, you die instantly. You may use this at any time. 3 uses maximum.");
 		
-		e.addField("Goal:", factions.Mafia.goal);
+		e.addField("Goal:", factions.Town.goal);
 	});
 };

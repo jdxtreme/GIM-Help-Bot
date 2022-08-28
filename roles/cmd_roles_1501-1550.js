@@ -12,7 +12,7 @@ function censor(length)
 
 module.exports = (g) =>
 {
-	const {register_role, factions, commands, msg} = g;
+	const {register_role, factions, msg, randomRole} = g;
 
 	register_role(["frigade", "1501"], "Warfleet", "Frigade", {subCat: "Support"}, (e) =>
 	{
@@ -131,7 +131,7 @@ module.exports = (g) =>
 
 	register_role(["guesstherole", "guess_the_role", "gtr", "1508"], "Any", "Guess The Role", (e, chn, message, args) =>
 	{
-		commands.random_role.func(chn, message, e, args, true);
+		randomRole(chn, message, e, args, true);
 		lastGTR[chn.id] = {author: e.author, desc: e.description};
 		let truename = e.author.name.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 		let censorname = censor(truename.length);
@@ -563,7 +563,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Debug someone at night.");
 
-		e.addField("Attributes:", "- You will learn the 50-role file their post number falls into (e.g. 1401-1450).\n- They will be immune to effects that would permanently change their role itself tonight, such as conversion, ability granting/stealing effects, etc.\n- c is not defined");
+		e.addField("Attributes:", "- You will learn the 50-role file their post number falls into (e.g. 1401-1450). 11037: LE0N, 69420: Blackstoner, and all Android roles are in the \"misc\" file.\n- They will be immune to effects that would permanently change their role itself tonight, such as conversion, ability granting/stealing effects, etc.\n- c is not defined");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -631,10 +631,10 @@ module.exports = (g) =>
 		e.setDescription("Post 1540");
 
 		e.addField("Alignment", "Army Killing", true);
-		e.addField("Attack", "Basic/Unstoppable", true);
+		e.addField("Attack", "Basic (Unstoppable)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Detect! (Day): Guess a players role, if correct you will be informed at the end of the day if this is correct. 1 use. 1 use when the Marshal has revealed.");
+		e.addField("Abilities:", "- Buzzkill?! (Day): Snipe your target at the end of the day. They will die before the night starts. 2 uses. +1 use when the Marshal reveals.");
 
 		e.addField("Attributes:", "- You may instead expend 2 uses of your ability to perform an Unstoppable attack.");
 		

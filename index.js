@@ -30,7 +30,7 @@ const factions =
 	Vampire: {color: "7B8968", icon: "https://cdn.discordapp.com/emojis/975231005713645618.webp", goal: "Convert or kill everyone who would oppose you."},
 	Everfrost: {color: "00FFFF", icon: "https://cdn.discordapp.com/emojis/977636071833759785.webp", goal: "Eliminate all who don't submit to the endless winter."},
 	Umbrae: {color: "498080", icon: "https://cdn.discordapp.com/emojis/979822258543550484.webp", goal: "Kill all who would oppose the Umbrae."},
-	PaleMoon: {color: "400080", icon: "https://cdn.discordapp.com/emojis/975853561722322944.webp", goal: "Kill anybody who would oppose the Pale Moon."},
+	PaleMoon: {color: "400080", icon: "https://cdn.discordapp.com/emojis/1011552521652801586.webp", goal: "Kill anybody who would oppose the Pale Moon."},
 	Sith: {color: "800000", icon: "https://cdn.discordapp.com/emojis/974882271783968839.webp", goal: "Eliminate those that do not submit to the Dark Side/Live to see the town lose."},
 	Insurgency: {color: "B00B69", icon: "https://cdn.discordapp.com/emojis/993409239764717569.webp", goal: "Eliminate all who oppose the Insurgency."},
 	Loyalist: {color: "93C47D", icon: "https://cdn.discordapp.com/emojis/996214205982187681.webp", goal: "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule."},
@@ -60,6 +60,9 @@ const factions =
 	Army: {color: "E8D578", goal: "Eliminate all who would not follow martial law."},
 	Discordian: {color: "7289DA", goal: "Eliminate everyone who doesn't actually exist."},
 	Android: {color: "AAFF40", goal: "Crush all inferior beings."},
+	Band: {color: "FCBA03", goal: "Ensure the removal of those who will not listen to your music."},
+	Seven: {color: "570861", goal: "Devolve the town into sin and chaos, eviscerate all who would try to banish you or Satan."},
+	X: {color: "FF47FF", icon: "https://cdn.discordapp.com/emojis/1007334433466097765.webp", goal: "X Goal"},
 	Neutral: {color: "808080", icon: "https://cdn.discordapp.com/emojis/980943261587865650.webp", goalNK: "Kill all who would oppose you.", goalNG: "Eliminate all other residents who have yet to fulfill their purpose."}
 };
 
@@ -332,10 +335,9 @@ require("./cmd_basics.js")(GLOBAL);
 require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
-for(let i = 50; i <= 1600; i+=50)
-	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
-
 require("./roles/cmd_roles_misc.js")(GLOBAL);
+for(let i = 50; i <= 1700; i+=50)
+	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
 console.log(roles.length);
 

@@ -376,7 +376,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Spark! - Redirect a player. (3 uses)\n- Discharge! - Upgrade your Defense to Basic and Attack to Powerful tonight. (1 use)\n- Electric Terrain! - Upgrade your Defense to Basic tonight. Redirect all players who choose to idle tonight to you. (1 use)");
+		e.addField("Abilities:", "- Spark! - Redirect a player. (3 uses)\n- Discharge! - Upgrade your Defense to Basic and Attack to Powerful tonight. (1 use)\n- Upgrade your Defense to Basic tonight. Redirect all players who don't visit tonight to you. If they don't have a visiting ability, the visit will do nothing. (1 use)");
 
 		e.addField("Pokemon Ability:", "**Lightning Rod** - You will attack players who visit you.");
 		
@@ -528,7 +528,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- (First) Vaporize a player and their house, dealing a Powerful attack to them and everyone targeting them, astral or not.\n- (Second) Draw the moon over someone's house at night, canceling all non-astral abilities used against them.\n- (Third) Astrally redirect two players.");
+		e.addField("Abilities:", "- (First) Vaporize a player and their house, dealing a Powerful attack to them and everyone targeting them, astral or not.\n- (Second) Draw the moon over someone's house at night, canceling all non-astral abilities used against them.\n- (Third) Redirect two players.");
 
 		e.addField("Attributes:", "- (Third) Redirect and Control Immune\n- Anyone who survives your Vaporize attack will be roleblocked the next night.\n- You ignore Redirection immunity.");
 		
@@ -543,9 +543,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- (First) Follow a constellation, dealing an Astral Basic attack to two players.\n- (Second) Use the abilities gained from your Third ability. You can use day abilities.\n- (Third) Stalk a player, gaining all of their abilities and attributes.");
+		e.addField("Abilities:", "- (First) Follow a constellation, dealing an Astral Basic attack to two players.\n- (Second) Increase the priority of all of one player's abilities to 6.\n- (Third) Randomize the targets of two players. Their targets will not be other Last members, or anyone the First is visiting.");
 
-		e.addField("Attributes:", "- While ordered First or Third, the Eclipser can hear whispers.\n- Should a player survive your attacks for any reason, you will learn their role.\n- Your stalked abilities last until you become numbered First again.");
+		e.addField("Attributes:", "- While ordered First or Third, the Eclipser can hear whispers.\n- Should a player survive your attacks for any reason, you will learn their role.");
 		
 		e.addField("Goal:", factions.Last.goal);
 	});

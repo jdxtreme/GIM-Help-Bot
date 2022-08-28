@@ -1,3 +1,62 @@
+function isNeg(arg)
+{
+	return arg.charAt(0) === "-" || arg.charAt(0) === "!";
+}
+
+function tabLevel(level)
+{
+	let tabs = "";
+
+	for(let i = 0; i < level; i++)
+		tabs = tabs + '\t';
+
+	return tabs;
+}
+
+function display(value, level)
+{
+	level = level || 1
+
+	switch(typeof value)
+	{
+		case "string":
+			return '"' + value + '"';
+
+		case "object":
+			if(!value)
+				return "null";
+			else if(Array.isArray(value))
+			{
+				if(value.length === 0)
+					return "[]";
+
+				let disp = "[" + display(value[0]);
+
+				for(let i = 1; i < value.length; i++)
+					disp = disp + ", " + display(value[i]);
+
+				return disp + "]";
+			}
+			else
+			{
+				let keys = Object.keys(value);
+
+				if(keys.length === 0)
+					return "{}";
+
+				let disp = "{\n" + tabLevel(level+1) + display(keys[0]) + ": " + display(value[keys[0]], level+1);
+
+				for(let i = 1; i < keys.length; i++)
+					disp = disp + ",\n" + tabLevel(level+1) + display(keys[i]) + ": " + display(value[keys[i]], level+1);
+
+				return disp + "\n" + tabLevel(level) + "}";
+			}
+
+		default:
+			return String(value);
+	}
+}
+
 function help(commands, e, cmd, pre)
 {
 	let data = commands[cmd];
@@ -61,17 +120,16 @@ module.exports = (g) =>
 				commands[name[i]] = cmd;
 	}
 
-	register_cmd("list", "[category[:subcategory]...]...", "List", "Create a list of all registered commands, organized by category, and when applicable, subcategory. Commands with alternate forms will have each form listed on the same line.\n\nYou may optionally provide category names as parameters. This will limit the created list to only commands from those categories.\n\nYou may also specify a subcategory for each category. This is done using the format of `category:subcategory`. The same category can have more than one listed subcategory, e.g. `category:apple:bannana:cyanide`\n\nSee =categories for a list of categories and subcategories.\n\nExact spelling will be required when specifying categories and subcategories, but they will not be case-sensitive.", (chn, message, e, args) =>
+	register_cmd("list", "[category[:subcategory]...]...", "List", "Create a list of all registered commands, organized by category, and when applicable, subcategory. Commands with alternate forms will have each form listed on the same line.\n\nYou may optionally provide category names as parameters. This will limit the created list to only commands from those categories.\n\nYou may also specify a subcategory for each category. This is done using the format of `category:subcategory`. The same category can have more than one listed subcategory, e.g. `category:apple:bannana:cyanide`\n\nPut a - or a ! before specified categories or subcategories to instead exclude them.\n\nSee =categories for a list of categories and subcategories.\n\nExact spelling will be required when specifying categories and subcategories, but they will not be case-sensitive.", (chn, message, e, args) =>
 	{
 		let list = "Command List:";
 		let ordered = {};
 		let atLeastOne = false;
 		let specs = null;
+		let exSpecs = null;
 
 		if(args.length > 0)
 		{
-			specs = {};
-
 			for(let i = 0; i < args.length; i++)
 			{
 				let splits = args[i].toLowerCase().split(':');
@@ -99,11 +157,66 @@ module.exports = (g) =>
 					case "cs": splits = ["coven", "support"]; break;
 				}
 
-				if(!specs[splits[0]])
-					specs[splits[0]] = {};
+				let cat = splits[0];
+				let exc = false;
 
-				for(let n = 1; n < splits.length; n++)
-					specs[splits[0]][splits[n]] = true;
+				if(isNeg(cat))
+				{
+					cat = cat.substring(1);
+					exc = true;
+				}
+
+				if(exc)
+				{
+					if(!exSpecs)
+						exSpecs = {};
+
+					if(!exSpecs[cat])
+						exSpecs[cat] = {};
+
+					for(let n = 1; n < splits.length; n++)
+					{
+						let sub = splits[n];
+
+						if(isNeg(sub))
+							sub = sub.substring(1);
+
+						exSpecs[cat][sub] = true;
+					}
+				}
+				else
+				{
+					if(!specs)
+						specs = {};
+
+					if(!specs[cat])
+						specs[cat] = {};
+
+					for(let n = 1; n < splits.length; n++)
+					{
+						let sub = splits[n];
+						let exs = false;
+
+						if(isNeg(sub))
+						{
+							sub = sub.substring(1);
+							exs = true;
+						}
+
+						if(exs)
+						{
+							if(!exSpecs)
+								exSpecs = {};
+
+							if(!exSpecs[cat])
+								exSpecs[cat] = {};
+
+							exSpecs[cat][sub] = true;
+						}
+						else
+							specs[cat][sub] = true;
+					}
+				}
 			}
 		}
 
@@ -115,6 +228,12 @@ module.exports = (g) =>
 				continue;
 
 			if(specs && Object.keys(specs[data.cat.toLowerCase()]).length > 0 && (!data.meta.subCat || !specs[data.cat.toLowerCase()][data.meta.subCat.toLowerCase()]))
+				continue;
+
+			if(exSpecs && exSpecs[data.cat.toLowerCase()] && Object.keys(exSpecs[data.cat.toLowerCase()]).length === 0)
+				continue;
+
+			if(exSpecs && Object.keys(exSpecs[data.cat.toLowerCase()] || {}).length > 0 && data.meta.subCat && exSpecs[data.cat.toLowerCase()][data.meta.subCat.toLowerCase()])
 				continue;
 
 			atLeastOne = true;
@@ -202,6 +321,39 @@ module.exports = (g) =>
 			help(commands, e, args[0], PRE);
 
 		chn.send({embeds: [e]});
+	});
+
+	register_cmd("meta", "<command>", "Meta", "List a command's meta data. This is primarily used for roles with special spawning conditions.\n\nYou should not include any prefix when specifying the command's name, unless it happens to be separately part of the command's name.", (chn, message, e, args) =>
+	{
+		if(!args[0])
+		{
+			msg(chn, "-USAGE: " + PRE + "meta <command>");
+			return;
+		}
+
+		let cmd = commands[args[0]];
+
+		if(!cmd)
+		{
+			msg(chn, "-ERROR: Command " + PRE + args[0] + " not found.");
+			return;
+		}
+
+		let meta = commands[args[0]].meta;
+		let keys = Object.keys(meta);
+
+		if(keys.length === 0)
+		{
+			msg(chn, "Command " + PRE + args[0] + " has no meta.");
+			return;
+		}
+
+		let output = "Meta for command " + PRE + args[0] + "\n{";
+
+		for(let i = 0; i < keys.length; i++)
+			output = output + "\n\t" + keys[i] + ": " + display(meta[keys[i]]);
+
+		msg(chn, output + "\n}");
 	});
 
 	register_cmd("ping", "", "Ping", "Debug; Send a signal to the bot and recieve a response.", (chn) =>

@@ -85,9 +85,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Roleblock and Control Immunity\n- Lie to someone, changing your wincon to theirs.\n- Seduce someone, they will target you for the next two nights because of how fucking sexy you are.\n- Remove your eye with your cap, traumatizing everyone that visits you, roleblocking them and blackmailing them.\n- Enter a bacin, removing you from the game for the day and night after you enter it. Everyone that visits you will also enter a bacin \n- Get fixed, changing your faction and goal to Town. This has a ~60% chance of not working.");
+		e.addField("Abilities:", "- Lie to someone, changing your wincon to theirs.\n- Seduce someone, they will target you for the next two nights because of how fucking sexy you are.\n- Remove your eye with your cap, traumatizing everyone that visits you, roleblocking them and blackmailing them.\n- Enter a bacin, removing you from the game for the day and night after you enter It. Everyone that visits you will also enter a bacin\n- Get fixed, changing your faction and goal to Town. This has a ~60% chance of not working.");
 
-		e.addField("Attributes:", "- You may multitask");
+		e.addField("Attributes:", "- Roleblock and Control Immunity\n- You may multitask");
 		
 		e.addField("Goal:", "Succesfully escape a killing game.");
 	});
@@ -393,7 +393,7 @@ module.exports = (g) =>
 
 	register_role(["home", "1327"], "Neutral", "Home", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 1327");
+		e.setDescription("Post 1327\n*Be good, alright?*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -401,7 +401,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player to bake a pie for during the day.\n- Bake either a butterscotch or cinnamon pie at night.");
 
-		e.addField("Attributes:", "- A butterscotch pie will up your target's Attack value to the next tier while a cinnamon pie will up your target's Defense value to the next tier. If your target has no Attack value and you bake a butterscotch pie for them, they will be able to multitask between their normal ability and a one-shot attack at night.\n- At the start of the night after you choose to bake a pie for someone, they will be told that someone has offered to bake a pie for them and that they must choose whether they want a butterscotch or cinnamon pie. You will bake this pie for them, and they will benefit from its effects. If they do not choose a pie, you will bake the pie that ups their lower statistic. If they are the same, you will default to a butterscotch pie for minority factions and a cinnamon pie for majority factions.\n- You must predict which pie your target wants baked. If you are correct, this will contribute to your win condition.");
+		e.addField("Attributes:", "- A butterscotch pie will up your target's Attack value to the next tier while a cinnamon pie will up your target's Defense value to the next tier. If your target has no Attack value and you bake a butterscotch pie for them, they will be able to multitask between their normal ability and a one-shot Basic attack at night.\n- At the start of the night after you choose to bake a pie for someone, they will be told that someone has offered to bake a pie for them and that they must choose whether they want a butterscotch or cinnamon pie. You will bake this pie for them, and they will benefit from its effects. If they do not choose a pie, you will bake the pie that ups their lower statistic. If they are the same, you will default to a butterscotch pie for minority factions and a cinnamon pie for majority factions.\n- You must predict which pie your target wants baked. If you are correct, this will contribute to your win condition.");
 
 		e.addField("Attributes (cont.):", "- Once per game, you may choose to disregard your target's choice and bake them a butterscotch-cinnamon pie which ups both of their Attack and Defense values. This will count towards your win condition.\n- Players that you have made a pie for cannot attack you. If they try, they will be told they tried to attack a familiar friend.\n- You may not bake a pie for a particular player more than once.");
 		
@@ -527,7 +527,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Personally kill and/or lynch at least 4 of your enemies. If all of your enemies die before this goal is reached, you may then choose any players to kill, as long as your total kill count is at least 4.");
 	});
 
-	register_role(["", "1336"], "Neutral", "‎ ", {subCat: "Evil"}, (e) =>
+	register_role(["", "_", "1336"], "Neutral", "‎ ", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 1336");
 

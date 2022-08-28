@@ -440,24 +440,24 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["director", "1181", "205u"], "Unseen", "Director", {subCat: "Power"}, (e) =>
+	register_role(["supervisor", "1181", "205u"], "Unseen", "Supervisor", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 1181\nConverted from: Manager");
+		e.setDescription("Post 1181\n*What would the world be without middle-level management?*\nConverted from: Manager");
 
 		e.addField("Alignment", "Unseen Power", true);
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Rehire (Night): Choose an Unseen player. Their role will be rerolled to a random Unseen role in their subalignment.\n- Executive Power (Night, 3 use): Choose an Unseen role currently not in the game. You may use one of their night abilities tonight.\n- Executive Power (Day, 3 use): Choose an Unseen role currently not in the game. You may use one of their day abilities.");
+		e.addField("Abilities:", "- Rehire (Night): Choose an Unseen player. Their role will be rerolled to a random Unseen role in their subalignment. Cannot target the Mastermind or Assassin.\n- Executive Power (Any Phase, 3 use): Choose an Unseen role not in the game. You may use one of their abilities. You may only use day abilities during the day and night abilities at night.\n- Trade Secrets (Night, 1 use): Choose a Town role. You may use one of their night abilities.");
 
-		e.addField("Attributes:", "- You may not use or target the Mastermind or Assassin with either of your abilities.\n- Charges of Executive Power are shared between the Day and Night versions.\n- You may only use any given Unseen role once.\n- You may Rehire yourself. If you do this, you will rehire yourself into a random non-Power/Head Unseen role.");
+		e.addField("Attributes:", "- You may Rehire yourself. If you do this, you will rehire yourself into a random non-Power/Head Unseen role.\n- You may not use any Unseen Power roles, Unseen Head roles, or any roles that violate rule 16 with Executive Power.\n- You have the same restrictions as Manager when using Trade Secrets.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["hooker", "1182", "59u"], "Unseen", "Hooker", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1182\nConverted from: Escort");
+		e.setDescription("Post 1182\n*Streets made me despicable.*\nConverted from: Escort");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
@@ -470,9 +470,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["bodyguard_bureucrat", "bodyguardbureucrat", "bureucrat", "bobu", "1183", "146u"], "Unseen", "Hooker", {subCat: "Support"}, (e) =>
+	register_role(["bodyguard_bureucrat", "bodyguardbureucrat", "bureucrat", "bobu", "1183", "146u"], "Unseen", "Bureaucrat", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1183\nConverted from: Escort");
+		e.setDescription("Post 1183\n*Will you do it for a little hush money?*\nConverted from: Bodyguard Boss");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
@@ -487,7 +487,7 @@ module.exports = (g) =>
 
 	register_role(["contractor", "1184", "143u"], "Unseen", "Contractor", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1184\nConverted from: Builder");
+		e.setDescription("Post 1184\n*Defenceive counterpoint goes here*\nConverted from: Builder");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
@@ -495,14 +495,14 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Build Fence (Night): Choose a type of fence to build tonight.\n- Deploy Fence (Night): Choose a type of fence that you have built and, if necessary, a target. Your fence will be installed outside your target's house.\n- Deconstruct (Night): Deconstruct your deployed fence. You will be able to redeploy it the following night.");
 
-		e.addField("Attributes:", "- You have three types of fences: Iron, Electric, and Spirit\n- An Iron fence will grant your target Powerful defense. This fence will collapse once your target has been attacked.\n- An Electric fence will prevent your target from visiting or being visited. This fence will collapse when three visits have been prevented.\n- A Spirit fence will prevent any actions that may negatively impact the Unseen from happening. This fence will collapse once a negative action has been prevented.\n- If the condition for a fence to collapse is met, it will collapse at the end of the night (collapsing resolves last).\n- You may only have one fence installed at any time, but you may have any number of fences built at any time.");
+		e.addField("Attributes:", "- You have three types of fences: Iron, Electric, and Spirit\n- An Iron fence will grant your target Powerful defense. This fence collapses when your target is attacked.\n- An Electric fence will prevent your target from visiting or being visited. This fence collapses when three visits have been prevented.\n- A Spirit fence will prevent any actions that may negatively impact the Unseen from happening. This fence collapses once a negative action has been prevented.\n- If the condition for a fence to collapse is met, it will collapse at the end of the night after all other actions resolve.\n- You may have up to two fences built and/or placed at any time.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["governor", "1185", "197u"], "Unseen", "The Governor", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1185\nConverted from: The President");
+		e.setDescription("Post 1185\n*Is there truly even a difference between a President and a Governor? Yes. The word \"the\".*\nConverted from: The President");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
@@ -517,7 +517,7 @@ module.exports = (g) =>
 
 	register_role(["belittler", "1186", "199u"], "Unseen", "Belittler", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1186\nConverted from: Coach");
+		e.setDescription("Post 1186\n*Shame, shame, shame...*\nConverted from: Coach");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
@@ -525,7 +525,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Belittle (Night): Belittle someone. Based on their subalignment, their ability will be nerfed for the night.");
 
-		e.addField("Attributes:", "- Investigative roles will receive false feedback based on their ability (their results will be framed or randomized if they are unaffected by frames)\n- Protective roles will not be able to protect their target if they are visited by any other player.\n- Killing roles will have their Attack value decreased to the next-lowest value.\n- Support roles will have their visit fail regardless of any other abilities used on them.\n- Any subalignment not listed will not receive a nerf.\n- You will be notified if your belittlement impacted your target's actions.\n- Your target will not be notified about their belittlement.\n- You may not belittle an Unseen member.");
+		e.addField("Attributes:", "- Investigative roles will receive false feedback based on their ability (their results will be framed or randomized if they are unaffected by frames)\n- Protective roles will have their ability fail if their target is visited by a non-killing role.\n- Killing roles will have their Attack value decreased to the next-lowest value.\n- Support roles will have their visit fail regardless of any other abilities used on them.\n- Any subalignment not listed will not receive a nerf.\n- You will be notified if your belittlement impacted your target's actions.\n- Your target will not be notified about their belittlement.\n- You may not belittle an Unseen member.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -562,7 +562,7 @@ module.exports = (g) =>
 
 	register_role(["heliocentrist", "helio", "1189", "298u"], "Unseen", "Heliocentrist", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 1189\nConverted from: Sun's Familiar");
+		e.setDescription("Post 1189\n*Nicolaus Copernicus was pretty based dude.*\nConverted from: Sun's Familiar");
 
 		e.addField("Alignment", "Unseen Power", true);
 		e.addField("Attack", "None", true);
@@ -570,50 +570,50 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Night Life (Day, 3 use): The following Night phase will simultaneously act as a Day and a Night phase.\n- Day Break (Day, 1 use): The following Night phase will simultaneously act as a Day and a Night phase only for the Unseen and one other player of your choice.");
 
-		e.addField("Attributes:", "- During Day Break, any alive player may be voted for even if they are not present during the Day-Night phase.");
+		e.addField("Attributes:", "- During a simultaneous Day and Night phase, your vote will act as 2, and the phase will return to a normal Night phase if you vote for nightfall.\n- During Day Break, any alive player may be voted for even if they are not present during the Day-Night phase.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["vegetarian", "veget", "1190", "327u"], "Unseen", "Vegetarian", {subCat: "Casual"}, (e) =>
 	{
-		e.setDescription("Post 1190\nConverted from: Vegan");
+		e.setDescription("Post 1190\n*The differences between a vegetarian and a vegan are quite intricate, but you probably don't care so I'll just pretend I'm hip and trendy just for you.*\nConverted from: Vegan");
 
 		e.addField("Alignment", "Unseen Casual", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Inform (Night): Select a target. They will be informed that you are a Vegan.\n- Talk Your Ear Off (Night): All players who visit you tonight will receive the night result \"You slept peacefully.\"");
+		e.addField("Abilities:", "- Inform (Night): Select a target. They will be informed that you are a Vegan.\n- Talk Your Ear Off (Night): All players who visit you tonight will receive the night result \"You slept peacefully.\" If a player who visits you is killed, they will receive their death notification instead.\n- Lecture (Day, 1 use): All players who you have previously Informed (including players you informed pre-conversion) will be silenced for the rest of the day.");
 
-		e.addField("Attributes:", "- Anyone affected by Talk Your Ear Off will have any feedback that they may receive from their abilities withheld along with any other notifications they would have received.\n- If a player affected by Talk Your Ear Off is killed, they will receive the death notification and nothing else.");
+		e.addField("Attributes:", "- Anyone affected by Talk Your Ear Off will have any feedback that they may receive from their abilities withheld along with any other notifications they would have received.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["messenger", "1191", "369u"], "Unseen", "Messenger", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1191\nConverted from: Courier");
+		e.setDescription("Post 1191\n*I see the stars come out of the sky.*\nConverted from: Courier");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Deliver (Night): Choose a target. Their visit will become Astral, and you will scare away one other visitor.\n- Delayed Message (Night, 2 use): Choose a target. If they use a night ability tonight, it will resolve at the end of tomorrow night.\n- Letter Bomb (Night, 1 use): The Assassin's kill will become Astral, and any players who attempt to roleblock or control the Assassin will be scared away.");
+		e.addField("Abilities:", "- Deliver (Night): Choose a target. Their visit will become Astral, and you will scare away one other visitor. You may only target an Unseen member with this ability twice.\n- Delayed Message (Night, 2 use): Choose a target. If they use a night ability tonight, it will resolve at the end of tomorrow night.\n- Letter Bomb (Night, 1 use): The Assassin's kill will become Astral, and any players who attempt to roleblock or control the Assassin will be scared away.");
 
-		e.addField("Attributes:", "- You may not target the Unseen with Deliver.\n- You will favor scaring away any Protectives, then Supports, then Investigatives, then Killings with Deliver. Any Unseen members will be prioritized last, but they will be considered.\n- A Delayed Message will still be delivered even if your target dies the night you use your ability.");
+		e.addField("Attributes:", "- A Delayed Message will still be delivered even if your target dies the night you use your ability.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["timesnatcher", "1192", "424u"], "Unseen", "Timesnatcher", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1192\nConverted from: Chronomancer");
+		e.setDescription("Post 1192\n*You're out of touch.*\nConverted from: Chronomancer");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Time Snatch (Day, 2 use): Choose a target. If they have been afflicted by any ability that will cause them to die tonight, they will immediately be killed.\n- Dark Dimension (Night, 2 use): All Unseen members gain Detection Immunity tonight.\n- Deadly Resolve (Night, 1 use): All killing abilities will resolve before any other abilities tonight.");
+		e.addField("Abilities:", "- Time Snatch (Day, 2 use): Choose a target. If they have been afflicted by any ability that would cause them to die tonight, they will immediately be killed.\n- Dark Dimension (Night, 2 use): All Unseen members may choose a role from the GIM thread to appear as to Investigative abilities tonight. If they do not choose a role, they will gain Detection Immunity instead.\n- Deadly Resolve (Night, 1 use): All killing abilities will resolve before any other abilities tonight.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -641,7 +641,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Reckless (1-shot): Use any Killing ability that an Agent can use.\n- Signal Mass Attack (1-shot): Use during the day. Enable all Agent roles to use a factional attack the next night. Agents will be informed of this.\n- Take Charge (0-shot): This ability gains 1 ammo any time a Town Power, Neutral Killing, or Faction Lead/Head role dies. Grant yourself a hidden, extra vote.");
+		e.addField("Abilities:", "- Reckless (1-shot): Use an ability that a Killing Agent can use.\n- Signal Mass Attack (1-shot): Use during the day. Enable all Agent roles to use a factional attack the next night. Agents will be informed of this.\n- Take Charge (0-shot): This ability gains 1 ammo any time a Town Power, Neutral Killing, or Faction Lead/Head role dies. Grant yourself a hidden, extra vote.");
 
 		e.addField("Attributes:", "- You have Invincible defense against any form of poison.");
 
@@ -656,7 +656,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Lead Through Action (2-shot): Use any Support or Communication ability that an Agent can use.\n- Dinner Discussion (Infinite): During the day, choose a player. You will share a chat with them the next night, removing them from any factional chats they are in. They will know your name, but not that you are Charlie.");
+		e.addField("Abilities:", "- Lead Through Action (2-shot): Use an ability that an Communications or Support Agent can use.\n- Dinner Discussion (Infinite): Dinner Discussion (Infinite): During the day, choose a player. You will share a chat with them the next night, removing them from any factional chats they are in. They will know your name, but not that you are Charlie.");
 
 		e.addField("Attributes:", "- At the start of the game, you will learn the role of a random player. This does not bypass detection immunity, if such immunity grants the ability to choose a disguise role.\n- You have roleblock, control, and redirection immunity. If any of these are attempted on you, you will learn what role attempted to cause it.\n- If you carry the factional kill, you will roleblock your target.");
 
@@ -671,7 +671,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Tactical Espionage Master (1-shot): Use any Sabotage ability that an Agent can use.\n- Isolate (2-shot): Choose a player during the night. They will permanently be removed from any private chat they are in, and can only be added to another by an Agent’s ability. You may revoke this at any time.\n- Manipulate Connections (2-shot): Choose a player during the night. The next day, you may control their vote as if it were your own.");
+		e.addField("Abilities:", "- Tactical Espionage Master (1-shot): Use an ability that a Sabotage Agent can use.\n- Isolate (2-shot): Choose a player during the night. They will permanently be removed from any private chat they are in, and can only be added to another by an Agent’s ability. You may revoke this at any time.\n- Manipulate Connections (1-shot): Choose a player during the night. The next day, you may control their vote as if it were your own.");
 
 		e.addField("Attributes:", "- You are detection immune. At the beginning of the game, you may choose a role to appear as to investigations. You may change this at any time.\n- If you carry the factional kill, it will be Astral and you may choose what role it appears to come from.");
 
@@ -716,7 +716,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Disruption (3-shot): Target a player during the night. They are unable to send or receive whispers for the next 2 days.");
 
-		e.addField("Attributes:", "- You may choose to hide your whispers from roles/abilities that can read whispers.\n- You are silence immune.");
+		e.addField("Attributes:", "- You may choose to hide your whispers from roles/abilities that can read whispers.\n- You are immune to any abilities that can prevent you from speaking during a day phase.");
 
 		e.addField("Goal:", factions.Agent.goal);
 	});
@@ -729,7 +729,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Drive to Excel (2-shot): Target a player during the night. If they are not an Agent, you will know. If they are an Agent, you will give them a buff depending on their type:\n> -Lead: They will gain one shot of Identify Contact\n> -Killing: Their next attack will be both Powerful and Astral. If they try to kill an Agent, they will instead fail and gain a permanent chat with that Agent.\n> -Support: They become permanently control, redirect, and roleblock immune\n> -Sabotage: They become permanently detection immune and can choose a disguise role\n> -Communication: You will gain a private chat with them.");
+		e.addField("Abilities:", "- Drive to Excel (2-shot): Target a player during the night. If they are not an Agent, you will know. If they are an Agent, you will give them a buff depending on their type:\n> -Head: They will gain one shot of Identify Contact\n> -Killing: Their next attack will be both Powerful and Astral. If they try to kill an Agent, they will instead fail and gain a permanent chat with that Agent.\n> -Support: They become permanently control, redirect, and roleblock immune\n> -Sabotage: They become permanently detection immune and can choose a disguise role\n> -Communication: You will gain a private chat with them.");
 
 		e.addField("Attributes:", "- Drive to Excel can only be used once per Agent.\n- If you are lynched, you will signal to the Agents. You will be able to send a 400 character message that only Agents will see.");
 

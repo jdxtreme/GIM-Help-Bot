@@ -105,19 +105,21 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["journeyer", "journey", "1058"], "Town", "Journey", {subCat: "Investigative"}, (e) =>
+	register_role(["tatsu", "1058"], "Discordian", "Tatsu", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1058");
 
-		e.addField("Alignment", "Town Investigative", true);
+		e.addField("Alignment", "Discordian Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Visit people to fill out your map.");
+		e.addField("Abilities:", "- Level up a Discordian at night.\n- Inform a non-Discordian they have leveled up at night.");
 
-		e.addField("Attributes:", "- At the start of the game, get an empty map.\n- If you visit, you must visit 3 people.\n- You will be told how many different factions are on your map. You will also learn the role of 1 player you visit, chosen at random. (Neutrals all count as 1 faction, with the exemption of neutrals that can get teammates i.e. conversion. All neutrals that can get teammates are their own faction.)");
+		e.addField("Attributes:", "- If you level up a Discordian, choose a buff to give them. The buff only lasts for 1 night.\n- If you inform a non-Discordian they leveled up, every feedback message will be replaced with “[Target] has leveled up!” If they received no feedback message, they will still be told they leveled up.\n- Since Tatsu is not a player and therefore cannot die, if the player you are targeting dies, you will gain your “Player dying” buff.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("List of Buffs:", "- Your target’s visit is astral.\n- Choose a role for the target to appear as to all investigative abilities.\n- Redirect your target’s visitors to another target.\n- Your target will learn the role of whoever they target.");
+
+		e.addField("Goal:", factions.Discordian.goal);
 	});
 
 	register_role(["birdkeeper", "bird", "1059"], "Town", "Birdkeeper", {subCat: "Support"}, (e) =>
@@ -702,7 +704,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["uwa!", "uwa", "1097"], "Town", "Uwah!", {subCat: "Support"}, (e) =>
+	register_role(["uwa!", "uwa", "1097"], "Town", "Uwa!", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1097\n*Let’s get to configging that joystick.*");
 

@@ -54,12 +54,12 @@ module.exports = (g) =>
 		e.setDescription("Post 904");
 
 		e.addField("Alignment", "Town Killing", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Fire a mortar shell at a player.");
 
-		e.addField("Attributes:", "- You have 3 mortar shells.\n- You may not shoot people 1-2 spots away from you on the player list (Dead players do not count as players near you on the player list).\n- If 7 or less players are alive, your restriction is dropped. Revivals will not reinstate this restriction.\n- If you kill a town member, you will lose all your shells and be unable to vote the next day.");
+		e.addField("Attributes:", "- You have 3 mortar shells.\n- You may not shoot people 1-2 spots away from you on the player list (Dead players do not count as players near you on the player list).\n- If 7 or less players are alive, your restriction is dropped. Revivals will not reinstate this restriction.\n- If you kill a town member, you will lose all your shells.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -684,7 +684,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Learn someone's role\n- Start a riot.");
 
-		e.addField("Attributes:", "- You may visit someone and learn their exact role. This ignores any framing or disguising effect.\n- Once per game, at night you can choose to start a riot, lowering the amount of votes needed to lynch someone the next day by 3.");
+		e.addField("Attributes:", "- You may visit someone and learn their exact role. This ignores any framing or disguising effect.\n- Once per game, at night you can choose to start a riot, lowering the amount of votes needed to lynch someone the next day by 3. This can't go below 1.\n- The game won't end if Anarchist can still win by voting out the last good faction member by starting a riot.");
 		
 		e.addField("Goal:", "See the town lose **or** see a Town (Power) get lynched (this can win while dead).");
 	});

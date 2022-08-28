@@ -97,7 +97,7 @@ module.exports = (g) =>
 {
 	const {register_role, factions, msg} = g;
 
-	register_role(["android", "android_role", "androidrole"], "Android", "Android", {subCat: "Support"}, (e, chn, message, args) =>
+	g.androidRole = (e, chn, message, args) =>
 	{
 		let bits = [];
 
@@ -138,11 +138,13 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- When you use your ability, " + ATTRIBUTES_1[bitsToDec(bits, 4, 6)] + ".\n- " + ATTRIBUTES_2[bitsToDec(bits, 7, 9)] + ".");
 		
 		e.addField("Goal:", factions.Android.goal);
-	});
+	};
+
+	register_role(["android", "android_role", "androidrole"], "Android", "Android", {subCat: "Support"}, g.androidRole);
 
 	register_role(["le0n", "leon", "11037"], "Neutral", "LE0N", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 11037");
+		e.setDescription("Post 11037\n*11037? What's that supposed to mean?*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Unstoppable", true);
@@ -168,5 +170,35 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- You have a layer of Basic defense that can prevent one attack.");
 		
 		e.addField("Goal:", "Live to see the Town lose.");
+	});
+
+	register_role(["progenitor_horse", "progenitorhorse", "progenitor", "horse", "ph", "100000"], "Neutral", "Progenitor Horse", {subCat: "Chaos"}, (e) =>
+	{
+		e.setDescription("Post 1(00,000)");
+
+		e.addField("Alignment", "Unique Neutral Chaos", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Invincible", true);
+
+		e.addField("Abilities:", "- Roleblock someone each night.\n- Redirect someone each night.");
+
+		e.addField("Attributes:", "- Roleblock, redirect, detection, and conversion immune\n- Players you roleblock will roleblock the next player that they visit, and that player will roleblock the next player that they visit, and so on.\n- Players you redirect will redirect the next player they visit (not counting the one they're redirected to) to you, and that player will redirect the next player they visit to you, and so on.");
+		
+		e.addField("Goal:", "Live to see no kills occur on any given night other than Night 1.");
+	});
+
+	register_role("lorenzo", "Town", "Lorenzoromanoamedeocarloavogadrocountofquaregnaandcerreto", {subCat: "Investigative"}, (e) =>
+	{
+		e.setDescription("Post 602214076000000000000000");
+
+		e.addField("Alignment", "Town Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Invincible", true);
+
+		e.addField("Abilities:", "- Study a player each night. You'll learn the Xth digit of their role's post number, where X is the number of times you've studied them.");
+
+		e.addField("Attributes:", "- No abbreviations for this role's command are to be put in the bot. Its only aliases should be =602214076000000000000000 and =lorenzoromanoamedeocarloavogadrocountofquaregnaandcerreto.\n- Sorry Rasen, you cannot tell me what to do.");
+		
+		e.addField("Goal:", factions.Town.goal);
 	});
 };

@@ -116,6 +116,45 @@ module.exports = (g) =>
 		});
 	}, true);
 
+	register_cmd("view_players", "", "View Players", "Display the current data of registered players.\n\n**Warning, this can reveal meta info if used in public channels.**", (chn, message, e, args) =>
+	{
+		if(PLAYER_DATA.length === 0)
+		{
+			msg(chn, "-There is no player data to display.");
+			return;
+		}
+
+		e.setAuthor({name: "PLAYER_DATA"});
+		e.setColor("#0000FF");
+
+		for(let i = 0; i < PLAYER_DATA.length; i++)
+		{
+			let plr = PLAYER_DATA[i];
+			let nicks = "Nicks: ";
+			let tags = "";
+
+			for(let n = 0; n < plr.nicknames.length; n++)
+			{
+				nicks = nicks + plr.nicknames[n];
+
+				if(n < plr.nicknames.length-1)
+					nicks = nicks + ", ";
+			}
+
+			if(plr.tags && Object.keys(plr.tags).length > 0)
+			{
+				tags = "\nTags:";
+
+				for(let tag in plr.tags)
+					tags = tags + "\n\"" + tag + "\": \"" + plr.tags[tag] + "\"";
+			}
+
+			e.addField("Player " + (i+1), "Name: <@" + plr.id + ">\nChannel: <#" + plr.channel + ">\n" + nicks + "\nAlive: " + (plr.alive ? "true" : "false") + tags, true);
+		}
+
+		chn.send({embeds: [e]});
+	}, true);
+
 	register_cmd("toggle_day", "", "Toggle Day", "Toggle between Night and Day, determining if whispers are allowed or not.", (chn, message, e, args) =>
 	{
 		toggle_day();

@@ -119,6 +119,10 @@ for _, filename in ipairs(args) do
 					vg = false
 				end
 
+				if cat == "Seven" and goal and goal:find("sin and chaos") then
+					vg = false
+				end
+
 				if cat == "Horsemen" and alignment and alignment:find("Horseman") then
 					va = false
 				end

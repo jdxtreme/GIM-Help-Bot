@@ -120,7 +120,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["cult_leader", "cultleader", "cleader", "959"], "Cult", "Cult Leader", {subCat: "Killing"}, (e) =>
+	register_role(["cult_leader", "cultleader", "cleader", "cl", "959"], "Cult", "Cult Leader", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 959\n*All hail Mithras. All hail Corax. The true gods of this plane. You will spread their stories to every member of this Town…whether they like it or not.*");
 

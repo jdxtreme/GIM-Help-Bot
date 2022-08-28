@@ -417,6 +417,36 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
+	register_role(["divine_visionary", "divinevisionary", "divine", "visionary", "dv", "328"], "Town", "Divine Visionary", {subCat: "Investigative"}, (e) =>
+	{
+		e.setDescription("Post 328");
+
+		e.addField("Alignment", "Town Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Prepare a vision of someone at night.\n- Send a vision to someone at night, choosing one of the visions you prepared and revealing that player's role to your target. This bypasses all framing effects, but not effects like Eyisa's veil of ice.");
+
+		e.addField("Attributes:", "- If this role would roll, the player who would roll it gets a new role and the host is added to the game as a player with this role as well as the host. This is publicly announced in the player list channel. The player never sees that they would've gotten this role.\n- You may not whisper or talk in any chats or send any messages whatsoever or have a last will or vote.\n- Investigative abilities against you fail.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["divine_traitor", "divinetraitor", "divine", "dt", "329"], "Neutral", "Divine Traitor", {subCat: "Evil"}, (e) =>
+	{
+		e.setDescription("Post 329");
+
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Send a vision to someone at night, revealing to them a player of your choice's role as if you were 328: Divine Visionary, but you may choose to change the role revealed to whatever you like.");
+
+		e.addField("Attributes:", "- If this role would roll, the player who would roll it gets a new role and the host is added to the game as a player with this role as well as the host. This is publicly announced in the player list channel. The player never sees that they would've gotten this role.\n- You may not whisper or talk in any chats or send any messages whatsoever or have a last will or vote.\n- Investigative abilities against you fail.\ngod rasen, stop putting your attributes above abilities already, its so cring");
+		
+		e.addField("Goal:", "Live to see the Town lose the game.");
+	});
+
 	register_role(["zero_kids_in_a_trenchcoat", "zerokidsinatrenchcoat", "zero_kids", "zerokids", "zkiat", "330"], "Town", "Zero Kids in a Trenchcoat", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 330");
@@ -595,6 +625,21 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- Sniping someone deals an unstoppable attack.\n- You can only snipe once a day.\n- You cannot snipe Day 1.\n- You can snipe at anytime during the day.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
+	});
+
+	register_role(["ranger", "342"], "Town", "Ranger", {subCat: "Offensive"}, (e) =>
+	{
+		e.setDescription("Post 342");
+
+		e.addField("Alignment", "Unique Town Offensive", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- At night, set up traps at a player's house, tagging the target and all who visit.\n- Stakeout a house, killing all Tagged players who visit.");
+
+		e.addField("Attributes:", "- Astral Visitor\n- You can tag and attack astral visitors.\n- You cannot stakeout twice in a row.\n- If you kill a Town member whose alignment is not Town Evil, you will be left with one charge of Stakeout left.");
+		
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["enflamer", "343"], "Underworld", "Enflamer", {subCat: "Support"}, (e) =>

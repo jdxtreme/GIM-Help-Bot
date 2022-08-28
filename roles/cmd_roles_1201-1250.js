@@ -128,7 +128,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Learned Skill (2-shot): Choose any non-Lead Agent ability that starts with 2 or more shots. You may use that ability as normal.");
+		e.addField("Abilities:", "- Learned Skill (2-shot): Choose any non-Head Agent ability that starts with 2 or more shots. You may use that ability as normal.");
 
 		e.addField("Attributes:", "- You cannot be granted any form of immunity, including defense.");
 
@@ -626,15 +626,15 @@ module.exports = (g) =>
 
 	register_role(["anticipator", "1244"], "Town", "Anticipator", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1244");
+		e.setDescription("Post 1244\n*I just can't wait to die!*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- At night, select someone to have their night action process last. If you target a player who has already sent in their night action and your attributes are active, your ability will fail.\n- During the day, choose to nullify your attributes tonight.");
+		e.addField("Abilities:", "- At night, select someone to have their night ability process after every other night ability, including this one.\n- During the day, choose to nullify your attributes tonight.");
 
-		e.addField("Attributes:", "- While you are alive, all night actions will be processed as soon as they are sent in. This attribute can cause a player to be killed in the middle of the night before they can perform their night ability.\n- Any persistent abilities will linger until the end of the night (e.g. a protective role will defend against any attacks sent in after the protection, a Veteran on alert will kill all players who visit them after they go on alert).");
+		e.addField("Attributes:", "- While you are alive, all night actions will be processed as soon as they are sent in. This attribute can cause a player to be killed in the middle of the night before they can perform their night ability.\n- Any persistent abilities will linger until the end of the night (e.g. a protective role will defend against any attacks sent in after the protection, a Veteran on alert will kill all players who visit them after they go on alert).\n- If you target a player who sent in their night action before you did with your night ability, your ability will fail.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

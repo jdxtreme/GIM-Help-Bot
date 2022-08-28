@@ -672,9 +672,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic/Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- At night, choose a dead player. You will deal a Powerful attack to the last player they visited. (2 use)\n- During the day, choose a dead player. The following night, they will be able to choose a player to deal a Basic attack to. You will perform this attack. (1 use)");
-
-		e.addField("Attributes:", "- For the first ability, if you choose a player who did not visit anyone, you will not lose a charge of your ability. If your target visited multiple people, you will attack all of them.");
+		e.addField("Abilities:", "- At night, choose a dead player. You will deal a Powerful attack to the last player they visited. Your ability fails if your target did not visit anyone the night they died. If your target visited multiple people on the night they died, attack all of them.\n- During the day, choose a dead player. The following night, they will be able to choose a player to deal a Basic attack to. You will perform this attack instead of your normal night ability. (1 use)");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

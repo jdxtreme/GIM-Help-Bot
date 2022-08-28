@@ -388,10 +388,10 @@ module.exports = (g) =>
 		e.setDescription("Post 27");
 
 		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Variable", true);
+		e.addField("Attack", "None (Variable)", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Infect a player with your disease.\n- Or, reduce your attack level by one, but nobody can be infected if you reduce your attack level.\n- Once per game, you may set your attack level to Unstoppable, but your disease will never be able to spread again.");
+		e.addField("Abilities:", "- Infect a player with your disease. Or, reduce your attack level by one, but nobody can be infected if you reduce your attack level.\n- Once per game, you may set your attack level to Unstoppable, but your disease will never be able to spread again. However, your kill chance will increase to 100%.");
 
 		e.addField("Attributes:", "- Your disease spreads similarly to Plaguebearer's plague, but each person can only spread it to one other person per night, including you. Everyone will know when they are infected if you have a Basic (or higher) attack, and if they were infected by visiting a target, or by getting visited (activates at Powerful or higher attack). Each night that someone is infected, they have a 33% chance of being dealt an astral attack at the current attack level. Your attack level increases at the very end of all full moon nights.");
 

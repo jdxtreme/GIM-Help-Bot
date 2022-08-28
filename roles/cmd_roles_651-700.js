@@ -27,7 +27,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Kill a player at night.");
 
-		e.addField("Attributes:", "- Once you kill a player, you will join the mafia chat.\n- Once you kill a player, you will be given 5 random mafia roles, pick one to become permanently.\n- You can switch your role once, being given a selection of 5 new mafia roles to choose from.\n- If you pick a Mafia (Espionage) role, you will stay in the mafia chat.\n- You cannot become Wannabe, The Ultimate Mafioso, The Entire Mafia, Turncoat.");
+		e.addField("Attributes:", "- Once you kill a player, you will join the mafia chat.\n- Once you kill a player, you will be given 5 random mafia roles, pick one to become permanently.\n- If you pick a Mafia (Espionage) role, you will stay in the mafia chat.\n- The host can decide which roles would be too powerful for Wannabe to remember, and can prevent them from being options.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -267,7 +267,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Send someone back in time at night.\n- Once per game, revive a dead Pale Moon.");
 
-		e.addField("Attributes:", "- If they die the same night you send them back in time, their death Is delayed for 2 rounds\n- If they are attacked again while their death Is delayed, they will die.\n- You will revive a dead Pale Moon as a completely lifeless zombie. They cant be voted, talked or whispered to. You may decide to give this Zombie to yourself or any other Pale Moon.\n- If someone attacks a target with a Zombie, the Zombie will die instead.\n- When the PMCS begins, you will gain one charge of revival, and may revive any player. They still cannot be talked, voted or whispered to, nor can they get targeted at night, but you will use them to deal an Astral Unstoppable Attack at a player.");
+		e.addField("Attributes:", "- If they die the same night you send them back in time, their death Is delayed for 2 rounds\n- If they are attacked again while their death Is delayed, they will die.\n- You will revive a dead Pale Moon as a completely lifeless zombie. They cant be voted, talked or whispered to. You may decide to give this Zombie to yourself or any other Pale Moon.\n- If someone attacks a target with a Zombie, the Zombie will die instead.\n- When the PMCS begins, you will gain two charges of revival, and may revive any player. They still cannot be talked, voted or whispered to, nor can they get targeted at night, but you will use them to deal an Astral Unstoppable Attack at a player. If you dont, you will still give them to yourself or another Pale Moon member.");
 		
 		e.addField("Goal:", factions.PaleMoon.goal);
 	});
@@ -625,7 +625,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- During the day, you may reveal yourself as the Governor, regaining your position to gain 3 total votes during the day. You cannot reveal if another role with a revealing ability already has and is alive.");
 
-		e.addField("Attributes:", "- You will not know who is a Loyalist, but you will know their roles. You cannot access the Loyalist chat, and you cannot perform any Loyalist factional ability. If all other Loyalists die, you will be notified, and you can perform the factional kill.");
+		e.addField("Attributes:", "- Powerful Defense until attacked twice.\n- You will not know who is a Loyalist, but you will know their roles. You cannot access the Loyalist chat, and you cannot perform any Loyalist factional ability. If all other Loyalists die, you will be notified, and you can perform the factional kill.");
 		
 		e.addField("Goal:", "Survive to the end of the game and eradicate those who will not submit to the Governor's rule.");
 	});
