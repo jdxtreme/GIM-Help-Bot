@@ -334,9 +334,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Ground pound to create an earthquake that Roleblocks everyone through Immunity, Ignores Koopas, can't be used again for the next 3 nights.\n- Breathe Flames on 3 targets, Attacking and Torching them, Can only be used on day 3, 6, 9 and so on.\n- Use the Star rod to give a Koopa Overprotective and Lynchproof defense until the start of the next night. (1 use)");
+		e.addField("Abilities:", "- Breathe Flames on a Target, Rampaging and Torching them, Can only be used on night 3, 6, 9 and so on.\n- Ground pound to roleblock all players tonight, Koopas aren't affected by this. (1 use, +1 use after day 5)");
 
-		e.addField("Attributes:", "- Anyone visiting you will be dealt a Basic attack if they aren't from your Faction.");
+		e.addField("Attributes:", "- Anyone visiting you will be dealt a Basic attack if they aren't from your Faction.\n- Roleblock Immunity while Breathing flames.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -368,7 +368,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of each night, You will get 5-8 coins that you will store to use with your abilities/attributes, there is no limit to how many gold you can have.");
 
-		e.addField("Items:", "Mushroom: Upgrades Attack and Defense of target by 1 tier this night, Doesn't stack, 5 coins.\nFire Flower: Target will Torch 1 random person they killed this night, 5 coins.\nBanana Peel: Roleblock one of the Target' visitors at random, 6 coins.\nWarp Pipe: Transport(Check 63) 2 Targets, 10 coins. (2 uses)\nStar: Target gets Invincible defense this night, anyone visiting will be dealt a Powerful attack, 15 coins. (1 use)");
+		e.addField("Items:", "Mushroom: Gives 1 use Basic autovest, 4 coins.\nFire Flower: Target will Torch 1 random person they killed this night, 5 coins.\nBanana Peel: Roleblock one of the Target' visitors at random, 6 coins.\nWarp Pipe: Transport(Check 63) 2 Targets, 8 coins. (2 uses)\n1-up Mushroom: Gives a 3 uses Powerful autovest, 10 coins. (2 uses)\nStar: Target gets Immortal and Lynchproof defense until the start of the next night, anyone visiting will be dealt a Powerful attack, 15 coins. (1 use)");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -418,7 +418,7 @@ module.exports = (g) =>
 
 	register_role(["no_need_to", "noneedto", "ntn", "1428"], "Mafia", "No Need To", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1428");
+		e.setDescription("Post 1428\n*An infinite sky was closer than I believed,*");
 
 		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "None", true);
@@ -433,7 +433,7 @@ module.exports = (g) =>
 
 	register_role(["be_scared_of_me", "bescaredofme", "bsom", "1429"], "Neutral", "Be Scared Of Me", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 1429");
+		e.setDescription("Post 1429\n*But it's a give and take,*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "Basic/Unstoppable", true);
@@ -559,7 +559,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Kick a player out of your inn at night. They will not be allowed inside your inn in the future.\n- Encourage a player to visit your inn tonight, redirecting them to yourself. (2 uses)");
 
-		e.addField("Attributes:", "- Those who visit you at night will enter your inn. Players inside your inn are healed every night, including the night they visit. However, while inside your inn, they cannot use nightly abilities. They can choose to leave your inn at night, losing the Powerful defense at the start of the next day. You will know when someone visits your inn, when someone leaves, and have a list of everyone inside.");
+		e.addField("Attributes:", "- You will be announced as the Innkeeper at the start of the game.\n- Those who visit you at night will enter your inn. Players inside your inn are healed every night, including the night they visit. However, while inside your inn, they cannot use nightly abilities. They can choose to leave your inn at night, losing the Powerful defense at the start of the next day. You will know when someone visits your inn, when someone leaves, and have a list of everyone inside.");
 
 		e.addField("Goal:", "Have every alive player have visited your inn at least once.");
 	});
@@ -721,8 +721,8 @@ module.exports = (g) =>
 		e.setDescription("Post 1448");
 
 		e.addField("Alignment", "Spirit Killing", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Attack", "Faction Variable", true);
+		e.addField("Defense", "Faction Variable", true);
 
 		e.addField("Abilities:", "- Check a player to see if they were your murderer. If they are, attack the player.");
 

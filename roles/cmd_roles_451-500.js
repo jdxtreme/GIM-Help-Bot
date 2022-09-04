@@ -49,15 +49,15 @@ module.exports = (g) =>
 
 	register_role(["cupid", "454"], "Coven", "Cupid", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 454");
+		e.setDescription("Post 454\n");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Make a player infatuated with another every night.");
+		e.addField("Abilities:", "- Make a player infatuated with another each night. You may make players infatuated with yourself.");
 
-		e.addField("Attributes:", "- Infatuated players must visit the player they're infatuated with for the two nights after they're infatuated.\n- With the Necronomicon, instead they will become obsessed, visiting that player for the rest of the game and dealing a Basic attack along with their action.\n- Rasen can only be made a Lover with Igu, if she's in the game.");
+		e.addField("Attributes:", "- Infatuated players must visit the player they're infatuated with for the two nights after they're infatuated. With the Necronomicon, instead they will become obsessed, visiting that player for the rest of the game and dealing a Basic attack along with their action.\n- Rasen can only be infatuated with Igu, if she's in the game.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -70,7 +70,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Blind a player by love every night.");
+		e.addField("Abilities:", "- Blind a player by love each night.");
 
 		e.addField("Attributes:", "- Blinded players will fall in love with another player of your choice. They can only see that players' messages for the next day, and can only target that player the next night. You may make them fall in love with yourself.\n- Rasen can only fall in love with Igu, if she's in the game.");
 		
@@ -289,9 +289,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Cheer someone on each day.");
-
-		e.addField("Attributes:", "- People you cheer on will know that they were cheered on, and will be able to use all of their night abilities twice that night.");
+		e.addField("Abilities:", "- Cheer someone on each day, allowing them to use their night abilities twice the following night.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -525,7 +523,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Attack a random number of players at night.");
+		e.addField("Abilities:", "- Attack a random number of players each night.");
 
 		e.addField("Attributes:", "- Each day, you roll a d6, and you're able to attack a number of players the next night equal to the result.");
 		

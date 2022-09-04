@@ -26,9 +26,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- The next day becomes night and not day, and you may deal a Basic attack during it. Activate only with the Necromonicon. (There's no public chat or lynch.)");
+		e.addField("Abilities:", "- The next day becomes night and not day, and you may deal a Basic attack during it. Activate only with the Necromonicon.");
 
-		e.addField("Attributes:", "- Days other than Day 1 night as well as day. (Night abilities can be used. Informed minority factions can talk in their private chats. Players can still talk publicly and there's still a lynch.)");
+		e.addField("Attributes:", "- Days other than Day 1 are night as well as day.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -76,7 +76,7 @@ module.exports = (g) =>
 
 	register_role(["uncontrollable_mech", "uncontrollablemech", "uncontrollable", "mech", "um", "306"], "Town", "Uncontrollable Mech", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 306");
+		e.setDescription("Post 306\n*I promise, it's functional, it's just, er... a little unreliable.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "Powerful", true);
@@ -104,19 +104,21 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["demon_slayer", "demonslayer", "308"], "Town", "Demon Slayer", {subCat: "Killing"}, (e) =>
+	register_role(["prunela_witch_of_restoration", "prunelawitchofrestoration", "prunela", "witch_of_restoration", "witchofrestoration", "pwor", "308"], "Coven", "Prunala, Witch of Restoration", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 308");
 
-		e.addField("Alignment", "Town Killing", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Coven Head", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Slay someone each night.");
+		e.addField("Abilities:", "- Imprisonment (Day): Cast a spell upon a member of the town, making them believe they were hauled off to jail. You will be able to speak to them as Jailor, or if he is dead, Wisteria.\n- Restoration (Night): Upgrade a Coven members defense by one stage permanently, to a maximum of Invincible.");
 
-		e.addField("Attributes:", "- You have one Basic, one Powerful, and one Unstoppable attack.\n- If you kill a Townie with your Basic attack, you will not be able to act the next night.\n- If you kill a Townie with your Powerful attack, you will lose all your attacks.\n- If you kill a Townie with your Unstoppable attack, you will commit suicide the next night out of guilt.");
+		e.addField("Attributes:", "- Coven Heads, and the Coven Leader cannot spawn with you.\n- You have Necronomicon Priority.\n- Only 1 Coven Head may spawn per game.");
+
+		e.addField("Necronomicon:", "Gain the ability to execute your Imprisoned target.");
 		
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["dice_roller", "diceroller", "dice", "309"], "Mafia", "Dice Roller", {subCat: "Support"}, (e) =>
@@ -239,7 +241,7 @@ module.exports = (g) =>
 
 	register_role(["arbiter_of_hell", "arbiterofhell", "aoh", "hell", "316"], "Coven", "Arbiter of Hell", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 316");
+		e.setDescription("Post 316\n*Boring is removed! You did not gain Cursed, so you die! Cursed is removed! Heavy is removed! You are not in the majority, so you die from Insanity! Insanity is removed! Light is removed! You skip this round due to Paralyzed! Paralyzed is removed! Restrained is removed! Scared is removed! Saint saves you from dying due to Cursed! Saint is removed! Tradition is removed!*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "Basic", true);
@@ -275,7 +277,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Learn each night. When you learn, you will receive 250 random roles which are not in the game.");
+		e.addField("Abilities:", "- Learn each night. You will receive X/2 random roles which are not in the game, where X is the post number of the most recent role in the GIM roles thread.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -361,9 +363,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Powerful", true);
 
-		e.addField("Abilities:", "- Attack a player each night. You'll also attack all their visitors.");
+		e.addField("Abilities:", "- Rampage attack a player each night.");
 
-		e.addField("Attributes:", "- As long as you are alive, all roles' win conditions are replaced by \"Eliminate all players except for Hatred and you.\"");
+		e.addField("Attributes:", "- As long as you are alive, all roles' goals are replaced by \"Eliminate all players except for Hatred and you.\"");
 		
 		e.addField("Goal:", "Eliminate all players except for up to one other player and you.");
 	});
@@ -425,7 +427,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Prepare a vision of someone at night.\n- Send a vision to someone at night, choosing one of the visions you prepared and revealing that player's role to your target. This bypasses all framing effects, but not effects like Eyisa's veil of ice.");
+		e.addField("Abilities:", "- Prepare a vision of someone each night.\n- Send a vision to someone each night, choosing one of the visions you prepared and revealing that player's role to your target. This bypasses all framing effects, but not effects like Eyisa's veil of ice.");
 
 		e.addField("Attributes:", "- If this role would roll, the player who would roll it gets a new role and the host is added to the game as a player with this role as well as the host. This is publicly announced in the player list channel. The player never sees that they would've gotten this role.\n- You may not whisper or talk in any chats or send any messages whatsoever or have a last will or vote.\n- Investigative abilities against you fail.");
 		
@@ -440,7 +442,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Send a vision to someone at night, revealing to them a player of your choice's role as if you were 328: Divine Visionary, but you may choose to change the role revealed to whatever you like.");
+		e.addField("Abilities:", "- Send a vision to someone each night, revealing to them a player of your choice's role as if you were 328: Divine Visionary, but you may choose to change the role revealed to whatever you like.");
 
 		e.addField("Attributes:", "- If this role would roll, the player who would roll it gets a new role and the host is added to the game as a player with this role as well as the host. This is publicly announced in the player list channel. The player never sees that they would've gotten this role.\n- You may not whisper or talk in any chats or send any messages whatsoever or have a last will or vote.\n- Investigative abilities against you fail.\ngod rasen, stop putting your attributes above abilities already, its so cring");
 		
@@ -455,9 +457,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to spawn a child at night. If you do, you become a player. If you spawn a child when you already have a child, you become 2 players, etc.");
+		e.addField("Abilities:", "- Choose to spawn a child at night. If you do, you become a player. If you spawn a child when you already have a child, you become 2 players, and so on.");
 
-		e.addField("Attributes:", "- You're not a player. (You can't vote, you can't be targeted, you don't count towards majority, etc.)");
+		e.addField("Attributes:", "- You're not a player. You can't be voted for, whispered to, targeted, etc., and you don't count towards majority or game-end conditions.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -532,9 +534,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- You're three random other players and they're you. (*You have access to their private channels and they do yours. You can take actions for them and they can take actions for you. In the case of conflicting actions, a random action will be chosen.*)");
+		e.addField("Attributes:", "- You're three random other players. You have access to their private channels, and you may take actions for them. In the case of conflicting actions, a random one will be chosen.");
 		
-		e.addField("Goal:", "Eliminate all players who aren't you. (*The other players you are don't win if you do.*)");
+		e.addField("Goal:", "Ensure as many of the other players you are win as possible.");
 	});
 
 	register_role(["apocalypse", "336"], "Underworld", "Apocalypse", {subCat: "Head"}, (e) =>
@@ -569,7 +571,7 @@ module.exports = (g) =>
 
 	register_role(["telecaster", "338"], "Mafia", "Telecaster", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 338");
+		e.setDescription("Post 338\n*Nice argument, but 338.733.631.34*");
 
 		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "None", true);
@@ -627,11 +629,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["ranger", "342"], "Town", "Ranger", {subCat: "Offensive"}, (e) =>
+	register_role(["ranger", "342"], "Town", "Ranger", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 342");
 
-		e.addField("Alignment", "Unique Town Offensive", true);
+		e.addField("Alignment", "Unique Town Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
@@ -749,7 +751,7 @@ module.exports = (g) =>
 
 	register_role(["horologist", "350"], "Town", "Horologist", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 350");
+		e.setDescription("Post 350\n*I don't know how someone can stay in business when their all they do is have one clock they move around.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);

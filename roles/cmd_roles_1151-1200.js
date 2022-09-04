@@ -82,19 +82,17 @@ module.exports = (g) =>
 		e.addField("Goal:", "Have the good faction lose (this can win while dead).");
 	});
 
-	register_role(["puzzle_box", "puzzlebox", "puzzle", "1157"], "Neutral", "Puzzle Box", {subCat: "Chaos"}, (e) =>
+	register_role(["random_random", "randomrandom", "1157"], "Random", "Random Random", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1157");
 
-		e.addField("Alignment", "Unique Neutral Chaos", true);
-		e.addField("Attack", "None (Variable)", true);
-		e.addField("Defense", "Basic (Variable)", true);
+		e.addField("Alignment", "Unique Random Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Solve puzzles to gain abilities.");
+		e.addField("Attributes:", "- At the start of every night, you will turn into a random Random role. You will revert back to Random Random at the start of the next day. You cannot become a living Random role, but you may become a dead Random role or a Random role that didn't spawn.");
 
-		e.addField("Attributes:", "- At the start of every phase, if you are not in the middle of solving a puzzle, the host will give you a new puzzle.\n- Upon solving a puzzle, you randomly gain an ability or attribute. The host will choose your ability/attribute. Abilities/attributes can be attacks, protection, something to help solve puzzles, etc.\n- You may only complete 1 puzzle per phase.\n- Your third successful solve will always give you an attribute that lets you complete 2 puzzles per phase.\n- You get to pick your abilities/attributes after 5 successful solves. The host reserves the right to deny abilities/attributes that are too strong/game-breaking.\n- You may reroll this role for free if you do not want to solve puzzles.");
-
-		e.addField("Goal:", "Complete 10 puzzles **or** be the last player standing.");
+		e.addField("Goal:", factions.Random.goal);
 	});
 
 	register_role(["enigma", "1158"], "Any", "Enigma", {anyExCat: ["Neutral"]}, (e) =>
@@ -107,7 +105,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Use one of your 2 abilities.");
 
-		e.addField("Attributes:", "- You will be assigned a random faction. This faction can be good or bad.\n- You will be given an ability from 2 random roles. Once you use an ability, swap it for a new one.\n- Twice per game you can reroll one or both abilities. They will be replaced with new abilities.\n- Twice per game you can use both abilities in the same night.");
+		e.addField("Attributes:", "- You will be assigned a random faction. This faction can be good or bad.\n- You will be given an ability from 2 random roles. Once you use an ability, swap it for a new one.\n- Once per game you can reroll one or both abilities. They will be replaced with new abilities.");
 
 		e.addField("Goal:", "Kill all who would oppose you and your faction.");
 	});
@@ -127,17 +125,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["wrath", "1160"], "Neutral", "Wrath", {subCat: "Killing"}, (e) =>
+	register_role(["sk", "amnesiac_serial_killer", "amnesiacserialkiller", "ask", "1160"], "SK", "Amnesiac Serial Killer", {subCat: "Espionage"}, (e) =>
 	{
 		e.setDescription("Post 1160");
 
-		e.addField("Alignment", "Unique Neutral Killing", true);
-		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Unique Serial Killer Espionage", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Kill 1 player.");
+		e.addField("Abilities:", "- Stab someone.\n- Remember who you were.");
 
-		e.addField("Attributes:", "- You need 1 less vote to be lynched. This is disabled if it would result in you only needing 1 vote to be lynched.\n- For every vote you receive, even if the vote is changed later, deal 1 extra attack the next night. Voting yourself does not count for this. Roles that give more then 1 vote count as multiple votes (i.e. Mayor gives 3 attacks.) The total number of kills cannot go over majority. (If majority is 8 you can only kill up to 7 times.)\n- Each player only counts as voting you once, even if they vote you several different times throughout the day.\n- If you are stopped from using your extra attacks, you keep them for the next night. This will not stack with the next days attacks, you will instead kill equal to the highest number of votes you received between the 2 days.");
+		e.addField("Attributes:", "- If you stab someone, their role will show up as Forgotten (1622) and their last will will be hidden.\n- You can only remember Serial Killer faction roles.\n" + factions.SK.attributes);
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -247,7 +245,7 @@ module.exports = (g) =>
 
 	register_role(["trace", "1168"], "Town", "Trace", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1168");
+		e.setDescription("Post 1168\n*Kage Bunshin no Jutsu, Shadow Clone Technique!*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -262,7 +260,7 @@ module.exports = (g) =>
 
 	register_role(["failsafe", "1169"], "Town", "Failsafe", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 1169");
+		e.setDescription("Post 1169\n*Time is not safe from our grasp. But maybe that's a good thing.*");
 
 		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "None", true);
@@ -277,7 +275,7 @@ module.exports = (g) =>
 
 	register_role(["starscattered", "star", "1170"], "Coven", "Starscattered", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 1170");
+		e.setDescription("Post 1170\n*Everything that comes and goes is written in the stars.*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "None", true);
@@ -290,9 +288,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["duelspell", "1171"], "Town", "Duelspell", {subCat: "Support"}, (e) =>
+	register_role(["dualspell", "duelspell", "1171"], "Town", "Dualspell", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1171");
+		e.setDescription("Post 1171\n*Immortality is impossible. But, with a little work, you can improve on having just one life.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -307,7 +305,7 @@ module.exports = (g) =>
 
 	register_role(["defective_battlesuit", "defectivebattlesuit", "defective", "battlesuit", "db", "1172", "306u"], "Unseen", "Defective Battlesuit", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1172\nConverted from: Uncontrollable Mech");
+		e.setDescription("Post 1172\n*You don't have anything to worry about, sir. It works. Trust me.*\nConverted from: Uncontrollable Mech");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
@@ -322,7 +320,7 @@ module.exports = (g) =>
 
 	register_role(["bargainer", "1173"], "Neutral", "Bargainer", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1173");
+		e.setDescription("Post 1173\n*The ultimate tool is a silver tongue.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -330,9 +328,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack someone at night.\n- At any point in the game, attempt to strike a deal with someone. They will be privately notified, and given the choice to accept or deny. If they accept, you‘ll gain an upgrade, based on how many deals you‘ve secured.\n— 1: You gain Basic defence.\n— 2: Nothing happens.\n— 3: Your attack is upgraded to Powerful.\n— 4: You may now kill 2 people at night. You can disguise the cause of death of the second kill as any other role in GIM.\n— 5: Everyone alive is dealt an Overkill attack and you immediately win the game.");
 
-		e.addField("Attributes:", "- Anyone who accepts your deal gains a one-use Powerful day gun, though they can't use it on you. People who you attempt to strike deals will not know how many deals you've secured in the past.\n- You can make deals multiple times in a day/night cycle, but you can only have one deal open at a time. Players have 24 hours to decide whether or not they accept, otherwise it's considered a denial. However, a player may not intentionally stall the timer, so they must make their choice as soon as they see the notification.\n- You will publicly be revealed as the Bargainer at the start of the game.");
+		e.addField("Attributes:", "- Anyone who accepts your deal gains a one-use Powerful day gun, though they can't use it on you. People who you attempt to strike deals will not know how many deals you've secured in the past.\n- You can use this ability multiple times in a day/night cycle, but you can only have one deal open at a time. Players have 24 hours to decide whether or not they accept, otherwise it's considered a denial. However, a player may not intentionally stall the timer, so they must make their choice as soon as they see the notification.\n- You will publicly be revealed as the Bargainer at the start of the game.");
 
-		e.addField("Attributes (cont.):", "- If you're lynched, everyone who voted you will be dealt an Overkill attack. If you die by any method besides lynching, anyone who contributed to your death will be dealt an Overkill attack. It's up to the host's discretion as to what counts as \"contributing\", but players may ask for clarification on whether or not something qualifies at any time. If you're solo-killed by a Town role, two other Town roles will die at random. If your death would end the game, this attribute does not resolve.");
+		e.addField("Attributes (cont.):", "- If you're lynched, everyone who voted you will be dealt an Overkill attack. If you die by any method besides lynching, anyone who contributed to your death will be dealt an Overkill attack. It's up to the host's discretion as to what counts as \"contributing\", but players may ask for clarification on whether or not something qualifies at any time. If you're solo-killed by a Town/Good Faction role, two other Town/Good faction roles will die at random. If your death would end the game, this attribute does not resolve.");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -532,7 +530,7 @@ module.exports = (g) =>
 
 	register_role(["luminary", "1187"], "Town", "Luminary", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1187");
+		e.setDescription("Post 1187\n*Justice! Yeah!!*");
 
 		e.addField("Alignment", "Town Killing", true);
 		e.addField("Attack", "Basic", true);

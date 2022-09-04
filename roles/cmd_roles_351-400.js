@@ -12,7 +12,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Roleblock a player each night.");
 
-		e.addField("Attributes:", "- If your target is roleblock immune, cannot act, or does not act, they will become doused. You will be notified they were doused, but not why.\n- If there are no Underworld Offensive alive, and the Apocalypse is dead, you will become the Apocalypse.\n- Roleblock Immune\n- Conversion Immune");
+		e.addField("Attributes:", "- If your target is roleblock immune, cannot act, or would not have acted, they will become doused. You will be notified they were doused, but not why.\n- If there are no Underworld Offensive alive, and the Apocalypse is dead, you will become the Apocalypse.\n- Roleblock Immune\n- Conversion Immune");
 		
 		e.addField("Goal:", factions.Underworld.goal);
 	});
@@ -25,11 +25,11 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Throw a grenade at someone every other night. This deals a Powerful attack to them and a random one of their visitors.\n- Phase someone out every night. This negates their ability and all abilities targetting them for that night.");
+		e.addField("Abilities:", "- Throw a grenade at someone each night, dealing a Powerful attack to them and a random one of their other visitors.\n- Phase another player out each night, negating their ability and all abilities targetting them for that night. ");
 
-		e.addField("Attributes:", "- You have a magic box that stores the first non-attacking ability used against you, negating it. You then gain use of that ability.\n- You may use any number of different abilities each night.\n- You may phase yourself out, and if you do, it only negates abilities targetting you.");
+		e.addField("Attributes:", "- You have a magic box that stores the first non-attacking ability used against you, negating it. You then gain that ability.\n- You may use any number of different abilities each night.");
 		
-		e.addField("Goal:", "Eliminate all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["model", "353"], "Town", "Model", {subCat: "Power"}, (e) =>
@@ -70,7 +70,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Powerful)", true);
 
-		e.addField("Abilities:", "- Foretell someone every night. At the end of the next night, you will learn 5 random roles they could be. At the end of the night after the night after that, you will learn their role exactly.");
+		e.addField("Abilities:", "- Foretell someone every night. At the end of the next night, you will perform an Investigator check (35) on them. At the end of the night after the night after the night after that, you will learn their role exactly.");
 
 		e.addField("Attributes:", "- You may not vote \"Innocent\" on odd-numbered days.\n- You have a layer of Powerful defense that can block one attack.");
 		
@@ -90,6 +90,19 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- All visitors to the target Underworld member are, without their knowledge, redirected to the doused player.\n- Anyone who's visit would have produced a notification to the Underworld member will become doused.\n- You may redirect 4 times.\n- If the Apocalypse is dead and there are no Underworld Offensive roles alive, you will become the Apocalypase.\n- Immune to Roleblock, Control, and Conversion.");
 		
 		e.addField("Goal:", factions.Underworld.goal);
+	});
+
+	register_role(["old_man_with_a_stick", "oldmanwithastick", "form_of_the_old_man", "formoftheoldman", "fotomwas", "357"], "Neutral", "Form of the Old Man with a Stick", {subCat: "Benign"}, (e) =>
+	{
+		e.setDescription("Post 357");
+
+		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Attributes:", "- At the start of day 3, players may choose to change their role into Old Man with a Stick. If they do, they're Old Men with Sticks and not their original roles. (Old Man with a Stick is a Town Investigative role that's functionally equivalent to Sheriff.)");
+		
+		e.addField("Goal:", "Become an Old Man with a Stick and win.");
 	});
 
 	register_role(["magic_clone", "magicclone", "358"], "Coven", "Magic Clone", {subCat: "Evil"}, (e) =>
@@ -115,9 +128,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Piercing", true);
 		e.addField("Defense", "Aura", true);
 
-		e.addField("Abilities:", "- Maul someone each night. You'll attack them and negate all protective effects against them, and you'll attack any protective visitors.");
+		e.addField("Abilities:", "- Maul someone each night, attacking them and negating all protective effects against them.");
 
-		e.addField("Attributes:", "- If you maul a Fallen Angel, you'll be able to attack an additional player the next night. (This only applies to the initial target of your attack.)\n- If you maul a non-Fallen Angel, you'll be roleblock and redirect immune the next night. (Same goes.)\n**Sin of Lust** — If you're the last Fallen Angel remaining, you may choose to convert yourself to any evil faction of your choosing at any time. You may also choose any role from that faction to be converted into, except for Espionage roles. You retain the ability to convert upon converting, but you may never convert to being aligned with the Town through any roles. (No, you can't convert to Florae.)");
+		e.addField("Attributes:", "- If you maul a Fallen Angel, you'll be able to attack an additional player the next night. This only applies to the initial target of your attack.\n- If you maul a non-Fallen Angel, you'll be roleblock and redirect immune the next night.\n**Sin of Lust** — If you're the last Fallen Angel remaining, you may choose to convert yourself to any evil faction of your choosing at any time. You may also choose any role from that faction to be converted into, except for Espionage roles. You retain the ability to convert upon converting, but you may never convert to being aligned with a good faction through any means. ");
 		
 		e.addField("Goal:", factions.FallenAngel.goal);
 	});
@@ -398,7 +411,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Keep watch outside a player's house.");
 
-		e.addField("Attributes:", "- Your target will know who their visitors are, unless they are killed or roleblocked.\n- If your target dies, you will learn their attacker's name.\n- If you stay home, you will announce the names of your visitors at the start of the next day, even if you die.");
+		e.addField("Attributes:", "- Your target will know who their visitors are, unless they are killed or roleblocked.\n- If your target dies, you will learn their attacker's name.\n- If you stay home, you will announce the names of your visitors at the start of the next day, even if you die.\n- Astral Visitor");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -517,9 +530,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Attributes:", "- At the end of each night, before actions are processed, you will be provided with a list of all effects that would happen. You may choose up to three of them. They don't happen. ")
+		e.addField("Attributes:", "- At the end of each night, before actions are processed, you will be provided with a list of all effects that would happen. You may choose up to one of them. It doesn't happen.\n- You have 12 hours to make your decision after actions are processed.\n- You may not share the information you receive.")
 
-		e.addField("Goal:", "Prevent as much fun as possible.");
+		e.addField("Goal:", "Live to see the Town lose the game.");
 	});
 
 	register_role(["werewolf_convert", "werewolfconvert", "ww_conv", "wwconv", "386"], "Neutral", "Werewolf but it can convert", {subCat: "Chaos"}, (e) =>
@@ -700,11 +713,9 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Town Sexyman", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Seduce someone each night.");
-
-		e.addField("Attributes:", "- They will be forced to visit you every night until you die for the rest of the game.");
+		e.addField("Abilities:", "- Seduce someone each night, redirecting them to you every night you're alive for the rest of the game.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -736,6 +747,6 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Seen is a \"good faction\" without a factional kill or chat. It uses Unseen roles to spawn.\n- Mastermind (988) and Assassin (989) cannot be part of Seen.\n- One-use Basic Defense");
 		
-		e.addField("Goal:", factions.Mafia.goal);
+		e.addField("Goal:", "Seen Goal");
 	});
 };

@@ -1,62 +1,3 @@
-function isNeg(arg)
-{
-	return arg.charAt(0) === "-" || arg.charAt(0) === "!";
-}
-
-function tabLevel(level)
-{
-	let tabs = "";
-
-	for(let i = 0; i < level; i++)
-		tabs = tabs + '\t';
-
-	return tabs;
-}
-
-function display(value, level)
-{
-	level = level || 1
-
-	switch(typeof value)
-	{
-		case "string":
-			return '"' + value + '"';
-
-		case "object":
-			if(!value)
-				return "null";
-			else if(Array.isArray(value))
-			{
-				if(value.length === 0)
-					return "[]";
-
-				let disp = "[" + display(value[0]);
-
-				for(let i = 1; i < value.length; i++)
-					disp = disp + ", " + display(value[i]);
-
-				return disp + "]";
-			}
-			else
-			{
-				let keys = Object.keys(value);
-
-				if(keys.length === 0)
-					return "{}";
-
-				let disp = "{\n" + tabLevel(level+1) + display(keys[0]) + ": " + display(value[keys[0]], level+1);
-
-				for(let i = 1; i < keys.length; i++)
-					disp = disp + ",\n" + tabLevel(level+1) + display(keys[i]) + ": " + display(value[keys[i]], level+1);
-
-				return disp + "\n" + tabLevel(level) + "}";
-			}
-
-		default:
-			return String(value);
-	}
-}
-
 function help(commands, e, cmd, pre)
 {
 	let data = commands[cmd];
@@ -94,14 +35,12 @@ function help(commands, e, cmd, pre)
 
 module.exports = (g) =>
 {
-	const {PRE, categories, commands, msg} = g;
-	categories["Basic"] = true;
+	const {PRE, UTILS, add_cmd, commands, msg, aliases} = g;
 	let i = 0;
 	
 	function register_cmd(name, param, title, desc, func)
 	{
-		let cmd = 
-		{
+		add_cmd(name, {
 			id: "b" + i,
 			cat: "Basic",
 			title,
@@ -109,15 +48,9 @@ module.exports = (g) =>
 			param,
 			meta: {},
 			func
-		};
+		});
 
 		i = i + 1;
-
-		if(typeof name === "string")
-			commands[name] = cmd;
-		else
-			for(let i in name)
-				commands[name[i]] = cmd;
 	}
 
 	register_cmd("list", "[category[:subcategory]...]...", "List", "Create a list of all registered commands, organized by category, and when applicable, subcategory. Commands with alternate forms will have each form listed on the same line.\n\nYou may optionally provide category names as parameters. This will limit the created list to only commands from those categories.\n\nYou may also specify a subcategory for each category. This is done using the format of `category:subcategory`. The same category can have more than one listed subcategory, e.g. `category:apple:bannana:cyanide`\n\nPut a - or a ! before specified categories or subcategories to instead exclude them.\n\nSee =categories for a list of categories and subcategories.\n\nExact spelling will be required when specifying categories and subcategories, but they will not be case-sensitive.", (chn, message, e, args) =>
@@ -141,30 +74,29 @@ module.exports = (g) =>
 					case "ti": splits = ["town", "investigative"]; break;
 					case "ts": splits = ["town", "support"]; break;
 					case "tpo": splits = ["town", "power"]; break;
-					case "tc": splits = ["town", "casual"]; break;
-					case "to": splits = ["town", "other"]; break;
 					case "nk": splits = ["neutral", "killing"]; break;
 					case "nc": splits = ["neutral", "chaos"]; break;
 					case "ne": splits = ["neutral", "evil"]; break;
 					case "nb": splits = ["neutral", "benign"]; break;
-					case "no": splits = ["neutral", "other"]; break;
 					case "mh": splits = ["mafia", "head"]; break;
 					case "mk": splits = ["mafia", "killing"]; break;
 					case "ms": splits = ["mafia", "support"]; break;
 					case "md": splits = ["mafia", "deception"]; break;
 					case "me": splits = ["mafia", "espionage"]; break;
 					case "ce": splits = ["coven", "evil"]; break;
-					case "cs": splits = ["coven", "support"]; break;
 				}
 
 				let cat = splits[0];
 				let exc = false;
 
-				if(isNeg(cat))
+				if(UTILS.isNeg(cat))
 				{
 					cat = cat.substring(1);
 					exc = true;
 				}
+
+				if(aliases[cat.toLowerCase()])
+					cat = aliases[cat.toLowerCase()].toLowerCase();
 
 				if(exc)
 				{
@@ -178,7 +110,7 @@ module.exports = (g) =>
 					{
 						let sub = splits[n];
 
-						if(isNeg(sub))
+						if(UTILS.isNeg(sub))
 							sub = sub.substring(1);
 
 						exSpecs[cat][sub] = true;
@@ -197,7 +129,7 @@ module.exports = (g) =>
 						let sub = splits[n];
 						let exs = false;
 
-						if(isNeg(sub))
+						if(UTILS.isNeg(sub))
 						{
 							sub = sub.substring(1);
 							exs = true;
@@ -351,7 +283,7 @@ module.exports = (g) =>
 		let output = "Meta for command " + PRE + args[0] + "\n{";
 
 		for(let i = 0; i < keys.length; i++)
-			output = output + "\n\t" + keys[i] + ": " + display(meta[keys[i]]);
+			output = output + "\n\t" + keys[i] + ": " + UTILS.display(meta[keys[i]]);
 
 		msg(chn, output + "\n}");
 	});

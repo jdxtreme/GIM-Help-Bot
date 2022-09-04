@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role, factions} = g;
+	const {register_role, factions, GOOD} = g;
 
 	register_role(["drug_dealer", "drugdealer", "drug", "dealer", "1051", "620u"], "Unseen", "Drug Dealer", {subCat: "Support"}, (e) =>
 	{
@@ -77,7 +77,7 @@ module.exports = (g) =>
 
 	register_role(["enigmatic_inspector", "enigmaticinspector", "enigmatic", "1056"], "Town", "Enigmatic Inspector", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1056");
+		e.setDescription("Post 1056\n*Source: Trust me.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -122,19 +122,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Discordian.goal);
 	});
 
-	register_role(["birdkeeper", "bird", "1059"], "Town", "Birdkeeper", {subCat: "Support"}, (e) =>
+	register_role(["experiment", "1059"], "Town", "Experiment", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1059");
 
-		e.addField("Alignment", "Town Support", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Town Killing", true);
+		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Send a bird to another player.");
+		e.addField("Abilities:", "- Kill someone at night.");
 
-		e.addField("Attributes:", "- All birds have a 2 night cooldown.\n- You may only use 1 bird a night.\n- Your visits are astral.");
-
-		e.addField("Birds:", "Eagle: Give your visitor astral visits. If your target already has astral visits, their visit is considered indirect.\nPidgeon: Roleblock your target.\nParrot: Learn all feedback your target gets. You may have your parrot announce the results, but this can only be done Night 3 at the earliest. If your bird finds nothing, it will not be announced, but you may announce the results again later.");
+		e.addField("Attributes:", "- You have unlimited uses of this ability. You do not have guilt if you kill another town member.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -164,7 +162,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Prank up to 5 players each night. You visit them and do nothing. ");
 
-		e.addField("Attributes:", "- You're 5 players. (You have 5 votes, must be killed 5 times, can be targeted as though you were 5 players, etc.)");
+		e.addField("Attributes:", "- You're 5 players.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -199,7 +197,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "See an alliance win.");
 	});
 
-	register_role(["statue", "1064"], "Rock", "Statue", {spawnCat: "Town", subCat: "Support"}, (e) =>
+	register_role(["statue", "1064"], "Rock", "Statue", {spawnCat: GOOD, subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1064");
 
@@ -207,12 +205,12 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a townie. Becomes a random Rocks once the last Rock dies.\n- You are unaware you are a Statue when the game begins.\n- The other Rocks know who you are and cannot perform actions that negatively affect you.\n- Spawns in a Random Town slot");
+		e.addField("Attributes:", "- Starts as a townie. Becomes a random Rock once the one other Rock remains.\n- You are aware you are a statue when the game begins.\n- The other Rocks know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another rock is present.");
 
 		e.addField("Goal:", factions.Rock.goal);
 	});
 
-	register_role(["crazy_dave", "crazydave", "1065"], "Plant", "Crazy Dave", {spawnCat: "Town", subCat: "Support"}, (e) =>
+	register_role(["crazy_dave", "crazydave", "dave", "1065"], "Plant", "Crazy Dave", {spawnCat: GOOD, subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1065");
 
@@ -220,12 +218,12 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a townie. Becomes a random Plant once the last Plant dies.\n- You are unaware you are Crazy Dave when the game begins.\n- The other Plants know who you are and cannot perform actions that negatively affect you.\n- Spawns in a Random Town slot");
+		e.addField("Attributes:", "- Starts as a townie. Becomes a random Plant once one other Plant remains.\n- You are aware you are Crazy Dave when the game begins.\n- The other Plants know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another plant is present.");
 
 		e.addField("Goal:", factions.Plant.goal);
 	});
 
-	register_role(["imp", "1066"], "Underworld", "Imp", {spawnCat: "Town", subCat: "Support"}, (e) =>
+	register_role(["imp", "1066"], "Underworld", "Imp", {spawnCat: GOOD, subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1066");
 
@@ -233,7 +231,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a townie. Becomes Apocalypse once the last Underworld member dies.\n- You are unaware you are an Imp when the game begins.\n- The other Underworld members know who you are and cannot perform actions that negatively affect you.\n- Spawns in a Random Town slot");
+		e.addField("Attributes:", "Starts as a townie. Becomes a random Underworld once one other Underworld remains.\n- You are aware you are imp when the game begins.\n- The other Underworld know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another underworld is present.");
 
 		e.addField("Goal:", factions.Underworld.goal);
 	});
@@ -370,7 +368,7 @@ module.exports = (g) =>
 		e.setDescription("Post 1074");
 
 		e.addField("Alignment", "Town Killing", true);
-		e.addField("Attack", "Unstoppable", true);
+		e.addField("Attack", "Overkill/Unstoppable", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Sacrifice a Town member to haunt another player.");
@@ -523,7 +521,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Heal a player at night.\n- Watch another player at night.");
 
-		e.addField("Attributes:", "- Healing a player grants them Powerful defense and removes poison, etc.\n- Watching a player lets you learn the names of up to three random players who visit them, and you'll know if more than three players visit them.\n- You may only heal yourself once and you may not heal Town roles that have attributes or have used abilities that have publicly revealed themselves. (i.e. Mayor, Reserved, King, the other King)\n- You may only use one ability each night.");
+		e.addField("Attributes:", "- Healing a player grants them Powerful defense and removes poison, etc.\n- Watching a player lets you learn the names of up to three random players who visit them, and you'll know if more than three players visit them.\n- You may only heal yourself once and you may not heal Town roles that have attributes or have used abilities that have publicly revealed themselves. (i.e. Mayor, Reserved, King, the other King)");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -669,7 +667,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Use your random abilities at night.");
+		e.addField("Abilities:", "- Use your random abilities each night.");
 
 		e.addField("Attributes:", "- At the start of each night, generate a random verb at https://randomwordgenerator.com/verb.php.\n- You will be given an ability that allows you to do that verb.\n- Idk host can try to make it make sense ig lmao. Yeah therell be no problem with this whatsoever.\n- Oh uh yeah the ability only lasts for like that night and yeah it doesnt like you dont like keep it otw you could get like nuke or smth and yeah and also like rng all the way yessir.");
 

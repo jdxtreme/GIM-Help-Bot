@@ -10,9 +10,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Play truth or dare with another player every night.");
+		e.addField("Abilities:", "- Play truth or dare with another player each day.");
 
-		e.addField("Attributes:", "- When you play truth or dare with someone, you ask them a question they can reasonably answer and name an action that they can reasonably perform. If they don't truthfully answer the question or perform the action, you deal an Basic attack to them.");
+		e.addField("Attributes:", "- When you play truth or dare with someone, you ask them a question they can reasonably truthfully answer, and name an action that they can reasonably perform in a way that could be proven.\n- They will be presented with the truth and the dare at the start of the next night.\n- If they don't truthfully answer the question or perform the action, you deal an Basic attack to them at the end of the night.\n- If they do, you're sent their answer to the question or the proof that they performed the action.");
 
 		e.addField("Goal:", "Kill three players; or get three players to answer your questions; or get three players to perform your dares.");
 	});
@@ -72,7 +72,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Tail someone each night, learning all external night feedback they get (not from their own role) and who they visit.");
 
-		e.addField("Attributes:", "- You know what evil factions are in the game and how many members each has.\n- You start the game with five clues, which are completely random and almost entirely useless pieces of information about the game decided about the host (e.g. Player 13's role does not start with A or F).");
+		e.addField("Attributes:", "- You know what evil factions are in the game and how many members each has.\n- You start the game with five clues, which are completely random and almost entirely useless pieces of information about the game decided by the host (e.g. Player 13's role does not start with A or F).");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -130,7 +130,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Protect someone at night, making them immune to all non-Coven harmful effects.");
+		e.addField("Abilities:", "- Protect someone each night, making them immune to all non-Coven harmful effects.");
 
 		e.addField("Attributes:", "- If you have the Necronomicon, you may instead choose to use all Coven roles' non-Necronomicon harmful effects on them. You must also choose all additional targets for those effects, like who you're redirecting them into.");
 
@@ -369,9 +369,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a non-Coven player each night. They win the game immediately.");
+		e.addField("Abilities:", "- Choose up to one non-Coven player at night. They win the game immediately. You may only use this ability thrice.");
 
-		e.addField("Attributes:", "- If you have the Necronomicon, you may choose to make your target commit suicide and lose the game immediately instead.\n- Redirect Immune");
+		e.addField("Attributes:", "- If you have the Necronomicon, you have infinite charges and may choose to remove your target from the game as well.\n- Redirect Immune");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -384,9 +384,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Distract a target player at night by calling a comet to drift across the night sky.");
+		e.addField("Abilities:", "- Distract two target players at night by calling a comet to drift across the night sky.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Your target will be roleblocked, and you will fail all visits against them.\n- You may only act on odd nights.\n- You may instead perform the factional Rock kill.");
+		e.addField("Attributes:", "- Roleblock, Redirect, Control Immune\n- Your targets will be roleblocked, and you will fail all visits against them.\n- You may only act on odd-numbered nights.\n- You may instead perform the factional Rock kill.");
 
 		e.addField("Goal:", factions.Rock.goal);
 	});
@@ -414,9 +414,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player to try to kill each night. You will fail to kill them and instead two completely random players (you may kill yourself).");
+		e.addField("Abilities:", "- Choose a player to try to kill each night. You will fail to kill them and instead attack two completely random players.");
 
-		e.addField("Attributes:", "- Your attack cannot be prevented by any means.");
+		e.addField("Attributes:", "- Your attacks cannot be prevented by any means.");
 
 		e.addField("Goal:", "Kill at least 7 players.");
 	});
@@ -474,7 +474,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Choose a player to investigate at night. You will learn whether or not they are a member of the Town.\n- Choose a player to become your target at night. If they are lynched, you will win. You may only do this once.\n- Choose a player to execute at night. If they're a member of the Town, they will be dealt an Unstoppable attack. You may only do this after your target has been lynched, and once you successfully execute a member of the Town, you may no longer execute.");
+		e.addField("Abilities:", "- Choose a player to investigate each night. You will learn whether or not they are a member of the Town.\n- Choose a player to become your target at night. If they are lynched, you will win. You may only do this once.\n- Choose a player to execute at night. If they're a member of the Town, they will be dealt an Unstoppable attack. You may only do this after your target has been lynched, and once you successfully execute a member of the Town, you may no longer execute.");
 
 		e.addField("Attributes:", "- If you choose someone that isn't a member of the Town as your target, you will commit suicide and lose.\n- If your target dies through any means other than lynching, you will commit suicide and lose.\n- You have a layer of Basic defense that can block one attack.");
 
@@ -687,7 +687,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["word_bomber", "wordbomber", "147"], "Neutral", "Word Bomber", {subCat: "Killing"}, (e) =>
+	register_role(["word_bomber", "wordbomber", "wb", "147"], "Neutral", "Word Bomber", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 147");
 
@@ -695,9 +695,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Each night, choose a word with 4-6 letters. The next day, anyone who says that word will be attacked immediately. ");
+		e.addField("Abilities:", "- Choose a word with 4-6 letters each night. The next day, anyone who says that word will be attacked immediately.");
 
-		e.addField("Attributes:", "- If you're redirected, you'll choose the name of the target you were redirect to as your word, even if it doesn't have 4-6 letters. You'll still know what you were forced to choose.\n- If no one says your word, you'll attack a random other player among those who sent the least messages that day.\n- If the host isn't available to kill the player immediately, the Town will be informed what the message that caused them to be attacked was.");
+		e.addField("Attributes:", "- If you're redirected, you'll choose the name of the target you were redirect to as your word, even if it doesn't have 4-6 letters. You'll still know what you were forced to choose.\n- If no one says your word, you'll attack a random other player among those who sent the least messages that day.\n- If the host isn't available to kill the player immediately, the Town will be informed what the message that caused them to be attacked was, and subsequent players who used that word while the host wasn't available won't be attacked.");
 
 		e.addField("Goal:", "Kill everyone who would oppose you.");
 	});
@@ -708,13 +708,13 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Powerful", true);
 
-		e.addField("Abilities:", "- Every day, double another player. Starting the next night, their role's rules text will be doubled (again).");
+		e.addField("Abilities:", "- Double another player each day. Starting the next night, their role's rules text will be doubled (again).");
 
-		e.addField("Attributes:", "- Every other role has its entire rules text twice.\n- Players can use any number of different abilities each night, even if the rules or their roles say they can't.");
+		e.addField("Attributes:", "- Every other role has its entire rules text twice. (Each of its abilities, attributes, etc. are doubled.)\n- Players can use any number of different abilities each night, even if the rules or their roles say they can't.");
 
-		e.addField("Goal:", "Cause infinite chaos (as judged by the host).");
+		e.addField("Goal:", "Octuple a player, and have your doubling have a significant impact on the game.");
 	});
 
 	register_role(["daffodil", "149"], "Florae", "Daffodil", {subCat: "Investigative"}, (e) =>

@@ -7,8 +7,8 @@ module.exports = (g) =>
 		e.setDescription("Post 1301");
 
 		e.addField("Alignment", "Spirit Support", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
+		e.addField("Attack", "Faction Variable", true);
+		e.addField("Defense", "Faction Variable", true);
 
 		e.addField("Abilities:", "- Watch a player from afar.");
 
@@ -37,8 +37,8 @@ module.exports = (g) =>
 		e.setDescription("Post 1303");
 
 		e.addField("Alignment", "Spirit Support", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
+		e.addField("Attack", "Faction Variable", true);
+		e.addField("Defense", "Faction Variable", true);
 
 		e.addField("Abilities:", "- During the day, shapeshift into any role that the host deems balanced. You gain that role's ability, and attributes that apply to the ability. You shapeshift immediately.\n- Use the abilities you have.");
 
@@ -70,9 +70,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- They're removed from the game entirely, and re-added to the game at the beginning of the next night.\n- All actions that happen to them that night will fail, but won't give notifications that they failed.\n- You may send yourself into the void.\n- Cope, seethe, and mald\n- Spite Rasen\n- You cannot target the same person twice in a row. You're welcome.\n- Also, Town (Power), Any Factional (Head), and other alignments that can be interpreted as faction leads such as Loyalist (Governor) are immune to your ability. You'll be notified if you try to send one of these roles to the void.");
+		e.addField("Abilities:", "- Send a player into the void at night. ");
 
-		e.addField("Attributes:", "- The player you target will not be notified.");
+		e.addField("Attributes:", "- They're removed from the game entirely, and re-added to the game at the beginning of the next night.\n- All actions that happen to them that night will fail, but won't give notifications that they failed.\n- You may send yourself into the void.\n- Cope, seethe, and mald\n- Spite Rasen\n- You cannot target the same person twice in a row. You're welcome.");
 		
 		e.addField("Goal:", "Live to see the Town lose.");
 	});
@@ -102,7 +102,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "`+1`: You gain roleblock, redirection, and detection immunity for the night. This ability will automatically be used every night.\n`-1`: Stun a player, preventing them from using an ability the following night.\n`-2`: Investigate a player, learning their role.\n`-3`: Deal a Powerful attack to a player.");
 
-		e.addField("Attributes:", "- You may multitask.\n**Divine Bees** — You start with 1 bee. When you use an ability, add or subtract bee according to the ability. You may not use abilities that cost more bees than you have. If you would be attacked, instead the attacker learns that your Defense was too strong and you lose bees equal to the level of the attack. (Basic: 1, Powerful: 2, Unstoppable: 3, Overkill: 4. You still die if you're lynched.)");
+		e.addField("Attributes:", "- You may multitask.\n**Divine Bees** — You start with 1 bee. When you use an ability, add or subtract power according to the ability. You may not use abilities that cost more power than you have. If you would be attacked, instead the attacker learns that your Defense was too strong and you lose power equal to the level of the attack— Basic: 1, Powerful: 2, Unstoppable: 3, Overkill+: 4. You still die if you're lynched.");
 		
 		e.addField("Goal:", "Live to see the Town lose.");
 	});
@@ -130,16 +130,16 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Invent an ability at night or use one you have already created.");
+		e.addField("Abilities:", "- Invent an ability during the day and use one you have created at night.");
 
-		e.addField("Attributes:", "- Whenever you invent an ability, the host gives you an ability from a random role.\n- Once per game you can choose which alignment to invent an ability from.\n- Once per game you may choose a subalignment to invent an ability from.\n- You cannot invent an ability that harms you.");
+		e.addField("Attributes:", "- Whenever you invent an ability, the host gives you an ability from a random role.\n- Unless you specify otherwise, you will invent a new role every day.\n- Once per game you can choose which alignment to invent an ability from.\n- Once per game you may choose a subalignment to invent an ability from.\n- You cannot invent an ability that harms you.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["occult_alchemist", "occultalchemist", "occult", "alchemist", "oa", "1310"], "Coven", "Occult Alchemist", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 1310");
+		e.setDescription("Post 1310\n*Mystical Brew Recipe: Onions, carrots, garlic, olive oil, spinach, chicken bouillon, fresh parsley.*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "Basic", true);
@@ -157,14 +157,14 @@ module.exports = (g) =>
 		e.setDescription("Post 1311");
 
 		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "Basic/Powerful", true);
+		e.addField("Attack", "None (Powerful)", true);
 		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Attributes:", "- Each night, four of the following abilities are chosen at random, and you may use up to two.");
 
-		e.addField("Potential Abilities:", "- Randomise a player's night feedback.\n- Add a new player to the game named \"Guy\" with a random role.\n- Give a player Powerful And A Half Defense for the night.\n- Remove 25% of the words from a player's role's abilities and attributes at random.\n- Give a player a \"game x winner\" role of your choice.\n- Permanently swap two players' names.\n- Ask a player to face reveal to you. If they don't, they're dealt a Powerful attack.\n- Paripapparapappapparappa a player. (see 733)\n- Kill a player if their role has an ability that's funcionally the same as one from ToS.\n- Delay a player's ability and cause it to resolve at a random time during the next day.\n- Reorder the player list as you wish.\n- Reorder the host queue as you wish.\n- Give yourself a Basic autovest in the next GIM game if that host complies.\n- Add a player to the end of your conga line. (see 630)\n- Add a player to the end of your conga line. (see 1594)\n- Open a resignation vote for the faction of your choice.");
+		e.addField("Potential Abilities:", "- Randomise a player's night feedback.\n- Add a new player to the game named \"Guy\" with a random role.\n- Give a player Powerful And A Half Defense for the night.\n- Remove 25% of the words from a player's role's abilities and attributes at random.\n- Give a player a \"game x winner\" role of your choice.\n- Permanently swap two players' names.\n- Ask a player to face reveal to you. If they don't, they're dealt a Powerful attack.\n- Paripapparapappapparappa a player. (see 733)\n- Kill a player if their role has an ability that's functionally the same as one from ToS.\n- Delay a player's ability and cause it to resolve at a random time during the next day.\n- Reorder the player list as you wish.\n- Reorder the host queue as you wish.\n- Give yourself a Basic autovest in the next GIM game if that host complies.\n- Add a player to the end of your conga line. (see 630)\n- Add a player to the end of your conga line. (see 1594)\n- Open a resignation vote for the faction of your choice.");
 
-		e.addField("Potential Abilities (cont.):", "- Give yourself twice the number of abilities to choose from the next night.\n- Deal a None attack to a player.\n- Use an ability from a Rasen role not in the roles thread (e.g. Murdercaster Mage, Futurist)\n- Remove from then return a player to the game, resetting all statuses/etc.\n- Disable all players' \"read message history\" permission for the next day chat. \n- Make a player \"Solved 2 by 4\".\n- Make a player permanently appear as 529: WereLion to all investigative effects.\n- Make a player immune to attacks that aren't the lowest tier needed to kill them tonight.");
+		e.addField("Potential Abilities (cont.):", "- Give yourself twice the number of abilities to choose from the next night.\n- Deal a None attack to a player.\n- Use an ability from a Rasen role not in the roles thread (e.g. Murdercaster Mage, Futurist)\n- Remove from then return a player to the game, resetting all statuses/etc.\n- Disable all players' \"read message history\" permission for the next day chat. \n- Make a player \"Solved 2 by 4\".\n- Make a player permanently appear as 529: WereLion to all investigative effects.\n- Make a player immune to attacks that aren't the lowest tier needed to kill them tonight.\n- Use an ability of a role you rerolled this game.\n- If it's the weekend in your timezone, redirect someone. If not, roleblock them.\n- Roleblock someone. This ability rampages and rampages again.");
 		
 		e.addField("Goal:", "Live to see the Town lose to game.");
 	});
@@ -201,7 +201,7 @@ module.exports = (g) =>
 
 	register_role(["overclocked", "1314"], "Town", "Overclocked", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 1314");
+		e.setDescription("Post 1314\n*Crap. Scheduled two jobs at the same time. What am I supposed to do...*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "Basic", true);
@@ -453,19 +453,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Submit at least a single list where every feedback message is assigned to the correct player.");
 	});
 
-	register_role(["alien", "1331"], "Neutral", "Alien", {subCat: "Chaos"}, (e) =>
+	register_role(["sleep_rock", "sleeprock", "sleep", "1331"], "Rock", "Sleep Rock", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1331");
 
-		e.addField("Alignment", "Unique Neutral Chaos", true);
-		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Rock Support", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Abduct a player at night. Run tests on a player during the day.");
+		e.addField("Abilities:", "- Help someone sleep at night or put them to sleep forever.");
 
-		e.addField("Attributes:", "- When you abduct someone, they will be unable to access day chat. They will instead access an alien room chat. They will get a clue everyday that points to the aliens identity.\n- Every day abducted players can guess the alien's identity. If they are right, they escape abduction.\n- You can run tests on an abducted player. You learn their role and may take one ability or attribute from them. They will keep the ability/attribute but you will also keep it.\n- After running 2 tests, you gain the ability to deal a powerful attack to a player.\n- The first night you may abduct 2 people.\n- You may multitask.");
+		e.addField("Attributes:", "- If you help someone sleep, they will be roleblocked.\n- If you put them to sleep forever, you will attack them. This can only be done once.");
 		
-		e.addField("Goal:", "Kill all who would oppose you. Players who are currently abducted do not oppose you.");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["schrodingers_role", "schrödingers_role", "schrodingersrole", "schrödingersrole", "schro", "1332"], "Neutral", "Schrödinger's Role", {subCat: "Benign"}, (e) =>

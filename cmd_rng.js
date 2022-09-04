@@ -1,4 +1,4 @@
-function checkSubCats(targets, meta, ind)
+function checkSubCats(UTILS, targets, meta, ind)
 {
 	let subcat = meta.subCat;
 
@@ -13,82 +13,20 @@ function checkSubCats(targets, meta, ind)
 	else
 	{
 		for(let i = 0; i < subcat.length; i++)
-			if(targets[subcat[i].toLowerCase()] && (!meta.syncCats || !isInt(ind) || ind === i))
+			if(targets[subcat[i].toLowerCase()] && (!meta.syncCats || !UTILS.isInt(ind) || ind === i))
 				return targets[subcat[i].toLowerCase()];
 	}
 }
 
-//<table>, <string>
-function containsString(t, s)
-{
-	if(!t || !s)
-		return false;
-
-	for(let i in t)
-		if(t[i].toLowerCase() === s.toLowerCase())
-			return true;
-
-	return false;
-}
-
-//[<min>, <max>] or [0, <max>)
-function randInt(min, max)
-{
-	if(!max)
-	{
-		max = min - 1;
-		min = 0;
-	}
-
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-//<Object: {rate}>
-function randChances(t)
-{
-	let sum = 0;
-
-	for(let i in t)
-		sum = sum + Math.max(Math.round(100 * t[i].rate), 0);
-
-	let choice = randInt(sum);
-	sum = 0;
-
-	for(let i in t)
-	{
-		sum = sum + Math.max(Math.round(100 * t[i].rate), 0);
-
-		if(sum > choice)
-			return t[i];
-	}
-
-	console.log("Warning: randChances returned null! Sum: " + sum + ", Choice: " + choice);
-}
-
-function isInt(v)
-{
-	if(typeof v !== "string")
-		v = String(v);
-
-	return parseInt(v, 10).toString() === v;
-}
-
-function isNeg(arg)
-{
-	return arg.charAt(0) === "-" || arg.charAt(0) === "!";
-}
-
 module.exports = (g) =>
 {
-	const {PRE, commands, categories, roles, msg} = g;
+	const {PRE, UTILS, add_cmd, roles, msg, aliases, factions, GOOD, EVIL, NEUTRAL} = g;
 
-	categories["RNG"] = true;
 	let i = 0;
 	
 	function register_cmd(name, param, title, desc, func)
 	{
-		let cmd = 
-		{
+		add_cmd(name, {
 			id: "rng" + i,
 			cat: "RNG",
 			title,
@@ -96,18 +34,12 @@ module.exports = (g) =>
 			param,
 			meta: {},
 			func
-		};
+		});
 
 		i = i + 1;
-
-		if(typeof name === "string")
-			commands[name] = cmd;
-		else
-			for(let i in name)
-				commands[name[i]] = cmd;
 	}
 
-	register_cmd(["random", "r"], "<number> | <min> <max>", "Random", "Generate a random number between 1 and <number> or between <min> and <max>.", (chn, message, e, args) =>
+	register_cmd(["random", "r"], "<number> | <min> <max>", "Random", "Generate a random number between [1, <number] or between [<min>, <max>].", (chn, message, e, args) =>
 	{
 		if(!args[0])
 		{
@@ -115,7 +47,7 @@ module.exports = (g) =>
 			return;
 		}
 
-		if(!isInt(args[0]) || (args[1] && !isInt(args[1])))
+		if(!UTILS.isInt(args[0]) || (args[1] && !UTILS.isInt(args[1])))
 		{
 			msg(chn, "-ERROR: This function cannot accept non-integer values.");
 			return;
@@ -124,7 +56,13 @@ module.exports = (g) =>
 		let min = Number(args[0]);
 		let max = Number(args[1]);
 
-		msg(chn, randInt(min, max).toString());
+		if(!args[1])
+		{
+			max = min;
+			min = 1;
+		}
+
+		msg(chn, "Rolled: " + UTILS.randInt(min, max));
 	});
 
 	register_cmd(["random_list", "randomlist", "rlist"], "<number>", "Random List", "Generate a randomly ordered list of numbers between 1 and <number>.", (chn, message, e, args) =>
@@ -135,7 +73,7 @@ module.exports = (g) =>
 			return;
 		}
 
-		if(!isInt(args[0]))
+		if(!UTILS.isInt(args[0]))
 		{
 			msg(chn, "-ERROR: This function cannot accept non-integer values.");
 			return;
@@ -182,13 +120,67 @@ module.exports = (g) =>
 			return;
 		}
 
-		msg(chn, args[randInt(args.length)]);
+		msg(chn, args[UTILS.randInt(args.length)]);
+	});
+	
+	register_cmd(["random_hex", "randomhex", "rhex", "hex"], "", "Random Hex", "Generate and view a random color made of 6 hexadecimal characters.", (chn, message, e, args) =>
+	{
+		let color = UTILS.rHex(6);
+		e.setAuthor({name: "#" + color});
+		e.setColor(color);
+
+		chn.send({embeds: [e]});
+	});
+	
+	register_cmd(["random_faction", "randomfaction", "rfaction", "faction"], "[Good|Evil|Neutral]", "Random Faction", "Generate a random Faction. You may specify if you want a Good, Evil, or Neutral faction.\n\nNote that this cannot generate the actual Neutral alignment.", (chn, message, e, args) =>
+	{
+		let spec = args[0];
+
+		if(spec)
+		{
+			spec = spec.toLowerCase();
+			let list = null;
+
+			switch(spec)
+			{
+				case "good":
+					list = GOOD;
+					break;
+
+				case "evil":
+					list = EVIL;
+					break;
+
+				case "neutral":
+					list = NEUTRAL;
+					break;
+
+				default:
+					msg(chn, "-Unknown faction type: \"" + args[0] + "\"");
+					return;
+			}
+
+			let fac = UTILS.randElem(list);
+
+			factions[fac].func(chn, message, e, args);
+		}
+		else
+		{
+			let fac = null;
+
+			while(!fac || fac === "neutral")
+			{
+				fac = factions[UTILS.randElem(Object.keys(factions))];
+			}
+
+			fac.func(chn, message, e, args);
+		}
 	});
 
 	g.randomRole = (chn, message, e, args, nosend) =>
 	{
 		let role = null;
-		let incany = randInt(10) == 0;
+		let incany = UTILS.randInt(10) == 0;
 		let specs = null;
 		let exSpecs = null;
 		let accept = false;
@@ -207,30 +199,29 @@ module.exports = (g) =>
 					case "ti": splits = ["town", "investigative"]; break;
 					case "ts": splits = ["town", "support"]; break;
 					case "tpo": splits = ["town", "power"]; break;
-					case "tc": splits = ["town", "casual"]; break;
-					case "to": splits = ["town", "other"]; break;
 					case "nk": splits = ["neutral", "killing"]; break;
 					case "nc": splits = ["neutral", "chaos"]; break;
 					case "ne": splits = ["neutral", "evil"]; break;
 					case "nb": splits = ["neutral", "benign"]; break;
-					case "no": splits = ["neutral", "other"]; break;
 					case "mh": splits = ["mafia", "head"]; break;
 					case "mk": splits = ["mafia", "killing"]; break;
 					case "ms": splits = ["mafia", "support"]; break;
 					case "md": splits = ["mafia", "deception"]; break;
 					case "me": splits = ["mafia", "espionage"]; break;
 					case "ce": splits = ["coven", "evil"]; break;
-					case "cs": splits = ["coven", "support"]; break;
 				}
 
 				let cat = splits[0];
 				let exc = false;
 
-				if(isNeg(cat))
+				if(UTILS.isNeg(cat))
 				{
 					cat = cat.substring(1);
 					exc = true;
 				}
+
+				if(aliases[cat.toLowerCase()])
+					cat = aliases[cat.toLowerCase()].toLowerCase();
 
 				if(exc)
 				{
@@ -244,7 +235,7 @@ module.exports = (g) =>
 					{
 						let sub = splits[n];
 
-						if(isNeg(sub))
+						if(UTILS.isNeg(sub))
 							sub = sub.substring(1);
 
 						exSpecs[cat][sub] = true;
@@ -263,7 +254,7 @@ module.exports = (g) =>
 						let sub = splits[n];
 						let exs = false;
 
-						if(isNeg(sub))
+						if(UTILS.isNeg(sub))
 						{
 							sub = sub.substring(1);
 							exs = true;
@@ -301,13 +292,13 @@ module.exports = (g) =>
 			{
 				catMatch = false;
 
-				if(cmd.cat === "Any" && (!cmd.meta.spawnCat || containsString(cmd.meta.spawnCat, "Any")))
+				if(cmd.cat === "Any" && (!cmd.meta.spawnCat || UTILS.containsString(cmd.meta.spawnCat, "Any")))
 				{
 					if(specs)
 					{
 						for(let cat in specs)
 						{
-							if((!cmd.meta.anyExCat || containsString(cmd.meta.anyExCat, cat)) && checkSubCats(specs[cat.toLowerCase()], cmd.meta))
+							if((!cmd.meta.anyExCat || !UTILS.containsString(cmd.meta.anyExCat, cat)) && checkSubCats(UTILS, specs[cat.toLowerCase()], cmd.meta))
 							{
 								catMatch = true;
 								break;
@@ -321,7 +312,7 @@ module.exports = (g) =>
 					{
 						for(let cat in exSpecs)
 						{
-							if((!cmd.meta.anyExCat || containsString(cmd.meta.anyExCat, cat)) && checkSubCats(exSpecs[cat.toLowerCase()], cmd.meta))
+							if(checkSubCats(UTILS, exSpecs[cat.toLowerCase()], cmd.meta))
 							{
 								catMatch = false;
 								break;
@@ -335,7 +326,7 @@ module.exports = (g) =>
 					{
 						for(let t = 0; t < cats.length; t++)
 						{
-							if(specs[cats[t].toLowerCase()] && checkSubCats(specs[cats[t].toLowerCase()], cmd.meta, t))
+							if(specs[cats[t].toLowerCase()] && checkSubCats(UTILS, specs[cats[t].toLowerCase()], cmd.meta, t))
 							{
 								catMatch = true;
 								break;
@@ -349,7 +340,7 @@ module.exports = (g) =>
 					{
 						for(let t = 0; t < cats.length; t++)
 						{
-							if(exSpecs[cats[t].toLowerCase()] && checkSubCats(exSpecs[cats[t].toLowerCase()], cmd.meta, t))
+							if(exSpecs[cats[t].toLowerCase()] && checkSubCats(UTILS, exSpecs[cats[t].toLowerCase()], cmd.meta, t))
 							{
 								catMatch = false;
 								break;
@@ -369,7 +360,7 @@ module.exports = (g) =>
 		}
 
 		if(accept)
-			role = randChances(rollable);
+			role = UTILS.randChances(rollable);
 
 		if(role && role.cmd)
 			role.cmd.func(chn, msg, e, [], nosend);

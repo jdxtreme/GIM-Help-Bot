@@ -120,7 +120,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Ensure that both of your roles' goals are fulfilled by the time the game ends.");
 	});
 
-	register_role(["priest", "508"], "Hallow", "Priest", {subCat: "Espionage"}, (e) =>
+	register_role(["pietist", "508"], "Hallow", "Pietist", {subCat: "Espionage"}, (e) =>
 	{
 		e.setDescription("Post 508");
 
@@ -323,7 +323,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Start a Grand Idea Mafia subgame every third night with the dead players from the main game. Living players aren't players in the subgame. The players that win the subgame get brought back to life in the main game immediately. Players who die on the night you activate this ability count as dead for the subgame. (The subgame happens at the same time as the main game.)");
+		e.addField("Abilities:", "- Start a Grand Idea Mafia subgame every third night with the dead players from the main game.");
+
+		e.addField("Attributes:", "- Living players aren't players in the subgame.\n- Players who win the subgame get brought back to life in the main game immediately.\n- Players who die on the night you activate this ability count as dead for the subgame.\n- The subgame happens at the same time as the main game.");
 		
 		e.addField("Goal:", "Bring three different players back from the dead with your subgames.");
 	});
@@ -557,9 +559,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attack a player each night when you're not asleep.");
+		e.addField("Abilities:", "Attack a player each night when you're not asleep.");
 
-		e.addField("Attributes:", "- You're asleep for the first two days and two nights. (You can't talk, vote, use day abilities, or use night abilities.)");
+		e.addField("Attributes:", "- You're asleep for the first day/night cycle. (You can't talk, vote, use day abilities, or use night abilities.)");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -585,7 +587,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Incinerate someone. If this is the first ability targetting them that has resolved in the game and they are evil, they will be dealt an Unstoppable attack. You may only do this once.\n- Light someone ablaze each night. Players who are lit ablaze will have every ability targetting them be turned into a Basic attack.");
+		e.addField("Abilities:", "- Incinerate someone. If this is the first ability targetting them that has resolved in the game and they are evil, they will be dealt an Unstoppable attack. You may only do this once.\n- Light someone ablaze each night. Players who are lit ablaze will have every other ability targetting them be turned into a Basic attack.");
 
 		e.addField("Attributes:", "- Your abilities both have the highest possible priority.");
 		
@@ -712,7 +714,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["pedantic_player", "pedanticplayer", "547"], "Town", "Pedantic Player", {subCat: "Investigative"}, (e) =>
+	register_role(["pedantic_player", "pedanticplayer", "pedantic", "player", "pp", "547"], "Town", "Pedantic Player", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 547");
 
@@ -720,14 +722,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Every time the host makes a host error, you are informed of exactly what happened. You may then gain one use of your choice of the following: a Basic attack, a Basic autovest, or a vote that counts as three.\n- You may reroll this role if you think the host is competent.");
+		e.addField("Attributes:", "- Every time the host makes a host error, you are informed of exactly what happened. You may then gain one use of your choice of the following: a Basic attack, a Basic autovest, or a vote that counts as three.\n- You may reroll this role for free if you think the host is competent.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["morality_researcher", "moralityresearcher", "548"], "Town", "Morality Researcher", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 548");
+		e.setDescription("Post 548\n*You have two choices. Think carefully about what you do.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "Basic", true);

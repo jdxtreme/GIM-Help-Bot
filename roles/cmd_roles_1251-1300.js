@@ -120,6 +120,21 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Random.goal);
 	});
 
+	register_role(["hand_of_glory", "handofglory", "hand", "glory", "hog", "1259"], "PaleMoon", "Hand of Glory", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1259");
+
+		e.addField("Alignment", "Unique Pale Moon Killing", true);
+		e.addField("Attack", "None (Unstoppable)", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Each day preceding a Full Moon, force a player to dance as your puppet.");
+
+		e.addField("Attributes:", "- Dancing players will be forced to use all of their night abilities on themselves a single time. They can only choose the order, or allow RNG to decide for them.\n- Dancing will bypass other rules about what an ability is allowed to target. I.E. if an ability normally can't self-target, and/or requires a specific number of players, it'll be able to self-target anyways.\n- Self-targeting as a result of Dancing is considered to be a visit, meaning players will attack themselves if they use abilities that would normally target their own visitors.\n- During the PMCS, you will deal an Unstoppable Attack to your target at the end of the night.");
+
+		e.addField("Goal:", factions.PaleMoon.goal);
+	});
+
 	register_role(["npc", "1260"], "Town", "NPC", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1260");
@@ -156,7 +171,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Call upon the divine cold at night, increasing an Everfrost player's defense level by two stages.\n**Winter's Retribution** — Roleblock up to one player, then coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
+		e.addField("Abilities:", "- Call upon the divine cold each night, increasing an Everfrost player's defense level by two stages.\n**Winter's Retribution** — Roleblock up to one player, then coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
 
 		e.addField("Attributes:", "- Roleblock Immunity\n- All Everfrost players are Astral and redirect immune.\n- You have a layer of Basic defense that can prevent one attack.\n- If Eyisa dies, you gain the attribute \"Whenever a player is roleblocked by anything while you're alive, they'll be notified that they're covered in frost. If they're not visited by at least two other non-Everfrost players the next night, they're dealt an Astral Basic attack by you at the end of that night. This effect cannot be prevented by anything.\" and Powerful defense.");
 
@@ -243,7 +258,7 @@ module.exports = (g) =>
 
 	register_role(["naivete", "1268"], "Town", "Naivete", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1268");
+		e.setDescription("Post 1268\n*Why do people intentionally bring harm to others? It makes no sense at all.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -256,7 +271,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["literal_clone", "literalclone", "clone", "1269"], "Neutral", "A Literal Clone", {subCat: "Chaos"}, (e) =>
+	register_role(["amnesiac", "different_people", "differentpeople", "awkrttwldp", "1269"], "Neutral", "Amnesiac Who Keeps Remembering That They Were Like Different People", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 1269");
 
@@ -264,11 +279,11 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Variable", true);
 
-		e.addField("Abilities:", "- Become a clone of someone. This can only be done once and you cannot use this if you have a permanent factional chat.");
+		e.addField("Abilities:", "- Remember who you were.");
 
-		e.addField("Attributes:", "- You start as a clone of someone. You have their role, goal, abilities, and attributes, however you do not know their name. You are aware you are a literal clone.");
+		e.addField("Attributes:", "- Whenever you remember who you were, you gain that role's defense, attack, abilities, attributes, and win con.\n- You cannot gain a good faction win con.\n- You can remember as many times as you want.");
 		
-		e.addField("Goal:", "Complete the goal of your cloned role.");
+		e.addField("Goal:", "Complete one of your remembered goals.");
 	});
 
 	register_role(["sandbox", "1270"], "Neutral", "Sandbox", {subCat: "Chaos"}, (e) =>
@@ -370,7 +385,7 @@ module.exports = (g) =>
 
 	register_role(["pincurchin", "1276"], "Pokemon", "Pincurchin", {subCat: "Single"}, (e) =>
 	{
-		e.setDescription("Post 1276");
+		e.setDescription("Post 1276\n*It likes rolling, but is unable to do so because of its spines.*");
 
 		e.addField("Alignment", "Pokemon Single", true);
 		e.addField("Attack", "Basic", true);
@@ -643,8 +658,8 @@ module.exports = (g) =>
 		e.setDescription("Post 1294");
 
 		e.addField("Alignment", "Spirit Head", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
+		e.addField("Attack", "Faction Variable", true);
+		e.addField("Defense", "Faction Variable", true);
 
 		e.addField("Abilities:", "- Use the body and soul of a dead player.");
 
@@ -703,8 +718,8 @@ module.exports = (g) =>
 		e.setDescription("Post 1298");
 
 		e.addField("Alignment", "Spirit Killing", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
+		e.addField("Attack", "Faction Variable", true);
+		e.addField("Defense", "Faction Variable", true);
 
 		e.addField("Abilities:", "- Attack a player at night.");
 

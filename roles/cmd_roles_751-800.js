@@ -55,7 +55,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Every non-full moon night, you may visit somebody. This will either one random visitor, the person you visit themselves, or someone who visits you aside from any SCPs.");
+		e.addField("Abilities:", "- Every non-full moon night, you may visit somebody. This will kill either one random visitor, the person you visit themselves, or someone who visits you aside from any SCPs.\n- Knock out the full moon tonight, allowing you to use your ability. 3 charges, may not be used consecutively, May only be used Day 5 onwards.");
 		
 		e.addField("Goal:", factions.SCP.goal);
 	});
@@ -83,9 +83,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Deal a Basic attack to someone each night.");
+		e.addField("Abilities:", "- Attack someone each night.");
 
-		e.addField("Attributes:", "- When you successfully kill someone, you may have their role, will, and cause of death be displayed as whatever you want.\n- When you successfully kill someone, choose another killing role in the game not deemed unbalanced by the Role Jury. You become that role, except you're Neutral Killing and you keep your existing abilities and attributes. (Your goal and alignment stay the same, you don't have access to factional chats or kills, etc.)\n- As long as your role is Thousand-Faced Shadow, you may make any number of actions each night as long as those actions each come from a different role.");
+		e.addField("Attributes:", "- When you successfully kill someone, you may have their role, will, and cause of death be displayed as whatever you want.\n- When you successfully kill someone, choose another killing role in the game not deemed unbalanced by the Role Jury. You become that role, except you're Neutral Killing and you keep your existing abilities and attributes. (Your goal and alignment stay the same, you don't have access to factional chats or kills, etc.)\n- As long as your role is Thousand-Faced Shadow, you may make any number of actions each night as long as those actions each come from a different role. ");
 		
 		e.addField("Goal:", "Eliminate all who would oppose you.");
 	});
@@ -227,7 +227,7 @@ module.exports = (g) =>
 
 	register_role(["snowstorm", "766"], "Everfrost", "Snowstorm", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 766");
+		e.setDescription("Post 766\n*They thought it was over...but a blinding white flurry overcame the town the next day. Mislynch.*");
 
 		e.addField("Alignment", "Everfrost Support", true);
 		e.addField("Attack", "None", true);
@@ -355,7 +355,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Each night, make a rule concerning players' actions in the public day chat. That rule is announced at the start of the next day.\n- Anyone who breaks that rule except you is modkilled. You must break each rule you make the day after you make it, or you're modkilled.\n- You can't choose to not make a rule, and being roleblocked/etc. doesn't affect your rule-making.\n- Rules go away after you die.");
 		
-		e.addField("Goal:", "Survive until the end of the game, or have three wrongdoers punished for breaking your rules, or break five of your own rules without being caught.");
+		e.addField("Goal:", "Survive until the end of the game, or have three wrongdoers punished for breaking your rules, or break three of your own rules without being caught.");
 	});
 
 	register_role(["gerrymanderer", "gerry", "775"], "Neutral", "Gerrymanderer", {subCat: "Evil"}, (e) =>
@@ -383,7 +383,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Deal a Basic attack to any target each night. You may only use this ability twice.\n- You have an additional ability based on the faction you're in, which the host decides when this role is rolled. This ability pertains to the specific characteristics of this faction, such as a Necronomicon ability if you're Coven, a coldsnap ultimate if you're Everfrost, etc. The ability can't have any mechanics that aren't seen on any other roles, and it should be intentionally weaker than the average role in that faction.");
 
-		e.addField("Attributes:", "- This role can roll under any faction and any alignment, including Town and Neutral.\n- You have a layer of Basic defense that can block one attack.");
+		e.addField("Attributes:", "- This role can roll under any alignment and subalignment, including Town and Neutral.\n- You have a layer of Basic defense that can block one attack.");
 		
 		e.addField("Goal:", "Whatever the goal of your faction is. (*You have the Survivor's goal if you're Neutral Benign, the Witch's if you're Neutral Evil, etc.*)");
 	});
@@ -518,7 +518,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Caw at a player, decreasing their defense by one stage until they are healed or protected. If a player who has no defense is targeted, they gain Vulnerable defense, and will die if visited by two or more people. Targets will know their defense has been lowered.\n- Prepare a Strike on a player. Strikes will activate the following morning.");
+		e.addField("Abilities:", "- Caw at a player, decreasing their defense by one stage until they are healed or protected. Players with a defence of None will gain Vulnerable defence.\n- Prepare a Strike on a player. Strikes will activate the following morning.");
 
 		e.addField("Attributes:", "- If one or more Striked players are alive, players who visit your target will also have their defense lowered.\n- If two or more Striked players are alive, gain basic defense.");
 		
@@ -650,11 +650,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Invincible)", true);
 
-		e.addField("Abilities:", "- Beep 1 key and give another player Basic defense for the night. (*Beeping keys uses up the keys.*)\n- Beep 2 keys to transport 2 players.\n- Beep 3 keys to give someone an invincible autovest but making them unable to use night abilities until it's broken.");
+		e.addField("Abilities:", "- Beep 1 key and give another player Basic defense for the night.\n- Beep 2 keys to transport 2 players. You may transport yourself.\n- Beep 3 keys to give someone an Invincible autovest but making them unable to use night abilities until it's broken. You may give yourself this autovest.");
 
-		e.addField("Attributes:", "- You will earn 1 key every night. You can use 2 abilities per night.\n- You may transport yourself or give yourself autovest.");
+		e.addField("Attributes:", "You will earn 1 key every night. You can use 2 abilities per night.");
 
 		e.addField("Goal:", "Beekeeper Goal");
 	});

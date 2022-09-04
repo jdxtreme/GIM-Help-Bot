@@ -51,7 +51,7 @@ module.exports = (g) =>
 
 	register_role(["soundless", "204"], "Town", "Soundless", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 204");
+		e.setDescription("Post 204\n*Spoken words can leave you broken-hearted.*");
 
 		e.addField("Alignment", "Town Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -160,9 +160,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Protect a player at night, granting them Powerful defense.\n- Attack a player at night, dealing to them a Powerful attack.");
+		e.addField("Abilities:", "- Protect a player at night, granting them Powerful Defense. 3 uses.\n- Attack a player at night, dealing to them a Powerful Attack. 3 uses.");
 
-		e.addField("Attributes:", "- You don't count as a player. (*You can't be voted for, whispered to, targeted, etc., and you don't count towards majority.*");
+		e.addField("Attributes:", "- You don't count as a player. You can't be voted for, whispered to, targeted, etc., and you don't count towards majority or game-end conditions.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -278,7 +278,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Absorb a player each night. They are removed from the game.");
+		e.addField("Abilities:", "- Absorb another player each night, removing them from the game.");
 
 		e.addField("Attributes:", "- Players you remove from the game become part of you. They gain access to your private channel and you to theirs. You gain all their abilities, attributes, immunities, stats, etc. except factional ones. They win if you win.\n- When you deal attacks, your attack value corresponds to that of the role that gave you the ability to deal that attack.\n- If an attribute allows you to use multiple abilities each night, you may instead only use multiple abilities from the role(s) that gave you that attribute each night.\n- You may elect at any time to remove any number of your abilities or attributes from other roles, but you will not be able to get them back. ");
 
@@ -355,24 +355,24 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Tempt someone each night. They'll be forced to visit you the next night through redirect immunity. They'll know they were tempted.\n- Raise Hell to attack all your visitors at night.");
 
-		e.addField("Attributes:", "- If you tempt a Fallen Angel, their visit won't deal damage to you and you'll be able to take two actions the next night.\n- If you tempt a non-Fallen Angel, your ability will automatically fail if them visiting you would kill you, and you'll be notified of this.\n**Sin of Pride** — If you're the last Fallen Angel remaining, you can use you any number of different abilities each night, your targets won't know they're tempted, you'll have roleblock, redirection, conversion, and detection immunity, you'll appear as a role of your choice to all investigative effects, your attack is Overkill, and you have total death immunity at night.");
+		e.addField("Attributes:", "- If you tempt a Fallen Angel, their visit won't deal damage to you (even if it's Piercing) and you'll be able to take two actions the next night.\n- If you tempt a non-Fallen Angel, and when they're forced to visit you, that would kill, roleblock, or redirect you, they won't be redirected and you'll be informed of this.\n**Sin of Pride** — If you're the last Fallen Angel remaining, you can use you any number of different abilities each night, your targets won't know they were redirected, you'll have roleblock, redirection, conversion, and detection immunity, you'll appear as a role of your choice to all investigative effects, your attack is Overkill, and you have total death immunity at night.");
 
 		e.addField("Goal:", factions.FallenAngel.goal);
 	});
 
-	register_role(["rock_n_roll", "rocknroll", "rock_and_roll", "rockandroll", "225"], "Neutral", "Rock n' Roll", {subCat: "Chaos"}, (e) =>
+	register_role(["rock_n_roll", "rocknroll", "rock_and_roll", "rockandroll", "225"], "Rock", "Rock n' Roll", {subCat: "Espionage"}, (e) =>
 	{
-		e.setDescription("Post 225");
+		e.setDescription("Post 225\n*Strummin' that guitar to the rhythm that just won't stop—don't stop!*");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Rock Espionage", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Investigate a player to find out what kind of rock they are\n- Attack a player, rock or not.");
+		e.addField("Abilities:", "- Play a sick guitar riff at night, attracting all visitors from a player of your choice. You will learn the names and roles of all your visitors, though you will not know who is who.\n- Amplify a player. They will perform their ability a second time on a player of your choice, ignoring limited uses or limits of an ability. They will informed that they were amplified.");
 
-		e.addField("Attributes:", "- Youw ill appear to be a random Rock role.\n- Upon dying, all Rocks will gain Invincible defense for the night.");
+		e.addField("Attributes:", "- Amplification essentially works as a control, just that it doesn't replace the target's original action.\n- Control/redirection immune.");
 
-		e.addField("Goal:", "Win with the Rocks OR Win by yourself");
+		e.addField("Goal:", factions.Rock.goal);
 	});
 
 	register_role(["corruptionist", "226"], "Neutral", "Corruptionist", {subCat: "Evil"}, (e) =>
@@ -398,9 +398,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Change the server icon, server name, or the name of any role, or the name of any category, or the name of any channel, or the nickname of any player each night. (*The host will carry out your change.*)");
+		e.addField("Abilities:", "- Change the server icon, server name, or the name of any category, or the name of any channel, or the nickname of any player each night.");
 
-		e.addField("Goal:", "Make at least 4 people laugh. (*A player laughs if they send a Discord message in reaction to the change that is a commonly accepted Internet expression of having found something funny, such as \"lmao\", \"pFFFFFT\", or \"sdjfsdjisdjfisjdfihhh\".*)");
+		e.addField("Goal:", "Make at least 4 people laugh. (Someone laughs if they send a Discord message in reaction to the change that is a commonly accepted Internet expression of having found something funny, such as \"lmao\", \"pFFFFFT\", or \"sdjfsdjisdjfisjdfihhh\".)");
 	});
 
 	register_role(["uzumaki", "spiral", "uzu", "naruto", "229"], "Neutral", "Uzumaki", {subCat: "Chaos"}, (e) =>
@@ -503,9 +503,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Grant a player Basic defense for the night each night.");
+		e.addField("Abilities:", "- Grant another player Basic defense for the night each night.");
 
-		e.addField("Attributes:", "- All attacks are Basic.\n- You may not self-target.");
+		e.addField("Attributes:", "- All attacks are Basic.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -559,7 +559,7 @@ module.exports = (g) =>
 
 	register_role(["adorable_catgirl_nyaa~!", "adorablecatgirlnyaa", "adorable_catgirl", "adorablecatgirl", "catgirl", "submissivebreedablebuyablepsychotictwinkgothemopetgirlcatmaidpoledancerhumiliationlovingsexyvoicedpegginglovingadorablepsychicprettymermaidkirbywife", "238"], "Neutral", "Adorable Catgirl Nyaa~!", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 238");
+		e.setDescription("Post 238\n*Nyaaa~!*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "Basic", true);
@@ -646,7 +646,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Morph into another role and win as it.");
 	});
 
-	register_role(["i_really_hate_post_371", "ireallyhatepost371", "fuck371", "244"], "Neutral", "I really hate Post 371.", {subCat: "Killing"}, (e) =>
+	register_role(["i_really_hate_post_371", "ireallyhatepost371", "hate_371", "hate371", "371", "244"], "Neutral", "I really hate Post 371.", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 244");
 

@@ -17,11 +17,6 @@ function getPlayerByName(players, name)
 				return players[a]
 }
 
-function isInt(v)
-{
-	return parseInt(v, 10).toString() === v;
-}
-
 function firstname(p)
 {
 	let name = p.nicknames[0] || "unknown (bug)";
@@ -31,14 +26,12 @@ function firstname(p)
 
 module.exports = (g) =>
 {
-	const {PRE, categories, commands, msg, overwrite, PLAYER_DATA, is_day, toggle_day} = g;
-	categories["Game"] = true;
+	const {PRE, UTILS, add_cmd, msg, overwrite, PLAYER_DATA, is_day, toggle_day} = g;
 	let i = 0;
 	
 	function register_cmd(name, param, title, desc, func, admin_only)
 	{
-		let cmd = 
-		{
+		add_cmd(name, {
 			id: "g" + i,
 			cat: "Game",
 			title,
@@ -52,15 +45,9 @@ module.exports = (g) =>
 				else
 					msg(chn, "-You do not have elevated permissions for this bot.");
 			}
-		};
+		});
 
 		i = i + 1;
-
-		if(typeof name === "string")
-			commands[name] = cmd;
-		else
-			for(let i in name)
-				commands[name[i]] = cmd;
 	}
 
 	register_cmd("add_player", "<Player ID> <#Player Channel> [Nickname(s)...]", "Add Player", "Add a player into the bot's local storage, enabling use with Whispers.", (chn, message, e, args) =>
@@ -175,7 +162,7 @@ module.exports = (g) =>
 			return;
 		}
 
-		let player = isInt(args[0])
+		let player = UTILS.isInt(args[0])
 			&& PLAYER_DATA[parseInt(args[0])-1]
 			|| getPlayerByName(PLAYER_DATA, args[0]);
 
@@ -223,7 +210,7 @@ module.exports = (g) =>
 			return;
 		}
 
-		let recipient = isInt(args[0])
+		let recipient = UTILS.isInt(args[0])
 			&& PLAYER_DATA[parseInt(args[0])-1]
 			|| getPlayerByName(PLAYER_DATA, args[0]);
 
@@ -289,7 +276,7 @@ module.exports = (g) =>
 			return;
 		}
 
-		let player = isInt(args[0])
+		let player = UTILS.isInt(args[0])
 			&& PLAYER_DATA[parseInt(args[0])-1]
 			|| getPlayerByName(PLAYER_DATA, args[0]);
 

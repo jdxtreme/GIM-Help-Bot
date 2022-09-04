@@ -94,19 +94,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Seven.goal);
 	});
 
-	register_role(["bionic", "bio", "1657"], "Discordian", "Bionic", {subCat: "Killing"}, (e) =>
+	register_role(["peacekeeper", "peace", "1657"], "Sentry", "Peacekeeper", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1657");
 
-		e.addField("Alignment", "Discordian Killing", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Alignment", "Sentry Killing", true);
+		e.addField("Attack", "Basic/Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "**Brick Break** - Attack your target, this ignores passive defense, Can only be used N1.");
+		e.addField("Abilities:", "- Once per game, keep the peace. You will deal a Basic Attack to anyone who uses any attack that is more powerful than Basic or if they use a Rampage attack.\n- Once per game, crush the opposition. Deal a Powerful Attack to an authorized target who voted to lynch someone who wasn’t lynched.");
 
-		e.addField("Attributes:", "- If you are lynched, you may choose (# of Alive players / 5, Rounded Up) players to deliver an Unstoppable attack to the following night.");
+		e.addField("Attributes:", "- If you attack an authorized target while keeping the peace, you will deal a Powerful Attack instead of a Basic Attack.\n- Your ability counts as a visit against any player you attack.");
 		
-		e.addField("Goal:", factions.Discordian.goal);
+		e.addField("Goal:", factions.Sentry.goal);
 	});
 
 	register_role(["greed", "1658"], "Seven", "Greed", {subCat: "Sin"}, (e) =>
@@ -132,9 +132,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Roleblock a player tonight and delay them. After tonight, everything they do will happen 1 day later. For example, if they investigated someone on N2, it will act like they investigated someone on N3 instead. A player will not be notified they were roleblocked or delayed and the delay will last until the end of the game. (3 uses)\n**Insatiable Exhaustion** — Delay every single person tonight for 1 day unless they're a member of Seven. If a member of Seven is killed during the night or lynched in next morning, it will be delayed for 2 days. (1 use)");
+		e.addField("Abilities:", "- Delay a player. After tonight, everything they do will happen 1 day later. For example, if they investigated someone on N2, it will act like they investigated someone on N3 instead. A player will be notified they were delayed and the delay will last for 2 nights. (3 uses)\n**Insatiable Exhaustion** — When this is used, if a member of Seven is killed during the night or lynched in next morning, the death will be delayed for 2 days. (1 use)");
 
-		e.addField("Attributes:", "- Roleblock and immunity.\n- When a member of Seven is visited, the effect will be delayed for 1 day.");
+		e.addField("Attributes:", "- - Roleblock immunity.\n- When a member of Seven is visited, the effect will be delayed for 1 day. ");
 		
 		e.addField("Goal:", factions.Seven.goal);
 	});
@@ -156,7 +156,7 @@ module.exports = (g) =>
 
 	register_role(["sundew", "1661"], "Florae", "Sundew", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1661");
+		e.setDescription("Post 1661\n*Who said I was carnivorous?*");
 
 		e.addField("Alignment", "Florae Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -164,14 +164,14 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Repress your hunger tonight. Your defense will be lowered to None, and you will not attack anyone who visits you tonight. (3 uses)\n- Lure a target tonight, redirecting them to you. (1 use)");
 
-		e.addField("Attributes:", "- You will indiscriminately attack anyone who visits you at night. You will be worn out by Day 6, and this attribute will no longer apply.");
+		e.addField("Attributes:", "- Control and roleblock immune.\n- You will indiscriminately attack anyone who visits you at night. On Night 6, you will be worn out, removing this attribute and your Basic defense.");
 		
 		e.addField("Goal:", factions.Florae.goal);
 	});
 
 	register_role(["pride", "1662"], "Seven", "Pride", {subCat: "Sin"}, (e) =>
 	{
-		e.setDescription("Post 1662");
+		e.setDescription("Post 1662\n*You could shine so brilliantly, if you wanted it enough.*");
 
 		e.addField("Alignment", "Unique Seven Sin", true);
 		e.addField("Attack", "None", true);
@@ -204,12 +204,12 @@ module.exports = (g) =>
 		e.setDescription("Post 1664");
 
 		e.addField("Alignment", "Unique Seven Sin", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
+		e.addField("Attack", "Basic (Variable)", true);
+		e.addField("Defense", "None (Variable)", true);
 
-		e.addField("Abilities:", "- Attempt to absorb a player's abilities. If they have None or worse defense, you will gain access to 1 shot of a random ability they have.\n**Insatiable Hunger** - Target a player and attack them. If successful, raise your Attack and Defense by one stage each, to a maximum of Overkill and Overprotective. Each night after the first, you will randomly select a target to attack. If you ever fail to attack for any reason, your Attack returns to Basic and your Defense becomes Vulnerable. 1-use.");
+		e.addField("Abilities:", "- Attempt to absorb a player's abilities. If they have None or worse defense, you will gain access to 1 shot of a random ability they have.\n**Insatiable Hunger** - Target a player and attack them. If successful, raise your Attack and Defense by one stage each, to a maximum of Unstoppable and Invincible. Each night after the first, you will randomly select a target to attack. If you ever fail to attack for any reason, your Attack returns to Basic and your Defense becomes Vulnerable. 1-use. This ability uses the factional kill for each night of its duration.");
 
-		e.addField("Attributes:", "- If your target dies by any means while you are attempting to absorb their ability, you will fail.\n- While you're alive, all players killed by the Seven will have their cause of death to appear as simply \"Seven\", their will is wiped, and their role appears as \"Devoured\".");
+		e.addField("Attributes:", "- If your target dies by any means while you are attempting to absorb their ability, you will fail.\n- While you're alive, all players killed by the Seven will have their cause of death to appear as simply \"Seven\", their will is wiped, and their role appears as \"Devoured\".\n- \"Randomly\" selected targets are constrained to players who are alive and not members of the Seven team.");
 		
 		e.addField("Goal:", factions.Seven.goal);
 	});
@@ -343,8 +343,8 @@ module.exports = (g) =>
 		e.setDescription("Post 1673");
 
 		e.addField("Alignment", "Spirit Support", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
+		e.addField("Attack", "Faction Variable", true);
+		e.addField("Defense", "Faction Variable", true);
 
 		e.addField("Abilities:", "- Meddle with your surroundings during the night, redirecting all of your visitors into themselves.\n- Hide a player’s ability during the night. While you are alive, they will not be able to use that ability. This is not a roleblock and only takes effect after the current night ends. (2-shot)");
 
@@ -422,5 +422,335 @@ module.exports = (g) =>
 		e.addField("Abilities:", "- Make a good meal, granting someone Powerful defense for the night.\n- Make someone a bad meal, roleblocking them.\n- Make someone a poisoned meal, poisoning them.");
 		
 		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["yttd_hater", "yttdhater", "yttd", "hater", "yh", "1679"], "Neutral", "YTTD Hater", {subCat: "Chaos"}, (e) =>
+	{
+		e.setDescription("Post 1679");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None (Basic)", true);
+
+		e.addField("Abilities:", "- At any point during the game, force half of the living players (of your choosing) into a game of Minority Rules. You must include yourself.");
+
+		e.addField("Attributes:", "- The Minority Rules game will not stop the GIM game from proceeding. However, the Minority Rules game must end before the GIM game ends.");
+		
+		e.addField("Goal:", "Win in a game of Minority Rules.");
+	});
+
+	register_role(["accentillia", "accentilla", "accent", "1680"], "Discordian", "Accentillia", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1680");
+
+		e.addField("Alignment", "Discordian Killing", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Variable", true);
+
+		e.addField("Abilities:", "-At any night, you may choose to use the ability of Accent OC roles (see Post 354 Wielder of Hope, Asahi), post 727 Light of Accent, or post 625 Tierlister Accent for the night.");
+		
+		e.addField("Goal:", factions.Discordian.goal);
+	});
+
+	register_role(["attached", "1681"], "Neutral", "Attached", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1681");
+
+		e.addField("Alignment", "Unique Neutral Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Attack someone at night.\n- Perform your host's abilities at night.");
+
+		e.addField("Attributes:", "- At the beginning of the game, you are attached to a player. Their Alignment and goal is changed to that of a Neutral Killing's and they become only able to win with you.\n- The first and second time your host would die, you will attach yourself to another player. The third time, you will die. Unstoppable and higher attacks, as well as lynches don't take this attribute into account, and kill your normally.\n- Your host loses their immunities.");
+		
+		e.addField("Goal:", factions.Neutral.goalNK);
+	});
+
+	register_role(["genie", "1682"], "Coven", "Genie", {subCat: "Evil"}, (e) =>
+	{
+		e.setDescription("Post 1682\n*Will give you three wishes. And you'll like it.*");
+
+		e.addField("Alignment", "Coven Evil", true);
+		e.addField("Attack", "Basic (Powerful)", true);
+		e.addField("Defense", "None (Variable)", true);
+
+		e.addField("Abilities:", "- Choose a non-Coven player each day and offer three random wishes to them.");
+
+		e.addField("Attributes:", "- All three wishes must be distinct.\n- The wishes will be shown to the target once the night begins, and must be chosen before the target is allowed to use any ability.\n- With the Necronomicon, the target will always take a Basic Attack at the end of the night. If they chose the Wish to deal themselves a Basic Attack, they'll instead unknowingly take a Powerful Attack.\n- Wishes that would have no effect cannot be chosen. For example, a player cannot be offered a \"Get Roleblocked for tonight\" wish if they're RB Immune or lack night abilities.\n- Your ability will fail if you would be forced to target a Coven member for any reason.\n- You will learn what your target(s) chose at the end of the night.");
+
+		e.addField("Wishes:", "1. Get Roleblocked for tonight.\n2. Lose half (rounded up) uses from each of your limited-use abilities.\n3. Allow the Genie an additional use of their ability each day, permanently.\n4. Permanently increase the Genie's defense tier.\n5. Hit yourself with a Basic Attack that ignores your passive defense if you have any.\n6. Randomly disable one of your abilities for two nights and two days.\n7. Take a Powerful Poison (Post 85)\n8. Permanently lose all immunities that you currently have.\n9. Become unable to vote in the next phase.\n10. Allow the Genie to secretly submit another vote each day, permanently.\n11. Mute yourself in all game chats except your own player chat for tomorrow and the next night.\n12. Grant a Necronomicon to a Coven player that lacks one, even if one already exists.");
+		
+		e.addField("Goal:", factions.Coven.goal);
+	});
+
+	register_role(["trigger_happy", "triggerhappy", "trigger", "happy", "th", "1683"], "Town", "Trigger Happy", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1683");
+
+		e.addField("Alignment", "Town Killing", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Shoot a target tonight, dealing an Unstoppable attack to them.");
+
+		e.addField("Attributes:", "- If you target a non-Town player with your ability, you will heal yourself that night. You will be notified that this happened.\n- If you target a Town player with your ability, you will also deal an Overkill attack to yourself.\n- You will always shoot the player you target at night, bypassing redirections, controls, and anything else that would alter who gets shot.\n- Starting on N3, you're forced to use your ability each night.\n- This role can always be rerolled.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["not_ritualist", "notritualist", "ritualist", "1684"], "Town", "Not Ritualist", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1684");
+
+		e.addField("Alignment", "Town Killing", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Sacrifice a Town member to haunt another player.");
+
+		e.addField("Attributes:", "- Sacrificing a Town member deals an Overkill attack to them and allows you to deal an Unstoppable attack to your second target.\n- If you attempt to sacrifice a non-Town member, you will sacrifice yourself instead. You may also choose to sacrifice yourself normally.\n- If you kill a Town member with your haunt, you can only sacrifice yourself for the rest of the game.\n- You cannot keep a last will due to your practices being forbidden.\n- If you sacrifice a Town member to kill a Town member N1, you are given the nice shiny <@&976214023857111060> role.\n- You also can sacrifice any roles that can win with Town. See? It's not Ritualist!");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["council_of_the_dead", "councilofthedead", "council", "cotd", "1685"], "Neutral", "Council of the Dead", {subCat: "Benign"}, (e) =>
+	{
+		e.setDescription("Post 1685");
+
+		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Revoke a player's permission to return to the realm of the living at night. They may no longer be voted during the Revival Meeting.\n- Cancel the next Revival Meeting at night. No meeting will be held in the day.");
+
+		e.addField("Attributes:", "- You have access to the dead chat.\n- On every day besides D1, you will host a Revival Meeting in the dead chat. All dead players, and you, may vote for each other to decide someone to revive. That player is revived at the beginning of the next night, and cannot be lynched during the next morning.\n- You have two votes during this meeting.\n- Your attributes will remain active and your abilities can still be used while you're dead.");
+		
+		e.addField("Goal:", "See at least 5/6 of the players in the game enter the graveyard at some point.");
+	});
+
+	register_role(["poppy", "1686"], "Florae", "Poppy", {subCat: "Investigative"}, (e) =>
+	{
+		e.setDescription("Post 1686");
+
+		e.addField("Alignment", "Florae Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Plant a seed of remembrance in a player once per day, allowing you to see into their voters.");
+
+		e.addField("Attributes:", "- Your action resolves immediately.\n- Of your target's voters, you will learn how many of them are not of the same faction.\n- You cannot target a player with 1 or less votes to their name.");
+		
+		e.addField("Goal:", factions.Florae.goal);
+	});
+
+	register_role(["soul_edge", "souledge", "soul", "edge", "se", "1687"], "Neutral", "Soul Edge", {subCat: "Chaos"}, (e) =>
+	{
+		e.setDescription("Post 1687");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "Overkill", true);
+		e.addField("Defense", "Invincible", true);
+
+		e.addField("Abilities:", "- At night, select a target for the player you are Equipped to to attack. If you both selected different targets, the attack will be directed toward one of them at random, and both you and the player you are Equipped to will be notified.");
+
+		e.addField("Attributes:", "- If a player visits you while you are not Equipped to another player, you become Equipped to that player. They are notified as to who you are and the fact that you have become Equipped to them.\n- Players that you are Equipped to have their Attack value raised to Unstoppable, unless it is higher. This value cannot be lowered.\n- All visits toward you or a player that you are Equipped to will be directed toward both of you, if applicable.\n- Players that you are Equipped to are forced to attack another living player at night. They cannot use any other Night ability unless the role is capable of multitasking. They may choose who to attack, but if they do not choose, they will attack whoever you chose. If neither of you chose a target, their target will be chosen randomly amongst living players, excluding themselves and you.\n- You will absorb the soul of any player that is killed by the player you are Equipped to.");
+
+		e.addField("Attributes (cont.):", "- If you have been Equipped to the same player for the 3rd night in a row, you will absorb their soul at the end of the night. This will deal an Overkill attack to them. You may not die on the night that this happens.\n- If the player that you are Equipped to dies, you become unequipped. If they die as a result of a visit, you will become Equipped to their visitor.\n- You may only be Equipped to one player at a time. If you would become Equipped to multiple players at the same time, the player you become Equipped to is chosen randomly.\n- Each time you are attacked, your Defense value is lowered by one stage.\n- If you are lynched, you will not die, but your role will be revealed. If you are not Equipped to another player at the time this happens, you become Equipped to the first player that voted against you during this day.");
+		
+		e.addField("Goal:", "Absorb 5 souls.");
+	});
+
+	register_role(["very_dumb", "verydumb", "mgt-based", "mtg_based", "mtgbased", "rasen_role", "rasenrole", "vdmtgbrr", "bdmbrr", "1688"], "Neutral", "Very Dumb MTG-Based Rasen Role", {subCat: "Evil"}, (e) =>
+	{
+		e.setDescription("Post 1688");
+
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Use your random abilities each night.");
+
+		e.addField("Attributes:", "- At the start of each night, the host generates a random ability by hitting the \"Random Card\" or \"🔀 Random\" button at https://scryfall.com/ until they get an instant or sorcery card. You will be given an ability that corresponds to that spell's effect. Yup the host's just gonna hafta figure this the fuck out again lmao.");
+		
+		e.addField("Goal:", "Live to see the Town lose the game.");
+	});
+
+	register_role(["ritualist_nk", "ritualistnk", "ritualist", "1689"], "Neutral", "Ritualist but its NK", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1689");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Overkill/Unstoppable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Sacrifice a Good Faction member to haunt another player.");
+
+		e.addField("Attributes:", "- The player you sacrifice will be killed by an Overkill Attack.\n- The player you haunt will be killed by an Unstoppable Attack.\n- If you try to sacrifice a non-Good member, you will instead sacrifice yourself. This stops being the case if there are no Good players alive.\n- If you try to haunt a Good player, you will only be able to sacrifice people for the rest of the game.\n- You are unable to use your ability more than once per night even if another effect would try to allow you to do more.");
+		
+		e.addField("Goal:", factions.Neutral.goalNK);
+	});
+
+	register_role(["hag", "1690"], "Stalker", "Hag", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1690");
+
+		e.addField("Alignment", "Unique Stalker Killing", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Choose a player at night and curse them to die in three nights' time.\n- Choose a player and curse them to unable to use abilities on odd days/nights from now on.");
+
+		e.addField("Attributes:", "- Players will be notified when you curse them, and will know the specific effect applied to them.\n- Both curses can be removed by any effect that purges negative effects.\n- You cannot use either ability two nights in a row.\n- Control and Redirect immunity.");
+		
+		e.addField("Goal:", factions.Stalker.goal);
+	});
+
+	register_role(["rafflesia_arnoldii", "rafflesiaarnoldii", "rafflesia", "arnoldii", "raar", "1691"], "Florae", "Rafflesia Arnoldii", {subCat: "Protective"}, (e) =>
+	{
+		e.setDescription("Post 1691");
+
+		e.addField("Alignment", "Florae Protective", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Summon a guardian plant at a player's house. The plant will appear at the beginning the day.\n- Command the plant to release its scent, attacking everyone who visits tonight.");
+
+		e.addField("Attributes:", "- The guardian plant will remain at your targets house until triggered.\n- If your target is attacked during the day or the night, the guardian plant will react, attacking the attacker and all other visitors with a Powerful attack.\n- When the plant attacks someone for any reason, or if you use your second ability, it will rot that night and you will spend the next night summoning another.\n- You may only have one plant summoned at a time.\n- The plant is not able to be interacted with, making you immune to effects which cancel or prevent abilities from happening. This is not Roleblock Immunity.");
+		
+		e.addField("Goal:", factions.Florae.goal);
+	});
+
+	register_role(["campaigner", "campaign", "camp", "1692"], "Loyalist", "Campaigner", {subCat: "Protective"}, (e) =>
+	{
+		e.setDescription("Post 1692");
+
+		e.addField("Alignment", "Loyalist Protective", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Campaign at a target’s home during the night.\n- Campaign for a player during the day (2-shot)");
+
+		e.addField("Attributes:", "- While campaigning during the night, if your target takes an action that would result in them attacking a Loyalist, including the Governor, you will attempt to roleblock them.\n- When you campaign during the day, the target will secretly gain one additional voting power for that day. They will know that they have this new voting power.");
+		
+		e.addField("Goal:", factions.Loyalist.goal);
+	});
+
+	register_role(["infiltrator", "infil", "1693"], "Insurgency", "Infiltrator", {subCat: "Informant"}, (e) =>
+	{
+		e.setDescription("Post 1693");
+
+		e.addField("Alignment", "Insurgent Informant", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Infiltrate a target’s private chat during the night.\n- Disable a player’s ability for the next night.");
+
+		e.addField("Attributes:", "- If you infiltrate a target, you will learn if they have any private chats. If they do, you will learn one of the following at random:\n> - The size of the chat\n> - The role of one random player in the chat\n> - The name of one other player in the chat\n> - A random message sent by a player in the chat\n- If your target does not have any private chats, you will know.\n- If your target has multiple private chats, one will be selected at random, and you will not be informed of that.\n- If you disable a player’s ability, it will not be usable during the next night. If the target has multiple abilities, one will be chosen at random. In addition, you will learn the target’s role subcategory.\n- You may disable an ability that has no ammo or otherwise cannot be used.");
+		
+		e.addField("Goal:", factions.Insurgency.goal);
+	});
+
+	register_role(["racist", "1694"], "Town", "racist", {subCat: "Offensive"}, (e) =>
+	{
+		e.setDescription("Post 1694");
+
+		e.addField("Alignment", "Town Offensive", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Prejudice someone each night. If their subalignment isn't Investigative, Killing, or Protective, roleblock them.\n- Discriminate someone at night. If their subalignment isn't Investigative, Killing, or Protective, they'll be the only player that can be voted for tomorrow. You may only do this once each game.");
+
+		e.addField("Attributes:", "- Roleblock Immunity\n- If either of your abilities are used on yourself, you'll die immediately, and then you'll die again, and then you'll burn in the fiery pits of Hell.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["weretiger", "wt", "1695"], "Were", "WereTiger", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1695");
+
+		e.addField("Alignment", "Were Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- During a Full Moon, attack a player. You will bleed (Post 214, Animal Breeder) two of their visitors.\n- During a New Moon, attack a player, and bleed all those that the attacked player targetted. If your target did not target anybody or self targetted, you will instead bleed one of their visitors.");
+
+		e.addField("Hunting Moon Enhancement: Sharp Claws", "Your Attack is upgraded to Powerful, and you will bleed all of their visitors.");
+		
+		e.addField("Goal:", factions.Were.goal);
+	});
+
+	register_role(["follower", "1696"], "Stalker", "Follower", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1696");
+
+		e.addField("Alignment", "Stalker Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Follow a player at night, roleblocking them.");
+
+		e.addField("Attributes:", "- You will attack the target of your target. If the target did not target, you will attack your target. If the target targetted multiple targets, you will target one at random.");
+		
+		e.addField("Goal:", factions.Stalker.goal);
+	});
+
+	register_role(["dracula", "1697"], "Vampire", "Dracula", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1697");
+
+		e.addField("Alignment", "Vampire Killing", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "Variable", true);
+
+		e.addField("Abilities:", "- You may choose a target to drain blood from, attacking them.");
+
+		e.addField("Attributes:", "- You will gain defense equal to the Attack Level of your drained target for the night. For example, if you drain a target with Unstoppable Attack, you will gain Invincible Defense.");
+		
+		e.addField("Goal:", factions.Vampire.goal);
+	});
+
+	register_role(["apostle", "1698"], "Umbrae", "Apostle", {subCat: "Assault"}, (e) =>
+	{
+		e.setDescription("Post 1698");
+
+		e.addField("Alignment", "Umbra Assault", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Variable", true);
+
+		e.addField("Abilities:", "- Attack a player.");
+
+		e.addField("Attributes:", "- Your Attack Value, Defense Value and mechanics vary depending on the Moon:\n- Under no moon, you have Basic Attack and Basic Defense\n- Under a Full Moon, you have Powerful Attack, Basic Defense and you rampage.\n- Under a Blood Moon, you have Unstoppable Attack and Powerful Defense, you rampage, and you will clean everyone that you killed.");
+		
+		e.addField("Goal:", factions.Umbrae.goal);
+	});
+
+	register_role(["unionist", "1699"], "Insurgency", "Unionist", {subCat: "Saboteur"}, (e) =>
+	{
+		e.setDescription("Post 1699");
+
+		e.addField("Alignment", "Insurgent Saboteur", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Choose a target to protest with, and a target to protest against, during the night. 1 use.\n- Choose a target to parade with. 2 uses.");
+
+		e.addField("Attributes:", "- If the target you protested with is lynched the following day, they are not lynched and the target you protested against Is lynched instead.\n- When you parade with someone, you will learn their night notifications, and they will learn your role.");
+		
+		e.addField("Goal:", factions.Insurgency.goal);
+	});
+
+	register_role(["writer", "1700"], "Loyalist", "Writer", {subCat: "Investigative"}, (e) =>
+	{
+		e.setDescription("Post 1700");
+
+		e.addField("Alignment", "Loyalist Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Inspect someone's Last Will during the day. 2 uses.\n- Investigate someone during the night, and you will learn the string of 10 roles   that your target's role is in. For example, if you investigated Post 4, Role Jury, you would learn your target's role is in between Post 1 and Post 10.");
+		
+		e.addField("Goal:", factions.Loyalist.goal);
 	});
 };

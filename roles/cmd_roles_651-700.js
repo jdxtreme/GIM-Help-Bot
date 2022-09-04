@@ -199,7 +199,7 @@ module.exports = (g) =>
 
 	register_role(["iconoclast", "icon", "664"], "Neutral", "Iconoclast", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 664");
+		e.setDescription("Post 664\n*Such strength...unparalleled. They could bring this town to ruin.*");
 
 		e.addField("Alignment", "Unique Neutral Evil", true);
 		e.addField("Attack", "None", true);
@@ -274,7 +274,7 @@ module.exports = (g) =>
 
 	register_role(["camerata", "669"], "Mafia", "Camerata", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 669");
+		e.setDescription("Post 669\n*\"When everything changes, nothing changes.\" That is the creed of the Camerata.*");
 
 		e.addField("Alignment", "Mafia Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -486,13 +486,13 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 682");
 
-		e.addField("Alignment", "Insurgency Head", true);
+		e.addField("Alignment", "Unique Insurgency Head", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Give a random Insurgent a bomb during the day.\n- Give a bomb to a specific player during the day instead.\n- Privately offer to convert a player during the night. 1 Use\n- Attack a target during the night IF there are no other Insurgents. You will be informed when this is the case.");
+		e.addField("Abilities:", "- Give a random Insurgent a bomb during the day.\n- Give a bomb to a specific player during the day instead.\n- Learn the name of another Insurgent player during the night. 1 Use\n- Attack a target during the night IF there are no other Insurgents. You will be informed when this is the case.");
 
-		e.addField("Attributes:", "- When given a bomb, the player may, instead of their normal night action, perform a basic attack to a chosen player.\n- If you die, a random Insurgent will be promoted to the Despot. They will have no conversion uses. Insurgent (Informant)s are prioritized last.\n- When you offer to convert a player, they may choose whether to accept. If they do accept, their role will be unchanged, however they will have their goal changed to 'Eliminate all who oppose the Insurgency.'\n- Detection immunity to the Sheriff.");
+		e.addField("Attributes:", "- When given a bomb, the player may, instead of their normal night action, perform a basic attack to a chosen player. However, if this chosen player is also an Insurgent, they will instead hand the bomb to them for use the next night.\n- If you die, a random Insurgent will be promoted to the Despot. Insurgent (Informant)s are prioritized last.\n- Detection immunity to the Sheriff.");
 		
 		e.addField("Goal:", factions.Insurgency.goal);
 	});
@@ -625,7 +625,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- During the day, you may reveal yourself as the Governor, regaining your position to gain 3 total votes during the day. You cannot reveal if another role with a revealing ability already has and is alive.");
 
-		e.addField("Attributes:", "- Powerful Defense until attacked twice.\n- You will not know who is a Loyalist, but you will know their roles. You cannot access the Loyalist chat, and you cannot perform any Loyalist factional ability. If all other Loyalists die, you will be notified, and you can perform the factional kill.");
+		e.addField("Attributes:", "- Powerful Defense until attacked twice.\n- You will not know who is a Loyalist, but you will know their roles. You cannot access the Loyalist chat, and you cannot perform any Loyalist factional ability. If all other Loyalists die, you will be notified, and you can perform the factional kill.\n- You cannot, under any circumstances, have your goal or role changed while other Loyalists are alive.");
 		
 		e.addField("Goal:", "Survive to the end of the game and eradicate those who will not submit to the Governor's rule.");
 	});

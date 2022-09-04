@@ -214,17 +214,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["city_planner", "cityplanner", "planner", "414"], "Mafia", "City Planner", {subCat: "Support"}, (e) =>
+	register_role(["cutthroat", "414"], "Mafia", "Cutthroat", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 414");
+		e.setDescription("Post 414\n*Defence is for losers. For weaklings, who should never have been able to survive.*");
 
 		e.addField("Alignment", "Unique Mafia Support", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Visit a player and find out what alignment they are. If they are part of the Florae, trample them.- Each night, be notified how many Florae roles are currently alive.");
+		e.addField("Abilities:", "- Visit a player and find out what subalignment they are. If they are a good protective role, attack them.");
 
-		e.addField("Attributes:", "- At least one Florae must be in the game for this to roll.\n- Posts 149-166, Daffodil, Hydrangea, Iris, Sage, Thyme, Azalea, Dahila, Nettle, Wisteria, Calendula, Lavender, Lily, Mint, Rosemary, Dicentra, Gardenia, Nightshade and Phlox count as Florae roles.\n- Florae will know that a City Planner is in the game.\n- After eliminating the Florae, the Mafia can make up to two factional kills per night (two members make two kills).");
+		e.addField("Attributes:", "- At the end of each night, you will learn how many protective roles are still alive.\n- At least one good protective role must be in the game for this to roll.\n- Protective roles will know that a Cutthroat is in the game.\n- After eliminating all protective roles, the Mafia can make up to two factional kills per night (two members make two kills).");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -267,7 +267,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Start a Grand Idea Mafia subgame every third night. Dead players aren't players in the subgame. Living players have the same roles they have in the main game. The players that win the subgame get a layer of Basic defense that can prevent one attack in the main game. The players that lose the subgame get dealt a Basic attack during the main game.");
+		e.addField("Abilities:", "- Start a Grand Idea Mafia subgame every third night.");
+
+		e.addField("Attributes:", "- Dead players aren't players in the subgame.\n- Living players have the same roles they have in the main game.\n- The players that win the subgame get a layer of Basic defense that can prevent one attack in the main game.\n- The players that lose the subgame get dealt a Basic attack during the main game.");
 		
 		e.addField("Goal:", "You win no matter what if it's a subgame. If it's a main game, you must kill 3 players with your subgames or win 3 subgames to win.");
 	});
@@ -344,9 +346,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None (Basic)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You can timewalk during the day or night. If you do, there's an extra day or night after this one. You can only timewalk twice and you can't timewalk during extra days or nights.");
+		e.addField("Abilities:", "- Timewalk during any phase.");
 
-		e.addField("Attributes:", "- If you have the Necronomicon, you can timewalk an infinite number of times and you have a Basic attack during extra nights and your vote counts as three during extra days.");
+		e.addField("Attributes:", "- When you timewalk, choose day or night. There's an extra phase of the chosen type after this one.\n- You may only timewalk twice and you may not timewalk during extra phases.\n- If you have the Necronomicon, you can timewalk an infinite number of times and you have a Basic attack during extra nights and your vote counts as three during extra days.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -402,7 +404,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Rock Killing", true);
 		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Aura (*You have no defense if there's four or more Rocks alive, Basic if there's three, Powerful if there's two, and Invincible if there's only one.*)", true);
+		e.addField("Defense", "Aura (You have no defense if there's four or more Rocks alive, Basic if there's three, Powerful if there's two, and Invincible if there's only one.)", true);
 
 		e.addField("Abilities:", "- Go berserk at someone's house each night, dealing a Powerful attack to them and everyone who visits them, including you.");
 		
@@ -426,15 +428,15 @@ module.exports = (g) =>
 
 	register_role(["augur", "428"], "Coven", "Augur", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 428");
+		e.setDescription("Post 428\n*I bring forewarning of a new age.*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- During the day, choose to enlighten the coven the following night.\n- If not enlightened, attack a player.");
+		e.addField("Abilities:", "- During the day, choose to enlighten the coven the following night.\n- Foresee a player’s death. They will be dealt a basic astral attack the following night. If they die that night, you gain a use of enlightenment. If they survive, you lose a use.");
 
-		e.addField("Attributes:", "- When enlightened, coven members temporarily gain effects of the Necronomicon.\n- On nights you attack, you temporarily lose your defense.\n- You may enlighten four times.\n- If you gain the Necronomicon, you may choose a member of the coven to pass it to. You do not gain any benefits from it.");
+		e.addField("Attributes:", "- When enlightened, coven members temporarily gain effects of the Necronomicon for the night.\n- You may enlighten two times.\n- If you gain the Necronomicon, you may choose a member of the coven to pass it to. You do not gain any benefits from it.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -529,11 +531,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Have a majority of living players be a Slime.");
 	});
 
-	register_role(["void_manipulator", "voidmanipulator", "void_man", "voidman", "435"], "Neutral", "Void Manipulator", {subCat: "Benign"}, (e) =>
+	register_role(["void_manipulator", "voidmanipulator", "void_man", "voidman", "435"], "Neutral", "Void Manipulator", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 435");
 
-		e.addField("Alignment", "Unique Neutral Benign", true);
+		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
@@ -554,14 +556,14 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose assault, fraud, or gay marriage to make illegal each night.\n> *Assault* — Anyone who attacks that night or the following day will be jailed the next night.\n> *Fraud* — Anyone who uses a deceptive, investigative, roleblocking, redirecting, vote-influencing, or speech-influencing ability that night or the following day will be jailed the next night.\n> *Gay marriage* — Anyone who visits someone that stayed at home that night, as well as the person they visited, will be jailed the next night.");
 
-		e.addField("Attributes:", "- Each choice has a two-night cooldown.\n- Lynch Immunity\n- You can't jail yourself if that would somehow happen.");
+		e.addField("Attributes:", "- Each choice has a two-night cooldown.\n- You can't jail yourself if that would somehow happen.\n- You don't die if you're lynched.");
 		
 		e.addField("Goal:", "Jail six players.");
 	});
 
 	register_role(["conniver", "437"], "Mafia", "Conniver", {subCat: "Deception"}, (e) =>
 	{
-		e.setDescription("Post 437");
+		e.setDescription("Post 437\n*Lying, conniving and thriving on hate, I'll tell you it was all for you~*");
 
 		e.addField("Alignment", "Mafia Deception", true);
 		e.addField("Attack", "None", true);
@@ -576,7 +578,7 @@ module.exports = (g) =>
 
 	register_role(["super_ultra_mega_giga_galaxy_word_master", "superultramegagigagalaxywordmaster", "word_master", "wordmaster", "438"], "Neutral", "Super Ultra Mega Giga Galaxy Word Master", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 438");
+		e.setDescription("Post 438\n*Wordle 438 1/6 🟩🟩🟩🟩🟩🟩*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Powerful", true);
@@ -591,7 +593,7 @@ module.exports = (g) =>
 
 	register_role(["watcher", "439"], "Town", "Watcher", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 439");
+		e.setDescription("Post 439\n*Nothing will come to harm them. For tonight, at least.*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
@@ -606,7 +608,7 @@ module.exports = (g) =>
 
 	register_role(["moss", "440"], "Town", "Moss", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 440");
+		e.setDescription("Post 440\n*Green, fuzzy, grows everywhere, what's not to love?*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);

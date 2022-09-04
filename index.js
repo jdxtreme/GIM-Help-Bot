@@ -1,70 +1,21 @@
 //Umbrae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=120271
 //Florae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=119288
+//Faunae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=119748
 
 const {Client, Intents, MessageEmbed} = require('discord.js');
 const {readFile, writeFile} = require("fs");
+const UTILS = require("./utils.js");
 
 const PRE = "=";
 
 const bot = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MEMBERS]});
 
 const menus = {};
-const categories = {};
 const commands = {};
 const conflicts = {};
 const roles = [];
 
 const PLAYER_DATA = [];
-
-const factions =
-{
-	Town: {color: "80FF00", icon: "https://cdn.discordapp.com/emojis/974880541348331541.webp", goal: "Lynch every criminal and evildoer."},
-	Mafia: {color: "FF0000", icon: "https://cdn.discordapp.com/emojis/974880541298020402.webp", goal: "Kill anyone that will not submit to the Mafia."},
-	Coven: {color: "BF5FFF", icon: "https://cdn.discordapp.com/emojis/974880541180575784.webp", goal: "Kill all who would oppose the Coven."},
-	Rock: {color: "404040", icon: "https://cdn.discordapp.com/emojis/975690756390010891.webp", goal: "Kill anyone that may oppose the Rocks."},
-	Plant: {color: "008000", icon: "https://cdn.discordapp.com/emojis/1005325782215819376.webp", goal: "Kill anyone who may oppose the Plants."},
-	Underworld: {color: "C51C00", icon: "https://cdn.discordapp.com/emojis/987959165341294592.webp", goal: "Kill all who oppose the Underworld sect."},
-	Hallow: {color: "FFC272", icon: "https://cdn.discordapp.com/emojis/993413133597147247.webp", goal: "Kill all who object to the Hallow's will."},
-	Stalker: {color: "000000", icon: "https://cdn.discordapp.com/emojis/988001997477269535.webp", goal: "Kill all who object to the presence of the Stalkers."},
-	Were: {color: "804000", icon: "https://cdn.discordapp.com/emojis/974886993517490256.webp", goal: "Kill all non-lycanthropes."},
-	Vampire: {color: "7B8968", icon: "https://cdn.discordapp.com/emojis/975231005713645618.webp", goal: "Convert or kill everyone who would oppose you."},
-	Everfrost: {color: "00FFFF", icon: "https://cdn.discordapp.com/emojis/977636071833759785.webp", goal: "Eliminate all who don't submit to the endless winter."},
-	Umbrae: {color: "498080", icon: "https://cdn.discordapp.com/emojis/979822258543550484.webp", goal: "Kill all who would oppose the Umbrae."},
-	PaleMoon: {color: "400080", icon: "https://cdn.discordapp.com/emojis/1011552521652801586.webp", goal: "Kill anybody who would oppose the Pale Moon."},
-	Sith: {color: "800000", icon: "https://cdn.discordapp.com/emojis/974882271783968839.webp", goal: "Eliminate those that do not submit to the Dark Side/Live to see the town lose."},
-	Insurgency: {color: "B00B69", icon: "https://cdn.discordapp.com/emojis/993409239764717569.webp", goal: "Eliminate all who oppose the Insurgency."},
-	Loyalist: {color: "93C47D", icon: "https://cdn.discordapp.com/emojis/996214205982187681.webp", goal: "Keep the Governor alive the entire game and eradicate those who will not submit to the Governor's rule."},
-	SCP: {color: "AAAAAA", icon: "https://cdn.discordapp.com/emojis/976658193323282462.webp", goal: "Prevent the Foundation from recontaining you at all costs."},
-	Thundercry: {color: "FFFF00", icon: "https://cdn.discordapp.com/emojis/996214265012813944.webp", goal: "Eliminate all who stand against the Thundercry."},
-	Crew: {color: "EDC240", icon: "https://cdn.discordapp.com/emojis/980989425137901588.webp", goal: "Kill all main factions. (The Crew can win with all Neutrals.)"},
-	Pokemon: {color: "BB2F2F", icon: "https://cdn.discordapp.com/emojis/1007197839576809492.webp", goal: "Kill anyone that opposes the Pokemon."},
-	Fox: {color: "D67D4D", icon: "https://cdn.discordapp.com/emojis/999505172503994450.webp", goal: "Kill anyone that opposes the Foxes."},
-	Cult: {color: "243A5F", icon: "https://cdn.discordapp.com/emojis/981974951756185680.webp", goal: "Eliminate the Town and all other rival factions."},
-	Horsemen: {color: "6936DB", icon: "https://cdn.discordapp.com/emojis/998691858207228026.webp", goal: "Kill every other player, including the other Horsemen. / Protect the Harbringer and eliminate all who would oppose the Horsemen. (when recruited)"},
-	Biohazard: {color: "1FCF1F", icon: "https://cdn.discordapp.com/emojis/677256057940082691.webp", goal: "Poison all who are not immune to your chemicals."},
-	Unseen: {color: "620035", icon: "https://cdn.discordapp.com/emojis/982379114335989831.webp", goal: "Eliminate those you wish to not convert, or those who will not join you."},
-	City: {color: "15C59E", icon: "https://cdn.discordapp.com/emojis/985026316506103878.webp", goal: "Protect the city from those that wish to do harm to it."},
-	FallenAngel: {color: "FFFFFF", icon: "https://cdn.discordapp.com/emojis/994857702671007854.webp", goal: "Live to crush all who would oppose the Fallen Angels."},
-	Agent: {color: "7F5252", icon: "https://cdn.discordapp.com/emojis/999505200236736562.webp", goal: "Eliminate everyone who cannot be subverted by the Agents."},
-	Random: {color: "random", icon: "https://cdn.discordapp.com/emojis/994284946225115176.webp", goal: "Kill all who would oppose the Randoms."},
-	Last: {color: "376f4E", goal: "See the end brought about, and your enemies erased.", goal: "See the end brought about, and your enemies erased."},
-	Spirit: {color: "CEFDFC", icon: "https://cdn.discordapp.com/emojis/1003046177698234388.webp", goal: "Eradicate the living who you seek revenge of. / Eradicate the living who you seek revenge of whilst keeping yourself in your undead form. (Night 7+)"},
-	Mathematic: {color: "E8EAEC", icon: "https://cdn.discordapp.com/emojis/1005331570607005758.webp", goal: "Erase all who don’t believe in the power of numbers"},
-	Sentry: {color: "4CB9D4", icon: "https://cdn.discordapp.com/emojis/1005334084983193674.webp", goal: "Rid the town of any dissidents to the Sentries."},
-	Toppat: {color: "B01C12", icon: "https://cdn.discordapp.com/emojis/1002935333723328572.webp", goal: "Destroy all who refuse to submit to the Toppats."},
-	Koopa: {color: "4D8A45", icon: "https://cdn.discordapp.com/emojis/1003311828283162725.webp", goal: "Kill all who would oppose Lord Bowser"},
-	Creator: {color: "D95252", goal: "Witness the end of the chaos that you have created. Kill absolutely every non-Creator."},
-	Warfleet: {color: "000080", goal: "Destroy your landfaring opposition, and conquer their territory as your own."},
-	Florae: {color: "81B17A", goal: "Exterminate all who would harm your tribe."},
-	SK: {color: "336EFF", icon: "https://cdn.discordapp.com/emojis/1007310929278554173.webp", goal: "Stab everyone who would oppose you in a very serial way.", attributes: "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their wills covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead."},
-	Army: {color: "E8D578", goal: "Eliminate all who would not follow martial law."},
-	Discordian: {color: "7289DA", goal: "Eliminate everyone who doesn't actually exist."},
-	Android: {color: "AAFF40", goal: "Crush all inferior beings."},
-	Band: {color: "FCBA03", goal: "Ensure the removal of those who will not listen to your music."},
-	Seven: {color: "570861", goal: "Devolve the town into sin and chaos, eviscerate all who would try to banish you or Satan."},
-	X: {color: "FF47FF", icon: "https://cdn.discordapp.com/emojis/1007334433466097765.webp", goal: "X Goal"},
-	Neutral: {color: "808080", icon: "https://cdn.discordapp.com/emojis/980943261587865650.webp", goalNK: "Kill all who would oppose you.", goalNG: "Eliminate all other residents who have yet to fulfill their purpose."}
-};
 
 var day = false;
 function toggle_day()
@@ -156,6 +107,24 @@ function msg(chn, txt, nodiff, line, sent)
 let c = 1;
 function add_cmd(name, cmd)
 {
+	if(typeof name !== "string")
+	{
+		let usedNames = {};
+
+		for(let i in name)
+		{
+			if(usedNames[name[i]])
+				console.log("Error: Role \"" + cmd.title + " (" + cmd.cat + (cmd.meta.subCat && (" " + cmd.meta.subCat) || "") + ")\" tries to use the name \"" + PRE + name[i] + "\" more than once.");
+			else
+			{
+				usedNames[name[i]] = true;
+				add_cmd(name[i], cmd);
+			}
+		}
+
+		return;
+	}
+
 	if(name !== name.toLowerCase())
 	{
 		console.log("WARNING: Command name '" + name + "' is not lowercase!");
@@ -167,6 +136,15 @@ function add_cmd(name, cmd)
 		console.log("WARNING: Command name '" + name + "' contains a space!");
 		name = name.replace(/ /g, "_");
 	}
+
+	if(!cmd.id || !cmd.cat || !cmd.title || !cmd.desc || !cmd.func)
+		throw "Error: Malformed command: " + name + "\n" + UTILS.display(cmd);
+
+	if(!cmd.param)
+		cmd.param = "";
+
+	if(!cmd.meta)
+		cmd.meta = {};
 
 	if(commands[name])
 	{
@@ -192,17 +170,15 @@ function add_cmd(name, cmd)
 		{
 			commands[n1] = commands[name];
 			commands[n2] = cmd;
-			conflicts[name] = [{com: n1, title: commands[name].title, cat: commands[name].cat, subCat: commands[name].meta.subCat}, {com: n2, title: cmd.title, cat: cmd.cat, subCat: cmd.meta.subCat}]
-			categories["Conflict"] = true;
+			conflicts[name] = [{com: n1, title: commands[name].title, cat: commands[name].cat, subCat: commands[name].meta.subCat}, {com: n2, title: cmd.title, cat: cmd.cat, subCat: cmd.meta.subCat}];
+			delete commands[name];
 
-			commands[name] =
-			{
+			add_cmd(name, {
 				id: "c" + c,
 				cat: "Conflict",
 				title: PRE + name + " Conflict",
 				desc: "This command exists because of a conflict between two role names or numbers. Use it to learn how to specify which individual role you want to see.",
-				param: "",
-				meta: {},
+
 				func: (chn) =>
 				{
 					let txt = "Command '" + PRE + name + "' refers to multiple roles. Did you mean:\n";
@@ -215,7 +191,7 @@ function add_cmd(name, cmd)
 
 					msg(chn, txt);
 				}
-			};
+			});
 
 			c = c + 1;
 		}
@@ -224,22 +200,9 @@ function add_cmd(name, cmd)
 		commands[name] = cmd
 }
 
-function rHex()
-{
-	let h = Math.floor(Math.random() * 16);
-
-	if(h >= 10)
-		return String.fromCharCode(55 + h);
-	else
-		return String(h);
-}
-
 let r = 1;
 function register_role(name, cat, desc, meta, func)
 {
-	if(!categories[cat])
-		categories[cat] = true;
-
 	if(!func)
 	{
 		func = meta;
@@ -256,11 +219,11 @@ function register_role(name, cat, desc, meta, func)
 		meta,
 		func: (chn, message, e, args, nosend) =>
 		{
-			let fac = factions[cat] || {color: "808080"};
+			let fac = GLOBAL.factions[cat] || {color: "808080"};
 			let color = fac.color
 
 			if(color === "random")
-				color = rHex() + rHex() + rHex() + rHex() + rHex() + rHex();
+				color = UTILS.rHex(6);
 
 			e.setAuthor({name: desc, iconURL: fac.icon});
 			e.setColor(color || "808080");
@@ -291,36 +254,20 @@ function register_role(name, cat, desc, meta, func)
 
 	r = r + 1;
 
-	if(typeof name === "string")
-		add_cmd(name, cmd);
-	else
-	{
-		let usedNames = {};
-
-		for(let i in name)
-		{
-			if(usedNames[name[i]])
-				console.log("Error: Role \"" + cmd.title + " (" + cmd.cat + (cmd.meta.subCat && (" " + cmd.meta.subCat) || "") + ")\" tries to use the name \"" + PRE + name[i] + "\" more than once.");
-			else
-			{
-				usedNames[name[i]] = true;
-				add_cmd(name[i], cmd);
-			}
-		}
-	}
+	add_cmd(name, cmd);
 
 	roles[roles.length] = {cmd, rate: cmd.meta.spawnRate || 1};
 }
 
 const GLOBAL = {
 	PRE,
+	UTILS,
 	
 	bot,
-	categories,
 	commands,
-	factions,
 	roles,
 	msg,
+	add_cmd,
 	register_role,
 	overwrite,
 
@@ -331,15 +278,20 @@ const GLOBAL = {
 	MessageEmbed
 };
 
+require("./cmd_factions.js")(GLOBAL);
 require("./cmd_basics.js")(GLOBAL);
 require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
 require("./roles/cmd_roles_misc.js")(GLOBAL);
-for(let i = 50; i <= 1700; i+=50)
+for(let i = 50; i <= 1900; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
 console.log(roles.length);
+
+for(let i = 1; i <= 1850; i++)
+	if(!commands[i.toString()])
+		console.log("Missing: " + i);
 
 
 
@@ -405,6 +357,10 @@ bot.on("messageCreate", (message) =>
 
 		case "1003685028837994578":
 			egg = "What are you talking about?";
+			break;
+
+		case "1013511586587103402":
+			egg = "Look behind you.";
 			break;
 	}
 

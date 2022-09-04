@@ -192,7 +192,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Eavesdrop an authorized target during the night.");
 
-		e.addField("Attributes:", "- You will be given all whispers **from** your target that day at the start of the next night.");
+		e.addField("Attributes:", "- You will be given all whispers to and from your target the following day at the start of the next night. You will not know who whispered to your target.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -207,7 +207,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Coerced an authorized target during the night.");
 
-		e.addField("Attributes:", "- Coerced targets will be roleblocked if they are not a Sentry. You will **not** be notified of this.");
+		e.addField("Attributes:", "- Coerced targets will be roleblocked if they are not a Sentry. You will **not** be notified of this.\n- Roleblock Immunity\n- Frame Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -218,9 +218,9 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Sentry Protective", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None (Basic)", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Confiscate the weaponry of an authorized target during the night.\n- Put on a bulletproof vest during the night. 1 Use.");
+		e.addField("Abilities:", "- Confiscate the weaponry of an authorized target during the night.");
 
 		e.addField("Attributes:", "- Confiscating the weaponry of an authorized target will roleblock them if they commit a Basic/Powerful attack that night.");
 		
@@ -237,7 +237,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Guard an authorized target from direct attacks at night.\n- Guard the Sentry Power instead of an authorized target during the night. 1 Use");
 
-		e.addField("Attributes:", "- If your target is directly attacked or is the victim of a harmful visit, you and the visitor will fight.\n- If you successfully protect someone you can still be Healed.\n- If you guard the Censor, your visit will be Astral.");
+		e.addField("Attributes:", "- If your target is directly attacked or is the victim of a harmful visit, you and the visitor will fight.\n- If you successfully protect someone you can still be Healed.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -248,11 +248,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Sentry Protective", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None (Powerful)", true);
+		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Supervise the visitors of an Authorized target during the night. 2 Uses.\n- Supervise the Sentry Power during the night instead of an authorized target. 1 Use.");
 
-		e.addField("Attributes:", "- Supervised visitors will be given Powerful defense.");
+		e.addField("Attributes:", "- Supervised visitors will be healed.\n- Astral");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -289,13 +289,13 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1370");
 
-		e.addField("Alignment", "Sentry Killing", true);
+		e.addField("Alignment", "Unique Sentry Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Go on alert at your house during the night. 2 Uses.\n- Go on alert at another player's house during the night. 1 Use.");
+		e.addField("Abilities:", "- Go on alert at your house during the night. 2 Uses.\n- Go on alert at another player's house during the night. 2 Uses.");
 
-		e.addField("Attributes:", "- When you go on alert, you will attack the visitors of your target.\n- If you go on alert at your house, you will also gain basic defense.");
+		e.addField("Attributes:", "- When you go on alert, you will attack the visitors of your target.\n- If you go on alert at your house, you will also gain basic defense.\n- Roleblock & Control Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -310,7 +310,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- License a player during the night.");
 
-		e.addField("Attributes:", "- Licensed players, if a Sentry, may target non-authorized targets the proceeding night.");
+		e.addField("Attributes:", "- Licensed players, if a Sentry, may target non-authorized targets the proceeding night.\n- Licensed players will ignore their target's base/vest defense, and be given frame/roleblock immunity.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -325,7 +325,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Authorize an investigation on an additional player during the day.");
 
-		e.addField("Attributes:", "- If you attempt to authorize an investigation on a player already authorized, that player will instead be **prioritized**.\n- **Prioritized** targets will have:\n> - Their base/vest defense removed until they are no longer prioritized.\n> - Visitors be given frame & roleblock immunity\n- Your Authorized & prioritized targets will be revealed each night.\n- Targets will remain authorized/prioritized until the end of the following day.\n- If you attempt to authorize a Sentry Power, it will automatically fail.\n- Conversion Immunity");
+		e.addField("Attributes:", "- If you attempt to authorize an investigation on a player already authorized, that player will instead be **prioritized**.\n- **Prioritized** targets will have:\n> - Their base/vest defense removed until they are no longer prioritized.\n> - Visitors be given frame & roleblock immunity\n- Your Authorized & prioritized targets will be revealed each night.\n- Targets will remain authorized/prioritized until the end of the following day.\n- If you attempt to authorize a Sentry (Power), it will automatically fail.\n- When you die, a random Sentry is promoted to a Minister, unless a Sentry (Power) is still alive.\n- Conversion Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -340,7 +340,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Reveal yourself as the Chairman during the day.");
 
-		e.addField("Attributes:", "- After revealing yourself as Chairman:\n> - Your vote will count as 3.\n> - Other Sentries may vote who you vote.\n- If you are ever protected/visited by a (Sentry) Protective role 3+ times total **after revealing**, your superiors will become paranoid of you and immediately deal an Overkill attack to you.");
+		e.addField("Attributes:", "- After revealing yourself as Chairman:\n> - Your vote will count as 3.\n> - Other Sentries may vote who you vote.\n- If you are ever protected/visited by a (Sentry) Protective role 3+ times total after revealing, your superiors will become paranoid of you and immediately deal an Overkill attack to you.\n- Conversion Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -351,7 +351,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Sentry Support", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Intimidate an authorized target during the night.");
 
@@ -390,7 +390,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Be the last player standing.");
 	});
 
-	register_role(["brainwasher", "bwer", "1377"], "Mafia", "Brainwasher", {subCat: "Deception"}, (e) =>
+	register_role(["imitator", "1377"], "Mafia", "Imitator", {subCat: "Deception"}, (e) =>
 	{
 		e.setDescription("Post 1377");
 
@@ -398,9 +398,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Confuse a player tonight and redirect them to another target. They will not be informed.\n- Prepare a brainwash for a player. If they die tonight, you will puppeteer them. They will still be alive, but can't actually do anything. You can speak for them and control their votes. Abilities on the target will fail without an explanation, but it will be revealed they were brainwashed if they're lynched. You may only use this once, but it lasts permanently. The use is refunded if the ability fails.");
+		e.addField("Abilities:", "- Send a whisper to someone during the day, disguised as a player of your choice. You may do this any number of times.\n- Deafen two players at night. During the next day, all whispers they send will not be given to their recepient.\n- Blackmail a player at night. (1 use)");
 
-		e.addField("Attributes:", "- To use the second ability, the host will create a private channel with you and the target and tell them what to say. They should copy the text directly without altering anything.\n- The target is allowed refuse if the Brainwasher is doing weird or uncomfortable things, so just use common sense and keep it related to the game.\n- To make the experience authentic, the target should pretend to type for a few seconds before sending a message, to make the \"[player] is typing\" indicator.\n- Obviously, the target shouldn't hint about being brainwashed.");
+		e.addField("Attributes:", "- You receive the whispers of everyone in the game.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -480,7 +480,7 @@ module.exports = (g) =>
 
 	register_role(["world_revolving", "worldrevolving", "wr", "twr", "1383"], "Mafia", "THE WORLD REVOLVING", {subCat: "Deception"}, (e) =>
 	{
-		e.setDescription("Post 1383");
+		e.setDescription("Post 1383\n*NOW I'M THE ONLY FREE ONE.*");
 
 		e.addField("Alignment", "Mafia Deception", true);
 		e.addField("Attack", "None", true);

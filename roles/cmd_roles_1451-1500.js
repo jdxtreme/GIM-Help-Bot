@@ -7,8 +7,8 @@ module.exports = (g) =>
 		e.setDescription("Post 1451");
 
 		e.addField("Alignment", "Spirit Killing", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Attack", "Faction Variable", true);
+		e.addField("Defense", "Faction Variable", true);
 
 		e.addField("Abilities:", "- Visit someone's home, spreading an infectious poison.");
 
@@ -262,7 +262,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["spade", "1469", "713u"], "Unseen", "Spade", {subCat: "Support"}, (e) =>
+	register_role(["spade", "1469", "713u"], "Unseen", "Spade", {subCat: "Support", spawnRate: 0.2}, (e) =>
 	{
 		e.setDescription("Post 1469\nConverted from: Ace");
 
@@ -273,6 +273,66 @@ module.exports = (g) =>
 		e.addField("Abilities:", "- Mark (Night): Choose a player each night and give them a Mark.");
 
 		e.addField("Attributes:", "- All Marks placed as Ace will transfer over.\n- After giving a Mark, if all living opponents to the Unseen have Marks, the Unseen wins the game and all roles opposing the Unseen lose the game.\n- Town roles are not notified if given a Mark. Non-Town roles are, but they cannot differentiate it from an Ace.\n- Retain your ability and attributes if you become Assassin. You cannot place a Mark and use an Assassin ability in the same night.");
+
+		e.addField("Goal:", factions.Unseen.goal);
+	});
+
+	register_role(["club", "1469", "713u"], "Unseen", "Club", {subCat: "Support", spawnRate: 0.2}, (e) =>
+	{
+		e.setDescription("Post 1469\nConverted from: Jack");
+
+		e.addField("Alignment", "Unseen Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Succeed (Night): Choose a player. If they die tonight, you will gain one charge of all of their role's abilities and all of their attributes. You will not gain faction-specific attributes.\n- Jack Your Style (Night, 1 use): Choose a player. You will gain all of their abilities and attributes.");
+
+		e.addField("Attributes:", "- You may use multiple abilities each night as long as the abilities come from different sources.");
+
+		e.addField("Goal:", factions.Unseen.goal);
+	});
+
+	register_role(["heart", "1469", "713u"], "Unseen", "Heart", {subCat: "Support", spawnRate: 0.2}, (e) =>
+	{
+		e.setDescription("Post 1469\nConverted from: Queen");
+
+		e.addField("Alignment", "Unseen Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Blinded (Night): Choose two players. Anyone who visits one of your targets will be redirected to the other. They will not be notified of this.\n- Power of Love (Night, 1 use): Choose either the Mastermind or Assassin. If you choose the Mastermind, they may Convert two players tonight. If you choose the Assassin, they may Assassinate two players tonight.");
+
+		e.addField("Attributes:", "- You may only use Power of Love if your target is alive.");
+
+		e.addField("Goal:", factions.Unseen.goal);
+	});
+
+	register_role(["wildcard", "1469", "713u"], "Unseen", "Wildcard", {subCat: "Support", spawnRate: 0.2}, (e) =>
+	{
+		e.setDescription("Post 1469\nConverted from: Joker");
+
+		e.addField("Alignment", "Unseen Support", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Chameleon (Day): Choose five Unseen roles. You will gain the night abilities of one of the roles at random tonight.");
+
+		e.addField("Attributes:", "- You may swap up to two of your role choices for Town roles.\n- You may not choose Power or Head roles.");
+
+		e.addField("Goal:", factions.Unseen.goal);
+	});
+
+	register_role(["diamond", "dia", "1469", "713u"], "Unseen", "Diamond", {subCat: "Support", spawnRate: 0.2}, (e) =>
+	{
+		e.setDescription("Post 1469\nConverted from: King (unrevealed)");
+
+		e.addField("Alignment", "Unseen Support", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Corruption (Day): Reveal yourself as the King, granting yourself lynch immunity.\n- Deem (Day): Choose a player. They will gain lynch immunity for the day. The Town will know they have been granted lynch immunity as soon as you use this ability, although it will not be directly attributed to the Diamond.\n- Transport (Night, 0 use): Choose two targets to transport.");
+
+		e.addField("Attributes:", "- You gain one charge of Transport when you use Corruption.\n- A revealed King is immune to conversion.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -302,7 +362,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Roleplay during the day.");
 
-		e.addField("Attributes:", "- If anyone in the town does not roleplay during the day nor send at least one message, they will be Obliterated.\n- The town is notified that you exist at the start of the game.");
+		e.addField("Attributes:", "- At the start of the game, all players will be notified that you exist.\n- If a player does not roleplay during the day for two in-game days straight, they will be modkilled. Private channels count for this purpose.");
 
 		e.addField("Goal:", "Successfully roleplay for three days.");
 	});
@@ -424,7 +484,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Deal a rampage attack to a player.");
 
-		e.addField("Attributes:", "- You are roleblock immune.\n- You are control immune.\n- You bypass protective roles.\n- You are detection immune.\n- Your ability cannot fail, and this cannot be bypassed, even by things that say that they would bypass not being able to be bypassed.\n- You cannot be banned.\n- You cannot be modkilled.\n- You cannot die during the night.\n- You cannot die during the day, except by lynching.\n- If you are kicked, you are not removed from the game. The host has to inform you of all public notifications (votes, day/night, etc) through DMs and you may vote and use your ability in DMs. You may still be voted. If you return to the server, you return to normal.\n- You cannot be muted.\n- You cannot change roles unless you somehow changed into this role. Going from Plaguebearer doesn't count.\n- You cannot lose any abilities that this has by default.\n- You cannot lose any attributes that this has by default.\n- This role cannot have its abilities and attributes copied.");
+		e.addField("Attributes:", "- You are redirect immune.\n- You are roleblock immune.\n- You are control immune.\n- You bypass protective roles.\n- You are detection immune.\n- Your ability cannot fail, and this cannot be bypassed, even by things that say that they would bypass not being able to be bypassed.\n- You cannot be banned.\n- You cannot be modkilled.\n- You cannot die during the night.\n- You cannot die during the day, except by lynching.\n- If you are kicked, you are not removed from the game. The host has to inform you of all public notifications (votes, day/night, etc) through DMs and you may vote and use your ability in DMs. You may still be voted. If you return to the server, you return to normal.\n- You cannot be muted.\n- You cannot change roles unless you somehow changed into this role. Going from Plaguebearer doesn't count.\n- You cannot lose any abilities that this has by default.\n- You cannot lose any attributes that this has by default.\n- This role cannot have its abilities and attributes copied.");
 
 		e.addField("Attributes (cont.):", "- However, other people can become this role, so long as one isn't already alive. If Plaguebearer (But Accustomed to GIM) is alive, others cannot become either.");
 
@@ -493,7 +553,7 @@ module.exports = (g) =>
 
 	register_role(["confinement_is_solitary", "confinementissolitary", "confinement", "solitary", "cis", "1484"], "Neutral", "Confinement Is Solitary", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 1484");
+		e.setDescription("Post 1484\n*If spoken phrases can't be recieved.*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
@@ -553,7 +613,7 @@ module.exports = (g) =>
 
 	register_role(["i_was_designed", "iwasdesigned", "designed", "iwd", "1488"], "Neutral", "I Was Designed", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 1488");
+		e.setDescription("Post 1488\n*Deliver meaning through a melody, infectious sound.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -568,7 +628,7 @@ module.exports = (g) =>
 
 	register_role(["to_wander", "towander", "wander", "1489"], "Town", "To Wander", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 1489");
+		e.setDescription("Post 1489\n*Do you hear me? Can you hear me now?*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "Basic", true);
@@ -583,7 +643,7 @@ module.exports = (g) =>
 
 	register_role(["involuntary", "1490"], "Coven", "Involuntary", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 1490");
+		e.setDescription("Post 1490\n*A hand to hold was colder than I thought it'd be,*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "Basic", true);
@@ -749,18 +809,18 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Warfleet.goal);
 	});
 
-	register_role(["doopliss", "1500"], "Koopa", "Doopliss", {subCat: "King"}, (e) =>
+	register_role(["bionic", "1500"], "Discordian", "Bionic", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1500");
 
-		e.addField("Alignment", "Koopa King", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Alignment", "Discordian Killing", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Engulf your target in Shadows for 2 nights\n- Copy an random Ability from a target that can be useful on its own, You will recieve that ability as a new one. (2 uses)\n- Attack up to 3 random targets engulfed in shadows. (1 use)");
+		e.addField("Abilities:", "**Brick Break** - Attack your target, this ignores passive defense, Can only be used N1.");
 
-		e.addField("Attributes:", "- Targets engulfed in shadows will:\n• Hide the role that killed them.\n• Roleblock visitors of the same faction who aren't attacking\n• Have their defense reduced by a tier (If it was none, they can get killed by weak Koopa attacks).\n\n- If a player uses an ability you copied, they will Engulf their target and visitors in shadows for 2 nights, This will ignore Koopas.\n- You will learn the names of all Engulfed players at the start of the Night.");
+		e.addField("Attributes:", "- If you are lynched, you may choose (# of Alive players / 5, Rounded Up) players to deliver an Unstoppable attack to the following night.");
 
-		e.addField("Goal:", factions.Koopa.goal);
+		e.addField("Goal:", factions.Discordian.goal);
 	});
 };

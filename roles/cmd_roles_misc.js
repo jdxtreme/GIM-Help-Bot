@@ -97,6 +97,39 @@ module.exports = (g) =>
 {
 	const {register_role, factions, msg} = g;
 
+	register_role(["not_tos_pirate", "nottospirate", "pirate", "ntp", "3000"], "Neutral", "Not ToS Pirate", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 3000");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Shoot someone with your pistol. Unstoppable attack, but blocked by all temporary protections, including Basic defense ones.\n- Pierce someone with your Rapier, dealing a Powerful attack and bypassing temporary defense values\n- Slash someone with your Scimitar, dealing a Basic attack.");
+		
+		e.addField("Goal:", factions.Neutral.goalNK);
+	});
+
+	register_role(["unexpected_trio", "unexpectedtrio", "unexpected", "trio", "3333", "3u"], "Unseen", "Unexpected Trio", {subCat: "Power"}, (e) =>
+	{
+		e.setDescription("Post 3333\n*What happens when you mix random abilities from a faction where nobody knows the abilities? Let's find out!*\nConverted from: Power of Three");
+
+		e.addField("Alignment", "Unseen Power", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Hidden Power (Night): Choose a player and an Unseen alignment. You will use the ability of three random Unseen roles in that alignment on that player. Day abilities are not considered. If a role has multiple night abilities, a random one will be chosen.");
+
+		e.addField("Attributes:", "- You may not use Unseen Head roles.");
+		
+		e.addField("Goal:", factions.Unseen.goal);
+	});
+
+	register_role("6969", "Other", "GIM or something, I wouldn't know, I never played it", {cannotRoll: true}, (e) =>
+	{
+		e.setDescription("Post 6969\nThis role explicitly either immediately wins or is unable to win. I'm pretty sure either case is not allowed.");
+	});
+
 	g.androidRole = (e, chn, message, args) =>
 	{
 		let bits = [];
@@ -140,7 +173,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Android.goal);
 	};
 
-	register_role(["android", "android_role", "androidrole"], "Android", "Android", {subCat: "Support"}, g.androidRole);
+	register_role(["android", "android_role", "androidrole"], "Android", "Android", {subCat: "Support", spawnRate: 26}, g.androidRole);
 
 	register_role(["le0n", "leon", "11037"], "Neutral", "LE0N", {subCat: "Killing"}, (e) =>
 	{
@@ -193,7 +226,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Invincible", true);
+		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Study a player each night. You'll learn the Xth digit of their role's post number, where X is the number of times you've studied them.");
 

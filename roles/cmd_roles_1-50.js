@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role, factions} = g;
+	const {register_role, factions, GOOD} = g;
 
 	register_role(["edge_of_existence", "edgeofexistence", "edge", "existence", "eoe", "1"], "Neutral", "The Edge of Existence", {subCat: "Killing"}, (e) =>
 	{
@@ -122,7 +122,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill the Town and anyone that may oppose you.");
 	});
 
-	register_role(["sleeper_agent", "sleeperagent", "9"], "Mafia", "Sleeper Agent", {spawnCat: "Town", subCat: "Support"}, (e) =>
+	register_role(["sleeper_agent", "sleeperagent", "9"], "Mafia", "Sleeper Agent", {spawnCat: GOOD, subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 9");
 
@@ -130,12 +130,12 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Mafia once the last Mafia dies.\n- You are unaware you are a Sleeper Agent when the game begins.\n- The Mafia know who you are and cannot perform actions that negatively affect you.\n- Spawns in Random Town slots.");
+		e.addField("Attributes:", "- Starts as a townie. Becomes a Random Mafia once one other Mafia remains.\n- You are aware you are an a sleeper agent when the game begins.\n- The Mafia know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another member of the Mafia is present.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["amnestic_wizard", "amnesticwizard", "amnestic", "10"], "Coven", "Amnestic Wizard", {spawnCat: "Town", subCat: "Support"}, (e) =>
+	register_role(["amnestic_wizard", "amnesticwizard", "amnestic", "10"], "Coven", "Amnestic Wizard", {spawnCat: GOOD, subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 10");
 
@@ -143,7 +143,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a Townie. Becomes a Random Coven once the last Coven dies.\n- You are unaware you are an Amnestic Wizard when the game begins.\n- The Coven know who you are and cannot perform actions that negatively affect you.\n- Spawns in Random Town slots.");
+		e.addField("Attributes:", "- Starts as a townie. Becomes a Random Coven once one other Coven remains.\n- You are aware you are an amnestic wizard when the game begins.\n- The Coven know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another member of the Coven is present.\n- May not hold the Necronomicon.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -173,7 +173,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Use the ability of any role in <#970046125065265202> at night. Any. Role.\n- Die someone. They die.");
 
-		e.addField("Attributes:", "- You may use multiple different abilities at once.\n- You may use multiple of the same ability at a time.\n- You can always talk in any Day chat, regardless of the phase or what day it actually is. Even if it's Day 9, you can still talk in the Day 1 chat. You may also talk in all private chats (informed minority, dead, see jailor/wisteria, etc) but cannot see player chats.\n- Lynch immunity.\n- Death immunity.\n- Modkill immunity.\n- Kick immunity.\n- Ban immunity.\n- Mute/timeout immunity.\n- Conversion immunity.\n- Control immunity.\n- Redirect immunity.\n- Roleblock immunity.\n- Your ability cannot fail.\n- None of your immunities or other attributes can be bypassed under any circumstance.\n- Your abilities and attributes cannot be removed. They can be copied, but only if it's actually allowed.\n- Your defense will always be set to Immortal.\n- You cannot be removed from the game.\n- The wording of this role can only be modified when a game is not running.");
+		e.addField("Attributes:", "- You may use multiple different abilities at once.\n- You may use multiple of the same ability at a time.\n- You can always talk in any Day chat, regardless of the phase or what day it actually is. Even if it's Day 9, you can still talk in the Day 1 chat. You may also talk in all private chats (informed minority, dead, see jailor/wisteria, etc) but cannot see player chats.\n- Lynch immunity.\n- Death immunity.\n- Modkill immunity.\n- Kick immunity.\n- Ban immunity.\n- Mute/timeout immunity.\n- Conversion immunity.\n- Control immunity.\n- Redirect immunity.\n- Roleblock immunity.\n- Occupy Immunity\n- Your ability cannot fail.\n- None of your immunities or other attributes can be bypassed under any circumstance.\n- Your abilities and attributes cannot be removed. They can be copied, but only if it's actually allowed.\n- Your defense will always be set to Immortal.\n- You cannot be removed from the game.\n- The wording of this role can only be modified when a game is not running.");
 
 		e.addField("Attributes (cont.):", "- If your role is removed, delay the removing. Automatically and secretly create a new role with a completely random name, which if ever is mentioned, immediately is changed to a new one. This new role has the exact same abilities and attributes as God.\n- An outside party cannot forcefully switch your role. Only you can switch your role.\n- If the game would only be blocked by you and a Survivor, the game will end and you will lose. So yes, you can technically lose.\n- If you somehow manage to die or exit the game in any way, immediately revive yourself and/or add yourself back into the game. If the game is closed, automatically reopen it. If something prevents revives, immediately attack whatever prevents it then try again. If you still can't, remove them from the game.");
 
@@ -242,7 +242,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Attack a player at night. You may not target players whose Discord usernames start with the letter \"n\", lowercase or uppercase.");
+		e.addField("Abilities:", "- Attack a player each night. You may not target players whose Discord usernames start with the letter \"n\", lowercase or uppercase.");
 
 		e.addField("Attributes:", "- You instead deal an Overkill attack if you target a player whose Discord username starts with the letter \"a\", lowercase or uppercase.");
 
@@ -348,7 +348,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Work wonders on any player at night, including yourself. This has a different effect based on how many times they rerolled their roles:\n> - 0 times: They gain Powerful defense for the night.\n> - 1 time: They can't use abilities tonight or the following day.\n> - 2+ times: They're dealt an Unstoppable attack.\n- Peer into a target's thoughts during the day. You will receive a full backlog of everything sent in their private channel during the current game, with all role names, rolecards, and things that would directly identify roles censored.");
+		e.addField("Abilities:", "- Work wonders on a player each night. This has a different effect based on how many times they rerolled their role:\n> - 0 times: They gain Powerful defense for the night.\n> - 1 time: They can't use abilities tonight or the following day.\n> - 2+ times: They're dealt an Unstoppable attack.\n- Peer into a player's thoughts each day. You will receive a full backlog of everything sent in their private channel during the current game, with all role names, rolecards, and things that would directly identify roles censored.");
 
 		e.addField("Goal:", "Win with the faction whose members rerolled the least times on average. You will know what this faction is at the beginning of the game.");
 	});
@@ -526,15 +526,13 @@ module.exports = (g) =>
 
 	register_role(["investiletter", "37"], "Town", "Investiletter", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 37");
+		e.setDescription("Post 37\n(pronounced investi-lay-ter)");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Investigate a player at night.");
-
-		e.addField("Attributes:", "- You will learn what letter their role starts with.");
+		e.addField("Abilities:", "- Investigate each player at night. You will learn what letter their role starts with.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

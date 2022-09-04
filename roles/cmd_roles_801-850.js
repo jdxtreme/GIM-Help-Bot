@@ -25,9 +25,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player to duel each night, which also roleblocks them.");
+		e.addField("Abilities:", "- Choose a player each day to duel in the following night, which also roleblocks them.");
 
-		e.addField("Attributes:", "- In a duel, choose  arandom game to play against the target that has some feasible way of being competetive.\n- If your target loses, they are dealt a Powerful Attack.\n- You cannot duel the same player twice in a row.\n- Detection Immunity\n- Vampires cannot convert you.");
+		e.addField("Attributes:", "- In a duel, choose a random game to play against the target that has some feasible way of being competetive.\n- If your target loses, they are dealt a Powerful Attack.\n- You cannot duel the same player twice in a row.\n- Detection Immunity\n- Vampires cannot convert you.");
 
 		e.addField("Goal:", "Win 2 games.");
 	});
@@ -70,26 +70,11 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to spend a night at sea during the day. This will give you unvisitable, but roleblock you, and deny you access to the Loyalist chat.. You cannot spend 3 nights in a row at sea.");
+		e.addField("Abilities:", "- Choose to spend a night at sea during the day. This will give you unvisitable, but roleblock you, and deny you access to the Loyalist chat. You cannot spend 3 nights in a row at sea.");
 
 		e.addField("Attributes:", "- When you are out at sea, you have a 70% chance to return with fish, and a 30% chance to return with treasure. If you are not at sea at night, you may prepare fish that you have, and give it to anyone at night, or give out treasure. It has a 33% chance to increase the attack value of a target for a night, 33% chance to increase their defense for a night, and a 33% chance to poison your target. Treasure has a 50/50 chance to do the first two. You will not trigger protective roles that kill, but they will protect your target if you poison them.");
 
 		e.addField("Goal:", factions.Loyalist.goal);
-	});
-
-	register_role(["unicorn", "806"], "Neutral", "Unicorn", {subCat: "Chaos"}, (e) =>
-	{
-		e.setDescription("Post 806");
-
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Invincible", true);
-
-		e.addField("Abilities:", "- Invoke your natural beauty at night, making yourself immune to lynching the following day. This action can't be prevented in any way. You may only do this twice.\n- Perform an act of altruism at night, setting your defense to None for the night.");
-
-		e.addField("Attributes:", "- All attacks will be redirected towards you.\n- When you die at night, an evil player who killed you will drink your blood, gaining Invincible defense and your first attribute. You will gain the ability to use your first ability on them from the dead, and they'll gain the ability to ask you to do so at any time.");
-
-		e.addField("Goal:", "Survive until the end of the game, or have a player you splashed with Unicorn blood survive until the end of the game.");
 	});
 
 	register_role(["first_mate", "firstmate", "807"], "Crew", "The First Mate", {subCat: "Killing"}, (e) =>
@@ -250,9 +235,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic (None)", true);
 
-		e.addField("Abilities:", "- Attempt to sacrifice someone at night. If they didn't visit and they weren't visited by any other players, they'll be forced to commit suicide and the Town will be informed that it was an unnatural suicide. Your target visiting themself doesn't count for either, nor do Astral or indirect abilities. Your defense increases by a level for each player you sacrifice.");
+		e.addField("Abilities:", "- Attempt to sacrifice someone at night. If they didn't visit and they weren't visited by any other players, they'll be forced to commit suicide and the Town will be informed that it was an unnatural suicide. Your target visiting themself doesn't count for either, nor do Astral or indirect abilities.");
 
-		e.addField("Attributes:", "- You have a layer of Basic defense that can prevent one attack.");
+		e.addField("Attributes:", "- You have a layer of Basic defense that can prevent one attack.\n- Your defense increases by a level for each player you sacrifice.");
 
 		e.addField("Goal:", "Sacrifice two players.");
 	});
@@ -297,7 +282,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Modkill", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player to duel each night, which also roleblocks them.");
+		e.addField("Abilities:", "- Choose a player each day to duel in the following night, which also roleblocks them.");
 
 		e.addField("Attributes:", "- In a duel, the host will decide which of you has played better.\n- The loser will be Modkilled.\n- You cannot duel the same player twice in a row.\n- Detection Immunity\n- Vampires cannot convert you.");
 
@@ -342,9 +327,9 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "FUCKIN UNNNNKILLABLEEEEEEE", true);
+		e.addField("Defense", "\"FUCKIN UNNNNKILLABLEEEEEEE\"", true);
 
-		e.addField("Abilities:", "- Choose a player to duel each night, which also roleblocks them.");
+		e.addField("Abilities:", "- Choose a player each day to duel in the following night, which also roleblocks them.");
 
 		e.addField("Attributes:", "- In a duel, you will secretly choose Scimitar, Rapier, and Pistol, and your target will secretly choose Sidestep, Chainmail, and Backpedal.\n- Scimitar beats Sidestep, Rapier beats Chainmail, and Pistol beats Backpedal.\n- If your target loses, they are dealt a Powerful Attack.\n- You cannot duel the same player twice in a row.\n- Detection Immunity\n- Vampires cannot convert you.");
 
@@ -356,12 +341,12 @@ module.exports = (g) =>
 		e.setDescription("Post 824");
 
 		e.addField("Alignment", "Mafia Support", true);
-		e.addField("Attack", "None (Basic)", true);
-		e.addField("Defense", "None", true);
+		e.addField("Attack", "Basic (Overkill)", true);
+		e.addField("Defense", "None (Overprotective)", true);
 
 		e.addField("Abilities:", "- Perform the Factional Mafia Kill\n- Visit another player.");
 
-		e.addField("Attributes:", "- If you visit somebody who is not in jail, they will be given something to get out of jail once.\n- If you visit someone in jail, you will break them out and direct their ability before the night is over. They will be informed of this\n- If you are jailed, you will escape and kill the person who jailed you\n- If you visit either a Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, Xray, or Warden, you will kill them.\n- If either the Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, Xray, or Warden dies by any means, you will become a Random Mafia. If any of the listed roles are still alive, you will not change roles\n- This role cannot exist without either a Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, Xray, or Warden.");
+		e.addField("Attributes:", "- If you visit somebody who is not in jail, they will be given something to get out of jail once.\n- If you visit someone in jail, you will break them out and direct their ability before the night is over. They will be informed of this\n- If you are jailed, you will escape and kill the person who jailed you\n- If you visit either a Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, Xray, Hazmat, House, ToL Prince, Exiled Revolutionary, or Warden, you will kill them.\n- If either the Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, Xray, Hazmat, House, ToL Prince, Exiled Revolutionary, or Warden dies by any means, you will become a Random Mafia. If any of the listed roles are still alive, you will not change roles\n- This role cannot exist without either a Jailor, Wisteria, Wisteria Planter, Hunter, Alex Wispon, Missionary, Author, Xray, Hazmat, House, ToL Prince, Exiled Revolutionary, or Warden.\n- This role cannot exist along side a WM Underboss");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -405,6 +390,8 @@ module.exports = (g) =>
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Pick 2 players and a sports game that's happening that night. Both of them must choose a team to win, if victorious, they receive something beneficial depending on the role (extra charges, an extra vote, ect.), if they lose, they die.");
+
+		e.addField("Attributes:", "- You may not pick a game that occurs before the night phase ends.");
 
 		e.addField("Goal:", "Have 5 people see their team win");
 	});
@@ -509,7 +496,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Strike someone down each night, dealing to them an Unstoppable attack.\n- Mark a player or remove a mark from a player. This ability resolves immediately and you may use it at any time, even multiple times a phase.");
 
-		e.addField("Attributes:", "- Roleblock, Redirect, Detection, and Conversion Immune\n- Whenever a player is dealt an attack that is greater than the attack value that would've been needed to kill them by anything, an attack equal to the difference is dealt to a random Marked player. (*If an Unstoppable is dealt to someone with no defense, a Powerful attack is dealt. If that target also has no defense, another Basic attack is dealt to another target.*) This applies to modkills, which are considered one level greater than Overkill. It does not apply to lynches.");
+		e.addField("Attributes:", "- Roleblock, Redirect, Detection, and Conversion Immune\n- Whenever a player is dealt an attack that is greater than the attack value that would've been needed to kill them by anything, an attack equal to the difference is dealt to a random Marked player. For example, if an Unstoppable is dealt to someone with no defense, a Powerful attack is dealt. If that target also has no defense, another Basic attack is dealt to another target. This applies to modkills, which are considered one level greater than Overkill. It does not apply to lynches.");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -552,9 +539,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Powerful", true);
 
-		e.addField("Abilities:", "- Attack a player each night.\n- Shift any player's stats at night, increasing their Attack or Defense by any amount and decreasing the other by that amount. (*Roles with no attack given attack will attack their targets. Negative attack gives the target that much defense. The highest defense is Invincible and the lowest is Vulnerable; the highest attack is Overkill and the lowest gives the target Invincible defense.*)");
+		e.addField("Abilities:", "- Attack a player each night.\n- Shift any player's stats at night, increasing their Attack or Defense by up to five stages and decreasing the other by that many stages. You may self-target.");
 
-		e.addField("Attributes:", "- You may use both your abilities in the same night.\n- You may use your second ability twice each night if one of the uses targets yourself.\n- You may shift yourself.");
+		e.addField("Attributes:", "- You may use both your abilities in the same night.\n- You may use your second ability twice each night if one of the uses targets yourself.");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -762,9 +749,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to freeze the town over at night. If you do, all players who were roleblocked last night will be forced to target themselves tonight. They will not be notified of this. You may only freeze the town over three times.\n**Nevermelt** — Choose up to two players. Their defense is set to None tonight and they can't have defense tonight. Then, force them to target themselves. You may only use this ability once each game.");
+		e.addField("Abilities:", "- Force a player with an Ice Mark to target themselves each night.\n**Nevermelt** — Choose up to two players. Their defense is set to None tonight and they can't have defense tonight. Then, force them to target themselves. You may only use this ability once each game.");
 
-		e.addField("Attributes:", "- Roleblock Immune");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, they gain an Ice Mark, and you learn their name.");
 
 		e.addField("Goal:", factions.Everfrost.goal);
 	});

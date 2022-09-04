@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role, factions} = g;
+	const {register_role, factions, GOOD} = g;
 
 	register_role(["murderer-chan", "murdererchan", "murderer", "chan", "951"], "Neutral", "Murderer-chan", {subCat: "Killing"}, (e) =>
 	{
@@ -12,7 +12,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Murder a player each night.\n- Murder a player each night.");
 
-		e.addField("Attributes:", "- Detection Immune\n- You may multitask.\n- Protection from Rasen (You can't be negatively affected in any way by Rasen. This includes lynches and mod actions.)\n- Rasen can't roll this role.");
+		e.addField("Attributes:", "- Detection Immune\n- You may multitask.\n- You can't be negatively affected in any way by Rasen. This includes lynches and mod actions.\n- Rasen can't roll this role.");
 		
 		e.addField("Goal:", "Kill all who would oppose you except up to one person, who instead wins with you, but it can't be Rasen.");
 	});
@@ -100,7 +100,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Variable", true);
 
-		e.addField("Attributes:", "- At the beginning of the game, you're given three random non-Town Power Town roles. You choose a role to be from among those, except your ability rampages. (*It also applies to all your target's visitors except you. If it already rampaged, it like double rampages? You get it.*)");
+		e.addField("Attributes:", "- At the beginning of the game, you're given three random non-Town Power Town roles. You choose a role to be from among those, except your ability rampages.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -508,11 +508,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Biohazard.goal);
 	});
 
-	register_role(["defector", "def", "985"], "Any", "Defector", {subCat: "Support", spawnCat: ["Mafia", "Coven", "Rock", "Plant", "Underworld", "Hallow", "Stalker", "Were", "Vampire", "Everfrost", "Umbrae", "PaleMoon", "Sith", "Insurgency", "Loyalist", "SCP", "Thundercry", "Crew", "Pokemon", "Fox", "Cult", "Horsemen", "Biohazard"]}, (e) =>
+	register_role(["defector", "def", "985"], "Any", "Defector", {subCat: "Support", anyExCat: GOOD}, (e) =>
 	{
 		e.setDescription("Post 985");
 
-		e.addField("Alignment", "Mafia/Coven/Rock/Plant/Underworld/Hallow/Stalker/Were/Vampire/Everfrost/Umbrae/Pale Moon/Sith/Insurgency/Loyalist/SCP/Thundercry/Crew/Pokemon/Fox/Cult/Horseman/Biohazard Support", true);
+		e.addField("Alignment", "Mafia/Coven/Rock/Plant/Underworld/Hallow/Stalker/Were/Vampire/Everfrost/Umbrae/Pale Moon/Sith/Insurgency/Loyalist/SCP/Thundercry/Crew/Pokemon/Fox/Cult/Horseman/Biohazard/etc. Support", true);
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Variable", true);
 

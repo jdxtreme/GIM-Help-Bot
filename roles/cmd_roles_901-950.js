@@ -36,7 +36,7 @@ module.exports = (g) =>
 
 	register_role(["bloodbender", "903"], "Coven", "Bloodbender", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 903");
+		e.setDescription("Post 903\n*Your body betrays you.*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "None (Basic)", true);
@@ -64,21 +64,6 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["theraplanet", "905"], "Rock", "Theraplanet", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 905");
-
-		e.addField("Alignment", "Rock Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Blot out an alignment at night.\n- Obscure one player's alignment at night.");
-
-		e.addField("Attributes:", "- When you obscure a player's alignment, their ability will fail in a certain way that night based on their alignment without their knowledge.\n> - Killing: They can't deal attacks that night.\n> - Support: Their ability will be redirected to a random target that night without their knowledge.\n> - Investigative: Any information they gain is randomized that night.\n> - Protective: They can't give players defense that night.\n- When you blot out an alignment, choose one of Killing, Support, Investigative, or Protection. All non-Rock roles in that alignment, regardless of faction, will have their abilities fail in the listed way that night without their knowledge.\n- Alignments other than the listed four are assumed to be Support, except for those like Umbrae Assault and Thundercry Onslaught, which are quite obviously Killing.");
-		
-		e.addField("Goal:", factions.Rock.goal);
-	});
-
 	register_role(["copydog", "906"], "Town", "Copydog", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 906");
@@ -87,7 +72,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Each day, you may use the day ability of any other role except those that reveal themselves.");
+		e.addField("Abilities:", "- Each day, use up to one day ability of any other role except those that reveal themselves.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -317,9 +302,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None (Powerful)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player each night. They gain Hexproof until the end of the next day. (They can't be the target of abilities, votes, whispers, or anything else.)");
+		e.addField("Abilities:", "- Choose a player each night. They gain Hexproof until the end of the next day. You may self-target.");
 
-		e.addField("Attributes:", "- With the Necronomicon, when you use your ability, you may choose another player who you've made Hexproof at any point in the game previously and they're dealt a Powerful attack.\n- You may self-target.");
+		e.addField("Attributes:", "- Hexproof players aren't legal targets for abilities, votes, and whispers. Players will be told that they can't target them with those actions upon attempting to do so. Abilities who already have a Hexproof player as their target won't resolve.\n- With the Necronomicon, when you use your ability, you may choose another player who you've made Hexproof at any point in the game previously and they're dealt a Powerful attack.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -669,7 +654,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Attributes:", "- At the end of each night, before actions are processed, you will be provided with a list of all effects that would happen, in the order which they would resolve.\n- You may change the order that the effects resolve however you want.");
+		e.addField("Attributes:", "- At the end of each night, before actions are processed, you will be provided with a list of all effects that would happen, in the order which they would resolve. You may change the order that the effects resolve however you want.\n- You have 12 hours to make your decision after actions are processed.\n- You may not share the information you receive.");
 		
 		e.addField("Goal:", "Live to see the Town lose the game.");
 	});
@@ -719,19 +704,17 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see the Town lose.");
 	});
 
-	register_role(["alcoholic", "947"], "Mafia", "Alcoholic", {subCat: "Support"}, (e) =>
+	register_role(["nitpicker", "947"], "Town", "Nitpicker", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 947");
 
-		e.addField("Alignment", "Mafia Support", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Town Investigative", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Drink beer at night.");
+		e.addField("Abilities:", "- {Nitpic}k {someone. Th}i{s is a process in which the host wil}l {go through your target's ro}l{e and arbitrarily choo}s{e exactly six w}o{rds from its abilities and attributes at rando}m {to t}e{ll to y}o{u; however, as ma}n{y of those words is as possible should b}e {somewhat meaningful}.\n- **Cleave** during the day.");
 
-		e.addField("Attributes:", "- When you drink beer, all non-Mafia visitors will be redirected to a player of your choice. Next, you will learn all those that visited the player you chose.");
-		
-		e.addField("Goal:", factions.Mafia.goal);
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["sheriff", "948"], "Town", "Sheriff", {subCat: "Investigative"}, (e) =>

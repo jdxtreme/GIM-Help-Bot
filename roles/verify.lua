@@ -103,8 +103,8 @@ for _, filename in ipairs(args) do
 				local alignment, aline = findField(lines, a+1, "Alignment")
 				local goal, goaline = findField(lines, a+1, "Goal:")
 				local subCat = findMeta(header, "subCat")
-				local abilities = findField(lines, a+1, "Abilities:");
-				local attributes = findField(lines, a+1, "Attributes:");
+				local abilities = findField(lines, a+1, "Abilities:")
+				local attributes = findField(lines, a+1, "Attributes:")
 				local va = (not alignment or not alignment:gsub(' ', ''):find(cat))
 				local vg = (cat ~= "Neutral" and (not goal or not goal:gsub(' ', ''):find(cat)))
 				local vs = (not subCat or not alignment or not alignment:find(subCat))
@@ -113,6 +113,15 @@ for _, filename in ipairs(args) do
 
 				if goaline and (goaline:find("factions."..cat..".goal") or goaline:find("factions.Neutral.goalNK")) then
 					vg = false
+				end
+
+				if goaline and (goaline:find("REDgoal") or goaline:find("BLUgoal")) then
+					vg = false
+				end
+
+				if aline and ((aline:find("REDfac") and aline:find("REDsub")) or (aline:find("BLUfac") and aline:find("BLUsub"))) then
+					va = false
+					vs = false
 				end
 
 				if cat == "Loyalist" and goal and goal:find("Governor") then
@@ -136,6 +145,10 @@ for _, filename in ipairs(args) do
 				end
 
 				if cat == "SK" and alignment and alignment:find("Serial Killer") then
+					va = false
+				end
+
+				if cat == "COA" and alignment and alignment:find("Cult of Animals") then
 					va = false
 				end
 

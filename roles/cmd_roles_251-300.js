@@ -4,19 +4,19 @@ module.exports = (g) =>
 {
 	const {register_role, factions} = g;
 
-	register_role(["anti_a_activist", "antiaactivist", "anti_a", "antia", "251"], "Neutral", "Anti A Activist", {subCat: "Chaos"}, (e) =>
+	register_role(["picrew", "251"], "Town", "Picrew", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 251");
+		e.setDescription("Post 251\n*You too, can become anime!*");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Town Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attack a player who has used the letter A in their messages during the day.");
+		e.addField("Abilities:", "- Investigate a player. The host will make a cute anime girl with the Picrew linked that best represents their role. https://picrew.me/image_maker/516657");
 
-		e.addField("Attributes:", "- Attacking a player marks them as an A-loving heretic.\n- If a player survives your attack, their defense will go down one level for the rest of the game.");
+		e.addField("Attributes:", "- Click through the coloured circle icon tabs, and select the option you want for every category. Some options like hair will have colour options, which can be accessed by clicking the paintbrush icon that pops up. To get the final image, click the green button with the tick.\n- Please ignore the ads haha.");
 		
-		e.addField("Goal:", "Cause the death of three A-loving heretics.");
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["coward", "252"], "Town", "Coward", {subCat: "Killing"}, (e) =>
@@ -79,19 +79,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Survive to see the end of the game.");
 	});
 
-	register_role(["tpoj", "thepillar", "the_pillar_of_justice", "thepillarofjustice", "poj", "256"], "Neutral", "THE PILLAR OF JUSTICE", {subCat: "Benign"}, (e) =>
+	register_role(["corrupt_justice", "corruptjustice", "cj", "256"], "Neutral", "THE Corrupt Justice", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 256");
+		e.setDescription("Post 256\n*Once a pillar of justice, the embodiment of law and order. Those days were so long ago.*");
 
-		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "None/Invincible", true);
 
-		e.addField("Abilities:", "- Defend yourself at night, temporarily granting invincible defense. All players that attack you will be unable to vote (this includes extra votes) and whisper the following day.");
+		e.addField("Abilities:", "- Observe two players. If any attackers visit either of them, they will instead be redirected to attack you.\n- Empower a player. If they make an attack tonight, they also make a second one with an  attack value one higher on the same target.");
 
-		e.addField("Attributes:", "- You may defend yourself three times.\n- After a player is lynched, your role will be revealed publicly.\n- Every time you are attacked, the attacker will gain an extra anonymous vote permanently. The majority required will also change. If you are killed at night, the attacker will gain two extra votes.\n- You will know the roles of all players who attack you.");
+		e.addField("Attributes:", "- You have invincible defence against attacks from evil roles, but none against attacks from good roles.\n- Every time you are attacked, the attacker will gain an extra anonymous vote for the following day. The majority required will also change.\n- You will know the roles of all players who attack you.\n- You may only use one ability per night.");
 
-		e.addField("Goal:", "Survive to see the end of the game.");
+		e.addField("Goal:", "Live to see the town lose.");
 	});
 
 	register_role(["tsuku", "tsukuyomi", "257"], "Neutral", "Tsukuyomi", {subCat: "Killing"}, (e) =>
@@ -189,12 +189,12 @@ module.exports = (g) =>
 		e.setDescription("Post 263");
 
 		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Choose a player. They're banned from the game.");
+		e.addField("Abilities:", "- Ban a player from the game each night.");
 
-		e.addField("Attributes:", "- Players are banned from the game when they die. (They're removed from the playerlist entirely and their roles and wills aren't revealed.)");
+		e.addField("Attributes:", "- Players are banned from the game when they die.");
 
 		e.addField("Goal:", "Ban all who would oppose you.");
 	});
@@ -349,7 +349,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill three players and revive one player.");
 	});
 
-	register_role(["clonerprodigy", "cloner_prodigy", "cp", "274"], "Neutral", "Cloner Prodigy", {subCat: "Evil"}, (e) =>
+	register_role(["cloner", "274"], "Neutral", "Cloner", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 274");
 
@@ -357,9 +357,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "Choose another player to clone each night. A new player is added with their name and role. You control the clone. The clone wins with you.");
+		e.addField("Abilities:", "- Choose another player to clone each night. A new player is added with their name and role. You control the clone. The clone wins wih you.");
 
-		e.addField("Goal:", "Kill all non-clones. (You're not a clone.)");
+		e.addField("Goal:", "Kill all non-clones.");
 	});
 
 	register_role(["manipulator", "275"], "Town", "Manipulator", {subCat: "Support"}, (e) =>
@@ -420,7 +420,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["asbspotem", "279"], "Mafia", "A Small But Significant Portion Of The Entire Mafia", {subCat: "Support"}, (e) =>
+	register_role(["asbspotem", "significant", "entire_mafia", "entiremafia", "279"], "Mafia", "A Small But Significant Portion Of The Entire Mafia", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 279");
 
@@ -428,7 +428,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- You're three other Mafia roles in the GIM thread chosen at random, other than those that are in Town of Salem. ");
+		e.addField("Attributes:", "- You have three other random Mafia roles in addition to this one.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -478,7 +478,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["caino", "cainoarukat", "caino_arukat", "283"], "Neutral", "Caino Arukat", {subCat: "Chaos"}, (e) =>
+	register_role(["caino_lite", "cainoarukatlite", "caino_arukat_lite", "lite", "283"], "Neutral", "Caino Arukat (Lite!)", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 283");
 
@@ -486,11 +486,11 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Target an alive player. They will be planted within a spot of your choice in the cube. They will be notified of this, but won't know where they are in the cube. Every day/night, along with their ability, they must choose a direction—up, down, left, right, forwards or backwards. Their ability will be redirected to a different sector in respects to their current position and the direction they chose. If the ability were to escape the cube, it would affect everyone not currently in Caino's dimension. If the direction chosen leads to an empty square, the target is essentially roleblocked.\n- Caino is also forced inside the cube, in a sector which he himself may choose on Day 1.");
+		e.addField("Abilities:", "- You have a 3x3 cube dimension that you may virtually maintain each night.");
 
-		e.addField("Attributes:", "- You have a 3x3 cube dimension that you may virtually maintain each night.");
+		e.addField("Attributes:", "- Target an alive player. They will be planted within a spot of your choice in the cube. They will be notified of this, but won't know where they are in the cube. Every day/night, along with their ability, they must choose a direction—up, down, left, right, forwards or backwards. Their ability will be redirected to a different sector in respects to their current position and the direction they chose. If the ability were to escape the cube, it would affect everyone not currently in Caino's dimension. If the direction chosen leads to an empty square, the target is essentially roleblocked.\n- Caino is also forced inside the cube, in a sector which he himself may choose on Day 1.");
 
-		e.addField("Goal:", "Survive, but make sure at least three people are inside your cube when the game ends. ");
+		e.addField("Goal:", "Survive, but make sure at least three people are inside your cube when the game ends.");
 	});
 
 	register_role(["apprentice", "284"], "Mafia", "Apprentice", {subCat: "Support"}, (e) =>
@@ -609,6 +609,21 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
+	register_role(["scp-292", "scp_292", "scp292", "292"], "SCP", "SCP-292", {subCat: "Euclid"}, (e) =>
+	{
+		e.setDescription("Post 292");
+
+		e.addField("Alignment", "SCP Euclid", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Choose any player at night. Any abilities used on them will secretly fail. However, when applicable, regular feedback will be provided to both the ability's target and user as if it had succeeded.\n- During a full moon, use the Factional Attack and the above ability at the same time, on the same target. Additionally, if the victim dies, they will appear to be alive to the public until someone tries to target them in a later night. 2 uses.");
+
+		e.addField("Attributes:", "- Other SCP abilities will bypass yours.\n- I guess investigative abilities technically do too, since their only purpose is to provide feedback anyways.");
+
+		e.addField("Goal:", factions.SCP.goal);
+	});
+
 	register_role(["jinx", "293"], "Coven", "Jinx", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 293");
@@ -692,14 +707,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Night is day as well as night. (Players can talk publicly. There's a lynch. Night abilities can still be used.) When you vote for moonset at night, the night chat is closed immediately. You have two votes at night.");
+		e.addField("Attributes:", "- Night is day as well as night.\n- Players may vote for moonset at night instead of nightfall, which closes the night chat, but night still doesn't end until it normally would.\n- You have two votes at night.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["m63plamenartillerypiece", "m63", "m63_plamen_artillery_piece", "artillerypiece", "artillery_piece", "299"], "Coven", "M-63 Plamen Artillery Piece", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 299");
+		e.setDescription("Post 299\n*You notice an M-63 Plamen Artillery piece aimed at you, dealing 80 scorch damage x10 and killing you instantly.*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "80x10 (Unstoppable)", true);

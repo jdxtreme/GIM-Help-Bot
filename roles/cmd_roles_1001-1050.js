@@ -89,9 +89,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Watch (Night): Every full moon, if you're dead, reenact your death from the grave. You may attack someone, and they will appear to have been died in the way you chose when you killed yourself.");
+		e.addField("Abilities:", "- Each full moon, if you're dead, reenact your death from the grave. You may attack someone, and they will appear to have been died in the way you chose when you killed yourself.");
 
-		e.addField("Attributes:", "- On Night 1, choose a role to appear as and a method of death. You will kill yourself and appear as that role and appear to have died in that way.");
+		e.addField("Attributes:", "- On Night 1, choose a role to appear as and a method of death. You will kill yourself and appear as that role and appear to have died in that way.\n- If you would somehow be prevented from killing yourself, you will attempt to do so again every following night.");
 
 		e.addField("Goal:", "Die to see the Town lose the game.");
 	});
@@ -151,7 +151,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- The Train Station Leader may give a player a ticket, letting them ride the train for the rest of the game, giving them invincible defense when they choose to ride the train, they may use their ability while riding once.");
 
-		e.addField("Attributes:", "- At the start of day 1, all players will be notified a train has entered the town.\n- Roleblock, Control, Redirect immune.\n- You may ride your train without suffering the one-use effect.");
+		e.addField("Attributes:", "- At the start of day 1, all players will be notified a train has entered the town.\n- Roleblock, Control, Redirect immune.\n- You may not ride the train, even if redirected into giving yourself a ticket.\n- Players may leave the train at any time; but will need another ticket to re-enter.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -389,9 +389,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- **I know you don't think you're all that great** — Each night, weaken another player. At the start of the next day, they will be given a new rolecard that is a slightly weaker version of their role, as determined by the host.");
+		e.addField("Abilities:", "- **I know you don't think you're all that great** — Weaken another player each night. At the start of the next day, they will be given a new rolecard that is a slightly weaker version of their role, as determined by the host.");
 
-		e.addField("Attributes:", "- **But I'm just blown away by you every day** — You will be informed of new roles of your weakened targets when they get their new rolecards during the day.\n- **You live in your own amazing way** — Weakened players will have the option to deal a Powerful attack at night instead of taking their night action. They may only do this once.\n- **You're never swayed to give up, your passion's blazing like a flame** — If a weakened player successfully kills someone, at the start of their next day, they'll be given a new rolecard that's a significantly stronger version of their original role, as determined by the host. You will be informed of the new role.");
+		e.addField("Attributes:", "- **But I'm just blown away by you every day** —  You will be informed of new roles of your weakened targets when they get their new rolecards during the day.\n- **You live in your own amazing way** — Weakened players will have the option to deal a Powerful attack at night instead of taking their night action. They may only do this once.\n- **You're never swayed to give up, your passion's blazing like a flame** — If a weakened player successfully kills someone, at the start of their next day, they'll be given a new rolecard that's a significantly stronger version of their original role, as determined by the host. You will be informed of the new role.");
 
 		e.addField("Goal:", "**Like a flame, how you warm me up** — Have two strengthened players win the game.");
 	});

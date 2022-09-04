@@ -395,9 +395,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Use another role's ability while dead.");
+		e.addField("Abilities:", "- Use the abilities of other roles while dead.");
 
-		e.addField("Attributes:", "- You will kill and clean yourself on Night 1.\n- While dead, you may use the ability of any other role that can use that ability while dead (i.e. Medium seance, Phlox, etc.)");
+		e.addField("Attributes:", "- You will kill and clean yourself on Night 1.\n- While dead, you may use the abilities of any other role that can use that ability while dead (i.e. Medium seance, Phlox, etc.) but you may only use each ability once.");
 
 		e.addField("Goal:", "Die to see the Town lose the game.");
 	});
@@ -644,7 +644,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player to duel each night, which also roleblocks them.");
+		e.addField("Abilities:", "- Choose a player each day to duel in the following night, which also roleblocks them.");
 
 		e.addField("Attributes:", "- In a duel, you will secretly choose Scimitar, Rapier, and Pistol, and your target will secretly choose Sidestep, Chainmail, and Backpedal.\n- Scimitar beats Sidestep, Rapier beats Chainmail, and Pistol beats Backpedal.\n- If your target loses, they are dealt a Powerful Attack.\n- You cannot duel the same player twice in a row.\n- Detection Immunity\n- Vampires cannot convert you.");
 

@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role, factions} = g;
+	const {register_role, factions, GOOD} = g;
 
 	register_role(["india", "1201"], "Agent", "India", {subCat: "Sabotage"}, (e) =>
 	{
@@ -276,9 +276,11 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Whenever a player dies, you will receive a page with a panel for each unknown among the following. You'll known what panels you receive.\n> - Their role and last will\n> - What they did that night and their results\n> - The role that killed them\n> - The player that killed them\n* For example, if a player was stabbed by a Serial Killer, you'll receive only the second and fourth panels. If a player was FMKed by a Forger and cleaned by a Janitor, you'll receive all four panels.");
+		e.addField("Abilities:", "- Draw a panel each night.\n- Redraw a panel at night.");
 
-		e.addField("Attributes:", "- When you draw a panel, choose a dead player's page and a panel you received for them. You will learn that information. You can't choose to learn the player that killed them until you have drawn all the other panels on that page.\n- When you redraw a panel, choose a dead player's page and a panel you didn't receive for them. You will learn whether or not that information was faked, and the true information if it was. You may only do this thrice.\n- You may not multitask.\n- Your last will will automatically be a full record of all your pages and panels, and updates with information you learn the night you die on.");
+		e.addField("Attributes:", "- Whenever a player dies, you will receive a page with a panel for each unknown among the following. You'll known what panels you receive.\n> - Their role and last will\n> - What they did that night and their results\n> - The role that killed them\n> - The player that killed them\n* For example, if a player was stabbed by a Serial Killer, you'll receive only the second and fourth panels. If a player was FMKed by a Forger and cleaned by a Janitor, you'll receive all four panels.");
+
+		e.addField("Attributes (cont.):", "- When you draw a panel, choose a dead player's page and a panel you received for them. You will learn that information. You can't choose to learn the player that killed them until you have drawn all the other panels on that page.\n- When you redraw a panel, choose a dead player's page and a panel you didn't receive for them. You will learn whether or not that information was faked, and the true information if it was. You may only do this thrice.\n- You may not multitask.\n- Your last will will automatically be a full record of all your pages and panels, and updates with information you learn the night you die on.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -293,7 +295,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Kill a player at night.");
 
-		e.addField("Attributes:", "- You may disguise the cause of death.\n- At any point in the game, you may kill yourself, and disguise your role.\n- You may act while dead.\n- You may vote while dead. Town will see \"A Ghost voted for [player].\"\n- The game will end normally if you are dead. Example: If only Townies remain, game will end in Town victory.");
+		e.addField("Attributes:", "- You may disguise the cause of death.\n- During any night, you may kill yourself, and disguise your role and cause of death.\n- You may act while dead if you killed yourself. You will mimic the mechanics of the role you disguised your cause of death as.\n- The game will end normally if you are dead. Example: If only Townies remain, game will end in Town victory.");
 
 		e.addField("Goal:", "Kill all who would oppose you or have nobody left alive at the end of the game.");
 	});
@@ -313,19 +315,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["snowball", "1222"], "Neutral", "Snowball", {subCat: "Killing"}, (e) =>
+	register_role(["goat", "1222"], "COA", "Goat", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1222");
 
-		e.addField("Alignment", "Unique Neutral Killing", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Alignment", "Cult of Animals Support", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Kill a player at night or build a snowman during the day.");
+		e.addField("Abilities:", "- Give your target Powerful defense.");
 
-		e.addField("Attributes:", "- You can kill as many players as the night number (N1 you will kill 1 person, N2 kill 2, etc.)\n- Whenever you successfully kill as many people as possible in a night, you may build a snowman in honor of someone you killed that night. This snowman will be a player with the abilities and attributes of the player it represents, but the win con will be \"Kill all who would oppose the Snowball.\"\n- You may only build 1 snowman a day.");
+		e.addField("Attributes:", "- If you target a Cult of Animals role, choose a role for your target to appear as for all investigative abilities that night.\n- You can target yourself.\n- Victoria ignores your protection.");
 
-		e.addField("Goal:", "Kill all who would oppose you. (You can win if you die but your snowmen live and win.)");
+		e.addField("Goal:", factions.COA.goal);
 	});
 
 	register_role(["duplicate", "dupe", "1223"], "Neutral", "Duplicate", {subCat: "Chaos"}, (e) =>
@@ -343,22 +345,26 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see the end of the game after losing one of your lives.");
 	});
 
-	register_role(["camera", "cam", "1224"], "Town", "Camera", {subCat: "Power"}, (e) =>
+	register_role(["wizard_of_2_towers", "wizardof2towers", "wo2t", "wizard", "1224"], "Neutral", "Wizard of 2 Towers", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1224");
 
-		e.addField("Alignment", "Town Power", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Alignment", "Unique Neutral Killing", true);
+		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Place a camera at 2 houses and shoot someone who was seen by a camera last night during the day.");
+		e.addField("Abilities:", "- Kill someone at night.\n- Place a negative effect on someone.");
 
-		e.addField("Attributes:", "- You have 4 cameras.\n- Cameras are permanent.\n- Cameras tell you visitors to your target and who your target visits.\n- You may spend a night to take down a camera, letting you place it on another target.\n- Anyone who dies with a camera on them will have the camera returned to you.\n- Once per game you may let any number of cameras grant the player they are watching Powerful defense for the night.\n- If you shoot a town member, your cameras will be disabled the following night.\n- You may choose 1 camera. When you die, you will still be able to operate the camera, getting the results and shooting people. However, if you shoot a town member while dead, you will lose control of the camera.");
+		e.addField("Attributes:", "- You have 2 towers. One is upgraded when you use your killing ability, one is upgraded when you use your negative effect on someone.\n- If both your towers are level 2, you can use both abilities on the same night.");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Tower of Killing:", "Level 0: Deal a Basic attack.\nLevel 1: Deal a Powerful attack.\nLevel 2: Target 2 people with kills at night.\nLevel 3: Your visits are astral and you can rampage at one house instead of killing 2 targets.\nLevel 4: Your attacks are Unstoppable\nLevel 5: You can rampage at 2 houses.");
+
+		e.addField("Tower of Curses:", "Level 0: Negative effects: Poison, Roleblock\nLevel 1: You can hear whispers and can now blackmail.\nLevel 2: You can now control someone or roleblock someone for 2 nights.\nLevel 3: You can reduce someone's defense to Vulnerable for 1 night.\nLevel 4: You can now make your target lose an attribute.\nLevel 5: You can make your own negative effects.");
+
+		e.addField("Goal:", "Kill all who oppose you and your towers.");
 	});
 
-	register_role(["town", "1225"], "Town", "The Town", {subCat: "Killing"}, (e) =>
+	register_role(["the_town", "thetown", "town", "1225"], "Town", "The Town", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1225");
 
@@ -371,6 +377,21 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- Your lynch is separate from any other lynches.\n- Your vote cannot be interacted with by effects that interact with normal abilities, as it's a vote. Effects that interact with votes will affect your vote.\n- For all intents and purposes, The Town is a Town role.");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
+	});
+
+	register_role(["the_unseen", "theunseen", "unseen", "1226", "1225u"], "Unseen", "The Unseen", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 1226\nConverted from: The Town");
+
+		e.addField("Alignment", "Unseen Killing", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Lynch (Night): Vote to lynch someone. They're lynched.\n- Die (Day): Vote to die someone. They die.\n- Promote (Any): Vote to instantly promote the current Assassin to Mastermind. They become the Mastermind. 1 use but only if there is no living Mastermind.");
+
+		e.addField("Attributes:", "- Your lynch is separate from any other lynches.\n- Your vote cannot be interacted with by effects that interact with normal abilities, as it's a vote. Effects that interact with votes will affect your vote.\n- For all intents and purposes, The Unseen is a Unseen role.\n- Promote is usable only if there is no current Mastermind, but is usable even if the current Assassin wasn't the starting one. Another random Unseen will be promoted to Assassin.");
+
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["geology_teacher_rock", "geologyteacherrock", "gtr", "geology", "1227"], "Rock", "Geology Teacher Rock", {subCat: "Killing"}, (e) =>
@@ -489,22 +510,20 @@ module.exports = (g) =>
 		e.addField("Goal:", "Make a rule that affects the game. Host decides if you win or not.");
 	});
 
-	register_role(["any_chaos", "anychaos", "any", "chaos", "1235"], "Any", "Any Chaos", (e) =>
+	register_role(["any_chaos", "anychaos", "any", "chaos", "1235"], "Neutral", "Any Chaos", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 1235");
 
-		e.addField("Alignment", "Any", true);
-		e.addField("Attack", "Overkill", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Unique Neutral Chaos", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Variable", true);
 
-		e.addField("Abilities:", "- Kill a player.");
+		e.addField("Attributes:", "- Every day, become a random Neutral (Chaos) role. You will be that role for this day and the next night. You will always keep this attribute.");
 
-		e.addField("Attributes:", "- If this is rolled at the start of a game, the slot it rolled in is rerolled into an \"Any\" slot, and it stays an Any slot for any rerolls before the game starts.\n- This can role in any slot besides \"Any.\"");
-
-		e.addField("Goal:", "Kill all who would oppose you or your faction.");
+		e.addField("Goal:", "Complete any of your goals the day/night you have it.");
 	});
 
-	register_role(["scp-953", "scp953", "1236"], "SCP", "SCP-953", {subCat: "Keter", spawnCat: "Town"}, (e) =>
+	register_role(["scp-953", "scp953", "1236"], "SCP", "SCP-953", {subCat: "Keter", spawnCat: GOOD}, (e) =>
 	{
 		e.setDescription("Post 1236");
 
@@ -512,9 +531,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Kill a player.");
-
-		e.addField("Attributes:", "- Starts as a townie. Becomes a Random SCP once the last SCP dies\n- You are unaware you are SCP-953 when the game begins\n- The other SCPs know who you are and cannot perform actions that negatively affect you.\n- Spawns in a random town slot\n- May only spawn if another SCP is present");
+		e.addField("Attributes:", "- Starts as a townie. Becomes a Random SCP once the one other SCP remains.\n- You are aware you are SCP-953 when the game begins.\n- The other SCPs know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another SCP is present.");
 
 		e.addField("Goal:", factions.SCP.goal);
 	});
@@ -536,7 +553,7 @@ module.exports = (g) =>
 
 	register_role(["triumvir", "1238"], "Town", "Triumvir", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1238");
+		e.setDescription("Post 1238\n*Together as three, almost anything is possible.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -602,7 +619,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Night someone each day, starting the night phase for them immediately. They're removed from the day chat, and they may send a night action which will resolve immediately.\n- Fall someone each night, lowering their defense up to two stages (Below no defense is Vulnerable, which causes one to die if they're visited by two or more players).");
+		e.addField("Abilities:", "- Night someone each day, starting the night phase for them immediately. They're removed from the day chat, and they may send a night action which will resolve immediately.\n- Fall someone each night, lowering their defense up to two stages.");
 
 		e.addField("Attributes:", "- If you would die during the day for any reason, a random player dies in that way instead. The fact that you were meant to be the one who died isn't revealed.\n- As long as you are alive, if a nightfall vote is reached, you will be lynched instead and the day will end. Once this has happened once, it may be circumvented by voting for crepuscule.");
 

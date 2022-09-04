@@ -68,9 +68,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose someone each night. The next ability they use (including that night) won't be able to be stopped by anything, no matter what.\n- Divebomb a player at night, dealing a Powerful attack to them at night. You may only do this once.\n- Fly free during the day. You leave the game. If the game has ended by the start of the next day, you'll win. Otherwise, you'll lose.");
+		e.addField("Abilities:", "- Choose someone each night. The next ability they use (including that night) won't be able to be stopped by anything, no matter what.\n- Divebomb a player at night, dealing a Powerful attack to them. You may only do this once.\n- Fly free during the day. You leave the game. If the game has ended by the start of the next day, you'll win. Otherwise, you'll lose.");
 
-		e.addField("Attributes:", "- You can always talk in every non-private channel. \n- Your abilities can't be stopped by anything, no matter what.\n- You can't whisper or be whispered to, because you're way too cool.");
+		e.addField("Attributes:", "- You can always talk in every non-private channel.\n- Your abilities can't be stopped by anything, no matter what.\n- You can't whisper or be whispered to, because you're way too cool.");
 		
 		e.addField("Goal:", "Lynch every criminal and evildoer, or escape the Town freely.");
 	});
@@ -341,14 +341,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Protect a player {other than yourself} at night, granting them Powerful defense {but roleblocking them} if they're a member of the Town.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
+		e.addField("Abilities:", "- Protect a player {other than yourself} each night, granting them Powerful defense {but roleblocking them} if they're a member of the Town.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["marathoner", "mara", "874"], "Town", "Marathoner", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 874");
+		e.setDescription("Post 874\n*Can't stop running. Gotta keep running!*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -397,7 +397,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Dig up remains near a player's house at night, learning {10 random roles that could be in this game, at least 4 of which are Town and 3 of which are evil, one of which is} their role. {If they're evil, they will learn that you dug up remains near their house, and will learn the result you received.}\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
+		e.addField("Abilities:", "- Dig up remains near a player's house each night, learning {10 random roles that could be in this game, at least 4 of which are Town and 3 of which are evil, one of which is} their role. {If they're evil, they will learn that you dug up remains near their house, and will learn the result you received.}\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -460,7 +460,7 @@ module.exports = (g) =>
 
 	register_role(["painter", "882"], "Mafia", "Painter", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 882");
+		e.setDescription("Post 882\n*I-I...prefer drawing manga, though...*");
 
 		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "None", true);
@@ -524,7 +524,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Force someone to kneel to you at night, this person will be forced to visit you. Anyone you make kneel will have their visitors visit you, too.");
+		e.addField("Abilities:", "- Force someone to kneel to you at night, this person will be forced to visit you.\n- Anyone you make kneel will have their visitors visit you.");
 
 		e.addField("Attributes:", "- If you die the night you complete your goal, you will lose.\n- Visitors will be notified of your ability, even if they originally visited your kneel target.");
 		
@@ -657,7 +657,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Drive a player insane each night.");
 
-		e.addField("Attributes:", "- All effects of their abilities this night will be replaced by Unstoppable attacks; then, they will deal an Unstoppable attack to themself. (The death message will be \"They were killed by [their role].\")\n- Conversion, Roleblock, Redirect Immune");
+		e.addField("Attributes:", "- All effects of their abilities this night will be replaced by Unstoppable attacks; then, they will deal an Unstoppable attack to themself.\n- Conversion, Roleblock, Redirect Immune");
 		
 		e.addField("Goal:", "Eliminate all who would oppose you.");
 	});

@@ -251,9 +251,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- At the beginning of each day and each night, your role will be changed to the next prime-numbered role in the GIM thread but you keep this attribute.");
+		e.addField("Attributes:", "- At the beginning of each day and each night, your role will be changed to the next prime-numbered role in the GIM thread but you keep this attribute. At the start of Day 1, you'll become 173: Keymaster, and then so on.");
 
-		e.addField("Goal:", "Whatever your prime-numbered role's win condition is");
+		e.addField("Goal:", "Whatever your prime-numbered role's win condition is.");
 	});
 
 	register_role(["actual_inductor", "actualinductor", "inductor", "168"], "Town", "Actual Inductor", {subCat: "Investigative"}, (e) =>
@@ -487,9 +487,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- Every night, choose three of the following. A random one of the chosen three will be announced at the start of the next day and then take effect at the start of the next night.\n> - All other players perpetually lose all Defense. Other players can't have Defense or be given Defense for the rest of the game.\n> - All other players perpetually lose the ability to receive any messages during the night.\n> - All other players will have completely random targets for the next night.\n> - 75% of other players at random will be dealt a Powerful attack. \n> - All other players perpetually lose all attributes, except a random other player, who gains all attributes lost this way.\n> - Shuffle everyones' abilities and attributes except yours.\n> - All other players get a second role in addition to their first one.");
+		e.addField("Abilities:", "- Choose three of the following each night. A random one of the chosen three will be announced at the start of the next day and then take effect as abilities resolve the next night.\n> - All other players lose all defense.\n> - All other players' targets will be randomized.\n> - All other players' roles will be shuffled.\n> - All other players may use up to three abilities the next night.\n> - All other players gain the ability to deal one Basic attack.\n> - All other players are forced to use their abilities on themselves.\n> - All other players have a 25% chance each of being poisoned.");
 
-		e.addField("Goal:", "Cause infinite chaos (as determined by the host).");
+		e.addField("Goal:", "Directly or indirectly cause at least one quarter of all deaths.");
 	});
 
 	register_role(["flying_pumpkin", "flyingpumpkin", "pumpkin", "tfptslbooia", "184"], "Town", "The Flying Pumpkin That Shoots Laser Beams Out Of Its Ass", {subCat: "Killing"}, (e) =>
@@ -515,9 +515,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Each night, choose two non-Mafia roles from the same faction. At the start of the next day, the first of those roles will be replaced by the second one. The change will be publicly announced.");
-
-		e.addField("Attributes:", "- If you're redirected, you will choose your target's role as the role to be replaced. If they're a Mafia role, your ability will fail.");
+		e.addField("Abilities:", "- Choose two non-Mafia roles with the same alignment and subalignment each night. At the start of the next day, the first of those roles will be replaced by the second one. The change will be publicly announced.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -732,9 +730,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "+2: Choose a player. You learn a random one of their abilities and gain one use of that ability, but you may use it at any time and it resolves immediately. They lose that ability for the rest of the game.\n+1: Deal an Unstoppable attack to any player.\n-7: Every other player chooses two of their abilities and attributes. They lose those abilities or attributes. \n-12: All other players are roleblocked through immunities for tonight and lose all abilities, attributes, immunities, attacks, and defense for the rest of the game.");
+		e.addField("Abilities:", "`+2`: Choose a player. You learn a random one of their abilities and gain one use of that ability, but you may use it at any time and it resolves immediately.\n`+1`: Deal an Unstoppable attack to any player.\n`-7`: Every other player chooses one of their abilities. They lose the chosen abilities.\n`-12`: All other players lose all abilities, attributes, immunities, and defense for the rest of the game.");
 
-		e.addField("Attributes:", "- All Immunities\n**Divine Power** — You start with 7 power. When you use an ability, add or subtract power according to the ability. You may not use abilities that cost more power than you have. If you would be attacked, instead the attacker learns that your Defense was too strong and you lose power equal to the level of the attack. (Basic: 1, Powerful: 2, Unstoppable: 3, Overkill: 4. You still die if you're lynched.)");
+		e.addField("Attributes:", "- Roleblock, Redirection, Detection, Conversion Immunity\n**Divine Power** — You start with 7 power. When you use an ability, add or subtract power according to the ability. You may not use abilities that cost more power than you have. If you would be attacked, instead the attacker learns that your Defense was too strong and you lose power equal to the level of the attack— Basic: 1, Powerful: 2, Unstoppable: 3, Overkill+: 4. You still die if you're lynched.");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});

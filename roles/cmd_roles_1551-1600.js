@@ -25,7 +25,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Roleblock a player at night.\n- Freeze a player at night, doubling the length that they're being roleblocked if they're being roleblocked.\n**Really Cold Ice Cream** — Roleblock a player, then coldsnap. *(Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately.)* You may only use this ability once each game.");
+		e.addField("Abilities:", "- Roleblock a player each night.\n- Freeze a player each night, doubling the length that they're being roleblocked if they're being roleblocked.\n**Really Cold Ice Cream** — Roleblock a player, then coldsnap. (Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately.) You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything except this attribute, they're roleblocked for an additional night afterwards as well.");
 		
@@ -124,7 +124,7 @@ module.exports = (g) =>
 
 	register_role(["contrary_to", "contraryto", "contrary", "1558"], "Town", "Contrary To", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1558");
+		e.setDescription("Post 1558\n*I let go, and walk alone within this man-made galaxy.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -154,7 +154,7 @@ module.exports = (g) =>
 
 	register_role(["weariness", "1560"], "Town", "Weariness", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1560");
+		e.setDescription("Post 1560\n*Get up, get out, get going, get it together, endure it.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -169,7 +169,7 @@ module.exports = (g) =>
 
 	register_role(["peer_into", "pearinto", "pi", "1561"], "Town", "Peer Into", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1561");
+		e.setDescription("Post 1561\n*I know we're gonna find what we're searching for.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -184,7 +184,7 @@ module.exports = (g) =>
 
 	register_role(["infinity", "inf", "1562"], "Coven", "Infinity", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 1562");
+		e.setDescription("Post 1562\n*I'm only halfway to the bottom,*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "None", true);
@@ -199,7 +199,7 @@ module.exports = (g) =>
 
 	register_role(["clearly_fearing", "clearlyfearing", "clearly", "fearing", "cf", "1563"], "Town", "Clearly Fearing", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1563");
+		e.setDescription("Post 1563\n*But technique is a start.*");
 
 		e.addField("Alignment", "Town Killing", true);
 		e.addField("Attack", "Unstoppable", true);
@@ -285,7 +285,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack your target");
 
-		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.\n- Your attack will not only deal a Basic attack, but also ban the target. Even if the attack fails.\n- If you get lynched, no you don't. Immediately trigger nightfall.\n- The host cannot ban or kick you for any reason while you're alive, regardless if it's an actual ban or a @BANNED ban. After you die or the game ends, they are free to do whatever.\n- You're also modkill immune.");
+		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.\n- Your attack will not only deal a Basic attack, but also ban the target. Even if the attack fails.\n- If you get lynched, no you don't. Immediately trigger nightfall.\n- The host cannot ban or kick you for any reason while you're alive, regardless if it's an actual ban or a <@&976214023857111060> ban. After you die or the game ends, they are free to do whatever.\n- You're also modkill immune.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -481,7 +481,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player at night to upgrade one of their abilities during the day.");
 
-		e.addField("Attributes:", "- Whenever you target someone, at the end of the night you will steal one of their abilities. The target will be informed of this. This happens last, so it won't stop any abilities from happening.\n- During the day, you may upgrade the role however you want. At the end of the day, you will give the role back.\n- For payment, you will receive a 1-time use of the original ability you upgraded.\n- You may choose someone to upgrade and use one payment ability per night.");
+		e.addField("Attributes:", "- Whenever you target someone, at the end of the night you will steal one of their abilities. The target will be informed of this. This happens last, so it won't stop any abilities from happening.\n- During the day, you may upgrade the ability however you want. At the end of the day, you will give the role back.\n- For payment, you will receive a 1-time use of the original ability you upgraded.\n- You may choose someone to upgrade and use one payment ability per night.");
 		
 		e.addField("Goal:", "Upgrade at least 3 different people, and have at least 1 upgrade make a difference in the game.");
 	});
@@ -524,7 +524,7 @@ module.exports = (g) =>
 
 	register_role(["this_bleariness", "thisbleariness", "bleariness", "tb", "1581"], "Neutral", "This Bleariness", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 1581");
+		e.setDescription("Post 1581\n*I'll make them laugh while playing dumb,*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
@@ -539,7 +539,7 @@ module.exports = (g) =>
 
 	register_role(["in_my_future", "inmyfuture", "future", "imf", "1582"], "Town", "In My Future", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1582");
+		e.setDescription("Post 1582\n*If I can't speak my heart, I swear it.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "Basic", true);
@@ -575,7 +575,7 @@ module.exports = (g) =>
 		e.addField("Attack", "\"Modkill\"", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- During any phase, modkill someone.\n- During any phase, kick someone from the server.\n- During any phase, timeout someone for any amount of time.\n- During any phase, ban someone. This gives them the @BANNED role.\n- During any phase, literally ban someone from the server.");
+		e.addField("Abilities:", "- During any phase, modkill someone.\n- During any phase, kick someone from the server.\n- During any phase, timeout someone for any amount of time.\n- During any phase, ban someone. This gives them the <@&976214023857111060> role.\n- During any phase, literally ban someone from the server.");
 
 		e.addField("Attributes:", "- Your abilities take effect immediately and have a limit of 1 per phase.\n- At the end of the game, anyone who is banned or still timed out has their punishment removed.\n- Roleblock, Conversion, & Control Immunity\n- For all intents and purposes (rerolling), this is a Sax role unless they say otherwise in <#970051770342588467>");
 		
@@ -620,9 +620,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attempt to recruit a player into the Sentries. 3 Uses, 1 Night Cooldown.");
+		e.addField("Abilities:", "- Attempt to recruit a player into the Sentries. 3 Uses");
 
-		e.addField("Attributes:", "- All \"good\" factions will learn the existence of a Networker at the beginning of the game.\n- Recruiting a player converts them; __this only works on \"good\" factions\". Conversion attempts on \"evil\" factions or neutral roles will automatically fail.__ You also may not convert \"head\" roles of \"good\" factions.\n- Converted players will retain their original abilities & attributes, but have their goal changed to the Sentry goal, and may only visit authorized targets as a Sentry would.\n- You are not obligated to visit authorized targets.\n- If you attempt to convert a Sentry, an \"evil\" faction role, or a neutral role, your superiors will deem you incompetent and immediately deal an Overkill attack to you. Your last will shall additionally be obscured.\n- You may not appear in games where there are no other \"good\" factions.");
+		e.addField("Attributes:", "- All \"good\" factions will learn the existence of a Networker at the beginning of the game.\n- Recruiting a player converts them; __this only works on \"good\" factions. Conversion attempts on \"evil\" factions or neutral roles will automatically fail.__ You also may not convert \"head\" roles of \"good\" factions.\n- Converted players will retain their original abilities & attributes, but have their goal changed to the Sentry goal, and may only visit authorized targets as a Sentry would.\n- You are not obligated to visit authorized targets.\n- If you attempt to convert a Sentry, an \"evil\" faction role, or a neutral role, your superiors will deem you incompetent and immediately deal an Overkill attack to you. Your last will shall additionally be obscured.\n- You may not appear in games where there are no other \"good\" factions.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -794,7 +794,7 @@ module.exports = (g) =>
 
 	register_role(["spymaster", "1599"], "Neutral", "Spymaster", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 1599");
+		e.setDescription("Post 1599n*NO! That's not what I meant when I said the hint was \"chest\"!*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);

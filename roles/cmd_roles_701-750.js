@@ -34,7 +34,7 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Neutral.goalNK);
     });
 
-    register_role(["ninja_baker", "ninjabaker", "703"], "Town", "Ninja Baker", {subCat: "Support"}, (e) =>
+    register_role(["ninja_baker", "ninjabaker", "nb", "703"], "Town", "Ninja Baker", {subCat: "Support"}, (e) =>
     {
         e.setDescription("Post 703");
 
@@ -42,9 +42,9 @@ module.exports = (g) =>
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Choose a player to bake bread of each night.\n- Choose a player to feed bread to each night.");
+        e.addField("Abilities:", "- Choose another player to bake bread of each night.\n- Choose another player to feed bread to each night.");
 
-        e.addField("Attributes:", "- You may not bake and feed in the same night.\n- The player you feed bread to will become the role of the player you baked that bread of, sans win conditions, in addition to their other roles.\n- You can have multiple breads. You can choose which bread to feed to your target, but you may only feed them one bread at once.\n- You may self-target with either of your abilities.");
+        e.addField("Attributes:", "- You may not bake and feed in the same night.\n- The player you feed bread to will gain all the abilities and attributes of the player you baked bread of.\n- You can have multiple breads. You can choose which bread to feed to your target, but you may only feed them one bread at once.");
 
         e.addField("Goal:", factions.Town.goal);
     });
@@ -109,7 +109,7 @@ module.exports = (g) =>
         e.addField("Goal:", factions.Town.goal);
     });
 
-    register_role(["tree", "707b"], "Town", "Tree", {subCat: "Casual"}, (e) =>
+    register_role(["tree", "707b"], "Town", "Tree", {subCat: "Casual", cannotRoll: true}, (e) =>
     {
         e.setDescription("Post 707B");
 
@@ -186,7 +186,7 @@ module.exports = (g) =>
 
     register_role(["incinerator", "712"], "Underworld", "Incinerator", {subCat: "Support"}, (e) =>
     {
-        e.setDescription("Post 712");
+        e.setDescription("Post 712\n*Gone. Reduced to ashes.*");
 
         e.addField("Alignment", "Underworld Support", true);
         e.addField("Attack", "None", true);
@@ -310,9 +310,9 @@ module.exports = (g) =>
         e.addField("Attack", "Basic", true);
         e.addField("Defense", "Basic", true);
 
-        e.addField("Abilities:", "- Bombard someone each night, dealing to them a Basic attack.");
+        e.addField("Abilities:", "- Bombard someone each night, dealing a Basic attack to them.");
 
-        e.addField("Attributes:", "- You may not change your target after choosing it.\n- Whenever you choose a target for bombardment, you will copy one other ability that has resolved at any point during the game. Then, you may use all abilities copied with this attribute. You can't use those abilities normally.");
+        e.addField("Attributes:", "- Roleblock and redirect immune.\n- You may not change your target after choosing it.\n- Whenever you choose a target for bombardment, you will copy one other ability that has resolved at any point during the game. Then, you may use all abilities copied with this attribute. You can't use those abilities normally. ");
 
         e.addField("Goal:", factions.Neutral.goalNK);
     });
@@ -334,7 +334,7 @@ module.exports = (g) =>
 
     register_role(["turncoat", "717"], "Mafia", "Turncoat", {subCat: "Espionage"}, (e) =>
     {
-        e.setDescription("Post 717");
+        e.setDescription("Post 717\n*I don't think associating with people who are notorious for betrayal is a good idea.*");
 
         e.addField("Alignment", "Mafia Espionage", true);
         e.addField("Attack", "Basic", true);
@@ -355,22 +355,20 @@ module.exports = (g) =>
         e.addField("Attack", "Basic", true);
         e.addField("Defense", "Basic", true);
 
-        e.addField("Abilities:", "- Attack someone at instant speed at any time, but only once each day and each night.");
-
-        e.addField("Attributes:", "- This attack resolves immediately.");
+        e.addField("Abilities:", "- Attack someone at instant speed at any time, but only once each day and each night. The attack resolves immediately.");
 
         e.addField("Goal:", factions.Neutral.goalNK);
     });
 
     register_role(["aufeis", "719"], "Everfrost", "Aufeis", {subCat: "Support"}, (e) =>
     {
-        e.setDescription("Post 719");
+        e.setDescription("Post 719\n*Ice is complex, too. It has layers. Like an onion.*");
 
         e.addField("Alignment", "Everfrost Support", true);
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Each night, choose a player. If they are targeted by two or more players, for the two following nights you'll learn their action immediately when they choose it.\nCryosphere Lash — Choose up to two players and predict who they'll visit. If you're correct about both, turn their action into a roleblock, then coldsnap. You may only use this ability once each game.");
+        e.addField("Abilities:", "- Each night, choose a player. If they are targeted by two or more players, for the two following nights you'll learn their action immediately when they choose it.\n**Cryosphere Lash** — Choose up to two players and predict who they'll visit. If you're correct about both, turn their action into a roleblock, then coldsnap. You may only use this ability once each game.");
 
         e.addField("Attributes:", "- Roleblock immune.\n- Whenever a player is roleblocked by anything, you learn who their target and any messages the target would have received from the visit.");
 
@@ -501,16 +499,16 @@ module.exports = (g) =>
         e.addField("Attack", "Overkill", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Abduct four players, they will be placed into their own channel for the public to see. This will be titled #killing-game");
+        e.addField("Abilities:", "- Abduct four players, they will be placed into their own channel for the public to see. This will be titled #killing-game.");
 
-        e.addField("Attributes:", "- If there are no kill-capable roles inside of the four players, one will become kill-capable for the remainder of the killing game. Their kill will be \"killed by [real role].\" This cannot be changed.\n- If there is only one kill-capable role inside of the four players, they will automatically be chosen to kill, kill-capable is defined as any role with the ability to directly kill.\n- Your attributes may not be stolen, edited, or otherwise removed.\n- If there are multiple kill-capable roles inside of the four players, one player at random will be able to kill.\n- To win the killing game, the remaining three players must find the killer. If a non-killer is voted, then all players in the game besides the killer is dealt an overkill attack.");
+        e.addField("Attributes:", "- Roleblock Immune\n- If there are no kill-capable roles inside of the four players, one will become kill-capable for the remainder of the killing game. Their kill will be \"killed by [real role].\" This cannot be changed.\n- If there is only one kill-capable role inside of the four players, they will automatically be chosen to kill, kill-capable is defined as any role with the ability to directly kill.\n- Your attributes may not be stolen, edited, or otherwise removed.\n- If there are multiple kill-capable roles inside of the four players, one player at random will be able to kill.\n- To win the killing game, the remaining three players must find the killer. If a non-killer is voted, then all players in the game besides the killer is dealt an overkill attack.\n- The killing game must end by the end of the next day, or the blackened will automatically win.\n- The Blackened has an attack level of Overkill, and removes the victims defense level entirely.");
 
         e.addField("Goal:", "See your killing game successful. (the blackened wins).");
     });
 
     register_role(["lambence", "lamb", "729"], "Town", "Lambence", {subCat: "Investigative"}, (e) =>
     {
-        e.setDescription("Post 729");
+        e.setDescription("Post 729\n*What do you mean, you can't see who comes to your house? I think you need an eyesight test.*");
 
         e.addField("Alignment", "Unique Town Investigative", true);
         e.addField("Attack", "None", true);
@@ -518,7 +516,7 @@ module.exports = (g) =>
 
         e.addField("Abilities:", "- During the day, choose to illuminate the streets the following night, letting all players see who visited them.");
 
-        e.addField("Attributes:", "- Players who visited multiple players will only show up as having visited their first target (or a random one, if not applicable).\n- You will learn the roles of all players who visit you instead of their names.\n- You may only use your ability four times.");
+        e.addField("Attributes:", "- Players who visited multiple players will only show up as having visited their first target (or a random one, if not applicable).\n- You will learn the roles of all players who visit you instead of their names.\n- You may only use your ability three times.");
 
         e.addField("Goal:", factions.Town.goal);
     });
@@ -585,15 +583,15 @@ module.exports = (g) =>
 
     register_role(["flavour_judge", "flavourjudge", "734"], "Town", "Flavour Judge", {subCat: "Support"}, (e) =>
     {
-        e.setDescription("Post 734");
+        e.setDescription("Post 734*\"And then a maid working for organized crime stopped the flow of time, and a few schmucks with guns stoned a literal dragon to death!\"*\n*Aigoo: \"Yeah makes sense to me.\"*");
 
         e.addField("Alignment", "Town Support", true);
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Whenever something happens, you may ask someone outside the game whether the thing that happened made sense.");
+        e.addField("Abilities:", "- Ask someone outside the game whether a thing that just happened made logical sense flavour-wise.");
 
-        e.addField("Attributes:", "- If they say it doesn't, the thing that happened is reversed.\n- If the thing never happened in the first place, you're modkilled for being stupid.\n- You may only use this once per day/night, regardless of whether it's successful. ");
+        e.addField("Attributes:", "- If they say it doesn't, the thing that happened is reversed.\n- If the thing never happened in the first place, you're modkilled for being stupid.\n- You may only use this once each day/night, regardless of whether it's successful.");
 
         e.addField("Goal:", factions.Town.goal);
     });
@@ -630,7 +628,7 @@ module.exports = (g) =>
 
     register_role(["moonstone", "ms", "737"], "Rock", "Moonstone", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 737");
+		e.setDescription("Post 737\n*Strive for an eternal night, one which is given meaning by the impermanent moon.*");
 
 		e.addField("Alignment", "Rock Support", true);
 		e.addField("Attack", "None", true);

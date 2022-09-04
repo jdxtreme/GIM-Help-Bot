@@ -365,7 +365,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack your target");
 
-		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.\n- Your attack will not only deal a Basic attack, but also ban the target. Even if the attack fails.\n- If you get lynched, no you don't. Immediately trigger nightfall.\n- The host cannot ban or kick you for any reason while you're alive, regardless if it's an actual ban or a @BANNED ban. After you die or the game ends, they are free to do whatever.\n- You're also modkill immune.");
+		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.\n- Your attack will not only deal a Basic attack, but also ban the target. Even if the attack fails.\n- If you get lynched, no you don't. Immediately trigger nightfall.\n- The host cannot ban or kick you for any reason while you're alive, regardless if it's an actual ban or a <@&976214023857111060> ban. After you die or the game ends, they are free to do whatever.\n- You're also modkill immune.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -561,9 +561,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Debug someone at night.");
+		e.addField("Abilities:", "- Debug someone each night.");
 
-		e.addField("Attributes:", "- You will learn the 50-role file their post number falls into (e.g. 1401-1450). 11037: LE0N, 69420: Blackstoner, and all Android roles are in the \"misc\" file.\n- They will be immune to effects that would permanently change their role itself tonight, such as conversion, ability granting/stealing effects, etc.\n- c is not defined");
+		e.addField("Attributes:", "- You will learn the 50-role file their post number falls into (e.g. 1401-1450). 11037: LE0N, 69420: Blackstoner, all Android roles, etc. are in the \"misc\" file.\n- They will be immune to effects that would permanently change their role itself tonight, such as conversion, ability granting/stealing effects, etc.\n- c is not defined");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

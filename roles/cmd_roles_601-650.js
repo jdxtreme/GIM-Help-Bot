@@ -66,13 +66,13 @@ module.exports = (g) =>
 
 	register_role(["solar_tomato", "solartomato", "tomato", "605"], "Plant", "Solar Tomato", {subCat: "Production"}, (e) =>
 	{
-		e.setDescription("Post 605");
+		e.setDescription("Post 605\n*What an uncreative name.*");
 
 		e.addField("Alignment", "Plant Production", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Roleblock a player. If you successfully stopped an action with this ability, generate two sun.\n- Grant a non-plant roleblock immunity, generating two sun.\n- Grant an ally plant permanent roleblock immunity. Costs 1 sun.\n- Roleblock one player for every time you've successfully stopped an action and for every time you've negated a roleblock. Costs 2 sun. (One use) ");
+		e.addField("Abilities:", "- Roleblock a player. If you successfully stopped an action with this ability, generate two sun.\n- Grant a non-plant roleblock immunity, generating two sun.\n- Grant an ally plant permanent roleblock immunity. Costs 1 sun.\n- Roleblock one player for every time you've successfully stopped an action and for every time you've negated a roleblock. Costs 2 sun. (One use)");
 		
 		e.addField("Goal:", factions.Plant.goal);
 	});
@@ -94,7 +94,7 @@ module.exports = (g) =>
 
 	register_role(["lunar_telepath", "lunartelepath", "telepath", "607"], "Town", "Lunar Telepath", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 607");
+		e.setDescription("Post 607\n*To become someone else, to share those experiences and thoughts—it's...quite unlike anything else.*");
 
 		e.addField("Alignment", "Unique Town Support", true);
 		e.addField("Attack", "None", true);
@@ -154,7 +154,7 @@ module.exports = (g) =>
 
 	register_role(["hand_of_death", "handofdeath", "hand", "611"], "Neutral", "Hand Of Death", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 611");
+		e.setDescription("Post 611\n*They were gonna die anyways, you know. It's just happening a bit faster.*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Powerful", true);
@@ -177,7 +177,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Fuck a player up each night. This ability has the lowest possible priority (i.e. the highest). Thus, any actions that player would perform or that would be done to them won't happen, since they're already dead.");
 
-		e.addField("Attributes:", "- Night actions resolve in reverse order. (Those with lowest priority happen first, etc.)");
+		e.addField("Attributes:", "- Night actions resolve in reverse order.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -272,7 +272,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["excommunicator", "excum", "618"], "Town", "Excommunicator", {subCat: "Assault"}, (e) =>
+	register_role(["excommunicator", "excom", "618"], "Town", "Excommunicator", {subCat: "Assault"}, (e) =>
 	{
 		e.setDescription("Post 618");
 
@@ -351,7 +351,7 @@ module.exports = (g) =>
 
 	register_role(["wm_marshal", "wmmarshal", "marshal", "623"], "Town", "WM Marshal", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 623*Woke army be like: drop and give me 20 pronouns.*");
+		e.setDescription("Post 623\n*Woke army be like: drop and give me 20 pronouns.*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
@@ -372,11 +372,11 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Each night, you may play a card as either a creature or a sorcery. (This uses up the card.)\n> - If you play it as a creature, create a new player with that role named whatever you want at the beginning of the next day. You control that player.\n> - If you play it as a sorcery, use any number of its abilities and gain any number of its attributes that night, then it goes to the Graveyard.");
+		e.addField("Abilities:", "- You draw a hand of 5 cards at the beginning of the game. After drawing your hand, you may choose to mulligan, drawing a new hand of 4 cards. You may repeat this process any number of times, drawing one less card each time.\n- Cards are random roles from the Grand Idea Mafia roles thread.\n- You draw an additional card at the beginning of each day.");
 
-		e.addField("Attributes:", "- You draw a hand of 5 cards at the beginning of the game.\n- After drawing your hand, you may choose to mulligan, drawing a new hand of 4 cards. You may repeat this process any number of times, drawing one less card each time.\n- Cards are random roles from the Grand Idea Mafia roles thread.\n- You draw an additional card at the beginning of each day.");
+		e.addField("Attributes:", "- Each night, you may play a card as either a creature or a sorcery.\n- If you play it as a creature, create a new player with that role named whatever you want at the beginning of the next day. You control that player.\n- If you play it as a sorcery, use any number of its abilities and gain any number of its attributes that night, then it goes to the Graveyard.");
 		
-		e.addField("Goal:", "Eliminate all who would oppose you.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["tierlister_accent", "tierlisteraccent", "accent", "tierlister", "625"], "Neutral", "Tierlister Accent", {subCat: "Chaos"}, (e) =>
@@ -400,9 +400,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- At any point after Night 5, you may sing a carol. When you start singing a carol, the Town will become a list of three players of your choice, which may include yourself, and all other players will be removed from the game entirely until you stop singing a carol. (*You can't stop singing a carol unless you die, are removed from the game, or your abilities are otherwise turned off.*)");
+		e.addField("Abilities:", "- At any point after Night 5, you may sing a carol. When you start singing a carol, the Town will become a list of three players of your choice, which may include yourself, and all other players will be removed from the game entirely until you stop singing a carol. (You can't stop singing a carol unless you die, are removed from the game, or your abilities are otherwise turned off.)");
 
-		e.addField("Attributes:", "- Before Night 5, you're Post 191: Caroler but you have Basic Defense. (*You'll know that you're actually on shrooms.*)");
+		e.addField("Attributes:", "- Before Night 5, you're Post 191: Caroler but you have Basic defense. (You'll know that you're actually on shrooms.)");
 		
 		e.addField("Goal:", "Successfully sing your carol.");
 	});
@@ -439,7 +439,7 @@ module.exports = (g) =>
 
 	register_role(["chairman", "629"], "Town", "Chairman", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 629");
+		e.setDescription("Post 629\n*Hold on! You need to apply for a warrant before just murdering someone, geez.*");
 
 		e.addField("Alignment", "Unique Town Support", true);
 		e.addField("Attack", "None", true);
@@ -454,7 +454,7 @@ module.exports = (g) =>
 
 	register_role(["conga_leader", "congaleader", "conga", "630"], "Mafia", "Conga Leader", {subCat: "Deception"}, (e) =>
 	{
-		e.setDescription("Post 630");
+		e.setDescription("Post 630\n*Conga, conga, con-ga! Don't you just wanna join in?*");
 
 		e.addField("Alignment", "Unique Mafia Deception", true);
 		e.addField("Attack", "None", true);
@@ -475,7 +475,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- Call upon the divine cold at night, giving an Everfrost player Basic defense and making them Astral and redirect immune. Their ability that night will have the highest possible priority and, if it's a roleblock, will roleblock players through immunities and any other effects that would prevent it.\n**Winter's Judgment** — Roleblock up to one player, then coldsnap. (*Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately.*) You may only use this ability once each game.");
+		e.addField("Abilities:", "- Call upon the divine cold each night, giving an Everfrost player Basic defense and making them Astral and redirect immune. Their ability that night will have the highest possible priority and, if it's a roleblock, will roleblock players through immunities and any other effects that would prevent it.\n**Winter's Judgment** — Roleblock up to one player, then coldsnap. (*Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately.*) You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Whenever a player is roleblocked by anything while you're alive, they'll be notified that they're covered in frost. If they're not visited by at least two other non-Everfrost players the next night, they're dealt an Astral Basic attack by you at the end of that night. This effect cannot be prevented by anything. If you die, this will only apply to the Everfrost's factional roleblock.\n- You have a veil of ice that makes you appear to be a Town role of your choice to all investigative effects of any kind. You may change the role you appear as at any time.");
 
@@ -507,7 +507,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Guess a player's role, and if you're correct, roleblock them.\n**Icy Verdict** — Roleblock up to two players whose roles you've guessed correctly, then coldsnap. You may only use this ability once each game.");
+		e.addField("Abilities:", "- Guess a player's role each night, and if you're correct, roleblock them.\n**Icy Verdict** — Roleblock up to two players whose roles you've guessed correctly, then coldsnap. You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, you learn their name and role.");
 		
@@ -522,7 +522,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player with an Ice Mark and name a number X. They permanently lose their Xth ability. If they don't have X abilities, they don't lose anything and you'll be notified.\n**Frozen Form** — Use any number of abilities that you've caused players to lose. You may only use this ability once each game.");
+		e.addField("Abilities:", "- Choose a player with an Ice Mark each night and name a number X. They permanently lose their Xth ability. If they don't have X abilities, they don't lose anything and you'll be notified.\n**Frozen Form** — Use any number of abilities that you've caused players to lose. You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, they gain an Ice Mark and you learn their name.");
 		
@@ -537,7 +537,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player. If they've been roleblocked at any point previously, roleblock them.\n**Ice Age** — Freeze a player, causing them to be roleblocked every night for the rest of the game. You may only use this ability once each game.");
+		e.addField("Abilities:", "- Choose a player each night. If they've been roleblocked at any point previously, roleblock them.\n**Ice Age** — Freeze a player, causing them to be roleblocked every night for the rest of the game. You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Non-Everfrost players who are roleblock immune aren't. Non-Everfrost players can't be roleblock immune.\n- Roleblocked players can't use day abilities the day after they're roleblocked.");
 		
@@ -552,7 +552,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Chill up to two players at night, visiting them but doing nothing. You may choose the same player as both targets.\n**Glacial Dawn** — Set up to two players' defences to Vulnerable. You may only use this ability once each game.");
+		e.addField("Abilities:", "- Chill up to two players each night, visiting them but doing nothing. You may choose the same player as both targets.\n**Glacial Dawn** — Set up to two players' defences to Vulnerable. You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, their defence is lowered by a stage the following night.");
 		
@@ -567,7 +567,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player with an Ice Mark. They permanently lose all Defense and can't have Defense for the rest of the game.\n**Utter End** — The Everfrost wins the game and all non-Everfrost players lose the game. You may only use this ability if more than half of all living non-Everfrost players have Ice Marks and you've removed their vote.");
+		e.addField("Abilities:", "- Choose a player with an Ice Mark each night. They permanently lose all Defense and can't have Defense for the rest of the game.\n**Utter End** — The Everfrost wins the game and all non-Everfrost players lose the game. You may only use this ability if more than half of all living non-Everfrost players have Ice Marks and you've removed their vote.");
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, they gain an Ice Mark and you learn their name.");
 		
@@ -642,7 +642,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Each night, choose a player. If they were roleblocked last night by your attribute, roleblock them.\n**Boreal Wrath** — Roleblock the player below you in the player list, and the player below that player, then coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
+		e.addField("Abilities:", "- Choose a player each night. If they were roleblocked last night by your attribute, roleblock them again.\n**Boreal Wrath** — Roleblock the player below you in the player list, and the player below that player, then coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything other than an Everfrost attribute, the player directly beneath them in the player list (including dead players) is roleblocked as well.");
 		
@@ -687,9 +687,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Each night, choose a player with an Ice Mark. You receive all night feedback messages they would that night, and they don't and instead learn that their senses were obscured by sleet.\n**River of Snow** — Choose up to two players. If both of them would visit tonight, roleblock both of them. Then, coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
+		e.addField("Abilities:", "- Choose a player with an Ice Mark each night. You receive all night feedback messages they would that night, and they don't and instead learn that their senses were obscured by sleet.\n**River of Snow** — Roleblock up to one player whose night feedback messages you received last night, then coldsnap. You may only use this ability once each game.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, they gain an Ice Mark, and you learn their name.\n- You hear all whispers sent to and by players with Ice Marks.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, they gain an Ice Mark, and you learn their name.\n- You hear all whispers sent to and by players with Ice Marks. ");
 		
 		e.addField("Goal:", factions.Everfrost.goal);
 	});
@@ -702,9 +702,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Each night, choose a player and roleblock that player's night target(s).\n**Ravaging Storm** — Roleblock all players who have night targets tonight, then coldsnap. You may only use this ability once per game and you can't use it until Night 3.");
+		e.addField("Abilities:", "- Choose a player each night and roleblock that player's night target(s).\n**Ravaging Storm** — Choose up to two players. If both of them would visit tonight, roleblock both of them. Then, coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
 
-		e.addField("Attributes:", "- Roleblock Immune\n- Choose up to two players. If both of them would visit tonight, roleblock both of them. Then, coldsnap. You may only use this ability once each game and you can't use it until Night 3.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything other than an Everfrost attribute, non-Everfrost players who target them that night will be roleblocked as well.");
 		
 		e.addField("Goal:", factions.Everfrost.goal);
 	});
@@ -747,7 +747,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Each night, choose a player. If they would die tonight, their role and will will be hidden from the town and shown as \"Frozen\".\n**Blaze of Frost** — Roleblock a non-Everfrost player at random, then do that again, then coldsnap. You may only use this ability once each game.");
+		e.addField("Abilities:", "- Choose a player each night. If they would die tonight, their role and will will be hidden from the town and shown as \"Frozen\".\n**Blaze of Frost** — Roleblock a non-Everfrost player at random, then do that again, then coldsnap. You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Each night, a random non-Everfrost the player who isn't the target of the Everfrost's factional roleblock will be roleblocked.");
 		

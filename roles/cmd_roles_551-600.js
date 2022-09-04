@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role, factions} = g;
 
-	register_role(["top_10_best_gim_roles", "top_10", "551"], "Neutral", "Top 10 Best GIM Roles", {subCat: "Other"}, (e) =>
+	register_role(["top_10_best_gim_roles", "top10bestgimroles", "top_10", "top10", "551"], "Neutral", "Top 10 Best GIM Roles", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 551");
 
@@ -62,15 +62,15 @@ module.exports = (g) =>
 
 	register_role(["workshopper", "555"], "Neutral", "Workshopper", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 555");
+		e.setDescription("Post 555\n*Sometimes, some midgame rebalancing is necessary, right?*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Each night, receive a random role in the game besides Workshopper. You can't receive the same role twice. You can propose changes to its attributes, abilities, or goal.");
 
-		e.addField("Attributes:", "- In the morning, the host will post your proposed changes (preferably in a different channel).\n- All alive players in the game can anonymously vote on whether or not your changes should be accepted.\n- If the majority of alive players vote for the changes to go through, any instances of the role within the game will be changed starting the following night.\n- Any players with the role you're changing must also accept the changes for your workshopping to be succesful.");
+		e.addField("Attributes:", "- In the morning, the host will post your proposed changes (preferably in a different channel).\n- All alive players in the game can anonymously vote on whether or not your changes should be accepted.\n- If the majority of alive players vote for the changes to go through, any instances of the role within the game will be changed starting the following night.\n- Any players with the role you're changing must also accept the changes for your workshopping to be succesful.\n- You have Basic defense until the first time you're attacked.");
 		
 		e.addField("Goal:", "Have your workshopping be accepted thrice.");
 	});
@@ -88,11 +88,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["grace", "557"], "Hallow", "Grace", {subCat: "Protective"}, (e) =>
+	register_role(["grace", "557"], "Hallow", "Grace", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 557\n*Go towards the light.*");
 
-		e.addField("Alignment", "Hallow Protective", true);
+		e.addField("Alignment", "Hallow Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
@@ -177,7 +177,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose two players to quiz on Grand Idea Mafia roles each day.");
 
-		e.addField("Attributes:", "- At the start of the next night, both players will be locked out of all channels in the GIM server except a new private one for each of them. Then, they will each receive the names of the same five roles from the GIM roles thread that neither of them made, chosen at random. Whichever player can describe the general functions of more of the roles wins; the other is dealt an Unstoppable attack. (*The host judges what counts as being correct.*) If it's a tie, both die, unless they both get all 5 correct, in which case neither does.");
+		e.addField("Attributes:", "- At the start of the next night, both players will be locked out of all channels in the GIM server except a new private one for each of them.\n- Then, they will each receive the names of the same five roles from the GIM roles thread that neither of them made, chosen at random.\n- Whichever player can better describe the general functions of more of the roles in the host's opinion wins; the other is dealt an Unstoppable attack.\n- If it's a tie, both die, unless they both get all 5 correct, in which case neither does.");
 		
 		e.addField("Goal:", "Kill three players with your quizzes.");
 	});
@@ -214,7 +214,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["generic_town_role", "generictownrole", "gtr", "gtr1", "565"], "Town", "Generic Town Role", {subCat: "Killing"}, (e) =>
+	register_role(["generic_town_role", "generictownrole", "gtr", "565"], "Town", "Generic Town Role", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 565");
 
@@ -222,14 +222,12 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Storm a player's house each night. If they're attacking someone, you will be dealt the attack instead of their target, and you'll deal a Powerful attack to the attacker. If they're being attacked, you will be dealt the attack instead of their target, but you won't counterattack.");
-
-		e.addField("Attributes:", "- You have one bulletproof vest you can put on at night to give yourself Basic defense for that night. You can't put on your vest and storm in the same night.");
+		e.addField("Abilities:", "- Storm a player's house each night. If they're attacking someone, you will be dealt the attack instead of their target, and you'll deal a Powerful attack to the attacker. If they're being attacked, you will be dealt the attack instead of them, but you won't counterattack.\n- Put on a bulletproof night at vest, granting yourself Basic defense. You may only do this once.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["generic_town_role_2", "generictownrole2", "gtr2", "566"], "Town", "Generic Town Role 2", {subCat: "Investigative"}, (e) =>
+	register_role(["generic_town_role_2", "generictownrole2", "gtr", "566"], "Town", "Generic Town Role 2", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 566");
 
@@ -237,12 +235,12 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- On odd nights, choose a slot to research in the rolelist (i.e. Random Zage, Rock Killing, Any). You will learn what role takes up that slot.\n- On even nights, choose a role to research. You will learn whether or not that role is in the game.");
+		e.addField("Abilities:", "- On odd nights, choose a slot to research in the rolelist. You will learn what role takes up that slot.\n- On even nights, choose a role to research. You will learn whether or not that role is in the game.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["generic_mafia_role", "genericmafiarole", "gmr", "gmr1", "567"], "Mafia", "Generic Mafia Role", {subCat: "Support"}, (e) =>
+	register_role(["generic_mafia_role", "genericmafiarole", "gmr", "567"], "Mafia", "Generic Mafia Role", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 567");
 
@@ -257,7 +255,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["generic_mafia_role_2", "genericmafiarole2", "gmr2", "568"], "Mafia", "Generic Mafia Role 2", {subCat: "Support"}, (e) =>
+	register_role(["generic_mafia_role_2", "genericmafiarole2", "gmr", "568"], "Mafia", "Generic Mafia Role 2", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 568");
 
@@ -265,12 +263,12 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a Mafia member to scout for at night. If anything bad would happen to them during their visit, including being attacked or their identity being risked, you will back them out and the visit won't happen.");
+		e.addField("Abilities:", "- Choose a Mafia member to scout for each night. If anything bad would happen to them during their visit, including being attacked or their identity being risked, you will back them out and the visit won't happen.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["generic_mafia_role_3", "genericmafiarole3", "gmr3", "569"], "Mafia", "Generic Mafia Role 3", {subCat: "Support"}, (e) =>
+	register_role(["generic_mafia_role_3", "genericmafiarole3", "gmr", "569"], "Mafia", "Generic Mafia Role 3", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 569");
 
@@ -278,9 +276,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose two other players to trick at night. Their targets will be swapped without their knowledge.");
+		e.addField("Abilities:", "- Choose two other players to trick each night. Their targets will be swapped without their knowledge.");
 
-		e.addField("Abilities:", "- You are immune to being roleblocked or redirected.");
+		e.addField("Abilities:", "- Roleblock and redirect immune.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -293,7 +291,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Choose a player to poison at night. They will not know they have been poisoned. The next night, they will be dealt a Powerful attack, and their role and will will be hidden and displayed as \"Melted\".");
+		e.addField("Abilities:", "- Choose a player to poison each night. They will not know they have been poisoned. The next night, they will be dealt a Powerful attack, and their role and will will be hidden and displayed as \"Melted\".");
 
 		e.addField("Abilities:", "- You are immune to any form of delayed attacks.");
 		
@@ -315,17 +313,49 @@ module.exports = (g) =>
 		e.addField("Goal:", "Ensure that your Target is alive at the end of the game, regardless of whether or not you are alive.");
 	});
 
-	register_role(["deadly", "572"], "Neutral", "Deadly", {subCat: "Other"}, (e) =>
+	register_role(["werefox", "572"], "Were", "Hag", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 572\n*You are a genocidal freak*");
+		e.setDescription("Post 572");
+
+		e.addField("Alignment", "Were Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None (Powerful)", true);
+
+		e.addField("Abilities:", "- During a New Moon, help a Were member hide, roleblocking them but giving them visit immunity for the night.\n- During a Full Moon, make a Were member stealthier, turning their visit Astral.");
+
+		e.addField("Attributes:", "- You have Detection Immunity, but only during non-Full Moon Nights.\n- You have a night chat with other Weres\n- Visit results are shared with other Weres.\n- You have Powerful Defense against the first attack used on you.\n- You are capable of winning with the Fox faction, if it exists.");
+
+		e.addField("Hunting Moon Enhancement: Invisible to the Human Eye", "If your stealth target attacks someone, you will join in, increasing the attack tier by 1. This does not count as a visit against the attack target.");
+		
+		e.addField("Goal:", factions.Were.goal + " / " + factions.Fox.goal);
+	});
+
+	register_role(["wight", "573"], "Stalker", "Wight", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 573");
+
+		e.addField("Alignment", "Stalker Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Use the factional kill to drain a target’s life during the night, dealing an attack to them.\n- Decay a player’s defenses. For this night and the next, their defense is 1 tier lower than what it should be.");
+
+		e.addField("Attributes:", "- If you successfully kill a kill-capable player, you will increase your attack tier to Powerful.\n- If you are attacked and survive by any means, your Attack is reduced to Basic.");
+		
+		e.addField("Goal:", factions.Stalker.goal);
+	});
+
+	register_role(["abilitor", "574"], "Neutral", "Abilitor", {subCat: "Other"}, (e) =>
+	{
+		e.setDescription("Post 574");
 
 		e.addField("Alignment", "Neutral Other", true);
-		e.addField("Attack", "\"TrueKill\"", true);
-		e.addField("Defense", "\"OverDefense\"", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- N1: Turn Someone into Flowey no matter their current role (if they are an informed minority they will become both Flowey and their original role, but may only win with floweys wincon)\nN4+: Kill anybody with a TrueKill attack (kills no matter what)");
+		e.addField("Attributes:", "- Every night, you may select another player and come up with a night ability. They will have that ability starting tomorrow morning, as long as the host approves (host shouldn't approve if it's unfun or unbalanced). They may not use their new ability at the same time as any of their other abilities.");
 		
-		e.addField("Goal:", "EITHER: Kill anyone who opposes you and Flowey, OR: calm down and become yourself again (be the only one alive with a faction of over 5 members, and no Flowey)");
+		e.addField("Goal:", "Give someone an ability that makes a difference in the game, i.e. it actually changes something. They must die before the game ends, though, and not via your ability. Also survive until the end of the game.");
 	});
 
 	register_role(["chronologist", "chrono", "575"], "Town", "Chronologist", {subCat: "Power"}, (e) =>
@@ -379,7 +409,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- At night, you may choose to stop the flow of time for all players except yourself and up to one other player. The following day chat will only be accessible by you and that player. [1 use.]\n- Grant protection to yourself, gaining Invincible defense and dealing a Basic attack to one random player who attacks you. [1 use.]\n- You may perform the factional Solo Maid kill each night.");
 
-		e.addField("Attributes:", "- You may only take one action each night.");
+		e.addField("Attributes:", "- You may multitask.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -420,7 +450,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to VFR at any point during the day. If you do, the current vote will be cancelled, a completely random player will be lynched, and the day will immediately end. You may only VFR thrice.");
+		e.addField("Abilities:", "- Choose to VFR at any point during the day when at least one vote for a player has been cast. If you do, the current vote will be cancelled, a completely random player will be lynched, and the day will immediately end. You may only VFR thrice.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -583,7 +613,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player to hypnotise each night. You can cause them to receive a fake night message, which is whatever you want. If you have the Necronomicon, you instead gain control of that player. (You have access to their private channel and you perform all game actions for them. They can't talk.)");
+		e.addField("Abilities:", "- Choose a player to hypnotise each night. You can cause them to receive a fake night message, which is whatever you want. If you have the Necronomicon, you instead gain control of that player. (You have access to their private channel and you perform all game actions for them. They can't talk or do anything.)");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});

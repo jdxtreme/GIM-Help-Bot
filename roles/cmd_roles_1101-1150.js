@@ -19,7 +19,7 @@ module.exports = (g) =>
 
 	register_role(["rhapsodist", "rhap", "1102"], "Town", "Rhapsodist", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1102");
+		e.setDescription("Post 1102\n*Perspicacious and assiduous as ever.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -115,9 +115,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- This role appears when you least expect it. (The host decides when you least expect it, if ever.)");
+		e.addField("Abilities:", "- Choose another player each day. Three random abilities from three random roles will be used on them, but they resolve immediately. This won't roll abilities that only work at night (i.e. roleblocks), investigative abilities, or other lame stuff.");
 
-		e.addField("Attributes:", "- Choose another player each day. Three random abilities from three random roles will be used on them, but they resolve immediately. This won't roll abilities that only work at night (i.e. roleblocks), investigative abilities, or other lame stuff.");
+		e.addField("Attributes:", "- This role appears when you least expect it.");
 
 		e.addField("Goal:", "Surprise the town.");
 	});
@@ -158,7 +158,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Variable", true);
+		e.addField("Defense", "None", true);
 
 		e.addField("Attributes:", "- Incarnation of You has all abilities and attributes that the player who rolls it has been during all previous GIM games. See Abomination of Salem (956) for specifics.\n- You must have played at least 2 games of GIM to roll this role.");
 
@@ -182,7 +182,7 @@ module.exports = (g) =>
 
 	register_role(["acheron", "1113"], "Coven", "Acheron", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 1113");
+		e.setDescription("Post 1113\n*From the river frontier of the underworld, you shall rise.*");
 
 		e.addField("Alignment", "Unique Coven Evil", true);
 		e.addField("Attack", "None", true);
@@ -558,7 +558,7 @@ module.exports = (g) =>
 
 	register_role(["timekeeper", "1139", "350u"], "Unseen", "Timekeeper", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1139\nConverted from: Horologist");
+		e.setDescription("Post 1139\n*Warden of time. Life and death at every tick.*\nConverted from: Horologist");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
