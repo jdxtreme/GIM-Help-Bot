@@ -378,12 +378,12 @@ module.exports = (g) =>
 		e.setDescription("Post 1425");
 
 		e.addField("Alignment", "Underworld Offensive", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Bomb someone's house.");
+		e.addField("Abilities:", "- Gas bomb someone's house.");
 
-		e.addField("Attributes:", "- Bombing a house deals a Powerful attack to the victim and douses all visitors of the victim.");
+		e.addField("Attributes:", "- Bombing a house douses the victim and their visitors. The effects of their visitors' visits will fail.\n- Once per game, you may target an Underworld member. You will not douse them.");
 
 		e.addField("Goal:", factions.Underworld.goal);
 	});
@@ -454,9 +454,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose up to 4 targets, you will attack 2 of them randomly if you chose 4 targets, 1 if you chose 3 or less.");
+		e.addField("Abilities:", "- Choose 3 targets, You will Attack 1, Roleblock 1 and Blackmail 1 at random.");
 
-		e.addField("Attributes:", "- If chosen as the normal attacker, you will gain basic defense for the night if you attack someone with basic defense or higher.");
+		e.addField("Attributes:", "- Main ability only debuffs if chosen as the normal attacker.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -518,7 +518,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of the game, it's announced that *\"A ravenous rat is scurrying around the town. Keep your rations safe.\"* Each player is given five **Rations** other than you. When a player has no **Rations**, they cannot use their abilities. You're not affected by this. However, all players can give other players any amount of **Rations** as a night action.\n- A player's ability will still go through on the night a Ravenous Rat steals from them. Giving a player Rations will happen after the Ravenous Rat steals at night.\n- You have Basic defense for the first time you're attacked.");
 
-		e.addField("Goal:", "Live to see the town lose the game.");
+		e.addField("Goal:", "See the good faction lose the game.");
 	});
 
 	register_role(["undead_attention_seeker", "undeadattentionseeker", "attention", "uas", "1435"], "Neutral", "Undead Attention Seeker", {subCat: "Benign"}, (e) =>

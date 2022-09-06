@@ -1,5 +1,13 @@
 const HOME = "970041597590929519";
 
+function commaCheck(UTILS, t, s)
+{
+	if(t)
+		return UTILS.containsString(t.split(','), s);
+	else
+		return false;
+}
+
 function getPlayerByID(players, id)
 {
 	for(let i = 0; i < players.length; i++)
@@ -50,7 +58,7 @@ module.exports = (g) =>
 		i = i + 1;
 	}
 
-	register_cmd("add_player", "<Player ID> <#Player Channel> [Nickname(s)...]", "Add Player", "Add a player into the bot's local storage, enabling use with Whispers.", (chn, message, e, args) =>
+	register_cmd(["add_player", "addplayer"], "<Player ID> <#Player Channel> [Nickname(s)...]", "Add Player", "Add a player into the bot's local storage, enabling use with Whispers.", (chn, message, e, args) =>
 	{
 		if(!args[0] || !args[1])
 		{
@@ -88,6 +96,7 @@ module.exports = (g) =>
 			PLAYER_DATA[num] =
 			{
 				id: user.id,
+				num: num+1,
 				channel: player_channel.id,
 				nicknames: [],
 				alive: true,
@@ -103,7 +112,7 @@ module.exports = (g) =>
 		});
 	}, true);
 
-	register_cmd("view_players", "", "View Players", "Display the current data of registered players.\n\n**Warning, this can reveal meta info if used in public channels.**", (chn, message, e, args) =>
+	register_cmd(["view_players", "viewplayers", "players"], "", "View Players", "Display the current data of registered players.\n\n**Warning, this can reveal meta info if used in public channels.**", (chn, message, e, args) =>
 	{
 		if(PLAYER_DATA.length === 0)
 		{
@@ -184,6 +193,8 @@ module.exports = (g) =>
 
 	register_cmd("whisper", "<Player Name or Number> <Message>", "Whisper", "Whisper to a player of your choice. You may whisper them by their name or Player Number.\n\nThis command can only be used within your own player channel.", (chn, message, e, args) =>
 	{
+		const SENT = "+Sent!";
+
 		if(!args[0] || !args[1])
 		{
 			msg(chn, "-Usage: " + PRE + "whisper <Player Name or Number> <Message>");
@@ -214,6 +225,16 @@ module.exports = (g) =>
 			&& PLAYER_DATA[parseInt(args[0])-1]
 			|| getPlayerByName(PLAYER_DATA, args[0]);
 
+		let redirected = {};
+		if(recipient)
+			redirected[recipient.num] = true;
+
+		while(recipient && recipient.tags.redirect && !redirected[recipient.tags.redirect])
+		{
+			recipient = PLAYER_DATA[parseInt(recipient.tags.redirect)-1];
+			redirected[recipient.num] = true;
+		}
+
 		if(!recipient)
 		{
 			msg(chn, "-ERROR: Player \"" + args[0] + "\" is not valid.");
@@ -232,9 +253,21 @@ module.exports = (g) =>
 			return;
 		}
 
-		if(!is_day())
+		if(commaCheck(UTILS, sender.tags.block, recipient.num))
+		{
+			msg(chn, "-ERROR: You cannot whisper to that person.");
+			return;
+		}
+
+		if(!is_day() || sender.tags.mute)
 		{
 			msg(chn, "-ERROR: You cannot use whispers right now.");
+			return;
+		}
+
+		if(sender.tags.silent)
+		{
+			msg(chn, SENT);
 			return;
 		}
 
@@ -251,15 +284,52 @@ module.exports = (g) =>
 		for(let i = 2; i < args.length; i++)
 			whisper = whisper + ' ' + args[i];
 
-		msg(rchannel, "Whisper from " + firstname(sender) + ": " + whisper, true);
-		msg(chn, "+Sent!");
+		if(!recipient.tags.deaf)
+			msg(rchannel, "Whisper from " + firstname(sender) + ": " + whisper, true);
+		msg(chn, SENT);
+
+		if(sender.tags.announce || sender.tags.relay)
+		{
+			if(sender.tags.announce === sender.tags.relay)
+			{
+				let relay = message.guild.channels.cache.get(sender.tags.relay.substring(2, sender.tags.relay.length-1))
+
+				if(relay)
+					msg(relay, firstname(sender) + " whispered to " + firstname(recipient) + ": " + whisper, true);
+				else
+					msg(chn, "-ERROR: Invalid Relay Channel.");
+			}
+			else
+			{
+				if(sender.tags.announce)
+				{
+					let announce = message.guild.channels.cache.get(sender.tags.announce.substring(2, sender.tags.announce.length-1))
+
+				if(announce)
+					msg(announce, firstname(sender) + " whispered to " + firstname(recipient) + ".", true);
+				else
+					msg(chn, "-ERROR: Invalid Announce Channel.");
+				}
+				else
+				{
+					let relay = message.guild.channels.cache.get(sender.tags.relay.substring(2, sender.tags.relay.length-1))
+
+					if(relay)
+						msg(relay, "Someone whispered to someone: " + whisper, true);
+					else
+						msg(chn, "-ERROR: Invalid Announced Relay Channel.");
+				}
+			}
+		}
 
 		for(let i = 0; i < PLAYER_DATA.length; i++)
 		{
 			let plr = PLAYER_DATA[i];
 
-			if(plr.tags && plr !== sender && plr !== recipient && (plr.tags.overhear_all || 
-					(plr.tags.overhear_target === sender.id || plr.tags.overhear_target === recipient.id)))
+			if(plr.tags && plr !== sender && plr !== recipient && 
+					(plr.tags.overhear_all || 
+					commaCheck(UTILS, plr.tags.overhear_target, sender.num) || 
+					commaCheck(UTILS, plr.tags.overhear_target, recipient.num)))
 			{
 				let pchannel = message.guild.channels.cache.get(plr.channel);
 
@@ -268,40 +338,63 @@ module.exports = (g) =>
 		}
 	});
 
-	register_cmd("tag", "<Player Name or Number> <Key> [Value]", "Tag", "Give a player a Tag, a type of variable related to gameplay.\n\nTo check what a Tag currently is, use this command without providing a Value.\n\nTo remove a Tag, use this command with the Value set to \"-\" (without the quotes).\n\nCurrent tags:\n> overhear_all <true> (Tagged player overhears all whispers)\n> overhear_target <Player ID> (Tagged player overhears all whispers sent to and from the player with that ID)", (chn, message, e, args) =>
+	register_cmd("tag", "<Player Name or Number or *> <Key> [Value]", "Tag", "Give a player a Tag, a type of variable related to gameplay.\n\nUse * to set a tag for every single player instead.\n\nTo check what a Tag currently is, use this command without providing a Value.\n\nTo remove a Tag, use this command with the Value set to \"-\" (without the quotes).\n\nTo list usable tags, use the =tags command.", (chn, message, e, args) =>
 	{
 		if(!args[0] || !args[1])
 		{
-			msg(chn, "-Usage: " + PRE + "tag <Player Name or Number> <Key> [Value]");
+			msg(chn, "-Usage: " + PRE + "tag <Player Name or Number or *> <Key> [Value]");
 			return;
 		}
 
-		let player = UTILS.isInt(args[0])
-			&& PLAYER_DATA[parseInt(args[0])-1]
-			|| getPlayerByName(PLAYER_DATA, args[0]);
+		let players = (args[0] === "*" ? Object.keys(PLAYER_DATA) : [parseInt(args[0])-1]);
 
-		if(!player)
+		for(let i = 0; i < players.length; i++)
 		{
-			msg(chn, "-ERROR: Player \"" + args[0] + "\" is not valid.");
-			return;
-		}
+			let player = UTILS.isInt(players[i])
+				&& PLAYER_DATA[players[i]]
+				|| getPlayerByName(PLAYER_DATA, players[i]);
 
-		if(!player.tags)
-			player.tags = {};
+			if(!player)
+			{
+				msg(chn, "-ERROR: Player \"" + players[i] + "\" is not valid.");
+				continue;
+			}
 
-		if(args[2] === "-")
-		{
-			delete player.tags[args[1]];
-			msg(chn, "+Tag \"" + args[1] + "\" deleted.");
+			if(!player.tags)
+				player.tags = {};
+
+			if(args[2] === "-")
+			{
+				delete player.tags[args[1]];
+				msg(chn, "+Tag \"" + args[1] + "\" deleted.");
+			}
+			else if(args[2])
+			{
+				player.tags[args[1]] = args[2];
+				msg(chn, "+Tag \"" + args[1] + "\" set to \"" + args[2] + "\".");
+			}
+			else
+				msg(chn, "+Tag \"" + args[1] + "\" is currently set to \"" + (player.tags[args[1]] || "null") + "\".");
 		}
-		else if(args[2])
-		{
-			player.tags[args[1]] = args[2];
-			msg(chn, "+Tag \"" + args[1] + "\" set to \"" + args[2] + "\".");
-		}
-		else
-			msg(chn, "+Tag \"" + args[1] + "\" is currently set to \"" + (player.tags[args[1]] || "null") + "\".");
 
 		overwrite();
 	}, true);
+
+	register_cmd("tags", "", "Tags", "Provide a list of all known tags.", (chn, message, e, args) =>
+	{
+		e.setAuthor({name: "List of Tags"});
+		e.setDescription("Reminder: To remove a tag, or set it to False, use `=tag <player> <tag> -`");
+
+		e.addField("announce <#channel>", "Target's sent whispers will be announced to the provided channel, which only includes the sender and recipient, NOT the message itself.");
+		e.addField("block <PN1,PN2,PN3,etc...>", "Tagged player is blocked from sending whispers to the listed person or people, but may still recieve whispers from those players. Use only commas to separate Player Numbers if the target player is unable to whisper to multiple specific people, i.e. `5,8,12`.");
+		e.addField("deaf <true>", "Tagged player will not receive direct whispers, though overhearing is unaffected. Attempts to whisper to them will still appear to succeed.");
+		e.addField("mute <true>", "Tagged player will be unable to send whispers. They will be notified if they try.");
+		e.addField("overhear_all <true>", "Tagged player overhears all whispers");
+		e.addField("overhear_target <PN1,PN2,PN3,etc...>", "Tagged player overhears all whispers sent to and from the player(s) with each number. Use only commas to separate Player Numbers if the target player is unable to whisper to multiple specific people, i.e. `5,8,12`.");
+		e.addField("silent <true>", "Tagged player will be unable to send whispers. They will NOT know if they try; they will instead be sent a false confirmation message.");
+		e.addField("redirect <Player No.>", "Whispers sent to the tagged player will instead be sent to the player with that Number. Overhearing and announcements will reveal the true recipient of the whispers. To prevent loops, a whisper can never be redirected to someone that it was already redirected away from.");
+		e.addField("relay <#channel>", "Target's sent whispers will be relayed to the provided channel, which ONLY includes the full message, NOT the sender or recipient.");
+
+		chn.send({embeds: [e]});
+	});
 };

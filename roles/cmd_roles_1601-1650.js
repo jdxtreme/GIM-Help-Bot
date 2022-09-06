@@ -772,9 +772,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Heal someone, Giving them Basic defense.\n- Pacify a player, Reducing their attack to None and learning their original Attack value. (2 uses)");
+		e.addField("Abilities:", "- Heal someone, Giving them Basic defense.\n- Pacify a player, Reducing their attack to None for 3 nights including this one, You will learn their original Attack value. (2 uses)");
 
-		e.addField("Attributes:", "- You can only target yourself on N1.\n- Your Heal ability gets upgraded after repeated uses:\n• 2 uses - Upgraded to Powerful defense\n• 3 uses - Now gives Roleblock and Redirect immunity.\n• 4 uses - Can Heal a second target, but this Heal is basic and gives no immunity.\n• 5 uses - Second Heal also Gives Powerful defense and Roleblock + Redirect immunity.");
+		e.addField("Attributes:", "- Conversion Immunity.\n- You can only target yourself on N1.\n- Your Heal ability gets upgraded after repeated uses:\n• 2 uses - Upgraded to Powerful defense\n• 3 uses - Now gives Roleblock and Redirect immunity.\n• 4 uses - Can Heal a second target, but this Heal is basic and gives no immunity.\n• 5 uses - Second Heal also Gives Powerful defense and Roleblock + Redirect immunity.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

@@ -149,7 +149,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes (cont.)", "- During a real sleep experiment, each alive player will be assigned a pseudonym that they must talk through. A list of these pseudonyms will be provided upon day start. Players cannot send messages in the day chat - they must post any messages they wish to send in their private message and the host will relay them through their pseudonym. Any messages that attempt to reveal the identity of the speaker will be replaced a random message from the timestamp in the video posted at the start of the day (there is a highly liked comment from Charlotte Louche with all of the phrases in it). Players may still vote, whisper, and use day abilities, but they must refer to other players using their pseudonyms.\n- The pseudonyms assigned to each player will be different between the two days you decide to perform a real sleep experiment.\n- You have Basic defense until you are attacked for the first time.");
 		
-		e.addField("Goal:", "Live to see the good faction lose the game.");
+		e.addField("Goal:", "See the good faction lose the game.");
 	});
 
 	register_role(["referee", "561"], "Neutral", "Referee", {subCat: "Killing"}, (e) =>
@@ -313,7 +313,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Ensure that your Target is alive at the end of the game, regardless of whether or not you are alive.");
 	});
 
-	register_role(["werefox", "572"], "Were", "Hag", {subCat: "Support"}, (e) =>
+	register_role(["werefox", "572"], "Were", "WereFox", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 572");
 

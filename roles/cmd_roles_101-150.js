@@ -167,19 +167,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["killer_killer", "killerkiller", "kk", "112"], "Neutral", "Killer Killer", {subCat: "Chaos"}, (e) =>
+	register_role(["notice_me", "noticeme", "nm", "112"], "Neutral", "Notice Me", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 112");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "Unstoppable", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Check a player at night. If they've killed someone before, attack them.");
+		e.addField("Abilities:", "- Visit someone at night. They will be notified you visited them and nothing else.");
 
-		e.addField("Attributes:", "- On a night you're attacked, you will learn the names of all your visitors, but not their roles.");
+		e.addField("Attributes:", "- If someone says your full username or mentions you in a day chat, they will be dealt a Basic attack at the end of the following night.");
 
-		e.addField("Goal:", "Ensure the game ends with no living players having directly killed anyone, besides you yourself.");
+		e.addField("Goal:", "Have two people notice you by activating your attribute.");
 	});
 
 	register_role(["clown", "113"], "PaleMoon", "Clown", {subCat: "Protection"}, (e) =>

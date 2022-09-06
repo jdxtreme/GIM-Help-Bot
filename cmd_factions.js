@@ -134,7 +134,7 @@ module.exports = (g) =>
 	register_faction(["neutral", "neutrals"], "Neutral", {
 		display: "Neutrals",
 		color: "808080",
-		type: "n/a",
+		type: "neutral",
 		icon: "https://cdn.discordapp.com/emojis/980943261587865650.webp",
 		summary: "Neutrals fend for themselves, with a wide range of possible goals depending on each role. You can never truly be sure if you trust a neutral, although there are some you always know that you can never trust.",
 		goalNK: "Kill all who would oppose you."
@@ -483,6 +483,7 @@ module.exports = (g) =>
 		icon: "https://cdn.discordapp.com/emojis/1007310929278554173.webp",
 		summary: "ToS Serial Killer-themed Evil; Every role is a modified clone of ToS Serial Killer, or SK for short. It's led by the Serial Killer Leader, who has the potential to recruit a non-SK-faction SK, on the off chance that one happened to spawn that game.",
 		features: ["- 1524: Serial Killer Leader will always spawn if a non-Serial Killer role with \"SK\" in its name spawns alongside this faction.\n- All members have the following attributes:\n`- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their wills covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.`\n- Factional chat\n- No factional kill"],
+		attributes: "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their wills covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.",
 		goal: "Stab everyone who would oppose you in a very serial way."
 	});
 
@@ -538,5 +539,15 @@ module.exports = (g) =>
 		type: "neutral",
 		summary: "Animal-themed Neutral; Led by the Lion, who is capable of killing a member of a non-Neutral player to take their goal for itself and for all other Faunae members to inherit. In turn, the other members either offensively support the Faunae (Predators) or defensively support the Faunae (Prey). It will not become official until Lunari finishes the Band at the very least.",
 		goal: "Kill anyone who opposes the Faunae, or devour a player and complete their win condition."
+	});
+
+	register_faction(["gatherer", "gatherers", "mtg"], "Gatherer", {
+		display: "Gatherers",
+		color: "70A0B3",
+		type: "evil",
+		icon: "https://cdn.discordapp.com/emojis/1016403784714436658.webp",
+		summary: "MTG-themed Evil; Led by a Gatherer Commander, they spend nights to generate Mana of a specific color, which is then used to fuel various abilities. The other subalignments are named off of the color they can generate, though some may be able to use other colors for bonus abilities.",
+		features: ["- Exactly one Gatherer Commander will always spawn.\n- Factional chat\n- No factional kill unless no kill-capable Gatherers are alive. If it exists, it will cost (1) to use.\n- Only one member may use an attacking ability each night unless otherwise specified.\n- Members can generate Mana of one of five colors, which is shared between all members and can be spent by any of them to use abilities.\n- +1/+1 Counters are permanent items. Each second one will increase both your Attack and Defense by 1.", "- Most non-generating abilities require a certain number and color of Mana, following the below rules:\n**•** A color in parentheses will require a single mana of that given color, e.g. (Red)\n**•** Multiple of a color is expressed by repeating it, e.g. (Blue)(Blue)(Blue) mean 3 Blues.\n**•** A number in parentheses can be filled by Mana of any color. For example, (3) can be paid by (White)(Black)(Green)\n**•** All parentheses are to be treated separately. For instance, (Red)(1) means it costs specifically 1 Red on top of one Mana of any color."],
+		goal: "Reduce your opposition to 0 HP."
 	});
 };

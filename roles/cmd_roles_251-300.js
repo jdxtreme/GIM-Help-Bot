@@ -104,7 +104,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Kill a player every night.");
 
-		e.addField("Attributes:", "- You start in your New Moon Form, with Basic Attack and Defense.\n- The First Full Moon, you transform to Crescent Moon Form. You now deal Powerful Attack and have Powerful Defense.\n- The second Full Moon, enter your Half Moon Form. You will now rampage at your targets house.\n- The third Full Moon, you will gain access to your Hawk Ichibyoshi. You may now send It to deal a Basic Attack at another player every night.\n- The fourth Full Moon, gain Unstoppable Attack and Invincible Defense. Anyone that may survive your attack Is cursed and will be dealt an Overkill damage 2 days later.");
+		e.addField("Attributes:", "- You start in your New Moon Form, with Basic Attack and Defense.\n- The First Full Moon, you transform to Crescent Moon Form. You now deal Powerful Attack and have Powerful Defense.\n- The second Full Moon, enter your Half Moon Form. You will now rampage at your targets house, and gain access to your Hawk Ichibyoshi. You may send It to deal a Basic Attack at another player.\n- The third Full Moon, gain Unstoppable Attack and Invincible Defense. Anyone that may survive your attack Is cursed and will be dealt an Overkill damage 2 days later.");
 
 		e.addField("Goal:", "Kill everyone who may oppose you.");
 	});
@@ -392,7 +392,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["villainteamleader", "villain_team_leader", "vtllain", "277"], "Other", "Villain Team Leader", {subCat: "Support"}, (e) =>
+	register_role(["villainteamleader", "villain_team_leader", "villain", "vtl", "277"], "Other", "Villain Team Leader", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 277");
 
@@ -644,12 +644,12 @@ module.exports = (g) =>
 		e.setDescription("Post 294\n*This ain't a fairy tale.*");
 
 		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "None (Basic)", true);
+		e.addField("Attack", "None (Powerful)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- **(Necronomicon Required)** Choose a role in the game. Deal a Basic attack to the player with that role.");
+		e.addField("Abilities:", "- **(Necronomicon Required)** Choose a role in the game. Deal a Powerful attack to the player with that role.");
 
-		e.addField("Attributes:", "- At the start of the game, you will receive a list of all of the roles that are in the game. You will not know who has which role.\n- If possible, you will receive the Necronomicon last.");
+		e.addField("Attributes:", "- At the start of the game, you will receive a list of all of the roles that are in the game. You will not know who has which role.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});

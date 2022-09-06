@@ -132,6 +132,10 @@ for _, filename in ipairs(args) do
 					vg = false
 				end
 
+				if cat == "COA" and goal and goal:find("worship") then
+					vg = false
+				end
+
 				if cat == "Horsemen" and alignment and alignment:find("Horseman") then
 					va = false
 				end
@@ -150,6 +154,10 @@ for _, filename in ipairs(args) do
 
 				if cat == "COA" and alignment and alignment:find("Cult of Animals") then
 					va = false
+				end
+
+				if subCat == "Power" and alignment:find("AAAAAAAAAA") then
+					vs = false
 				end
 
 				if va or vg or vs or vab or vat then

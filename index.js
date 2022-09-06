@@ -2,7 +2,7 @@
 //Florae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=119288
 //Faunae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=119748
 
-const {Client, Intents, MessageEmbed} = require('discord.js');
+const {Client, Intents, MessageEmbed, MessageAttachment} = require('discord.js');
 const {readFile, writeFile} = require("fs");
 const UTILS = require("./utils.js");
 
@@ -275,7 +275,8 @@ const GLOBAL = {
 	is_day,
 	toggle_day,
 
-	MessageEmbed
+	MessageEmbed,
+	MessageAttachment
 };
 
 require("./cmd_factions.js")(GLOBAL);
@@ -284,12 +285,12 @@ require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
 require("./roles/cmd_roles_misc.js")(GLOBAL);
-for(let i = 50; i <= 1900; i+=50)
+for(let i = 50; i <= 2050; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
 console.log(roles.length);
 
-for(let i = 1; i <= 1850; i++)
+for(let i = 1; i <= 2008; i++)
 	if(!commands[i.toString()])
 		console.log("Missing: " + i);
 
@@ -328,40 +329,23 @@ bot.on("messageCreate", (message) =>
 			msg(channel, "-ERROR: Unknown command: " + PRE + cmd);
 	}
 
-	if(message.member.user.id === bot.user.id || Math.floor(Math.random() * 10000) !== 6666)
+	if(message.member.user.id === bot.user.id || UTILS.randInt(20000) !== 666)
 		return;
 
 	let egg = "null";
 
 	switch(message.guildId)
 	{
-		case "701906009651675208":
-			egg = "pingas";
-			break;
-
-		case "883874499139870721":
-			egg = "Hmm...";
-			break;
-
-		case "976956707118936064":
-			egg = "Who are you?";
-			break;
-
-		case "986855008840601613":
-			egg = "I see you...";
-			break;
-
-		case "1000084058698690630":
-			egg = "Mwah hah hah...!";
-			break;
-
-		case "1003685028837994578":
-			egg = "What are you talking about?";
-			break;
-
-		case "1013511586587103402":
-			egg = "Look behind you.";
-			break;
+		case "701906009651675208": egg = "pingas"; break;
+		case "910802299918626866": egg = "Hmm..."; break;
+		case "868350543859441754": egg = "Who are you people?!"; break;
+		case "986855008840601613": egg = "I see you..."; break;
+		case "1000084058698690630": egg = "Mwah hah hah...!"; break;
+		case "1003685028837994578": egg = "What are you talking about?"; break;
+		case "1013511586587103402": egg = "Look behind you."; break;
+		case "630529858920906764": egg = "Nice place you got here."; break;
+		case "775193835147755520": egg = "Ew."; break;
+		case "983960475446435910": egg = "Suspicious..."; break;
 	}
 
 	if(egg !== "null") msg(message.channel, egg, true);

@@ -43,23 +43,6 @@ function decToBits(bits, num)
 	}
 }
 
-function isInt(v)
-{
-	return parseInt(v, 10).toString() === v;
-}
-
-//[<min>, <max>] or [0, <max>)
-function randInt(min, max)
-{
-	if(!max)
-	{
-		max = min - 1;
-		min = 0;
-	}
-
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 const ABILITIES = [
 	"deal a Basic attack to them",
 	"learn their role",
@@ -95,7 +78,7 @@ const ATTRIBUTES_2 = [
 
 module.exports = (g) =>
 {
-	const {register_role, factions, msg} = g;
+	const {UTILS, register_role, factions, msg} = g;
 
 	register_role(["not_tos_pirate", "nottospirate", "pirate", "ntp", "3000"], "Neutral", "Not ToS Pirate", {subCat: "Killing"}, (e) =>
 	{
@@ -138,7 +121,7 @@ module.exports = (g) =>
 		{
 			let num = parseInt(args[0], 10);
 
-			if(!isInt(args[0]) || num < 10001 || num > 11024)
+			if(!UTILS.isInt(args[0]) || num < 10001 || num > 11024)
 			{
 				msg(chn, "-ERROR: The provided parameter must be a post number within 10001 and 11024.");
 				return true;
@@ -147,7 +130,7 @@ module.exports = (g) =>
 			decToBits(bits, num - 10001);
 		}
 		else
-			decToBits(bits, randInt(1024));
+			decToBits(bits, UTILS.randInt(1024));
 
 		let basename = bits[0] === 1 ? "ANDROI" : "NDROID";
 

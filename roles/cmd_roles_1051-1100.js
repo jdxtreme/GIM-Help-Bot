@@ -440,7 +440,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["archmage_of_sorrow", "archmageofsorrow", "archmage", "sorrow", "1079", "588u"], "Unseen", "Archmage of Sorrow", {subCat: "Support"}, (e) =>
+	register_role(["sad-itionist", "sad_itionist", "saditionist", "sad", "itionist", "1079", "588u"], "Unseen", "Sad-itionist", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1079\nConverted from: Cry-omancer");
 

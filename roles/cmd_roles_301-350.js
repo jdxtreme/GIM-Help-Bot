@@ -449,7 +449,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see the Town lose the game.");
 	});
 
-	register_role(["zero_kids_in_a_trenchcoat", "zerokidsinatrenchcoat", "zero_kids", "zerokids", "zkiat", "330"], "Town", "Zero Kids in a Trenchcoat", {subCat: "Support"}, (e) =>
+	register_role(["corpse_in_a_trenchcoat", "corpseinatrenchcoat", "corpse", "ciat", "330"], "Town", "Corpse in a Trenchcoat", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 330");
 
@@ -457,9 +457,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to spawn a child at night. If you do, you become a player. If you spawn a child when you already have a child, you become 2 players, and so on.");
+		e.addField("Abilities:", "- While dead, choose to deadn't. You become alive. You may only deadn't once.\n- While alive, choose to aliver. You become two players, or three players if you're already two, etc.");
 
-		e.addField("Attributes:", "- You're not a player. You can't be voted for, whispered to, targeted, etc., and you don't count towards majority or game-end conditions.");
+		e.addField("Attributes:", "- You're dead.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -679,12 +679,12 @@ module.exports = (g) =>
 		e.setDescription("Post 345");
 
 		e.addField("Alignment", "Unique Underworld Offensive", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Dump lava on a player's house at night.");
+		e.addField("Abilities:", "- Turn the ground around a player's house to magma, causing all players visiting them to scramble around.");
 
-		e.addField("Attributes:", "- You will attack one non-doused player who visits your target.\n- You may dump lava 3 times.\n- If the Apocalypse dies, you will become the Apocalypse.\n- Conversion Immune");
+		e.addField("Attributes:", "- Conversion and Redirect Immune\n- All players who visit your target will, at random, target another visitor with their ability.\n- If only one player visits your target, they will become doused.\n- If the Apocalypse dies, you will become the Apocalypse.");
 		
 		e.addField("Goal:", factions.Underworld.goal);
 	});
@@ -725,9 +725,9 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Underworld Support", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "None (Powerful)", true);
 
-		e.addField("Abilities:", "- Force a deal between you and a target at night. You pay them one of your attributes for one of their abilities.\n- If they have no abilities, they become doused.");
+		e.addField("Abilities:", "- Force a deal between you and a target at night. You pay them one of your attributes for one of their abilities. If they have no abilities, they become doused.");
 
 		e.addField("Attributes:", "- Roleblock immune.\n- Conversion immune.\n- The first time you're attacked, you will protect yourself with powerful defense.\n- You can use multiple abilities each night.\n- If there are no Underworld Offensive alive, and the Apocalypse is dead, you will become the Apocalypse. (yes you can sell this)");
 		

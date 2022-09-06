@@ -419,9 +419,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic (Powerful)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Shoot a pea at someone or produce a sun.");
+		e.addField("Abilities:", "- You may produce a sun. Costs 0 sun.\n- You may deal a basic attack to a player. Costs 1 sun.\n- You may deal a powerful attack to a player. Costs 2 sun.\n- You may upgrade to a Repeater, giving you 1 free basic. You may still use your normal sun-costing attacks. Costs 3 sun.\n- You may upgrade to a Gatling Pea, giving you 2 free powerful attacks. You may still use your normal sun-costing attacks. Costs 4 sun.");
 
-		e.addField("Attributes:", "- You may deal a basic attack to a player. Costs 1 sun.\n- You may deal a powerful attack to a player. Costs 2 sun.\n- You may upgrade to a Repeater, giving you 1 free basic. You may still use your normal sun-costing attacks. Costs 3 sun.\n- You may upgrade to a Gatling Pea, giving you 2 free powerful attacks. You may still use your normal sun-costing attacks. Costs 4 sun.");
+		e.addField("Attributes:", "You can upgrade to both a Repeater and a Gatling Pea.");
 		
 		e.addField("Goal:", factions.Plant.goal);
 	});

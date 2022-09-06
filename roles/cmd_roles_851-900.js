@@ -341,7 +341,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Protect a player {other than yourself} each night, granting them Powerful defense {but roleblocking them} if they're a member of the Town.\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
+		e.addField("Abilities:", "- Protect a player {other than yourself} each night, granting them Powerful defense {but roleblocking them} if they're a member of the Town. {If they're not a member of the Town, they'll be notified that an Amputator operated on them.}\n**Cleave** — During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

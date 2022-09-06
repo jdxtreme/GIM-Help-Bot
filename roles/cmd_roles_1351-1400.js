@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role, factions} = g;
 
-	register_role(["ummmmm", "ummmm", "ummm", "umm", "um", "1351"], "Town", "Ummmmm", {subCat: "Killing"}, (e) =>
+	register_role(["noodlemire", "noodle", "1351"], "Discordian", "Noodlemire", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1351");
 
@@ -10,11 +10,11 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Muse about a player at night. You'll make up your mind and commit to killing them at some point.\n- Rethink a player at night. You'll think about their good traits and decide not to kill them after all.\n- Act on your inner desires, attacking everyone who you've committed to killing.");
+		e.addField("Abilities:", "- Reprogram the whispers of a player tonight. During the next day, all whispers that they're sent will be sent to you instead. The whisperers won't be notified of this.\n- Intimidate a player with actually proper grammar. They're redirect to themselves tonight, though they won't be informed. If used in conjunction with Lunari's grammarlessness ability, the target is dealt a Powerful attack.\n- Scumread a player, finding their role.");
 
-		e.addField("Attributes:", "- If a player thinks about targeting you at night, but changes their target, you will be informed of their identity, and can choose whether or not to attack them tonight. This is in addition to your normal attack, and can happen multiple times.");
+		e.addField("Attributes:", "- You're have a great work ethic and can multitask very efficiently.\n- You're roleblock immune, as well as immune to other things that would slow down or stop you from using your abilities.\n- If this role spawns, all roles must use the exact rolecard the bot provides instead of the ones from the roles channel. This will mean any potential errors the bot has become canon.");
 		
-		e.addField("Goal:", "Lynch all criminals and evildoers except the \"evildoers\" is pronounced with 7 syllables.");
+		e.addField("Goal:", factions.Discordian.goal);
 	});
 
 	register_role(["_rokk", "rokk", "1352"], "Rock", "_Rokk", {subCat: "Support"}, (e) =>
@@ -533,9 +533,9 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- A player with an omen will be given a disadvantage for the rest of the game based on the omen they received.\n- You may not give the same player more than one omen nor the same omen to more than one player.\n- You have a one-use Invincible autovest that will protect you from all attacks on the first night you are attacked.");
 
-		e.addField("List of Omens:", "- **Anxiety**: Your defense is now Vulnerable.\n- **Attrition**: Every full day and night cycle, lose a charge of a random limited-use ability that you did not use.\n- **Blindfold**: You will no longer receive any night feedback apart from death messages (does not include ability feedback)\n- **Earache**: Once you receive 20 whispers after receiving this omen excluding whispers from the Foreboder, you will immediately be dealt an Unstoppable Astral attack.\n- **Eyepatch**: You have a 50% chance to target a random player when you use your ability.\n- **Fragile**: Your abilities have a 75% chance of failing. Lose this omen the first time it causes an ability to fail.\n- **Narcolepsy**: After using an ability, you must wait for another full day and night cycle to pass before using another ability.\n- **PR Team**: You may not send more than ten messages each day.\n- **Revenge**: When you visit a player, you will be dealt an Attack equal to their Attack value.");
+		e.addField("List of Omens:", "- **Anxiety**: Your defense is now Vulnerable.\n- **Attrition**: Every full day and night cycle, lose a charge of a random limited-use ability that you did not use.\n- **Blindfold**: You will no longer receive any night feedback apart from death messages (does not include ability feedback)\n- **Conceited**: Your defense will not be raised by protective abilities.\n- **Earache**: Once you receive 20 whispers after receiving this omen excluding whispers from the Foreboder, you will immediately be dealt an Unstoppable Astral attack.\n- **Eyepatch**: You have a 50% chance to target a random player when you use your ability.\n- **Fragile**: Your abilities have a 75% chance of failing. Lose this omen the first time it causes an ability to fail.\n- **Hit Marker**: If you visit someone who is attacked, all of their attackers will be redirected to you.\n- **Narcolepsy**: After using an ability, you must wait for another full day and night cycle to pass before using another ability.");
 
-		e.addField("List of Omens (cont.):", "- **Unruly**: If you do not perform your night ability, and you have a night ability, you will be poisoned.\n- **Wanted Poster**: You require one less vote to be lynched.\n- **Whistleblower**: All of your whispers will be shown publicly.");
+		e.addField("List of Omens (cont.):", "- **PR Team**: You may not send more than ten messages each day.\n- **Revenge**: When you visit a player, you will be dealt an Attack equal to their Attack value.\n- **Unruly**: If you do not perform your night ability, and you have a night ability, you will be poisoned.\n- **Wanted Poster**: You require two-thirds of the majority vote (rounded down) to be lynched.\n- **Whistleblower**: All of your whispers will be shown publicly.");
 
 		e.addField("Goal:", "Give out three omens that negatively impact the player receiving the omen.");
 	});
@@ -593,11 +593,11 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "\"Inverted\"", true);
 
-		e.addField("Abilities:", "- **Intercept** - Redirect all attacks against your target to yourself tonight.\n- **Zap** - Attack someone. The tier is equal to the amount of charges in your Lightning Tower (basic, powerful, unstoppable, overkill). You gain a charge for this every time you are attacked. 0 uses.\n- **Shell Shield** - Give yourself basic defense tonight. 1 use.");
+		e.addField("Abilities:", "- **Intercept** - Redirect all attacks against your target to yourself tonight.\n- **Zap** - Attack someone. The tier is equal to the amount of charges in your Lightning Tower (0 = basic, 1 = powerful, 2 = unstoppable, 3 = overkill).\n- **Shell Shield** - Give yourself basic defense tonight. 1 use.");
 
-		e.addField("Attributes:", "- **Snail Armor** - You have inverted defense. None and Weak attacks will kill you and Basic attacks will just injure you. If you're injured thrice, you will die. Anything more powerful than that will have no effect on you. Doesn't work against lynches.\n- **Lightning Tower** - Each night where you take a hit, this attribute will gain a charge, up to a maximum of 4. It cannot be filled by any other means.\n- This role is shamelessly plagiarized from Noodle. 👍");
+		e.addField("Attributes:", "- **Snail Armor** - You have inverted defense. None and Weak attacks will kill you and Basic attacks will just injure you. If you're injured thrice, you will die. Anything more powerful than that will have no effect on you. Doesn't work against lynches.\n- **Lightning Tower** - Each night where you take a hit, this attribute will gain a charge, up to a maximum of 3. It cannot be filled by any other means. When Zap is used, remove one charge.\n- Snails can multitask.\n- This role is shamelessly plagiarized from Noodle. 👍");
 
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["crewmate", "1391"], "Town", "Crewmate", {subCat: "Investigative"}, (e) =>

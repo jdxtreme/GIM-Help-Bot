@@ -387,7 +387,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- When a player is corrupted, all attempts to kill that player **will** succeed.\n- If your target is attacked, their Defense will drop to None, all attacks on the player will bypass any protective effects, all attacks on the player will be Astral, and any other actions needed to ensure that this player will die will be taken.\n- Your target will not be notified that they were corrupted unless your target dies the night they were corrupted.\n- You have Basic defense until you are attacked for the first time.");
 
-		e.addField("Goal:", "Live to see the Town lose the game.");
+		e.addField("Goal:", "See the good faction lose the game.");
 	});
 
 	register_role(["server_admin", "serveradmin", "227"], "Neutral", "Server Admin", {subCat: "Chaos"}, (e) => 

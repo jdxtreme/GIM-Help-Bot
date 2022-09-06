@@ -32,19 +32,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Save two players.");
 	});
 
-	register_role(["archduke_franz_ferdinand", "archdukefranzferdinand", "archduke", "franz", "ferdinand", "753"], "Neutral", "Archduke Franz Ferdinand", {subCat: "Benign"}, (e) =>
+	register_role(["ummmmm", "ummmm", "ummm", "umm", "um", "753"], "Town", "Ummmmm", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 753");
 
-		e.addField("Alignment", "Unique Neutral Benign", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Town Killing", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Hide behind your bodyguards, giving you Invincible Defense for that night. 4 Uses.");
+		e.addField("Abilities:", "- Muse about a player at night. You'll make up your mind and commit to killing them at some point.\n- Rethink a player at night. You'll think about their good traits and decide not to kill them after all.\n- Act on your inner desires, attacking everyone who you've committed to killing.");
 
-		e.addField("Attributes:", "- You are publicly revealed to be Archduke Franz Ferdinand at the start of the game.\n- Any kill-capable role must see you dead by the end of the game to win, along with their original goal. In the case of roles with factional kills, only the leader of that faction needs to kill you. However, the game will end if they have eliminated all opposing factions before you.\n- For flavor text intents and purposes, the game thematically takes place in Belgrade. Good luck.");
+		e.addField("Attributes:", "- If a player thinks about targeting you at night, but changes their target, you will be informed of their identity, and can choose whether or not to attack them tonight. This is in addition to your normal attack, and can happen multiple times.");
 		
-		e.addField("Goal:", "Survive until the end of the game.");
+		e.addField("Goal:", "Lynch all criminals and evildoers except the \"evildoers\" is pronounced with 7 syllables.");
 	});
 
 	register_role(["scp-173", "scp173", "peanut", "754"], "SCP", "SCP-173", {subCat: "Euclid"}, (e) =>
@@ -370,7 +370,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The night you gerrymander, you may distribute all alive players into any number of sects with the minimum number of sects being three. Every sect counts as one vote, and the player that the sect votes for is the player with majority of votes within the sect (if there is a tie, the player who achieved the most votes first will be voted for).\n- The voting sects will take effect the day after you establish them and will only last for that day.\n- You have Basic defense until the first time you are attacked.");
 		
-		e.addField("Goal:", "Live to see Town lose the game.");
+		e.addField("Goal:", "See the good faction lose the game.");
 	});
 
 	register_role(["foreigner", "776"], "Any", "Foreigner", (e) =>
@@ -435,7 +435,7 @@ module.exports = (g) =>
 
 	register_role(["undertale", "ut", "780"], "Neutral", "UNDERTALE", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 780");
+		e.setDescription("Post 780\n*I wouldn't come back... just... to... die....*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -443,7 +443,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Protect the fallen child tonight. They will gain Invincible defense for the night, and any negative effects will be purged (2 use).");
 
-		e.addField("Attributes:", "- The fallen child is [player]. They will be notified that they are the fallen child at the start of the game. Any whispers between you and the fallen child will be completely undetectable by any means. The fallen child is guaranteed to be a player that does not have defense nor has any method of granting themselves defense.\n- You cannot claim your role publicly. If you do, the Town will believe you are a monster and will deal an instant Unstoppable attack to you. If the Town suspects you are this role, this attribute is not triggered; however, it will be triggered if the fallen child points out that you are this role.");
+		e.addField("Attributes:", "- The fallen child is [player]. They will be notified that they are the fallen child at the start of the game. Any whispers between you and the fallen child will be completely undetectable by any means. The fallen child is guaranteed to be a player that does not have defense nor has any method of granting themselves defense.\n- You cannot claim your role publicly. If you do, the Town will believe you are a monster and will deal an instant Unstoppable attack to you. If the Town suspects you are this role, this attribute is not triggered; however, it will be triggered if the fallen child points out that you are this role. If your role is revealed publicly for any reason, this attribute is also triggered.");
 
 		e.addField("Attributes (cont.):", "- If the fallen child dies at any point, you will absorb their soul that night. The following day, you will attempt to place them in their final resting place at the golden flowers in their town. If you receive two votes at this point, you will instantly be dealt an Unstoppable attack. If you survive the day phase, you will successfully let the fallen child rest and will leave the town permanently.");
 		

@@ -77,6 +77,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
+	register_role(["disowned_ancestor", "disownedancestor", "disowned", "ancestor", "da", "806"], "Gatherer", "Disowned Ancestor", {subCat: "Black"}, (e) =>
+	{
+		e.setDescription("Post 806\n*Long after death, the spirits of the Disowned continue to seek redemption among their Abzan kin.*");
+
+		e.addField("Alignment", "Gatherer Black", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Powerful", true);
+
+		e.addField("Abilities:", "- Generate (Black) each night.\n- (Black): Choose a target, and redirect a random attacker against them to yourself.\n- (Black)(1): Place a +1/+1 counter on yourself.");
+
+		e.addField("Goal:", factions.Gatherer.goal);
+	});
+
 	register_role(["first_mate", "firstmate", "807"], "Crew", "The First Mate", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 807");
@@ -612,11 +625,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "Basic (Invincible)", true);
+		e.addField("Defense", "Basic (Overprotective)", true);
 
-		e.addField("Abilities:", "- Attack someone each night.\n- Make someone Vulnerable for the night.\n- Coldsnap");
+		e.addField("Abilities:", "- Attack someone, coldsnap, **Cleave** during the day");
 
-		e.addField("Attributes:", "- Roleblock immune, redirect immune, detection immune, conversion immune, rampage, Astral, highest priority, Invincible autovest, may multitask");
+		e.addField("Attributes:", "- Roleblock immune, redirect immune, detection immune, conversion immune, rampage, Astral, highest priority, Overprotective autovest, counts as good, may multitask");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});

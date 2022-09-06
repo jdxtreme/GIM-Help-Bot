@@ -94,19 +94,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Hallow.goal);
 	});
 
-	register_role(["minion", "1707"], "Underworld", "Minion", {subCat: "Offensive"}, (e) =>
+	register_role(["zhalfirin_knight", "zhalfirinknight", "zhalfirin", "knight", "zk", "1707"], "Gatherer", "Zhalfirin Knight", {subCat: "White"}, (e) =>
 	{
-		e.setDescription("Post 1707");
+		e.setDescription("Post 1707\n*“You returned a warrior… . Your hair was cut, your eye tattooed with the red triangle of war.”*\n*—\"Love Song of Night and Day\"*");
 
-		e.addField("Alignment", "Underworld Offensive", true);
-		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Gatherer White", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Summon hell at a target's house during the night, dealing a Powerful Rampage Attack. 2 uses.");
+		e.addField("Abilities:", "- Generate (White) each night.\n- (White): Attack a target each night. You may spend a second (White) to give yourself highest priority.");
 
-		e.addField("Attributes:", "- You will not attack Doused players or Underworld members. Anyone who survives your attack becomes Doused.");
-		
-		e.addField("Goal:", factions.Underworld.goal);
+		e.addField("Goal:", factions.Gatherer.goal);
 	});
 
 	register_role(["rotten_lunch", "rottenlunch", "rotten", "rl", "1708"], "Cult", "Rotten Lunch", {subCat: "Nutrition"}, (e) =>
@@ -580,11 +578,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Everfrost Support", true);
 		e.addField("Attack", "Unstoppable (Basic)", true);
-		e.addField("Defense", "None (Basic)", true);
+		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Prepare a cryogenic chamber for a player at night. Cryogenic chambers take one night to build.\n- Force a player into a cryogenic chamber at night. They will be unable to perform any of their functions, and they will be unable to show up during the day phase. Once a player has been visited by three other players after they have been frozen, they will become unfrozen and resume normal functions.\n**Pleistocene** — Deal an Unstoppable attack to the cryogenically frozen player, roleblock all of their visitors, then coldsnap.");
 
-		e.addField("Attributes:", "- Roleblock immune.\n- Only one person may be cryogenically frozen at any point in time. You may choose to unfreeze a cryogenically frozen at any point in time, and it will be available for use the next night.\n- Abilities targeting cryogenically frozen players will fail, but the visit will still process.");
+		e.addField("Attributes:", "- Roleblock immune.\n- Only one person may be cryogenically frozen at any point in time. You may choose to unfreeze a cryogenically frozen at any point in time, and it will be available for use the next night. This will reset the number of times the cryogenically frozen player is visited.\n- Abilities targeting cryogenically frozen players will fail, but the visit will still process.");
 		
 		e.addField("Goal:", factions.Everfrost.goal);
 	});

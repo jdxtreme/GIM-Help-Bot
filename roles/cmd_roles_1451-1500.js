@@ -817,7 +817,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "**Brick Break** - Attack your target, this ignores passive defense, Can only be used N1.");
+		e.addField("Abilities:", "**Brick Break** - Attack your target, this ignores passive defense, Can only be used N1.\n- Use an ability from any other role. (3 uses)");
 
 		e.addField("Attributes:", "- If you are lynched, you may choose (# of Alive players / 5, Rounded Up) players to deliver an Unstoppable attack to the following night.");
 

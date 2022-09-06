@@ -604,9 +604,9 @@ module.exports = (g) =>
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Choose to bootleg two players around the Town tonight.");
+        e.addField("Abilities:", "- Choose to bootleg two players around the Town tonight. Your targets will be notified that they were transported to another location.");
 
-        e.addField("Attributes:", "- Anyone targeting your first target will be redirected to the second and vice versa.\n- Roleblock Immune");
+        e.addField("Attributes:", "- Anyone targeting your first target will be redirected to the second and vice versa. Anyone whose ability you redirect will not be informed that they were redirected.\n- Roleblock Immune");
 
         e.addField("Goal:", factions.Mafia.goal);
     });
@@ -673,7 +673,7 @@ module.exports = (g) =>
 
     register_role(["protector", "740"], "Neutral", "Protector", {subCat: "Benign"}, (e) =>
     {
-        e.setDescription("Post 740\n*You've never to fear for your savior always stands near.*");
+        e.setDescription("Post 740\n*You have nothing to be afraid of.*");
 
         e.addField("Alignment", "Neutral Benign", true);
         e.addField("Attack", "None", true);

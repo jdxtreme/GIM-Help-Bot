@@ -550,7 +550,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Public information includes any system messages that would be produced due to any Town roles (e.g. Mayor reveal, pre-nerf Caroler carol, etc.). This does not include death announcements.\n- Your ability will not be publicly announced when you use it. If someone tries to whisper or use a day ability when you have disabled them, they will be privately notified that it was unsuccessful.\n- You may only use one of your abilities per night.\n- You have a one-use autovest that grants you Basic defense the first time you are attacked.");
 		
-		e.addField("Goal:", "Live to see Town lose the game.");
+		e.addField("Goal:", "See the good faction lose the game.");
 	});
 
 	register_role(["mastermind", "988"], "Unseen", "Mastermind", {subCat: "Head"}, (e) =>

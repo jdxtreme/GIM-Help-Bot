@@ -47,19 +47,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see your bounties die through any means necessary.");
 	});
 
-	register_role(["spider", "1104"], "Neutral", "Spider", {subCat: "Evil"}, (e) =>
+	register_role(["tatsus_creation", "tatsuscreation", "tatsus", "tatsu's_creation", "tatsu'screation", "tatsu's", "creation", "tc", "1104", "1059u"], "Unseen", "Tatsu's Creation", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1104");
+		e.setDescription("Post 1104\nConverted from: Experiment");
 
-		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None (Basic)", true);
+		e.addField("Alignment", "Unseen Killing", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Wrap someone in webs.");
+		e.addField("Abilities:", "- Attack (Night) - Attack someone at night.\n- Smth Else (Night) (1-use) - Attack an additional target tonight.");
 
-		e.addField("Attributes:", "- You have one-time Basic Defense\n- Anyone you wrap in webs will be unable to vote the next day, and will be unable to act the next night. Roleblock immune roles will still be roleblocked.\n- You will learn the role of anyone you wrap in webs.\n- Once per game, you may copy another role's powers, gaining their attack, defense (if it is higher than yours), abilities, and attributes. You will not take their win con.\n- You may use multiple different abilities per night. This overrides any attribute.");
+		e.addField("Attributes:", "- Roleblock Immunity\n- Control Immunity\n- You clean people who you kill, hiding their will and role. You do not get this information.");
 
-		e.addField("Goal:", "Have the good faction lose (this can win while dead).");
+		e.addField("Goal:", factions.Unseen.goal);
 	});
 
 	register_role(["clone", "1105"], "Any", "Clone", {anyExCat: ["Town", "Neutral"]}, (e) =>

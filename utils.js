@@ -7,7 +7,7 @@ UTILS.containsString = (t, s) =>
 		return false;
 
 	for(let i in t)
-		if(t[i].toLowerCase() === s.toLowerCase())
+		if(String(t[i]).toLowerCase() === String(s).toLowerCase())
 			return true;
 
 	return false;

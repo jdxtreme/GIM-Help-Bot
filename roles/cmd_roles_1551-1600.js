@@ -25,7 +25,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Roleblock a player each night.\n- Freeze a player each night, doubling the length that they're being roleblocked if they're being roleblocked.\n**Really Cold Ice Cream** — Roleblock a player, then coldsnap. (Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately.) You may only use this ability once each game.");
+		e.addField("Abilities:", "- Roleblock a player each night.\n- Freeze a player each night, doubling the length that they're being roleblocked if they're being roleblocked.\n**Really Cold Ice Cream** — Roleblock a player, then coldsnap. You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything except this attribute, they're roleblocked for an additional night afterwards as well.");
 		

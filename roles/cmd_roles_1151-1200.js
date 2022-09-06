@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role, factions} = g;
+	const {register_role, factions, NEUTRAL} = g;
 
 	register_role(["questioner", "1151", "374u"], "Unseen", "Questioner", {subCat: "Investigative"}, (e) =>
 	{
@@ -95,7 +95,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Random.goal);
 	});
 
-	register_role(["enigma", "1158"], "Any", "Enigma", {anyExCat: ["Neutral"]}, (e) =>
+	register_role(["enigma", "1158"], "Any", "Enigma", {anyExCat: NEUTRAL}, (e) =>
 	{
 		e.setDescription("Post 1158");
 
@@ -105,7 +105,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Use one of your 2 abilities.");
 
-		e.addField("Attributes:", "- You will be assigned a random faction. This faction can be good or bad.\n- You will be given an ability from 2 random roles. Once you use an ability, swap it for a new one.\n- Once per game you can reroll one or both abilities. They will be replaced with new abilities.");
+		e.addField("Attributes:", "- You will be assigned a random faction. This faction can be good or bad.\n- You will be given an ability from 2 random roles. Once you use an ability, swap it for a random one.\n- Once per game you can reroll one or both abilities. They will be replaced with new abilities.");
 
 		e.addField("Goal:", "Kill all who would oppose you and your faction.");
 	});
@@ -153,7 +153,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["desire", "1162"], "Neutral", "Wrath", {subCat: "Chaos"}, (e) =>
+	register_role(["desire", "1162"], "Neutral", "Desire", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 1162");
 

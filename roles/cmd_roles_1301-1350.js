@@ -107,7 +107,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see the Town lose.");
 	});
 
-	register_role(["ultimate_ritualist", "ultimateritualist", "ulrit", "ur", "ritualist", "1308"], "Neutral", "Ultimate Ritualist", {subCat: "Evil"}, (e) =>
+	register_role(["ultimate_ritualist", "ultimateritualist", "ultimate", "ritualist", "ur", "1308"], "Neutral", "Ultimate Ritualist", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 1308");
 
@@ -162,9 +162,9 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Each night, four of the following abilities are chosen at random, and you may use up to two.");
 
-		e.addField("Potential Abilities:", "- Randomise a player's night feedback.\n- Add a new player to the game named \"Guy\" with a random role.\n- Give a player Powerful And A Half Defense for the night.\n- Remove 25% of the words from a player's role's abilities and attributes at random.\n- Give a player a \"game x winner\" role of your choice.\n- Permanently swap two players' names.\n- Ask a player to face reveal to you. If they don't, they're dealt a Powerful attack.\n- Paripapparapappapparappa a player. (see 733)\n- Kill a player if their role has an ability that's functionally the same as one from ToS.\n- Delay a player's ability and cause it to resolve at a random time during the next day.\n- Reorder the player list as you wish.\n- Reorder the host queue as you wish.\n- Give yourself a Basic autovest in the next GIM game if that host complies.\n- Add a player to the end of your conga line. (see 630)\n- Add a player to the end of your conga line. (see 1594)\n- Open a resignation vote for the faction of your choice.");
+		e.addField("Potential Abilities:", "- Randomise a player's night feedback.\n- Add a new player to the game named \"Guy\" with a random role.\n- Remove 25% of the words from a player's role's abilities and attributes at random.\n- Give a player a \"game x winner\" role of your choice.\n- Permanently swap two players' names.\n- Ask a player to face reveal to you. If they don't, they're dealt a Powerful attack.\n- Paripapparapappapparappa a player. (see 733)\n- Kill a player if their role has an ability that's functionally the same as one from ToS.\n- Delay a player's ability and cause it to resolve at a random time during the next day.\n- Reorder the player list as you wish.\n- Reorder the host queue as you wish.\n- Give yourself a Basic autovest in the next GIM game if that host complies.\n- Add a player to the end of your conga line. (see 630)\n- Add a player to the end of your conga line. (see 1594)\n- Give yourself twice the number of abilities to choose from the next night.\n- Deal a None attack to a player.");
 
-		e.addField("Potential Abilities (cont.):", "- Give yourself twice the number of abilities to choose from the next night.\n- Deal a None attack to a player.\n- Use an ability from a Rasen role not in the roles thread (e.g. Murdercaster Mage, Futurist)\n- Remove from then return a player to the game, resetting all statuses/etc.\n- Disable all players' \"read message history\" permission for the next day chat. \n- Make a player \"Solved 2 by 4\".\n- Make a player permanently appear as 529: WereLion to all investigative effects.\n- Make a player immune to attacks that aren't the lowest tier needed to kill them tonight.\n- Use an ability of a role you rerolled this game.\n- If it's the weekend in your timezone, redirect someone. If not, roleblock them.\n- Roleblock someone. This ability rampages and rampages again.");
+		e.addField("Potential Abilities (cont.):", "- Use an ability from a Rasen role not in the roles thread (e.g. Murdercaster Mage, Futurist)\n- Remove from then return a player to the game, resetting all statuses/etc.\n- Disable all players' \"read message history\" permission for the next day chat.\n- Make a player \"Solved 2 by 4\".\n- Make a player permanently appear as 529: WereLion to all investigative effects.\n- Make a player immune to attacks that aren't the lowest tier needed to kill them tonight.\n- Use an ability of a role you rerolled this game.\n- If it's the weekend in your timezone, redirect someone. If not, roleblock them.\n- Roleblock someone. This ability rampages and rampages again.\n- Choose a player. Do everything that was done to them tonight in any previous game again.\n- **Twin Drive** a player.");
 		
 		e.addField("Goal:", "Live to see the Town lose to game.");
 	});
@@ -282,11 +282,11 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Each night, slither outside someone's house. They will be scared of you and walk back to their own house. In other words, they will be forced to visit themselves. They will know they were scared.\n- Bite a player. Their ability will cease to function for this night and the next two nights, but they will not be notified. You may only use this once.");
+		e.addField("Abilities:", "- Each night, slither outside someone's house. They will be scared of you and walk back to their own house. In other words, they will be forced to visit themselves. They will know they were scared.\n- Bite a player. Their ability will not function, unless they're an Investigative role, in which case they will receive framed results. (2 uses)");
 
 		e.addField("Attributes:", "- Slithering outside someone's house is astral, since you're keeping your distance and technically aren't coming inside.");
 		
-		e.addField("Goal:", "Live to see the Town lose the game.");
+		e.addField("Goal:", "See the good faction lose the game.");
 	});
 
 	register_role(["good_snake", "goodsnake", "snake", "1320"], "Town", "Good Snake", {subCat: "Support"}, (e) =>

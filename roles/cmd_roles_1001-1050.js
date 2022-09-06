@@ -646,7 +646,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- :InaNod:vestigate a player each night. The host will attempt to describe their role as best as possible using one emote, which can be any emote they have access too including ones from other servers if they have Nitro.");
 
-		e.addField("Attributes:", "- Actual role-specific emotes like the Umbrae ones cannot be used, and factional emotes cannot be used.");
+		e.addField("Attributes:", "- Actual role-specific emotes like the Umbrae ones cannot be used, and factional emotes cannot be used.\n- Emotes that could describe most or a significant amount of an evil faction, like ⚡ or 🐦 for Thundercry, cannot be used to describe roles from that faction.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

@@ -135,11 +135,11 @@ module.exports = (g) =>
 	register_cmd(["random_faction", "randomfaction", "rfaction", "faction"], "[Good|Evil|Neutral]", "Random Faction", "Generate a random Faction. You may specify if you want a Good, Evil, or Neutral faction.\n\nNote that this cannot generate the actual Neutral alignment.", (chn, message, e, args) =>
 	{
 		let spec = args[0];
+		let list = [];
 
 		if(spec)
 		{
 			spec = spec.toLowerCase();
-			let list = null;
 
 			switch(spec)
 			{
@@ -152,29 +152,31 @@ module.exports = (g) =>
 					break;
 
 				case "neutral":
-					list = NEUTRAL;
+					list = [];
+
+					for(let n = 0; n < NEUTRAL.length; n++)
+						if(NEUTRAL[n] !== "Neutral")
+							list[list.length] = NEUTRAL[n];
+
 					break;
 
 				default:
 					msg(chn, "-Unknown faction type: \"" + args[0] + "\"");
 					return;
 			}
-
-			let fac = UTILS.randElem(list);
-
-			factions[fac].func(chn, message, e, args);
 		}
 		else
 		{
-			let fac = null;
+			let facs = Object.keys(factions);
 
-			while(!fac || fac === "neutral")
-			{
-				fac = factions[UTILS.randElem(Object.keys(factions))];
-			}
-
-			fac.func(chn, message, e, args);
+			for(let n = 0; n < facs.length; n++)
+				if(facs[n] !== "Neutral")
+					list[list.length] = facs[n];
 		}
+
+		let fac = UTILS.randElem(list);
+
+		factions[fac].func(chn, message, e, args);
 	});
 
 	g.randomRole = (chn, message, e, args, nosend) =>

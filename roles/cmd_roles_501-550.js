@@ -653,7 +653,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- All of your abilities are astral.\n- You cannot be affected by your abilities. For example, if you're given a Bomb by the enemy, you will not attack yourself if you win. And if you're chosen as an ingredient and your dish loses, you will not be roleblocked.\n- You have a suit of metal that allows you to survive two Basic attacks before it breaks.");
 		
-		e.addField("Goal:", "Live to see the Town or good faction lose the game.");
+		e.addField("Goal:", "See the good faction lose the game.");
 	});
 
 	register_role(["500_kilogram_brain", "500kilogrambrain", "500kg", "543"], "Town", "500 Kilogram Brain", {subCat: "Killing"}, (e) =>

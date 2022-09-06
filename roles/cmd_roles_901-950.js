@@ -64,6 +64,21 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
+	register_role(["enlisted_wurm", "enlistedwurm", "enlisted", "wurm", "ew", "905"], "Gatherer", "Enlisted Wurm", {subCat: "Commander"}, (e) =>
+	{
+		e.setDescription("Post 905\n*A match for any army—even its own.*");
+
+		e.addField("Alignment", "Gatherer Commander", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Powerful", true);
+
+		e.addField("Abilities:", "- Generate (Green)(White) each night.\n- (Green) OR (White): Attack a target each night.");
+
+		e.addField("Attributes:", "- You will automatically generate (Green)(White) at the start of the game.");
+
+		e.addField("Goal:", factions.Gatherer.goal);
+	});
+
 	register_role(["copydog", "906"], "Town", "Copydog", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 906");

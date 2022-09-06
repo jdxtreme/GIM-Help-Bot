@@ -242,11 +242,11 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1817");
 
-		e.addField("Alignment", "Koopa King", true);
+		e.addField("Alignment", "Koopa King (Queen)", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Roleblock and Blackmail a player, Cannot be used on the same player twice in a row.\n- Roleblock 4 players, Attacking and Torching 2 of them at random, Can only be used on night 3, 6, 9 and so on.");
+		e.addField("Abilities:", "- Roleblock and Learn the role of a player, Using it on the same player will blackmail them additionally.\n- Roleblock 4 players, Attacking and Torching 2 of them at random, Can only be used on night 3, 6, 9 and so on.");
 
 		e.addField("Attributes:", "- Anyone visiting you will be Roleblocked on the next night if they aren't from your Faction.");
 		
@@ -433,7 +433,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Powerful", true);
 
-		e.addField("Abilities:", "- Attack a player tonight. Nothing more, nothing less.\n- Alter a player's soul, turning them into a completely different role. This role can be **anything** in GIM. This could be a double-edged sword, so beware.\n- Summon the gang of mafia on a player, permanently removing them from day chats and lynches.");
+		e.addField("Abilities:", "- Attack a player tonight. Nothing more, nothing less.\n- Alter a player's soul, turning them into a completely different role. This role can be **anything** in GIM. This could be a double-edged sword, so beware.\n- Summon the gang of mafia on a player, permanently removing them from day chats and lynches. ");
 
 		e.addField("Attributes:", "- You can use **any** of these abilities, but only one is available at night. Similar to Potion Master, you must wait two days before using them again.\n- Your action always succeeds, unless you're roleblocked.\n- Whenever you're attacked, you will summon your Mafia gang to seek revenge.");
 		
@@ -673,7 +673,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Use any ability from another Koopa role.\n- Permanently transform yourself into another Koopa role you have a charge of.");
+		e.addField("Abilities:", "- At night, Use any ability from another Koopa role.\n- Permanently transform yourself into another Koopa role you have a charge of.");
 
 		e.addField("Attributes:", "- You have 1 charge of every single Koopa role, Using an ability will cost a charge of that role.\n- You don't have charges of Koopa King roles.");
 		

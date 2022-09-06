@@ -72,7 +72,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Roleblock a player. If you successfully stopped an action with this ability, generate two sun.\n- Grant a non-plant roleblock immunity, generating two sun.\n- Grant an ally plant permanent roleblock immunity. Costs 1 sun.\n- Roleblock one player for every time you've successfully stopped an action and for every time you've negated a roleblock. Costs 2 sun. (One use)");
+		e.addField("Abilities:", "- Roleblock a player. If you successfully stopped an action with this ability, generate one sun. If you stopped an action targetting a Plants member, generate two instead.\n- Grant a non-plant permanent roleblock immunity, generating one sun.\n- Grant an ally plant permanent roleblock immunity. Costs 1 sun.\n- Roleblock one player for every time you've successfully stopped an action and for every time you've negated a roleblock. Costs 2 sun. (One use)");
 		
 		e.addField("Goal:", factions.Plant.goal);
 	});
@@ -336,7 +336,7 @@ module.exports = (g) =>
 
 	register_role(["wm_ghost", "wmghost", "ghost", "622"], "Town", "WM Ghost", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 622*I've come for your pickle.*");
+		e.setDescription("Post 622\n*I've come for your pickle.*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
@@ -475,7 +475,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- Call upon the divine cold each night, giving an Everfrost player Basic defense and making them Astral and redirect immune. Their ability that night will have the highest possible priority and, if it's a roleblock, will roleblock players through immunities and any other effects that would prevent it.\n**Winter's Judgment** — Roleblock up to one player, then coldsnap. (*Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately.*) You may only use this ability once each game.");
+		e.addField("Abilities:", "- Call upon the divine cold each night, giving an Everfrost player Basic defense and making them Astral and redirect immune. Their ability that night will have the highest possible priority and, if it's a roleblock, will roleblock players through immunities and any other effects that would prevent it.\n**Winter's Judgment** — Roleblock up to one player, then coldsnap. You may only use this ability once each game.");
 
 		e.addField("Attributes:", "- Whenever a player is roleblocked by anything while you're alive, they'll be notified that they're covered in frost. If they're not visited by at least two other non-Everfrost players the next night, they're dealt an Astral Basic attack by you at the end of that night. This effect cannot be prevented by anything. If you die, this will only apply to the Everfrost's factional roleblock.\n- You have a veil of ice that makes you appear to be a Town role of your choice to all investigative effects of any kind. You may change the role you appear as at any time.");
 
