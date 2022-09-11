@@ -57,6 +57,13 @@ UTILS.display = (value, level) =>
 	}
 }
 
+UTILS.getPlayerByID = (players, id) =>
+{
+	for(let i = 0; i < players.length; i++)
+		if(players[i].id === id)
+			return players[i]
+}
+
 UTILS.isInt = (v) =>
 {
 	if(typeof v !== "string")
@@ -71,6 +78,23 @@ UTILS.isNeg = (arg) =>
 		return false;
 
 	return arg.charAt(0) === "-" || arg.charAt(0) === "!";
+}
+
+UTILS.libSplit = (s, d1, d2) =>
+{
+	let splits1 = s.split(d1);
+	let lib = {};
+
+	if(splits1.length === 1 && splits1[0].search(d2) === -1)
+		return splits1[0].trim();
+
+	for(let i = 0; i < splits1.length; i++)
+	{
+		let splits2 = splits1[i].split(d2);
+		lib[String(splits2[0]).trim()] = (splits2[1] ? splits2[1].trim() : null);
+	}
+
+	return lib;
 }
 
 //<Object: {rate}>

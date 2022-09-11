@@ -183,7 +183,7 @@ module.exports = (g) =>
 			if(ordered[data.cat][subCat][data.id])
 				ordered[data.cat][subCat][data.id] = ordered[data.cat][subCat][data.id] + " " + PRE + cmd;
 			else
-				ordered[data.cat][subCat][data.id] = PRE + cmd;
+				ordered[data.cat][subCat][data.id] = (data.meta.admin_only ? "-" : " ") + PRE + cmd;
 		}
 
 		if(!atLeastOne)
@@ -202,7 +202,7 @@ module.exports = (g) =>
 					list = list + "\n\n" + cat;
 
 				for(let cmd in ordered[cat][sub])
-					list = list + "\n " + ordered[cat][sub][cmd];
+					list = list + "\n" + ordered[cat][sub][cmd];
 			}
 		}
 

@@ -570,7 +570,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Douse a player in gasoline.\n- Douse yourself to ignite all doused players.");
 
-		e.addField("Attributes:", "- You will douse anybody that visits you.\n- If you take no action, you will attempt to clean gasoline off yourself.\n- Players you douse will appear to be an Arsonist when investigated.");
+		e.addField("Attributes:", "- You will douse anybody that visits you, learning their name in the process.\n- If you take no action, you will attempt to clean gasoline off yourself.\n- Players you douse will appear to be an Arsonist when investigated, except for Sheriff-style suspicion checks.\n- Players will not know if they are Doused unless they are another Arsonist.");
 
 		e.addField("Goal:", "Live to see everyone burn...");
 	});

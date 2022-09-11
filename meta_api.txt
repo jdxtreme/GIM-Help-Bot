@@ -5,6 +5,10 @@
 	- "Any" roles will be excluded from spawning 90% of the time to avoid overshadowing roles of smaller categories.
 	- A user-specified category must still exist, or else "Any" roles won't spawn and an error message will be provided instead.
 
+admin_only: Boolean
+	- If true, the command can only be accessed by someone with administrative level permissions.
+	- This has a special behavior in Command Lists; Admin-only commands are shown in red, instead of the usual white.
+
 anyExCat: [Array<String>]
 	- Applied roles will not be able to roll in any listed category.
 	- Only for commands of the "Any" category.

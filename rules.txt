@@ -1,0 +1,114 @@
+0. The host has the liberty of interpreting what should happen in any ambiguous circumstances. You can ask that host would happen in a given situation, but they have the final say. Once a game has started, players can no longer add or edit roles or faction posts, and all mechanical decisions are up to the host.
+
+1. Anyone can submit any number of roles in #roles. Please number your role submissions. Roles whose post numbers aren't positive integers are considered jokes and don't count as roles.
+
+2. The following types of roles can't be rolled:
+- Roles with no abilities or attributes— not counting attack, defense, and factional effects— that can have a positive impact. This includes effects that could theoretically have a positive impact, but can't with the current rolelist.
+- Roles that can't win the game. This includes if they could win the game in a theoretical scenario but can't with current rolelist given.
+- Roles that can't not win the game. Same goes.
+- Role that target specific players in major ways.
+
+3. Roles that aren't in the game can't affect the game. Roles can't force themselves to spawn under certain circumstances (for example, if another role spawns), but they can force other roles to spawn.
+
+4. The game has the same basic framework as a Town of Salem game, except when otherwise specified. Exact mechanics from Town of Salem that are stupid may not be echoed. Exceptions:
+- Factional night chats may also be used during the day.
+- The town is not informed when players are whispering.
+- Solo evil faction players will have permanent basic defense, and solo Coven members will have the Necronomicon starting from Night 1, although the Town won't be informed of this.
+- There are no trials. Players are immediately lynched upon a majority vote.
+- There is a lynch on Day 1.
+- You may vote for yourself.
+
+5. All players get one free reroll each game. You can't reroll roles that you made, although you get a free reroll if you roll a role made by a host, spectator, or anyone else that's not in the game. Players may reroll an absolute maximum of 4 times.
+
+6. When rerolling, after all players have decided to reroll or keep, those players' rolelist slots are shuffled between them and then they get their new roles.
+
+7. Anything that kills, makes things die, or otherwise attacks is considered to be a Basic attack unless otherwise specified.
+
+8. Unless otherwise specified, roles are presumed to be able to use only one ability each night and each day.
+
+9. Unless otherwise specified, if your action is interfered with (you're roleblocked, redirected, etc.) you will learn the general reason for that.
+
+10. Town roles win with the Town unless otherwise specified, and etc. for all non-Neutral factions. Neutral Killing roles must eliminate all other factions unless otherwise specified.
+
+11. Roles have no defense or attack unless otherwise specified.
+
+12. Roles without specified alignments are presumed to be Neutral (Other).
+
+13. Roles are presumed to be able to target any living player, including themselves, with their abilities unless otherwise specified.
+
+14. Days and nights last 24 hours each. Days can end early if a majority vote for nightfall is reached; nights can end early if all night actions are sent in.
+
+15. #factions provides mechanical explanations and information for all factions.
+
+16. Effects that copy or generate abilities from outside the game (i.e. 393 Copycat, 1255 Random), are unable to use the following types of abilities unless those effects specifically state otherwise:
+- Abilities that would kill 3 or more players at a time.
+- Abilities that could copy other abilities.
+- Abilities that could convert the user to a different faction, including those that could convert any player including the user.
+- Abilities that could convert 2 or more players at a time in any capacity.
+- Abilities that could end the game immediately from nearly any state.
+- Abilities that would immediately lead to the user's victory with little to no effort from nearly any state.
+- Abilities that severely change the way the game functions, its rules, its roles, or otherwise produce an excessively drastic effect. Up to host discretion.
+- Anything else that the host deems could ruin the game based on its current state.
+- Haha Suffer (856)
+*These also apply to attributes.
+
+17. The host has the right to force reroll certain roles if theyre unbalanced or would ruin the game or are otherwise fucking stupid.
+
+18. There is not and will never be a limit to the amount of roles that can be made. This is literally not up for debate. If you are unhappy with the fact that your roles have quite a high chance of never being rolled, or with the fact that there are too many roles in the thread, you are free to simply stop making roles. This is Grand Idea Mafia. It's chaotic, it's stupid, and it's based on a mutual understanding that it will be chaotic and stupid. We aren't going to arbitrarily limit that.
+
+19. Basic human decency still applies here. Don't be an asshole, don't cheat, don't gamethrow (although you may play in a way that is counterproductive to your current goal if you believe that goal would change. Also not face revealing to Cryptid's one ability and stuff definitely doesn't count as gamethrowing lmao). Please try your best to not get overly riled up over a Discord game.
+
+20. A bunch of specifications no one really needs at all:
+- Effects that would ban/kick a player from the game/server don't do so and instead just give them a bright red "BANNED" role and remove them from the game.
+- Players who are removed from the game can still win with their factions.
+- "Roles in the game" refers to only roles that rolled in that particular game, "roles that exist" refers to all roles in the thread.
+- A "control" is a direct redirection e.g. 275: Manipulator. Roles with "control immunity" are immune to only these redirections, and not ones like 579: Bartender's.
+- Announcements to "the Town" refer to just all players unless otherwise specified.
+- factions rules override role rules.
+
+do not blame or go after or mock other people for their roles make you have a bad experience please
+a little is fine but keep it lighthearted
+people cant predict exactly how strong their shits gonna be as theyre making it
+we are not professional game designers we are internet weirdos in our rooms
+you, yes you, have probably made a really fucking stupid role at some point or another, even if it hasn't actively ruined a game
+its not your fault for not predicting exactly how much impact this ability or that attribute would have when realistically applied
+we are all here to like do stupid bullshit and have fun so like maybe do not go around being all negative we don't need that here
+you're allowed to ridicule me tho im into it
+
+1074 ritualist isnt allowed to roll anymore im sick of it
+no im not editing the role this is an official rule fuck you
+
+A scroll is a free reroll, even if it's your own role
+
+20.5 The following "keywords" are hereby immortalised as rules:
+- Rampage: Does something to the target and all other players that visit or would visit that target.
+- Autovest: Has a layer of X defense that can protect it from one attack. If a player with an autovest would be attacked multiple times at once, the autovest will block a random one of the attacks among the strongest ones that it can block.
+- Overkill attack: One stage higher than Unstoppable.
+- Overprotective defense: One stage higher than Invincible.
+- Modkill: Bypasses all defense except those that specifically defend against it and things like death immunity (which is not technically a defense).
+- Vulnerable defense: You die to all attacks, and you die if you're visited by two or more other players in one night. Below "None" tier-wise.
+- Multitasking/may multitask: You may use any number of abilities each night.
+- "Counts as good": Substitutable for the Town, good factions, or uninformed majorities for most purposes
+- Espionage: (Evil Faction) Espionage players don't have access to the factional kill/similar or chat and don't know who the other members of their faction are. The other members know the roles of Espionage members that exist, but not players' names.
+- Coldsnap: Coldsnapping causes all roleblocked players to be dealt an Astral Basic attack immediately.
+- Cleave: "During the day, cut down your limits. The next night, you may use your abilities twice and they act as if they didn't have the text in braces. You may only use this ability once." Braces are {}.
+
+priority list, i do not care about ToS numbers this is just the order things resolve
+-1. Abilities that resolve at the beginning of night (e.g. Jailor)
+0. Abilities that are "highest possible priority"
+1. Redirects that bypass immunities
+2. Redirect immune abilities, abilities that grant redirect immunity
+3. Indirect redirecting abilities (e.g. Transporter)
+4. Direct redirecting abilities (e.g. Witch)
+5. Roleblocks that bypass immunities.
+6. Other roleblock immune abilities, abilities that grant roleblock immunity
+7. Indirect roleblocks
+8. Direct roleblocks
+9. Abilities that interact with "normal" abilities (e.g. Framer)
+10. Most other abilities
+11. Attacks
+12. Conversions
+13. Abilities that are "lowest possible priority"
+
+hi you can make posts that have numbers which are not in order but please do not give them numbers that would reasonably actually be reached because thatll be annoying and mess us up down the line
+anything above like 10,000 is fine lmfao i fucking hope we never get there

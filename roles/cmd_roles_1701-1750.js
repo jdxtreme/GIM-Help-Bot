@@ -64,7 +64,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Crew.goal);
 	});
 
-	register_role(["hypothermia", "hypo", "1705"], "Everfrost", "Parrot", {subCat: "Support"}, (e) =>
+	register_role(["hypothermia", "hypo", "1705"], "Everfrost", "Hypothermia", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1705");
 

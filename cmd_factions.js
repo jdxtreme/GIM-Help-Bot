@@ -339,7 +339,7 @@ module.exports = (g) =>
 	register_faction("unseen", "Unseen", {
 		color: "620035",
 		type: "evil",
-		icon: "https://cdn.discordapp.com/emojis/982379114335989831.webp",
+		icon: "https://cdn.discordapp.com/emojis/1017324343233085462.webp",
 		summary: "Throne of Lies Evil; Led by the Assassin who is technically supposed to be the only one who can reliably kill, and the Mastermind who can convert a Good member into a role-specific Unseen role. Yes, there is to be an Unseen counterpart of every single Good role. Deal with it.",
 		features: "- 988: Mastermind and 989: Assassin will always spawn.\n- Factional chat\n- No factional kill\n- Town members converted to the Unseen become Unseen roles based on their original role.\n- Only one Unseen Power can be alive at a time - if you attempt to convert another Town Power role, it will fail.\n- If the Mastermind dies, the Assassin becomes the Mastermind.\n- If the Assassin dies or becomes the Mastermind, the newest Unseen member will become an Assassin.\n- Only the starting Assassin can become the Mastermind; if the second Mastermind dies, they will not be replaced.",
 		goal: "Eliminate those you wish to not convert, or those who will not join you."
@@ -374,7 +374,7 @@ module.exports = (g) =>
 		goal: "Eliminate everyone who cannot be subverted by the Agents."
 	});
 
-	register_faction(["random", "randoms"], "Random", {
+	register_faction(["=random", "=randoms", "randoms"], "Random", {
 		color: "random",
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/994284946225115176.webp",
@@ -472,7 +472,7 @@ module.exports = (g) =>
 	register_faction(["florae", "flora"], "Florae", {
 		color: "81B17A",
 		type: "good",
-		summary: "Flower-themed Good; A direct counterpart to ToS Town, lead by a random Florae Power. Pretty much anything goes as long as the role is named after a flower.",
+		summary: "Flower-themed Good; A direct counterpart to ToS Town, but with no guaranteed leader. For now, you can ignore the note below about Florae Power roles, as non exist. Other than that, pretty much anything goes as long as the role is named after a flower.",
 		features: ["- Only one Florae Power may spawn.\n- No factional chat\n- No factional kill\n- Counts as \"good\""],
 		goal: "Exterminate all who would harm your tribe."
 	});
@@ -491,7 +491,8 @@ module.exports = (g) =>
 		color: "E8D578",
 		type: "good",
 		icon: "https://cdn.discordapp.com/emojis/1013454909099749468.webp",
-		summary: "Military-themed Good; Led by the Marshal, not much more is currently known about this faction. It appears to not be complete yet.",
+		summary: "Military-themed Good; Led by the Marshal, who is distinctly vital for the faction's victory. Fortunately for you, it has strong defenses, and a Mayor-style reveal ability. It's common for other Army roles to gain an extra use for one or two abilities upon the reveal of the Marshal, but it's not guaranteed.",
+		features: "- 1536: Marshal and at least one Army Protector will always spawn.\n- No factional chat\n- No factional kill\n- Counts as \"good\"\n- If the Marshal dies, the Army has three days to win. After that, if the Army would win, the game is declared a draw instead.",
 		goal: "Eliminate all who would not follow martial law."
 	});
 
@@ -506,7 +507,7 @@ module.exports = (g) =>
 	register_faction("band", "Band", {
 		color: "FCBA03",
 		type: "evil",
-		summary: "Instrument-themed Evil; Every role has a normal ability, a Rehearsal ability, and a Concert ability, with at least one of those typically being some form of attack. The Concert is an event scheduled at a day so late, it is nigh-impossible to reach if more than 2 members spawn, and unlocks all Concert abilities once reached. To reach it, any member may use their Rehearsal ability, which makes the concert happen 1 day earlier, but warns every player of their rehearsal within a set radius. However, it is currently unfinished, and most roles are clearly too strong.",
+		summary: "Instrument-themed Evil; Every role has a normal ability, a Rehearsal ability, and a Concert ability, with at least one of those typically being some form of attack. The Concert is an event scheduled at a day so late, it is nigh-impossible to reach if more than 2 members spawn, and unlocks all Concert abilities once reached. To reach it, any member may use their Rehearsal ability, which makes the concert happen 1 day earlier, but warns every player of their rehearsal within a set radius. Be warned, some roles have some pretty strong attacks that they can freely use any night.",
 		features: "- Factional chat\n- No factional kill\n- The Band's Concert begins on day X and is announced to the Town. X is 4 if there's only one living member, 5 if there's two, 8 if there's three, 10 if there's four, and 12 if there's five or more.\n- Once the Concert begins, all non-Band players will be roleblocked through immunity the following night, there is no lynch that day, the Band may anonymously lynch a player if all members unanimously agree, and for the rest of the game, all Band members gain Basic defense and their abilities are enhanced.\n- If the Concert hasn't started and its starting day would be reduced to a day that's already past, it starts the next available day instead.\n- Rehearsing makes the Concert start one day earlier, but notifies half of the other players at random within the rehearser's rehearsal radius of them on the player list that someone was rehearsing near them.",
 		goal: "Ensure the removal of those who will not listen to your music."
 	});

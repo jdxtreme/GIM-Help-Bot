@@ -552,7 +552,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Band.goal);
 	});
 
-	register_role(["snare_drum", "snaredrum", "bd", "snare", "drum", "1635"], "Band", "Snare Drum", {subCat: "Percussion"}, (e) =>
+	register_role(["snare_drum", "snaredrum", "snare", "drum", "sd", "1635"], "Band", "Snare Drum", {subCat: "Percussion"}, (e) =>
 	{
 		e.setDescription("Post 1635");
 

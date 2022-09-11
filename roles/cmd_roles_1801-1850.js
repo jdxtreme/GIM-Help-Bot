@@ -122,7 +122,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["bounty_hunter", "bountyhunter", "bounty", "hunter", "bh", "1809"], "Neutral", "Auditor", {subCat: "Chaos"}, (e) =>
+	register_role(["bounty_hunter", "bountyhunter", "bounty", "hunter", "bh", "1809"], "Neutral", "Bounty Hunter", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 1809");
 

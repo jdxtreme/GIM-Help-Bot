@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role, factions} = g;
+	const {register_role, factions, EVIL} = g;
 
 	register_role(["unholy_knight", "unholyknight", "unholy", "1101", "57u"], "Unseen", "Unholy Knight", {subCat: "Protective"}, (e) =>
 	{
@@ -137,7 +137,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["deluxe", "del", "1110"], "Any", "Deluxe", {subCat: "Killing", anyExCat: ["Town", "City", "Sentry", "Army", "Neutral"]}, (e) =>
+	register_role(["deluxe", "del", "1110"], "Any", "Deluxe", {subCat: "Killing", spawnCat: EVIL}, (e) =>
 	{
 		e.setDescription("Post 1110");
 

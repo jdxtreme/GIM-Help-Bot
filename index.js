@@ -14,21 +14,22 @@ const menus = {};
 const commands = {};
 const conflicts = {};
 const roles = [];
+const relay = [];
 
-const PLAYER_DATA = [];
+const SERVER_DATA = {};
 
-var day = false;
-function toggle_day()
+function toggle_day(id)
 {
-	day = !day;
+	SERVER_DATA[id].day = !SERVER_DATA[id].day;
 }
 
-function is_day()
+function is_day(id)
 {
-	return day;
+	return SERVER_DATA[id].day;
 }
 
 const FNAME = ".store.json";
+const FNAME2 = ".backup.json";
 var TOKEN;
 readFile(FNAME, (err, data) =>
 {
@@ -41,19 +42,31 @@ readFile(FNAME, (err, data) =>
 	else
 		throw "Error: No TOKEN provided.";
 
-	if(store.day != null)
-		day = store.day;
+	if(store.SERVER_DATA)
+		for(let id in store.SERVER_DATA)
+			SERVER_DATA[id] = store.SERVER_DATA[id];
 
-	if(store.PLAYER_DATA)
-		for(let i = 0; i < store.PLAYER_DATA.length; i++)
-			PLAYER_DATA[i] = store.PLAYER_DATA[i];
+	if(store.relay)
+		for(let i = 0; i < store.relay.length; i++)
+			relay[i] = store.relay[i];
+
+	writeFile(FNAME2, data, (err) =>
+	{
+		if(err) throw err;
+	});
 
 	login();
 })
 
 function overwrite(chn)
 {
-	let json = JSON.stringify({TOKEN, day, PLAYER_DATA});
+	let json = JSON.stringify({TOKEN, SERVER_DATA, relay});
+
+	writeFile(FNAME, "", (err) =>
+	{
+		if(err) throw err;
+		if(chn) msg(chn, "+Data cleared successfully.");
+	});
 
 	writeFile(FNAME, json, (err) =>
 	{
@@ -259,6 +272,42 @@ function register_role(name, cat, desc, meta, func)
 	roles[roles.length] = {cmd, rate: cmd.meta.spawnRate || 1};
 }
 
+function getMentions(text)
+{
+	let matched;
+	let matchlist = [];
+	let mentions = [];
+	let regex = /<@/g;
+
+	while(matched = regex.exec(text))
+		matchlist[matchlist.length] = matched.index;
+
+	for(let i = 0; i < matchlist.length; i++)
+	{
+		let end;
+		let n;
+
+		for(n = matchlist[i]+2; n < text.length; n++)
+		{
+			let c = text.charAt(n);
+
+			if(c === '>')
+			{
+				end = n;
+				mentions[mentions.length] = text.substring(matchlist[i], end+1);
+				break;
+			}
+			else if(!UTILS.isInt(c) && !(n === matchlist[i]+2 && c === "&"))
+				break;
+		}
+
+		if(!end && n == text.length)
+			break;
+	}
+
+	return mentions;
+}
+
 const GLOBAL = {
 	PRE,
 	UTILS,
@@ -271,9 +320,10 @@ const GLOBAL = {
 	register_role,
 	overwrite,
 
-	PLAYER_DATA,
+	SERVER_DATA,
 	is_day,
 	toggle_day,
+	relay,
 
 	MessageEmbed,
 	MessageAttachment
@@ -315,6 +365,81 @@ bot.on("ready", () =>
 
 bot.on("messageCreate", (message) =>
 {
+	for(let i = 0; i < relay.length; i++)
+	{
+		let ch1 = message.guild.channels.cache.get(relay[i].inp);
+
+		if(ch1 && ch1.id === message.channel.id)
+		{
+			let ch2 = message.guild.channels.cache.get(relay[i].out);
+
+			if(ch2 && (message.embeds.length === 0 || !message.embeds[0].timestamp))
+			{
+				let addedText = "";
+				let output = new MessageEmbed();
+				let sender = UTILS.getPlayerByID(SERVER_DATA[message.guild.id].players, message.author.id);
+
+				if(sender && sender.tags.relay_nick)
+				{
+					let nicklib = UTILS.libSplit(sender.tags.relay_nick, ",", ":");
+
+					if(typeof nicklib === "string")
+						output.setAuthor({name: sender.tags.relay_nick});
+					else if(nicklib[message.channel.id])
+						output.setAuthor({name: nicklib[message.channel.id]});
+
+					if(!output.author)
+						for(let nick in nicklib)
+							if(!nicklib[nick])
+								output.setAuthor({name: nick});
+				}
+
+				if(!output.author)
+				{
+					output.setAuthor({name: message.member.displayName, iconURL: message.author.avatarURL()});
+					output.setColor(message.member.displayHexColor);
+				}
+
+				output.setTimestamp();
+				output.setDescription(message.content);
+
+				if(output.description)
+				{
+					let mentions = getMentions(output.description);
+
+					for(let n = 0; n < mentions.length; n++)
+						addedText = addedText + " " + mentions[n];
+				}
+
+				for(const [k, s] of message.stickers)
+				{
+					if(!output.image)
+						output.setImage(s.url);
+					else
+						output.addField(s.name, s.url);
+				}
+
+				for(const [k, a] of message.attachments)
+				{
+					let title = a.contentType;
+					if(!title) title = "Attachment";
+
+					if(!output.image && title.substring(0, 5) === "image")
+						output.setImage(a.url);
+					else
+						output.addField("Attached: " + title, a.url);
+				}
+
+				let embeds = [output];
+
+				for(let n = 0; n < message.embeds.length; n++)
+					embeds[embeds.length] = message.embeds[n];
+
+				ch2.send({content: (addedText.length > 0 ? addedText : null), embeds});
+			}
+		}
+	}
+
 	if(message.content.substring(0, PRE.length) === PRE)
 	{
 		let channel = message.channel;
@@ -324,7 +449,12 @@ bot.on("messageCreate", (message) =>
 		args = args.splice(1);
 
 		if(commands[cmd])
-			commands[cmd].func(channel, message, embed, args);
+		{
+			if(!commands[cmd].meta.admin_only || message.member.permissions.has("ADMINISTRATOR"))
+				commands[cmd].func(channel, message, embed, args);
+			else
+				msg(channel, "-You do not have elevated permissions for this bot.");
+		}
 		else
 			msg(channel, "-ERROR: Unknown command: " + PRE + cmd);
 	}
@@ -334,7 +464,7 @@ bot.on("messageCreate", (message) =>
 
 	let egg = "null";
 
-	switch(message.guildId)
+	switch(message.guild.id)
 	{
 		case "701906009651675208": egg = "pingas"; break;
 		case "910802299918626866": egg = "Hmm..."; break;

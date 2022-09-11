@@ -324,7 +324,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Unstoppable", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Basic", true);
 
 		e.addField("Abilities:", "- Each night, choose a player that will be publicly announced at the beginning of the next day. If they are still alive in two days and nights, you will gain the ability to, along with your regular action, deal an Unstoppable Attack to someone per night. This can stack.");
 
