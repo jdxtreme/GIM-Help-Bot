@@ -28,3 +28,9 @@ https://discord.js.org/
 Lastly, put your bot account's TOKEN into the file "example.store.json" and then rename it to ".store.json"
 
 From there, you should be able to run the bot using the Terminal prompt command: "./server.sh" as long as it's situated within the root of the bot's code. You want that file in particular, as it can automatically restart the bot in case anything ever goes wrong, as long as your machine itself is still running.
+
+-------------------------------------------------------------------------------------------------------------
+GIM Server Invite
+-------------------------------------------------------------------------------------------------------------
+
+https://discord.gg/PBxvBA2RpT
