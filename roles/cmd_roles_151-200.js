@@ -85,7 +85,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may urticate a player at night, stinging anyone that visits them.");
+		e.addField("Abilities:", "- You may urticate a player at night, stinging anyone that visits them. Stung players will be notified that they will die the next night unless they are protected.");
 
 		e.addField("Attributes:", "- Stings take one day to take effect.\n- Stings can be removed by protections that grant Powerful defense.\n- You may not urticate the same player twice.\n- You may urticate three times.\n- You cannot be roleblocked or controlled.\n- You will not attack your target.\n- Your attack dealt to visitors is indirect.\n- You will know how many people you sting.\n- Both stages of a sting will go through Basic defense.\n- Stings can be removed by the Doctor, Potion Master, Guardian Angel, Calendula, Lily, and Nightshade. They cannot be removed by the Bodyguard, Crusader, Trapper, Lavender, Mint, or Rosemary.");
 

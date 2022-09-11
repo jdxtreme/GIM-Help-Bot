@@ -253,9 +253,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "Cinderella Story — Whenever you fail to kill someone, unlock the next set of bracketed text in your Glass Slipper ability.");
+		e.addField("Abilities:", "Glass Slipper — Attack someone each night. [This attack can't be blocked, redirected, or otherwise prevented by any means whatsoever.] [This attack is Unstoppable and Astral.] [You'll also deal an Unstoppable attack to all their visitors and gain Invincible defense.] [You die.]\nShimmering Determination — Spend the night to unlock the next set of bracketed text in your Glass Slipper ability. You may only do this Night 3 and onwards.");
 
-		e.addField("Attributes:", "Glass Slipper — Attack someone each night. [This attack can't be blocked, redirected, or otherwise prevented by any means whatsoever.] [This attack is Unstoppable and Astral.] [You'll also deal an Unstoppable attack to all their visitors and gain Invincible defense.] [You die.]\nShimmering Determination — Spend the night to unlock the next set of bracketed text in your Glass Slipper ability. You may only do this Night 3 and onwards.");
+		e.addField("Attributes:", "Cinderella Story — Whenever you fail to kill someone, unlock the next set of bracketed text in your Glass Slipper ability.");
 		
 		e.addField("Goal:", "Prove that you're stronger than the rest.");
 	});

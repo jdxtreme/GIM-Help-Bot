@@ -14,7 +14,6 @@ const menus = {};
 const commands = {};
 const conflicts = {};
 const roles = [];
-const relay = [];
 
 const SERVER_DATA = {};
 
@@ -46,10 +45,6 @@ readFile(FNAME, (err, data) =>
 		for(let id in store.SERVER_DATA)
 			SERVER_DATA[id] = store.SERVER_DATA[id];
 
-	if(store.relay)
-		for(let i = 0; i < store.relay.length; i++)
-			relay[i] = store.relay[i];
-
 	writeFile(FNAME2, data, (err) =>
 	{
 		if(err) throw err;
@@ -60,7 +55,7 @@ readFile(FNAME, (err, data) =>
 
 function overwrite(chn)
 {
-	let json = JSON.stringify({TOKEN, SERVER_DATA, relay});
+	let json = JSON.stringify({TOKEN, SERVER_DATA});
 
 	writeFile(FNAME, "", (err) =>
 	{
@@ -323,7 +318,6 @@ const GLOBAL = {
 	SERVER_DATA,
 	is_day,
 	toggle_day,
-	relay,
 
 	MessageEmbed,
 	MessageAttachment
@@ -365,77 +359,82 @@ bot.on("ready", () =>
 
 bot.on("messageCreate", (message) =>
 {
-	for(let i = 0; i < relay.length; i++)
+	let data = SERVER_DATA[message.guild.id];
+
+	if(data)
 	{
-		let ch1 = message.guild.channels.cache.get(relay[i].inp);
-
-		if(ch1 && ch1.id === message.channel.id)
+		for(let i = 0; i < data.relay.length; i++)
 		{
-			let ch2 = message.guild.channels.cache.get(relay[i].out);
+			let ch1 = message.guild.channels.cache.get(data.relay[i].inp);
 
-			if(ch2 && (message.embeds.length === 0 || !message.embeds[0].timestamp))
+			if(ch1 && ch1.id === message.channel.id)
 			{
-				let addedText = "";
-				let output = new MessageEmbed();
-				let sender = UTILS.getPlayerByID(SERVER_DATA[message.guild.id].players, message.author.id);
+				let ch2 = message.guild.channels.cache.get(data.relay[i].out);
 
-				if(sender && sender.tags.relay_nick)
+				if(ch2 && (message.embeds.length === 0 || !message.embeds[0].timestamp))
 				{
-					let nicklib = UTILS.libSplit(sender.tags.relay_nick, ",", ":");
+					let addedText = "";
+					let output = new MessageEmbed();
+					let sender = UTILS.getPlayerByID(SERVER_DATA[message.guild.id].players, message.author.id);
 
-					if(typeof nicklib === "string")
-						output.setAuthor({name: sender.tags.relay_nick});
-					else if(nicklib[message.channel.id])
-						output.setAuthor({name: nicklib[message.channel.id]});
+					if(sender && sender.tags.relay_nick)
+					{
+						let nicklib = UTILS.libSplit(sender.tags.relay_nick, ",", ":");
+
+						if(typeof nicklib === "string")
+							output.setAuthor({name: sender.tags.relay_nick});
+						else if(nicklib[message.channel.id])
+							output.setAuthor({name: nicklib[message.channel.id]});
+
+						if(!output.author)
+							for(let nick in nicklib)
+								if(!nicklib[nick])
+									output.setAuthor({name: nick});
+					}
 
 					if(!output.author)
-						for(let nick in nicklib)
-							if(!nicklib[nick])
-								output.setAuthor({name: nick});
+					{
+						output.setAuthor({name: message.member.displayName, iconURL: message.author.avatarURL()});
+						output.setColor(message.member.displayHexColor);
+					}
+
+					output.setTimestamp();
+					output.setDescription(message.content);
+
+					if(output.description)
+					{
+						let mentions = getMentions(output.description);
+
+						for(let n = 0; n < mentions.length; n++)
+							addedText = addedText + " " + mentions[n];
+					}
+
+					for(const [k, s] of message.stickers)
+					{
+						if(!output.image)
+							output.setImage(s.url);
+						else
+							output.addField(s.name, s.url);
+					}
+
+					for(const [k, a] of message.attachments)
+					{
+						let title = a.contentType;
+						if(!title) title = "Attachment";
+
+						if(!output.image && title.substring(0, 5) === "image")
+							output.setImage(a.url);
+						else
+							output.addField("Attached: " + title, a.url);
+					}
+
+					let embeds = [output];
+
+					for(let n = 0; n < message.embeds.length; n++)
+						embeds[embeds.length] = message.embeds[n];
+
+					ch2.send({content: (addedText.length > 0 ? addedText : null), embeds});
 				}
-
-				if(!output.author)
-				{
-					output.setAuthor({name: message.member.displayName, iconURL: message.author.avatarURL()});
-					output.setColor(message.member.displayHexColor);
-				}
-
-				output.setTimestamp();
-				output.setDescription(message.content);
-
-				if(output.description)
-				{
-					let mentions = getMentions(output.description);
-
-					for(let n = 0; n < mentions.length; n++)
-						addedText = addedText + " " + mentions[n];
-				}
-
-				for(const [k, s] of message.stickers)
-				{
-					if(!output.image)
-						output.setImage(s.url);
-					else
-						output.addField(s.name, s.url);
-				}
-
-				for(const [k, a] of message.attachments)
-				{
-					let title = a.contentType;
-					if(!title) title = "Attachment";
-
-					if(!output.image && title.substring(0, 5) === "image")
-						output.setImage(a.url);
-					else
-						output.addField("Attached: " + title, a.url);
-				}
-
-				let embeds = [output];
-
-				for(let n = 0; n < message.embeds.length; n++)
-					embeds[embeds.length] = message.embeds[n];
-
-				ch2.send({content: (addedText.length > 0 ? addedText : null), embeds});
 			}
 		}
 	}

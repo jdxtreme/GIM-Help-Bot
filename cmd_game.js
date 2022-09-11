@@ -48,7 +48,7 @@ module.exports = (g) =>
 				let id = message.guild.id;
 
 				if(!SERVER_DATA[id])
-					SERVER_DATA[id] = {players: []};
+					SERVER_DATA[id] = {players: [], relay: []};
 
 				func(chn, message, e, args);
 			}
@@ -323,19 +323,19 @@ module.exports = (g) =>
 			return;
 		}
 
-		if(!recipient.alive)
-		{
-			msg(chn, "-ERROR: Player \"" + args[0] + "\" is dead.");
-			return;
-		}
-
 		if(sender === recipient)
 		{
 			msg(chn, "-ERROR: You cannot whisper to yourself.");
 			return;
 		}
 
-		if(commaCheck(UTILS, sender.tags.block, recipient.num))
+		if(!recipient.alive)
+		{
+			msg(chn, "-ERROR: Player \"" + args[0] + "\" is dead.");
+			return;
+		}
+
+		if(recipient.cannot_receive || commaCheck(UTILS, sender.tags.block, recipient.num))
 		{
 			msg(chn, "-ERROR: You cannot whisper to that person.");
 			return;
@@ -475,6 +475,7 @@ module.exports = (g) =>
 
 		e.addField("announce <#channel>", "Target's sent whispers will be announced to the provided channel, which only includes the sender and recipient, NOT the message itself.");
 		e.addField("block <PN1,PN2,PN3,etc...>", "Tagged player is blocked from sending whispers to the listed person or people, but may still recieve whispers from those players. Use only commas to separate Player Numbers if the target player is unable to whisper to multiple specific people, i.e. `5,8,12`.");
+		e.addField("cannot_receive <true>", "Tagged player will not receive direct whispers, and overhearing will fail. Attempts to whisper to them will notify senders that they cannot.");
 		e.addField("daily_reset <true>", "At the start of each day, this will reset a player's whisper count if enabled. Does nothing if whispers are not limited.");
 		e.addField("deaf <true>", "Tagged player will not receive direct whispers, though overhearing is unaffected. Attempts to whisper to them will still appear to succeed.");
 		e.addField("limit <number>", "Limit the amount of whispers a player is allowed to send. By default, they can't be replenished, unless the player also has the `daily_reset` tag. Setting this to 0, a negative number, or a non-number will disable whispers for that player.");
@@ -497,6 +498,7 @@ module.exports = (g) =>
 			return;
 		}
 
+		let rdata = SERVER_DATA[message.guild.id].relay;
 		let inp = args[0].substring(2, args[0].length-1);
 		let out = args[1].substring(2, args[1].length-1);
 
@@ -509,12 +511,12 @@ module.exports = (g) =>
 			return;
 		}
 
-		relay[relay.length] = {inp, out};
+		rdata[rdata.length] = {inp, out};
 		msg(chn, "+Relay created: " + inp + " to " + out);
 
 		if(args[2])
 		{
-			relay[relay.length] = {inp: out, out: inp};
+			rdata[rdata.length] = {inp: out, out: inp};
 			msg(chn, "+Relay created: " + out + " to " + inp);
 		}
 
@@ -523,7 +525,9 @@ module.exports = (g) =>
 
 	register_cmd(["list_relays", "listrelays", "list_relay", "listrelay", "relays"], "", "List Relays", "List all currently active channel relays. Be careful not to use this in a publicly available channel, or you might modconfirm the existence of a secret chat.", {admin_only: true}, (chn, message, e, args) =>
 	{
-		if(relay.length === 0)
+		let rdata = SERVER_DATA[message.guild.id].relay;
+
+		if(rdata.length === 0)
 		{
 			msg(chn, "-There are no active relays.");
 			return;
@@ -531,8 +535,8 @@ module.exports = (g) =>
 
 		let output = "Relays:";
 
-		for(let i = 0; i < relay.length; i++)
-			output = output + "\n" + i + ". <#" + relay[i].inp + "> to <#" + relay[i].out + ">";
+		for(let i = 0; i < rdata.length; i++)
+			output = output + "\n" + i + ". <#" + rdata[i].inp + "> to <#" + rdata[i].out + ">";
 
 		msg(chn, output, true);
 	});
@@ -545,27 +549,28 @@ module.exports = (g) =>
 			return;
 		}
 
+		let rdata = SERVER_DATA[message.guild.id].relay;
 		let newrelay = [];
 		let output = "";
 
-		for(let i = 0; i < relay.length; i++)
+		for(let i = 0; i < rdata.length; i++)
 		{
 			if(!UTILS.containsString(args, String(i)))
-				newrelay[newrelay.length] = relay[i];
+				newrelay[newrelay.length] = rdata[i];
 			else
 				output = output + (output.length === 0 ? " " : ", ") + i;
 		}
 
-		if(newrelay.length === relay.length)
+		if(newrelay.length === rdata.length)
 		{
 			msg(chn, "-No relays could be deleted.");
 			return;
 		}
 
-		relay.splice(0, relay.length);
+		rdata.splice(0, rdata.length);
 
 		for(let i = 0; i < newrelay.length; i++)
-			relay[i] = newrelay[i];
+			rdata[i] = newrelay[i];
 
 		msg(chn, "Deleted:" + output);
 		overwrite();

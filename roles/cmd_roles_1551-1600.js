@@ -167,7 +167,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["peer_into", "pearinto", "pi", "1561"], "Town", "Peer Into", {subCat: "Investigative"}, (e) =>
+	register_role(["peer_into", "peerinto", "pi", "1561"], "Town", "Peer Into", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1561\n*I know we're gonna find what we're searching for.*");
 
