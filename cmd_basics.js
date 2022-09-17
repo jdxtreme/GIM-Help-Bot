@@ -35,7 +35,7 @@ function help(commands, e, cmd, pre)
 
 module.exports = (g) =>
 {
-	const {PRE, UTILS, add_cmd, commands, msg, aliases} = g;
+	const {PRE, UTILS, add_cmd, commands, roles, msg, aliases} = g;
 	let i = 0;
 	
 	function register_cmd(name, param, title, desc, func)
@@ -60,6 +60,7 @@ module.exports = (g) =>
 		let atLeastOne = false;
 		let specs = null;
 		let exSpecs = null;
+		let showSubs = Object.keys(roles).length > 200;
 
 		if(args.length > 0)
 		{
@@ -149,6 +150,9 @@ module.exports = (g) =>
 							specs[cat][sub] = true;
 					}
 				}
+
+				if(splits.length > 1)
+					showSubs = true;
 			}
 		}
 
@@ -192,17 +196,31 @@ module.exports = (g) =>
 			return;
 		}
 
-		for(let cat in ordered)
+		if(showSubs)
 		{
-			for(let sub in ordered[cat])
+			for(let cat in ordered)
 			{
-				if(Object.keys(ordered[cat]).length > 1 || sub !== "(none)")
-					list = list + "\n\n" + cat + ' ' + sub;
-				else
-					list = list + "\n\n" + cat;
+				for(let sub in ordered[cat])
+				{
+					if(Object.keys(ordered[cat]).length > 1 || sub !== "(none)")
+						list = list + "\n\n" + cat + ' ' + sub;
+					else
+						list = list + "\n\n" + cat;
 
-				for(let cmd in ordered[cat][sub])
-					list = list + "\n" + ordered[cat][sub][cmd];
+					for(let cmd in ordered[cat][sub])
+						list = list + "\n " + ordered[cat][sub][cmd];
+				}
+			}
+		}
+		else
+		{
+			for(let cat in ordered)
+			{
+				list = list + "\n\n" + cat;
+
+				for(let sub in ordered[cat])
+					for(let cmd in ordered[cat][sub])
+						list = list + "\n " + ordered[cat][sub][cmd];
 			}
 		}
 
