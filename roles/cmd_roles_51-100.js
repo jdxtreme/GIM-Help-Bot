@@ -637,7 +637,7 @@ module.exports = (g) =>
 
 	register_role(["pirate", "92"], "Neutral", "Pirate", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 92");
+		e.setDescription("Post 92\n*Did you hear? Apparently Rasen has a crush on Igu.*");
 		e.author.iconURL = "https://cdn.discordapp.com/emojis/980989425137901588.webp";
 
 		e.addField("Alignment", "Neutral Chaos", true);

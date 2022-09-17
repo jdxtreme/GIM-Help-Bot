@@ -70,7 +70,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- People who visit you or your target will have a bomb planted on them.\n- People who you vote will have a bomb planted on them. Unvoting them will not remove the bomb, but placing a vote on someone else will.\n- People who vote you will have a bomb planted on them. This is removed if they unvote you.\n- A bomb can only be removed if the criteria to remove it is met in the same phase it was placed. After that, it is permanent.\n- Townies do not know if a bomb was placed on them. Non-Town roles will, but only at the end of the night, even if it was placed at day.\n- If you detonate during the day, the majority needed to lynch will update accordingly.\n- You know who has a bomb.");
 		
-		e.addField("Goal:", "NG Goal");
+		e.addField("Goal:", "Eliminate absolutely everyone, including Neutrals who would otherwise assist you.");
 	});
 
 	register_role(["multi-loyalty_agent", "multi_loyalty_agent", "multiloyaltyagent", "mla", "1605"], "Other", "Multi-Loyalty Agent", {subCat: "Support", spawnCat: ["Mafia", "Coven"]}, (e) =>
@@ -432,17 +432,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.X.goal);
 	});
 
-	register_role(["propogandist", "prop", "1627"], "Sentry", "(Sentry) Propogandist", {subCat: "Power"}, (e) =>
+	register_role(["propagandist", "propogandist", "prop", "1627"], "Sentry", "(Sentry) Propagandist", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 1627");
 
 		e.addField("Alignment", "Unique Sentry Power", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None (Power)", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Authorize an investigation on 1 player during the day. Mandatory or random.\n- Invite a player to your house during the night.");
+		e.addField("Abilities:", "- Authorize an investigation on 1 player during the day. You may authorize an additional target for every 10 players in the game (living or dead), rounded. Mandatory or random.\n- Invite a player to your house during the night.\n- Select an heir for your role during at any time. May be used in conjunction w/ your other abilities.");
 
-		e.addField("Attributes:", "- Any player you vote (including if retracted) during the day will also be authorized for investigation.\n- Your Authorized targets will be revealed each night.\n- Any non-attacking visits to you will instead be redirected to the player you invited.\n- You may not authorize yourself as a target.\n- When you die, a random Sentry is promoted to a Minister (1372), unless there is already one.\n- 1 Powerful Autovest\n- Conversion Immunity");
+		e.addField("Attributes:", "- Any player you vote (including if retracted) during the day will also be authorized for investigation.\n- Your Authorized targets will be revealed each night.\n- Any non-attacking visits to you will instead be redirected to the player you invited.\n- You may not authorize yourself as a target.\n- When you die, your heir is promoted to a Propagandist (1627) if they are a Sentry. Otherwise, it will be a random Sentry. Their votes will not authorize players until the day after your death.\n- Conversion Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -455,9 +455,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic (Variable)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attack a player at night.\n- (Rehearsing) Increase your attack power by 1, then rehearse.\n- (Concert) Deafen a player. When you attack them, you'll bypass protective roles.");
+		e.addField("Abilities:", "- Increase your attack power by 1.\n- (Rehearsing) Attack a player at night, then rehearse.\n- (Concert) Deafen a player. When you attack them, you'll bypass protective roles.");
 
-		e.addField("Attributes:", "- You cannot go higher than Overkill attack.\n- **Rehearse Radius**: 3");
+		e.addField("Attributes:", "- (Rehearsal) You cannot go higher than Overkill attack.\n- **Rehearse Radius**: 3");
 		
 		e.addField("Goal:", factions.Band.goal);
 	});
@@ -470,7 +470,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attack a player every even night.\n- (Rehearsing) Gain detection immunity for the night, then rehearse.\n- (Concert) Entrap a player in your instrument's horn, permanently reducing their defense value.");
+		e.addField("Abilities:", "- Gain detection immunity for the night.\n- (Rehearsing) Entrap a player in your instrument's horn, permanently reducing their defense value, then rehearse.\n- (Concert) Attack a player at night.");
 
 		e.addField("Attributes:", "- You may also grant detection immunity to another player if you so wish.\n- **Rehearse Radius**: 3");
 		
@@ -485,7 +485,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Attack a player every night.\n- (Rehearsing) Increase your priority by 2, then rehearse.\n- (Concert) Deal a rampage attack.");
+		e.addField("Abilities:", "- Select a player. The next time their ability is processed, it will be the last one processed and all effects that have already taken place will have happened.\n- (Rehearsing) Increase your priority by 2, then rehearse.\n- (Concert) Deal a rampage attack.");
 
 		e.addField("Attributes:", "- One-Use Basic Defense\n- At the start of the game, your attack will always be the final thing that is processed.\n- **Rehearse Radius**: 5");
 		
@@ -500,7 +500,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attack a player every odd night.\n- (Rehearsing) Block people from entering your house, then rehearse.\n- (Concert) Block people from entering or leaving a target's house, roleblocking them and their visitors.");
+		e.addField("Abilities:", "- Block people from entering your house.\n- (Rehearsing) Attack a player every odd night, then rehearse. You may also use this on an even night and rehearse, but you, uh, won't kill anyone.\n- (Concert) Block people from entering or leaving a target's house, roleblocking them and their visitors.");
 
 		e.addField("Attributes:", "- **Rehearse Radius**: 4");
 		
@@ -530,7 +530,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Select a player. All visitors to that player will have their ability fail.\n- (Rehearsal) Select a player to attack a random visitor, then rehearse.\n- (Concert) Deafen a player. They lose message history permissions the next day.");
+		e.addField("Abilities:", "- Select a player. All visitors to that player will have their ability fail.\n- (Rehearsal) Deafen a player. They lose message history permissions the next day, then rehearse.\n- (Concert) Select a player to attack a random visitor.");
 
 		e.addField("Attributes:", "- **Rehearse Radius**: 5");
 		
@@ -545,9 +545,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Select a player. You will block any attacks to them and attack a random attacker.\n- (Rehearsal) Select a player, learn everyone who visits them, then you will rehearse.\n- (Concert) At the beginning of the night, all players will be notified they can only target players within 2 positions from them. Band members are exempt.");
+		e.addField("Abilities:", "- Select a player, learn everyone who visits them.\n- (Rehearsal) Select a player. You will block any attacks to them and attack a random attacker. You will then rehearse.\n- (Concert) At the beginning of the night, all players will only be able to target players within 2 positions from them. Band members are exempt. 2 uses.");
 
-		e.addField("Attributes:", "- (Rehearsal) Both you and the target learn visitors.\n- (Concert) This is a day ability.\n- **Rehearse Radius**: 3");
+		e.addField("Attributes:", "- Both you and the target learn visitors.\n- (Concert) This is a day ability.\n- **Rehearse Radius**: 3");
 		
 		e.addField("Goal:", factions.Band.goal);
 	});
@@ -560,9 +560,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Select a player. You will attack one random visitor.\n- (Rehearsal) Roleblock all players who visit you, then rehearse.\n- (Concert) Increase the Attack value of another Band member.");
+		e.addField("Abilities:", "- Roleblock all players who visit you.\n- (Rehearsal) Increase the Attack value of another Band member, then rehearse.\n- (Concert) Select a player. You will attack one random visitor.");
 
-		e.addField("Attributes:", "- You cannot attack Band members.\n- (Concert) You cannot increase it beyond Overkill.\n- **Rehearse Radius**: 3");
+		e.addField("Attributes:", "- You cannot roleblock or attack Band members.\n- (Rehearsal) You cannot increase it beyond Overkill.\n- **Rehearse Radius**: 3");
 		
 		e.addField("Goal:", factions.Band.goal);
 	});
@@ -590,7 +590,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Redirect all players from target A to target B and vice versa.\n- (Rehearsal) Redirect a specific player to another target, then rehearse.\n- (Concert) Stalk a player and attack their target.");
+		e.addField("Abilities:", "- Redirect all players from target A to target B and vice versa.\n- (Rehearsal) Select two players to redirect them both to a third person, then rehearse.\n- (Concert) Stalk a player and attack their target.");
 
 		e.addField("Attributes:", "- (Concert) You may select other Band members.\n- **Rehearse Radius**: 2");
 		
@@ -783,13 +783,13 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1650");
 
-		e.addField("Alignment", "Bi-Unique Band Special", true);
+		e.addField("Alignment", "\"Bi-Unique\" Band Special", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Perform another Band member's ability on their behalf. Can only be a base or Concert ability, not a Rehearsing ability.\n- Your Rehearsing ability varies. See Attributes.\n- (Concert) Select someone who another Band member is targeting and attack your target. Turns into a normal attack if you're the last Band member.");
+		e.addField("Abilities:", "- Perform another Band member's ability on their behalf. Can only be a base or Concert ability, not a Rehearsing ability.\n- (Concert) Select someone who another Band member is targeting and attack your target. Turns into a normal attack if you're the last Band member.");
 
-		e.addField("Attributes:", "- Bi-Unique means there is a maximum of 2.\n- (Rehearsal) You have the Rehearsal ability of a random Brass, Percussion, Woodwind, or String role. It does not keep its original radius.\n- **Rehearse Radius**: 2");
+		e.addField("Attributes:", "- Basic auto-vest.\n- Bi-Unique means there is a maximum of 2.\n- You have the Rehearsal ability of a random Brass, Percussion, Woodwind, or String role. It does not keep its original radius.\n- **Rehearse Radius**: 2");
 		
 		e.addField("Goal:", factions.Band.goal);
 	});

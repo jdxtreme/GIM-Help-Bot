@@ -190,7 +190,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Once per game, revive a townie and initiate them into the Coven.");
 
-		e.addField("Attributes:", "- Town Power roles turn into Lunatic Hell Fairy (949)\n- Town Investigative roles turn into Synesthesia (478)\n- Town Killing roles turn into M-63 Plamen Artillery Piece (299)\n- Town Protective roles turn into Thaumaturge (300)\n- Town Support roles turn into Familiar (295)\n- Any other subalignments turn into Bloodbender (903)\n- With the Necronomicon, you may use any of the unboosted abilities of the roles above. They function as if you were that role for that night.");
+		e.addField("Attributes:", "- Town Power roles turn into Lunatic Hell Fairy (949)\n- Town Investigative roles turn into Synesthesia (478)\n- Town Killing roles turn into M-63 Plamen Artillery Piece (299)\n- Town Protective roles turn into Thaumaturge (300)\n- Town Support roles turn into Augur (428)\n- Any other subalignments turn into Bloodbender (903)\n- With the Necronomicon, you may use any of the unboosted abilities of the roles above. They function as if you were that role for that night.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -515,6 +515,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Thundercry.goal);
 	});
 
+	register_role(["cinder_elemental", "cinderelemental", "cinder", "elemental", "ce", "1135"], "Gatherer", "Cinder Elemental", {subCat: "Red"}, (e) =>
+	{
+		e.setDescription("Post 1135\n*Their rage can grow to such proportions that they explode in a cloud of fire.*");
+
+		e.addField("Alignment", "Gatherer Red", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Generate (Red) each night.\n- (Red)(X): Attack another player each night. The tier of the attack is equal to the amount of non-Red Mana spent on this ability, to a maximum of Overkill.");
+
+		e.addField("Goal:", factions.Gatherer.goal);
+	});
+
 	register_role(["architect", "1136", "276u"], "Unseen", "Architect", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1136\nConverted from: Fortifier");
@@ -653,6 +666,21 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- If you die, the next night, all Unseen can use their ability twice.");
 
 		e.addField("Goal:", factions.Unseen.goal);
+	});
+
+	register_role(["dross_scorpion", "drossscorpion", "dross", "scorpion", "ds", "1146"], "Gatherer", "Dross Scorpion", {subCat: "Artifact"}, (e) =>
+	{
+		e.setDescription("Post 1146\n*They skitter out of the mists to consume fresh kill before Mephidross has a chance to corrode it away.*");
+
+		e.addField("Alignment", "Gatherer Artifact", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Generate (Colorless) each night.\n- (2): Attack another player each night.");
+
+		e.addField("Attributes:", "- Whenever you kill someone, you may choose a player the next day, which may be yourself. Grant them Roleblock Immunity for the following night.");
+
+		e.addField("Goal:", factions.Gatherer.goal);
 	});
 
 	register_role(["fashionista", "1147", "353u"], "Unseen", "Fashionista", {subCat: "Power"}, (e) =>

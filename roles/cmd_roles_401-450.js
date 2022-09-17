@@ -239,7 +239,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Use your voodoo doll to curse people.");
 
-		e.addField("Attributes:", "- At night, use your voodoo doll to curse someone. This gives them ***any*** non-killing negative effect.\n- You can kill your target, but this has a 2 night cooldown.\n- With the Necronomicon, you can kill a target and curse another target every night.");
+		e.addField("Attributes:", "- At night, use your voodoo doll to curse someone. This gives them ***any*** non-killing negative effect that can be found in another role/faction.\n- You can kill your target, but this has a 2 night cooldown.\n- With the Necronomicon, you can kill a target and curse another target every night.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -436,7 +436,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- During the day, choose to enlighten the coven the following night.\n- Foresee a player’s death. They will be dealt a basic astral attack the following night. If they die that night, you gain a use of enlightenment. If they survive, you lose a use.");
 
-		e.addField("Attributes:", "- When enlightened, coven members temporarily gain effects of the Necronomicon for the night.\n- You may enlighten two times.\n- If you gain the Necronomicon, you may choose a member of the coven to pass it to. You do not gain any benefits from it.");
+		e.addField("Attributes:", "- When enlightened, coven members temporarily gain effects of the Necronomicon for the night.\n- You start with one use of enlightment.\n- If you gain the Necronomicon, your attack becomes Unstoppable. You may also choose another member of the Coven to pass the Necronomicon at any time.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -471,7 +471,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["shifter", "431"], "Neutral", "The Shifter", {subCat: "Evil"}, (e) =>
+	register_role(["shapeshifter", "431"], "Neutral", "Shapeshifter", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 431");
 

@@ -574,7 +574,7 @@ module.exports = (g) =>
         e.addField("Attack", "Parippaparapappapparappowerful", true);
         e.addField("Defense", "Parippaparapappapparappowerful", true);
 
-        e.addField("Abilities:", "- Choose a player to paripapparapappapparappa each night. You'll deal a Parippaparapappapparappowerful attack to them.");
+        e.addField("Abilities:", "- Choose a player to paripapparapappapparappa each night. You'll deal a Paripapparapappapparappowerful attack to them.");
 
         e.addField("Attributes:", "- As long as this role is in the game, even if you're dead, anyone, including yourself, who misspells this role's name or refers to it by something other than its name in any in-game channel is removed from the game and banned from the server. (Referring to this role as \"it\" when it's already been brought up and it's clear what \"it\" refer to doesn't count.)");
 
@@ -589,7 +589,7 @@ module.exports = (g) =>
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
-        e.addField("Abilities:", "- Ask someone outside the game whether a thing that just happened made logical sense flavour-wise.");
+        e.addField("Abilities:", "- Ask a spectator whether a thing that just happened made logical sense flavour-wise.");
 
         e.addField("Attributes:", "- If they say it doesn't, the thing that happened is reversed.\n- If the thing never happened in the first place, you're modkilled for being stupid.\n- You may only use this once each day/night, regardless of whether it's successful.");
 

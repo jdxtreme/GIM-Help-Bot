@@ -85,7 +85,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- Deal a Rampaging attack to someone.\n- Attack yourself, everyone that visits you and the visitors of those who visited you.");
+		e.addField("Abilities:", "- Deal a Rampaging attack to someone.\n- Attack everyone that visits you and their visitors.");
 
 		e.addField("Attributes:", "- You will die if you get hit by a Basic attack.");
 		
@@ -143,11 +143,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Sentry Power", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None (Powerful)", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Authorize an investigation on 3 players during the day. Mandatory or random.\n- Blend in as a chosen Sentry role during the night.");
+		e.addField("Abilities:", "- Authorize an investigation on 1 players during the day. Mandatory or random. You may authorize an additional target for every 5 players in the game (living or dead), rounded.\n- Blend in as a chosen Sentry role during the night.\n- Select an heir for your role at any time. May be used in conjunction w/ your other abilities.");
 
-		e.addField("Attributes:", "- Your Authorized targets will be revealed each night.\n- Targets will remain authorized until the end of the following day.\n- You may not authorize yourself as a target.\n- Blending in as a Sentry role will frame yourself as that role.\n- When you die, a random Sentry is promoted to a Minister (1372), unless there is already one.\n- 1 Powerful Autovest\n- Conversion Immunity");
+		e.addField("Attributes:", "- Your Authorized targets will be revealed each night.\n- Targets will remain authorized until the end of the following day.\n- You may not authorize yourself as a target.\n- Blending in as a Sentry role will frame yourself as that role.\n- When you die, your heir will be promoted to a Censor (1360) if they are a Sentry. Otherwise, it will be a random Sentry. They may authorize 1 target less the day they are promoted.\n- Conversion Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -227,7 +227,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["sentry_bodyguard", "sentrybodyguard", "bodyguard", "sbg", "1366"], "Sentry", "(Sentry) Bodyguard", {subCat: "Protective"}, (e) =>
+	register_role(["sentry", "1366"], "Sentry", "Sentry", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 1366");
 
@@ -323,9 +323,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Authorize an investigation on an additional player during the day.");
+		e.addField("Abilities:", "- Authorize an investigation on an additional player during the day. Mandatory or random.");
 
-		e.addField("Attributes:", "- If you attempt to authorize an investigation on a player already authorized, that player will instead be **prioritized**.\n- **Prioritized** targets will have:\n> - Their base/vest defense removed until they are no longer prioritized.\n> - Visitors be given frame & roleblock immunity\n- Your Authorized & prioritized targets will be revealed each night.\n- Targets will remain authorized/prioritized until the end of the following day.\n- If you attempt to authorize a Sentry (Power), it will automatically fail.\n- When you die, a random Sentry is promoted to a Minister, unless a Sentry (Power) is still alive.\n- Conversion Immunity");
+		e.addField("Attributes:", "- If you attempt to authorize an investigation on a player already authorized, that player will instead be **prioritized**.\n- **Prioritized** targets will have:\n> - Their base/vest defense removed until they are no longer prioritized.\n> - Visitors be given frame & roleblock immunity\n- Your Authorized & prioritized targets will be revealed each night.\n- Targets will remain authorized/prioritized until the end of the following day.\n- If you attempt to authorize a Sentry (Power), it will automatically fail.\n- Conversion Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});

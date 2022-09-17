@@ -85,7 +85,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Inspect a player during the night, finding out their exact role.");
 
-		e.addField("Attributes:", "- All your targets will be cleaned when they die.\n- If you die, you will be cleaned.");
+		e.addField("Attributes:", "- All your targets will flip as a completely random role that is posible in the rolelist when they die.\n- If you die, you will flip as a completely random role that is posible in the rolelist.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -485,7 +485,7 @@ module.exports = (g) =>
 
 	register_role(["tier_list_analyzer", "tierlistanalyzer", "tla", "analyzer", "1082", "921u"], "Unseen", "Tier List Analyzer", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1082\nConverted from: Tier List Reviewer");
+		e.setDescription("Post 1082\n*I give this role a broken marriage out of ten.*\nConverted from: Tier List Reviewer");
 
 		e.addField("Alignment", "Unseen Investigative", true);
 		e.addField("Attack", "None", true);

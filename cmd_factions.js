@@ -108,7 +108,7 @@ module.exports = (g) =>
 		color: "80FF00",
 		type: "good",
 		icon: "https://cdn.discordapp.com/emojis/974880541348331541.webp",
-		summary: "Vanilla Good; Lead by a Town Power, anything goes.",
+		summary: "Vanilla Good; Lead by a Town Power, which can be somewhat stronger than typical Town roles. Beyond that, pretty much anything goes.",
 		features: "- Only one Town Power may spawn.\n- No factional chat\n- No factional kill\n- Counts as \"good\"",
 		goal: "Lynch every criminal and evildoer."
 	});
@@ -126,7 +126,7 @@ module.exports = (g) =>
 		color: "BF5FFF",
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/974880541180575784.webp",
-		summary: "Magical Witchcraft-themed Evil; Majority of roles have a situational killing ability. Random member is buffed by the Necronomicon when Night 3 starts, which will be passed to another member if its holder dies. Certain roles, particularly Coven Heads, can set their own Necronomicon Priority level.",
+		summary: "Supernatural/Witchcraft-themed Evil; Majority of roles have a situational or indirect killing ability. At the start of Night 3, a random member will receive the Necronomicon. Each role defines how they benefit from holding it. Due to the lack of a factional kill, it generally should be some means to directly attack players, usually alongside its regular ability. Certain roles, particularly Coven Heads, may specifically receive the Necronomicon first. Most often, some type of witch leads the group, if any leader is spawned.",
 		features: "- Factional chat\n- No factional kill\n- A random Coven member is given the Necronomicon at the beginning of Night 3, which boosts their abilities and grants them detection immunity. The Coven Leader or the Lich always receives the Necronomicon first and the Medusa or the Magician always receives it last, if applicable. If the member with the Necronomicon dies, it's passed to another random member.",
 		goal: "Kill all who would oppose the Coven."
 	});
@@ -155,7 +155,7 @@ module.exports = (g) =>
 		color: "008000",
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/1005325782215819376.webp",
-		summary: "Plants VS Zombies Evil; Members produce \"Sun\", and abilities cost a certain amount of \"Sun\" to use. At least one Plant Production role will always spawn to help with the Sun-generating process.",
+		summary: "Plants VS Zombies Evil; Members produce \"Sun\", and abilities cost a certain amount of \"Sun\" to use. Although one Plant Production always spawns, each role should have at least the ability to produce one sun each night, in case the Plant Production dies. Other than that, they tend to have numerous abilities that require differing amounts of sun, granting the faction a wide range of options after a night or two of production.",
 		features: "- A Plant Killing and a Plant Production will always spawn\n- Factional chat\n- No factional kill until all Plant Killings are dead\n- Members produce sun at night, which is shared between all members and can be spent by any of them to use abilities.",
 		goal: "Kill anyone who may oppose the Plants."
 	});
@@ -164,7 +164,7 @@ module.exports = (g) =>
 		color: "C51C00",
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/987959165341294592.webp",
-		summary: "Fiery Evil; Members use a Factional Douse and similar abilities so that the leader, the Apocalypse, can ignite all Doused targets to kill them at once.",
+		summary: "Fiery Evil; Members use a Factional Douse so that the leader, the Apocalypse, can ignite all Doused targets to kill them at once. Since the Apocalypse always exists, other members shouldn't worry about killing things on their own, and should instead focus on either occasionally contributing to the effort of dousing, or supporting the faction with other utilities.",
 		features: "- 336: Apocalypse will always spawn\n- Factional douse that the Apocalypse can ignite.\n- Factional chat\n- If the Apocalypse dies, a random Underworld Offensive member will be promoted to the Apocalypse if possible. Otherwise, another random Underworld member will be promoted.",
 		goal: "Kill all who oppose the Underworld sect."
 	});
@@ -267,7 +267,7 @@ module.exports = (g) =>
 		color: "AAAAAA",
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/976658193323282462.webp",
-		summary: "SCP-themed (duh) Evil; Most members have situational killing abilities, and/or other utilities. Beyond that, anything goes as long as each member is a specific SCP.",
+		summary: "SCP-themed (duh) Evil; Some members have situational killing abilities, and/or other utilities based on the source material. Beyond that, anything goes as long as each member is a specific SCP.",
 		features: "- Factional kill\n- Factional chat",
 		goal: "Prevent the Foundation from recontaining you at all costs."
 	});
@@ -437,7 +437,7 @@ module.exports = (g) =>
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/1014037144873992232.webp",
 		summary: "Super Mario-themed Evil; Led by some version of Bowser, who is the only one allowed to speak in the Factional Chat until he dies, though other Koopa info will be posted there too. Beyond that, anything goes, as long as it's some Super Mario character/creature that could feasably appear in Bowser's army.",
-		features: "- A Koopa King will always spawn.\n- Factional chat, but, if the King is alive, only they may talk\n- No factional kill\n- Other Koopa cannot whisper to the King.\n- All information gathered by Koopa, such as roles learned or whispers overheard, will be shared in the factional chat.\n- Each night, the King may choose one member to be able to perform a normal attack. All other Koopa Killings and All-rounders will have their Attack reduced to None.",
+		features: "- A Koopa King will always spawn.\n- Factional chat, but, if the King is alive, only they may talk\n- No factional kill, but a Factional attacker is chosen each night by the talkers in Faction chat, Koopa Killings and All-rounders who weren't chosen will have their Attack reduced to None, A Support or Protective Koopa may also be chosen, they will gain a Basic attack ability that night.\n- Other Koopa cannot whisper to the King.\n- All information gathered by Koopa, such as roles learned or whispers overheard, will be shared in the factional chat.",
 		goal: "Kill all who would oppose Lord Bowser."
 	});
 
@@ -478,6 +478,7 @@ module.exports = (g) =>
 	});
 
 	register_faction(["sk", "serial_killer", "serialkiller", "serial_killers", "serialkillers"], "SK", {
+		display: "Serial Killers",
 		color: "336EFF",
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/1007310929278554173.webp",
@@ -500,14 +501,14 @@ module.exports = (g) =>
 		display: "Discordians",
 		color: "7289DA",
 		type: "evil",
-		summary: "Discord User-themed Evil; Roles are based on and named after specific members of the \"Grand Idea Mafia (hell)\" server. Not much more is known about it at this point. It will not become official until Lunari finishes the Band at the very least.",
+		summary: "Discord User-themed Evil; Roles are based on and named after specific members of the \"Grand Idea Mafia (hell)\" server. Not much more is known about it at this point, as there is no official post for it, and not much of a pattern between roles due to the amount of contributors already.",
 		goal: "Eliminate everyone who doesn't actually exist."
 	});
 
 	register_faction("band", "Band", {
 		color: "FCBA03",
 		type: "evil",
-		summary: "Instrument-themed Evil; Every role has a normal ability, a Rehearsal ability, and a Concert ability, with at least one of those typically being some form of attack. The Concert is an event scheduled at a day so late, it is nigh-impossible to reach if more than 2 members spawn, and unlocks all Concert abilities once reached. To reach it, any member may use their Rehearsal ability, which makes the concert happen 1 day earlier, but warns every player of their rehearsal within a set radius. Be warned, some roles have some pretty strong attacks that they can freely use any night.",
+		summary: "Instrument-themed Evil; Every role has a normal ability, a Rehearsal ability, and a Concert ability. The regular ability should generally be the weakest, or at least the most generally useful. The Rehearsal ability can be stronger; in general, Rehearsal makes the Concert occur one night sooner, but notifies all players within a radius that must be defined in the role's attributes, making it risky to use. The Concert itself is a global roleblocking event set to occur in a usually impossible late night in the game, making some amount of Rehearsing necessary, so the Concert ability should always be the strongest of the three.",
 		features: "- Factional chat\n- No factional kill\n- The Band's Concert begins on day X and is announced to the Town. X is 4 if there's only one living member, 5 if there's two, 8 if there's three, 10 if there's four, and 12 if there's five or more.\n- Once the Concert begins, all non-Band players will be roleblocked through immunity the following night, there is no lynch that day, the Band may anonymously lynch a player if all members unanimously agree, and for the rest of the game, all Band members gain Basic defense and their abilities are enhanced.\n- If the Concert hasn't started and its starting day would be reduced to a day that's already past, it starts the next available day instead.\n- Rehearsing makes the Concert start one day earlier, but notifies half of the other players at random within the rehearser's rehearsal radius of them on the player list that someone was rehearsing near them.",
 		goal: "Ensure the removal of those who will not listen to your music."
 	});
@@ -523,7 +524,7 @@ module.exports = (g) =>
 	register_faction("x", "X", {
 		color: "FF47FF",
 		type: "evil",
-		summary: "Empowered Crossover-themed Evil; This faction is meant to be made of stronger versions of every role that has won at least one previous game. It will not become official until Lunari finishes the Band at the very least.",
+		summary: "Empowered Crossover-themed Evil; This faction is meant to be made of stronger versions of every role that has won at least one previous game. It does not have an official post yet, so not much more is known.",
 		goal: "X Goal"
 	});
 
@@ -531,14 +532,14 @@ module.exports = (g) =>
 		display: "Cult of Animals",
 		color: "BA7D1A",
 		type: "evil",
-		summary: "Animal-themed Evil; Led by Victoria the Vulture, who has the option to devour any other member to empower herself. Members must survive to win. Other than Victoria herself, most members are not that strong, and any offensive or countering abilities will not be able to harm Victoria. It will not become official until Lunari finishes the Band at the very least.",
+		summary: "Animal-themed Evil; Led by Victoria the Vulture, who has the option to devour any other member to empower herself. Members must survive to win. Other than Victoria herself, most members are not that strong, and any offensive or countering abilities will not be able to harm Victoria. No official post yet.",
 		goal: "Destroy those who will not worship Victoria, and appease her to avoid sacrifice."
 	});
 
 	register_faction(["faunae", "fauna"], "Faunae", {
 		color: "D4A12D",
 		type: "neutral",
-		summary: "Animal-themed Neutral; Led by the Lion, who is capable of killing a member of a non-Neutral player to take their goal for itself and for all other Faunae members to inherit. In turn, the other members either offensively support the Faunae (Predators) or defensively support the Faunae (Prey). It will not become official until Lunari finishes the Band at the very least.",
+		summary: "Animal-themed Neutral; Led by the Lion, who is capable of killing a member of a non-Neutral player to take their goal for itself and for all other Faunae members to inherit. In turn, the other members either offensively support the Faunae (Predators) or defensively support the Faunae (Prey). No official post yet.",
 		goal: "Kill anyone who opposes the Faunae, or devour a player and complete their win condition."
 	});
 
@@ -550,5 +551,12 @@ module.exports = (g) =>
 		summary: "MTG-themed Evil; Led by a Gatherer Commander, they spend nights to generate Mana of a specific color, which is then used to fuel various abilities. The other subalignments are named off of the color they can generate, though some may be able to use other colors for bonus abilities.",
 		features: ["- Exactly one Gatherer Commander will always spawn.\n- Factional chat\n- No factional kill unless no kill-capable Gatherers are alive. If it exists, it will cost (1) to use.\n- Only one member may use an attacking ability each night unless otherwise specified.\n- Members can generate Mana of one of five colors, which is shared between all members and can be spent by any of them to use abilities.\n- +1/+1 Counters are permanent items. Each second one will increase both your Attack and Defense by 1.", "- Most non-generating abilities require a certain number and color of Mana, following the below rules:\n**•** A color in parentheses will require a single mana of that given color, e.g. (Red)\n**•** Multiple of a color is expressed by repeating it, e.g. (Blue)(Blue)(Blue) mean 3 Blues.\n**•** A number in parentheses can be filled by Mana of any color. For example, (3) can be paid by (White)(Black)(Green)\n**•** All parentheses are to be treated separately. For instance, (Red)(1) means it costs specifically 1 Red on top of one Mana of any color."],
 		goal: "Reduce your opposition to 0 HP."
+	});
+
+	register_faction(["civilization", "civil", "civ"], "Civilization", {
+		color: "C8A57D",
+		type: "evil",
+		summary: "Civilization (Game)-themed Evil; Though there's no official post with features, it at least has a factional kill/chat, though it appears that Militaristic roles are expected to carry it out at least as long as they're alive. Gold is a resource that every role it at least able to use, although only Economic roles appear to be able to generate it. All roles have at least one gold-free ability, and are listed as Unique. Notably, this faction's kill is unusual in that it reveals the role that carried it out publicly, rather than the faction.",
+		goal: "Conquer the world through war."
 	});
 };

@@ -4,7 +4,7 @@ module.exports = (g) =>
 
 	register_role(["old_retri", "oldretri", "old_retributionist", "301"], "Town", "Old Retri", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 301");
+		e.setDescription("Post 301\n*FINALLY! AFTER MONTHS OF BEING DELETED FROM TOWN OF SALEM! ITS MY TIME TO SHINE!*");
 		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/b/b2/RoleIcon_Retributionist.png";
 
 		e.addField("Alignment", "Town Power", true);
@@ -63,7 +63,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["accurately_describes", "accuratelydescribes", "word", "305"], "Neutral", "Word That Accurately Describes What This Role Does", {subCat: "Chaos"}, (e) =>
+	register_role(["accurately_describes", "accuratelydescribes", "word", "wtadwtrd", "305"], "Neutral", "Word That Accurately Describes What This Role Does", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 305");
 
@@ -72,6 +72,8 @@ module.exports = (g) =>
 		e.addField("Defense", "None", true);
 
 		e.addField("Attributes:", "- At the beginning of the game, choose a word that's not already the name of a role. The host will come up with a role that is accurately described by that word. It can't have mechanics that aren't seen on any other roles. You become that role.");
+
+		e.addField("Goal:", "N/A");
 	});
 
 	register_role(["uncontrollable_mech", "uncontrollablemech", "uncontrollable", "mech", "um", "306"], "Town", "Uncontrollable Mech", {subCat: "Support"}, (e) =>
@@ -91,7 +93,7 @@ module.exports = (g) =>
 
 	register_role(["teacher", "307"], "Mafia", "Teacher", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 307");
+		e.setDescription("Post 307\n*No, no, you're doing it wrong.*");
 
 		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "None", true);
@@ -136,9 +138,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["hallucinator", "hallu", "310"], "Mafia", "Hallucinator", {subCat: "Support"}, (e) =>
+	register_role(["hallucinator", "hall", "310"], "Mafia", "Hallucinator", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 310");
+		e.setDescription("Post 310\n*You see that \"Free Hamburgers\" sign? Go there.*");
 
 		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "None", true);
@@ -244,10 +246,10 @@ module.exports = (g) =>
 		e.setDescription("Post 316\n*Boring is removed! You did not gain Cursed, so you die! Cursed is removed! Heavy is removed! You are not in the majority, so you die from Insanity! Insanity is removed! Light is removed! You skip this round due to Paralyzed! Paralyzed is removed! Restrained is removed! Scared is removed! Saint saves you from dying due to Cursed! Saint is removed! Tradition is removed!*");
 
 		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player's house to become Hell during the first night.\n- Reassign Hell if that player dies.");
+		e.addField("Abilities:", "- At night, choose a player's house to become Hell. You cannot move Hell, unless that player dies.");
 
 		e.addField("Attributes:", "- Players who visit Hell during a full moon are subjected to the following effects in the order:\n> - You learn their role\n> - Roleblocked\n> - Basic attacked\n> - Framed\n> - Basic attacked\n> - Given powerful defense for this night\n> - Lynchproof for one day\n> - Basic rampage attacked\n> - Powerfully poisoned\n- If a player dies, the effects after  are not applied.\n- Hell remains after you die.\n- With the necronomicon, you may have two Hells active at a time.");
 		
@@ -256,7 +258,7 @@ module.exports = (g) =>
 
 	register_role(["guardian", "317"], "Town", "Guardian", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 317");
+		e.setDescription("Post 317\n*Stand by me...i'll be your warrior.*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
@@ -314,7 +316,7 @@ module.exports = (g) =>
 
 	register_role(["wraith", "321"], "Neutral", "Wraith", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 321");
+		e.setDescription("Post 321\n*Yes...yes....empty your emotions!*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful (Unstoppable)", true);
@@ -387,7 +389,7 @@ module.exports = (g) =>
 
 	register_role(["sheep", "326"], "Neutral", "Sheep", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 326");
+		e.setDescription("Post 326\n*Baa.*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -513,7 +515,7 @@ module.exports = (g) =>
 
 	register_role(["bomber", "334"], "Neutral", "Bomber", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 334");
+		e.setDescription("Post 334\n*Don't worry, I'm not suicidal.*");
 
 		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -601,7 +603,7 @@ module.exports = (g) =>
 
 	register_role(["beaver", "340"], "Neutral", "Beaver", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 340");
+		e.setDescription("Post 340\n*How much wood could a woodchuck chuck if a woodchuck could chuck wood?*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
@@ -691,7 +693,7 @@ module.exports = (g) =>
 
 	register_role(["guest", "346"], "Town", "Guest", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 346");
+		e.setDescription("Post 346\n*Coffee or tea?*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);

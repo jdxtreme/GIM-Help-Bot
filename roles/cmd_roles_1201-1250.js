@@ -525,13 +525,15 @@ module.exports = (g) =>
 
 	register_role(["scp-953", "scp953", "1236"], "SCP", "SCP-953", {subCat: "Keter", spawnCat: GOOD}, (e) =>
 	{
-		e.setDescription("Post 1236");
+		e.setDescription("Post 1236\n*In addition to polymorphic abilities, SCP-953 displays moderate level psionic abilities, namely suggestion and telepathy. Although insufficient to fool an outside observer, an entranced subject can be convinced of a variety of false facts, including the nature of SCP-953, its own nature, and the nature of things around it.*");
 
 		e.addField("Alignment", "Unique SCP Keter", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Attributes:", "- Starts as a townie. Becomes a Random SCP once the one other SCP remains.\n- You are aware you are SCP-953 when the game begins.\n- The other SCPs know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another SCP is present.");
+		e.addField("Abilities:", "- Hypnotize a player at night");
+
+		e.addField("Attributes:", "- At the start of the game, pick a good(Town/City/Army/Florae) slot. You will appear to be that role and will fool consigliere results.\n- Hypnotizing a player will give them a random end-of-night message (I.E, \"Someone occupied your night! You were roleblocked!\", \"You were attacked but somebody fought off your attacker!\", ect.) or redirect them to another player.");
 
 		e.addField("Goal:", factions.SCP.goal);
 	});
@@ -561,7 +563,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- During the day, choose two other players to form a Triumvirate with at the end of the day.\n- During the night, dissolve the current Triumvirate at the end of the night. You must wait a day to form another Triumvirate.");
 
-		e.addField("Attributes:", "- The three players of the Triumvirate will know each other's roles, share a chat together, and may only perform night abilities if all three players agree.");
+		e.addField("Attributes:", "- The three players of the Triumvirate will know each other's roles and share a chat together.\n- Town roles in the Triumvirate may only perform night abilities if all three players agree.\n- Players in the Triumvirate will not have their Last Will shown.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

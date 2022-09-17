@@ -69,7 +69,7 @@ module.exports = (g) =>
 		e.setDescription("Post 905\n*A match for any army—even its own.*");
 
 		e.addField("Alignment", "Gatherer Commander", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Powerful", true);
 
 		e.addField("Abilities:", "- Generate (Green)(White) each night.\n- (Green) OR (White): Attack a target each night.");
@@ -435,7 +435,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Powerful", true);
 
-		e.addField("Attributes:", "- If this is rolled and no Fox Heads are rolled, roll a Fox Head.\n- If lynched, you will cause a massive earthquake, shielding any Foxes to for following two nights from basic attacks.\n- While your protection is active, the Foxes cannot use their factional kill unless only one is left.");
+		e.addField("Attributes:", "- If this is rolled and no Fox Heads are rolled, roll a Fox Head.\n- If lynched, you will cause a massive earthquake, shielding any Foxes to for following two nights from basic attacks.\n- They can not perform the factional kill unless they are the last ones left.");
 		
 		e.addField("Goal:", factions.Fox.goal);
 	});

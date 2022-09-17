@@ -329,12 +329,12 @@ require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
 require("./roles/cmd_roles_misc.js")(GLOBAL);
-for(let i = 50; i <= 2050; i+=50)
+for(let i = 50; i <= 2150; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
 console.log(roles.length);
 
-for(let i = 1; i <= 2008; i++)
+for(let i = 1; i <= 2107; i++)
 	if(!commands[i.toString()])
 		console.log("Missing: " + i);
 

@@ -735,7 +735,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Loyalist.goal);
 	});
 
-	register_role(["propogandist", "prop", "699"], "Loyalist", "Propogandist", {subCat: "Support"}, (e) =>
+	register_role(["propagandist", "propogandist", "prop", "699"], "Loyalist", "Propagandist", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 699");
 

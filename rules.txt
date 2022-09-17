@@ -112,3 +112,9 @@ priority list, i do not care about ToS numbers this is just the order things res
 
 hi you can make posts that have numbers which are not in order but please do not give them numbers that would reasonably actually be reached because thatll be annoying and mess us up down the line
 anything above like 10,000 is fine lmfao i fucking hope we never get there
+
+21. The host may choose not to answer certain specific questions about the game at their discretion, in particular, as to the exact results of roles that give very specific information about something, such as 1043: :InaNod: or 243: Delta Ditto. 
+
+22. Roles with effects that interact with their target's visitors don't count themselves as among those visitors and abilities that interact with abilities used against their target don't count themselves among those abilities unless otherwise specified or clear that it should be so
+
+23. If an effect would cause an ability to fail, such as a roleblock, then, unless otherwise, specified, that ability is considered to not have been used, will not go on cooldown, will not take up charges if it has limited charges, and will not count as having been used for the purposes of any other effects.

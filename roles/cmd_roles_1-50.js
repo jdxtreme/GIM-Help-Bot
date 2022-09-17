@@ -49,7 +49,7 @@ module.exports = (g) =>
 
 	register_role(["role_jury", "rolejury", "4"], "Neutral", "Role Jury", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 4");
+		e.setDescription("Post 4\n*How useful could this role possibly be when Rule 17 exists?*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Overkill", true);
@@ -109,7 +109,7 @@ module.exports = (g) =>
 
 	register_role(["oct2", "8"], "Neutral", "Oct2", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 8");
+		e.setDescription("Post 8\n*Me when i watch a funny cat video:*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Unstoppable", true);
@@ -251,7 +251,7 @@ module.exports = (g) =>
 
 	register_role(["prodigy", "18"], "Neutral", "Prodigy", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 18");
+		e.setDescription("Post 18\n*I'm talented in almost everything! I just don't know whats my purpose yet...*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -355,7 +355,7 @@ module.exports = (g) =>
 
 	register_role(["plumber", "25"], "Town", "Plumber", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 25");
+		e.setDescription("Post 25\n*It's a me! Mario!*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -445,7 +445,7 @@ module.exports = (g) =>
 
 	register_role(["bloodthirsty", "31"], "Mafia", "Bloodthirsty", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 31");
+		e.setDescription("Post 31\n*I NEED my 1 KPN.*");
 
 		e.addField("Alignment", "Mafia Killing", true);
 		e.addField("Attack", "Basic (Powerful)", true);
@@ -539,7 +539,7 @@ module.exports = (g) =>
 
 	register_role(["tenacious", "38"], "Mafia", "Tenacious", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 38");
+		e.setDescription("Post 38\n*The silent blade of a killer watches over the town.*");
 
 		e.addField("Alignment", "Mafia Killing", true);
 		e.addField("Attack", "Basic (Unstoppable)", true);
@@ -671,7 +671,7 @@ module.exports = (g) =>
 
 	register_role(["stardust_angel", "stardustangel", "stardust", "47"], "Town", "Stardust Angel", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 47");
+		e.setDescription("Post 47\n*\"Blow the trumpet! The time has come to fight!\"*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);

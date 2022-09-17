@@ -4,24 +4,24 @@ module.exports = (g) =>
 {
 	const {register_role, factions} = g;
 
-	register_role(["picrew", "251"], "Town", "Picrew", {subCat: "Investigative"}, (e) =>
+	register_role(["visual_learner", "visuallearner", "visual", "learner", "vl", "251"], "Town", "Visual Learner", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 251\n*You too, can become anime!*");
+		e.setDescription("Post 251\n*Business Fraud Investigation Using Magnifying Glass. Finance And Tax*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Investigate a player. The host will make a cute anime girl with the Picrew linked that best represents their role. https://picrew.me/image_maker/516657");
+		e.addField("Abilities:", "- Investigate a player. This will return a stock photo that represents their role.");
 
-		e.addField("Attributes:", "- Click through the coloured circle icon tabs, and select the option you want for every category. Some options like hair will have colour options, which can be accessed by clicking the paintbrush icon that pops up. To get the final image, click the green button with the tick.\n- Please ignore the ads haha.");
+		e.addField("Attributes:", "- The host puts the role name into https://www.shutterstock.com/ and selects one of the images, which is then shown to you.\n- If there is no result for the search, you are informed of such.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["coward", "252"], "Town", "Coward", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 252");
+		e.setDescription("Post 252\n*Take them, not me!*");
 
 		e.addField("Alignment", "Town Killing", true);
 		e.addField("Attack", "None", true);
@@ -51,7 +51,7 @@ module.exports = (g) =>
 
 	register_role(["therapist", "254"], "Town", "Therapist", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 254");
+		e.setDescription("Post 254\n*So, what is troubling you today?*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -96,7 +96,7 @@ module.exports = (g) =>
 
 	register_role(["tsuku", "tsukuyomi", "257"], "Neutral", "Tsukuyomi", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 257");
+		e.setDescription("Post 257\n*Souls who have fallen to darkness... return to heaven! Moon Shadow Magatama!!*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -126,7 +126,7 @@ module.exports = (g) =>
 
 	register_role(["poli", "politician", "259"], "Town", "Politician", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 259");
+		e.setDescription("Post 259\n*Stop performing tax evasion.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -171,7 +171,7 @@ module.exports = (g) =>
 
 	register_role(["phantom", "262"], "Neutral", "Phantom", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 262");
+		e.setDescription("Post 262\n*Is it just me or...the light turned on on its own?*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic/Powerful", true);
@@ -276,7 +276,7 @@ module.exports = (g) =>
 
 	register_role(["moody", "269"], "Neutral", "Moody", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 269");
+		e.setDescription("Post 269\n*I dont need sleep! I NEED TEA!!*");
 
 		e.addField("Alignment", "Unique Neutral Chaos", true);
 		e.addField("Attack", "Basic", true);
@@ -379,7 +379,7 @@ module.exports = (g) =>
 
 	register_role(["fortifier", "276"], "Town", "Fortifier", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 276");
+		e.setDescription("Post 276\n*You might say \"Fortifier sounds more of a Town Protective name\". Err, cope.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -450,7 +450,7 @@ module.exports = (g) =>
 
 	register_role(["dyna", "dynamite", "281"], "Town", "Dynamite", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 281");
+		e.setDescription("Post 281\n*So ima light it up like Dynamite, woah oh oh*");
 
 		e.addField("Alignment", "Town Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -495,7 +495,7 @@ module.exports = (g) =>
 
 	register_role(["apprentice", "284"], "Mafia", "Apprentice", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 284");
+		e.setDescription("Post 284\n*I will get to the top.*");
 
 		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "None", true);
@@ -538,7 +538,7 @@ module.exports = (g) =>
 
 	register_role(["leader", "287"], "Mafia", "Leader", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 287");
+		e.setDescription("Post 287\n*Leading the Mafia isnt easy. Ask the Godfather.*");
 
 		e.addField("Alignment", "Mafia Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -656,7 +656,7 @@ module.exports = (g) =>
 
 	register_role(["familiar", "295"], "Coven", "Familiar", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 295");
+		e.setDescription("Post 295\n*A familiar perched on its partners shoulder is said to greatly empower them.*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "None", true);

@@ -261,7 +261,7 @@ module.exports = (g) =>
 
 	register_role(["corrupted_hero_akasuki", "corruptedheroakasuki", "corrupted_hero", "corruptedhero", "akasuki", "cha", "1567"], "Neutral", "Corrupted Hero, Akasuki", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1567");
+		e.setDescription("Post 1567\n*The dark will make you stronger.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -292,7 +292,7 @@ module.exports = (g) =>
 
 	register_role(["apprentice_fighter_daichi", "apprenticefighterdaichi", "apprentice_fighter", "apprenticefighter", "daichi", "afd", "1569"], "Neutral", "Apprentice Fighter, Daichi", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 1569");
+		e.setDescription("Post 1569\n*Don't stall! Make your move, meow!*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -330,7 +330,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player, can only be used if Activated by an Atrribute.");
 
-		e.addField("Attributes:", "- If you are lynched, You may choose up to 3 players to kill, this ignores any form of defense.\n- If you would die at night, you will instead be Activated and survive until the end of the next night, Can only be triggered once.\n- You are immune to the attack reduction of not being the normal attacker.");
+		e.addField("Attributes:", "- If you are lynched, You may choose up to 3 players to kill, this ignores any form of defense.\n- If you would die at night, you will instead be Activated and survive until the end of the next night, Can only be triggered once.\n- You are immune to the attack reduction of not being the factional attacker.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -353,7 +353,7 @@ module.exports = (g) =>
 
 	register_role(["love_river_kid_taizo", "loveriverkidtaizo", "love_river_kid", "loveriverkid", "taizo", "lrkt", "1573", "1573a"], "Neutral", "Love River Kid, Taizo", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1573A\n*The \"Love River\" is a group of 4 vigilantes that dont quite agree with the Town's way of enacting justice, but also condemn evils in their own way.*");
+		e.setDescription("Post 1573A\n*Haha! It's GAME OVER for you!*\n*The \"Love River\" is a group of 4 vigilantes that dont quite agree with the Town's way of enacting justice, but also condemn evils in their own way.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -368,7 +368,7 @@ module.exports = (g) =>
 
 	register_role(["love_river_warrior_akihiko", "loveriverwarriorakihiko", "love_river_warrior", "loveriverwarrior", "akihiko", "lrwa", "1573b"], "Neutral", "Love River Warrior, Akihiko", {subCat: "Killing", cannotRoll: true}, (e) =>
 	{
-		e.setDescription("Post 1573B");
+		e.setDescription("Post 1573B\n*I made this armour myself! It's pretty, right?*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -383,7 +383,7 @@ module.exports = (g) =>
 
 	register_role(["love_river_hero_airi", "loveriverheroairi", "love_river_hero", "loveriverhero", "airi", "lrha", "1573c"], "Neutral", "Love River Hero, Airi", {subCat: "Killing", cannotRoll: true}, (e) =>
 	{
-		e.setDescription("Post 1573C");
+		e.setDescription("Post 1573C\n*W-We're almost there! Hang on!*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -398,7 +398,7 @@ module.exports = (g) =>
 
 	register_role(["love_river_star_aito", "loveriverstaraito", "love_river_aito", "loveriveraito", "aito", "lrsa", "1573d"], "Neutral", "Love River Star, Aito", {subCat: "Killing", cannotRoll: true}, (e) =>
 	{
-		e.setDescription("Post 1573D");
+		e.setDescription("Post 1573D\n*All my friends hope give me strength!*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Unstoppable", true);

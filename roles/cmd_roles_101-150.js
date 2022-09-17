@@ -19,7 +19,7 @@ module.exports = (g) =>
 
 	register_role(["ringmaster", "102"], "PaleMoon", "Ringmaster", {subCat: "Head"}, (e) =>
 	{
-		e.setDescription("Post 102");
+		e.setDescription("Post 102\n*Welcome to the Pale Moon Circus! Nye heh heh!*");
 
 		e.addField("Alignment", "Unique Pale Moon Head", true);
 		e.addField("Attack", "Overkill", true);
@@ -139,7 +139,7 @@ module.exports = (g) =>
 
 	register_role(["beast_tamer", "beasttamer", "beast", "110"], "PaleMoon", "Beast Tamer", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 110");
+		e.setDescription("Post 110\n*The gentle crack of the whip decides your fate.*");
 
 		e.addField("Alignment", "Unique Pale Moon Killing", true);
 		e.addField("Attack", "Powerful (Unstoppable)", true);
@@ -184,7 +184,7 @@ module.exports = (g) =>
 
 	register_role(["clown", "113"], "PaleMoon", "Clown", {subCat: "Protection"}, (e) =>
 	{
-		e.setDescription("Post 113");
+		e.setDescription("Post 113\n*Want a candy?*");
 
 		e.addField("Alignment", "Pale Moon Protection", true);
 		e.addField("Attack", "None", true);
@@ -247,7 +247,7 @@ module.exports = (g) =>
 
 	register_role(["sword_master", "swordmaster", "117"], "PaleMoon", "Sword Master", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 117");
+		e.setDescription("Post 117\n*5 seconds later, your body is sliced to pieces.*");
 
 		e.addField("Alignment", "Pale Moon Killing", true);
 		e.addField("Attack", "Variable", true);
@@ -438,7 +438,7 @@ module.exports = (g) =>
 
 	register_role(["iceberg", "130"], "Rock", "Iceberg", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 130");
+		e.setDescription("Post 130\n*Technically, Icebergs are not rocks.*");
 
 		e.addField("Alignment", "Unique Rock Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -601,7 +601,7 @@ module.exports = (g) =>
 
 	register_role(["emerald", "141"], "Neutral", "Emerald", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 141");
+		e.setDescription("Post 141\n*The light of the Emerald will protect you.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "None", true);

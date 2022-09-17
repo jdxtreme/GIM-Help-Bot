@@ -508,9 +508,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Use your ice powers for good.");
+		e.addField("Abilities:", "- Encase: Any visitors to your target will fail and go back home.\n- Impale: Deal a Basic Attack to someone.\n- Chill: Your target will be roleblocked.");
 
-		e.addField("Attributes:", "- You can: encase someone in ice, impale someone with ice, or chill someone.\n- All abilities have a 1 night cooldown.\n- Encase: Any visitors to your target will fail and go back home.\n- Impale: Deal a Basic Attack to someone.\n- Chill: Your target will be roleblocked.");
+		e.addField("Attributes:", "- All abilities have a 1 night cooldown.\n- Roleblock Immunity.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

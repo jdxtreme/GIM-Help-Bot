@@ -365,7 +365,10 @@ module.exports = (g) =>
 			role = UTILS.randChances(rollable);
 
 		if(role && role.cmd)
+		{
 			role.cmd.func(chn, msg, e, [], nosend);
+			return role;
+		}
 		else
 			msg(chn, "-ERROR: No roles could be rolled.");
 	};

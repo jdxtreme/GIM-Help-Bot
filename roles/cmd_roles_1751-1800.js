@@ -409,7 +409,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Draw someone each night.");
 
-		e.addField("Attributes:", "- The host will do their best to use MS Paint or a similar application to make a visual depiction of the target's role using only a standard black brush of a single size.");
+		e.addField("Attributes:", "- The host will do their best to use MS Paint or a similar application to make a visual depiction of the target's role using only a standard black brush of a single size.\n- The host may not spend more than 30 seconds of effort on this depiction.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -540,7 +540,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Inspect a player during the night.");
+		e.addField("Abilities:", "- Inspect an authorized target during the night.");
 
 		e.addField("Attributes:", "- You will be given 2 roles when you inspect someone. One role will be a Sentry, one role will be a non-Sentry sided role that can spawn. One of those 2 roles will be the targets role.\n- Evils know they were inspected, and are told what Sentry role the Inspector got.");
 		

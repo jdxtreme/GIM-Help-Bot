@@ -21,7 +21,7 @@ module.exports = (g) =>
 
 	register_role(["jack_in_the_box", "jackinthebox", "jitb", "202"], "PaleMoon", "Jack in the Box", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 202");
+		e.setDescription("Post 202\n*A penny for a spool of thread, a penny for a needle...that's the way the money goes, Pop! Goes the weasel.*");
 
 		e.addField("Alignment", "Pale Moon Support", true);
 		e.addField("Attack", "None (Unstoppable)", true);
@@ -111,7 +111,7 @@ module.exports = (g) =>
 
 	register_role(["hoop_specialist", "hoopspecialist", "specialist", "hooper", "208"], "PaleMoon", "Hoop Specialist", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 208");
+		e.setDescription("Post 208\n*Slow movements! Hula Hoop!*");
 
 		e.addField("Alignment", "Pale Moon Support", true);
 		e.addField("Attack", "None (Basic)", true);
@@ -199,7 +199,7 @@ module.exports = (g) =>
 
 	register_role(["animal_breeder", "animalbreeder", "ab", "214"], "PaleMoon", "Animal Breeder", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 214");
+		e.setDescription("Post 214\n*The spectators LOVE my performance! I'm not sure you will, though.*");
 
 		e.addField("Alignment", "Pale Moon Killing", true);
 		e.addField("Attack", "Variable", true);
@@ -450,7 +450,7 @@ module.exports = (g) =>
 
 	register_role(["blade_of_a_silver_tongue_kaori", "bladeofasilvertonguekaori", "blade_of_a_silver_tongue", "bladeofasilvertongue", "silver_tongue", "silvertongue", "kaori", "boastk", "231"], "Neutral", "Blade of a Silver Tongue, Kaori", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 231");
+		e.setDescription("Post 231\n*Don't worry, your death will be swift.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -529,7 +529,7 @@ module.exports = (g) =>
 
 	register_role(["popcorn_boy", "popcornboy", "236"], "PaleMoon", "Popcorn Boy", {subCat: "Protection"}, (e) =>
 	{
-		e.setDescription("Post 236");
+		e.setDescription("Post 236\n*Popcorn! Popcorn for everybody! Get them now!*");
 
 		e.addField("Alignment", "Pale Moon Protection", true);
 		e.addField("Attack", "None (Powerful)", true);
@@ -557,19 +557,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Become the role you are a Backup of and fulfill its win condition OR win with the faction that you are a Backup of.");
 	});
 
-	register_role(["adorable_catgirl_nyaa~!", "adorablecatgirlnyaa", "adorable_catgirl", "adorablecatgirl", "catgirl", "submissivebreedablebuyablepsychotictwinkgothemopetgirlcatmaidpoledancerhumiliationlovingsexyvoicedpegginglovingadorablepsychicprettymermaidkirbywife", "238"], "Neutral", "Adorable Catgirl Nyaa~!", {subCat: "Benign"}, (e) =>
+	register_role(["adorable_catgirl_nyaa~!", "adorablecatgirlnyaa", "adorable_catgirl", "adorablecatgirl", "catgirl", "submissivebreedablebuyablepsychotictwinkgothemopetgirlcatmaidpoledancerhumiliationlovingsexyvoicedpegginglovingadorablepsychicprettymermaidkirbywife", "238"], "Neutral", "Adorable Catgirl Nyaa~!", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 238\n*Nyaaa~!*");
 
-		e.addField("Alignment", "Neutral Benign", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Make cute sounds and distract a player during the night.");
 
-		e.addField("Attributes:", "- Distracting a player gives them Powerful defense.\n- After a player has been distracted, the only way they can communicate the following day is to whisper to you.\n- Anybody who attacks you has a 51% chance of also dying.");
+		e.addField("Attributes:", "- This role randomly has either an evil goal or a good goal. If it has an evil goal, you gain access to all factional evil chats, though you do not count as a member of that faction.\n- Anybody who attacks you has a 51% chance of also dying.");
 
-		e.addField("Goal:", "Live until the end of the game.");
+		e.addField("Goal:", "Live to see the Town lose / Live to see the Town win");
 	});
 
 	register_role(["ability_thief", "abilitythief", "at", "239"], "Mafia", "Ability Thief", {subCat: "Support"}, (e) =>
@@ -589,7 +589,7 @@ module.exports = (g) =>
 
 	register_role(["spectator", "240"], "PaleMoon", "Spectator", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 240");
+		e.setDescription("Post 240\n*ANOTHER canned game?! Boo!!*");
 
 		e.addField("Alignment", "Pale Moon Support", true);
 		e.addField("Attack", "None (Unstoppable)", true);

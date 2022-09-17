@@ -253,7 +253,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Koopa.goal);
 	});
 
-	register_role(["arbiter_of_grand_idea_mafia", "arbiterofgrandideamafia", "arbiter", "aogim", "1818"], "Coven", "Arbiter of Grand Idea Mafia", {subCat: "Evil"}, (e) =>
+	register_role(["arbiter_of_grand_idea_mafia", "arbiterofgrandideamafia", "arbiter", "aogim", "gim", "1818"], "Coven", "Arbiter of Grand Idea Mafia", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 1818");
 
@@ -261,9 +261,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player's house to become GIM during the first night.\n- Reassign GIM if that player dies.");
+		e.addField("Abilities:", "- Choose a player's house to become GIM during the first night. You cannot move GIM, unless that player dies.");
 
-		e.addField("Attributes:", "- Players who visit GIM are subjected to the following effects in the order:\n> - Scumcasted\n> - Stolen from, like literally yoinked\n> - Glass Slippered \n> - Off by one errored\n> - Triple tapped\n> - Negative attacked \n> - Shroomed\n> - Urticated\n> - Covered in frost\n- If a player dies, the effects after are still applied.\n- GIM remains after you die.\n- With the Necronomicon, you may have two GIMs active at a time.");
+		e.addField("Attributes:", "- Players who visit GIM are subjected to the following effects in the order:\n> - Scumcasted\n> - Stolen from, like literally yoinked\n> - AGL-8 Grenade Machine Gunned\n> - Off by one errored\n> - Triple tapped\n> - Negative attacked\n> - Shroomed\n> - Urticated\n> - Covered in frost\n- If a player dies, the effects after are still applied.\n- GIM remains after you die.\n- With the Necronomicon, you may have two GIMs active at a time.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -433,9 +433,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Powerful", true);
 
-		e.addField("Abilities:", "- Attack a player tonight. Nothing more, nothing less.\n- Alter a player's soul, turning them into a completely different role. This role can be **anything** in GIM. This could be a double-edged sword, so beware.\n- Summon the gang of mafia on a player, permanently removing them from day chats and lynches. ");
+		e.addField("Abilities:", "- Attack a player tonight. Nothing more, nothing less.\n- Alter a player's soul, turning them into a completely different role with an even post number. This role can be **anything** in GIM. This could be a double-edged sword, so beware.\n- Summon the gang of mafia on a player, permanently removing them from day chats and lynches.");
 
-		e.addField("Attributes:", "- You can use **any** of these abilities, but only one is available at night. Similar to Potion Master, you must wait two days before using them again.\n- Your action always succeeds, unless you're roleblocked.\n- Whenever you're attacked, you will summon your Mafia gang to seek revenge.");
+		e.addField("Attributes:", "- You can use any of these abilities, but only one is available at night. Similar to Potion Master, you must wait two days before using them again.\n- Your action always succeeds, unless you're roleblocked.\n- Whenever you're attacked, you will summon your Mafia gang to seek revenge.");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -487,7 +487,7 @@ module.exports = (g) =>
 
 	register_role(["apophis", "1834"], "FallenAngel", "Apophis", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1834\n*A indescribable darkness laying in the tenth region of night, vying to finally conquer the sun.*");
+		e.setDescription("Post 1834\n*A indescribable darkness lying in the tenth region of night, vying to finally conquer the sun.*");
 
 		e.addField("Alignment", "Unique Fallen Angel Killing", true);
 		e.addField("Attack", "Piercing", true);

@@ -423,7 +423,7 @@ module.exports = (g) =>
 
 	register_role(["amethyst", "179"], "Rock", "Amethyst", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 179");
+		e.setDescription("Post 179\n*Those inflicted by the Amethyst' curses never survive...unless they have Basic or higher*");
 
 		e.addField("Alignment", "Rock Support", true);
 		e.addField("Attack", "None", true);
@@ -604,7 +604,7 @@ module.exports = (g) =>
 
 	register_role(["crystal", "192"], "Rock", "Crystal", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 192");
+		e.setDescription("Post 192\n*You will be just as beautiful as me.*");
 
 		e.addField("Alignment", "Rock Killing", true);
 		e.addField("Attack", "Powerful", true);

@@ -10,7 +10,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Perform an Investigator (35) check on a player.\n- (Rehearsal) Attack a player if they are an enemy that is non-good, then rehearse.\n- (Concert) Learn the true role of a player. Twice per game, after learning their role, you may choose to attack them.");
+		e.addField("Abilities:", "- Perform an Investigator (35) check on a player.\n- (Rehearsal) Poison a player if they are an enemy that is non-good, then rehearse.\n- (Concert) Learn the true role of a player. Twice per game, after learning their role, you may choose to attack them.");
 
 		e.addField("Attributes:", "- You do not notify your targets that they were investigated.\n- **Rehearse Radius**: 2");
 		
@@ -241,7 +241,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You may not multitask multiple abilities.");
 		
-		e.addField("Goal:", "NG Goal");
+		e.addField("Goal:", "Eliminate absolutely everyone, including Neutrals who would otherwise assist you.");
 	});
 
 	register_role(["bomber", "1667"], "Warfleet", "Bomber", {subCat: "Offensive"}, (e) =>

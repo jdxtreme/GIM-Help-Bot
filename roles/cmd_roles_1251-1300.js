@@ -391,7 +391,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Spark! - Redirect a player. (3 uses)\n- Discharge! - Upgrade your Defense to Basic and Attack to Powerful tonight. (1 use)\n- Upgrade your Defense to Basic tonight. Redirect all players who don't visit tonight to you. If they don't have a visiting ability, the visit will do nothing. (1 use)");
+		e.addField("Abilities:", "- Spark! - Redirect a player. (3 uses)\n- Discharge! - Upgrade your Defense to Basic and Attack to Powerful tonight. (1 use)\n- Electric Terrain! - Upgrade your Defense to Basic tonight. Redirect all players who don't visit tonight to you. If they don't have a visiting ability, the visit will do nothing. This cannot be used before Night 3. (1 use)");
 
 		e.addField("Pokemon Ability:", "**Lightning Rod** - You will attack players who visit you.");
 		

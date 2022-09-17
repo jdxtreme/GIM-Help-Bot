@@ -49,13 +49,15 @@ module.exports = (g) =>
 
 	register_role(["scp-173", "scp173", "peanut", "754"], "SCP", "SCP-173", {subCat: "Euclid"}, (e) =>
 	{
-		e.setDescription("Post 754");
+		e.setDescription("Post 754\n*It is constructed from concrete and rebar with traces of Krylon brand spray paint. SCP-173 is animate and extremely hostile. The object cannot move while within a direct line of sight.*");
 
 		e.addField("Alignment", "Unique SCP Euclid", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Every non-full moon night, you may visit somebody. This will kill either one random visitor, the person you visit themselves, or someone who visits you aside from any SCPs.\n- Knock out the full moon tonight, allowing you to use your ability. 3 charges, may not be used consecutively, May only be used Day 5 onwards.");
+		e.addField("Abilities:", "- Choose to snap the necks of all your visitors tonight.");
+
+		e.addField("Attributes:", "- You may only snap necks 3 times.");
 		
 		e.addField("Goal:", factions.SCP.goal);
 	});
@@ -90,7 +92,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eliminate all who would oppose you.");
 	});
 
-	register_role(["insurgent_mercenary", "insurgentmercenary", "mercenary", "merc", "757"], "Insurgency", "(Insurgent) Mercenary", {subCat: "Bouncer"}, (e) =>
+	register_role(["picket", "757"], "Insurgency", "Picket", {subCat: "Bouncer"}, (e) =>
 	{
 		e.setDescription("Post 757");
 
@@ -197,15 +199,15 @@ module.exports = (g) =>
 
 	register_role(["scp-096", "scp096", "shy_guy", "shyguy", "764"], "SCP", "SCP-096", {subCat: "Euclid"}, (e) =>
 	{
-		e.setDescription("Post 764");
+		e.setDescription("Post 764\n*SCP-096 is normally extremely docile, with pressure sensors inside its cell indicating it spends most of the day pacing by the eastern wall. However, when someone views SCP-096's face, whether it be directly, via video recording, or even a photograph, it will enter a stage of considerable emotional distress.*");
 
 		e.addField("Alignment", "Unique SCP Euclid", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Every full moon night, you may rampage at someone elses house.");
+		e.addField("Abilities:", "- Pace someone's house tonight.");
 
-		e.addField("Attributes:", "- You will not kill any members of your team.\n- If someone visits you, they die.\n- Your victims are cleaned");
+		e.addField("Attributes:", "- If someone visits your target, you will attack one random visitor, and clean them.\n- If you are attacked, you are instead roleblocked and will attack and clean your attacker. This occurs unless the attack penetrates your defense.");
 		
 		e.addField("Goal:", factions.SCP.goal);
 	});
@@ -257,43 +259,45 @@ module.exports = (g) =>
 
 	register_role(["scp-049", "scp049", "plague_doctor", "plaguedoctor", "768"], "SCP", "SCP-049", {subCat: "Euclid"}, (e) =>
 	{
-		e.setDescription("Post 768");
+		e.setDescription("Post 768\n*SCP-049 will become hostile with individuals it sees as being affected by the Pestilence, often having to be restrained should it encounter such. If left unchecked, SCP-049 will generally attempt to kill any such individual.*");
 
 		e.addField("Alignment", "Unique SCP Euclid", true);
-		e.addField("Attack", "Unstoppable", true);
+		e.addField("Attack", "Powerful/Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Instead of killing somebody, you may instead revive a dead player secretly as an SCP-049-2 instance. It cannot vote, but can perform a basic attack or roleblock another player. It lasts for 2 days before dying.");
+		e.addField("Abilities:", "- Once per game, you may deal an unstoppable attack.\n- You may instead revive a dead player secretly as an SCP-049-2 instance.");
+
+		e.addField("Attributes:", "\n- SCP-049-2 instances cannot vote, but can perform an astral factional kill, use a nerfed version of its original ability, or roleblock another player. It lasts for 2 days before dying.\n- Your unstoppable attack will be refunded if it fails for whatever reason (Target in jail, Defense too high, Healed by a Doctor, ect.).");
 		
 		e.addField("Goal:", factions.SCP.goal);
 	});
 
 	register_role(["scp-682", "scp682", "769"], "SCP", "SCP-682", {subCat: "Keter"}, (e) =>
 	{
-		e.setDescription("Post 769");
+		e.setDescription("Post 769\n*SCP-682 must be destroyed as soon as possible.*");
 
-		e.addField("Alignment", "Unique SCP Keter", true);
+		e.addField("Alignment", "SCP Keter", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Attack 1 player with basic attack.");
+		e.addField("Abilities:", "- Adapt to another player's abilities");
 
-		e.addField("Attributes:", "- You will adapt to the environment.\n- If you are roleblocked twice gain roleblock immunity.\n- If you fail attack twice gain powerful attack.\n- If you are attacked twice gain powerful defense.\n- If you are voted twice gain 2 votes.");
+		e.addField("Attributes:", "- Adapting to another player's abilities will make them fail should they visit you.\n- If you are attacked twice gain powerful defense.\n- If you are voted twice gain 2 votes.");
 		
 		e.addField("Goal:", factions.SCP.goal);
 	});
 
 	register_role(["scp-106", "scp106", "larry", "770"], "SCP", "SCP-106", {subCat: "Keter"}, (e) =>
 	{
-		e.setDescription("Post 770");
+		e.setDescription("Post 770\n*SCP-106 is capable of passing through solid matter, leaving behind a large patch of its corrosive mucus. SCP-106 is able to “vanish” inside solid matter, entering what is assumed to be a form of “pocket dimension”.*");
 
 		e.addField("Alignment", "Unique SCP Keter", true);
-		e.addField("Attack", "Unstoppable", true);
-		e.addField("Defense", "None", true);
+		e.addField("Attack", "Powerful/\"Corrosion\"", true);
+		e.addField("Defense", "None (Powerful)", true);
 
-		e.addField("Abilities:", "- When visiting, you don't kill right away, instead, they must pick a number from 1-10. If they choose the right number, they live, if they don't, they die. The number is randomized every time.");
+		e.addField("Abilities:", "-You may choose 3 players to send to a subgame.");
 
-		e.addField("Attributes:", "- Once a SCP-106 has been confirmed to be in play, one town member may volunteer to sacrifice themselves (Modkill level attack) to kill SCP-106(Modkill level attack). The vote counts as a lynch and requires the standard trial rules for the game to pass.");
+		e.addField("Attributes:", "- The subgame is night phase only, and roles with day abilities (Such as the Jailor (51)), may use them the night prior.\n- Players inside the subgame may know who else is in the subgame.\n- Once a win condition has been reached. The winners are released from the pocket dimension, and return to the main game. With the losers being dealt a corrosion level attack.\n- Corrosion: Bypasses any and all defenses a player may have.\n- You have a powerful autovest that sends the first person to attack you to the subgame.");
 		
 		e.addField("Goal:", factions.SCP.goal);
 	});
@@ -443,7 +447,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Protect the fallen child tonight. They will gain Invincible defense for the night, and any negative effects will be purged (2 use).");
 
-		e.addField("Attributes:", "- The fallen child is [player]. They will be notified that they are the fallen child at the start of the game. Any whispers between you and the fallen child will be completely undetectable by any means. The fallen child is guaranteed to be a player that does not have defense nor has any method of granting themselves defense.\n- You cannot claim your role publicly. If you do, the Town will believe you are a monster and will deal an instant Unstoppable attack to you. If the Town suspects you are this role, this attribute is not triggered; however, it will be triggered if the fallen child points out that you are this role. If your role is revealed publicly for any reason, this attribute is also triggered.");
+		e.addField("Attributes:", "- The fallen child is [player]. They will be notified that they are the fallen child at the start of the game. Any whispers between you and the fallen child will be completely undetectable by any means. The fallen child is guaranteed to be a player that does not have defense nor has any method of granting themselves defense.\n- You cannot claim your role publicly. If you do, the Town will believe you are a monster and will deal an instant Unstoppable attack to you. This is activated if a situation arises in which it's extremely obvious that you are this role. This is also activated if the fallen child claims you are this role.");
 
 		e.addField("Attributes (cont.):", "- If the fallen child dies at any point, you will absorb their soul that night. The following day, you will attempt to place them in their final resting place at the golden flowers in their town. If you receive two votes at this point, you will instantly be dealt an Unstoppable attack. If you survive the day phase, you will successfully let the fallen child rest and will leave the town permanently.");
 		

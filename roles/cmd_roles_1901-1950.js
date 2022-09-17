@@ -173,7 +173,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Grant a player any immunity.\n- (Rehearsal) Recruit a new singer to the chorus, then rehearse.\n- (Concert) Deal an attack to a player as many times as you have singers.");
 
-		e.addField("Attributes:", "- **Rehearsal Radius**: # of singers\n- Your main ability may be used as many times per night as you have singers. You start with 1, which is yourself.\n- (Concert) You do not do 4 different attacks, you attack the same person 4 times. This example is if you have 4 singers. If you would die attacking someone, a singer will instead.");
+		e.addField("Attributes:", "- **Rehearsal Radius**: # of singers\n- Your main ability may be used as many times per night as you have singers. You start with 1, which is yourself.\n- The host has the right to reject any immunities you are trying to grant, such as death immunity.\n- That said, the host may also allow any immunity, such as death immunity, but if that happens, that's their fault, not mine.\n- (Concert) You do not do 4 different attacks, you attack the same person 4 times. This example is if you have 4 singers. If you would die attacking someone, a singer will instead.");
 		
 		e.addField("Goal:", factions.Band.goal);
 	});
@@ -398,7 +398,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Prosecute someone at night denying them the right of privacy. If any Town member attempted to visit your target but failed for any reason, their visit will succeed. Any evil players visiting your target will hear loud legal jargon nearby.\n- Prosecute someone during the day granting them the right to a quick and speedy trial. You will double the number of votes they have received.");
+		e.addField("Abilities:", "- Prosecute someone at night denying them the right of privacy. If any Town member attempted to visit your target but failed for any reason, their visit will succeed. Any evil players visiting your target will hear loud legal jargon nearby.\n- Prosecute someone during the day granting them the right to a quick and speedy trial. You will double the number of votes they have received so far today.");
 
 		e.addField("Attributes:", "- Do you like my Phoenix Wright cosplay?");
 		
@@ -503,7 +503,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose a player to defend each night. It is publicly announced that they cannot be lynched the following day because of the Defence Attorney (Everfrost), and all players that target them with an investigative ability will be roleblocked. You may not target the same player twice in a row.\n**Frozen Paperwork** — The following day, the target of the lynch will not die, and they may instead choose a player to be lynched instead of them. You may only use this ability once each game and you can't use it until Night 3.");
 
-		e.addField("Attributes:", "- Whenever a player is roleblocked by anything, gain an anonymous vote for the following day. Majority will be increased accordingly. You cannot use those votes on a player that was roleblocked the previous night.");
+		e.addField("Attributes:", "- Roleblock Immune\n- Whenever a player is roleblocked by anything, gain an anonymous vote for the following day. Majority will be increased accordingly. You cannot use those votes on a player that was roleblocked the previous night.");
 		
 		e.addField("Goal:", factions.Everfrost.goal);
 	});
@@ -525,7 +525,7 @@ module.exports = (g) =>
 
 	register_role(["kl_33", "kl-33", "kl33", "kl", "1935"], "Neutral", "KL-33", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 3000");
+		e.setDescription("Post 1935");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Variable", true);
@@ -586,7 +586,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Use the ability of any Band member's role.\n- (Rehearsal) Select two targets, use the first target's ability on the second, then rehearse.\n- (Concert) Use any Band role's ability, whether it is normal, Rehearsal, or Concert.");
 
-		e.addField("Attributes:", "- **Rehearsal Radius**: 4\n- Your normal ability can only target Band roles that are alive.\n- If you're the last surviving Band member, you may use dead Band roles.\n- If you are a solo Band member to begin with, 2 random Band roles will be available at your disposal at the beginning of the day for your normal ability.\n- Control and redirect immune.");
+		e.addField("Attributes:", "- **Rehearsal Radius**: 4\n- Your normal ability can only target Band roles that exist in the game, alive or dead.\n- If you are a solo Band member to begin with, 2 random Band roles will be available at your disposal at the beginning of the day for your normal ability.\n- Control and redirect immune.");
 		
 		e.addField("Goal:", factions.Band.goal);
 	});
@@ -614,9 +614,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Check a player to learn if they are the same subalignment as your previous target. (Note: I mean only subalignment. A Town (Evil) and Coven (Evil) will show as being the same subalignment.)\n- (Rehearsal) Check a player to see if they would win with your previous target, then rehearse.\n- (Concert) Check a player. If they are the same faction as your previous target, attack them.");
+		e.addField("Abilities:", "- Check a player to learn if they are the same subalignment as your previous target.\n- (Rehearsal) Check a player to see if they would win with your previous target, then rehearse.\n- (Concert) Check a player. If they are the same faction as your previous target, attack them.");
 
-		e.addField("Attributes:", "- **Rehearsal Radius**: 3\n- You may select a target on D1. If you don't, it's randomized so your ability may function. It will never be a Band member.\n- If your previous target is dead, they stay your previous target. Even if you killed them.");
+		e.addField("Attributes:", "- **Rehearsal Radius**: 3\n- For the normal ability, I mean only subalignment. A Town (Evil) and Coven (Evil) will show as being the same subalignment.\n- You may select a target on D1. If you don't, it's randomized so your ability may function. It will never be a Band member.\n- If your previous target is dead, they stay your previous target. Even if you killed them.");
 		
 		e.addField("Goal:", factions.Band.goal);
 	});
@@ -646,7 +646,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Dance at a player's house. If they are attacked, the attack will be unable to fail.\n- (Rehearsal) Throw flags in the air, then plant them at someone's house to give any Band member visiting them redirect, control, and roleblock immunity, and prevent their ability from failing, then rehearse.\n- (Concert) Equip a rifle. You can literally just shoot someone.");
 
-		e.addField("Attributes:", "- **Rehearsal Radius**: 2\n- If you are left with no kill-capable Band members, or are solo, your normal ability will also kill.");
+		e.addField("Attributes:", "- **Rehearsal Radius**: 2\n- If you are left with no kill-capable Band members, or are solo, your normal ability will also kill.\n- If you use an ability on your target, they will learn that a Color Guard used their ability on them. They will know which. If they die, they will not be notified.");
 		
 		e.addField("Goal:", factions.Band.goal);
 	});
@@ -681,19 +681,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Koopa.goal);
 	});
 
-	register_role(["harry_s_truman", "harrystruman", "harry", "truman", "hst", "1945"], "Neutral", "Harry S. Truman", {subCat: "Chaos"}, (e) =>
+	register_role(["harry_s_truman", "harrystruman", "harry", "truman", "hst", "1945"], "Town", "Harry S. Truman", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 1945\n*I never gave anybody hell! I just told the truth and they thought it was hell.*");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Town Power", true);
+		e.addField("Attack", "\"Yes\"", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Drop an atomic bomb on the Town. This will instantaneously end the game with you, and any other roles that have previously won, as the only victor(s).");
+		e.addField("Abilities:", "- Drop an atomic bomb on the Town. This will eradicate all enemies of the Town in one fell swoop. All Town members and any other players that have achieved their wincon instantly win the game. This ability does not kill anyone except players that are strictly anti-Town.");
 
 		e.addField("Attributes:", "- You may not use your ability until Night 6.");
 		
-		e.addField("Goal:", "Obliterate");
+		e.addField("Goal:", "Obliterate the opposition.");
 	});
 
 	register_role(["lizard", "1946"], "COA", "Lizard", {subCat: "Support"}, (e) =>

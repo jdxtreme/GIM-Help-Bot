@@ -18,6 +18,11 @@ cannotRoll: Boolean
 	- Any role marked with this will be completely excluded from role rolling.
 	- Other modifiers, such as to spawn rate, will be completely ignored.
 
+censor: "String" | [Array<String>]
+	- Used in 1508: Guess The Role to censor specific phrases that might otherwise give the role's name away.
+	- 1508's automatic censor can only detect exact matches to the role's title.
+	- This might be needed if a role mentions a small part of a role's name, for example.
+
 spawnCat: "String" | [Array<String>]
 	- If this is specified, the role will spawn within the provided Category/ies, rather than its actual category.
 	- This will override the special behavior attributed to the "Any" category.

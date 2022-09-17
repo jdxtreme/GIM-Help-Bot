@@ -105,7 +105,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["twin_sunflower", "twinsunflower", "457"], "Plant", "Twin Sunflower", {subCat: "Production"}, (e) =>
+	register_role(["twin_sunflower", "twinsunflower", "457"], "Plant", "Twin Sunflower", {subCat: "Production", cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 457");
 

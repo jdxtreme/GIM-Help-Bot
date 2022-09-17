@@ -337,7 +337,7 @@ module.exports = (g) =>
 
 	register_role(["confectioner", "1174", "563u"], "Unseen", "Confectioner", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1174\n*Sweet dreams are made of wheat.*\nConverted from: Baker");
+		e.setDescription("Post 1174\n*Sweet treats are made of wheat.*\nConverted from: Baker");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
@@ -560,7 +560,7 @@ module.exports = (g) =>
 
 	register_role(["heliocentrist", "helio", "1189", "298u"], "Unseen", "Heliocentrist", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 1189\n*Nicolaus Copernicus was pretty based dude.*\nConverted from: Sun's Familiar");
+		e.setDescription("Post 1189\n*Nicolaus Copernicus was a pretty based dude.*\nConverted from: Sun's Familiar");
 
 		e.addField("Alignment", "Unseen Power", true);
 		e.addField("Attack", "None", true);
@@ -637,7 +637,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Unique Agent Head", true);
 		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "Basic (Invincible)", true);
 
 		e.addField("Abilities:", "- Reckless (1-shot): Use an ability that a Killing Agent can use.\n- Signal Mass Attack (1-shot): Use during the day. Enable all Agent roles to use a factional attack the next night. Agents will be informed of this.\n- Take Charge (0-shot): This ability gains 1 ammo any time a Town Power, Neutral Killing, or Faction Lead/Head role dies. Grant yourself a hidden, extra vote.");
 
@@ -654,7 +654,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Lead Through Action (2-shot): Use an ability that an Communications or Support Agent can use.\n- Dinner Discussion (Infinite): Dinner Discussion (Infinite): During the day, choose a player. You will share a chat with them the next night, removing them from any factional chats they are in. They will know your name, but not that you are Charlie.");
+		e.addField("Abilities:", "- Lead Through Action (2-shot): Use an ability that an Communications or Support Agent can use.\n- Dinner Discussion (Infinite): During the day, choose a player. You will share a chat with them the next night, removing them from any factional chats they are in. They will know your name, but not that you are Charlie.");
 
 		e.addField("Attributes:", "- At the start of the game, you will learn the role of a random player. This does not bypass detection immunity, if such immunity grants the ability to choose a disguise role.\n- You have roleblock, control, and redirection immunity. If any of these are attempted on you, you will learn what role attempted to cause it.\n- If you carry the factional kill, you will roleblock your target.");
 

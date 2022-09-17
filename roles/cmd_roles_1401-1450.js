@@ -456,7 +456,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Choose 3 targets, You will Attack 1, Roleblock 1 and Blackmail 1 at random.");
 
-		e.addField("Attributes:", "- Main ability only debuffs if chosen as the normal attacker.");
+		e.addField("Attributes:", "- Main ability only debuffs if chosen as the factional attacker.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -497,7 +497,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Predict something that will happen during the night and write an exposition for it.");
 
@@ -620,7 +620,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have [# of Players]/4 (rounded down) soldiers at the start of the game.\n- You can command all of them to attack different people at the same time you attack someone.\n- If you die, you don't. A soldier dies in your place instead. The soldiers all have Basic defense. Yes, this applies to lynches too.\n- If you don't have soldiers, and die, you die. (You're dead)\n- Roleblock immune. Additionally, if you are roleblocked, you may have all of your soldiers stab the roleblocker all at once.");
 
-		e.addField("Goal:", factions.Neutral.goalNG);
+		e.addField("Goal:", "Eliminate absolutely everyone, including Neutrals who would otherwise assist you.");
 	});
 
 	register_role(["sk_anarchist", "skanarchist", "skbiaa", "sk", "anarchist", "1442"], "Neutral", "SK but it's an anarchist", {subCat: "Killing"}, (e) =>

@@ -34,7 +34,7 @@ module.exports = (g) =>
 
 	register_role(["model", "353"], "Town", "Model", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 353");
+		e.setDescription("Post 353\n*I say! Hey! Hey! Hey, Start Dash!!*");
 
 		e.addField("Alignment", "Town Power", true);
 		e.addField("Attack", "None", true);
@@ -49,7 +49,7 @@ module.exports = (g) =>
 
 	register_role(["wielder_of_hope_asahi", "wielderofhopeasahi", "wielder_of_hope", "wielderofhope", "asahi", "woha", "354"], "Neutral", "Wielder of Hope, Asahi", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 354");
+		e.setDescription("Post 354\n*Hopes and dreams will lead you afar!*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -150,7 +150,7 @@ module.exports = (g) =>
 
 	register_role(["analyst", "361"], "Town", "Analyst", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 361");
+		e.setDescription("Post 361\n*Don't mind me, just...analyzing.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);

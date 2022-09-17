@@ -131,18 +131,35 @@ module.exports = (g) =>
 
 	register_role(["guesstherole", "guess_the_role", "gtr", "1508"], "Any", "Guess The Role", (e, chn, message, args) =>
 	{
-		randomRole(chn, message, e, args, true);
+		let role = randomRole(chn, message, e, args, true);
+		let meta = role.cmd.meta;
 		lastGTR[chn.id] = {author: e.author, desc: e.description};
 		let truename = e.author.name.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 		let censorname = censor(truename.length);
+		let censorother = [];
 
 		e.setAuthor({name: "Guess The Role"});
 		e.setColor("808080");
 		e.setImage();
 		e.setDescription("Post 1508\nThis isn't actually a role. Instead, it's a command that posts a random role but removes the role's name to allow people to try and guess the role.\nIf it actually roles, it acts as the role that was rolled but is permanently disguised as \"Guess The Role\".");
 
+		if(meta.censor)
+		{
+			if(typeof meta.censor === "string")
+				censorother[0] = {phrase: meta.censor.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), censor: censor(meta.censor.length)};
+			else
+				for(let i = 0; i < meta.censor.length; i++)
+					censorother[i] = {phrase: meta.censor[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), censor: censor(meta.censor[i].length)};
+		}
+
 		for(let i = 0; i < e.fields.length; i++)
 		{
+			for(let n = 0; n < censorother.length; n++)
+			{
+				e.fields[i].name = e.fields[i].name.replace(new RegExp(censorother[n].phrase, 'ig'), censorother[n].censor);
+				e.fields[i].value = e.fields[i].value.replace(new RegExp(censorother[n].phrase, 'ig'), censorother[n].censor);
+			}
+
 			e.fields[i].name = e.fields[i].name.replace(new RegExp(truename, 'ig'), censorname);
 			e.fields[i].value = e.fields[i].value.replace(new RegExp(truename, 'ig'), censorname);
 		}

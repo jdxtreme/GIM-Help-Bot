@@ -514,7 +514,7 @@ module.exports = (g) =>
 
 	register_role(["literally_1984", "literally1984", "1984", "1986"], "Neutral", "Literally 1984", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 1984");
+		e.setDescription("Post 1986");
 
 		e.addField("Alignment", "Unique Neutral Evil", true);
 		e.addField("Attack", "Variable", true);
@@ -738,6 +738,19 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- Stealing another player's cap effectively disables their primary ability as determined by the host. They are notified of this.\n- Players may get their cap back by either your death, or visiting a player of your choosing. This may be a koopa. You cannot choose yourself.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
+	});
+
+	register_role(["reserved_part_5", "reservedpart5", "rp5", "1997"], "Neutral", "Reserved Part 5", {subCat: "Other"}, (e) =>
+	{
+		e.setDescription("Post 1997");
+
+		e.addField("Alignment", "Neutral Other", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- After 24 hours, the host picks a Koopa role for this to become.");
+		
+		e.addField("Goal:", "N/A");
 	});
 
 	register_role(["reserved_part_6", "reservedpart6", "rp6", "1998"], "Neutral", "Reserved Part 6", {subCat: "Evil"}, (e) =>

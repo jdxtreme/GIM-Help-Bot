@@ -157,12 +157,12 @@ module.exports = (g) =>
 		e.setDescription("Post 611\n*They were gonna die anyways, you know. It's just happening a bit faster.*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "None", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "Basic", true);
 
 		e.addField("Abilities:", "- Pursue a player, attacking them if something else does first.\n- Alternatively choose to scry at night, revealing a random killer's identity and role to you.");
 
-		e.addField("Attributes:", "- You will rampage at a player's house when attacking, killing those who visit your target except for the attacker.\n- If you try to pursue someone who has not been attacked, your visit fails.\n- You will learn the initial attacker's role upon successfully pursuing.");
+		e.addField("Attributes:", "- You can only use one ability each night.\n- You will rampage at a player's house when attacking, additionally killing those who visit your target except for the attacker.\n- If you try to pursue someone who has not been attacked, your visit fails.\n- You will learn the initial attacker's role upon successfully pursuing.");
 		
 		e.addField("Goal:", "Successfully pursue and attack 2 players");
 	});

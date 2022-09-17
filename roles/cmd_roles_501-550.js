@@ -639,7 +639,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Lynch at least 3 members of the Town after revealing yourself. Town Lynches before you reveal don't count.");
 	});
 
-	register_role(["metal_crusher", "metalcrusher", "metal", "crusher", "ms", "542"], "Neutral", "Metal Crusher", {subCat: "Evil"}, (e) =>
+	register_role(["metal_crusher", "metalcrusher", "metal", "crusher", "mc", "542"], "Neutral", "Metal Crusher", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 542");
 
