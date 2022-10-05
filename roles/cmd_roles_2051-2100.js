@@ -143,7 +143,7 @@ module.exports = (g) =>
 
 	register_role(["sharihahharahahhahharazad", "shari", "motherfucker", "2060"], "Neutral", "Sharihahharahahhahharazad", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 2060\n*Viri, Bionic, Jd, and Zage all get credit for suggesting roles.*");
+		e.setDescription("Post 2060");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -523,7 +523,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Work things out with everyone alive at the end of the game.");
 	});
 
-	register_role(["i_hate_none_of_you", "ihatenoneofyou", "except_rasen", "exceptrasen", "except_viri", "exceptviri", "viri", "rasen", "ihnoyeravtos", "2086"], "Neutral", "I Hate All Of You, Except Rasen and Viri, These Ones Suck", {subCat: "Killing"}, (e) =>
+	register_role(["i_hate_none_of_you", "ihatenoneofyou", "except_rasen", "exceptrasen", "except_viri", "exceptviri", "viri", "rasen", "ihnoyeravtos", "2086"], "Neutral", "I Hate None Of You, Except Rasen and Viri, These Ones Suck", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 2086");
 

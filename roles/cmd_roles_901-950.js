@@ -603,7 +603,7 @@ module.exports = (g) =>
 
 	register_role(["jack_of_all_trades", "jackofalltrades", "joat", "939"], "Town", "Jack Of All Trades", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 939");
+		e.setDescription("Post 939\n*I have a trick up my sleeve!*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "Basic", true);
@@ -742,7 +742,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Interrogate someone at night.");
 
-		e.addField("Attributes:", "- It's old ToS Sheriff except NKs show as NKs and not their actual role. That's basically it.\nSpecifics can be seen here: https://docs.google.com/document/d/1rMinMSKBpTaMKH0oeDpBGulhK7LsDqNN23PWu_A4OJM/edit?usp=sharing");
+		e.addField("Attributes:", "- If your target is an NK, NG, or REF, you'll learn their faction. You'll learn their role if they're NK or NG.\n- If your target is detection immune, a factional (Head), or not listed above, you'll find them \"not suspicious\".\n- If your target is framed, they show up as whatever their framer's role is.\n- Douses cannot and will not affect your result under any circumstances now shut the hell up.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

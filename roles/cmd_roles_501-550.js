@@ -641,7 +641,7 @@ module.exports = (g) =>
 
 	register_role(["metal_crusher", "metalcrusher", "metal", "crusher", "mc", "542"], "Neutral", "Metal Crusher", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 542");
+		e.setDescription("Post 542\n*Hello beauties! It's your favourite host, Mettaton! There are some humans in the Town! Give a round of applause for their death!*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "Basic", true);

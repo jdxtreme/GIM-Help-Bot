@@ -619,7 +619,7 @@ module.exports = (g) =>
 
 	register_role(["beekeeper", "bee", "bk", "792"], "Town", "Beekeeper", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 792");
+		e.setDescription("Post 792\n*Bzzzz...*");
 		e.author.iconURL = "https://cdn.discordapp.com/emojis/976566462133174342.webp";
 
 		e.addField("Alignment", "Town Support", true);

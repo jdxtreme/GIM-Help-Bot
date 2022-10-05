@@ -205,7 +205,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["umbrella_leaf", "umbrellaleaf", "umbrella", "leaf", "uf", "1612"], "Plant", "Umbrella Leaf", {subCat: "Protective"}, (e) =>
+	register_role(["umbrella_leaf", "umbrellaleaf", "umbrella", "leaf", "uf", "1612"], "Plant", "Umbrella Leaf", {subCat: "Protection"}, (e) =>
 	{
 		e.setDescription("Post 1612");
 

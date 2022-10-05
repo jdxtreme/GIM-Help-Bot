@@ -696,7 +696,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1747\n*Blazing wanderer. Rumours run rampant of a connection to a demon.*");
 
-		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Alignment", "Unique Neutral Chaos", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
@@ -713,7 +713,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1748\n*Bronze-winged colossus. It seems a wonder that he doesn't topple over from the weight of them.*");
 
-		e.addField("Alignment", "Town Protective", true);
+		e.addField("Alignment", "Unique Town Protective", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Vulnerable", true);
 

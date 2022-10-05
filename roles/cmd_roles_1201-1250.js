@@ -465,7 +465,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Have all living players speak redundantly.");
 	});
 
-	register_role(["cursed", "1232"], "Umbrae", "Cursed", {subCat: "Agent"}, (e) =>
+	register_role(["cursed", "1232"], "Umbrae", "Cursed", {subCat: "Agent", spawnCat: "Town"}, (e) =>
 	{
 		e.setDescription("Post 1232");
 
@@ -523,7 +523,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Complete any of your goals the day/night you have it.");
 	});
 
-	register_role(["scp-953", "scp953", "1236"], "SCP", "SCP-953", {subCat: "Keter", spawnCat: GOOD}, (e) =>
+	register_role(["scp-953", "scp953", "1236"], "SCP", "SCP-953", {subCat: "Keter"}, (e) =>
 	{
 		e.setDescription("Post 1236\n*In addition to polymorphic abilities, SCP-953 displays moderate level psionic abilities, namely suggestion and telepathy. Although insufficient to fool an outside observer, an entranced subject can be convinced of a variety of false facts, including the nature of SCP-953, its own nature, and the nature of things around it.*");
 
@@ -720,7 +720,7 @@ module.exports = (g) =>
 
 	register_role(["criminalist", "crim", "1249"], "Town", "Criminalist", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1249");
+		e.setDescription("Post 1249\n*No one will escape from my investigations.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);

@@ -205,7 +205,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a townie. Becomes a random Rock once the one other Rock remains.\n- You are aware you are a statue when the game begins.\n- The other Rocks know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another rock is present.");
+		e.addField("Attributes:", "- Starts as a townie. Becomes a random Rock once the one other Rock remains. Cannot spawn as a conversion immune town.\n- You are aware you are a statue when the game begins.\n- The other Rocks know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another rock is present.");
 
 		e.addField("Goal:", factions.Rock.goal);
 	});
@@ -218,7 +218,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a townie. Becomes a random Plant once one other Plant remains.\n- You are aware you are Crazy Dave when the game begins.\n- The other Plants know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another plant is present.");
+		e.addField("Attributes:", "- Starts as a townie. Becomes a random Plant once one other Plant remains. Cannot spawn as a conversion immune town.\n- You are aware you are Crazy Dave when the game begins.\n- The other Plants know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another plant is present.");
 
 		e.addField("Goal:", factions.Plant.goal);
 	});
@@ -231,7 +231,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "Starts as a townie. Becomes a random Underworld once one other Underworld remains.\n- You are aware you are imp when the game begins.\n- The other Underworld know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another underworld is present.");
+		e.addField("Attributes:", "Starts as a townie. Becomes a random Underworld once one other Underworld remains. Cannot spawn as a conversion immune town.\n- You are aware you are imp when the game begins.\n- The other Underworld know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another underworld is present.");
 
 		e.addField("Goal:", factions.Underworld.goal);
 	});

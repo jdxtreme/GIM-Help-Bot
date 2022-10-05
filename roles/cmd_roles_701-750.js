@@ -516,7 +516,7 @@ module.exports = (g) =>
 
         e.addField("Abilities:", "- During the day, choose to illuminate the streets the following night, letting all players see who visited them.");
 
-        e.addField("Attributes:", "- Players who visited multiple players will only show up as having visited their first target (or a random one, if not applicable).\n- You will learn the roles of all players who visit you instead of their names.\n- You may only use your ability three times.");
+        e.addField("Attributes:", "- Non-good roles will be informed the the streets are illuminated at the beginning of the night.\n- Players who visited multiple players will only show up as having visited their first target (or a random one, if not applicable).\n- You will learn the roles of all players who visit you instead of their names.\n- You may only use your ability three times.");
 
         e.addField("Goal:", factions.Town.goal);
     });
@@ -681,7 +681,7 @@ module.exports = (g) =>
 
         e.addField("Abilities:", "- Protect a player with the power of a GIM role each night.");
 
-        e.addField("Attributes:", "- Each night, you may choose a role in the GIM thread with the Protective subalignment. You will be able to use this role's abilities for the night.\n- You may use any protective role on yourself, but any deaths that you prevent on yourself will not contribute towards your win condition.\n- If you choose a Protective role that would normally result in someone dying as a result of your target being protected, nobody will die in the process, but the protective effects will still protect your target.\n- You may not use the same Protective role more than once.");
+        e.addField("Attributes:", "- Each night, you may choose a role in the GIM thread with the Protective subalignment. You will be able to use this role's abilities for the night.\n- You may use any protective role on yourself, but any deaths that you prevent on yourself will not contribute towards your win condition.\n- If you choose a Protective role that would normally result in someone dying as a result of your target being protected, nobody will die in the process, but the protective effects will still protect your target.\n- You may not use the same Protective role more than once.\n- You must use Protective roles that target a specific player. You cannot use Protective roles that provide blanket protection such as Hero (1020) or Nightwatch (1057).");
 
         e.addField("Goal:", "Prevent two deaths using your abilities.");
     });

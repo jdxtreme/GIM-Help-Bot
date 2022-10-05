@@ -98,9 +98,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Generate (White) each night.\n- (1) Attack a player each night.");
-
-		e.addField("Attributes:", "- All other Gatherers have their Attack and Defense increased by 1 tier while you live.");
+		e.addField("Abilities:", "- Generate (White) each night.\n- (1) Attack a player each night.\n- (White)(White): Increase the Attack and Defense of all other Gatherers for tonight, to a maximum of Unstoppable/Invincible, respectively.");
 		
 		e.addField("Goal:", factions.Gatherer.goal);
 	});
@@ -113,7 +111,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None (Unstoppable)", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Generate (Black) each night.\n- (Black) Sacrifice yourself to deal an Unstoppable attack to a target player. Another Gatherer may use an attack at the same time.");
+		e.addField("Abilities:", "- Generate (Black) each night.\n- Sacrifice yourself to deal an Unstoppable attack to a target player with the highest possible priority.");
 
 		e.addField("Attributes:", "- Nothing can allow you to survive a successful use of your Sacrifice ability.");
 		
@@ -508,17 +506,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Everfrost.goal);
 	});
 
-	register_role(["discoverer", "discover", "1934"], "Town", "Discoverer", {subCat: "Power"}, (e) =>
+	register_role(["sniffer", "1934"], "Town", "Sniffer", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1934");
 
-		e.addField("Alignment", "Unique Town Power", true);
+		e.addField("Alignment", "Unique Town Investigative", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Vulnerable", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Discover the **essence** of someone's role at night.\n> If their role is related to law or legal matters, they gain Basic defense.\n> If it's related to knives or blood, they gain Basic attack.\n> If it's related to trickery or deception, they gain detection immunity.\n> If it's related to a video game, they gain a second life, which will activate after they die.\n> If it's related to nature, they gain roleblock immunity.\n> If it's related to animals, they gain immunity to roles which target players at night.\n> If it's related to a player in GIM, a random player will discover their role.\n> If it's related to education or literature, they can choose another ability from a role.\n> If it's related to death, they die.");
+		e.addField("Abilities:", "- Investigate a player's house and find a specific plant.\n- Use the plant at another player's house.");
 
-		e.addField("Attributes:", "Roleblock Immune.");
+		e.addField("Attributes:", "- The plants come in various types. Depending on whoever your visiting, you'll get a different plant.\n> If they're a Random, Neutral or Townsperson, you'll get a random plant. If you investigate a Neutral or Townsperson twice in a row, you'll always get a different plant from last time.\n> If they're Mafia, Coven, Rocks, Underworld, Plants, Faunae or Florae, you'll get an oak sapling.\n> If they're Everfrost, Biohazards, Horseman, SCP, Coa, or X, you'll get a wither rose.\n> If they're Android, Mathematics, Discordian, Sentries, NTF, Pokemon or NETSEC, you'll get a redstone block.\n> If they're Stalkers, Cult, Unseen, Serial Killers, Werewolves, Vampires, Beasts, Pale Moons, Umbraes or Spirits, you'll get a pumpkin.\n> If they're Army, City, Civilization, Crew, Gatherers, or Agents, you'll get a hay bale.\n> If they're Angel, Sith, Seven, Creators, Hallow or Insurgency, you'll get a dragon egg.\n> If they're any other faction, you'll get a dead bush.");
+
+		e.addField("Attributes (cont.):", "- The plants also have several effects when you use them on a player's house.\n> Oak Sapling: Heal the player.\n> Wither Rose: Attack the player - that attack is Powerful.\n> Redstone Block: The player can use their ability twice on the next night.\n> Pumpkin: Visitors of that player are scared away.\n> Hay Bale: Whoever that player visits will gain fall damage protection: The next time they're attacked, if it's Basic or Unstoppable, it will be blocked.\n> Dragon Egg: A new NPC is made which the host can control.\n> Dead Bush: Nothing.\n- You are Astral and Roleblock Immune.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -768,7 +768,7 @@ module.exports = (g) =>
 
 		e.addField("Animals:", "- Dogs are given to Town members.\n- Siamese cats are given to Mafia members.\n- Black cats are given to Coven members.\n- Killer bunnies are given to Neutral Evils and Neutral Killings.\n- Beavers are given to Rocks and other Neutrals.\n- Lambs are given to Plants.\n- Phoenixes are given to Underworld members.\n- Doves are given to Hallow members.\n- Jaguars are given to Stalkers.\n- Wolves are given to Were members.\n- Bats are given to Vampires.\n- Tuxedo cats are given to Umbrae.\n- Goats are given to Everfrost members.\n- Elephants are given to Pale Moon members.\n- Squids are given to Sith members.\n- Pigeons are given to Insurgency members.\n- Canaries are given to Loyalists.\n- Spiders are given to SCPs.\n- Eagles are given to Thundercry members.\n- Parrots are given to Crew members.\n- Deer are given to Pokemon.\n- Foxes are given to Foxes.\n- Sheep are given to Cult members.\n- Horses are given to Horsemen.\n- Owls are given to Unseen members.\n- Skunks are given to Biohazard members.\n- Swans are given to Fallen Angels.");
 
-		e.addField("Animals (cont.):", "- Rats are given to Agents.\n- Random animals are given to Random members.\n- Dragons are given to members of the Last.\n- Chipmunks are given to Spirits.\n- Monkeys are given to Mathematics members.\n- Ferrets are given to Sentries.\n- Cows are given to Koopa.\n- Eagles are given to Toppats.\n- Lions are given to Creators.\n- Sharks are given to Warfleet members.\n- Robot dogs are given to Androids.\n- Bees are given to Florae.\n- Rhinos are given to City members.\n- Otters are given to Serial Killers.\n- Hummingbirds are given to Band members.\n- Peacocks are given to members of the Seven.\n- Brushwaggs are given to Gatherers.\n- Koalas are given to Army members.");
+		e.addField("Animals (cont.):", "- Rats are given to Agents.\n- Random animals are given to Random members.\n- Dragons are given to members of the Last.\n- Chipmunks are given to Spirits.\n- Monkeys are given to Mathematics members.\n- Ferrets are given to Sentries.\n- Cows are given to Koopa.\n- Eagles are given to Toppats.\n- Lions are given to Creators.\n- Sharks are given to Warfleet members.\n- Robot dogs are given to Androids.\n- Bees are given to Florae.\n- Rhinos are given to City members.\n- Otters are given to Serial Killers.\n- Hummingbirds are given to Band members.\n- Peacocks are given to members of the Seven.\n- Brushwaggs are given to Gatherers.\n- Koalas are given to Army members.\n- Emus are given to Civilizations.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

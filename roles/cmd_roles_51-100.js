@@ -13,7 +13,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may choose one person during the day to Jail for the night.");
 
-		e.addField("Attributes:", "- You may anonymously talk with your prisoner.\n- You can choose to attack your prisoner.\n- The jailed target can't perform their night ability.\n- If you execute a Town member, you forfeit further executions.\n- All other abilities used on the jailed person will fail; they will be notified that their target was jailed.");
+		e.addField("Attributes:", "- You may anonymously talk with your prisoner.\n- You can choose to execute your prisoner, except during Night 1.\n- You roleblock the jailed target through immunity.\n- If you execute a Town member, you forfeit further executions.\n- All other visiting abilities used on the jailed person will fail; they will be notified that their target was jailed.\n- The jailed target gains Powerful Defense.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -451,7 +451,7 @@ module.exports = (g) =>
 
 	register_role(["gossiper", "gossip", "80"], "Town", "Gossiper", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 80");
+		e.setDescription("Post 80\n*Did you hear? Apparently Rasen has a crush on Igu.*");
 
 		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
@@ -632,7 +632,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- With each kill, your powers grow, until you've killed 3 people.\n- If you haven't killed anyone yet, you can only attack during Full Moon Nights.\n- 1st kill lets you attack every night.\n- 2nd kill makes your future attacks into Rampages.\n3rd kill makes your attack Unstoppable.\n- Detection Immunity");
 
-		e.addField("Goal:", "Get yourself lynched by any means necessary.");
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["pirate", "92"], "Neutral", "Pirate", {subCat: "Chaos"}, (e) =>

@@ -172,12 +172,12 @@ module.exports = (g) =>
 		e.setDescription("Post 1561\n*I know we're gonna find what we're searching for.*");
 
 		e.addField("Alignment", "Town Investigative", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Peer into two players, and all players who visit them.");
+		e.addField("Abilities:", "- Peer into up to two players, and choose if you will also peer into their visitors.");
 
-		e.addField("Attributes:", "- You may only unlock the next level of investigation by having investigated every alive player with the previous level\n> Level 1 - Suspicious or not suspicious\n> Level 2 - Investigator (35)\n> Level 3 - Exact role\n> Level 4 - Exact role, bypassing all detection immunity, automatically attack evil roles");
+		e.addField("Attributes:", "- You may only unlock the next level of investigation by having investigated every alive player with the previous level\n> Level 1 - Nothing. If you have peered into this player before, learn a suspicious/not suspicious result\n> Level 2 - Investigator (35)\n> Level 3 - Exact role\n> Level 4 - Exact role, bypassing all detection immunity, automatically attack evil roles\n- If you peer into multiple players on a night, you won't know whose result belongs to who.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

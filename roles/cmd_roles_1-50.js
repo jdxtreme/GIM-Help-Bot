@@ -130,7 +130,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a townie. Becomes a Random Mafia once one other Mafia remains.\n- You are aware you are an a sleeper agent when the game begins.\n- The Mafia know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another member of the Mafia is present.");
+		e.addField("Attributes:", "- Starts as a townie. Becomes a Random Mafia once one other Mafia remains. Cannot spawn as a conversion immune town.\n- You are aware you are an a sleeper agent when the game begins.\n- The Mafia know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another member of the Mafia is present.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -143,7 +143,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Starts as a townie. Becomes a Random Coven once one other Coven remains.\n- You are aware you are an amnestic wizard when the game begins.\n- The Coven know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another member of the Coven is present.\n- May not hold the Necronomicon.");
+		e.addField("Attributes:", "- Starts as a townie. Becomes a Random Coven once one other Coven remains. Cannot spawn as a conversion immune town.\n- You are aware you are an amnestic wizard when the game begins.\n- The Coven know who you are and cannot perform actions that negatively affect you.\n- Spawns in a good slot.\n- May only spawn if another member of the Coven is present.\n- May not hold the Necronomicon.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});

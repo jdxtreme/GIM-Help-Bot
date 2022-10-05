@@ -231,7 +231,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Variable)", true);
 
 		e.addField("Abilities:", "- 3 times per game, go to sleep at night. Gain powerful defense the first two times, but basic the last.");
 

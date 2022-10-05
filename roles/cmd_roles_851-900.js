@@ -156,7 +156,7 @@ module.exports = (g) =>
 
 	register_role(["scp-2006", "scp2006", "861"], "SCP", "SCP 2006", {subCat: "Keter"}, (e) =>
 	{
-		e.setDescription("Post 861");
+		e.setDescription("Post 861\n\"It wishes to scare people. Imagine what would happen if SCP-2006 broke containment, and found out what really scared people. Imagine if it saw the horror and fear of war, or the concepts of paranoia or phobias common to each and every human being. Imagine if it found the true horror of a nuclear holocaust. Now you'll understand why it's classified as Keter.\"");
 
 		e.addField("Alignment", "SCP Keter", true);
 		e.addField("Attack", "Variable", true);
@@ -283,7 +283,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Powerful)", true);
 
-		e.addField("Abilities:", "*Size Up the Competition* — Choose a player each night. You'll learn their role's post number, rounded to the nearest 100.\n*Make a Challenge* — Choose an opponent during the day. The next night, both of you will be unable to use night abilities and instead be placed in a public duel. You'll each secretly choose a player other than either of yourselves. Whoever picked the player with the lower post number is dealt a Powerful attack; if the post numbers are equal, you win. The players' roles aren't revealed.");
+		e.addField("Abilities:", "**Size Up the Competition** — Choose a player each night. You'll learn whether their role's post number is higher or lower than the previous player you used Size Up the Competition on's, or your own if you haven't used it before.\n**Make a Challenge** — Choose an opponent during the day. The next night, both of you will be unable to use night abilities and instead be placed in a public duel. You'll each secretly choose a player other than either of yourselves. Whoever picked the player with the lower post number is dealt a Powerful attack; if the post numbers are equal, you win. The players' roles aren't revealed.");
 
 		e.addField("Attributes:", "- You have a layer of Powerful defense that can block one attack.");
 		

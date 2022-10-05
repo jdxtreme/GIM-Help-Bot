@@ -628,9 +628,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Aim yourself at someone. You will roleblock them next night, as they run away in fear. All players that visited them that night will also visit you, due to your very large hitbox.\n- Be extra threatening, empowering your first ability. Instead of just visiting you, all of your target's visitors will be redirected to you. You will also gain Basic defence on that night. (2 uses)");
+		e.addField("Abilities:", "- Aim yourself at someone. You will roleblock them next night, as they run away in fear. All players that visited them that night will also visit you, due to your very large hitbox.\n- Be extra threatening, empowering the next use of your first ability. Instead of just visiting you, all of your target's visitors will be redirected to you. You will also gain Basic defence on that night. (2 uses)");
 
-		e.addField("Attributes:", "- Astral\n- Roleblock and Redirect Immune");
+		e.addField("Attributes:", "- Astral\n- Roleblock and Redirect Immune\n- Due to your fearsome expression, negative effects (as determined by the host) you sustain will be reflected to the afflicter.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});

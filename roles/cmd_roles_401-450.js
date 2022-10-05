@@ -758,17 +758,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["tower", "450"], "Town", "Tower", {subCat: "Protective"}, (e) =>
+	register_role(["clinic", "450"], "Town", "Clinic", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 450");
 
 		e.addField("Alignment", "Town Protective", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Select yourself at night to heal and purge all visitors, or select someone else to shoot them.");
+		e.addField("Abilities:", "- Heal your closest living neighbors that are the same alignment as you.\n- Save a player's life, healing all attacks made against them. Only works against attacks which are Powerful and below.");
 
-		e.addField("Attributes:", "- Roleblock Immunity\n- You gain a First Aid Kit at the start of every odd-numbered night.\n- Players who visit you will receive one of your held First Aid Kits at the end of the night, but they will not be notified.\n- If someone with a First Aid Kit would die to an attack of Basic or lower, they will be healed by their First Aid Kit, destroying it.\n- First Aid Kits persist even after you die.");
+		e.addField("Attributes:", "- Anyone you heal does not learn they were healed or attacked, but you know if you successfully heal someone.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

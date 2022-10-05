@@ -162,9 +162,9 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Each night, four of the following abilities are chosen at random, and you may use up to two.");
 
-		e.addField("Potential Abilities:", "- Randomise a player's night feedback.\n- Add a new player to the game named \"Guy\" with a random role.\n- Remove 25% of the words from a player's role's abilities and attributes at random.\n- Give a player a \"game x winner\" role of your choice.- Permanently swap two players' names.\n- Ask a player to face reveal to you. If they don't, they're dealt a Powerful attack.\n- Paripapparapappapparappa a player. (see 733)\n- Kill a player if their role has an ability that's functionally the same as one from ToS.\n- Delay a player's ability and cause it to resolve at a random time during the next day.\n- Reorder the player list as you wish.\n- Reorder the host queue as you wish.\n- Give yourself a Basic autovest in the next GIM game whose host complies.\n- Add a player to the end of your conga line. (see 630)\n- Add a player to the end of your conga line. (see 1594) \n- Give yourself twice the number of abilities to choose from the next night.\n- Deal a None attack to a player.");
+		e.addField("Potential Abilities:", "- Add a new player to the game named \"Guy\" with a random role.\n- Remove 25% of the words from a player's role's abilities and attributes at random.\n- Give a player a \"game x winner\" role of your choice.\n- Permanently swap two players' names.\n- Ask a player to face reveal to you. If they don't, they're dealt a Powerful attack.\n- Paripapparapappapparappa a player. (see 733)\n- Kill a player if their role has an ability that's functionally the same as one from ToS.\n- Delay a player's ability and cause it to resolve at a random time during the next day.\n- Bamboozle a player. (see 772) \n- Reorder the player list as you wish.\n- Reorder the host queue as you wish.\n- Give yourself a Basic autovest in the next GIM game whose host complies.\n- Add a player to the end of your conga line. (see 630)\n- Add a player to the end of your conga line. (see 1594) \n- Give yourself twice the number of abilities to choose from the next night.\n- Deal a None attack to a player.");
 
-		e.addField("Potential Abilities (cont.):", "- Use an ability from a Rasen role not in the roles thread (e.g. Murdercaster Mage, Futurist)\n- Remove from then return a player to the game, resetting all statuses/etc.\n- Disable all players' \"read message history\" permission for the next day chat. \n- Make a player \"Solved 2 by 4\".\n- Make a player permanently appear as 529: WereLion to all investigative effects.\n- Make a player immune to attacks that aren't the lowest tier needed to kill them tonight.\n- Use an ability of a role you rerolled this game.\n- Learn someone's role. This ability rampages and rampages again.\n- Choose a player. Do everything that was done to them tonight in any previous game again.\n- Use the ability of any role with \"Viri\" in the name or rules text.\n- **Twin Drive** a player.");
+		e.addField("Potential Abilities (cont.):", "- Use an ability from a Rasen role not in the roles thread.\n- Remove from then return a player to the game, resetting all statuses/etc.\n- Disable all players' \"read message history\" permission for the next day chat.\n- Make a player \"Solved 2 by 8\".\n- Make a player permanently appear as 529: WereLion to all investigative effects.\n- Make a player immune to attacks that aren't the lowest tier needed to kill them tonight.\n- Use an ability of a role you rerolled this game.\n- Learn someone's role. This ability rampages and rampages again.\n- Choose a player. Do everything that was done to them tonight in any previous game again.\n- Use the ability of any role with \"Viri\" in the name or rules text.\n- **Twin Drive** a player.\n- Duel a player the next night. (see 869)");
 		
 		e.addField("Goal:", "See the Town lose to game.");
 	});
@@ -511,9 +511,8 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to ensure that only players whose histories you know are alive. It doesn't matter if those players can win together or not.");
 	});
 
-	register_role(["new_game_plus", "newgameplus", "new_game_+", "newgame+", "ngp", "ng+", "1335"], "Neutral", "Resolution", {subCat: "Chaos"}, (e) =>
+	register_role(["new_game_plus", "newgameplus", "new_game_+", "newgame+", "ngp", "ng+", "1335"], "Neutral", "New Game +", {subCat: "Chaos"}, (e) =>
 	{
-		e.author.name = "";
 		e.setDescription("Post 1335");
 
 		e.addField("Alignment", "Neutral Chaos", true);

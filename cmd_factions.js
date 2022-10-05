@@ -173,7 +173,7 @@ module.exports = (g) =>
 		color: "FFC272",
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/993413133597147247.webp",
-		summary: "\"Holy\" Evil; Members contribute \"Saint Points\" to buff the leader, the Saint, into the Paragon, while supporting and protecting it. Presumably, contributing a Saint Point would require forgoing any other night action, but this is unspecified.",
+		summary: "\"Holy\" Evil; Members contribute \"Saint Points\" to buff the leader, the Saint, into the Paragon, while supporting and protecting it. Each role should define how they give Saint Points, typically by performing successful abilities.",
 		features: "- 502: Saint will always spawn\n- Factional chat\n- No factional kill until the Saint dies\n- Other Hallow members can gain \"Saint points\", which the Saint requires X of to transform into the much stronger Paragon, where X is the number of other living Hallow members. The Town will be notified that the Hallow has awakened their god when the Saint transforms.",
 		goal: "Kill all who object to the Hallow's will."
 	});
@@ -210,7 +210,7 @@ module.exports = (g) =>
 	register_faction(["everfrost", "ef"], "Everfrost", {
 		color: "00FFFF",
 		type: "evil",
-		icon: "https://cdn.discordapp.com/emojis/977636071833759785.webp",
+		icon: "https://cdn.discordapp.com/emojis/1026034489203376128.webp",
 		summary: "Winter Evil; Lead by Eyisa, members spread coldness through a Factional Roleblock and other abilities. Later, a member may \"Coldsnap\" and kill previously roleblocked players. Each member also has a one-use \"Ultimate Ability\", which is usually what's used to Coldsnap or mass-roleblock people.",
 		features: "- 631: Eyisa, Goddess of Winter will always spawn.\n- Factional roleblock\n- Factional chat\n- Town roles that roleblock can't spawn with the Everfrost.\n- The Town will be notified that the eternal winter is coming at the beginning of Day 1.",
 		goal: "Eliminate all who don't submit to the endless winter."
@@ -432,7 +432,7 @@ module.exports = (g) =>
 		goal: "Destroy all who refuse to submit to the Toppats."
 	});
 
-	register_faction("koopa", "Koopa", {
+	register_faction(["koopa", "koopas"], "Koopa", {
 		color: "4D8A45",
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/1014037144873992232.webp",
@@ -463,7 +463,7 @@ module.exports = (g) =>
 		display: "Androids",
 		color: "AAFF40",
 		type: "evil",
-		icon: "https://cdn.discordapp.com/emojis/1006734381559337020.webp",
+		icon: "https://cdn.discordapp.com/emojis/1023145388968001627.webp",
 		summary: "Procedurally-generated Evil; Roles are randomly built from three sets of 8 items each, and an additional random toggle for if their ability is used in the Day or Night, leading to 1024 possible permutations.",
 		features: ["- Factional chat\n- Factional kill\n- All roles in this faction are created on the spot from the following format. {X // Y //Z} means a random one of the choices separated by slashes in the braces.", "`Post [Random number from 10001 to 11024]\m[String of 6 random uppercase letters] (Android Support)\nAbilities:\n- Hack a player {each night/each day}. You will {deal a Basic attack to them // learn their role // grant them death immunity for the phase // prevent them from taking game actions for the phase // nullify their attributes for the phase // fail all game actions targetting them // reroll their role to one from the same faction // remove them from the next day phase}.`", "`Attributes:\n- When you use your ability, {your target will learn that they were targetted by an Android // you will not be able to use it on that target again // your defense is lowered by a tier the next night if your target isn't a member of the Town // a random non-Android will learn five names, at least one of which is an Android // a random non-Anrdoid will gain a one-use Basic attack // the next Android ability that resolves will fail // you will be dealt a Basic attack in seven phases // a random Android's abilites and attributes are revealed to the Town the next day phase}\n- {You are immune to effects that would interfere with your abilities // You cannot be killed by Powerful attacks // It takes two more votes to lynch you // You may use your ability once while dead // You will appear as [a random Town role] to all investigative effects // You can talk to the dead at night // You can hear all whispers // You know all Neutral roles in the game}.`"],
 		goal: "Crush all inferior beings."
@@ -516,6 +516,7 @@ module.exports = (g) =>
 	register_faction(["seven", "7"], "Seven", {
 		color: "570861",
 		type: "evil",
+		icon: "https://cdn.discordapp.com/emojis/1023162697858166844.webp",
 		summary: "Sin-themed Evil; Led by Satan, the Seven has a total member count capped at 4 and announces every single role that spawned at the start of the game. However, every role is fairly powerful, being guaranteed Basic Defense, Detection Immunity, and a 1-use Ultimate Ability. In addition, Satan can offer to Contract other players into the Seven's goal, but their acceptance will weaken the main members.",
 		features: "- 1654: Satan and no more than 3 other members will always spawn.\n- Factional chat\n- Factional kill\n- The Town will be notified what Sins spawned at the start of the game.\n- All members have detection immunity and Basic defense.\n- Members lose their detection immunity when the first of Satan's contracts is accepted, their defense when the second is, and their factional kill when the third is.",
 		goal: "Devolve the town into sin and chaos, eviscerate all who would try to banish you or Satan."
@@ -549,14 +550,27 @@ module.exports = (g) =>
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/1016403784714436658.webp",
 		summary: "MTG-themed Evil; Led by a Gatherer Commander, they spend nights to generate Mana of a specific color, which is then used to fuel various abilities. The other subalignments are named off of the color they can generate, though some may be able to use other colors for bonus abilities.",
-		features: ["- Exactly one Gatherer Commander will always spawn.\n- Factional chat\n- No factional kill unless no kill-capable Gatherers are alive. If it exists, it will cost (1) to use.\n- Only one member may use an attacking ability each night unless otherwise specified.\n- Members can generate Mana of one of five colors, which is shared between all members and can be spent by any of them to use abilities.\n- +1/+1 Counters are permanent items. Each second one will increase both your Attack and Defense by 1.", "- Most non-generating abilities require a certain number and color of Mana, following the below rules:\n**•** A color in parentheses will require a single mana of that given color, e.g. (Red)\n**•** Multiple of a color is expressed by repeating it, e.g. (Blue)(Blue)(Blue) mean 3 Blues.\n**•** A number in parentheses can be filled by Mana of any color. For example, (3) can be paid by (White)(Black)(Green)\n**•** All parentheses are to be treated separately. For instance, (Red)(1) means it costs specifically 1 Red on top of one Mana of any color."],
+		features: ["- Exactly one Gatherer Commander will always spawn.\n- Factional chat\n- No factional kill unless no kill-capable Gatherers are alive. If it exists, it will cost (1) to use.\n- Members can generate Mana of one of five colors, which is shared between all members and can be spent by any of them to use abilities.\n- +1/+1 Counters are permanent items. Each second one will increase both your Attack and Defense by 1.", "- Most non-generating abilities require a certain number and color of Mana, following the below rules:\n**•** A color in parentheses will require a single mana of that given color, e.g. (Red)\n**•** Multiple of a color is expressed by repeating it, e.g. (Blue)(Blue)(Blue) mean 3 Blues.\n**•** A number in parentheses can be filled by Mana of any color. For example, (3) can be paid by (White)(Black)(Green)\n**•** All parentheses are to be treated separately. For instance, (Red)(1) means it costs specifically 1 Red on top of one Mana of any color."],
 		goal: "Reduce your opposition to 0 HP."
 	});
 
-	register_faction(["civilization", "civil", "civ"], "Civilization", {
+	register_faction(["civilization", "civilizations", "civil", "civ"], "Civilization", {
+		display: "Civilizations",
 		color: "C8A57D",
 		type: "evil",
-		summary: "Civilization (Game)-themed Evil; Though there's no official post with features, it at least has a factional kill/chat, though it appears that Militaristic roles are expected to carry it out at least as long as they're alive. Gold is a resource that every role it at least able to use, although only Economic roles appear to be able to generate it. All roles have at least one gold-free ability, and are listed as Unique. Notably, this faction's kill is unusual in that it reveals the role that carried it out publicly, rather than the faction.",
+		icon: "https://cdn.discordapp.com/emojis/1021501737615499284.webp",
+		summary: "Civilization (Game)-themed Evil; Led by a Militaristic, which carries out the factional kill by default, and an Economic, which generates Gold for the faction. Gold is a resource that various roles can utilize for more powerful abilities. All roles have at least one gold-free ability and are listed as Unique. Notably, this faction's kill is unusual in that it reveals the role that carried it out publicly, rather than the faction.",
+		features: "- At least one Civilization Militaristic and one Civilization Economic will always spawn.\n- Factional kill, which each role has a unique death message when using\n- Factional chat\n- Members can generate gold, which is shared between all members and can be spent by any of them to use abilities. Abilities that cost gold consume that gold immediately upon activation. The faction starts with 5 gold.\n- If only one Civilization is alive, they may perform the factional kill alongside any other normal abilities.\n- A maximum of two people can be converted. If all Civilizations die, the conversions will be reversed.",
 		goal: "Conquer the world through war."
+	});
+
+	register_faction(["netsec", "net"], "NETSEC", {
+		color: "006B23",
+		type: "good",
+		icon: "https://cdn.discordapp.com/emojis/1025184304264908879.webp",
+		summary: "Untrusted Crossover Good; Led by the Operation Leader, who always exists due to promotion. A complicated network exists that members can use as an alternate win condition by hacking through it. Each member has a \"Hacking Skill\" stat that ranges from \"None\" to \"Very High\", but it isn't specified what these exactly mean, same as some role-specific chance-based mechanics.",
+		features: "- Operation Leader (2166) will always spawn\n- No factional chat\n- No factional kill\n- When NETSEC spawns, an REF owned network will be present to all players. The machines NETSEC can or already has access to will be visible to all players, but only the REF may view the full topography.\n- There is one network for ALL REFs.\n- Roles that are capable of hacking can choose to hack into a point in a REF owned network\n- Capturing the master node on the REF network instantly results in a :townFaction:Town victory, but has a very low capture chance. This is always the last node on any topography",
+		goal: "Capture the REF network and retrieve the stolen data OR eliminate the REF.",
+		fieldSSC: ["field_operations", "fieldoperations", "field", "operations", "fieldops", "fo"]
 	});
 };

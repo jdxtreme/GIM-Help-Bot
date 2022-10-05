@@ -521,7 +521,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1784\n*Raptor Sentinel of Strength*");
 
-		e.addField("Alignment", "Town Killing", true);
+		e.addField("Alignment", "Unique Town Killing", true);
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 

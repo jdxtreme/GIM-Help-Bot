@@ -126,7 +126,7 @@ module.exports = (g) =>
 
 	register_role(["sloth", "1659"], "Seven", "Sloth", {subCat: "Sin"}, (e) =>
 	{
-		e.setDescription("Post 1659");
+		e.setDescription("Post 1659\n*..........hell.....o..........good.....bye..........*");
 
 		e.addField("Alignment", "Unique Seven Sin", true);
 		e.addField("Attack", "None", true);
@@ -263,7 +263,7 @@ module.exports = (g) =>
 
 	register_role(["archmage_of_fire", "archmageoffire", "archmage", "fire", "aof", "1668"], "Coven", "Archmage of Fire", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1668");
+		e.setDescription("Post 1668\n*I am better than Fire Mage. They are an Impersonator. Smh.*");
 
 		e.addField("Alignment", "Coven Killing", true);
 		e.addField("Attack", "Variable", true);
@@ -514,7 +514,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["council_of_the_dead", "councilofthedead", "council", "cotd", "1685"], "Neutral", "Council of the Dead", {subCat: "Benign"}, (e) =>
+	register_role(["overseer_of_the_dead", "overseerofthedead", "overseer", "ootd", "1685"], "Neutral", "Overseer of the Dead", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 1685");
 

@@ -112,7 +112,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes (stop.):", "> - Ferret: Deal an Overkill attack to someone. This has a 33% chance to fail. If you rerolled a role this game, it has a 25% chance to fail instead.\n> - Cow: Deal a Powerful attack to the last player who said \"moo\" yesterday, or to two players if no one did.\n> - Eagle: Choose a player. You'll deal an attack to that player of a stage equal to the number of Striked players in their target chain. (see 1671)\n> - Lion: Deal a Powerful attack to two random non-Pale Moon players.\n> - Shark: Choose a player. They must choose to permanently lose either a stage of attack or stage of defense. Then, you can increase the chosen value by a stage for yourself or one of your teammates. If your target's attack and defense are both None or lower, you attack them instead.");
 
-		e.addField("Attributes (please.):", "> - Robot dog: Choose {two // three} players. If they're attacked, you grant them {Basic // Powerful // Invincible}} defense and {cause the attacker to start bleeding. (see 235) // deal a Basic attack to the attacker. // roleblock the attacker and cover them in frost.}\n> - Bee: Prevent someone from using an ability the following night.\n> - Rhino: Deal a Powerful Astral attack to your target and a random visitor.\n> - Otter: Choose a player. If no other players would visit them tonight, roleblock them.\n> - Hummingbird: Choose a player. Their defense is decreased by a stage until they are healed or protected.\n> - Peacock: Leave the game. If the game has ended by the start of the next day, you win. Otherwise, you lose.\n> - Brushwagg: (G)(3): Raise a player's attack and defense values by three stages each for the night.\n> - Koala: Deal a Powerful attack to a player. When they die tonight, clean them.");
+		e.addField("Attributes (please.):", "> - Robot dog: Choose {two // three} players. If they're attacked, you grant them {Basic // Powerful // Invincible}} defense and {cause the attacker to start bleeding. (see 235) // deal a Basic attack to the attacker. // roleblock the attacker and cover them in frost.}\n> - Bee: Prevent someone from using an ability the following night.\n> - Rhino: Deal a Powerful Astral attack to your target and a random visitor.\n> - Otter: Choose a player. If no other players would visit them tonight, roleblock them.\n> - Hummingbird: Choose a player. Their defense is decreased by a stage until they are healed or protected.\n> - Peacock: Leave the game. If the game has ended by the start of the next day, you win. Otherwise, you lose.\n> - Brushwagg: (G)(3): Raise a player's attack and defense values by three stages each for the night.\n> - Koala: Deal a Powerful attack to a player. When they die tonight, clean them.\n> - Emu: Prevent the details of all deaths tonight from being released until the day after.");
 		
 		e.addField("Goal:", "Cause at least three deaths through your animals.");
 	});
@@ -247,7 +247,7 @@ module.exports = (g) =>
 
         e.addField("Abilities:", "- Choose a target, any positive effects on them will be dispelled and they will become framed.\n- Give another Koopa some Able juice, Cleansing them and giving Roleblock + Redirect immunity for this night.");
 
-        e.addField("Attributes:", "- You will survive the first Powerful or Higher attack against you.");
+        e.addField("Attributes:", "- All Koopas will know what negative effects currently affects them at the start of each night, posted at the Faction chat.");
 
         e.addField("Goal:", factions.Koopa.goal);
     });
@@ -275,11 +275,26 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Attributes:", "**Madness Incarnate** — During the day, choose another player. At the beginning of the next night, you will learn their role. You must design a role which shares their alignment, subalignment, and goal. Then, at the end of the night, a random player other than you and the player you chose becomes the role you designed, and the player you chose becomes the former role of the player who became the role you designed.");
+		e.addField("Abilities:", "**Madness Incarnate** — During the day, choose another player. At the beginning of the next night, you will learn their role. You must design a role which shares their alignment, subalignment, and goal. Then, at the end of the night, a random player other than you and the player you chose becomes the role you designed, and the player you chose becomes the former role of the player who became the role you designed.");
 
-		e.addField("Attributes (cont.):", "- This role may only spawn in Any slots.");
+		e.addField("Attributes:", "- This role may only spawn in Any slots.");
 		
 		e.addField("Goal:", "Convert five players. If a player dies before your conversion resolves, it doesn't count.");
+	});
+
+	register_role(["soul_of_justice", "soulofjustice", "soul", "justice", "soj", "2118"], "Town", "Soul of Justice", {subCat: "Power"}, (e) =>
+	{
+		e.setDescription("Post 2118");
+
+		e.addField("Alignment", "Town Power", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "**Righteousness Incarnate** — Attack someone at night, bypassing all protective effects if they oppose the Town. Each night you don't attack someone, you'll learn the alignment of a random player other than you and players you've learned the alignment of before, and that player will gain Powerful defense for the night if they don't oppose the Town.");
+
+		e.addField("Attributes:", "- This role can only spawn in Town slots.");
+		
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["assistant", "accents_alt_account", "accentsaltaccount", "accent", "alt", "not_wolfi", "notwolfi", "afaaa", "afaaanw", "2119"], "Sentry", "Assistant for Accent's Alt Account (Not Wolfi)", {subCat: "Support"}, (e) =>
@@ -493,7 +508,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- During the day, summon a blizzard for the night. (2 uses)\n- Roleblock a player.\n- Coldsnap. (Costs 4 gold.)");
 
-		e.addField("Attributes:", "- Blizzards prevent all players from visiting other players more than two houses away.\n- Blizzards do not affect yourself, other Civilizations, or any roles relating to ice or snow.\n- You may roleblock and coldsnap in the same night.\n- During a Blizzard, if you perform the factional kill it is an Unstoppable attack.");
+		e.addField("Attributes:", "- Blizzards prevent all players from visiting other players more than two houses away.\n- Blizzards do not affect yourself, other Civilizations, or any roles relating to ice or snow.\n- You may roleblock and coldsnap in the same night.\n- During a Blizzard, if you perform the factional kill it is an Unstoppable attack.\n- Detection Immunity");
 
 		e.addField("Messages:", "“They were ambushed by a Russian cossack.” (Factional Kill)\n“They fell victim to the Russian winter.” (Coldsnap)\n“A blizzard is forming. You can hardly see!” (Blizzard forming, start of night)");
 		
@@ -542,7 +557,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Construct a Nubian pyramid in the center of town.");
+		e.addField("Abilities:", "- Construct a Nubian pyramid in the center of town.\n- Give all Civs Rampage for the night. (Costs 9 Gold)");
 
 		e.addField("Attributes:", "- Nubian pyramids take two nights to build.\n- You cannot act while the pyramid is being built\n- Nubian pyramids last for one night once they are built\n- Everyone who visits someone more than three houses away is considered to have passed by the pyramid.\n- You generate 2 gold for all non-Civs who pass by the Nubian pyramid.\n- Passively generate 2 gold each night.");
 
@@ -559,7 +574,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Establish a trade route with another player.");
+		e.addField("Abilities:", "- Establish a trade route with another player.\n- Learn the roles of all players you have active trade routes with. (Costs 4 Gold, +1 for each active trade route)");
 
 		e.addField("Attributes:", "- Trade routes generate 2 gold each night with a Good faction and 1 gold each night with any other faction.\n- Trade routes last until your target visits you or your target dies. You will still get the income for that night.\n- Trade routes do not generate gold the night they are established.\n- You can have as many trade routes active as the night number divided by two, rounded up.\n- Passively generate 2 gold each night.");
 
@@ -576,7 +591,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Lie in ambush outside someone’s house, scaring off all visitors.\n- Deal a Basic attack to a visitor of your target. (Costs 2 Gold)\n- Learn the roles of all visitors to your target. (Costs 2 Gold)");
+		e.addField("Abilities:", "- Lie in ambush outside someone’s house, scaring off all visitors.\n- Deal a Basic attack to a visitor of your target. (Costs 4 Gold)\n- Learn the roles of all visitors to your target. (Costs 2 Gold)");
 
 		e.addField("Attributes:", "- You may multitask.\n- If you lie in ambush outside another Civilization, grant them Powerful defense.");
 
@@ -593,9 +608,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- During the day, choose a target to religiously convert.\n- Forcefully convert a target. This bypasses the two-conversion limit. (Costs 15 Gold)");
+		e.addField("Abilities:", "- During the day, choose a target to religiously convert.\n- Forcefully convert a target. This bypasses all limits. (Costs 18 Gold)");
 
-		e.addField("Attributes:", "- At night, you will have a private chat with your target. You will appear as Gandhi.\n- The target can choose whether or not they would like to convert.\n- If the target accepts, they will have their win condition changed to “Conquer the world through war.” and join your factional chat.\n- If the target declines, you will deal a Basic attack to them.\n- You may choose to go pacifist and ignore the above attribute.");
+		e.addField("Attributes:", "- At night, you will have a private chat with your target. You will appear as Gandhi.\n- The target can choose whether or not they would like to convert. You will not see their decision until the end of the night.\n- If the target accepts, they will have a 1/x chance of successfully converting, where x is the amount of living Civilizations.\n- If the target declines, you will deal a Basic attack to them.\n- You may choose to go pacifist. This will increase the chance of conversion to 2/x, but you will not attack the target if they decline.\n- If you fail to convert a player, you must wait two nights before attempting to convert them again.");
 
 		e.addField("Messages:", "“They were flattened by an Indian war elephant.” (Factional Kill)\n“They refused to be converted.” (Killing Decliners)");
 		
@@ -633,14 +648,14 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Guess someone’s win condition at night.\n- Launch the Inquisition the next day. Everyone must submit either their real win condition or a fake one. You will know how many people lie, but not who. (One Use) (Costs 10 Gold)");
 
-		e.addField("Attributes:", "- You will know all possible win conditions at the start of the game.\n- If you are correct, you will do one of the following at random:\n> - Learn the target’s exact role. (40% chance)\n> - Reveal the result publicly. (30% chance)\n> - Attack the target. (20% chance)\n> - Convert the target. (10% chance)\n- If you are wrong three times, you will deal an Overkill attack to yourself.\n- You can never select “Conquer the world through war.”\n- During the Inquisition, anyone who does not submit a win condition by the end of the day will be dealt a Powerful attack.");
+		e.addField("Attributes:", "- You will know all possible win conditions at the start of the game.\n- If you are correct, you will do one of the following at random:\n> - Learn the target’s exact role. (40% chance)\n> - Reveal the result publicly. (30% chance)\n> - Attack the target. (20% chance)\n> - Convert the target. (10% chance)\n- If you are wrong three times, you will deal an Overkill attack to yourself.\n- You can never select “Conquer the world through war.”\n- During the Inquisition, anyone who does not submit a win condition by the end of the day will be dealt a Powerful attack.\n- Detection Immunity");
 
 		e.addField("Messages:", "“They were conquered by a Spanish Conquistador.” (Factional Kill)\n“The Inquisition has revealed that __’s win condition is __!” (Public Reveal)\n“A public Inquisition has commenced!” (Starting Inquisition)\n“They did not expect the Spanish Inquisition.” (Inquisitional kill)");
 		
 		e.addField("Goal:", factions.Civilization.goal);
 	});
 
-	register_role(["ottoman", "2141"], "Civilization", "Ottoman", {subCat: "Militaristic", censor: "Ottoman Janissary"}, (e) =>
+	register_role(["ottoman", "2141"], "Civilization", "Ottoman", {subCat: "Militaristic", censor: ["Ottoman Janissary", "Turkish"]}, (e) =>
 	{
 		e.setDescription("Post 2141");
 
@@ -717,5 +732,78 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- At the beginning of the game, choose a word that is not already the name of another role. The host will do a role that accurately describes that word. The role cannot have mechanics that are not seen on other roles. You become that role.");
 
 		e.addField("Goal:", "N/A");
+	});
+
+	register_role(["scp-999", "scp_999", "scp999", "2146"], "Neutral", "SCP-999", {subCat: "Benign"}, (e) =>
+	{
+		e.setDescription("Post 2146");
+
+		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Make someone happy at night, Befriending them.\n- Raise a Befriended's attack value by one.\n- Raise a Befriended's defense value by one.\n- Accompany a Befriended during the night. The next day, the town may not lynch them.\n- Assist a Befriended during the day. The next night, they may use their ability twice.\n- During the day, convert yourself to the faction of a Befriended player. Your goal remains the same, and your Alignment will be \"Support\", or whatever your factions equivalent of it is.\n- Spite JD. This does absolutely nothing.");
+
+		e.addField("Attributes:", "- You may use X number of abilities per night, where X is the number of alive Befriended players.\n- If the town tries to lynch an accompanied player, they will get the message \"You tried to lynch Player Name, but you were convinced not to by SCP-999!\" and the day will immediately end.");
+
+		e.addField("Goal:", "Aid two Befriended players to victory.");
+	});
+
+	register_role(["lumberjack_but_slightly_broken", "lumberjackbutslightlybroken", "lumberjack", "lbsb", "2147"], "Town", "Lumberjack but slightly broken.", {subCat: "Killing"}, (e) =>
+    {
+        e.setDescription("Post 2147");
+
+        e.addField("Alignment", "Town Killing", true);
+        e.addField("Attack", "Powerful", true);
+        e.addField("Defense", "None", true);
+
+        e.addField("Abilities:", "- {Sharpen your saw at night, then} fell a tree on the house of player {other than you the next night}. The tree will deal a Powerful attack to all {other Townies and} evil faction members {who visit them.}\n- **Cleave** during the day.");
+
+        e.addField("Goal:", factions.Town.goal);
+    });
+
+	register_role(["pinged", "2148"], "Neutral", "Pinged", {subCat: "Chaos"}, (e) =>
+	{
+		e.setDescription("Post 2148");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "None (Variable)", true);
+		e.addField("Defense", "None (Variable)", true);
+
+		e.addField("Abilities:", "- Attack a player during the night, dealing your attack value to them.\n- If you have received at least 4 individual pings total, you may mark one player each day by pinging them. Marked players secretly have their defense reduced to Vulnerable the next night.");
+
+		e.addField("Attributes:", "- For every 4 pings you receive in game channels, regardless of whether it comes from the host or another player, you may choose to upgrade either your attack or defense by one level, up to Overkill and Overprotective respectively.\n- Reply pings count.\n- The host should not ping you by your request.\n- Self-pings do not count.\n- Pings that target all players (including pings by the host) count for your upgrades, but not for the marking ability or goal.\n- You may choose what Neutral role your attack appears to come from.");
+
+		e.addField("Goal:", "Every player who has individually pinged you in a game channel must be dead at the end of the game. Except the host. You can kill them after the game ends 🙂");
+	});
+
+	register_role(["masaru_burning_fists", "masaruburningfists", "masaru", "burning_fists", "burningfists", "mbf", "2149"], "Neutral", "Masaru, Burning Fists", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 2149\n*Hah! You're still too weak!*");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Compare your Attack Value with someone's else.\n- Lower your Attack Value by one during the day. Attack Value resets back to Unstoppable the day after.\n- Attack a player.");
+
+		e.addField("Attributes:", "- If the compared player's Attack Value is higher than yours, they will become a Target.\n- If you attack someone who is not  a Target, you will suicide out of guilt.\n- Every player that a Target visits also become a Target.");
+
+		e.addField("Goal:", factions.Neutral.goalNK);
+	});
+
+	register_role(["himari_locket_of_memories", "himarilocketofmemories", "himari", "locket_of_memories", "locketofmemories", "hlm", "hlom", "2150"], "Neutral", "Himari, Locket of Memories", {subCat: "Chaos"}, (e) =>
+	{
+		e.setDescription("Post 2150\n*Hah! You're still too weak!*");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Each night, choose a player. You might choose to roleblock them, upgrade their attack by one or upgrade their defense by one.\n- Immediately deal an Overkill Attack to 10-X players of your choice, where X is the number of Marked players, then leave the game.");
+
+		e.addField("Attributes:", "- If you successfully roleblock someone and prevent them from negatively affecting their target, Mark them and their target(s)\n- If you successfully upgrade someone's attack and allow them to kill their target, Mark them and their target(s)\n- If you successfully upgrade someone's defense and allow them to survive an attack, Mark them and their attacker(s)");
+
+		e.addField("Goal:", "Leave the game while having killed 5 or less players.");
 	});
 };

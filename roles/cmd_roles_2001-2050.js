@@ -17,6 +17,36 @@ module.exports = (g) =>
 		e.addField("Goal:", "Have the good faction lose the game. (You can win while dead)");
 	});
 
+	register_role(["hookhand_mariner", "hookhandmariner", "hookhand", "mariner", "hm", "2002", "2002a"], "Gatherer", "Hookhand Mariner", {subCat: "Green"}, (e) =>
+	{
+		e.setDescription("Post 2002A\n*The local gossips swore Nesmith lost his hands in a fight with a werewolf.*");
+
+		e.addField("Alignment", "Gatherer Green", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Powerful", true);
+
+		e.addField("Abilities:", "- Generate (Green) each night.\n- (1): Attack a player each night.");
+
+		e.addField("Attributes:", "- If no Gatherers use any abilities other than Generate in a night, you will become 2002B Riphook Raider after the night ends.");
+		
+		e.addField("Goal:", factions.Gatherer.goal);
+	});
+
+	register_role(["riphook_raider", "riphookraider", "riphook", "raider", "rr", "2002b"], "Gatherer", "Riphook Raider", {subCat: "Green", cannotRoll: true}, (e) =>
+	{
+		e.setDescription("Post 2002B\n*They weren't entirely wrong.*");
+
+		e.addField("Alignment", "Gatherer Green", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "Powerful", true);
+
+		e.addField("Abilities:", "- Generate (Green) each night.\n- (1): Attack a player each night.");
+
+		e.addField("Attributes:", "- You may multitask.\n- Your attacks will bypass protection abilities from any player incapable of dealing attacks of Powerful tier or greater.\n- If two or more abilities are used by any member(s) of the Gatherers in a night, you will become 2002 Hookhand Mariner.\n- Cannot spawn naturally.");
+		
+		e.addField("Goal:", factions.Gatherer.goal);
+	});
+
 	register_role(["start_now", "startnow", "start", "now", "sn", "2003"], "Neutral", "Start Now", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 2003");
@@ -43,6 +73,21 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- If this rolls, the host must reroll every player into some kind of role that they would be willing to have... amorous relations with.\n- The host must announce that this role rolled, along with any and all rejected and rerolled roles that would have spawned if this didn't.\n- Finally, reroll this role into one that fits the first attribute.");
 		
 		e.addField("Goal:", "N/A");
+	});
+
+	register_role(["bloodcrazed_socialite", "bloodcrazedsocialite", "bloodcrazed", "socialite", "bs", "2005"], "Gatherer", "Bloodcrazed Socialite", {subCat: "Black"}, (e) =>
+	{
+		e.setDescription("Post 2005");
+
+		e.addField("Alignment", "Gatherer Black", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Powerful", true);
+
+		e.addField("Abilities:", "- Generate (Black) each night.\n- (Black): Attack a player each night.\n- (Black)(Black): Upgrade your attack and defense to Powerful tonight, and then attack a player. (1 use)");
+
+		e.addField("Attributes:", "- Your attack will bypass defensive abilities unless two or more are used on your target.");
+		
+		e.addField("Goal:", factions.Gatherer.goal);
 	});
 
 	register_role(["unreserved", "2006"], "Neutral", "Unreserved", {subCat: "Chaos"}, (e) =>
@@ -522,7 +567,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["judge_of_pacifism_and_retribution", "judgeofpacifismandretribution", "judge", "pacifism", "retribution", "jopar", "jpr", "2037"], "Neutral", "Nik of Golden Sacrilege", {subCat: "Other"}, (e) =>
+	register_role(["judge_of_pacifism_and_retribution", "judgeofpacifismandretribution", "judge", "pacifism", "retribution", "jopar", "jpr", "2037"], "Neutral", "Judge of Pacifism and Retribution", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 2037");
 
@@ -583,7 +628,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["jd_tides_of_invention", "jdtidesofinvention", "jd", "tides_of_invention", "tidesofinvention", "jtot", "jtt", "jdtot", "jdtt", "2041"], "Mafia", "Jd, Titdes of Invention", {subCat: "Support"}, (e) =>
+	register_role(["jd_tides_of_invention", "jdtidesofinvention", "jd", "tides_of_invention", "tidesofinvention", "jtot", "jtt", "jdtot", "jdtt", "2041"], "Mafia", "Jd, Tides of Invention", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 2041");
 
@@ -606,7 +651,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Invincible (None)", true);
 
-		e.addField("Abilities:", "- Redirect one player\n- Roleblock one player");
+		e.addField("Abilities:", "- Redirect one player\n- Roleblock one player\n- Twice times per game, if NETSEC is present, you may rollback a connection, unhacking it in the process.");
 
 		e.addField("Attributes:", "- Lynchproof\n- When SCP spawns, everyone will learn their name and face, however, SCP-079 may not be killed UNLESS they are the last SCP left standing, in which case, a day where nobody may vote will occur, and at the end of the day, SCP-079 will be killed. (You may only vote for SCP-079 should this occur.)\n- SCP-079 may not perform the factional kill.\n- SCP-079 may not spawn alone.");
 		

@@ -195,7 +195,7 @@ module.exports = (g) =>
 
 	register_role(["bergentrückung", "bergentruckung", "bergen", "364", "364a"], "Town", "Bergentrückung", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 364A");
+		e.setDescription("Post 364A\n*I so badly want to ask, do you want a cup of tea?*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "None", true);
@@ -210,7 +210,7 @@ module.exports = (g) =>
 
 	register_role(["asgore", "364b"], "Town", "ASGORE", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 364B");
+		e.setDescription("Post 364B\n*It was nice to meet you. Goodbye.*");
 
 		e.addField("Alignment", "Town Protective", true);
 		e.addField("Attack", "Variable", true);
@@ -552,7 +552,7 @@ module.exports = (g) =>
 
 	register_role(["your_best_nightmare", "yourbestnightmare", "nightmare", "ybn", "387"], "Neutral", "Your Best Nightmare", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 387");
+		e.setDescription("Post 387\n*Do you really think you can stop ME? Hee hee hee. Y o u  r e a l l y  A R E  a n  i d i o t.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);

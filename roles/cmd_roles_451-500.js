@@ -6,11 +6,11 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 451");
 
-		e.addField("Alignment", "Unique Town Investigative", true);
+		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- At the start of the night, select someone to investigate with Post 948's ability, or select yourself learn up to 6 messages sent in private chat channels (except whispers) with the most useful information.");
+		e.addField("Abilities:", "- Select someone to investigate with Post 948's ability, or select yourself to learn up to 6 messages sent in evil private chat channels with the most useful information.");
 
 		e.addField("Attributes:", "- Any player names/nicknames in the messages sent will be redacted.\n- You only see messages sent by players.\n- The host decides what messages are useful. This may include messages like \"I checked the Ret claim, it turns out that they were an NK.\"\n- For every 2 useful messages you would learn, you will also recieve a host-fabricated misleading message (i.e information meant to trick you into believing something untrue or confusing you).");
 		
@@ -85,7 +85,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Spend 1 night producing Sun.\n- Transform into a Twin Sunflower. Requires 5 sun.");
+		e.addField("Abilities:", "- Spend 1 night producing 2 Suns.\n- Transform into a Twin Sunflower. Requires 5 sun.");
 		
 		e.addField("Goal:", factions.Plant.goal);
 	});
@@ -562,7 +562,7 @@ module.exports = (g) =>
 
 	register_role(["spider_dance", "spiderdance", "spider", "dance", "sd", "488"], "Neutral", "Spider Dance", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 488");
+		e.setDescription("Post 488\n*I heard you're awfully stingy with your money...*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);

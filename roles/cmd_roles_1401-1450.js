@@ -10,7 +10,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Copy a target's defense value during the night. You will not be informed about your new Defense tier, if any.\n- **Intercept** a player during the night.");
+		e.addField("Abilities:", "- Copy a target's defense during the night. You will copy their defense tier and any protective effects they had tonight. You will not be informed about your new Defense tier, if any, and any notifications from your copied protection will not be given to you. Any effect you copy will only last for the night you used this ability.\n- **Intercept** a player during the night, take the attack instead of your target. You will also protect yourself with your most recent copy of protective effects.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -90,9 +90,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["chönigiinsamchiit", "chonigiinsamchiit", "chonig", "1407", "1407a", "364u", "364au"], "Unseen", "Chönigiinsamchiit", {subCat: "Protective"}, (e) =>
+	register_role(["königeinsamkeit", "konigeinsamkeit", "könig", "konig", "1407", "1407a", "364u", "364au"], "Unseen", "Königeinsamkeit", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 1407A\nConverted from: Bergentrückung");
+		e.setDescription("Post 1407A\n*This is for the greater good.*\nConverted from: Bergentrückung");
 
 		e.addField("Alignment", "Unseen Protective", true);
 		e.addField("Attack", "None", true);
@@ -107,7 +107,7 @@ module.exports = (g) =>
 
 	register_role(["corrupted_asgore", "corruptedasgore", "corrupted", "asgore", "ca", "1407b", "364bu"], "Unseen", "CORRUPTED ASGORE", {subCat: "Protective"}, (e) =>
 	{
-		e.setDescription("Post 1407B\nConverted from: ASGORE");
+		e.setDescription("Post 1407B\n*I will finally avenge Asriel. Humans **will** suffer.*\nConverted from: ASGORE");
 
 		e.addField("Alignment", "Unseen Protective", true);
 		e.addField("Attack", "Variable", true);

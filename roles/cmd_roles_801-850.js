@@ -369,7 +369,7 @@ module.exports = (g) =>
 		e.setDescription("Post 825");
 
 		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "\"No Bullshit\"", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Stop any and all reroller class roles, rerolling players do not count.");

@@ -18,9 +18,32 @@ function checkSubCats(UTILS, targets, meta, ind)
 	}
 }
 
+function stringToEventData(str)
+{
+	let spec = str.toLowerCase();
+	let first = spec.substring(0, 1);
+	let last = spec.substring(spec.length-1);
+	spec = spec.substring((first === "n" || first === "d") ? 1 : 0, (last === "+" || last === "-") ? spec.length-1 : spec.length);
+
+	return {spec, first, last};
+}
+
+function fillPhase(phase, spec, last, limit)
+{
+	phase[spec] = true;
+
+	if(last === "+")
+		for(let i = spec+1; i <= limit; i++)
+			phase[i] = true;
+
+	if(last === "-")
+		for(let i = 1; i <= spec-1; i++)
+			phase[i] = true;
+}
+
 module.exports = (g) =>
 {
-	const {PRE, UTILS, add_cmd, roles, msg, aliases, factions, GOOD, EVIL, NEUTRAL} = g;
+	const {PRE, UTILS, add_cmd, roles, events, msg, aliases, factions, GOOD, EVIL, NEUTRAL} = g;
 
 	let i = 0;
 	
@@ -354,7 +377,7 @@ module.exports = (g) =>
 
 			if(catMatch)
 			{
-				rollable[rollable.length] = {cmd, rate: cmd.meta.spawnRate || 1};
+				rollable[rollable.length] = roles[r];
 
 				if(!accept && cmd.cat !== "Any")
 					accept = true;
@@ -374,4 +397,103 @@ module.exports = (g) =>
 	};
 
 	register_cmd(["random_role", "randomrole", "rrole", "role"], "[category[:subcategory]...]...", "Random Role", "Roll for a random role out of the list of those that are registered in the Bot. A full role card will be provided based on the results.\n\nYou may optionally provide a list of categories as parameters. Only a role that can fit at least one category will be provided.\n\nYou may also specify a subcategory for each category. This is done using the format of `category:subcategory`. The same category can have more than one listed subcategory, e.g. `category:apple:bannana:cyanide`\n\nPut a - or a ! before specified categories or subcategories to instead exclude them.\n\nSee =categories for a list of categories and subcategories.\n\nExact spelling will be required when specifying categories and subcategories, but they will not be case-sensitive.", g.randomRole);
+
+	register_cmd(["random_event", "randomevent", "revent", "event"], "[[n|d][##][+|-]...", "Random Event", "Roll for a random event out of the list of those that are registered in the Bot. A full event card will be provided based on the results.\n\nYou may optionally provide a list of phases as parameters. Only a role that can fit at least one phase will be provided.\n\nYou may put a `d` or `n` before any phase number to specify it as applying to only Day or Night phases, respectively.\n\nPut a - or a + after a phase to include events from before or after the specified point, respectively.\n\nExamples: `D1 D2 D3`, `D2-`, `N3+`", (chn, message, e, args, nosend) =>
+	{
+		let event = null;
+		let days = null;
+		let nights = null;
+		let rollable = [];
+		let sanity_limit = 20;
+
+		if(args.length > 0)
+		{
+			for(let i = 0; i < args.length; i++)
+			{
+				let {spec, first, last} = stringToEventData(args[i]);
+
+				if(!UTILS.isInt(spec))
+				{
+					msg(chn, "-ERROR: Provided parameter \"" + args[i] + "\" does not provide a valid phase number.");
+					return
+				}
+
+				spec = parseInt(spec);
+
+				if(spec > sanity_limit)
+				{
+					msg(chn, "-ERROR: There's no way a game is lasting even remotely as long as that, don't even try.");
+					return
+				}
+
+				if(first !== "n")
+				{
+					days = days || {};
+					fillPhase(days, spec, last, sanity_limit)		
+				}
+
+				if(first !== "d")
+				{
+					nights = nights || {};
+					fillPhase(nights, spec, last, sanity_limit)	
+				}
+			}
+		}
+
+		for(let ev in events)
+		{
+			let cmd = events[ev].cmd;
+			let phaseMatch = true;
+
+			if(cmd.meta.cannotRoll)
+				continue;
+
+			if(cmd.meta.eventData && (days || nights))
+			{
+				let specs = cmd.meta.eventData.split(' ');
+				phaseMatch = false;
+
+				for(let i = 0; i < specs.length; i++)
+				{
+					let {spec, first, last} = stringToEventData(specs[i]);
+
+					if(!UTILS.isInt(spec))
+					{
+						msg(chn, "-ERROR: Command \"" + cmd.Title + "\" has invalid phase specification \"" + specs[i] + "\". This is a bug.");
+						return
+					}
+
+					spec = parseInt(spec);
+					let metaPhases = {};
+					fillPhase(metaPhases, spec, last, Math.max(spec, sanity_limit));
+
+					for(let p in metaPhases)
+					{
+						if((first !== 'd' && nights && nights[p]) || (first !== 'n' && days && days[p]))
+						{
+							phaseMatch = true;
+							break;
+						}
+					}
+
+					if(phaseMatch)
+						break;
+				}
+			}
+
+			if(phaseMatch)
+				rollable[rollable.length] = events[ev];
+		}
+
+		if(rollable.length > 0)
+			event = UTILS.randChances(rollable);
+
+		if(event && event.cmd)
+		{
+			event.cmd.func(chn, msg, e, [], nosend);
+			return event;
+		}
+		else
+			msg(chn, "-ERROR: No roles could be rolled.");
+	});
 };

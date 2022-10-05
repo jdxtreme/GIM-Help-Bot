@@ -170,7 +170,7 @@ UTILS.tabLevel = (level) =>
 {
 	let tabs = "";
 
-	for(let i = 0; i < level; i++)
+	for(let i = 0; i < level-1; i++)
 		tabs = tabs + '\t';
 
 	return tabs;

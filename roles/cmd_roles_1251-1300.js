@@ -19,7 +19,7 @@ module.exports = (g) =>
 
 	register_role(["lawbreaker", "1252", "1249u"], "Unseen", "Lawbreaker", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 1252\nConverted From: Criminalist");
+		e.setDescription("Post 1252\n*Other than me! Mwahahahaha...*\nConverted From: Criminalist");
 
 		e.addField("Alignment", "Unseen Investigative", true);
 		e.addField("Attack", "None", true);
@@ -27,7 +27,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Alter a player's role. They will appear as which role you choose for the rest of the game, including when they're dead. The role must be from The Criminal List.");
 
-		e.addField("Attributes:", "- If you're a Lawbreaker during the start of game, The Criminal List switches all evil roles to random roles. If you're converted by the Unseen, this won't happen.");
+		e.addField("Attributes:", "- If you're a Lawbreaker during the start of game, The Criminal List switches all evil roles to random roles. If you're converted by the Unseen, this won't happen.\n- Detection Immunity");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});
@@ -122,7 +122,7 @@ module.exports = (g) =>
 
 	register_role(["hand_of_glory", "handofglory", "hand", "glory", "hog", "1259"], "PaleMoon", "Hand of Glory", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1259");
+		e.setDescription("Post 1259\n*Likes: Puppets, Dancing. Dislikes: You.*");
 
 		e.addField("Alignment", "Unique Pale Moon Killing", true);
 		e.addField("Attack", "None (Unstoppable)", true);

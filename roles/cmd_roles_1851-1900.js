@@ -568,7 +568,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Generate (White)(Blue) each night.\n- (1) Attack a player each night.\n- (White)(Blue)(1): Sacrifice yourself to let every other Gatherer use up to three abilities tonight, as long as they can afford the Mana costs. This will let them bypass the Gatherer Faction's \"One attacker per night\" rule.");
+		e.addField("Abilities:", "- Generate (White)(Blue) each night.\n- (1) Attack a player each night.\n- (White)(Blue): Sacrifice yourself to let every other Gatherer use up to three abilities tonight, as long as they can afford the Mana costs.");
 
 		e.addField("Attributes:", "- Before the game begins, you may prevent a random other Gatherer (or yourself if there are no others) from talking and voting in Day 1. If you do, give yourself permanent basic defense which cannot be reduced.\n- Nothing can allow you to survive a successful use of your Sacrifice ability.");
 		
@@ -612,6 +612,8 @@ module.exports = (g) =>
 		e.addField("Defense", "Powerful", true);
 
 		e.addField("Abilities:", "- Generate (Red) each night and attack a player.");
+
+		e.addField("Attributes:", "- Cannot spawn naturally.");
 		
 		e.addField("Goal:", factions.Gatherer.goal);
 	});
@@ -637,9 +639,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Generate (Red) each night.\n- (1): Attack a player each night.");
-
-		e.addField("Attributes:", "- During Night 1, and any night after a Gatherer is revived by any means, you and all Gatherers will be able to use two abilities at once. (This won't stack if multiple Chasm Guides exist.)");
+		e.addField("Abilities:", "- Generate (Red) each night.\n- (1): Attack a player each night.\n- (Red)(3): All other Gatherers will be allowed to Generate and use another ability this night. This takes effect immediately.");
 		
 		e.addField("Goal:", factions.Gatherer.goal);
 	});

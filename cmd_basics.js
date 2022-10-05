@@ -208,7 +208,7 @@ module.exports = (g) =>
 						list = list + "\n\n" + cat;
 
 					for(let cmd in ordered[cat][sub])
-						list = list + "\n " + ordered[cat][sub][cmd];
+						list = list + "\n" + ordered[cat][sub][cmd];
 				}
 			}
 		}
@@ -220,7 +220,7 @@ module.exports = (g) =>
 
 				for(let sub in ordered[cat])
 					for(let cmd in ordered[cat][sub])
-						list = list + "\n " + ordered[cat][sub][cmd];
+						list = list + "\n" + ordered[cat][sub][cmd];
 			}
 		}
 

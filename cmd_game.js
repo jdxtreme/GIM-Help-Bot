@@ -57,17 +57,37 @@ module.exports = (g) =>
 		i = i + 1;
 	}
 
-	register_cmd(["add_player", "addplayer"], "<Player ID> <#Player Channel> [Nickname(s)...]", "Add Player", "Add a player into the bot's local storage, enabling use with Whispers.", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd(["add_player", "addplayer"], "<Player ID> [Player Number] <#Player Channel> [Nickname(s)...]", "Add Player", "Add a player into the bot's local storage, enabling use with whispers and other features.\n\nIf you don't provide at least one nickname, the player's current display name will be used instead.\n\nYou may choose a specific number for this new player, inserting it into the list at that position. The previous player in that spot, as well as all players above, will be shifted upwards by 1 slot.", {admin_only: true}, (chn, message, e, args) =>
 	{
 		if(!args[0] || !args[1])
 		{
-			msg(chn, "-USAGE: " + PRE + "add_player <Player ID> <#Player Channel> [Nickname(s)...]");
+			msg(chn, "-USAGE: " + PRE + "add_player <Player ID> [Player Number] <#Player Channel> [Nickname(s)...]");
 			return;
 		}
 
 		let pdata = SERVER_DATA[message.guild.id].players;
+		let defaults = SERVER_DATA[message.guild.id].defaults;
 		let user_promise = message.guild.members.fetch(args[0]).catch(console.error);
 		let player_channel = message.guild.channels.cache.get(args[1].substring(2, args[1].length-1));
+		let pnum = null;
+
+		if(UTILS.isInt(args[1]))
+		{
+			pnum = parseInt(args[1], 10);
+			player_channel = message.guild.channels.cache.get(args[2].substring(2, args[2].length-1));
+
+			if(pnum <= 0)
+			{
+				msg(chn, "-Error: Provided player number must be a positive number.");
+				return;
+			}
+
+			if(pnum > pdata.length + 1)
+			{
+				msg(chn, "-Error: With the current number of players, you cannot add a player whose number is higher than " + (pdata.length + 1) + ".");
+				return;
+			}
+		}
 
 		user_promise.then((user) =>
 		{
@@ -77,7 +97,7 @@ module.exports = (g) =>
 					msg(chn, "-Invalid member ID: " + args[0]);
 
 				if(!player_channel)
-					msg(chn, "-Invalid player channel: " + args[1]);
+					msg(chn, "-Invalid player channel: " + (pnum ? args[2] : args[1]));
 
 				return;
 			}
@@ -91,20 +111,47 @@ module.exports = (g) =>
 				}
 			}
 
-			let num = pdata.length;
+			let num = (pnum ? pnum-1 : pdata.length);
+			let nicknames = [];
 
-			pdata[num] =
+			for(let i = (pnum ? 3 : 2); i < args.length; i++)
 			{
-				id: user.id,
-				num: num+1,
-				channel: player_channel.id,
-				nicknames: [],
-				alive: true,
-				tags: {}
-			};
+				if(getPlayerByName(pdata, args[i].toLowerCase()))
+				{
+					msg(chn, "-Cannot register player with duplicate nickname: \"" + args[i] + "\"");
+					return;
+				}
 
-			for(let i = 2; i < args.length; i++)
-				pdata[num].nicknames[i-2] = args[i].toLowerCase();
+				nicknames[i - (pnum ? 3 : 2)] = args[i].toLowerCase();
+			}
+
+			if(nicknames.length === 0)
+				nicknames[0] = user.displayName.toLowerCase();
+
+			for(let i = pdata.length; i >= num; i--)
+			{
+				if(i === num)
+				{
+					pdata[i] =
+					{
+						id: user.id,
+						num: i+1,
+						channel: player_channel.id,
+						nicknames,
+						alive: true,
+						tags: {}
+					};
+
+					if(defaults)
+						for(let k in defaults)
+							pdata[i].tags[k] = defaults[k];
+				}
+				else
+				{
+					pdata[i] = pdata[i-1];
+					pdata[i].num++;
+				}
+			}
 
 			overwrite();
 
@@ -361,7 +408,7 @@ module.exports = (g) =>
 		if(sender.tags.limit)
 			sender.whispers = (sender.whispers || 0) + 1;
 
-		if(sender.tags.announce || sender.tags.relay)
+		if(!sender.tags.no_overhear && (sender.tags.announce || sender.tags.relay))
 		{
 			if(sender.tags.announce === sender.tags.relay)
 			{
@@ -395,18 +442,21 @@ module.exports = (g) =>
 			}
 		}
 
-		for(let i = 0; i < pdata.length; i++)
+		if(!sender.tags.no_overhear)
 		{
-			let plr = pdata[i];
-
-			if(plr.tags && plr !== sender && plr !== recipient && 
-					(plr.tags.overhear_all || 
-					commaCheck(UTILS, plr.tags.overhear_target, sender.num) || 
-					commaCheck(UTILS, plr.tags.overhear_target, recipient.num)))
+			for(let i = 0; i < pdata.length; i++)
 			{
-				let pchannel = message.guild.channels.cache.get(plr.channel);
+				let plr = pdata[i];
 
-				msg(pchannel, "Whisper from " + firstname(sender) + " to " + firstname(recipient) + ": " + whisper, true);
+				if(plr.tags && plr !== sender && plr !== recipient && 
+						(plr.tags.overhear_all || 
+						commaCheck(UTILS, plr.tags.overhear_target, sender.num) || 
+						commaCheck(UTILS, plr.tags.overhear_target, recipient.num)))
+				{
+					let pchannel = message.guild.channels.cache.get(plr.channel);
+
+					msg(pchannel, "Whisper from " + firstname(sender) + " to " + firstname(recipient) + ": " + whisper, true);
+				}
 			}
 		}
 	});
@@ -468,6 +518,55 @@ module.exports = (g) =>
 		overwrite();
 	});
 
+	register_cmd(["tag_default", "tagdefault", "default"], "<Key> [Value]", "Tag Default", "Set a default tag value. This will be applied to future added players, but not to ones that already exist.\n\nTo check what a Tag's default currently is, use this command without providing a Value.\n\nTo check all Default Tags, use the =tag_defaults command.\n\nTo remove a Tag, use this command with the Value set to \"-\" (without the quotes).\n\nTo list usable tags, use the =tags command.", {admin_only: true}, (chn, message, e, args) =>
+	{
+		if(!args[0])
+		{
+			msg(chn, "-Usage: " + PRE + "tag_default <Key> [Value]");
+			return;
+		}
+
+		let defaults = SERVER_DATA[message.guild.id].defaults;
+		let value = args[1] || "";
+
+		if(!defaults)
+		{
+			SERVER_DATA[message.guild.id].defaults = {};
+			defaults = SERVER_DATA[message.guild.id].defaults;
+		}
+
+		for(let n = 2; n < args.length; n++)
+			value = value + " " + args[n];
+
+		if(value === "-")
+		{
+			delete defaults[args[0]];
+			msg(chn, "+Tag \"" + args[0] + "\" deleted.");
+		}
+		else if(value !== "")
+		{
+			defaults[args[0]] = value;
+			msg(chn, "+Tag \"" + args[0] + "\" set to \"" + value + "\".");
+		}
+		else
+			msg(chn, "+Tag \"" + args[0] + "\" is currently set to \"" + (defaults[args[1]] || "null") + "\".");
+
+		overwrite();
+	});
+
+	register_cmd(["tag_defaults", "tagdefaults", "defaults"], "", "Tag Defaults", "List all default tags which are applied to newly registered players.", (chn, message, e, args) =>
+	{
+		let defaults = SERVER_DATA[message.guild.id].defaults;
+
+		if(!defaults || Object.keys(defaults).length === 0)
+		{
+			msg(chn, "-There are no default tags set.");
+			return;
+		}
+
+		msg(chn, "Default Tags:\n" + UTILS.display(defaults, 0));
+	});
+
 	register_cmd("tags", "", "Tags", "Provide a list of all known tags.", (chn, message, e, args) =>
 	{
 		e.setAuthor({name: "List of Tags"});
@@ -480,6 +579,7 @@ module.exports = (g) =>
 		e.addField("deaf <true>", "Tagged player will not receive direct whispers, though overhearing is unaffected. Attempts to whisper to them will still appear to succeed.");
 		e.addField("limit <number>", "Limit the amount of whispers a player is allowed to send. By default, they can't be replenished, unless the player also has the `daily_reset` tag. Setting this to 0, a negative number, or a non-number will disable whispers for that player.");
 		e.addField("mute <true>", "Tagged player will be unable to send whispers. They will be notified if they try.");
+		e.addField("no_overhear <true>", "Tagged player's whispers cannot be overheard, announced, or relayed to other players.");
 		e.addField("overhear_all <true>", "Tagged player overhears all whispers");
 		e.addField("overhear_target <PN1,PN2,PN3,etc...>", "Tagged player overhears all whispers sent to and from the player(s) with each number. Use only commas to separate Player Numbers if the target player is unable to whisper to multiple specific people, i.e. `5,8,12`.");
 		e.addField("silent <true>", "Tagged player will be unable to send whispers. They will NOT know if they try; they will instead be sent a false confirmation message.");

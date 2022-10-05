@@ -47,7 +47,7 @@ module.exports = (g) =>
 
 	register_role(["loan_shark", "loanshark", "loan", "shark", "ls", "1454"], "Mafia", "Loan Shark", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1454");
+		e.setDescription("Post 1454\n*Did you pay your debts from a month ago? If you didn't, I will take something else from you...*");
 
 		e.addField("Alignment", "Mafia Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -649,9 +649,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attack a player. If you are successful, they will be possessed and appear to still be alive for one day/night cycle.");
+		e.addField("Abilities:", "- Attack a player during a full moon. If you are successful, they will be possessed and appear to still be alive for one day/night cycle.");
 
-		e.addField("Attributes:", "- You may control a possessed player’s votes, whispers and actions. You cannot force them to say anything in a public chat.\n- With the Necronomicon, you may attack twice per night, and possessed players may take two actions per night.");
+		e.addField("Attributes:", "- You may control a possessed player’s votes, whispers and actions. You cannot force them to say anything in a public chat.\n- With the Necronomicon, you may attack every night, and possessed players may take two actions per night.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});

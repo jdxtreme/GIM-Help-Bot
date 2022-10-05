@@ -236,7 +236,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Die first, then win with your new goal.");
 	});
 
-	register_role(["jailor_power", "jailorpower", "jailor", "1117"], "Town", "Jailor, but it's finally Town Power", {subCat: "Power"}, (e) =>
+	register_role(["jailor_power", "jailorpower", "jailor_tpo", "jailortpo", "jailor", "jbiftp", "1117"], "Town", "Jailor, but it's finally Town Power", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 1117");
 
@@ -246,7 +246,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- You may choose one person during the day to Jail for the night.");
 
-		e.addField("Attributes:", "- You may anonymously talk with your prisoner.\n- You can choose to attack your prisoner.\n- The jailed target can't perform their night ability.\n- If you execute a Town member, you forfeit further executions.\n- All other abilities used on the jailed person will fail; they will be notified that their target was jailed.\n- Your death note can be whatever you want.\n- If another night chat is opened with you you can use both that and your jail chat seperately.\n- You can spawn with Everfrost.");
+		e.addField("Attributes:", "- You may anonymously talk with your prisoner.\n- You can choose to execute your prisoner, except during Night 1.\n- The jailed target can't perform their night ability.\n- If you execute a Town member, you forfeit further executions.\n\n- All other visiting abilities used on the jailed person will fail; they will be notified that their target was jailed.\n- The jailed target gains Powerful Defense.\n- Your death note can be whatever you want.\n- If another night chat is opened with you you can use both that and your jail chat seperately.\n- You can spawn with Everfrost.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -698,7 +698,7 @@ module.exports = (g) =>
 
 	register_role(["impersonator", "1148"], "Mafia", "impersonator", {subCat: "Deception"}, (e) =>
 	{
-		e.setDescription("Post 1148");
+		e.setDescription("Post 1148\n*Don't worry, after you die, you will still be \"alive\" by me...hehe...*");
 
 		e.addField("Alignment", "Mafia Deception", true);
 		e.addField("Attack", "Basic", true);
@@ -726,7 +726,7 @@ module.exports = (g) =>
 
 	register_role(["fire_mage", "firemage", "fire", "1150"], "Neutral", "Fire Mage", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1150");
+		e.setDescription("Post 1150\n*I will consume everyone in fire and flames!*");
 
 		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);

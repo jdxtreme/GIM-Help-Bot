@@ -32,34 +32,34 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Rock.goal);
 	});
 
-	register_role(["walkie", "1353"], "Town", "Walkie", {subCat: "Investigative"}, (e) =>
+	register_role(["walkie", "1353"], "Sentry", "Walkie", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1353");
 
-		e.addField("Alignment", "Unique Town Investigative", true);
+		e.addField("Alignment", "Unique Sentry Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Walk behind someone at night, learning who they visit in the process.");
+		e.addField("Abilities:", "- Walk behind an Authorized target at night, learning who they visit in the process.");
 
 		e.addField("Attributes:", "- If this rolls, 1354 Talkie must roll as well.\n- You will know 1354 Talkie's name and have a private chat with them that will remain as long as you both are alive.\n- If 1354 Talkie dies, you will only have one use left of your ability. If they get revived, you will have unlimited uses again.\n- You cannot target yourself.\n- You are immune to conversion.\n- Detection Vulnerability: If someone investigates you, their results will be based on a random evil role from a faction that exists in this game, determined when the game starts. It must be from the same faction as 1354 Talkie's disguise. You won't know what that role is.");
 		
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["talkie", "1354"], "Town", "Talkie", {subCat: "Investigative"}, (e) =>
+	register_role(["talkie", "1354"], "Sentry", "Talkie", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1354");
 
-		e.addField("Alignment", "Unique Town Investigative", true);
+		e.addField("Alignment", "Unique Sentry Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Talk with someone at night and determine if they appear suspicious or not, following the same rules as TOS Sheriff.");
+		e.addField("Abilities:", "- Talk with an Authorized target at night and determine if they appear suspicious or not, following the same rules as TOS Sheriff.");
 
 		e.addField("Attributes:", "- If this rolls, 1353 Walkie must roll as well.\n- You will know 1353 Walkie's name and have a private chat with them that will remain as long as you both are alive.\n- If 1353 Walkie dies, you will only have one use left of your ability. If they get revived, you will have unlimited uses again.\n- You cannot target yourself.\n- You are immune to conversion.\n- Detection Vulnerability: If someone investigates you, their results will be based on a random evil role from a faction that exists in this game, determined when the game starts. It must be from the same faction as 1353 Walkie's disguise. You won't know what that role is.");
 		
-		e.addField("Goal:", factions.Town.goal);
+		e.addField("Goal:", factions.Sentry.goal);
 	});
 
 	register_role(["particularly_sharp_rock_wielder", "particularlysharprockwielder", "sharp", "psrw", "1355"], "Rock", "Particularly Sharp Rock Wielder", {subCat: "Killing"}, (e) =>
@@ -205,7 +205,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Coerced an authorized target during the night.");
+		e.addField("Abilities:", "- Coerce an authorized target during the night.");
 
 		e.addField("Attributes:", "- Coerced targets will be roleblocked if they are not a Sentry. You will **not** be notified of this.\n- Roleblock Immunity\n- Frame Immunity");
 		
@@ -218,7 +218,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Sentry Protective", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Confiscate the weaponry of an authorized target during the night.");
 
@@ -276,7 +276,7 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Sentry Killing", true);
 		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
 		e.addField("Abilities:", "- Organize a raid on an authorized target. 3 Uses");
 
@@ -422,7 +422,7 @@ module.exports = (g) =>
 
 	register_role(["cremator", "1379"], "Mafia", "Cremator", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1379");
+		e.setDescription("Post 1379\n*I will not leave a single fragment of evidence.*");
 
 		e.addField("Alignment", "Mafia Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -587,7 +587,7 @@ module.exports = (g) =>
 
 	register_role(["thundersnail", "ts", "1390"], "Neutral", "Thundersnail", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1390");
+		e.setDescription("Post 1390\n*A snail who had gathered powerful artifacts together, eventually creating some of the toughest armor ever. Its only weakness is weakness itself.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Variable", true);

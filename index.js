@@ -1,3 +1,4 @@
+//Vampire: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=118533
 //Umbrae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=120271
 //Florae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=119288
 //Faunae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=119748
@@ -14,6 +15,7 @@ const menus = {};
 const commands = {};
 const conflicts = {};
 const roles = [];
+const events = [];
 
 const SERVER_DATA = {};
 
@@ -122,7 +124,7 @@ function add_cmd(name, cmd)
 		for(let i in name)
 		{
 			if(usedNames[name[i]])
-				console.log("Error: Role \"" + cmd.title + " (" + cmd.cat + (cmd.meta.subCat && (" " + cmd.meta.subCat) || "") + ")\" tries to use the name \"" + PRE + name[i] + "\" more than once.");
+				console.log("Error: Command \"" + cmd.title + " (" + cmd.cat + (cmd.meta.subCat ? (" " + cmd.meta.subCat) : "") + ")\" tries to use the name \"" + PRE + name[i] + "\" more than once.");
 			else
 			{
 				usedNames[name[i]] = true;
@@ -185,11 +187,11 @@ function add_cmd(name, cmd)
 				id: "c" + c,
 				cat: "Conflict",
 				title: PRE + name + " Conflict",
-				desc: "This command exists because of a conflict between two role names or numbers. Use it to learn how to specify which individual role you want to see.",
+				desc: "This command exists because of a conflict between two command names. Use it to learn how to specify which individual command you want to see.",
 
 				func: (chn) =>
 				{
-					let txt = "Command '" + PRE + name + "' refers to multiple roles. Did you mean:\n";
+					let txt = "Command '" + PRE + name + "' refers to multiple commands. Did you mean:\n";
 
 					for(let c in conflicts[name])
 					{
@@ -264,7 +266,63 @@ function register_role(name, cat, desc, meta, func)
 
 	add_cmd(name, cmd);
 
-	roles[roles.length] = {cmd, rate: cmd.meta.spawnRate || 1};
+	let rate = cmd.meta.spawnRate || 1;
+
+	if(typeof cmd.meta.spawnCat === "object")
+		rate *= Math.max(Math.pow(0.9, cmd.meta.spawnCat.length-1), 0.25);
+
+	roles[roles.length] = {cmd, rate};
+}
+
+let ev = 1;
+function register_event(name, desc, meta, func)
+{
+	if(!func)
+	{
+		func = meta;
+		meta = {};
+	}
+
+	let cmd = 
+	{
+		id: "e" + ev,
+		cat: "Event",
+		title: desc,
+		desc: "View details of the " + desc + " event.",
+		param: "",
+		meta,
+		func: (chn, message, e, args, nosend) =>
+		{
+			e.setAuthor({name: desc});
+			e.setColor("4F545C");
+
+			try
+			{
+				if(func(e, chn, message, args) || nosend)
+					return;
+
+				for(let f in e.fields)
+				{
+					if(e.fields[f].value.length > 1024)
+					{
+						msg(chn, "-ERROR: Command " + PRE + (typeof name === "string" ? name : name[0]) + " contains a Field which is longer than 1024 characters!");
+						return;
+					}
+				}
+
+				chn.send({embeds: [e]});
+			}
+			catch(error)
+			{
+				console.log(error.message + "\n\n" + error.stack);
+				msg(chn, "-ERROR: " + error.message + "\n\n" + error.stack);
+			}
+		}
+	};
+
+	ev = ev + 1;
+	add_cmd(name, cmd);
+	events[events.length] = {cmd, rate: cmd.meta.spawnRate || 1};
 }
 
 function getMentions(text)
@@ -310,9 +368,11 @@ const GLOBAL = {
 	bot,
 	commands,
 	roles,
+	events,
 	msg,
 	add_cmd,
 	register_role,
+	register_event,
 	overwrite,
 
 	SERVER_DATA,
@@ -324,19 +384,23 @@ const GLOBAL = {
 };
 
 require("./cmd_factions.js")(GLOBAL);
+require("./cmd_archive.js")(GLOBAL);
 require("./cmd_basics.js")(GLOBAL);
 require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
 require("./roles/cmd_roles_misc.js")(GLOBAL);
-for(let i = 50; i <= 2150; i+=50)
+for(let i = 50; i <= 2250; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
+for(let i = 50; i <= 50; i+=50)
+	require("./events/cmd_events_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
-console.log(roles.length);
-
-for(let i = 1; i <= 2107; i++)
+for(let i = 1; i <= 2205; i++)
 	if(!commands[i.toString()])
 		console.log("Missing: " + i);
+for(let i = 1; i <= 1; i++)
+	if(!commands["e" + i.toString()])
+		console.log("Missing: e" + i);
 
 
 
@@ -371,7 +435,7 @@ bot.on("messageCreate", (message) =>
 			{
 				let ch2 = message.guild.channels.cache.get(data.relay[i].out);
 
-				if(ch2 && (message.embeds.length === 0 || !message.embeds[0].timestamp))
+				if(ch2 && (message.member.user.id !== bot.user.id || message.embeds.length === 0 || !message.embeds[0].timestamp))
 				{
 					let addedText = "";
 					let output = new MessageEmbed();
