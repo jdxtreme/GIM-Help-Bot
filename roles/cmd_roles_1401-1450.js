@@ -197,7 +197,7 @@ module.exports = (g) =>
 
 	register_role(["republican_dad", "republicandad", "republican", "rd", "1413"], "Neutral", "Republican Dad", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1413");
+		e.setDescription("Post 1413\n*Grr! I hate when people's identities change!*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
@@ -368,7 +368,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- At the start of each night, You will get 5-8 coins that you will store to use with your abilities/attributes, there is no limit to how many gold you can have.");
 
-		e.addField("Items:", "Mushroom: Gives 1 use Basic autovest, 4 coins.\nFire Flower: Target will Torch 1 random person they killed this night, 5 coins.\nBanana Peel: Roleblock one of the Target' visitors at random, 6 coins.\nWarp Pipe: Transport(Check 63) 2 Targets, 8 coins. (2 uses)\n1-up Mushroom: Gives a 3 uses Powerful autovest, 10 coins. (2 uses)\nStar: Target gets Immortal and Lynchproof defense until the start of the next night, anyone visiting will be dealt a Powerful attack, 15 coins. (1 use)");
+		e.addField("Items:", "Mushroom: Gives 1 use Basic autovest, 4 coins.\nFire Flower: Target will Torch 1 random person they killed this night, 5 coins.\nBanana Peel: Roleblock one of the Target' visitors at random, 6 coins.\nWarp Pipe: Transport(Check 63) 2 Targets, 8 coins. (2 uses)\n1-up Mushroom: Gives a 2 uses Powerful autovest, 10 coins. (2 uses)\nStar: Target gets Immortal and Lynchproof defense until the start of the next night, anyone visiting will be dealt a Powerful attack, 15 coins. (1 use)");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});

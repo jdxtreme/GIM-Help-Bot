@@ -4,9 +4,9 @@ module.exports = (g) =>
 
 	register_role(["blue_dragon", "bluedragon", "bd", "501"], "Town", "Blue Dragon", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 501");
+		e.setDescription("Post 501\n*A creature of great heroism that was so legendary that people built a kingdom in its name.*");
 
-		e.addField("Alignment", "Town Power", true);
+		e.addField("Alignment", "Unique Town Power", true);
 		e.addField("Attack", "Powerful (Unstoppable)", true);
 		e.addField("Defense", "Basic (None)", true);
 

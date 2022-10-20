@@ -2,7 +2,7 @@ module.exports = (g) =>
 {
 	const {register_role, factions, GOOD, EVIL} = g;
 
-	register_role(["with", "mf", "mfi", "2151"], "Mafia", "e with n s, s, s, s mf", {subCat: "Support", cannotRoll: true}, (e) =>
+	register_role(["with", "mf", "mfi", "2151"], "Mafia", "e with n s, s, s, s mf", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 2151");
 
@@ -49,11 +49,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Inflict Hell upon at least 5 players.");
 	});
 
-	register_role(["tandem_engine", "tandemengine", "tandem", "engine", "te", "2154"], "Neutral", "Tandem Engine", {subCat: "Killing"}, (e) =>
+	register_role(["tanden_engine", "tandenengine", "tanden", "engine", "te", "2154"], "Neutral", "Tanden Engine", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 2154");
+		e.setDescription("Post 2154\n*Within my body lies the whole of the universe. I am eternal!*");
 
-		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
@@ -79,17 +79,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["worn_out_yellow_sweater", "wornoutyellowsweater", "yellow", "sweater", "woys", "2156"], "Neutral", "Worn Out Yellow Sweater", {subCat: "Benign"}, (e) =>
+	register_role(["launchpad", "2156"], "Band", "Launchpad", {subCat: "Digital"}, (e) =>
 	{
 		e.setDescription("Post 2156\n*i want to stay inside forever*");
 
-		e.addField("Alignment", "Neutral Benign", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None (Invincible)", true);
+		e.addField("Alignment", "Band Digital", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Visit a player. If they've never visited you before, smile through the dark. You will no longer appear framed to them. If they've visited you before, you deal a Basic attack to yourself and can no longer win by your second wincon.");
+		e.addField("Abilities:", "- Amplify the volume of a player tonight. If used on a Band member, their Rehearse Radius is raised by 3 permanently and they have Astral tonight. If not, all the whispers the target sends and receives are posted in the Band factional chat. After the Concert, using this ability on a Band member allows them to use two different abilities tomorrow night, and grants Astral permanently. Using this ability on a non-Band member also blackmails them on the next day.\n- (Rehearsal) Shift three consecutive alive players around—three players next to each other on the player list, not counting dead people. Those visiting Player A visit Player B, visiting Player B visit Player C and visiting Player C visit Player A. This also affects who can hear your rehearsal. Then, rehearse. After the Concert, the players no longer need to be consecutive.\n- (Concert) Attack your visitors tonight. ");
 
-		e.addField("Attributes:", "- On nights you don't visit, you will stay in your worn out yellow sweater and gain Invincible defense.\n- You're framed as a random REF or Neutral Killing role in the game.\n- Upon visiting four players, you will reveal yourself as the Worn Out Yellow Sweater the next day, with the message \"[player] has proven they were everything they claimed to be.\"");
+		e.addField("Attributes:", "- After the Concert, you can use two abilities per night.\n- You cannot use the same ability twice in a row and have to alternate between the ones you have available each night. If you have access to two abilities, you can’t use the same pair of abilities twice in a row.\n- **Rehearsal Radius**: 2");
 
 		e.addField("Goal:", "Survive until the end of the game or visit four different players and survive until the next day.");
 	});

@@ -40,7 +40,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Breathe Flames a Target, Rampaging and Torching them, Can only be used on night 3, 6, 9 and so on.\n- Use the Star rod to give a Koopa Overprotective and Lynchproof defense until the start of the next night. (can't be used again for the next 2 nights.)");
+		e.addField("Abilities:", "- Breathe Flames on a Target, Rampaging and Torching them, Can only be used on night 3, 6, 9 and so on.\n- Use the Star rod to give a Koopa Overprotective and Lynchproof defense until the start of the next night. (can't be used again for the next 2 nights.)");
 
 		e.addField("Attributes:", "- Anyone visiting Koopas affected by Star Rod be dealt a Basic attack if they aren't from your Faction.");
 		
@@ -100,7 +100,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Select an authorized player to interrogate during the day. At night, they will be informed about your interrogation. They may choose to either lie or tell the truth. If they tell the truth, you will learn who they visited last night. If they lie, they may choose any player to pretend to have visited, which you will learn. You will receive your results at the end of the night. Cannot be used on D1.\n- Accuse a player of lying at night. If you were correct, you deal a Powerful attack to them. You will be informed if you were incorrect.");
+		e.addField("Abilities:", "- Select an authorized player to interrogate during the day. You will receive your results at the end of the night. Cannot be used on D1.\n> - If they're a Sentry, you will learn who they visited last night.\n> - If they're a non-Sentry, they will be informed about your interrogation. They may choose to either lie or tell the truth. If they tell the truth, you will still learn who they visited last night. If they lie, they may choose any player to pretend to have visited, which you will learn instead.\n- Accuse a player of lying at night. If they've lied to you on your first ability before, you deal a Powerful attack to them. You will be informed if you were incorrect when using this.  ");
 
 		e.addField("Attributes:", "- If you incorrectly accuse a player of lying twice, your superiors will start doubting your aptitude and disable your second ability.");
 		
@@ -197,8 +197,8 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1814");
 
-		e.addField("Alignment", "Unique Town Power", true);
-		e.addField("Attack", "Unstoppable", true);
+		e.addField("Alignment", "Town Power", true);
+		e.addField("Attack", "Power", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- During the day, you can realize you don't have to sit there all day. You can instead go up to someone and stab them, killing them instantly.\n- At night, you realize your door has a lock. You can choose to use it, and all visits towards you will fail.\n- At night, you realize you can defend yourself. You can attack all your visitors.");

@@ -364,15 +364,15 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["tcg_player", "tcgplayer", "tcg", "624"], "Neutral", "TCG Player", {subCat: "Evil"}, (e) =>
+	register_role(["tcg_player", "tcgplayer", "tcg", "624"], "Neutral", "TCG Player", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 624");
 
-		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- You draw a hand of 5 cards at the beginning of the game. After drawing your hand, you may choose to mulligan, drawing a new hand of 4 cards. You may repeat this process any number of times, drawing one less card each time.\n- Cards are random roles from the Grand Idea Mafia roles thread.\n- You draw an additional card at the beginning of each day.");
+		e.addField("Abilities:", "- You draw a hand of 5 cards at the beginning of the game. After drawing your hand, you may choose to mulligan, drawing a new hand of 4 cards. You may repeat this process any number of times, drawing one less card each time.\n- Cards are random roles from the Grand Idea Mafia roles thread.\n- Your opening hands will always contain at least 2 killing roles.\n- You draw an additional card at the beginning of each day.");
 
 		e.addField("Attributes:", "- Each night, you may play a card as either a creature or a sorcery.\n- If you play it as a creature, create a new player with that role named whatever you want at the beginning of the next day. You control that player.\n- If you play it as a sorcery, use any number of its abilities and gain any number of its attributes that night, then it goes to the Graveyard.");
 		
@@ -477,9 +477,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Call upon the divine cold each night, giving an Everfrost player Basic defense and making them Astral and redirect immune. Their ability that night will have the highest possible priority and, if it's a roleblock, will roleblock players through immunities and any other effects that would prevent it.\n**Winter's Judgment** — Roleblock up to one player, then coldsnap. You may only use this ability once each game.");
 
-		e.addField("Attributes:", "- Whenever a player is roleblocked by anything while you're alive, they'll be notified that they're covered in frost. If they're not visited by at least two other non-Everfrost players the next night, they're dealt an Astral Basic attack by you at the end of that night. This effect cannot be prevented by anything. If you die, this will only apply to the Everfrost's factional roleblock.\n- You have a veil of ice that makes you appear to be a Town role of your choice to all investigative effects of any kind. You may change the role you appear as at any time.");
-
-		e.addField("Immunities:", "- Roleblock, Redirect, Detection, Conversion");
+		e.addField("Attributes:", "- Whenever a player is roleblocked by anything while you're alive, they'll be notified that they're covered in frost. If they're not visited by at least two other non-Everfrost players the next night, they're dealt an Astral Basic attack by you at the end of that night. This effect cannot be prevented by anything. If you die, this will only apply to the Everfrost's factional roleblock.\n- You have a veil of ice that makes you appear to be a role of your choice to all investigative effects of any kind. You may change the role you appear as at any time.\n- Roleblock, Redirect, Detection, Conversion Immune");
 		
 		e.addField("Goal:", factions.Everfrost.goal);
 	});

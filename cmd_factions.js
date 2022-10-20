@@ -14,7 +14,9 @@ module.exports = (g) =>
 		info.func = (chn, message, e, args) =>
 		{
 			e.setAuthor({name: "The " + (info.display || title), iconURL: info.icon});
-			e.setDescription(info.summary);
+
+			if(info.summary)
+				e.setDescription(info.summary);
 
 			if(info.color === "random")
 				e.setColor(UTILS.rHex(6));
@@ -58,7 +60,7 @@ module.exports = (g) =>
 			if(info.goal)
 				e.addField("Goal:", info.goal);
 
-			chn.send({embeds: [e]});
+			UTILS.embed(chn, e);
 		};
 
 		add_cmd(name, {
@@ -508,6 +510,7 @@ module.exports = (g) =>
 	register_faction("band", "Band", {
 		color: "FCBA03",
 		type: "evil",
+		icon: "https://cdn.discordapp.com/emojis/1023503910352199691.webp",
 		summary: "Instrument-themed Evil; Every role has a normal ability, a Rehearsal ability, and a Concert ability. The regular ability should generally be the weakest, or at least the most generally useful. The Rehearsal ability can be stronger; in general, Rehearsal makes the Concert occur one night sooner, but notifies all players within a radius that must be defined in the role's attributes, making it risky to use. The Concert itself is a global roleblocking event set to occur in a usually impossible late night in the game, making some amount of Rehearsing necessary, so the Concert ability should always be the strongest of the three.",
 		features: "- Factional chat\n- No factional kill\n- The Band's Concert begins on day X and is announced to the Town. X is 4 if there's only one living member, 5 if there's two, 8 if there's three, 10 if there's four, and 12 if there's five or more.\n- Once the Concert begins, all non-Band players will be roleblocked through immunity the following night, there is no lynch that day, the Band may anonymously lynch a player if all members unanimously agree, and for the rest of the game, all Band members gain Basic defense and their abilities are enhanced.\n- If the Concert hasn't started and its starting day would be reduced to a day that's already past, it starts the next available day instead.\n- Rehearsing makes the Concert start one day earlier, but notifies half of the other players at random within the rehearser's rehearsal radius of them on the player list that someone was rehearsing near them.",
 		goal: "Ensure the removal of those who will not listen to your music."
@@ -572,5 +575,20 @@ module.exports = (g) =>
 		features: "- Operation Leader (2166) will always spawn\n- No factional chat\n- No factional kill\n- When NETSEC spawns, an REF owned network will be present to all players. The machines NETSEC can or already has access to will be visible to all players, but only the REF may view the full topography.\n- There is one network for ALL REFs.\n- Roles that are capable of hacking can choose to hack into a point in a REF owned network\n- Capturing the master node on the REF network instantly results in a :townFaction:Town victory, but has a very low capture chance. This is always the last node on any topography",
 		goal: "Capture the REF network and retrieve the stolen data OR eliminate the REF.",
 		fieldSSC: ["field_operations", "fieldoperations", "field", "operations", "fieldops", "fo"]
+	});
+
+	register_faction(["metamorph", "meta", "morph"], "Metamorph", {
+		color: "0A62B5",
+		type: "evil",
+		features: "- A Metamorph Killing will always spawn\n- Factional chat\n- No factional kill unless no Killing members are alive.\n- All original roles can swap roles with another player at night, with faction and goal staying the same. This will fail on Neutral roles with unique goals. Only one member may swap roles each night.",
+		goal: "Emerge with a new form and destroy all opposition."
+	});
+
+	register_faction(["beast", "beasts"], "Beast", {
+		display: "Beasts",
+		color: "4F59A0",
+		type: "evil",
+		features: "- If the largest good faction is the Town, 2324: Unit will always spawn. If it's Florae, 2325: Roggle will spawn. If it's City, 2326: Drak will spawn. If it's Sentries, 2327: Songun will spawn. If it's Army, 2328: Tweed will spawn. If it's NETSEC, 2329: PixelRoggle will spawn. If it's NTF, 2330: Monitor will spawn.\n- Only one member of each subalignment may spawn.\n- Factional chat\n- No factional kill unless no kill-capable Beasts are alive.\n- Only one member may use a killing ability each night.\n- Members cannot win with Pokemon for any reason.\n- Members' Locked attributes and abilities only apply or can only be used when that member's Unlock Condition is met.",
+		goal: "Kill all who would oppose you or something probably idfk"
 	});
 };

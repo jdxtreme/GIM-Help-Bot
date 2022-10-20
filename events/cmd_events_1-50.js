@@ -243,6 +243,13 @@ module.exports = (g) =>
 		e.addField("Day 3:", "- At the beginning of the day, the current playerlist is split into as equal as possible halves, creating 2 separate games. The players assigned to each game will be selected randomly. This includes dead players, who will remain dead. Any roles which have abilities or attributes which depend on another specific player will assume that player is dead if they are separated into different games.");
 	});
 
+	register_event(["outlanders_penance", "outlanderspenance", "outlanders", "outlander", "penance", "op", "e28"], "Outlander's Penance", {eventData: "d3+"}, (e) =>
+	{
+		e.setDescription("Event 28\n*A band of rogues have sworn loyalty to you, as penance.*");
+
+		e.addField("Day 3+:", "- A random player who is currently unable to perform actions capable of killing other players (factional kills not included) will gain access to two astral Basic attacks. If they kill any player capable of winning with them, they lose access to the second attack. If the second attack would do so, it fails, and the charge is not returned.");
+	});
+
 	register_event(["final_countdown", "finalcountdown", "final", "countdown", "fc", "e29"], "Final Countdown", {eventData: "d5"}, (e) =>
 	{
 		e.setDescription("Event 29\n*It's the final countdown.*");
@@ -258,6 +265,24 @@ module.exports = (g) =>
 
 		e.addField("Phase:", "Any day, ends on the next day.");
 
-		e.addField("Effects:", "- - All Single-target negative effect abilities will additionally deal a basic attack to the target (This also affects day abilites), Single-target positive effects will also give basic defense to the target.");
+		e.addField("Effects:", "- All Single-target negative effect abilities will additionally deal a basic attack to the target (This also affects day abilites), Single-target positive effects will also give basic defense to the target.");
+	});
+
+	register_event(["eternal_sun", "eternalsun", "eternal", "sun", "es", "e31"], "Disease", {eventData: "d1+"}, (e) =>
+	{
+		e.setDescription("Event 31");
+
+		e.addField("All Days:", "- The Night isn't a phase anymore. Night abilities are used at Day and process instantly. If a Jailor or something exists, idk ask the host.");
+	});
+
+	register_event(["sea_of_islands", "seaofislands", "sea", "islands", "soi", "e32"], "Sea of Islands", (e) =>
+	{
+		e.setDescription("Event 32");
+
+		e.addField("All Days:", "- Before the game begins, players will be split into islands of 7, with extra players being evenly divided into those islands.\n- These islands act as separate games, with some exceptions.\n- Each island must give themself a name, the host decides how a name is selected. Afterwards, everyone learns the names of each island, but not who's on them.\n- An island must have at least two players who oppose each other on it.\n- Factional members with factional chats don't have a full chat, but rather each island has a factional chat for each faction. All members still learn the names of every other member.\n- Factional abilities are usable once per island.\n- Each island has their own lynch, but the day cannot end until the natural end or all votes have proceeded. (Yes, all islands need to vote nightfall or lynch someone for nightfall to do anything.)");
+
+		e.addField("All Days (cont.):", "- You can't whisper to people on another island, or target people on another island. Your abilities and attributes will act as if they don't exist if needed (determined by host).\n- If a role requires another to exist, they'll be on the same island.\n- Deaths are only announced to people currently on that island.\n- The game cannot end until both boat events have passed, or all living players across all islands win with each other. After both boat events pass, the game can end on individual islands.\n- Players on islands that an enemy won on will lose.");
+
+		e.addField("Days 3/5:", "- A boat will be available at each island to send players to another island.\n- Boats can go to any other island, but can only take 1/4th of the island's starting population, rounded down. They do not need to be full to depart.\n- Players may offer to leave on the boats throughout the day.\n- If too many people wish to leave, a vote will be held - with 1 vote to each player per extra person wishing to leave. The people with the most votes will be forced to stay.\n- At the end of the day, the people who volunteered to leave will depart, and all will be unable to use any abilities, but they will not be able to be targeted, as they are not on an island.\n- During the night, they may vote on an island to set sail to.\n- They arrive the next day. They learn the players currently on that island.");
 	});
 };

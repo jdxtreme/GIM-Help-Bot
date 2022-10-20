@@ -25,7 +25,7 @@ function firstname(p)
 
 module.exports = (g) =>
 {
-	const {PRE, UTILS, add_cmd, msg, overwrite, SERVER_DATA, is_day, toggle_day, relay} = g;
+	const {PRE, UTILS, add_cmd, overwrite, SERVER_DATA, is_day, toggle_day, relay} = g;
 	let i = 0;
 	
 	function register_cmd(name, param, title, desc, meta, func)
@@ -57,14 +57,8 @@ module.exports = (g) =>
 		i = i + 1;
 	}
 
-	register_cmd(["add_player", "addplayer"], "<Player ID> [Player Number] <#Player Channel> [Nickname(s)...]", "Add Player", "Add a player into the bot's local storage, enabling use with whispers and other features.\n\nIf you don't provide at least one nickname, the player's current display name will be used instead.\n\nYou may choose a specific number for this new player, inserting it into the list at that position. The previous player in that spot, as well as all players above, will be shifted upwards by 1 slot.", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd(["add_player", "addplayer"], "<Player ID> [Player Number] <#Player Channel> [Nickname(s)...]", "Add Player", "Add a player into the bot's local storage, enabling use with whispers and other features.\n\nIf you don't provide at least one nickname, the player's current display name will be used instead.\n\nYou may choose a specific number for this new player, inserting it into the list at that position. The previous player in that spot, as well as all players above, will be shifted upwards by 1 slot.", {adminOnly: true, minArgs: 2}, (chn, message, e, args) =>
 	{
-		if(!args[0] || !args[1])
-		{
-			msg(chn, "-USAGE: " + PRE + "add_player <Player ID> [Player Number] <#Player Channel> [Nickname(s)...]");
-			return;
-		}
-
 		let pdata = SERVER_DATA[message.guild.id].players;
 		let defaults = SERVER_DATA[message.guild.id].defaults;
 		let user_promise = message.guild.members.fetch(args[0]).catch(console.error);
@@ -78,13 +72,13 @@ module.exports = (g) =>
 
 			if(pnum <= 0)
 			{
-				msg(chn, "-Error: Provided player number must be a positive number.");
+				UTILS.msg(chn, "-Error: Provided player number must be a positive number.");
 				return;
 			}
 
 			if(pnum > pdata.length + 1)
 			{
-				msg(chn, "-Error: With the current number of players, you cannot add a player whose number is higher than " + (pdata.length + 1) + ".");
+				UTILS.msg(chn, "-Error: With the current number of players, you cannot add a player whose number is higher than " + (pdata.length + 1) + ".");
 				return;
 			}
 		}
@@ -94,10 +88,10 @@ module.exports = (g) =>
 			if(!user || !player_channel)
 			{
 				if(!user)
-					msg(chn, "-Invalid member ID: " + args[0]);
+					UTILS.msg(chn, "-Invalid member ID: " + args[0]);
 
 				if(!player_channel)
-					msg(chn, "-Invalid player channel: " + (pnum ? args[2] : args[1]));
+					UTILS.msg(chn, "-Invalid player channel: " + (pnum ? args[2] : args[1]));
 
 				return;
 			}
@@ -106,7 +100,7 @@ module.exports = (g) =>
 			{
 				if(pdata[i].channel === player_channel.id)
 				{
-					msg(chn, "-Cannot register duplicate player.");
+					UTILS.msg(chn, "-Cannot register duplicate player.");
 					return;
 				}
 			}
@@ -118,7 +112,7 @@ module.exports = (g) =>
 			{
 				if(getPlayerByName(pdata, args[i].toLowerCase()))
 				{
-					msg(chn, "-Cannot register player with duplicate nickname: \"" + args[i] + "\"");
+					UTILS.msg(chn, "-Cannot register player with duplicate nickname: \"" + args[i] + "\"");
 					return;
 				}
 
@@ -126,7 +120,7 @@ module.exports = (g) =>
 			}
 
 			if(nicknames.length === 0)
-				nicknames[0] = user.displayName.toLowerCase();
+				nicknames[0] = user.displayName.toLowerCase().replace(/ /g, "_");
 
 			for(let i = pdata.length; i >= num; i--)
 			{
@@ -155,18 +149,12 @@ module.exports = (g) =>
 
 			overwrite();
 
-			msg(chn, "+Player " + (num+1) + " registered successfully!");
+			UTILS.msg(chn, "+Player " + (num+1) + " registered successfully!");
 		});
 	});
 
-	register_cmd(["del_player", "delplayer"], "<Player Name or Number or *>", "Delete Player", "Remove a player from the bot's local storage.", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd(["del_player", "delplayer"], "<Player Name or Number or *>", "Delete Player", "Remove a player from the bot's local storage.", {adminOnly: true, minArgs: 1}, (chn, message, e, args) =>
 	{
-		if(!args[0])
-		{
-			msg(chn, "-USAGE: " + PRE + "del_player <Player Name or Number or *>");
-			return;
-		}
-
 		let pdata = SERVER_DATA[message.guild.id].players;
 		let players = (args[0] === "*" ? Object.keys(pdata) : [args[0]]);
 
@@ -175,7 +163,7 @@ module.exports = (g) =>
 
 		if(players.length === 0)
 		{
-			msg(chn, "-ERROR: Player data is empty.");
+			UTILS.msg(chn, "-ERROR: Player data is empty.");
 			return;
 		}
 
@@ -187,7 +175,7 @@ module.exports = (g) =>
 
 			if(!player)
 			{
-				msg(chn, "-ERROR: Player \"" + (args[0] === "*" ? players[i] : args[0]) + "\" is not valid.");
+				UTILS.msg(chn, "-ERROR: Player \"" + (args[0] === "*" ? players[i] : args[0]) + "\" is not valid.");
 				continue;
 			}
 
@@ -198,18 +186,18 @@ module.exports = (g) =>
 			for(let n = delnum-1; n < pdata.length; n++)
 				pdata[n].num = n+1;
 
-			msg(chn, "+Deleted player " + delnum);
+			UTILS.msg(chn, "+Deleted player " + delnum);
 			overwrite();
 		}
 	});
 
-	register_cmd(["view_players", "viewplayers", "players"], "", "View Players", "Display the current data of registered players.\n\n**Warning, this can reveal meta info if used in public channels.**", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd(["view_players", "viewplayers", "players"], "", "View Players", "Display the current data of registered players.\n\n**Warning, this can reveal meta info if used in public channels.**", {adminOnly: true}, (chn, message, e, args) =>
 	{
 		let pdata = SERVER_DATA[message.guild.id].players;
 
 		if(pdata.length === 0)
 		{
-			msg(chn, "-There is no player data to display.");
+			UTILS.msg(chn, "-There is no player data to display.");
 			return;
 		}
 
@@ -247,17 +235,17 @@ module.exports = (g) =>
 			e.addField("Player " + (i+1), "Name: <@" + plr.id + ">\nChannel: <#" + plr.channel + ">\n" + nicks + "\nAlive: " + (plr.alive ? "true" : "false") + tags, true);
 		}
 
-		chn.send({embeds: [e]});
+		UTILS.embed(chn, e);
 	});
 
-	register_cmd(["toggle_day", "toggleday"], "", "Toggle Day", "Toggle between Night and Day, determining if whispers are allowed or not.", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd(["toggle_day", "toggleday"], "", "Toggle Day", "Toggle between Night and Day, determining if whispers are allowed or not.", {adminOnly: true}, (chn, message, e, args) =>
 	{
 		toggle_day(message.guild.id);
 
 		if(is_day(message.guild.id))
-			msg(chn, "+It is now Day.");
+			UTILS.msg(chn, "+It is now Day.");
 		else
-			msg(chn, "-It is now Night.");
+			UTILS.msg(chn, "-It is now Night.");
 
 		overwrite();
 	});
@@ -265,19 +253,13 @@ module.exports = (g) =>
 	register_cmd(["is_day", "isday"], "", "Is Day", "Check if it's current Day or not in the bot.", (chn, message, e, args) =>
 	{
 		if(is_day(message.guild.id))
-			msg(chn, "+It is currently Day.");
+			UTILS.msg(chn, "+It is currently Day.");
 		else
-			msg(chn, "-It is currently Night.");
+			UTILS.msg(chn, "-It is currently Night.");
 	});
 
-	register_cmd(["toggle_alive", "togglealive"], "<Player Name or Number>", "Toggle alive", "Toggle between a player's status as Alive or Dead, determining if whispers are allowed or not.", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd(["toggle_alive", "togglealive"], "<Player Name or Number>", "Toggle alive", "Toggle between a player's status as Alive or Dead, determining if whispers are allowed or not.", {adminOnly: true, minArgs: 1}, (chn, message, e, args) =>
 	{
-		if(!args[0])
-		{
-			msg(chn, "-Usage: " + PRE + "toggle_alive <Player Name or Number>");
-			return;
-		}
-
 		let pdata = SERVER_DATA[message.guild.id].players;
 
 		let player = UTILS.isInt(args[0])
@@ -286,67 +268,60 @@ module.exports = (g) =>
 
 		if(!player)
 		{
-			msg(chn, "-ERROR: Player \"" + args[0] + "\" is not valid.");
+			UTILS.msg(chn, "-ERROR: Player \"" + args[0] + "\" is not valid.");
 			return;
 		}
 
 		player.alive = !player.alive;
 
 		if(player.alive)
-			msg(chn, "+They live.");
+			UTILS.msg(chn, "+They live.");
 		else
-			msg(chn, "-They die.");
+			UTILS.msg(chn, "-They die.");
 
 		overwrite();
 	});
 
-	register_cmd("whisper", "<Player Name or Number> <Message>", "Whisper", "Whisper to a player of your choice. You may whisper them by their name or Player Number.\n\nThis command can only be used within your own player channel.", (chn, message, e, args) =>
+	register_cmd("whisper", "<Player Name or Number> <Message>", "Whisper", "Whisper to a player of your choice. You may whisper them by their name or Player Number.\n\nThis command can only be used within your own player channel.", {minArgs: 2}, (chn, message, e, args) =>
 	{
 		const SENT = "+Sent!";
 		let pdata = SERVER_DATA[message.guild.id].players;
-
-		if(!args[0] || !args[1])
-		{
-			msg(chn, "-Usage: " + PRE + "whisper <Player Name or Number> <Message>");
-			return;
-		}
-
 		let sender = UTILS.getPlayerByID(pdata, message.member.id);
 
 		if(!sender)
 		{
-			msg(chn, "-ERROR: You are not a registered player!");
+			UTILS.msg(chn, "-ERROR: You are not a registered player!");
 			return;
 		}
 
 		if(chn.id !== sender.channel)
 		{
-			msg(chn, "-ERROR: You may only send whispers from within your own Player Channel.");
+			UTILS.msg(chn, "-ERROR: You may only send whispers from within your own Player Channel.");
 			return;
 		}
 
 		if(!sender.alive)
 		{
-			msg(chn, "-ERROR: You cannot whisper while dead.");
+			UTILS.msg(chn, "-ERROR: You cannot whisper while dead.");
 			return;
 		}
 
 		if(!is_day(message.guild.id) || sender.tags.mute)
 		{
-			msg(chn, "-ERROR: You cannot use whispers right now.");
+			UTILS.msg(chn, "-ERROR: You cannot use whispers right now.");
 			return;
 		}
 
 		let limit = (sender.whispers || 0);
 		if(sender.tags.limit && limit >= parseInt(sender.tags.limit, 10))
 		{
-			msg(chn, "-ERROR: You are out of whispers.");
+			UTILS.msg(chn, "-ERROR: You are out of whispers.");
 			return;
 		}
 
 		if(sender.tags.silent)
 		{
-			msg(chn, SENT);
+			UTILS.msg(chn, SENT);
 			return;
 		}
 
@@ -366,25 +341,25 @@ module.exports = (g) =>
 
 		if(!recipient)
 		{
-			msg(chn, "-ERROR: Player \"" + args[0] + "\" is not valid.");
+			UTILS.msg(chn, "-ERROR: Player \"" + args[0] + "\" is not valid.");
 			return;
 		}
 
 		if(sender === recipient)
 		{
-			msg(chn, "-ERROR: You cannot whisper to yourself.");
+			UTILS.msg(chn, "-ERROR: You cannot whisper to yourself.");
 			return;
 		}
 
 		if(!recipient.alive)
 		{
-			msg(chn, "-ERROR: Player \"" + args[0] + "\" is dead.");
+			UTILS.msg(chn, "-ERROR: Player \"" + args[0] + "\" is dead.");
 			return;
 		}
 
 		if(recipient.cannot_receive || commaCheck(UTILS, sender.tags.block, recipient.num))
 		{
-			msg(chn, "-ERROR: You cannot whisper to that person.");
+			UTILS.msg(chn, "-ERROR: You cannot whisper to that person.");
 			return;
 		}
 
@@ -392,7 +367,7 @@ module.exports = (g) =>
 
 		if(!rchannel)
 		{
-			msg(chn, "-ERROR: Recipient's channel is invalid. This is probably a bug.");
+			UTILS.msg(chn, "-ERROR: Recipient's channel is invalid. This is probably a bug.");
 			return;
 		}
 
@@ -402,8 +377,8 @@ module.exports = (g) =>
 			whisper = whisper + ' ' + args[i];
 
 		if(!recipient.tags.deaf)
-			msg(rchannel, "Whisper from " + firstname(sender) + ": " + whisper, true);
-		msg(chn, SENT);
+			UTILS.msg(rchannel, "Whisper from " + firstname(sender) + ": " + whisper, true);
+		UTILS.msg(chn, SENT);
 
 		if(sender.tags.limit)
 			sender.whispers = (sender.whispers || 0) + 1;
@@ -415,9 +390,9 @@ module.exports = (g) =>
 				let relay = message.guild.channels.cache.get(sender.tags.relay.substring(2, sender.tags.relay.length-1))
 
 				if(relay)
-					msg(relay, firstname(sender) + " whispered to " + firstname(recipient) + ": " + whisper, true);
+					UTILS.msg(relay, firstname(sender) + " whispered to " + firstname(recipient) + ": " + whisper, true);
 				else
-					msg(chn, "-ERROR: Invalid Relay Channel.");
+					UTILS.msg(chn, "-ERROR: Invalid Relay Channel.");
 			}
 			else
 			{
@@ -426,18 +401,18 @@ module.exports = (g) =>
 					let announce = message.guild.channels.cache.get(sender.tags.announce.substring(2, sender.tags.announce.length-1))
 
 				if(announce)
-					msg(announce, firstname(sender) + " whispered to " + firstname(recipient) + ".", true);
+					UTILS.msg(announce, firstname(sender) + " whispered to " + firstname(recipient) + ".", true);
 				else
-					msg(chn, "-ERROR: Invalid Announce Channel.");
+					UTILS.msg(chn, "-ERROR: Invalid Announce Channel.");
 				}
 				else
 				{
 					let relay = message.guild.channels.cache.get(sender.tags.relay.substring(2, sender.tags.relay.length-1))
 
 					if(relay)
-						msg(relay, "Someone whispered to someone: " + whisper, true);
+						UTILS.msg(relay, "Someone whispered to someone: " + whisper, true);
 					else
-						msg(chn, "-ERROR: Invalid Announced Relay Channel.");
+						UTILS.msg(chn, "-ERROR: Invalid Announced Relay Channel.");
 				}
 			}
 		}
@@ -455,20 +430,14 @@ module.exports = (g) =>
 				{
 					let pchannel = message.guild.channels.cache.get(plr.channel);
 
-					msg(pchannel, "Whisper from " + firstname(sender) + " to " + firstname(recipient) + ": " + whisper, true);
+					UTILS.msg(pchannel, "Whisper from " + firstname(sender) + " to " + firstname(recipient) + ": " + whisper, true);
 				}
 			}
 		}
 	});
 
-	register_cmd("tag", "<Player Name or Number or *> <Key> [Value]", "Tag", "Give a player a Tag, a type of variable related to gameplay.\n\nUse * to set a tag for every single player instead.\n\nTo check what a Tag currently is, use this command without providing a Value.\n\nTo remove a Tag, use this command with the Value set to \"-\" (without the quotes).\n\nTo list usable tags, use the =tags command.", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd("tag", "<Player Name or Number or *> <Key> [Value]", "Tag", "Give a player a Tag, a type of variable related to gameplay.\n\nUse * to set a tag for every single player instead.\n\nTo check what a Tag currently is, use this command without providing a Value.\n\nTo remove a Tag, use this command with the Value set to \"-\" (without the quotes).\n\nTo list usable tags, use the =tags command.", {adminOnly: true, minArgs: 2}, (chn, message, e, args) =>
 	{
-		if(!args[0] || !args[1])
-		{
-			msg(chn, "-Usage: " + PRE + "tag <Player Name or Number or *> <Key> [Value]");
-			return;
-		}
-
 		let pdata = SERVER_DATA[message.guild.id].players;
 		let players = (args[0] === "*" ? Object.keys(pdata) : [args[0]]);
 
@@ -477,7 +446,7 @@ module.exports = (g) =>
 
 		if(players.length === 0)
 		{
-			msg(chn, "-ERROR: Player data is empty.");
+			UTILS.msg(chn, "-ERROR: Player data is empty.");
 			return;
 		}
 
@@ -489,7 +458,7 @@ module.exports = (g) =>
 
 			if(!player)
 			{
-				msg(chn, "-ERROR: Player \"" + (args[0] === "*" ? players[i] : args[0]) + "\" is not valid.");
+				UTILS.msg(chn, "-ERROR: Player \"" + (args[0] === "*" ? players[i] : args[0]) + "\" is not valid.");
 				continue;
 			}
 
@@ -504,28 +473,22 @@ module.exports = (g) =>
 			if(value === "-")
 			{
 				delete player.tags[args[1]];
-				msg(chn, "+Tag \"" + args[1] + "\" deleted.");
+				UTILS.msg(chn, "+Tag \"" + args[1] + "\" deleted.");
 			}
 			else if(value !== "")
 			{
 				player.tags[args[1]] = value;
-				msg(chn, "+Tag \"" + args[1] + "\" set to \"" + value + "\".");
+				UTILS.msg(chn, "+Tag \"" + args[1] + "\" set to \"" + value + "\".");
 			}
 			else
-				msg(chn, "+Tag \"" + args[1] + "\" is currently set to \"" + (player.tags[args[1]] || "null") + "\".");
+				UTILS.msg(chn, "+Tag \"" + args[1] + "\" is currently set to \"" + (player.tags[args[1]] || "null") + "\".");
 		}
 
 		overwrite();
 	});
 
-	register_cmd(["tag_default", "tagdefault", "default"], "<Key> [Value]", "Tag Default", "Set a default tag value. This will be applied to future added players, but not to ones that already exist.\n\nTo check what a Tag's default currently is, use this command without providing a Value.\n\nTo check all Default Tags, use the =tag_defaults command.\n\nTo remove a Tag, use this command with the Value set to \"-\" (without the quotes).\n\nTo list usable tags, use the =tags command.", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd(["tag_default", "tagdefault", "default"], "<Key> [Value]", "Tag Default", "Set a default tag value. This will be applied to future added players, but not to ones that already exist.\n\nTo check what a Tag's default currently is, use this command without providing a Value.\n\nTo check all Default Tags, use the =tag_defaults command.\n\nTo remove a Tag, use this command with the Value set to \"-\" (without the quotes).\n\nTo list usable tags, use the =tags command.", {adminOnly: true, minArgs: 1}, (chn, message, e, args) =>
 	{
-		if(!args[0])
-		{
-			msg(chn, "-Usage: " + PRE + "tag_default <Key> [Value]");
-			return;
-		}
-
 		let defaults = SERVER_DATA[message.guild.id].defaults;
 		let value = args[1] || "";
 
@@ -541,15 +504,15 @@ module.exports = (g) =>
 		if(value === "-")
 		{
 			delete defaults[args[0]];
-			msg(chn, "+Tag \"" + args[0] + "\" deleted.");
+			UTILS.msg(chn, "+Tag \"" + args[0] + "\" deleted.");
 		}
 		else if(value !== "")
 		{
 			defaults[args[0]] = value;
-			msg(chn, "+Tag \"" + args[0] + "\" set to \"" + value + "\".");
+			UTILS.msg(chn, "+Tag \"" + args[0] + "\" set to \"" + value + "\".");
 		}
 		else
-			msg(chn, "+Tag \"" + args[0] + "\" is currently set to \"" + (defaults[args[1]] || "null") + "\".");
+			UTILS.msg(chn, "+Tag \"" + args[0] + "\" is currently set to \"" + (defaults[args[1]] || "null") + "\".");
 
 		overwrite();
 	});
@@ -560,11 +523,11 @@ module.exports = (g) =>
 
 		if(!defaults || Object.keys(defaults).length === 0)
 		{
-			msg(chn, "-There are no default tags set.");
+			UTILS.msg(chn, "-There are no default tags set.");
 			return;
 		}
 
-		msg(chn, "Default Tags:\n" + UTILS.display(defaults, 0));
+		UTILS.msg(chn, "Default Tags:\n" + UTILS.display(defaults, 0));
 	});
 
 	register_cmd("tags", "", "Tags", "Provide a list of all known tags.", (chn, message, e, args) =>
@@ -587,17 +550,11 @@ module.exports = (g) =>
 		e.addField("relay <#channel>", "Target's sent whispers will be relayed to the provided channel, which ONLY includes the full message, NOT the sender or recipient.");
 		e.addField("relay_nick <Name>", "If present, the player with this tag will show up as that nickname when their messages and sent via relay channels. Their color and PFP will be removed as well. You can set per-channel nicknames using this format: `channelID:nickame,channelID:nickname`. Use commas to separate each nickname or channel-nickname pair, and colons to separate channel IDs from nicknames. You may have a nickname without a channelID specified, which will apply to all channels that don't have their own specific nickname.");
 
-		chn.send({embeds: [e]});
+		UTILS.embed(chn, e);
 	});
 
-	register_cmd(["add_relay", "addrelay", "relay"], "<#Input> <#output> [twoWay?]", "Add Relay", "Create a relay from one channel to another.\n\nIf a third parameter is provided, a second relay will be created, to send messages in #output back to #input.\n\nDon't worry, relayed messages won't be relayed in an infinite loop.", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd(["add_relay", "addrelay", "relay"], "<#Input> <#output> [twoWay?]", "Add Relay", "Create a relay from one channel to another.\n\nIf a third parameter is provided, a second relay will be created, to send messages in #output back to #input.\n\nDon't worry, relayed messages won't be relayed in an infinite loop.", {adminOnly: true, minArgs: 2}, (chn, message, e, args) =>
 	{
-		if(!args[0] || !args[1])
-		{
-			msg(chn, "-Usage: " + PRE + "add_relay <#Input> <#output> [twoWay?]");
-			return;
-		}
-
 		let rdata = SERVER_DATA[message.guild.id].relay;
 		let inp = args[0].substring(2, args[0].length-1);
 		let out = args[1].substring(2, args[1].length-1);
@@ -607,29 +564,29 @@ module.exports = (g) =>
 
 		if(!input || !output)
 		{
-			msg(chn, "-ERROR: One of the provided channels are invalid.");
+			UTILS.msg(chn, "-ERROR: One or both of the provided channels are invalid.");
 			return;
 		}
 
 		rdata[rdata.length] = {inp, out};
-		msg(chn, "+Relay created: " + inp + " to " + out);
+		UTILS.msg(chn, "+Relay created: " + inp + " to " + out);
 
 		if(args[2])
 		{
 			rdata[rdata.length] = {inp: out, out: inp};
-			msg(chn, "+Relay created: " + out + " to " + inp);
+			UTILS.msg(chn, "+Relay created: " + out + " to " + inp);
 		}
 
 		overwrite();
 	});
 
-	register_cmd(["list_relays", "listrelays", "list_relay", "listrelay", "relays"], "", "List Relays", "List all currently active channel relays. Be careful not to use this in a publicly available channel, or you might modconfirm the existence of a secret chat.", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd(["list_relays", "listrelays", "list_relay", "listrelay", "relays"], "", "List Relays", "List all currently active channel relays. Be careful not to use this in a publicly available channel, or you might modconfirm the existence of a secret chat.", {adminOnly: true}, (chn, message, e, args) =>
 	{
 		let rdata = SERVER_DATA[message.guild.id].relay;
 
 		if(rdata.length === 0)
 		{
-			msg(chn, "-There are no active relays.");
+			UTILS.msg(chn, "-There are no active relays.");
 			return;
 		}
 
@@ -638,17 +595,11 @@ module.exports = (g) =>
 		for(let i = 0; i < rdata.length; i++)
 			output = output + "\n" + i + ". <#" + rdata[i].inp + "> to <#" + rdata[i].out + ">";
 
-		msg(chn, output, true);
+		UTILS.msg(chn, output, true);
 	});
 
-	register_cmd(["del_relay", "delrelay"], "<Number 1> [Number 2] [Number N]...", "Relay", "Delete a given relay, or list of relays. Use =list_relays to check each relay's number.\n\nNegative and non-integer values will not delete anything.", {admin_only: true}, (chn, message, e, args) =>
+	register_cmd(["del_relay", "delrelay"], "<Number 1> [Number 2] [Number N]...", "Relay", "Delete a given relay, or list of relays. Use =list_relays to check each relay's number.\n\nNegative and non-integer values will not delete anything.", {adminOnly: true, minArgs: 1}, (chn, message, e, args) =>
 	{
-		if(!args[0])
-		{
-			msg(chn, "-Usage: " + PRE + "del_relay <Number 1> [Number 2] [Number N]...");
-			return;
-		}
-
 		let rdata = SERVER_DATA[message.guild.id].relay;
 		let newrelay = [];
 		let output = "";
@@ -663,7 +614,7 @@ module.exports = (g) =>
 
 		if(newrelay.length === rdata.length)
 		{
-			msg(chn, "-No relays could be deleted.");
+			UTILS.msg(chn, "-No relays could be deleted.");
 			return;
 		}
 
@@ -672,7 +623,7 @@ module.exports = (g) =>
 		for(let i = 0; i < newrelay.length; i++)
 			rdata[i] = newrelay[i];
 
-		msg(chn, "Deleted:" + output);
+		UTILS.msg(chn, "Deleted:" + output);
 		overwrite();
 	});
 };

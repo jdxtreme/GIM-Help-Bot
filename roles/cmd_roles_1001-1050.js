@@ -653,15 +653,15 @@ module.exports = (g) =>
 
 	register_role(["persuader", "1044", "275u"], "Unseen", "Persuader", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1044\n*:smirk:*\nConverted from: Manipulator");
+		e.setDescription("Post 1044\n*just the text “:smirk\\:” which the bot has incorrect.*\nConverted from: Manipulator");
 
 		e.addField("Alignment", "Unseen Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Persuasion (Night): Choose a player. Redirect their target to another alive player.\n- Offer (Night, 1 use): All players using a protective ability during this night will be redirected to a player of your choosing.");
+		e.addField("Abilities:", "- Persuasion (Night): Choose two players to control the first player into the second.\n- Offer (Night, 1 use): All players using a protective ability during this night will be redirected to a player of your choosing.");
 
-		e.addField("Attributes:", "- You are roleblock and redirect immune.");
+		e.addField("Attributes:", "- You are roleblock and control immune.");
 
 		e.addField("Goal:", factions.Unseen.goal);
 	});

@@ -12,7 +12,7 @@ function censor(length)
 
 module.exports = (g) =>
 {
-	const {register_role, factions, msg, randomRole} = g;
+	const {register_role, factions, randomRole} = g;
 
 	register_role(["frigade", "1501"], "Warfleet", "Frigade", {subCat: "Support"}, (e) =>
 	{
@@ -171,7 +171,7 @@ module.exports = (g) =>
 
 		if(!last)
 		{
-			msg(chn, "-ERROR: You must use the GuessTheRole command before recieving an answer.");
+			UTILS.msg(chn, "-ERROR: You must use the GuessTheRole command before recieving an answer.");
 			return true;
 		}
 

@@ -58,7 +58,7 @@ module.exports = (g) =>
 			android.setColor(factions.Android.color);
 			androidRole(android, chn, message, [rng.toString()]);
 
-			chn.send({embeds:[e, android]});
+			UTILS.embed(chn, e);
 
 			return true;
 		}
@@ -330,7 +330,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player, can only be used if Activated by an Atrribute.");
 
-		e.addField("Attributes:", "- If you are lynched, You may choose up to 3 players to kill, this ignores any form of defense.\n- If you would die at night, you will instead be Activated and survive until the end of the next night, Can only be triggered once.\n- You are immune to the attack reduction of not being the factional attacker.");
+		e.addField("Attributes:", "- If you are lynched, You may choose up to 2 players to kill, this ignores any form of defense.\n- If you would die at night, you will instead be Activated and survive until the end of the next night, Can only be triggered once.\n- You are immune to the attack reduction of not being the factional attacker.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -620,9 +620,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attempt to recruit a player into the Sentries. 3 Uses");
+		e.addField("Abilities:", "- Open a private chat with an authorized target during the day.\n- Open a private chat with an unauthorized target during the day. 1 Use.");
 
-		e.addField("Attributes:", "- All \"good\" factions will learn the existence of a Networker at the beginning of the game.\n- Recruiting a player converts them; __this only works on \"good\" factions. Conversion attempts on \"evil\" factions or neutral roles will automatically fail.__ You also may not convert \"head\" roles of \"good\" factions.\n- Converted players will retain their original abilities & attributes, but have their goal changed to the Sentry goal, and may only visit authorized targets as a Sentry would.\n- You are not obligated to visit authorized targets.\n- If you attempt to convert a Sentry, an \"evil\" faction role, or a neutral role, your superiors will deem you incompetent and immediately deal an Overkill attack to you. Your last will shall additionally be obscured.\n- You may not appear in games where there are no other \"good\" factions.");
+		e.addField("Attributes:", "- Private charts are opened the night after creation, and are closed after the night permanently.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -719,9 +719,9 @@ module.exports = (g) =>
 
 	register_role(["king_conga", "kingconga", "conga", "kc", "1594"], "Neutral", "King Conga", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1594");
+		e.setDescription("Post 1594\n*Stay on beat, or he'll beat you to death.*");
 
-		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 

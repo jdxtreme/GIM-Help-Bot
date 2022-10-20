@@ -25,7 +25,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Restabalize an authorized target.\n- Restabalize the Censor instead of an authorized target. 1 use.");
+		e.addField("Abilities:", "- Restabalize an authorized target.\n- Restabalize yourself, even if you are not authorized. 1 use.\n- Restabilize any unauthorized target. 1 use.");
 
 		e.addField("Attributes:", "- Restabalization will cause all and any cause of death to a target to fail, regardless of the specifics of the cause of death. This does absolutely nothing else, such as remove Poison. Contact a Patrol for that.\n- If your target is not a Sentry, restabalization will instead grant them a Powerful defense auto-vest.\n- Oh yeah, you can't tell the difference between the two. All you'll know is if you saved your target from literally anything the night you targeted them.");
 		
@@ -546,7 +546,7 @@ module.exports = (g) =>
 
 	register_role(["soul_edge", "souledge", "soul", "edge", "se", "1687"], "Neutral", "Soul Edge", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 1687");
+		e.setDescription("Post 1687\n*Those who grasp its hilt are unable to escape its curse, as its spirit invades the mind like a parasite and drives its wielder insane.*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Overkill", true);
@@ -556,7 +556,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If a player visits you while you are not Equipped to another player, you become Equipped to that player. They are notified as to who you are and the fact that you have become Equipped to them.\n- Players that you are Equipped to have their Attack value raised to Unstoppable, unless it is higher. This value cannot be lowered.\n- All visits toward you or a player that you are Equipped to will be directed toward both of you, if applicable.\n- Players that you are Equipped to are forced to attack another living player at night. They cannot use any other Night ability unless the role is capable of multitasking. They may choose who to attack, but if they do not choose, they will attack whoever you chose. If neither of you chose a target, their target will be chosen randomly amongst living players, excluding themselves and you.\n- You will absorb the soul of any player that is killed by the player you are Equipped to.");
 
-		e.addField("Attributes (cont.):", "- If you have been Equipped to the same player for the 3rd night in a row, you will absorb their soul at the end of the night. This will deal an Overkill attack to them. You may not die on the night that this happens.\n- If the player that you are Equipped to dies, you become unequipped. If they die as a result of a visit, you will become Equipped to their visitor.\n- You may only be Equipped to one player at a time. If you would become Equipped to multiple players at the same time, the player you become Equipped to is chosen randomly.\n- Each time you are attacked, your Defense value is lowered by one stage.\n- If you are lynched, you will not die, but your role will be revealed. If you are not Equipped to another player at the time this happens, you become Equipped to the first player that voted against you during this day.");
+		e.addField("Attributes:", "- If you have been Equipped to the same player for the 3rd night in a row, you will absorb their soul at the end of the night. This will deal an Overkill attack to them. You may not die on the night that this happens.\n- If the player that you are Equipped to dies, you become unequipped. If they die as a result of a visit, you will become Equipped to their visitor.\n- You may only be Equipped to one player at a time. If you would become Equipped to multiple players at the same time, the player you become Equipped to is chosen randomly.\n- Each time you are attacked, your Defense value is lowered by one stage.\n- If you are lynched, you will not die, but your role will be revealed. If you are not Equipped to another player at the time this happens, you become Equipped to the first player that voted against you during this day.");
 		
 		e.addField("Goal:", "Absorb 5 souls.");
 	});

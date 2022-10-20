@@ -49,7 +49,7 @@ module.exports = (g) =>
 
 	register_role(["psyop", "2054"], "Neutral", "Psyop", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 2054");
+		e.setDescription("Post 2054\n*Trending: Dream*");
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
@@ -130,11 +130,11 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 2059");
 
-		e.addField("Alignment", "Unique Sentry Investigative", true);
+		e.addField("Alignment", "Sentry Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Analyze a message from an authorized during the night, learning whether it is a lie. Message must have been sent the previous day, and you must have access to it. 3 Uses.");
+		e.addField("Abilities:", "- Analyze a message from an authorized target during the night, learning whether it is a lie. Message must have been sent the previous day, and you must have access to it.\n- Analyze a message from an unauthorized target during the night, learning whether it is a lie. Message must have been sent the previous day, and you must have access to it. 1 Uses.");
 
 		e.addField("Attributes:", "- For the intents & purposes of your analyses, you may only detect full & complete lies. Partial truths and misleading information will not count as a lie.\n- You may not inquire on the validity of role or day/night action claims.");
 		
@@ -280,7 +280,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Shoot a player at night. 0 uses.");
 
-		e.addField("Attributes:", "- Every night you dont Shoot you will get an extra use of your ability.\n- You get 3 uses instead of 1 at the end of night 1.");
+		e.addField("Attributes:", "- Every night you dont Shoot you will get an extra use of your ability.\n- You get 3 uses instead of 1 at the end of night 1.\n- If you shoot another Town member you will commit suicide over the guilt.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

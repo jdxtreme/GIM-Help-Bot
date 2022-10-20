@@ -194,9 +194,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- [Blackmail yourself] When using this ability, you may pay the cost. If you do, redirect another player to a player of your choice.\n- [Remove one of your \"game X winner\" roles] When using this ability, you may pay the cost. If you do, deal a rampaging Powerful attack to a player of your choice.\n- [Confess your love for a randomly chosen spectator in at least 50 words] When using this ability, you may pay the cost. If you do, deal an Overkill attack to a player of your choice.\n- [Change your profile picture to cropped hentai for at least 24 hours] When using this ability, you may pay the cost. If you do, deal a Basic attack to up to four players of your choice.");
+		e.addField("Abilities:", "- [Blackmail yourself] When using this ability, you may pay the cost. If you do, redirect another player to a player of your choice.\n- [Remove one of your \"game X winner\" roles] When using this ability, you may pay the cost. If you do, deal a rampaging Powerful attack to a player of your choice.\n- [Confess your love for a randomly chosen spectator in at least 50 words] When using this ability, you may pay the cost. If you do, deal an Overkill attack to a player of your choice.\n- [Change your profile picture to cropped hentai for at least 24 hours] When using this ability, you may pay the cost. If you do, deal a Basic attack to up to four players of your choice.\n- [DM the host a mirror selfie] When using this ability, you may pay the cost. If you do, gain Invincible defense and ignore all protective and preventative effects tonight.");
 
-		e.addField("Attributes:", "- Roleblock and redirect immune\n- You may multitask.");
+		e.addField("Attributes:", "- You may multitask.\n- Players you kill have their causes of death hidden.");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -282,7 +282,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Encase a player in ice. Your ability will fail if their current defense is the same or higher than your attack power.");
 
-		e.addField("Attributes:", "- Your target will functionally be dead, but nobody will be aware of this except them. They will not have the dead role or be in the dead chat, but cannot talk, vote, or use any abilities (unless they could normally while dead). They still count towards majority, and only count as dead when someone would win to Coven.\n- With the Necronomicon, anyone who visits a frozen player is roleblocked. Anyone who visits a frozen player twice in a row will automatically be frozen and you'll be notified of this. Furthermore, your attack power is increased to Unstoppable.");
+		e.addField("Attributes:", "- Your target will functionally be dead, but nobody will be aware of this except them. They will not have the dead role or be in the dead chat, but cannot talk, vote, or use any abilities (unless they could normally while dead). They still count towards majority, abilities and votes will work on them as normal, and frozen players count as alive to every faction's win condition, except Coven. (yes, Town will have to kill a frozen Serial Killer, even if they can't do anything)\n- With the Necronomicon, anyone who visits a frozen player is roleblocked. Anyone who visits a frozen player twice in a row will automatically be frozen and you'll be notified of this. Furthermore, your attack power is increased to Unstoppable.");
 		
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -347,7 +347,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Survive until you get a new goal, then complete that one.");
 	});
 
-	register_role(["event_king", "eventking", "event", "king", "2224"], "Neutral", "Event King", {subCat: "Other"}, (e) =>
+	register_role(["event_king", "eventking", "king", "2224"], "Neutral", "Event King", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 2224");
 
@@ -507,7 +507,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Convert another player to a role generally considered a monster.");
 
-		e.addField("Attributes:", "- All monster themed roles are notified you exist and can win with you.\n- Attempting to convert Jd (406), Lunarifish(1531), Jd, Tides of Invention (2041), or Lunari, Summoner Virtuoso (2089), will automatically result in an overkill attack coming your way.\n> - They will be handed the following text:\n> Jd: \"A ghost attempted to haunt you, but you fought back!\"\n> Lunari: \"A ghost attempted to haunt you, but someone you know fought them!\"\n> - You will be handed the text: \"You tried to convert your target, but they had a shotgun! You died!\"\n- Attempting to convert a naturally spawned monster will notify you that they were already a monster.\n- It is up to the host's discretion as to what is a monster and what isn't.");
+		e.addField("Attributes:", "- This role may only exist during the month of October\n- All monster themed roles are notified you exist and can win with you.\n-Attempting to convert Jd (406), Lunarifish(1531), Jd, Tides of Invention (2041), or Lunari, Summoner Virtuoso (2089), will automatically result in an overkill attack coming your way, and the conversion failing.\n> - They will be handed the following text:\n> Jd: \"A ghost attempted to haunt you, but you fought back!\"\n> Lunari: \"A ghost attempted to haunt you, but someone you know fought them!\"\n> - You will be handed the text: \"You tried to convert your target, but they had a shotgun! You died!\"\n- Attempting to convert a naturally spawned monster will notify you that they were already a monster.\n- It is up to the host's discretion as to what is a monster and what isn't.");
 
 		e.addField("Goal:", "Haunt the town and rule over all monsters.");
 	});
@@ -527,9 +527,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Prevent the GIM tree from leveling up during your time OR kill all who would oppose you.");
 	});
 
-	register_role(["guardian", "2236"], "Other", "Guardian", {cannotRoll: true}, (e) =>
+	register_role(["spae_prophet", "spaeprophet", "spae", "prophet", "sp", "2236"], "Town", "Spae Prophet", {subCat: "Investigative"}, (e) =>
 	{
-		e.setDescription("Post 2236\n- Also, this role can't be rolled. Ima remove it later so don't bother adding it to the bot.");
+		e.setDescription("Post 2237");
+
+		e.addField("Alignment", "Town Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- At night, divine the hellish gods of GIM and give them a parcel of knowledge, an answer. The gods will respond with a question that makes that answer true. The question must provide some amount of information. You may only contact the gods three times.");
+
+		e.addField("Examples:", "Player: My answer is \"Yes.\" \nHost: Is at least one of Asew, Rokk and Lunari a REF role? \n\nPlayer: My answer is \"TLHP.\"\nHost: Who visited Robotica last night?\n\nPlayer: My answer is \"On Day 1, but not Day 2 or Day 3.\"\nHost: Did a member of the Plants not vote?");
+		
+		e.addField("Goal:", factions.Town.goal);
 	});
 
 	register_role(["scythia", "scythian", "2237"], "Civilization", "Scythia", {subCat: "Militaristic", censor: ["Scythian horse archer"]}, (e) =>
@@ -600,19 +610,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Civilization.goal);
 	});
 
-	register_role(["dazzingly", "dazz", "2241"], "Neutral", "Dazzingly", {subCat: "Chaos"}, (e) =>
+	register_role(["dazzlingly", "dazz", "2241"], "Neutral", "Dazzlingly", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 2241");
 
-		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Powerful", true);
 
-		e.addField("Abilities:", "- Attack and clean someone each night.");
+		e.addField("Abilities:", "- - Redirect two players to you each night.");
 
-		e.addField("Attributes:", "- You will attack and clean anyone who visits you at night.\n- Each time you kill a player, note their faction.\n- On Full Moons, your attacks are Overkill and ignore all protective effects.");
+		e.addField("Attributes:", "- - You will attack and clean anyone who visits you at night.\n- On full moon nights, your attacks are Overkill.\n- If your claim your role or a situation arises in which it's extremely obvious you're your role, you die and lose the game.");
 
-		e.addField("Goal:", "Live to see the faction you have killed the most members of, which must be at least 2, lose the game.");
+		e.addField("Goal:", "Kill at least three players, and survive until there's five or less players remaining.");
 	});
 
 	register_role(["angel", "2242"], "Neutral", "Angel", {subCat: "Benign"}, (e) =>
@@ -628,5 +638,129 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- You are given a target at the beginning of the game with a winrate lower then 50%.\n- If your target dies, you will die as well.");
 
 		e.addField("Goal:", "Guide your target to victory. Neither of you have to be alive to win.");
+	});
+
+	register_role(["ice_cube", "icecube", "ice", "cube", "ic", "2243"], "Rock", "Ice Cube", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 2243");
+
+		e.addField("Alignment", "Unique Rock Killing", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Freeze someone each night.");
+
+		e.addField("Examples:", "- They may not perfom any night abilities for this night. You will then deal a Basic Attack to them the 2nd night.\n- Only one player may be frozen at all times.\n- If you exist in the game, there is a 1/108 chance a random other Rock will be rerolled into Odd Keystone. See, this role is functionally unique from any other role in the thread!");
+		
+		e.addField("Goal:", factions.Rock.goal);
+	});
+
+	register_role(["sk_with_a_gun", "skwithagun", "sk_gun", "skgun", "skwag", "2244"], "Neutral", "SK with a Gun", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 2244");
+
+		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Shoot someone at night.");
+
+		e.addField("Attributes:", "- Detection immunity (vigi has a gun and they're innocent so you are too)\n- You can disguise your kill has any role that uses a gun as a weapon.");
+
+		e.addField("Goal:", factions.Neutral.goalNK);
+	});
+
+	register_role(["pretender", "2245"], "Neutral", "Pretender", {subCat: "Chaos"}, (e) =>
+	{
+		e.setDescription("Post 2245");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Ballot Switching (Day): Switch the King's vote to someone else.\n- Blood Test (Night): Discover a player's subalignment (not faction) and if they have the Royal Blood passive.\n- Kinslayer (Night, 2 uses): Attack a player who has the Royal Blood passive. Unless they're the King, you must have checked them first. Usable from Night 3.");
+
+		e.addField("Attributes:", "- Can only spawn with a Good King (2028), Evil King (2030), Neutral King (2031), or Psycho King (2032).\n- Royal Blood: During elections for a new King, votes for you count twice.\n- You become Pretender King (2246) when elected, not Neutral King.");
+
+		e.addField("Goal:", "Be elected to become the Pretender King, then survive to the end of the game.");
+	});
+
+	register_role(["pretender_king", "pretenderking", "king", "2246"], "Neutral", "Pretender King", {subCat: "Chaos"}, (e) =>
+	{
+		e.setDescription("Post 2246");
+
+		e.addField("Alignment", "Unique Neutral Chaos", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Royal Finger (Day): Your next vote will count as two, including nightfall votes.\n- Decide Fate (Day, 1 use): Immediately lynch a player, or grant a player lynch immunity for the day. The town will be notified if you did either.\n- Guards? (Night, 1 use): Grant yourself Powerful defense against all attacks.");
+
+		e.addField("Attributes:", "- Cannot be jailed by jailor-type roles.\n- Conversion immune.\n- Cannot be targeted by investigative abilities, all investigative abilities used on you will fail no matter what.\n- Cannot co-exist with Good King (2028), Evil King (2030), Neutral King (2031), and Psycho King (2032).\n- You are revealed as the King at the beginning of the game. The town will not be notified of your alignment.\n- You may choose to have a role that shows above the game's players called King, and may choose the role's color.\n- 2028's City King changes also apply to you if City is in the game.\n- You can only spawn by being elected as Pretender. Under all other conditions you are unable to spawn.");
+
+		e.addField("Goal:", "Survive to the end of the game.");
+	});
+
+	register_role(["poisoner_that_kills_every_victim", "poisonerthatkillseveryvictim", "poisoner", "ptkev", "2247"], "Coven", "Poisoner that kills every victim", {subCat: "Evil"}, (e) =>
+	{
+		e.setDescription("Post 2247");
+
+		e.addField("Alignment", "Coven Evil", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Poison a player at night.\n- With the Necronomicon, instantly bleed a player during the day.");
+
+		e.addField("Examples:", "- Poisoned players die the next night, bled players at the beginning of 2 days after they were bled.\n- Both effects give a notification and cannot be removed, even by Purging.\n- You do not actually attack your target. Instead, you just make them die. No matter what. Nothing can save them, no defense can save them.\n- Except for very specific protective roles like Paramedic that don't really give defense. Or death immunity. That will save your victim. If your victim survives for any reason, the effect will be delayed by one day/night instead.");
+		
+		e.addField("Goal:", factions.Coven.goal);
+	});
+
+	register_role(["vigilanter", "2248"], "Town", "Vigilanter", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 2248");
+
+		e.addField("Alignment", "Town Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Choose to take justice into your own hands and shoot someone. (4 uses)");
+
+		e.addField("Attributes:", "- If you shoot another Town member you will commit suicide over the guilt.");
+		
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["babylon", "2249"], "Civilization", "Babylon", {subCat: "Scientific"}, (e) =>
+	{
+		e.setDescription("Post 2249");
+
+		e.addField("Alignment", "Unique Civilization Scientific", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Variable", true);
+
+		e.addField("Abilities:", "- Use any ability you get.");
+
+		e.addField("Attributes:", "- At the start of each day, you will gain the abilities and attributes of a random Civilization role, while deleting the previous day’s abilities and attributes.\n- Any kills you perform will be shown as the Civilization you copy.\n- Any investigative results will define you as Babylon.");
+
+		e.addField("Messages:", "“You have copied []!” (Start of Day)");
+		
+		e.addField("Goal:", factions.Civilization.goal);
+	});
+
+	register_role(["canada", "canadian", "2250"], "Civilization", "Canada", {subCat: "Scientific", censor: "Canadian Mountie"}, (e) =>
+	{
+		e.setDescription("Post 2250");
+
+		e.addField("Alignment", "Unique Civilization Scientific", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Pacify a player at night, setting their attack value to None.\n- Immediately accelerate the current phase. (Costs 6 Gold) (1 Free Use)");
+
+		e.addField("Attributes:", "- Pacification lasts until you die.\n- When you pacify a player, you will learn what their previous attack value was.\n- You may not accelerate the day phase until at least four hours have passed since the start of day, or the night phase until at least six hours have passed since the start of night.\n- If anyone is at majority vote when you accelerate the day phase, they will be lynched.\n- Any time left in the phase when accelerated will be carried over into the next phase.");
+
+		e.addField("Messages:", "“They were neutralized by a Canadian Mountie.” (Factional Kill)\n“You were forced to put your weapons away.” (Pacified)\n“The sun is setting earlier than normal! The day is ending.” (Accelerate Day)\n“The sun is rising earlier than normal! The night is ending.” (Accelerate Night)");
+		
+		e.addField("Goal:", factions.Civilization.goal);
 	});
 };

@@ -78,7 +78,7 @@ const ATTRIBUTES_2 = [
 
 module.exports = (g) =>
 {
-	const {UTILS, register_role, factions, msg} = g;
+	const {UTILS, register_role, factions} = g;
 
 	register_role(["not_tos_pirate", "nottospirate", "pirate", "ntp", "3000"], "Neutral", "Not ToS Pirate", {subCat: "Killing"}, (e) =>
 	{
@@ -123,7 +123,7 @@ module.exports = (g) =>
 
 			if(!UTILS.isInt(args[0]) || num < 10001 || num > 11024)
 			{
-				msg(chn, "-ERROR: The provided parameter must be a post number within 10001 and 11024.");
+				UTILS.msg(chn, "-ERROR: The provided parameter must be a post number within 10001 and 11024.");
 				return true;
 			}
 

@@ -72,7 +72,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Tail someone each night, learning all external night feedback they get (not from their own role) and who they visit.");
 
-		e.addField("Attributes:", "- You know what evil factions are in the game and how many members each has.\n- You start the game with five clues, which are completely random and almost entirely useless pieces of information about the game decided by the host (e.g. Player 13's role does not start with A or F).");
+		e.addField("Attributes:", "- You know what evil factions are in the game and how many members each has.\n- You start the game with five clues, which are completely random and almost entirely useless pieces of information about the game decided by the host (e.g. Player 13's role does not start with A or F).\n- Detection Immune");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

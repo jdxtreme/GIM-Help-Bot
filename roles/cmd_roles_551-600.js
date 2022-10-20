@@ -577,7 +577,7 @@ module.exports = (g) =>
 
 	register_role(["blue-eyes_white_dragon", "blueeyeswhitedragon", "blue-eyes", "blueeyes", "590"], "Neutral", "Blue-Eyes White Dragon", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 590");
+		e.setDescription("Post 590\n*[Dragon] This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale.*");
 
 		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);

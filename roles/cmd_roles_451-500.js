@@ -10,7 +10,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Select someone to investigate with Post 948's ability, or select yourself to learn up to 6 messages sent in evil private chat channels with the most useful information.");
+		e.addField("Abilities:", "- Select someone to investigate with Post 948's ability (3 uses).\n- Select yourself to learn up to 6 messages sent in evil private chat channels with the most useful information.");
 
 		e.addField("Attributes:", "- Any player names/nicknames in the messages sent will be redacted.\n- You only see messages sent by players.\n- The host decides what messages are useful. This may include messages like \"I checked the Ret claim, it turns out that they were an NK.\"\n- For every 2 useful messages you would learn, you will also recieve a host-fabricated misleading message (i.e information meant to trick you into believing something untrue or confusing you).");
 		
@@ -37,12 +37,12 @@ module.exports = (g) =>
 		e.setDescription("Post 453");
 
 		e.addField("Alignment", "Neutral Evil", true);
-		e.addField("Attack", "None (Unstoppable)", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Make two players Lovers every night.");
+		e.addField("Abilities:", "- Make two players Lovers each night. You may self-target.");
 
-		e.addField("Attributes:", "- Lovers are dealt an Unstoppable attack if the other Lover dies and can secretly whisper to each other. Lovers can win with each others' factions and also win if there are only Lovers and Cupids remaining.\n- You may self-target.\n- Rasen can only be made a Lover with Igu, if she's in the game.");
+		e.addField("Attributes:", "- Lovers commit suicide if the other Lover dies and can secretly whisper to each other. Lovers can win with each others' factions and also win if there are only Lovers and Cupids remaining.\n- Rasen can only be made a Lover with Igu, if she's in the game.");
 		
 		e.addField("Goal:", "Lovers win");
 	});
@@ -397,15 +397,15 @@ module.exports = (g) =>
 
 	register_role(["suplex", "477"], "Town", "Suplex", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 477");
+		e.setDescription("Post 477\n*Actin' like you won't get COMMAND GRABBED!*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Throw one player at another player, causing any abilities targeted toward either of them to actually target both of them.");
+		e.addField("Abilities:", "- Throw one player at another player, causing any abilities targeted toward either of them to actually target both of them. You may select yourself as one of the two targets. Both targets must be different players.");
 
-		e.addField("Attributes:", "- You may select yourself as one of the two targets.\n- Both targets must be different players.");
+		e.addField("Messages:", "***You were picked up and thrown.*** (Received by the Suplex's first target at the end of the night.)\n***Someone was thrown at you.*** (Received by the Suplex's second target at the end of the night.)");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

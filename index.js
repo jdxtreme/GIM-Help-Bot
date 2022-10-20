@@ -3,19 +3,21 @@
 //Florae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=119288
 //Faunae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=119748
 
-const {Client, Intents, MessageEmbed, MessageAttachment} = require('discord.js');
+const {Client, Intents, MessageEmbed, MessageActionRow} = require('discord.js');
 const {readFile, writeFile} = require("fs");
-const UTILS = require("./utils.js");
 
 const PRE = "=";
 
-const bot = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MEMBERS]});
+const bot = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS]});
 
-const menus = {};
+const interactions = {};
 const commands = {};
 const conflicts = {};
 const roles = [];
 const events = [];
+const menus = {};
+
+const UTILS = require("./utils.js")({MessageActionRow, MessageEmbed, menus, interactions});
 
 const SERVER_DATA = {};
 
@@ -62,56 +64,14 @@ function overwrite(chn)
 	writeFile(FNAME, "", (err) =>
 	{
 		if(err) throw err;
-		if(chn) msg(chn, "+Data cleared successfully.");
+		if(chn) UTILS.msg(chn, "+Data cleared successfully.");
 	});
 
 	writeFile(FNAME, json, (err) =>
 	{
 		if(err) throw err;
-		if(chn) msg(chn, "+Data saved successfully.");
+		if(chn) UTILS.msg(chn, "+Data saved successfully.");
 	});
-}
-
-function msg(chn, txt, nodiff, line, sent)
-{
-	let size = 1750;
-	line = (line || 0);
-	txt = (txt || "").toString();
-
-	if(line + size < txt.length)
-		while(txt[line+size-1] && txt[line+size-1] != '\n')
-			size -= 1;
-
-	if(size <= 0)
-		size = 1750;
-
-	let t = txt.substring(line, line + size);
-	let message = (nodiff && t || "```diff\n" + t + "```");
-
-	if(!sent)
-	{
-		chn.send(message).then((sent) =>
-		{
-			if(line + t.length < txt.length)
-			{
-				menus[sent.id] = {message: sent, page: 1, list: [message], time: new Date().getTime()};
-				msg(chn, txt, nodiff, line + size, sent);
-			}
-		});
-	}
-	else
-	{
-		menus[sent.id].list[menus[sent.id].list.length] = message;
-
-		if(line + t.length < txt.length)
-			msg(chn, txt, nodiff, line + size, sent);
-		else
-		{
-			sent.edit(menus[sent.id].list[0] + "\n\nPage 1 of " + menus[sent.id].list.length
-				+ "\n\nReact:\n➡️ - Next Page" + (menus[sent.id].list.length > 2 ? "\n⏩ - Last Page" : "") + "\n❌ - Close Menu");
-			sent.react("➕");
-		}
-	}
 }
 
 let c = 1;
@@ -199,7 +159,7 @@ function add_cmd(name, cmd)
 						txt = txt + "\n" + PRE + con.com + " - " + con.title + " (" + con.cat + (con.subCat && (" " + con.subCat) || "") + ")";
 					}
 
-					msg(chn, txt);
+					UTILS.msg(chn, txt);
 				}
 			});
 
@@ -243,21 +203,12 @@ function register_role(name, cat, desc, meta, func)
 				if(func(e, chn, message, args) || nosend)
 					return;
 
-				for(let f in e.fields)
-				{
-					if(e.fields[f].value.length > 1024)
-					{
-						msg(chn, "-ERROR: Command " + PRE + (typeof name === "string" ? name : name[0]) + " contains a Field which is longer than 1024 characters!");
-						return;
-					}
-				}
-
-				chn.send({embeds: [e]});
+				UTILS.embed(chn, e);
 			}
 			catch(error)
 			{
 				console.log(error.message + "\n\n" + error.stack);
-				msg(chn, "-ERROR: " + error.message + "\n\n" + error.stack);
+				UTILS.msg(chn, "-ERROR: " + error.message + "\n\n" + error.stack);
 			}
 		}
 	};
@@ -305,17 +256,17 @@ function register_event(name, desc, meta, func)
 				{
 					if(e.fields[f].value.length > 1024)
 					{
-						msg(chn, "-ERROR: Command " + PRE + (typeof name === "string" ? name : name[0]) + " contains a Field which is longer than 1024 characters!");
+						UTILS.msg(chn, "-ERROR: Command " + PRE + (typeof name === "string" ? name : name[0]) + " contains a Field which is longer than 1024 characters!");
 						return;
 					}
 				}
 
-				chn.send({embeds: [e]});
+				UTILS.embed(chn, e);
 			}
 			catch(error)
 			{
 				console.log(error.message + "\n\n" + error.stack);
-				msg(chn, "-ERROR: " + error.message + "\n\n" + error.stack);
+				UTILS.msg(chn, "-ERROR: " + error.message + "\n\n" + error.stack);
 			}
 		}
 	};
@@ -369,7 +320,6 @@ const GLOBAL = {
 	commands,
 	roles,
 	events,
-	msg,
 	add_cmd,
 	register_role,
 	register_event,
@@ -380,7 +330,7 @@ const GLOBAL = {
 	toggle_day,
 
 	MessageEmbed,
-	MessageAttachment
+	MessageActionRow
 };
 
 require("./cmd_factions.js")(GLOBAL);
@@ -390,15 +340,15 @@ require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
 require("./roles/cmd_roles_misc.js")(GLOBAL);
-for(let i = 50; i <= 2250; i+=50)
+for(let i = 50; i <= 2400; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 for(let i = 50; i <= 50; i+=50)
 	require("./events/cmd_events_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
-for(let i = 1; i <= 2205; i++)
+for(let i = 1; i <= 2351; i++)
 	if(!commands[i.toString()])
 		console.log("Missing: " + i);
-for(let i = 1; i <= 1; i++)
+for(let i = 1; i <= 32; i++)
 	if(!commands["e" + i.toString()])
 		console.log("Missing: e" + i);
 
@@ -507,19 +457,23 @@ bot.on("messageCreate", (message) =>
 	{
 		let channel = message.channel;
 		let embed = new MessageEmbed();
-		let args = message.content.substring(PRE.length).split(" ");
+		let args = UTILS.split(message.content.substring(PRE.length), " ");
 		let cmd = args[0].toLowerCase();
 		args = args.splice(1);
 
 		if(commands[cmd])
 		{
-			if(!commands[cmd].meta.admin_only || message.member.permissions.has("ADMINISTRATOR"))
-				commands[cmd].func(channel, message, embed, args);
+			let meta = commands[cmd].meta;
+
+			if(meta.adminOnly && !message.member.permissions.has("ADMINISTRATOR"))
+				UTILS.msg(channel, "-You do not have elevated permissions for this bot.");
+			else if(meta.minArgs && args.length < meta.minArgs)
+				UTILS.msg(channel, "-USAGE: " + PRE + cmd + " " + commands[cmd].param);
 			else
-				msg(channel, "-You do not have elevated permissions for this bot.");
+				commands[cmd].func(channel, message, embed, args);
 		}
 		else
-			msg(channel, "-ERROR: Unknown command: " + PRE + cmd);
+			UTILS.msg(channel, "-ERROR: Unknown command: " + PRE + cmd);
 	}
 
 	if(message.member.user.id === bot.user.id || UTILS.randInt(20000) !== 666)
@@ -541,83 +495,15 @@ bot.on("messageCreate", (message) =>
 		case "983960475446435910": egg = "Suspicious..."; break;
 	}
 
-	if(egg !== "null") msg(message.channel, egg, true);
+	if(egg !== "null") UTILS.msg(message.channel, egg, true);
 	console.log(egg);
 });
 
-function removeReacts(message)
+bot.on("interactionCreate", (i) =>
 {
-	message.reactions.removeAll().catch((error) => {
-		console.log(error.message + "\n\n" + error.stack);
-		msg(message.channel, "-ERROR: " + error.message + "\n\n" + error.stack);
-	});
-}
-
-bot.on("messageReactionAdd", (reaction, user) =>
-{
-	if(user.id === bot.user.id)
-		return;
-
-	let message = reaction.message;
-
-	if(menus[message.id])
-	{
-		let menu = menus[message.id];
-		let emoji = reaction.emoji.name;
-		let edit = false;
-
-		if(emoji === "⬅️" && menu.page > 1)
-		{
-			menu.page -= 1;
-			edit = true;
-		}
-		else if(emoji === "⏪" && menu.page > 2)
-		{
-			menu.page = 1;
-			edit = true;
-		}
-		else if(emoji === "➡️" && menu.page < menu.list.length)
-		{
-			menu.page += 1;
-			edit = true;
-		}
-		else if(emoji === "⏩" && menu.page < menu.list.length - 1)
-		{
-			menu.page = menu.list.length;
-			edit = true;
-		}
-		else if(emoji === "❌")
-		{
-			message.edit(menu.list[menu.page-1]);
-			removeReacts(message);
-			delete menus[message.id];
-		}
-
-		if(edit)
-		{
-			let etext = menu.list[menu.page-1] + "\n\nPage " + menu.page + " of " + menu.list.length + "\n\nReact:";
-			removeReacts(message);
-
-			if(menu.page > 1)
-				etext = etext + "\n⬅️ - Previous Page";
-
-			if(menu.page > 2)
-				etext = etext + "\n⏪ - First Page";
-
-			if(menu.page < menu.list.length)
-				etext = etext + "\n➡️ - Next Page";
-
-			if(menu.page < menu.list.length - 1)
-				etext = etext + "\n⏩ - Last Page";
-
-			etext = etext + "\n❌ - Close Menu";
-
-			message.edit(etext);
-			message.react("➕");
-
-			menu.time = new Date().getTime();
-		}
-	}
+	if(i.customId && interactions[i.customId])
+		if(!interactions[i.customId](i))
+			i.update({});
 });
 
 bot.on("guildMemberAdd", (member) =>
@@ -647,8 +533,11 @@ setInterval(() =>
 		{
 			let message = menu.message;
 
-			message.edit(menu.list[menu.page]);
-			removeReacts(message);
+			if(menu.type === "text")
+				message.edit({components: [], content: menu.list[menu.page-1]});
+			else if(message.embeds[0])
+				message.edit({components: [], embeds: [message.embeds[0]]});
+
 			delete menus[mid];
 		}
 	}

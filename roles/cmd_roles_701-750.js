@@ -289,15 +289,17 @@ module.exports = (g) =>
 
     register_role(["amanojaku", "714"], "Neutral", "Amanojaku", {subCat: "Chaos"}, (e) =>
     {
-        e.setDescription("Post 714");
+        e.setDescription("Post 714\n*From here on, the strong shall lose their power and the weak will unify the world!*");
 
-        e.addField("Alignment", "Neutral Chaos", true);
+        e.addField("Alignment", "Unique Neutral Chaos", true);
         e.addField("Attack", "None", true);
         e.addField("Defense", "None", true);
 
         e.addField("Abilities:", "- During the day, you may arm a player with the ability to perform a Basic attack at night. They may only use this given ability once. Unless stated otherwise by their own role, they may not use this ability and another ability in the same night. You may not use this ability on yourself.\n- During the night, you may choose to completely turn the levels of Attack and Defense around. Attacks that would normally fail to a kill a target due to their defense will instead kill them, and attacks that would normally be sufficient enough to kill a target due to their lower defense will instead fail. (3 uses.)");
 
         e.addField("Attributes:", "- None. (This counts as an attribute.)");
+
+        e.addField("Messages:", "***You've been inspired to commit an evil deed! You have been given the ability to perform 1 Basic attack at night.*** (Appears at the beginning of the following night for players targeted by the Day ability.)\n***It feels like everything's turned upside-down!*** (Global message, appears for all players at the end of the night when the night ability is used.)");
 
         e.addField("Goal:", "Ensure that all players with any Defense are dead by the end of the game. You may win while dead.");
     });

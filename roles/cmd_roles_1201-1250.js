@@ -482,7 +482,7 @@ module.exports = (g) =>
 
 	register_role(["sir_swearsalot", "sirswearsalot", "swearsalot", "swear", "1233"], "Neutral", "Sir Swearsalot", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 1233");
+		e.setDescription("Post 1233\n*OH FUCK SHIT BITCH DAMN*");
 
 		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "None", true);
@@ -703,11 +703,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Possess someone to get their role and win as that role, lose otherwise.");
 	});
 
-	register_role(["arsonist", "1248"], "Neutral", "Arsonist", {subCat: "Evil"}, (e) =>
+	register_role(["arsonist", "1248"], "Neutral", "Arsonist", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 1248");
+		e.setDescription("Post 1248\n*Oh no, I'd never actually kill anybody. I'm a pacifist.*");
 
-		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 

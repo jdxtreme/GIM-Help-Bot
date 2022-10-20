@@ -448,15 +448,15 @@ module.exports = (g) =>
 
 	register_role(["engineer", "380"], "Town", "Engineer", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 380");
+		e.setDescription("Post 380\n*I solve practical problems. For instance, how am I gonna stop some big mean Mother-Hubbard from tearin' me a structurally superfluous new behind? The answer? Use a gun. And if that don't work, use more gun.*");
 
 		e.addField("Alignment", "Town Killing", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Construct a sentry at night.\n- Place a constructed sentry at someone's house. The sentry will deal a Powerful attack to 1 random visitor who is not a member of the same faction as the player whose house the sentry is placed at.\n- Destroy a constructed sentry.");
+		e.addField("Abilities:", "- Construct a sentry at night.\n- Place a constructed sentry at someone's house. The sentry will deal a Powerful attack to 1 random visitor who is not a member of the same faction as the player whose house the sentry is placed at. You may not target yourself.\n- Destroy a constructed sentry.");
 
-		e.addField("Attributes:", "- You may only have 1 constructed sentry at a time.\n- Once a sentry attacks a player, it will disappear.\n- You may not target yourself.");
+		e.addField("Attributes:", "- You may only have 1 constructed sentry at a time.\n- Once a sentry attacks a player, it will disappear.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -593,15 +593,15 @@ module.exports = (g) =>
 
 	register_role(["dimensional_mage", "dimensionalmage", "dimensional", "dm", "390"], "Neutral", "Dimensional Mage", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 390");
+		e.setDescription("Post 390\n*A magician with the power to tear holes in reality. This would be more frightening if not for the lack of reality in this world.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- At night, split the current playerlist into as equal as possible halves, creating 2 separate games out of this one game. The players assigned to each game will be selected randomly. This includes dead players (who will remain dead). (1 use. Cannot be used on the first night.)\n- At night, choose a player. Everyone who visits that player will be dealt a Basic attack. If nobody visits that player, then they will be dealt a Basic attack.");
+		e.addField("Abilities:", "- At night, split the current playerlist into as equal as possible halves, creating 2 separate games out of this one game. The players assigned to each game will be selected randomly. This includes dead players (who will remain dead). (1 use. Cannot be used on the first night.)\n- At night, choose a player. Everyone who visits that player will be dealt a Basic attack. If nobody visits that player, then they will be dealt a Basic attack. You may target yourself.");
 
-		e.addField("Attributes:", "- Astral\n- Any roles which have abilities or attributes which depend on another specific player will assume that player is dead if they are separated into different games.\n- You may target yourself with your attack.");
+		e.addField("Attributes:", "- Astral\n- Any roles which have abilities or attributes which depend on another specific player will assume that player is dead if they are separated into different games.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -679,15 +679,13 @@ module.exports = (g) =>
 
 	register_role(["maid", "396"], "Mafia", "Maid", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 396");
+		e.setDescription("Post 396\n*You've already caused enough trouble. I can stall you for as long as it takes by stopping time.*");
 
-		e.addField("Alignment", "Mafia Support", true);
+		e.addField("Alignment", "Unique Mafia Support", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- At night, you may choose to stop the flow of time for all players except for yourself, a random living Mafia (Killing) role, and one player of your choosing. The following day chat will only be accessible by the three of you. (This means nobody else can even see the channel.) For the purposes of both voting and voting majority, only the players inside this restricted day chat are considered. [1 use.]\n- Grant protection to another Mafia player, granting them Basic defense and dealing a Basic attack to one random player who attacks the player you are protecting. [1 use.]");
-
-		e.addField("Attributes:", "- You may not target yourself.");
+		e.addField("Abilities:", "- At night, you may choose to stop the flow of time for all players except for yourself, a random living Mafia (Killing) role, and one player of your choosing. The following day chat will only be accessible by the three of you. (This means nobody else can even see the channel.) For the purposes of both voting and voting majority, only the players inside this restricted day chat are considered. [1 use.]\n- Grant protection to another Mafia player, granting them Basic defense and dealing a Basic attack to one random player who attacks the player you are protecting. You may not target yourself. [1 use.]");
 		
 		e.addField("Goal:", factions.Mafia.goal);
 	});

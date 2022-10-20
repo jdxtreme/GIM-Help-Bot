@@ -691,7 +691,7 @@ module.exports = (g) =>
 
 	register_role(["spite", "945"], "Coven", "Spite", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 945");
+		e.setDescription("Post 945\n*How dare you perceive me.*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "Basic", true);
@@ -749,10 +749,10 @@ module.exports = (g) =>
 
 	register_role(["lunatic_hell_fairy", "lunatichellfairy", "lhf", "949"], "Coven", "Lunatic Hell Fairy", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 949");
+		e.setDescription("Post 949\n*It's lunatic tiiiime! Welcome to a world of madness!*");
 
-		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Unique Coven Evil", true);
+		e.addField("Attack", "Basic (Powerful)", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Select a player at night. Along with whatever their visits would normally do, that player will deal a Basic attack to every player they visit during this night. If you have the Necronomicon, they will instead deal Powerful attacks to every player they visit during that night, and those attacks will also Rampage. If the target player either does not visit anybody or visits you, they will instead deal the attack to themself.");

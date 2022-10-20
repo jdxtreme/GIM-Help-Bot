@@ -145,9 +145,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Authorize an investigation on 1 players during the day. Mandatory or random. You may authorize an additional target for every 5 players in the game (living or dead), rounded.\n- Blend in as a chosen Sentry role during the night.\n- Select an heir for your role at any time. May be used in conjunction w/ your other abilities.");
+		e.addField("Abilities:", "- Authorize an investigation on 1 player during the day. You may authorize an additional target for every 10 players in the game, living or dead, rounded. Mandatory or random.\n- Request a warrant for a player during the day.\n- Select an heir for your role at any time.");
 
-		e.addField("Attributes:", "- Your Authorized targets will be revealed each night.\n- Targets will remain authorized until the end of the following day.\n- You may not authorize yourself as a target.\n- Blending in as a Sentry role will frame yourself as that role.\n- When you die, your heir will be promoted to a Censor (1360) if they are a Sentry. Otherwise, it will be a random Sentry. They may authorize 1 target less the day they are promoted.\n- Conversion Immunity");
+		e.addField("Attributes:", "- Your Authorized targets will be revealed each night.\n- You may not authorize yourself as a target.\n- Requesting a warrant for a player will create a separate lynch vote including solely the warrant target (and Nightfall, fuck that guy). Either vote resolving may not automatically end the day.\n- When you die, your heir will be promoted to a Censor (1360) if they are a Sentry. Otherwise, it will be a random Sentry. They may not request warrants.\n- You may use your abilities in conjunction with each other.\n- Conversion Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -156,13 +156,13 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1361");
 
-		e.addField("Alignment", "Sentry Investigative", true);
+		e.addField("Alignment", "Unique Sentry Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Open a private chat with an authorized target each day.");
+		e.addField("Abilities:", "- Scrutinize a dead player's connections during the night. They do not have to be authorized.");
 
-		e.addField("Attributes:", "- Private chats are opened the night after creation, and are closed after the night permanently.");
+		e.addField("Attributes:", "- Scrutinizing a player will give you a list of three living players. At least one will share the same faction as the target.\n- You may not scrutinize the same person multiple times.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -175,9 +175,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Snoop an authorized target each night.");
+		e.addField("Abilities:", "- Examine the records of an authorized target during the night.\n- Examine the records of a non-authorized target during the night. 1 Use.");
 
-		e.addField("Attributes:", "- You will learn a random player in the same faction as the snooped target.");
+		e.addField("Attributes:", "- When you examine the records a player, you will learn how many times they've visited an unauthorized target.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -190,9 +190,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Eavesdrop an authorized target during the night.");
+		e.addField("Abilities:", "- Eavesdrop on an authorized target during the day.\n- Eavesdrop on an unauthorized target during the day. 1 Use.");
 
-		e.addField("Attributes:", "- You will be given all whispers to and from your target the following day at the start of the next night. You will not know who whispered to your target.");
+		e.addField("Attributes:", "- When you eavesdrop on a player, you will learn at the end of the day if they whispered to any Non-Sentries that day.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -205,9 +205,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Coerce an authorized target during the night.");
+		e.addField("Abilities:", "- Coerce an authorized target during the night.\n- Coerce an unauthorized target during the night. 1 Use.");
 
-		e.addField("Attributes:", "- Coerced targets will be roleblocked if they are not a Sentry. You will **not** be notified of this.\n- Roleblock Immunity\n- Frame Immunity");
+		e.addField("Attributes:", "- Coerced targets will be roleblocked **if** they aren't a Sentry.\n- You will not be notified whether you roleblocked your target.\n- Roleblock Immunity.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -220,29 +220,29 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Confiscate the weaponry of an authorized target during the night.");
+		e.addField("Abilities:", "- Confiscate the weaponry of an authorized target during the night.\n- Confiscate the weaponry of an unauthorized target during the night. 1 Use.\n- Put on a bulletproof vest OR give a bulletproof vest to the Sentry (Power) during the night. 1 Use.");
 
-		e.addField("Attributes:", "- Confiscating the weaponry of an authorized target will roleblock them if they commit a Basic/Powerful attack that night.");
+		e.addField("Attributes:", "- Confiscating the weaponry of a target will roleblock them if they attack someone. You will be notified of this.\n- When giving a bulletproof vest to a Sentry (Power), they will automatically put it on if attacked the same night, otherwise they may use it in conjunction with other night abilities to gain Basic Defense during the night.\n- Roleblock Immunity.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["sentry", "1366"], "Sentry", "Sentry", {subCat: "Protective"}, (e) =>
+	register_role(["sentinel", "1366"], "Sentry", "Sentinel", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 1366");
 
 		e.addField("Alignment", "Sentry Protective", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Guard an authorized target from direct attacks at night.\n- Guard the Sentry Power instead of an authorized target during the night. 1 Use");
+		e.addField("Abilities:", "- Survey an any player during the night. Does not have to be authorized.\n- Survey the Sentry (Power) during the night. 1 Use.\n- Put on a bulletproof vest during the night. 1 Use.");
 
-		e.addField("Attributes:", "- If your target is directly attacked or is the victim of a harmful visit, you and the visitor will fight.\n- If you successfully protect someone you can still be Healed.");
+		e.addField("Attributes:", "- Surveying a player will grant them Powerful defense.\n- You will attack one visitor of the player you survey. Prioritizes attacks, then negative effects. Randomize in a tie.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["patrol", "1367"], "Sentry", "Patrol", {subCat: "Protective"}, (e) =>
+	register_role(["combat_medic", "combatmedic", "combat", "medic", "cm", "1367"], "Sentry", "Combat Medic", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 1367");
 
@@ -250,14 +250,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Supervise the visitors of an Authorized target during the night. 2 Uses.\n- Supervise the Sentry Power during the night instead of an authorized target. 1 Use.");
+		e.addField("Abilities:", "- Heal the visitors of an Authorized target during the night. 3 Uses.\n- Heal the Sentry (Power) during the night OR yourself during the night. 1 Use.");
 
-		e.addField("Attributes:", "- Supervised visitors will be healed.\n- Astral");
+		e.addField("Attributes:", "- Astral");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["devotee", "1368"], "Sentry", "Devotee", {subCat: "Killing"}, (e) =>
+	register_role(["compatriot", "comp", "1368"], "Sentry", "Compatriot", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1368");
 
@@ -265,7 +265,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Shoot an authorized target during the night. 3 Uses.");
+		e.addField("Abilities:", "- Question the loyalty of an authorized target during the night.\n- Question the loyalty of an unauthorized target during the night. 1 Use.");
+
+		e.addField("Attributes:", "- When questioning a target's loyalty, you will attack them if they attempt to visit an unauthorized target.\n- You will not attack someone visiting themselves or visiting the Sentry (Power) with a non-negative ability.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -276,11 +278,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Sentry Killing", true);
 		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "None (Basic)", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Organize a raid on an authorized target. 3 Uses");
+		e.addField("Abilities:", "- Organize a raid on an authorized target. 4 Uses\n- Organize a raid on any target. 1 Use.");
 
-		e.addField("Attributes:", "- Organizing a raid on a target deals an Astral Powerful attack to them.\n- You will lose 1 raid use each night you don't use it.\n- You will gain 1 raid use each time you successfully execute a dissident.\n- If you ever successfully execute a player who can win with the Sentries, your superiors will deem you incompetent and immediately deal an Overkill attack to you.\n- Roleblock immunity");
+		e.addField("Attributes:", "- Organizing a raid on a target deals an Astral Powerful attack to them.\n- You will lose 1 raid use (starting with the first ability) each night you don't use it, provided you are not roleblocked past immunity or otherwise prevented from using the ability\n- You will gain 1 authorized target raid use each time you attack a player.\n- If you execute three Sentries, your superiors will deem you incompetent and deal an Overkill attack to you.\n- Roleblock immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -293,24 +295,24 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Go on alert at your house during the night. 2 Uses.\n- Go on alert at another player's house during the night. 2 Uses.");
+		e.addField("Abilities:", "- Go on alert at your house during the night. 2 Uses.\n- Go on alert at another player's house during the night. Does not have to be authorized. 2 Uses.");
 
 		e.addField("Attributes:", "- When you go on alert, you will attack the visitors of your target.\n- If you go on alert at your house, you will also gain basic defense.\n- Roleblock & Control Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["advocator", "advo", "1371"], "Sentry", "Advocator", {subCat: "Support"}, (e) =>
+	register_role(["journeyman", "jour", "1371"], "Sentry", "Journeyman", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1371");
 
 		e.addField("Alignment", "Sentry Support", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- License a player during the night.");
+		e.addField("Abilities:", "- Study a player's trade during the day.\n- Use one of your abilities on any target. 1 Use, also takes a use for the ability you chose for this.");
 
-		e.addField("Attributes:", "- Licensed players, if a Sentry, may target non-authorized targets the proceeding night.\n- Licensed players will ignore their target's base/vest defense, and be given frame/roleblock immunity.");
+		e.addField("Attributes:", "- At the end of the night, you will get one use of the first ability of the player you studied. If they have none, you will be notified of this.\n- You may not study the trade of unique roles, nor study a player's trade multiple times.\n- You will not be charged a study use if the ability fails.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -330,32 +332,32 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["chairman", "1373"], "Sentry", "Chairman", {subCat: "Support"}, (e) =>
+	register_role(["commissar", "comm", "1373"], "Sentry", "Commissar", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1373");
 
 		e.addField("Alignment", "Unique Sentry Support", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Reveal yourself as the Chairman during the day.");
+		e.addField("Abilities:", "- Appoint stand-ins for a living player during the night. They do not need to be authorized. 3 Uses.");
 
-		e.addField("Attributes:", "- After revealing yourself as Chairman:\n> - Your vote will count as 3.\n> - Other Sentries may vote who you vote.\n- If you are ever protected/visited by a (Sentry) Protective role 3+ times total after revealing, your superiors will become paranoid of you and immediately deal an Overkill attack to you.\n- Conversion Immunity");
+		e.addField("Attributes:", "- Stand-ins will remain appointed for a player permanently.\n- When a player with stand-ins dies, the stand-ins will act on their behalf, allowing the player to continue using their day & night abilities past death.\n- Deceased players with stand-ins appointed still may not vote, talk in living chats, or be targeted.\n- Notifications of stand-ins will be forwarded to the Commisar.\n- Attempts to appoint stand-ins for Unique roles or roles with no abilities will automatically fail.\n- You will not be charged with an appointing use if your ability fails.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["strongman", "1374"], "Sentry", "(Sentry) Strongman", {subCat: "Support"}, (e) =>
+	register_role(["minder", "1374"], "Sentry", "Minder", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1374");
 
 		e.addField("Alignment", "Sentry Support", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None (Basic)", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Intimidate an authorized target during the night.");
+		e.addField("Abilities:", "- Roleblock an authorized target during the night.\n- Roleblock an unauthorized target during the night. 1 Use.");
 
-		e.addField("Attributes:", "- Intimidated targets will be roleblocked.\n- Roleblock Immunity");
+		e.addField("Attributes:", "- Roleblock Immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});

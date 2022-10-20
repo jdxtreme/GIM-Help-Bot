@@ -5,7 +5,7 @@
 	- "Any" roles will be excluded from spawning 90% of the time to avoid overshadowing roles of smaller categories.
 	- A user-specified category must still exist, or else "Any" roles won't spawn and an error message will be provided instead.
 
-admin_only: Boolean
+adminOnly: Boolean
 	- If true, the command can only be accessed by someone with administrative level permissions.
 	- This has a special behavior in Command Lists; Admin-only commands are shown in red, instead of the usual white.
 
@@ -22,6 +22,18 @@ censor: "String" | [Array<String>]
 	- Used in 1508: Guess The Role to censor specific phrases that might otherwise give the role's name away.
 	- 1508's automatic censor can only detect exact matches to the role's title.
 	- This might be needed if a role mentions a small part of a role's name, for example.
+
+eventData: "[d|n]<Number>[+|-]..."
+	- Used to determine when an event is allowed to spawn, based on the Random Event command.
+	- The basis should be a whole number within a string.
+	- You may prefix the number with d or n to specify that it should be limited to either the Day or Night.
+	- You may suffix the number with + or - to mark that all phases after or before it should be included too.
+	- You may have multiple specifiers within the same string, separated by spaces.
+
+minArgs: Number
+	- Specifies the minimum number of required parameters for a command.
+	- If someone attempts to use the command with fewer than the required number of arguments, an error message will be provided.
+	- The error message is auto-generated based on the name of the command typed, and the command's "param" field.
 
 spawnCat: "String" | [Array<String>]
 	- If this is specified, the role will spawn within the provided Category/ies, rather than its actual category.

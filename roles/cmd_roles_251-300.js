@@ -29,7 +29,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Run at someone's house every night.");
 
-		e.addField("Attributes:", "- If you are attacked, redirect the attack to the player you ran to.\n- If a Town/Florae member Is killed by your redirection, you will deal yourself an Unstoppable attack at the end of the next night.");
+		e.addField("Attributes:", "- If you are attacked, redirect the attack to the player you ran to.\n- If a Town/Florae member Is killed by your redirection, you will deal yourself an Unstoppable attack at the end of the next night. This cant be stopped by your redirection.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -372,7 +372,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Manipulate your target into targeting someone else.");
 
-		e.addField("Attributes:", "- Select two targets are night. The first target will have their action redirected to the second.\n- You may not manipulate yourself.\n- You have roleblock and redirection immunity.");
+		e.addField("Attributes:", "-- Select two targets at night. The first target will be controlled into the second.\n- You may not select the same player as both of your targets.\n- You may not manipulate yourself.\n- You are roleblock and control immune.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -415,7 +415,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Deliver your target a surprise.");
 
-		e.addField("Attributes:", "- Your target will be redirected to themselves.\n- Your ability will fail against roleblock and/or redirect immune players.\n- You are redirection immune.");
+		e.addField("Attributes:", "- Your target will be redirected to themselves.\n- Your ability will fail on redirect immune players.\n- You are redirection immune.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

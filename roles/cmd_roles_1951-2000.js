@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role, factions, MessageAttachment} = g;
+	const {register_role, factions} = g;
 
 	register_role(["best_investigator", "bestinvestigator", "best", "biis", "1951"], "Town", "Best Investigator in Salem", {subCat: "Investigative"}, (e) =>
 	{
@@ -55,7 +55,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Randomize a player's investigative results this night. (2 uses)");
+		e.addField("Abilities:", "- Randomize a player's investigative results this night. (3 uses)");
 
 		e.addField("Attributes:", "- At the first 2 nights, All investigative abilities are delayed to be recieved at the end of Night 3, or when you die.");
 		
@@ -115,7 +115,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Convert a target's role into a random Town of Salem role with the same Alignment and Sub-alignment.");
 
-		e.addField("Attributes:", "- Evil Faction members just get their Abilities and Attributes changed to the ones of a random TOS Mafia/Coven.\n- You will be notified if you convert a Evil Faction member.");
+		e.addField("Attributes:", "- Evil Faction members just get their Abilities, Attributes, Attack and Defense changed to the ones of a random TOS Mafia/Coven.\n- You will be notified if you convert a Evil Faction member.");
 		
 		e.addField("Goal:", "See the good Faction lose, You dont need to be alive.");
 	});
@@ -359,7 +359,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Each day is X hours shorter, where X is three times the day number. The Town is not notified of this until it a day ends earlier.\n- Whenever a nightfall vote is reached, every following day is three hours shorter.");
 		
-		e.addField("Goal:", "Have every non-Neutral player be a different faction from each other in one way or another by the end of the game.");
+		e.addField("Goal:", "Cause two days to end early (for everyone).");
 	});
 
 	register_role(["rule_15", "rule15", "r15", "not_an_event", "notanevent", "r15bnae", "1976"], "Neutral", "Rule 15 But Not An Event", {subCat: "Other"}, (e) =>
@@ -415,7 +415,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Stab people with your Pen, then use it to write them a Fake will.");
+		e.addField("Abilities:", "- Stab people with your Pen, then use it to Forge (73) them a will.");
 
 		e.addField("Attributes:", factions.SK.attributes);
 		
@@ -660,7 +660,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Stab people with your ritual knife.");
 
-		e.addField("Attributes:", "- Players you killed give you an extra vote.\n- When voting, it will appear as **The Medium Serial Killer and their X victims have voted Person!**\n" + factions.SK.attributes);
+		e.addField("Attributes:", "- Players you killed give you an extra vote.\n- When voting, The votes will be secretly applied when you vote someone, It will be revealed the Hammer has been reached early if this happens.\n" + factions.SK.attributes);
 		
 		e.addField("Goal:", factions.SK.goal);
 	});

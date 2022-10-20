@@ -22,12 +22,12 @@ module.exports = (g) =>
 		e.setDescription("Post 2102");
 
 		e.addField("Alignment", "Unique Sentry Power", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Detain a player during the day. You may detain an additional target for every 10 players in the game above 10 (living or dead), rounded. Mandatory or random.\n- Nullify the non-Sentry investigative abilities of up to 2 players during the night.\n- Select an heir for your role at any time. May be used in conjunction w/ your other abilities.");
+		e.addField("Abilities:", "- Authorize an investigation on 1 player during the day. You may authorize an additional target for every 10 players in the game, living or dead, rounded. Mandatory or random.\n- Detain a player during the day.\n- Execute the player you detained during the night.\n- Select an heir for your role at any time.");
 
-		e.addField("Attributes:", "- Detained targets will be authorized permanently.\n- Your authorized targets will be revealed each night.\n- You may not authorize yourself as a target, or detain yourself.\n- Detained targets are, for all intents and purposes, jailed. Holds priority over other Jailor-like roles because they need their authorizations damnit. Private chats kept separately if you detain multiple people.\n- Investigative abilities on you will fail to give any result. They will be notified of this.\n- When you die, your heir will be promoted to a Warden (2102) if they are a Sentry. Otherwise, it will be a random Sentry. They may detain 1 target less the day they are promoted.");
+		e.addField("Attributes:", "- Your authorized targets will be revealed each night.\n- You may not authorize yourself.\n- Detaining is, for all intents & purposes, jailing.\n- Holds priority over other jailings if the Sentries have more living members than the faction jailing, however the other way around if the jailor role explicitely holds priority or has more living members in their faction.\n- When you die, your heir will be promoted to a Warden (2102) if they are a Sentry. Otherwise, it will be a random Sentry. They may not detain players.\n- You may use your abilities in conjunction with each other.\n- Conversion immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -40,7 +40,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Powerful)", true);
 
-		e.addField("Abilities:", "- Convert another player to the Sentries faction tonight. Only works on members of good factions. Your target will be converted to a role in the same subalignment or equivalent. The host will try their best to convert them to a Sentry role that mimics the mechanics of their old role. They will be authorized the following day, and they may choose another player to be authorized the following day if they were successfully converted to the Sentries.\n- Choose to temporarily unconvert all Sentry members back to their original Town roles for this night and the following day during the day. You will be converted to Town Leader (1932). You must choose whether or not you would like to activate the voting attribute before you vote a player. All Sentries will be converted back to their Sentry roles after this Night/Day cycle. (1 use)\n- Select an heir for your role at any time. May be used in conjunction with your other abilities.");
+		e.addField("Abilities:", "- Convert another player to the Sentries faction tonight. Only works on members of good factions. Your target will be converted to a role in the same subalignment or equivalent. The host will try their best to convert them to a Sentry role that mimics the mechanics of their old role. They will be authorized the following day, and they may choose another player to be authorized the following day if they were successfully converted to the Sentries.\n- Choose to temporarily unconvert all Sentry members back to their original Town roles for this night and the following day during the day. You will be converted to Chieftain (1932). You must choose whether or not you would like to activate the voting attribute before you vote a player. All Sentries will be converted back to their Sentry roles after this Night/Day cycle. (1 use)\n- Select an heir for your role at any time. May be used in conjunction with your other abilities.");
 
 		e.addField("Attributes:", "- This role spawns in a Random Town slot. You spawn as the only Sentry in the game.\n- Your Authorized targets will be revealed to all Sentries each night. Targets remained authorized until the end of the following day.\n- When you die, your heir will be promoted to Accent's New Alt (2103) if they are a Sentry. Otherwise, it will be a random Sentry.\n- You have Powerful defense on N1 and a Powerful autovest for all nights after.\n- Conversion immunity.");
 		
@@ -194,13 +194,13 @@ module.exports = (g) =>
 
 	register_role(["cop", "2113"], "Neutral", "Cop", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 2113");
+		e.setDescription("Post 2113\n*Stop resisting!*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- During the day, choose a player. If anyone is jailed the following night, you will throw your selected player into jail with them. These players will not know who each other are, but the person jailing them will be informed that another player was hauled off into their jail. The player jailing them may choose to execute one, both, or none of them.\n- At night, attack another player. If the player you attack is in jail, you will kill them, ignoring their defense.");
+		e.addField("Abilities:", "- During the day, choose a player. You will haul them off into the jail of any Jailor-type roles that exist in the game (This may cause them to have multiple people jailed at once.) If there are no Jailor-type roles in the game, the selected player will instead be hauled off into a jail identical to Jailor (51)'s jail, but there will be no Jailor for them to interact with.\n- At night, attack another player. If the player you attack is in jail, you will kill them, ignoring their defense.");
 
 		e.addField("Attributes:", "- You cannot be jailed. If someone attempts to jail you, you will learn their name and role at the beginning of the night.");
 		
@@ -451,7 +451,7 @@ module.exports = (g) =>
 
 	register_role(["stealth_rock", "stealthrock", "stealth", "sr", "2129"], "Rock", "Stealth Rock", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 2129");
+		e.setDescription("Post 2129\n*Sneaky pebbles.*");
 
 		e.addField("Alignment", "Rock Support", true);
 		e.addField("Attack", "None", true);

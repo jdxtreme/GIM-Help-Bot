@@ -232,7 +232,7 @@ module.exports = (g) =>
 
 	register_role(["perceptive", "866"], "Town", "Perceptive", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 866");
+		e.setDescription("Post 866\n*This taste... Is the taste of a liar!*");
 
 		e.addField("Alignment", "Town Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -307,13 +307,15 @@ module.exports = (g) =>
 
 	register_role(["sensei", "871"], "Town", "Sensei", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 871");
+		e.setDescription("Post 871\n*To learn its ways, you must first learn the ways of your own soul. Let us meditate upon this wisdom now.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may grant yourself Basic Defense at night; Additionally, if you are attacked when you do this, you will deal a Basic Attack back to the attacker (Unless the attacker's visit is Astral)\n- At night, you may visit a player. They will gain one of these abilities based on how many times you have already visited them during this game:\n • 0 prior visits: You may grant yourself Basic Defense at night.\n • 1 prior visit: You may grant yourself Basic Defense at night; Additionally, if you are attacked when you do this, you will deal a Basic Attack back to the attacker (Unless the attacker's visit is Astral).\n • 2 prior visits: You may use any of the Sensei (Post 871)'s night abilities.");
+		e.addField("Abilities:", "- You may grant yourself Basic Defense at night; Additionally, if you are attacked when you do this, you will deal a Basic Attack back to the attacker (Unless the attacker's visit is Astral).\n- At night, you may visit a player. They will gain one of these abilities based on how many times you have already visited them during this game:\n • 0 prior visits: You may grant yourself Basic Defense at night.\n • 1 prior visit: You may grant yourself Basic Defense at night; Additionally, if you are attacked when you do this, you will deal a Basic Attack back to the attacker (Unless the attacker's visit is Astral).\n • 2 prior visits: You may use any of the Sensei (Post 871)'s night abilities.");
+
+		e.addField("Attributes:", "- You are the Sensei.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -561,7 +563,7 @@ module.exports = (g) =>
 
 	register_role(["kleavor", "889"], "Neutral", "Kleavor", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 889");
+		e.setDescription("Post 889\n*Chop chop!*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);

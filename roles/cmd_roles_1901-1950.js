@@ -1,6 +1,6 @@
 module.exports = (g) =>
 {
-	const {register_role, factions, MessageAttachment} = g;
+	const {register_role, factions} = g;
 
 	register_role(["allosaurus_shepherd", "allosaurusshepherd", "allosaurus", "shepherd", "as", "1901"], "Gatherer", "Allosaurus Shepherd", {subCat: "Green"}, (e) =>
 	{
@@ -289,7 +289,7 @@ module.exports = (g) =>
 
 	register_role(["defense_attorney", "defenseattorney", "defense", "attorney", "da", "1919"], "Town", "Defense Attorney", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1919");
+		e.setDescription("Post 1919\n*Here to keep people safe from a corrupted legal system.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -304,7 +304,7 @@ module.exports = (g) =>
 
 	register_role(["defense_attorney", "defenseattorney", "defense", "attorney", "da", "1920"], "Mafia", "Defense Attorney", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1920");
+		e.setDescription("Post 1920\n*Your honor, my client is innocent. My evidence lies here in this briefcase full of money.*");
 
 		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "None", true);
@@ -319,7 +319,7 @@ module.exports = (g) =>
 
 	register_role(["defense_attorney", "defenseattorney", "defense", "attorney", "da", "1921"], "Coven", "Defense Attorney", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 1921");
+		e.setDescription("Post 1921\n*The best offense is a good defense. No, wait...*");
 
 		e.addField("Alignment", "Coven Evil", true);
 		e.addField("Attack", "None", true);
@@ -334,7 +334,7 @@ module.exports = (g) =>
 
 	register_role(["defense_attorney", "defenseattorney", "defense", "attorney", "da", "1922"], "Neutral", "Defense Attorney", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 1922");
+		e.setDescription("Post 1922\n*Don't worry about the legal fees.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -476,17 +476,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["town_leader", "townleader", "leader", "tl", "1932"], "Town", "Town Leader", {subCat: "Power"}, (e) =>
+	register_role(["chieftan", "1932"], "Town", "Chieftan", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 1932");
 
 		e.addField("Alignment", "Unique Town Power", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "Vulnerable", true);
 
 		e.addField("Abilities:", "- Choose someone, and their abilities will be **buffed**. Make sure you know who you're targeting. This could buff a Mafia member's abilities too, or something worse. This could be a double-edged sword, so beware.");
 
-		e.addField("Attributes:", "Roleblock Immune.\n- Basic Defense. Nothing more, nothing less.\n- Voting a player? Become a makeshift mayor, as your vote is worth three people's. To make sure this is still **balanced**, you can't change your vote to anyone besides your original target.");
+		e.addField("Attributes:", "Roleblock Immune.\n- Voting a player? Become a makeshift mayor, as your vote is worth three people's. To make sure this is still **balanced**, you can't change your vote to anyone besides your original target.\n- Self-targeting isn't available to you.");
 		
 		e.addField("Goal:", factions.Town.goal + " No difference here. Just your average Town goal.");
 	});
@@ -516,9 +516,11 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Investigate a player's house and find a specific plant.\n- Use the plant at another player's house.");
 
-		e.addField("Attributes:", "- The plants come in various types. Depending on whoever your visiting, you'll get a different plant.\n> If they're a Random, Neutral or Townsperson, you'll get a random plant. If you investigate a Neutral or Townsperson twice in a row, you'll always get a different plant from last time.\n> If they're Mafia, Coven, Rocks, Underworld, Plants, Faunae or Florae, you'll get an oak sapling.\n> If they're Everfrost, Biohazards, Horseman, SCP, Coa, or X, you'll get a wither rose.\n> If they're Android, Mathematics, Discordian, Sentries, NTF, Pokemon or NETSEC, you'll get a redstone block.\n> If they're Stalkers, Cult, Unseen, Serial Killers, Werewolves, Vampires, Beasts, Pale Moons, Umbraes or Spirits, you'll get a pumpkin.\n> If they're Army, City, Civilization, Crew, Gatherers, or Agents, you'll get a hay bale.\n> If they're Angel, Sith, Seven, Creators, Hallow or Insurgency, you'll get a dragon egg.\n> If they're any other faction, you'll get a dead bush.");
+		e.addField("Attributes:", "- The plants come in various types. Depending on whoever your visiting, you'll get a different plant.\n> If they're a Random, Neutral or Townsperson, you'll get a random plant. If you investigate a Neutral or Townsperson twice in a row, you'll always get a different plant from last time.\n> If they're Mafia, Coven, Rocks, Underworld, Plants, Faunae or Florae, you'll get an oak sapling.\n> If they're Everfrost, Biohazards, Horseman, SCP, Coa, Metamorph or X, you'll get a wither rose. \n> If they're Android, Mathematics, Discordian, Sentries, NTF, Pokemon or NETSEC, you'll get a redstone block.\n> If they're Stalkers, Cult, Unseen, Serial Killers, Werewolves, Vampires, Beasts, Pale Moons, Umbraes or Spirits, you'll get a pumpkin.\n> If they're Army, City, Civilization, Crew, Gatherers, Warfleet or Agents, you'll get a hay bale.\n> If they're Insurgency, Band, Toppat, Loyalist or Koopas, you'll get an iron helmet.\n> If they're Angel, Sith, Seven, Creators, Hallow, Last or Partisan, you'll get a dragon egg.");
 
-		e.addField("Attributes (cont.):", "- The plants also have several effects when you use them on a player's house.\n> Oak Sapling: Heal the player.\n> Wither Rose: Attack the player - that attack is Powerful.\n> Redstone Block: The player can use their ability twice on the next night.\n> Pumpkin: Visitors of that player are scared away.\n> Hay Bale: Whoever that player visits will gain fall damage protection: The next time they're attacked, if it's Basic or Unstoppable, it will be blocked.\n> Dragon Egg: A new NPC is made which the host can control.\n> Dead Bush: Nothing.\n- You are Astral and Roleblock Immune.");
+		e.addField("Attributes (cont.):", "> If they're Thundercry, and Thundercry alone, you'll get a copper rod. \n> If they're any other faction, you'll get a dead bush.\n- The plants also have several effects when you use them on a player's house.\n> Oak Sapling: Heal the player.\n> Wither Rose: Attack the player. That attack is Powerful.\n> Redstone Block: The player can use their ability twice on the next night.\n> Pumpkin: Visitors of that player are scared away.\n> Hay Bale: Whoever that player visits will gain fall damage protection: The next time they're attacked, if it's Basic or Unstoppable, it will be blocked. Lasts for 2 nights. \n> Iron Helmet: The player gains Basic defense for three nights, but their Attack is reduced to none permanently. \n> Dragon Egg: A new Town NPC is made which the host can control.\n> Copper Rod: When you use the copper rod at the player's house, redirect all players you've given a Plant or have investigated beforehand to them. \n> Dead Bush: Roleblock the player.");
+
+		e.addField("Attributes (more.):", "- You are Astral and Roleblock Immune AND you can self-target.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -629,7 +631,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Once per phase, Use an ability from any Law related role. (Defense, Attorney, Lawyer, Law, Prosecutor...)");
+		e.addField("Abilities:", "- Once per night, Use an ability from any Law related role. (Defense, Attorney, Lawyer, Law, Prosecutor...)");
 
 		e.addField("Attributes:", "- Cannot use an ability from the same role twice.");
 		

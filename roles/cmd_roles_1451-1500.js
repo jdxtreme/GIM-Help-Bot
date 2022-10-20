@@ -204,7 +204,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Make sure that all players alive at the end of the game do not have both of the letter U and W in their role name **AND** make sure that nobody alive at the end of the game has a ridiculous post restriction.");
 	});
 
-	register_role(["lewd_searchies", "lewdsearchies", "lewd", "searchies", "lc", "1465"], "Neutral", "Lewd Searchies", {subCat: "Chaos"}, (e) =>
+	register_role(["lewd_searchies", "lewdsearchies", "lewd", "searchies", "ls", "1465"], "Neutral", "Lewd Searchies", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 1465");
 
@@ -217,11 +217,11 @@ module.exports = (g) =>
 		e.addField("Goal:", "Survive until the end of the game despite your role.");
 	});
 
-	register_role(["anti-hero", "anti_hero", "antihero", "ah", "1466"], "Town", "Anti-Hero", {subCat: "Power"}, (e) =>
+	register_role(["anti-hero", "anti_hero", "antihero", "ah", "1466"], "Town", "Anti-Hero", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1466");
 
-		e.addField("Alignment", "Unique Town Power", true);
+		e.addField("Alignment", "Unique Town Killing", true);
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
@@ -817,9 +817,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "**Brick Break** - Attack your target, this ignores passive defense, Can only be used N1.\n- Use an ability from any other role. (3 uses)");
+		e.addField("Abilities:", "**Brick Break** - Attack your target, this ignores passive defense. (1 use)\n- Use an ability from any other role. (1 use, +1 use at the start of Night 4)");
 
-		e.addField("Attributes:", "- If you are lynched, you may choose (# of Alive players / 5, Rounded Up) players to deliver an Unstoppable attack to the following night.");
+		e.addField("Attributes:", "- If you are lynched, you may choose (# of Alive players / 5, Rounded Up) players to deliver an Unstoppable attack to the following night.\n- You may only use Brick Break at Night 1, If it isnt used Night 1, It will lose its use.");
 
 		e.addField("Goal:", factions.Discordian.goal);
 	});

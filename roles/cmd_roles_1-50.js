@@ -25,7 +25,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Follow a player at night. Your ability is mandatory.");
+		e.addField("Abilities:", "- Follow a player at night. Your ability is mandatory.\n- Stay home at night.");
 
 		e.addField("Attributes:", "- If your target visits someone who dies, deal an Unstoppable attack to them. If they visit you and you die, you will not attack them.\n- If you stay home, you will instead attack your visitors.\n- If you attack a Townie, you cannot act the next night. The first time you do this, degrade to Powerful attack.\n- You may only stay home twice.");
 
@@ -195,15 +195,15 @@ module.exports = (g) =>
 		e.addField("Goal:", "Live to see the Mafia/Coven Lose.");
 	});
 
-	register_role(["godfather", "14"], "Mafia", "Godfather", {subCat: "Killing"}, (e) =>
+	register_role(["godfather", "14"], "Mafia", "Godfather", {subCat: "Killing", cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 14");
 
-		e.addField("Alignment", "Mafia Killing", true);
+		e.addField("Alignment", "Unique Mafia Killing", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Attributes:", "- Detection Immunity to Sheriff");
+		e.addField("Attributes:", "- Detection Immunity\n- This role cannot roll in the starting rolelist.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -288,9 +288,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Interrogate someone to find if they're sus.");
+		e.addField("Abilities:", "- Interrogate a player each night.");
 
-		e.addField("Attributes:", "- Town, and Neutral (not killing) roles are automatically assumed to be Not Suspicious, unless stated otherwise.\n- Mafia, Coven, and Neutral Killing roles are all assumed to be Suspicious, unless stated otherwise.");
+		e.addField("Attributes:", "- If your target is a member of an evil faction or a Neutral Killing role, you will learn that they are suspicious. Otherwise, you will learn that they are innocent.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -402,13 +402,13 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 28");
 
-		e.addField("Alignment", "Coven Evil", true);
-		e.addField("Attack", "None (Basic w/ Necro)", true);
-		e.addField("Defense", "None (Basic w/ Necro)", true);
+		e.addField("Alignment", "Unique Coven Evil", true);
+		e.addField("Attack", "None (Basic)", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Control someone into someone else during the night, learning their role in the process.");
+		e.addField("Abilities:", "- Control a player each night.");
 
-		e.addField("Attributes:", "- Detection immunity to Sheriff, Basic Defense & Controlling also deals a Basic Attack w/ Necronomicon\n- Necronomicon priority");
+		e.addField("Attributes:", "- As you control a player, you may force them to target a player of your choice.\n- You will learn your target’s role.\n- With the Necronomicon, you will deal a Basic attack to your target and you have Basic defense.\n- You have Necronomicon priority.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -418,12 +418,12 @@ module.exports = (g) =>
 		e.setDescription("Post 29");
 
 		e.addField("Alignment", "Town Power", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Attack", "Basic (Powerful)", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Attack someone each night.");
 
-		e.addField("Attributes:", "- You have all abilities and attributes of three different random Town roles from the game Town of Salem in addition to your other abilities.\n- Mayor and Jailor can't be among these roles.\n- If Investigator is among these roles, it's Post 35: Investigator.\n- If Spy is among these roles, you can see the visits of all evil factions.\n- If Vigilante is among these roles, instead, your base attack is upgraded to Powerful.\n- If Vampire Hunter is among these roles, you hunt and are immune to all conversion roles.");
+		e.addField("Attributes:", "- You have all abilities and attributes of three different random Town roles from https://docs.google.com/document/d/1aXJu1yl1zWI4FLRhamAGCxxVxEFq2Gu5SOi_K6zgL-M/edit in addition to your other abilities.\n- Mayor and Jailor can't be among these roles.\n- If Vigilante is among these roles, instead, your base attack is upgraded to Powerful.\n- If Vampire Hunter is among these roles, you hunt and are immune to all conversion roles.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -502,9 +502,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Investigate a player.");
+		e.addField("Abilities:", "- Investigate a player each night.");
 
-		e.addField("Attributes:", "- You will receive 5 roles. Two will always be Town roles, while one will always be a role that opposes the Town. The Town or opposing Town role(s) in the result will always include the target's role, and if it doesn't fit in either category, it will still appear in the result.\n- Investigating them again will not give a new result.\n- If your target is non-Town, they'll learn they were investigated, and the result you were given.\n- If your target was framed, their original role is not guaranteed to appear in your result.\n- Your results can only contain roles that can exist.");
+		e.addField("Attributes:", "- You will learn five random roles, at least two of which will be Town roles, at least one of which will be a role that opposes the Town, and one of which will be your target’s role. Your results are not mutually exclusive and may only contain roles that could spawn in the current game.\n- If you investigate the same player again, you will learn the same result.\n- If your target is not a member of the Town, they will learn that they were investigated and the result you were given.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

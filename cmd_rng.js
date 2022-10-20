@@ -43,36 +43,36 @@ function fillPhase(phase, spec, last, limit)
 
 module.exports = (g) =>
 {
-	const {PRE, UTILS, add_cmd, roles, events, msg, aliases, factions, GOOD, EVIL, NEUTRAL} = g;
+	const {PRE, UTILS, add_cmd, roles, events, aliases, factions, GOOD, EVIL, NEUTRAL} = g;
 
 	let i = 0;
 	
-	function register_cmd(name, param, title, desc, func)
+	function register_cmd(name, param, title, desc, meta, func)
 	{
+		if(!func)
+		{
+			func = meta;
+			meta = {};
+		}
+
 		add_cmd(name, {
 			id: "rng" + i,
 			cat: "RNG",
 			title,
 			desc,
 			param,
-			meta: {},
+			meta,
 			func
 		});
 
 		i = i + 1;
 	}
 
-	register_cmd(["random", "r"], "<number> | <min> <max>", "Random", "Generate a random number between [1, <number] or between [<min>, <max>].", (chn, message, e, args) =>
+	register_cmd(["random", "r"], "<number> | <min> <max>", "Random", "Generate a random number between [1, <number] or between [<min>, <max>].", {minArgs: 1}, (chn, message, e, args) =>
 	{
-		if(!args[0])
-		{
-			msg(chn, "-USAGE: " + PRE + "random <number> | <min> <max>");
-			return;
-		}
-
 		if(!UTILS.isInt(args[0]) || (args[1] && !UTILS.isInt(args[1])))
 		{
-			msg(chn, "-ERROR: This function cannot accept non-integer values.");
+			UTILS.msg(chn, "-ERROR: This function cannot accept non-integer values.");
 			return;
 		}
 
@@ -85,20 +85,14 @@ module.exports = (g) =>
 			min = 1;
 		}
 
-		msg(chn, "Rolled: " + UTILS.randInt(min, max));
+		UTILS.msg(chn, "Rolled: " + UTILS.randInt(min, max));
 	});
 
-	register_cmd(["random_list", "randomlist", "rlist"], "<number>", "Random List", "Generate a randomly ordered list of numbers between 1 and <number>.", (chn, message, e, args) =>
+	register_cmd(["random_list", "randomlist", "rlist"], "<number>", "Random List", "Generate a randomly ordered list of numbers between 1 and <number>.", {minArgs: 1}, (chn, message, e, args) =>
 	{
-		if(!args[0])
-		{
-			msg(chn, "-USAGE: " + PRE + "rlist <number>");
-			return;
-		}
-
 		if(!UTILS.isInt(args[0]))
 		{
-			msg(chn, "-ERROR: This function cannot accept non-integer values.");
+			UTILS.msg(chn, "-ERROR: This function cannot accept non-integer values.");
 			return;
 		}
 
@@ -106,13 +100,13 @@ module.exports = (g) =>
 
 		if(n <= 0)
 		{
-			msg(chn, "-ERROR: '<number>' in '" + PRE + "rlist' must be greater than 0");
+			UTILS.msg(chn, "-ERROR: '<number>' in '" + PRE + "rlist' must be greater than 0");
 			return;
 		}
 
 		if(n > 100)
 		{
-			msg(chn, "-ERROR: '<number>' in '" + PRE + "rlist' cannot exceed 100");
+			UTILS.msg(chn, "-ERROR: '<number>' in '" + PRE + "rlist' cannot exceed 100");
 			return;
 		}
 
@@ -130,20 +124,14 @@ module.exports = (g) =>
 			out += list[i] + "\n";
 
 		if(out === "")
-			msg(chn, "-ERROR: '<number>' in '" + PRE + "rlist' must be a number.");
+			UTILS.msg(chn, "-ERROR: '<number>' in '" + PRE + "rlist' must be a number.");
 		else
-			msg(chn, out);
+			UTILS.msg(chn, out);
 	});
 	
-	register_cmd(["random_choice", "randomchoice", "rchoice", "choice"], "<option 1> <option 2> [options]...", "Random Choice", "Choose 1 option out of the provided list at random.", (chn, message, e, args) =>
+	register_cmd(["random_choice", "randomchoice", "rchoice", "choice"], "<option 1> <option 2> [options]...", "Random Choice", "Choose 1 option out of the provided list at random.", {minArgs: 2}, (chn, message, e, args) =>
 	{
-		if(args.length < 2)
-		{
-			msg(chn, "-ERROR: " + PRE + "rchoice must be provided with at least two options to choose from.");
-			return;
-		}
-
-		msg(chn, args[UTILS.randInt(args.length)]);
+		UTILS.msg(chn, args[UTILS.randInt(args.length)]);
 	});
 	
 	register_cmd(["random_hex", "randomhex", "rhex", "hex"], "", "Random Hex", "Generate and view a random color made of 6 hexadecimal characters.", (chn, message, e, args) =>
@@ -152,7 +140,7 @@ module.exports = (g) =>
 		e.setAuthor({name: "#" + color});
 		e.setColor(color);
 
-		chn.send({embeds: [e]});
+		UTILS.embed(chn, e);
 	});
 	
 	register_cmd(["random_faction", "randomfaction", "rfaction", "faction"], "[Good|Evil|Neutral]", "Random Faction", "Generate a random Faction. You may specify if you want a Good, Evil, or Neutral faction.\n\nNote that this cannot generate the actual Neutral alignment.", (chn, message, e, args) =>
@@ -184,7 +172,7 @@ module.exports = (g) =>
 					break;
 
 				default:
-					msg(chn, "-Unknown faction type: \"" + args[0] + "\"");
+					UTILS.msg(chn, "-Unknown faction type: \"" + args[0] + "\"");
 					return;
 			}
 		}
@@ -389,16 +377,16 @@ module.exports = (g) =>
 
 		if(role && role.cmd)
 		{
-			role.cmd.func(chn, msg, e, [], nosend);
+			role.cmd.func(chn, message, e, [], nosend);
 			return role;
 		}
 		else
-			msg(chn, "-ERROR: No roles could be rolled.");
+			UTILS.msg(chn, "-ERROR: No roles could be rolled.");
 	};
 
 	register_cmd(["random_role", "randomrole", "rrole", "role"], "[category[:subcategory]...]...", "Random Role", "Roll for a random role out of the list of those that are registered in the Bot. A full role card will be provided based on the results.\n\nYou may optionally provide a list of categories as parameters. Only a role that can fit at least one category will be provided.\n\nYou may also specify a subcategory for each category. This is done using the format of `category:subcategory`. The same category can have more than one listed subcategory, e.g. `category:apple:bannana:cyanide`\n\nPut a - or a ! before specified categories or subcategories to instead exclude them.\n\nSee =categories for a list of categories and subcategories.\n\nExact spelling will be required when specifying categories and subcategories, but they will not be case-sensitive.", g.randomRole);
 
-	register_cmd(["random_event", "randomevent", "revent", "event"], "[[n|d][##][+|-]...", "Random Event", "Roll for a random event out of the list of those that are registered in the Bot. A full event card will be provided based on the results.\n\nYou may optionally provide a list of phases as parameters. Only a role that can fit at least one phase will be provided.\n\nYou may put a `d` or `n` before any phase number to specify it as applying to only Day or Night phases, respectively.\n\nPut a - or a + after a phase to include events from before or after the specified point, respectively.\n\nExamples: `D1 D2 D3`, `D2-`, `N3+`", (chn, message, e, args, nosend) =>
+	register_cmd(["random_event", "randomevent", "revent", "event"], "[[n|d][##][+|-]]...", "Random Event", "Roll for a random event out of the list of those that are registered in the Bot. A full event card will be provided based on the results.\n\nYou may optionally provide a list of phases as parameters. Only a role that can fit at least one phase will be provided.\n\nYou may put a `d` or `n` before any phase number to specify it as applying to only Day or Night phases, respectively.\n\nPut a - or a + after a phase to include events from before or after the specified point, respectively.\n\nExamples: `D1 D2 D3`, `D2-`, `N3+`", (chn, message, e, args, nosend) =>
 	{
 		let event = null;
 		let days = null;
@@ -414,7 +402,7 @@ module.exports = (g) =>
 
 				if(!UTILS.isInt(spec))
 				{
-					msg(chn, "-ERROR: Provided parameter \"" + args[i] + "\" does not provide a valid phase number.");
+					UTILS.msg(chn, "-ERROR: Provided parameter \"" + args[i] + "\" does not provide a valid phase number.");
 					return
 				}
 
@@ -422,7 +410,7 @@ module.exports = (g) =>
 
 				if(spec > sanity_limit)
 				{
-					msg(chn, "-ERROR: There's no way a game is lasting even remotely as long as that, don't even try.");
+					UTILS.msg(chn, "-ERROR: There's no way a game is lasting even remotely as long as that, don't even try.");
 					return
 				}
 
@@ -459,7 +447,7 @@ module.exports = (g) =>
 
 					if(!UTILS.isInt(spec))
 					{
-						msg(chn, "-ERROR: Command \"" + cmd.Title + "\" has invalid phase specification \"" + specs[i] + "\". This is a bug.");
+						UTILS.msg(chn, "-ERROR: Command \"" + cmd.Title + "\" has invalid phase specification \"" + specs[i] + "\". This is a bug.");
 						return
 					}
 
@@ -494,6 +482,6 @@ module.exports = (g) =>
 			return event;
 		}
 		else
-			msg(chn, "-ERROR: No roles could be rolled.");
+			UTILS.msg(chn, "-ERROR: No roles could be rolled.");
 	});
 };

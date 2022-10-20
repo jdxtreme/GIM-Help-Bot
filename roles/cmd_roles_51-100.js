@@ -11,9 +11,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may choose one person during the day to Jail for the night.");
+		e.addField("Abilities:", "- During the day, choose another player to jail.\n- Execute your target at night.");
 
-		e.addField("Attributes:", "- You may anonymously talk with your prisoner.\n- You can choose to execute your prisoner, except during Night 1.\n- You roleblock the jailed target through immunity.\n- If you execute a Town member, you forfeit further executions.\n- All other visiting abilities used on the jailed person will fail; they will be notified that their target was jailed.\n- The jailed target gains Powerful Defense.");
+		e.addField("Attributes:", "- When you jail a player, for the duration of the next night, they will be placed in a private chat with you. Messages sent by you will appear to have been sent by “Jailor”, and your target will additionally be unable to communicate in any private chats they may have for the night.\n- While jailed, targets are roleblocked through immunities, gain Powerful defense, and all other abilities used against them will fail. Indirect effects may still apply.\n- You may only execute thrice. If you execute a member of the Town, you lose all your remaining executions. You may not execute on Night 1.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -27,9 +27,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Reveal yourself in the day as the Mayor.");
+		e.addField("Abilities:", "- Reveal yourself as the Mayor during the day.");
 
-		e.addField("Attributes:", "- Once you have revealed yourself as Mayor your vote counts as 3 votes.\n- You may not be Healed once you have revealed yourself.\n- Once revealed, you can't whisper, or be whispered to.");
+		e.addField("Attributes:", "- When you reveal yourself, it will be announced to the Town.\n- While revealed, your vote counts as three, you cannot send or receive whispers, and Town roles with abilities that grant defense without counterattacking will not be able to use those abilities on you.\n- You may only reveal yourself once.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -43,7 +43,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Watch one person at night to see who visits them.");
+		e.addField("Abilities:", "- Watch another player each night.");
+
+		e.addField("Attributes:", "- If three or less other players visit your target that night, you will learn those players’ names. Otherwise, you will learn that more than three other players visited your target, and three random names from among those visitors.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -57,7 +59,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Track one person at night to see who they visit.");
+		e.addField("Abilities:", "- Track a person each night. You will learn the names of all players whom your target visits that night.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -71,7 +73,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- Receive a vision every night.\n- On odd nights you will have a vision of three players, at least one will be Evil.\n- On even nights you will have a vision of two players, at least one will be Good.");
+		e.addField("Attributes:", "- At the end of each odd-numbered night, you will learn the names of three random players, at least one of which won’t be able to win with the Town.\n- At the end of each even-numbered night, you will learn the names of two random players, at least one of which will be able to win with the Town.\n- If you’re roleblocked, you won’t get your results.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -85,9 +87,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Protect a player from direct attacks at night.\n- 1 use: Put on a Bulletproof Vest at night, which grants you Basic Defense.");
+		e.addField("Abilities:", "- Guard another player each night.\n- Put on a bulletproof vest at night.");
 
-		e.addField("Attributes:", "- If your target is directly attacked or is the victim of a harmful visit, you and the visitor will fight.\n- If you successfully protect someone you can still be Healed.");
+		e.addField("Attributes:", "- If your target is directly attacked, you will intercept the attack, causing yourself to be attacked instead of your target, and you will deal a Powerful attack to the attacker.\n- Your bulletproof vest grants you Basic defense for the night.\n- You may only put on a bulletproof vest once.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -101,9 +103,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Protect one person during the night.");
+		e.addField("Abilities:", "- Protect another player each night.");
 
-		e.addField("Attributes:", "- Grant your target Powerful defense.\n- You will know if your target is attacked.\n- You attack one person who visits your target on the same night.\n- You do not attack Vampires, but you do block their attacks.");
+		e.addField("Attributes:", "- You will grant your target Powerful defense for the night.\n- You will know if your target is attacked.\n- You will attack one other random player who visits your target.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -117,9 +119,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Heal one person each night, granting them Powerful defense.");
+		e.addField("Abilities:", "- Heal a player each night.");
 
-		e.addField("Attributes:", "- You may only Heal yourself once.\n- You will know if your target is attacked.");
+		e.addField("Attributes:", "- You may only Heal yourself once.\n- You may not heal Town roles that have used an ability to reveal themselves.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -133,7 +135,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Roleblock someone each night.");
+		e.addField("Abilities:", "- Roleblock a player each night.");
 
 		e.addField("Attributes:", "- Roleblock Immunity");
 
@@ -149,9 +151,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- When dead, speak to a living person at night. (1 use)");
+		e.addField("Abilities:", "- While dead, during the day, choose a player to séance.");
 
-		e.addField("Attributes:", "- You will speak to the dead anonymously each night you are alive.");
+		e.addField("Attributes:", "- You will be able to talk with your target the next night.\n- While alive, you can talk with the dead at night.\n- All messages sent by you to the dead or while séancing appear to have been sent by “Medium”.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -165,9 +167,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may raise a dead Town member and use their ability on a player.");
+		e.addField("Abilities:", "- Raise a dead Town member’s corpse each night.");
 
-		e.addField("Attributes:", "- You may only raise each dead player once.");
+		e.addField("Attributes:", "- Roleblock and redirect immune.\n- You may make your raised corpse use their ability on any legal target. The corpse you target uses the ability and performs the visit. You visit the corpse.\n- You learn all night feedback that the corpse would receive.\n- You may not use the ability of a dead player whose corpse has already been raised by yourself or another role that can raise corpses.\n- You may not use the ability of a dead player whose role is hidden.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -181,9 +183,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may bug a player's house to see what happens to them that night.");
+		e.addField("Abilities:", "- Bug a player each night, learning all night feedback they received from other than from their own role.");
 
-		e.addField("Attributes:", "- You will know who the Mafia and Coven visit each night.");
+		e.addField("Attributes:", "- You learn which players each evil faction targetted each night and how many times.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -197,9 +199,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose two people to transport at night.");
+		e.addField("Abilities:", "- Transport two players each night.");
 
-		e.addField("Attributes:", "- Roleblock and Control Immunity\n- Transporting a target swaps all visitors to them; for example, all visitors that visit target A will instead visit target B, and vice versa.\n- You may transport yourself.\n- Your targets will know they were transported.");
+		e.addField("Attributes:", "- Roleblock and redirect immune\n- Other players targeting your first target will secretly be redirected to your second. Other players targeting your second target will secretly be redirected to your first.\n- Your targets will know that they were transported.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -213,9 +215,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Check for Vampires, Locusts, and Accents each night.");
+		e.addField("Abilities:", "- Check a player each night.");
 
-		e.addField("Attributes:", "- If you visit a Vampire, Locust, or Accent, you will attack them.\n- If a Vampire, Locust, or Accent visits you, you will attack them.\n- You can hear Vampires, Locusts, and Accents at night.\n- If all the Vampires, Locusts, and Accents die, you will become a Vigilante with one bullet.\n- You have basic defense that only works against Vampires, Locusts, and Accents.\n\"Accent\" is any role named after Accent.");
+		e.addField("Attributes:", "- If your target is a “Vampire”, you will attack them.\n- You will attack “Vampires” who visit you.\n- You have Basic defense and conversion immunity against “Vampires”.\n- You can hear “Vampire” night chats.\n- “Vampires” are Neutral roles capable of converting players to the same role as they are, or members of an evil faction in which conversion is a primary mechanic and who are capable of converting players to roles in that faction.\n- When there are no “Vampires” alive, you become 67: Vigilante, but you may only shoot once.\n- This role may not roll unless there is at least one “Vampire” in the game.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -242,9 +244,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Decide if you will go on alert. (3 uses)");
+		e.addField("Abilities:", "- Go on alert at night.");
 
-		e.addField("Attributes:", "- While on alert you gain Basic Defense.\n- While on alert, you will deliver a Powerful attack to anyone who visits you.\n- Control Immunity\n- Roleblock Immunity");
+		e.addField("Attributes:", "- When you go on alert, you will attack all players who visit you that night.\n- While on alert, you have Basic defense.\n- You may only go on alert thrice.\n- Roleblock Immunity");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -258,9 +260,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose to take justice into your own hands and shoot someone. (3 uses)");
+		e.addField("Abilities:", "- Shoot a player at night.");
 
-		e.addField("Attributes:", "- If you shoot another Town member you will commit suicide over the guilt.");
+		e.addField("Attributes:", "- If you kill a member of the Town, the next night, you will commit suicide out of guilt.\n- You may only shoot thrice.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -274,9 +276,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may choose to lie in wait outside your target's house.");
+		e.addField("Abilities:", "- Lie in wait outside a non-Mafia player’s house each night.");
 
-		e.addField("Attributes:", "- You will attack one player who visits your target.\n- All players visiting your target will learn your name.");
+		e.addField("Attributes:", "- You will attack a random non-Mafia player who visits your target that night.\n- All visitors to your target will see you preparing an ambush.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -290,9 +292,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose one person each night to blackmail.");
+		e.addField("Abilities:", "- Blackmail a player each night.");
 
-		e.addField("Attributes:", "- Blackmailed targets cannot talk during the day.\n- You can hear private messages.\n- (nice)");
+		e.addField("Attributes:", "- Your target will be unable to send or react to messages in the day chat or whisper for the duration of the next day.\n- You can hear all whispers.\n- (nice)");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -306,7 +308,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Check one person for their exact role each night.");
+		e.addField("Abilities:", "- Investigate a player each night. You will learn your target's role.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -320,7 +322,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Roleblock someone each night.");
+		e.addField("Abilities:", "- Roleblock a player each night.");
 
 		e.addField("Attributes:", "- Roleblock Immunity");
 
@@ -336,9 +338,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Disguise a mafia member as a non-mafia member to alter their identity.");
+		e.addField("Abilities:", "- Disguise a Mafia member as a non-Mafia player each night.");
 
-		e.addField("Attributes:", "- A disguised person will appear innocent to investigators.\n- If someone would see a disguised person visiting someone, they will instead see the disguise's name.");
+		e.addField("Attributes:", "- Your first target will appear to be your second’s role to all non-Mafia investigative effects.\n- Your first target’s name will appear as your second’s to all non-Mafia investigative effects.\n- Your target will not count as a member of the Mafia for all non-Mafia investigative effects.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -352,9 +354,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a person and rewrite their last will at night.");
+		e.addField("Abilities:", "- Forge a player’s documents each night.");
 
-		e.addField("Attributes:", "- If your target dies, their last will is replaced with your forgery and their role will be shown as the role you select to forge.- You may only perform 2 forgeries.");
+		e.addField("Attributes:", "- As you forge a player’s documents, you may choose a role and write a last will.\n- If your forged target dies that night, they will appear to have been the role that you chose, and their last will will appear as the last will you wrote.\n- You may only forge twice.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -368,7 +370,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose someone to frame at night. They will appear suspicious to investigators.");
+		e.addField("Abilities:", "- Frame a player each night. Your target will appear to be your role to the first non-Mafia investigative effects used on them.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -382,7 +384,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may sneak into a player's house at night and plant a memory. You can write a fake Feedback Message for them to see at the end of the night.");
+		e.addField("Abilities:", "- Hypnotise a player each night.");
+
+		e.addField("Attributes:", "- As you hypnotise a player, you may choose a night feedback message that they could receive from an outside source.\n- Your target will receive that message as if it were part of their night feedback.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -411,9 +415,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a person to clean at night, preventing their last will and role from being publicly revealed.");
+		e.addField("Abilities:", "- Clean a player each night.");
 
-		e.addField("Attributes:", "- You will see the role and last will of your targets when you clean them.");
+		e.addField("Attributes:", "- If your cleaned target dies that night, their role will appear as “Cleaned” and their last will will be hidden. You will learn that player’s role and be able to read their last will.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -433,18 +437,16 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["mafioso", "79"], "Mafia", "Mafioso", {subCat: "Killing"}, (e) =>
+	register_role(["mafioso", "79"], "Mafia", "Mafioso", {subCat: "Killing", cannotRoll: true}, (e) =>
 	{
 		e.setDescription("Post 79");
 		e.author.iconURL = "https://static.wikia.nocookie.net/town-of-salem/images/0/00/RoleIcon_Mafioso.png";
 
 		e.addField("Alignment", "Unique Mafia Killing", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Carry out the Factional Mafia Kill.");
-
-		e.addField("Attributes:", "- You can attack if the Godfather doesn't give you orders.\n- If the Godfather dies you will become the next Godfather.\n- You can talk with the other Mafia at night.\n- You have Control Immunity while following the Godfather's orders.");
+		e.addField("Attributes:", "This role cannot roll in the starting rolelist.");
 
 		e.addField("Goal:", factions.Mafia.goal);
 	});
@@ -473,9 +475,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may choose to Stone Gaze all visitors at night. (3 uses)");
+		e.addField("Abilities:", "- Stone gaze all your visitors at night.\n- With the Necronomicon, stone gaze a player at night.");
 
-		e.addField("Attributes:", "- Stoned players will not have their roles or last wills publicly revealed.\n- With the Necronomicon, you may visit players and turn them to stone.");
+		e.addField("Attributes:", "- Players you kill will have their role appear as “Stoned” and their last will hidden.\n- You may only stone gaze all your visitors thrice.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -489,9 +491,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Use an Attack Potion to attack a target.\n- Use a Heal Potion to provide someone with powerful defense.\n- Use a Reveal Potion to learn someone's true role.");
+		e.addField("Abilities:", "- Use an Attack Potion to attack another player.\n- Use a Heal Potion to Heal another player.\n- Use a Reveal Potion to learn another player's true role.");
 
-		e.addField("Attributes:", "- Each potion has a three day cooldown.\n- With the Necronomicon, your potions no longer have a cooldown.");
+		e.addField("Attributes:", "- Each potion has a two-night cooldown unless you have the Necronomicon. Each cooldown ends when you gain the Necronomicon.\n- You are immune to effects that would alter how your target’s role appears to investigative effects.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -505,9 +507,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable/Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player to Hex each night.");
+		e.addField("Abilities:", "- Hex a player each night.\n- With the Necronomicon, deal an Astral Basic attack to a player each night and hex them.");
 
-		e.addField("Attributes:", "- When the last non-Coven player becomes Hexed, even if you die, all Hexed players will die to an Unstoppable Attack.\n- You will still use your Final Hex even if you are roleblocked.\n- With the Necronomicon you gain Astral and Basic attacks.\n- Players are still Hexed when you have the Necronomicon.\n- Hexed players appear to be a Hex Master when investigated.");
+		e.addField("Attributes:", "- Hexed players will appear to be your role to all non-Coven investigative effects.\n- Hexes cannot be removed by any means.\n- When all non-Coven players are hexed, you will deal an Unstoppable attack to all hexed players.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -521,9 +523,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None (Basic)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may reanimate a dead player and use their ability on a player.");
+		e.addField("Abilities:", "- Raise a dead player’s corpse each night.\n- With the Necronomicon, summon a ghoul to deal a Basic attack to a player each night.");
 
-		e.addField("Attributes:", "- Each dead player may be reanimated once.\n- With the Necronomicon, select yourself to summon a ghoul to Basic attack your target.");
+		e.addField("Attributes:", "- Roleblock and redirect immune\n- You may make your raised corpse use their ability on any legal target other than yourself. The corpse you target uses the ability and performs the visit. You visit the corpse. With the Necronomicon, your ghoul uses the ability and performs the visit.\n- You learn all night feedback that the corpse would receive.\n- You may not use the ability of a dead player whose corpse has already been raised by yourself or another role that can raise corpses.\n- You may not use the ability of a dead player whose role is hidden.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -537,9 +539,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may choose to poison a player each night. If they don't have defense now, they will die the next night.");
+		e.addField("Abilities:", "- Poison a player each night.");
 
-		e.addField("Attributes:", "- Your target may survive poison by being healed in the next night, or by gaining permanent defense. Temporary defense won't work.\n- With the Necronomicon, your poison can no longer be Healed.");
+		e.addField("Attributes:", "- At the end of the night after you poison a player, they will die if they would have died if you had dealt a Basic attack to them the night you poisoned them.\n- Poisoning counts as an attack.\n- Your targets will learn that they were poisoned.\n- With the Necronomicon, your poisons cannot be healed.");
 
 		e.addField("Goal:", factions.Coven.goal);
 	});
@@ -552,9 +554,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Remember who you were like by selecting a graveyard role. You will become that role permanently.");
+		e.addField("Abilities:", "- Remember a dead player’s role each night. You will become your target’s role.");
 
-		e.addField("Attributes:", "- The role you remembered will be announced for everyone to see at the start of the following Day.");
+		e.addField("Attributes:", "- You may not remember the role of a dead player whose role is hidden.");
 
 		e.addField("Goal:", "Remember who you were and complete that role's goal.");
 	});
@@ -568,9 +570,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Unstoppable", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Douse a player in gasoline.\n- Douse yourself to ignite all doused players.");
+		e.addField("Abilities:", "- Douse a player each night.\n- Ignite all doused targets at night.");
 
-		e.addField("Attributes:", "- You will douse anybody that visits you, learning their name in the process.\n- If you take no action, you will attempt to clean gasoline off yourself.\n- Players you douse will appear to be an Arsonist when investigated, except for Sheriff-style suspicion checks.\n- Players will not know if they are Doused unless they are another Arsonist.");
+		e.addField("Attributes:", "- Detection Immune\nDoused targets will appear to be your role to all non-Mafia investigative effects.\n- You will douse anyone who visits you.\n- You will know if you are doused.\n- If you do not use an ability at night, you will un-douse yourself.");
 
 		e.addField("Goal:", "Live to see everyone burn...");
 	});
@@ -584,7 +586,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Attributes:", "- At the start of the game, you will recieve a Target. Your target will always be a Townie, and cannot be the Jailor, Mayor, or any Town Power.\n- If your target is killed at night, you will become a Jester (Post 90).");
+		e.addField("Attributes:", "- At the beginning of the game, you will receive a non-Power Town member as your target.\n- If your target dies without being lynched, you will become 90: Jester.");
 
 		e.addField("Goal:", "Trick the Town into executing your Target.");
 	});
@@ -598,9 +600,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Heal and Purge your Target, giving them Power Defense and removing all negative effects from them. (2 uses)");
+		e.addField("Abilities:", "- Watch over your target at night, Astrally Healing them and removing all negative effects from them.");
 
-		e.addField("Attributes:", "- At the start of the game, a random person will become your Target.\n- Your healing works even while your Target is in Jail, and can let them survive execution.\n- If your target is killed at night, you will become a Survivor (Post 96) with no vests remaining.\n- Your Target cannot be a Jester, Executioner, or another Guardian Angel.\n- Vampires cannot convert you.");
+		e.addField("Attributes:", "- At the beginning of the game, you will receive a player as your target.\n- Your target cannot be a player who must die to win.\n- You may watch over your target while dead.\n- You may only watch over your target twice.\n- If your target dies, you will become 96: Survivor, but you may not put on any bulletproof vests.");
 
 		e.addField("Goal:", "Keep your target alive until the end of the game.");
 	});
@@ -614,7 +616,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None (Unstoppable)", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Attributes:", "- If you are lynched, you will attack one of your guilty or abstaining voters the following night with an Unstoppable Attack.");
+		e.addField("Abilities:", "- Haunt a player who voted to lynch you the night after you’re lynched.");
+
+		e.addField("Attributes:", "- If you do not haunt a player, you will haunt a random player who voted for you.");
 
 		e.addField("Goal:", "Get yourself lynched by any means necessary.");
 	});
@@ -628,27 +632,27 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful (Unstoppable)", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Attack a player at night.");
+		e.addField("Abilities:", "- Attack a player each full moon.");
 
-		e.addField("Attributes:", "- With each kill, your powers grow, until you've killed 3 people.\n- If you haven't killed anyone yet, you can only attack during Full Moon Nights.\n- 1st kill lets you attack every night.\n- 2nd kill makes your future attacks into Rampages.\n3rd kill makes your attack Unstoppable.\n- Detection Immunity");
+		e.addField("Attributes:", "- If you have killed at least one player, you may attack each night instead.\n- If you have killed at least two players, your attack rampages.\n- If you have killed at least three players, your attack is Unstoppable and you ignore all protective effects.\n- Detection Immunity");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["pirate", "92"], "Neutral", "Pirate", {subCat: "Chaos"}, (e) =>
 	{
-		e.setDescription("Post 92\n*Did you hear? Apparently Rasen has a crush on Igu.*");
+		e.setDescription("Post 92");
 		e.author.iconURL = "https://cdn.discordapp.com/emojis/980989425137901588.webp";
 
-		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Alignment", "Unique Neutral Chaos", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Choose a player each day to duel in the following night, which also roleblocks them.");
+		e.addField("Abilities:", "- During the day, choose another player to plunder.");
 
-		e.addField("Attributes:", "- In a duel, you will secretly choose Scimitar, Rapier, and Pistol, and your target will secretly choose Sidestep, Chainmail, and Backpedal.\n- Scimitar beats Sidestep, Rapier beats Chainmail, and Pistol beats Backpedal.\n- If your target loses, they are dealt a Powerful Attack.\n- You cannot duel the same player twice in a row.\n- Detection Immunity\n- Vampires cannot convert you.");
+		e.addField("Attributes:", "- Roleblock and redirect immune\n- When you plunder a player, the next night, they must choose to sidestep, wear chainmail, or backpedal, and you must choose to use your scimitar, your rapier, or your pistol.\n- If you use your scimitar and your target sidesteps, you use your rapier and your target wears chainmail, or you use your pistol and your target backpedals, you will attack them.\n- Plundered players are roleblocked.");
 
-		e.addField("Goal:", "Win 2 duels.");
+		e.addField("Goal:", "Attack two players.");
 	});
 
 	register_role(["plaguebearer", "pb", "93"], "Neutral", "Plaguebearer", {subCat: "Chaos"}, (e) =>
@@ -660,14 +664,14 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- You may choose to infect a player with the Plague each night.");
+		e.addField("Abilities:", "- Infect a player each night.");
 
-		e.addField("Attributes:", "- Players will not know they have been infected.\n- When all living players are infected, you become Pestilence (Post 94).\n- Detection Immunity\n- The Plague is spread by visits to you and infected players, as well as infected players who visit people.");
+		e.addField("Attributes:", "- Players who visit you or infected players become infected.\n- Players who infected players visit become infected.\n- If, at the end of the phase, all other players are infected, you will become Post 94: Pestilence, Horseman of the Apocalypse.");
 
 		e.addField("Goal:", "Infect all living players and become Pestilence (Post 94).");
 	});
 
-	register_role(["pestilence", "pest", "94"], "Neutral", "Pestilence because fuck this let's let it be rolled naturally", {subCat: "Chaos"}, (e) =>
+	register_role(["pestilence", "pest", "94"], "Neutral", "Pestilence", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 94");
 		e.author.iconURL = "https://cdn.discordapp.com/emojis/998691858207228026.webp";
@@ -676,9 +680,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- You may choose to Rampage at a player's house each night.");
+		e.addField("Abilities:", "- Rampage attack a player each night.");
 
-		e.addField("Attributes:", "- You will automatically attack anyone who visits you, including the Jailor.\n- Detection Immunity, Roleblock Immunity, and Control Immunity");
+		e.addField("Attributes:", "- You will attack anyone who visits you.\n- Roleblock and Control Immunity");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -692,9 +696,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Attack your target");
+		e.addField("Abilities:", "- Attack a player each night.");
 
-		e.addField("Attributes:", "- If you are roleblocked, you will attack the role blocker in addition to your target.\n- When you automatically kill a roleblocker, the roleblock attempt will fail.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.");
+		e.addField("Attributes:", "- Roleblock Immunity\n- If you are roleblocked, you will attack the role blocker in addition to your target.\n- Roleblockers that target you will have their last will covered in blood, making it unreadable.\n- At night, you may choose to spare roleblockers instead.");
 		
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
@@ -708,7 +712,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Put on a bulletproof vest at night and gain Basic Defense. (4 uses)");
+		e.addField("Abilities:", "- Put on a bulletproof vest at night, gaining Basic Defense. (4 uses)");
 		
 		e.addField("Goal:", "Live until the end of the game.");
 	});
@@ -722,9 +726,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attempt to convert your target into a Vampire. If the target cannot be converted or the faction is full, you will attack the target");
+		e.addField("Abilities:", "- Attempt to convert a player each night. If your target has no defense, is not part of an evil faction’s factional chat, and is not conversion immune, you will convert them to a 97: Vampire. Otherwise, you will attack them.");
 
-		e.addField("Attributes:", "- When more than one Vampire is alive, they will gain a shared chat and vote for who to convert.\n- The youngest Vampire is always the one who carries out the action.\n- If the target has basic defense, or is a member of the Coven or Mafia, they cannot be converted.\n- Once 4 Vampires are alive, you cannot convert new members, only attack them.\n- Detection Immunity");
+		e.addField("Attributes:", "- You have a factional chat with all Vampires.\n- Only the most recently converted Vampire may convert each night.\n- No Vampires may convert if a player was successfully converted last night.");
 		
 		e.addField("Goal:", factions.Vampire.goal);
 	});
@@ -738,9 +742,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- During a Full Moon, transform into a Werewolf and rampage at your target's house.");
+		e.addField("Abilities:", "- Rampage attack a player each full moon.");
 
-		e.addField("Attributes:", "- If you don't select a target, you will rampage at your own house on Full Moon Nights.\n- You have Detection Immunity, but only during non-Full Moon Nights.");
+		e.addField("Attributes:", "- If, during a full moon, your ability would not resolve, you would fail to use your ability, or you would use your ability on yourself for any reason, you will attack all other players who visit you instead.\n- You have detection immunity if it’s not a full moon.");
 		
 		e.addField("Goal:", "Kill everyone who would oppose you.");
 	});
@@ -752,11 +756,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic (None)", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Control one person into targeting another each night.");
+		e.addField("Abilities:", "- Control a player each night.");
 
-		e.addField("Attributes:", "- You have a mystical barrier that grants you Basic defense until you are attacked once by an attack that would kill you.\n- You will know the role of the player you Control.\n- Roleblock Immunity and Detection Immunity");
+		e.addField("Attributes:", "- As you control a player, you may force them to target a player of your choice.\n- You will learn your target’s role.\n- You have a Basic autovest.\n- Roleblock and control immune");
 		
 		e.addField("Goal:", "Survive to see the Town lose the game.");
 	});

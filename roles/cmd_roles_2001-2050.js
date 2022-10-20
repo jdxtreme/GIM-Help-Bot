@@ -507,19 +507,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["rasen_of_spiralling_heavens", "rasenofspirallingheavens", "rasen", "spiralling_heavans", "spirallingheavans", "rosh", "rsh", "2033"], "Neutral", "Rasen of Spiralling Heavens", {subCat: "Chaos"}, (e) =>
+	register_role(["role_master", "rolemaster", "master", "rm", "2033"], "Coven", "Role Master", {subCat: "Investigator"}, (e) =>
 	{
 		e.setDescription("Post 2033");
 
-		e.addField("Alignment", "Unique Neutral Chaos", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Coven Investigator", true);
+		e.addField("Attack", "Unstoppable", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "**Spiralling Hell** — Whenever it turns to night, select another player and create a role based off of their current role. This role **has to be** stronger than the one they previously had, but it must take inspiration from the original role (aim for at least around 60%). After doing that, sit back and relax as they're converted into the new role at the beginning of the next day. You will also learn their role, since it'd be pretty damned hard to upgrade a role if you don't know what the hell it is.");
+		e.addField("Abilities:", "- Overhear a player's whispers. If they get whispered things, they will be sent to you. This will counter the jailor meta.\n- Investigate a player's exact role.\n- At any time in the game, day, night, whatever, make a list of every player and every role in the game, including dead people. If your list is completely correct, you will attack all alive players using Astral unless they're Coven.");
 
-		e.addField("Attributes:", "- Roleblock and redirect immune\n- You're the host. You just ain't able to die.");
+		e.addField("Attributes:", "- When you're visited, you or anyone whom is your ally is visited, you will learn the name of your visitors.\n- When you have the Necromonicon, you will learn the roles of your visitors and those whom visit your allies. Also, a selected player dies every night unless they're Coven.");
 		
-		e.addField("Goal:", "Spiral everyone into hell. To make sure this win condition ain't gonna take 'em 50 years, you only gotta focus on whoever's alive at the time.\nNote: It is also not required that you ugprade your own role.");
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
 	register_role(["noelle", "2034"], "Town", "Noelle", {subCat: "Killing"}, (e) =>

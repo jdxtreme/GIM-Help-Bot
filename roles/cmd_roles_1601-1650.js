@@ -88,7 +88,7 @@ module.exports = (g) =>
 			e.setColor(factions.Mafia.color);
 		}
 
-		e.addField("Alignment", "Underworld/Everfrost Support", true);
+		e.addField("Alignment", "Mafia/Coven Support", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
@@ -147,7 +147,7 @@ module.exports = (g) =>
 
 	register_role(["banisher_of_the_radiance", "banisheroftheradiance", "banisher", "radiance", "botr", "1608"], "Town", "Banisher of the Radiance", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 1608");
+		e.setDescription("Post 1608\n*[Fairy/Effect] Any card sent to the Graveyard is banished instead.*");
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
@@ -155,7 +155,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- At night, visit a player. They are now unaffected by your attribute. If you have already visited them before, they are now affected by your attribute again.");
 
-		e.addField("Attributes:", "- While you are alive, all players lose the following immunities: Detection Immunity, Roleblock Immunity, Control Immunity, Redirect Immunity, and Death Immunity. Additionally, all visits that would be Astral are no longer Astral.");
+		e.addField("Attributes:", "- Light\n- While you are alive, all players lose the following immunities: Detection Immunity, Roleblock Immunity, Control Immunity, Redirect Immunity, and Death Immunity. Additionally, all visits that would be Astral are no longer Astral.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -432,17 +432,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.X.goal);
 	});
 
-	register_role(["propagandist", "propogandist", "prop", "1627"], "Sentry", "(Sentry) Propagandist", {subCat: "Power"}, (e) =>
+	register_role(["propagandist", "propogandist", "prop", "1627"], "Sentry", "Propagandist", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 1627");
 
 		e.addField("Alignment", "Unique Sentry Power", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Overkill", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Authorize an investigation on 1 player during the day. You may authorize an additional target for every 10 players in the game (living or dead), rounded. Mandatory or random.\n- Invite a player to your house during the night.\n- Select an heir for your role during at any time. May be used in conjunction w/ your other abilities.");
+		e.addField("Abilities:", "- Authorize an investigation on 1 player during the day. You may authorize an additional target for every 10 players in the game, living or dead, rounded up. Mandatory or random.\n- Declare a player an enemy of the state during the day. You may use this up to to two times each day.\n- Select an heir for your role at any time.");
 
-		e.addField("Attributes:", "- Any player you vote (including if retracted) during the day will also be authorized for investigation.\n- Your Authorized targets will be revealed each night.\n- Any non-attacking visits to you will instead be redirected to the player you invited.\n- You may not authorize yourself as a target.\n- When you die, your heir is promoted to a Propagandist (1627) if they are a Sentry. Otherwise, it will be a random Sentry. Their votes will not authorize players until the day after your death.\n- Conversion Immunity");
+		e.addField("Attributes:", "- Your authorized targets will be revealed each night.\n- You may not authorize yourself.\n- Declaring a player an enemy of the state will be immediately dealt an Astral Overkill Attack and be cleaned.\n- If you declare 3 Sentries as enemies of the state, your superiors will remove your ability to declare enemies of the state.\n- When you die, your heir will be promoted to a Propagandist (1627) if they are a Sentry. Otherwise, it will be a random Sentry. They may not declare players enemy of the state.\n- You may use your abilities in conjunction with each other.\n- Conversion immunity");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});

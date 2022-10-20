@@ -17,34 +17,19 @@ module.exports = (g) =>
 		e.addField("Goal:", "Give two people an extra charge. You do not need to be alive - you can die the night before completing your goal.");
 	});
 
-	register_role(["infested", "402", "402a"], "Neutral", "Infested", {subCat: "Killing"}, (e) =>
+	register_role(["legacy", "402"], "Neutral", "Legacy", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 402");
 
 		e.addField("Alignment", "Unique Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attack 1 player at night\n- Control 1 player at night, you will also learn their role.");
+		e.addField("Abilities:", "- Attack someone.");
 
-		e.addField("Attributes:", "- Conversion and Control Immunity\n- If someone visits you during the night, they will gain the **Spored** status effect. This can happen up to 3 times.\n- If a player with the **Spored** status effect dies by something other than lynching, they will instead survive and become a Sporetouched (Post 402-B).\n- If a Sporetouched attacks you, their attack will fail and they will learn your identity.\n- If there is a Sporetouched alive, you will be incapable of attacking.");
+		e.addField("Attributes:", "- Conversion Immunity\n- Anyone who kills you at night is converted to your role.\n- If there are multiple Legacy attacks, only one will be processed(host decision).\n- If you die, your cause of death is hidden.");
 		
-		e.addField("Goal:", "Kill all who oppose you, or have another Sporetouched win the game.");
-	});
-
-	register_role(["sporetouched", "spored", "402b"], "Neutral", "Sporetouched", {subCat: "Killing", cannotRoll: true}, (e) =>
-	{
-		e.setDescription("Post 402");
-
-		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "Basic", true);
-
-		e.addField("Abilities:", "- Attack 1 player at night.");
-
-		e.addField("Attributes:", "- Conversion Immunity\n- This role cannot be rolled.");
-		
-		e.addField("Goal:", "Kill all who oppose you, including other Sporetouched.");
+		e.addField("Goal:", "Kill all who oppose the Legacy. You may win while dead.");
 	});
 
 	register_role(["token_vendor", "tokenvendor", "token", "403"], "Neutral", "Token Vendor", {subCat: "Benign"}, (e) =>
@@ -97,6 +82,7 @@ module.exports = (g) =>
 	register_role(["jd", "406"], "Neutral", "Jd", {subCat: "Benign"}, (e) =>
 	{
 		e.setDescription("Post 406");
+		e.author.iconURL = "https://cdn.discordapp.com/emojis/901996969550024735.webp";
 
 		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "Lynch", true);
@@ -683,7 +669,7 @@ module.exports = (g) =>
 
 	register_role(["blast_magician", "blastmagician", "blast", "445"], "Neutral", "Blast Magician", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 445");
+		e.setDescription("Post 445\n*Take 'em all out in one fell swoop. That's the efficient way to do things. Why don't other murderers do this?*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
