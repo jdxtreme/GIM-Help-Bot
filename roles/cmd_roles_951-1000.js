@@ -516,9 +516,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Variable", true);
 
-		e.addField("Abilities:", "- Variable");
-
-		e.addField("Attributes:", "- Variable\n- At the start of the game, you are given the abilities and attributes of a random \"self-confirmable\" role (deemed by the host). You may not copy Town Power role abilities/attributes.");
+		e.addField("Attributes:", "- At the start of the game, you are given the abilities and attributes of a random \"self-confirmable\" \"good\" role (deemed by the host). You may not copy the role abilities/attributes of \"lead\" roles.");
 		
 		e.addField("Goal:", "Kill all who oppose whatever the fuck faction you rolled into.");
 	});
@@ -576,9 +574,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Suicide (Any): At the end of the night, you will deal an Overkill attack to yourself. This ability cannot fail, under any circumstances.\n- Lacerate (Day): Cause a player to bleed instantaneously. They will know this, and will die in two nights unless healed. 3 uses.\n- Distract (Day): Silence a player for the rest of the day. They cannot talk or use abilities. 3 uses.\n- Assassinate (Night): Kill a player at night.\n- Two-For-One (Night): Kill two players at night. 1 use. Call now!");
+		e.addField("Abilities:", "- Suicide (Any): At the end of the night, you will deal an Overkill attack to yourself. This ability cannot fail, under any circumstances\n- Lacerate (Day): Cause a player to bleed instantaneously. They will know this, and will die in two nights unless healed. 3 uses.\n- Distract (Day): Silence a player for the rest of the day. They cannot talk or use abilities. 3 uses.\n- Assassinate (Night): Kill a player at night.\n- Two-For-One (Night): Kill two players at night. 1 use. Call now!");
 
-		e.addField("Attributes:", "- If you are the starting Assassin and the Mastermind dies, you will take their place.\n- Anyone promoted to Assassin will reset charges of Lacerate, Distract, and Two-For-One (as in, even if the original one used all of the abilities, you will have all abilities available to you at maximum charge)");
+		e.addField("Attributes:", "- If you are the starting Assassin and the Mastermind dies, you will take their place.\n- Anyone promoted to Assassin will **not** reset charges of Lacerate, Distract, and Two-For-One. Any depleted abilities stay depleted for a new Assassin.");
 		
 		e.addField("Goal:", factions.Unseen.goal);
 	});

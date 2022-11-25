@@ -470,19 +470,9 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who oppose you, or have nobody remain if you are dead.");
 	});
 
-	register_role(["vampvestigator", "vampvest", "vv", "482"], "Vampire", "Vampvestigator", {subCat: "Support"}, (e) =>
+	register_role(["vampvestigator", "482"], "Other", "Vampvestigator", {cannotRoll: true}, (e) =>
 	{
-		e.setDescription("Post 482");
-
-		e.addField("Alignment", "Unique Vampire Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Investigate people at night.");
-
-		e.addField("Attributes:", "- You can check someone every night, learning their exact role.\n- You will not be fooled by frames or disguises.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.setDescription("Post 482\nThis role cannot spawn, as the Vampire faction has been removed.");
 	});
 
 	register_role(["totally_not_a_vampire", "totallynotavampire", "totally", "483"], "Neutral", "\"totally not a vampire\"", {subCat: "Evil"}, (e) =>

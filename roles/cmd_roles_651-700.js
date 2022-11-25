@@ -287,184 +287,169 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["savior", "670"], "Vampire", "Savior", {subCat: "Conversion"}, (e) =>
+		register_role(["wizard_with_a_gun", "wizardwithagun", "wizard", "gun", "wwag", "wg", "670"], "Coven", "Wizard with a Gun", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 670");
+		e.setDescription("Post 670\n*Ron, Ron! Look what I found! These are so much better than wands!*");
 
-		e.addField("Alignment", "Vampire Conversion", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "\"Defense\"", true);
-
-		e.addField("Abilities:", "- Protect a player each night.");
-
-		e.addField("Attributes:", "- If your target is attacked, reflect one attacker's attack. The other attackers will not know of this.\n- Your target is converted into a Devoted, unless the attack was Unstoppable.\n- If you successfully convert someone, you must wait a day before protecting again.\n- You cannot protect night 1.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
-	});
-
-	register_role(["catacano", "671"], "Vampire", "Catacano", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 671");
-
-		e.addField("Alignment", "Vampire Support", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Alignment", "Coven Evil", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may infect a player member at night. If someone deals an attack that would kill your target, they will survive and become a Progeny.");
+		e.addField("Abilities:", "- Fucking shoot someone.");
 
-		e.addField("Attributes:", "- You may only bite someone on an Odd night.\n- Biting someone converts them to a Vampire upon death. The attacker is informed their target has high defense.\n- You will know your newest progeny’s notifications.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Attributes:", "- With the Necronomicon, your gun becomes a double barrel shotgun, allowing you to target two players at night and deal Rampage attacks.");
+
+		e.addField("Goal:", factions.Coven.goal);
 	});
 
-	register_role(["devoted", "672"], "Vampire", "Devoted", {subCat: "Support"}, (e) =>
+	register_role(["gangster_with_a_wand", "gangsterwithawand", "gangster", "wand", "gwaw", "gw", "671"], "Mafia", "Gangster with a Wand", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 672");
+		e.setDescription("Post 671\n*Don't mess with the magic stick!*");
 
-		e.addField("Alignment", "Vampire Support", true);
+		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may use the abilities you had before your were converted one time.");
+		e.addField("Abilities:", "- Turn someone into a frog.");
 
-		e.addField("Attributes:", "- You will become the Savior if the Savior dies.\n- You will gain all passive abilities your role had before conversion when using your ability.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Attributes:", "- Frogging lasts for the next day and night.\n- Frogs must say \"ribbit\" every other message and must react to at least 20 messages with 🐸\n- Frogs cannot hop more than two houses away from them.\n- Frogs will appear as \"Frog\" upon death, and always show up as a Frog to (2467) Frogvestigator.");
+
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
-	register_role(["progeny", "673"], "Vampire", "Progeny", {subCat: "Conversion"}, (e) =>
+	register_role(["wand_with_a_gang", "wandwithagang", "wand", "gang", "wwag", "wg", "672"], "Town", "Wand with a Gang", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 673");
+		e.setDescription("Post 672\n*You better... wait, what?*");
 
-		e.addField("Alignment", "Vampire Conversion", true);
+		e.addField("Alignment", "Town Support", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Cast a spell on a player each night, using another random Town Support role's ability on them. You will know what ability you used.\n- Sic your gang on a player at night, attacking them once at each priority layer. Each attack is considered a different ability that can each individually be redirected, prevented, etc. You may only sic your gang on a player once.");
+
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["triangle", "673"], "Neutral", "Triangle", {subCat: "Evil"}, (e) =>
+	{
+		e.setDescription("Post 673\n*⚠️ You're in danger!⚠️*");
+
+		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None (Invincible)", true);
 
-		e.addField("Abilities:", "- (The Youngest Progeny will) Carry out the Catacano’s Orders.");
+		e.addField("Abilities:", "- During the day, choose three targets. At night, you may choose to either:\n> - Transport them (1 -> 2, 2 -> 3, 3 -> 1)\n> - Roleblock them\n> - Redirect them all to a player of your choice.\n> - Kill them (1 use)");
 
-		e.addField("Attributes:", "- If the Catacano dies, the oldest Progeny takes their place.\n- If there are no kill capable Vampire roles left you will become a Lampir.\n- The night you become a Progeny, you gain Invincible Defense.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Attributes:", "- You may not target yourself, but you may redirect targets to yourself.\n- You have Invincible defense on nights divisible by three.\n- If there are less than three valid targets, you may not perform any abilities.\n- Roleblock and redirect immune");
+
+		e.addField("Goal:", "See the Town lose the game.");
 	});
 
-	register_role(["talamaur", "674"], "Vampire", "Talamaur", {subCat: "Support"}, (e) =>
+	register_role(["wirefly_hive", "wireflyhive", "wirefly", "hive", "wh", "674"], "Neutral", "Wirefly Hive", {subCat: "Evil"}, (e) =>
 	{
 		e.setDescription("Post 674");
 
-		e.addField("Alignment", "Vampire Support", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Consumes a Soul from the Graveyard to use as a magical shield for itself or kin.");
+		e.addField("Abilities:", "- During the day, choose a player to swarm.");
 
-		e.addField("Attributes:", "- Selecting a Corpse at night destroys the Corpse, and uses it to shield a Vampire granting them a basic defense.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Attributes:", "- At the beginning of the night after you swarm a player, grant them Basic defense for the night. Then, flip a coin. If you win the flip, increase your attack value by two stages for the night (it starts at None), and increase your target's defense by one stage, and if you lose the flip, set your attack value back to None. Then, you may attack your target, which resolves immediately. If you don't, repeat this process.\n- You may repeat your process as many times you have time in the night, but you can't \"flip the coin up to a googolplex times until I win 80 flips in a row and can kill my target\". You have to manually go through every flip with the host.\n- You can increase your attack value and your target's defense value indefinitely (They become something like Overoverover...overoverkill).\n- You can pretty much give up once your target's at Overoveroverprotective and you're back at None.");
+
+		e.addField("Attributes:", "- Once you're done flipping, or when the night ends, your target will learn that they were swarmed by a 674: Wirefly Hive and the exact sequences of wins and losses you got.\n- You have a Basic autovest.");
+
+		e.addField("Goal:", "See the Town lose.");
 	});
 
-	register_role(["broxa", "broca", "675"], "Vampire", "Broxa", {subCat: "Support"}, (e) =>
+	register_role(["grave_watcher", "gravewatcher", "grave", "watcher", "gw", "675"], "Town", "Grave Watcher", {subCat: "Power"}, (e) =>
 	{
-		e.setDescription("Post 675");
+		e.setDescription("Post 675\n*The Grave Watcher's abilities are fueled by the souls that pass them by.*");
 
-		e.addField("Alignment", "Vampire Support", true);
-		e.addField("Attack", "None", true);
+		e.addField("Alignment", "Town Power", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Lull a target into a false sense of security at night.");
+		e.addField("Abilities:", "- Watch the town from afar and take note of anyone who targets or interacts with dead players tonight.\n- Guard a player, protecting them with Powerful defense and preventing one visit on them. If the target is visited multiple times, prevent a random visit with the highest priority. This ability is regarded as having the highest possible priority. [Unlocked upon three Town deaths.]\n- Strike a target with a shovel. Deals a Basic attack if the target is non-Town, but will backfire and hit the Grave Watcher instead if their target is a Town member. [Unlocked upon two non-Town deaths.]");
 
-		e.addField("Attributes:", "- By selecting a target you create a delayed roleblock.\n- If you die, your lull fails.\n- Anyone who threatens to expose you is lulled into a false sense of security.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Attributes:", "- Gain roleblock and conversion immunity. [Unlocked upon two total deaths.]\n- Gain a focused mind, able to multitask and self-target. [Unlocked upon four total deaths.]\n- Gain Basic defence. [Unlocked upon six total deaths.]\n- The Grave Watcher’s vote now counts as three. [Unlocked upon eight total deaths.]");
+
+		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["gierach", "676"], "Vampire", "Gierach", {subCat: "Support"}, (e) =>
+	register_role(["archmage_of_blood", "archmageofblood", "archmage", "blood", "aob", "ab", "676"], "Coven", "Archmage of Blood", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 676");
 
-		e.addField("Alignment", "Vampire Support", true);
+		e.addField("Alignment", "Coven Killing", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- During the day, sacrifice the blood of another Coven member, permanently reducing their defense by 1. **You may self-target.** If you sacrifice a Coven member when they are at Vulnerable defense, they die.\n- Attack a player at night with a sword, dealing a Basic attack.\n- Infuse your sword with blood, increasing the attack to Powerful. Costs 1 Blood Soul.\n- Cast a projectile at a target, dealing an Astral Basic attack. Costs 2 Blood Souls.\n- Launch a fury of blood at a target, decimating them and dealing an Unstoppable Rampage attack. Costs 5 Blood Souls and requires the Necronomicon.");
+
+		e.addField("Attributes:", "- You start with 2 Blood Souls. You gain 1 for each Coven sacrifice, and 1 for each person that a member of the Coven (except you, excluding your first two abilities) kills.\n- With the Necronomicon, you unlock an additional ability, and sacrificing Coven members grants 8 Blood Souls.\n- If you are the final Coven member, you may sacrifice other players, however you cannot reduce their defense beyond None.");
+
+		e.addField("Goal:", factions.Coven.goal);
+	});
+
+	register_role(["phlebotomist", "phleb", "677"], "Town", "Phlebotomist", {subCat: "Investigative"}, (e) =>
+	{
+		e.setDescription("Post 677\n*Don't question my methods if they work.*");
+
+		e.addField("Alignment", "Town Investigative", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You may Track a Player’s movements at night.\n- You will know if that Player has killed before.");
+		e.addField("Abilities:", "- During the day, take two people's blood samples. You will learn their blood types.\n- At night, watch someone. You will learn the blood type of all of their visitors and whoever your target visited, though not exactly who these are. You get these results separate from one another.");
 
-		e.addField("Attributes:", "- You can talk to the other Vampires at night.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Attributes:", "- At the start of the game, everyone is assigned a random blood type (A, B, AB, O) excluding positives and negatives. Each person has a 40% chance of O, 30% chance of A, 20% chance of B and 10% chance of AB. This is hidden to them.\n- When someone's death is revealed, you will learn the blood type of their killer.\n- You may target dead people with your day ability.");
+
+		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["nelapsi", "677"], "Vampire", "Nelapsi", {subCat: "Manipulation"}, (e) =>
+	register_role(["daolaogui", "doal", "678"], "Spirit", "Daolaogui", {subCat: "Support"}, (e) =>
 	{
-		e.setDescription("Post 677");
+		e.setDescription("Post 678\n*\"This rain... the wind... I fear we're being haunted by a Daolaogui. Cover your ears.\"*");
 
-		e.addField("Alignment", "Vampire Manipulation", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Spirit Support", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Variable", true);
 
-		e.addField("Abilities:", "- Select two players at night and soulbind them.");
+		e.addField("Abilities:", "- Take over a player's body and control them into another. You'll learn your first target's role and feedback. Your target will send a deafening scream at whoever you control them into, roleblocking the secondary target and preventing them from communicating the next day.");
 
-		e.addField("Attributes:", "- At night you soul bind two players.\n- Both players will now visit the same target as the first player selected.\n- You may only select two new players to bind after both die, or you set them free.\n- Setting the players free takes one night.\n- Players are freed if you die.\n- The selected Players will know who they are tied to, and each other’s roles.\n- If either bound player dies the other one dies at night.\n- Soul bound players cannot be targetted by Vampire Killing Roles.\n- You can talk to the other Vampires at night.\n- If there are no kill capable Vampire roles left you will become a Lampir.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Attributes:", "- Upon spawning in the game, you'll shroud the Town in violent rain and roaring winds. Players will only be able to visit targets up to five houses away from them. Spirits and Astral users aren't affected by this. Your powers will wear off by the start of Night 4 and this attribute will no longer apply.\n- Each day, for every player who whispers to you, you may use your ability one extra time the following night.");
+
+		e.addField("Goal:", factions.Spirit.goal);
 	});
 
-	register_role(["adze", "678"], "Vampire", "Adze", {subCat: "Killing"}, (e) =>
-	{
-		e.setDescription("Post 678");
-
-		e.addField("Alignment", "Vampire Killing", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- You choose a target to drain blood from at night.\n- You can mask your true identity upon killing.");
-
-		e.addField("Attributes:", "- Killing your target replaces your Investigator and Consigliere results with that of your drained target.\n- You can talk to the other Vampires at night.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
-	});
-
-	register_role(["bebarlang", "bebar", "679"], "Vampire", "Bebarlang", {subCat: "Killing"}, (e) =>
+	register_role(["sleuth", "679"], "Sentry", "Sleuth", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 679");
 
-		e.addField("Alignment", "Vampire Killing", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Alignment", "Sentry Investigative", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You choose a target to drain blood from at night.\n- You cannot go 2 nights without feasting - or you die.");
+		e.addField("Abilities:", "- Tag a player's house during the night and/or remove a tag from a player's house during the day.\n- Learn the names of everyone who visited a (currently) tagged player (during/after their tagging). 1 Use.");
 
-		e.addField("Attributes:", "- Your visits are Astral.\n- You can talk to the other Vampires at night.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Attributes:", "- All players who cannot win with a \"good\" faction using their current role will be notified when a player is tagged, or when their tag is removed.\n- You gain an extra use of your second ability every time a kill-capable role incapable of winning with a \"good\" faction dies.");
+
+		e.addField("Goal:", factions.Sentry.goal);
 	});
 
-	register_role(["lampir", "680"], "Vampire", "Lampir", {subCat: "Killing"}, (e) =>
+	register_role(["rasen", "680"], "Discordian", "Rasen", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 680");
 
-		e.addField("Alignment", "Vampire Killing", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Alignment", "Discordian Support", true);
+		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- You choose a target to drain blood from at night.");
+		e.addField("Abilities:", "- Use any ability with a title at night, like 1197: Echo's Triple Tap or 632: Glacier's Arctic Cold.");
 
-		e.addField("Attributes:", "- You can talk to the other Vampires at night.\n- If you are roleblocked, you will only attack the player who roleblocked you. Their Last Will will be unreadable.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
-	});
+		e.addField("Attributes:", "- At the beginning of the game, you may change up to five words anywhere in the Grand Idea Mafia (hell) Comprehensive Rules document to any other word each other than \"Discordian(s)\" for the duration of the game. Those rules take precedence over any other rules for that game.");
 
-	register_role(["pijavica", "pija", "681"], "Vampire", "Pijavica", {subCat: "Manipulation"}, (e) =>
-	{
-		e.setDescription("Post 681");
-
-		e.addField("Alignment", "Vampire Manipulation", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- You may veil the sky at night, hiding what each player votes during trials the next day.");
-
-		e.addField("Attributes:", "- You can hear private messages.\n- Only you will learn what each player votes during trials.\n- You may not veil twice in a row.");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Goal:", factions.Discordian.goal);
 	});
 
 	register_role(["privateer", "681"], "Mafia", "Privateer", {subCat: "Espionage"}, (e) =>

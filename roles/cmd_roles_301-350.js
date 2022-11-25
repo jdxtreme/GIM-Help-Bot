@@ -757,11 +757,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Town Support", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Mount a special clock at a player's house.\n- Spend a night moving the clock.");
+		e.addField("Abilities:", "- Mount a special clock at a player's house. Four uses.");
 
-		e.addField("Attributes:", "- Players will know if they have a clock.\n- The player who has a clock is unable to use abilities on odd nights, but can use their abilities up to three times on even nights.");
+		e.addField("Attributes:", "- Players who have a clock are unable to use abilities on odd nights, but can use their abilities up to three times on even nights.\n- Players will not know they have a clock. At the end of odd nights, they'll be given a generic ability fail message.\n- You only have one clock. Using your ability again will get rid of the current clock and move it to the new target.\n- Your ability has last priority.\n- You cannot target yourself.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

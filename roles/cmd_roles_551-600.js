@@ -68,9 +68,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Each night, receive a random role in the game besides Workshopper. You can't receive the same role twice. You can propose changes to its attributes, abilities, or goal.");
+		e.addField("Abilities:", "- Each night, receive a random role in the game besides Workshopper. You can't receive the same role twice. You can propose changes to its existing attributes, abilities and flavour text.");
 
-		e.addField("Attributes:", "- In the morning, the host will post your proposed changes (preferably in a different channel).\n- All alive players in the game can anonymously vote on whether or not your changes should be accepted.\n- If the majority of alive players vote for the changes to go through, any instances of the role within the game will be changed starting the following night.\n- Any players with the role you're changing must also accept the changes for your workshopping to be succesful.\n- You have Basic defense until the first time you're attacked.");
+		e.addField("Attributes:", "- Workshopper is not supposed to be able to drastically alter abilities, only edit them minorly. Major edits, defined by host discretion, should not be allowed.\n- In the morning, the host will post your proposed changes (preferably in a different channel).\n- All alive players in the game can anonymously vote on whether or not your changes should be accepted.\n- If the majority of alive players vote for the changes to go through, any instances of the role within the game will be changed starting the following night.\n- Any players with the role you're changing must also accept the changes for your workshopping to be successful.\n- You have Basic defense until the first time you're attacked.");
 		
 		e.addField("Goal:", "Have your workshopping be accepted thrice.");
 	});
@@ -424,7 +424,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Serve drinks at your target's house, every night.");
 
-		e.addField("Attributes:", "- If they are visited by a non Town non Neutral Benign role, all visitors are roleblocked.\n- If they visit a non Town non Neutral Benign role, roleblock your target' visitor.\n- If neither of those happen, redirect all of your target' visitors into yourself instead.\n- You will not know if you roleblocked anyone.");
+		e.addField("Attributes:", "- If they are visited by a non Town non Neutral Benign role, all visitors are roleblocked.\n- If they visit a non Town non Neutral Benign role, roleblock your target' visitor.\n- If neither of those happen, you will cope.\n- You will not know if you roleblocked anyone.\n- Roleblock Immunity");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

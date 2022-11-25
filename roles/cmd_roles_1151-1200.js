@@ -581,7 +581,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Inform (Night): Select a target. They will be informed that you are a Vegan.\n- Talk Your Ear Off (Night): All players who visit you tonight will receive the night result \"You slept peacefully.\" If a player who visits you is killed, they will receive their death notification instead.\n- Lecture (Day, 1 use): All players who you have previously Informed (including players you informed pre-conversion) will be silenced for the rest of the day.");
+		e.addField("Abilities:", "- Inform (Night): Select a target. They will be informed that you are a Vegan.\n- Talk Your Ear Off (Night): All players who visit you tonight will receive the night result \"You slept peacefully.\" If a player who visits you is killed, they will receive their death notification instead.\n- Lecture (Day, 1 use): All players who you have previously Informed (including players you informed pre-conversion) will be muted and cannot react for the rest of the day.");
 
 		e.addField("Attributes:", "- Anyone affected by Talk Your Ear Off will have any feedback that they may receive from their abilities withheld along with any other notifications they would have received.");
 
@@ -624,7 +624,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Jack of All Trades (2-shot): Use any ability that an Agent existing in this round can use.\n- Identify Contact (1-shot): Choose a codeword. You will gain a permanent private chat with the Agent using that codeword.");
+		e.addField("Abilities:", "- Perfect Forgery (Infinite): Target a player or yourself. You may choose a role for them to appear as to both Town Investigatives and on death until the end of the next day. (if they die, their role remains framed in the graveyard)\n- Jack of All Trades (2-shot): Use any ability that an Agent existing in this round can use. If you are the last living Agent, you may instead use any 2+ shot Agent ability.\n- Identify Contact (1-shot): Choose a codeword. You will gain a permanent private chat with the Agent using that codeword.");
 
 		e.addField("Attributes:", "- At game start, you will learn if any other faction heads or neutral killings are present, and if so, which.\n- You are detection-immune to abilities that determine alignment.\n- If you carry the factional kill, you will rampage.");
 
@@ -636,10 +636,10 @@ module.exports = (g) =>
 		e.setDescription("Post 1194");
 
 		e.addField("Alignment", "Unique Agent Head", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Attack", "Powerful (Unstoppable)", true);
 		e.addField("Defense", "Basic (Invincible)", true);
 
-		e.addField("Abilities:", "- Reckless (1-shot): Use an ability that a Killing Agent can use.\n- Signal Mass Attack (1-shot): Use during the day. Enable all Agent roles to use a factional attack the next night. Agents will be informed of this.\n- Take Charge (0-shot): This ability gains 1 ammo any time a Town Power, Neutral Killing, or Faction Lead/Head role dies. Grant yourself a hidden, extra vote.");
+		e.addField("Abilities:", "- Reckless (2-shot): Use an ability that a Killing Agent can use.\n- Signal Mass Attack (1-shot): Use during the day. Enable all Agent roles to use a factional attack the next night. Agents will be informed of this.\n- Take Charge (0-shot): This ability gains 1 ammo the first time a Town Power, Neutral Killing, or Faction Lead/Head role dies. All Agents are informed of your identity, and your attack is upgraded to Unstoppable.");
 
 		e.addField("Attributes:", "- You have Invincible defense against any form of poison.");
 
@@ -654,7 +654,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Lead Through Action (2-shot): Use an ability that an Communications or Support Agent can use.\n- Dinner Discussion (Infinite): During the day, choose a player. You will share a chat with them the next night, removing them from any factional chats they are in. They will know your name, but not that you are Charlie.");
+		e.addField("Abilities:", "- Lead Through Action (2-shot): Use an ability that an Communications or Support Agent can use. This may not be used at night if you are in a Dinner Discussion.\n- Dinner Discussion (Infinite): During the day, choose a player. You will share a chat with them the next night, removing them from any factional chats they are in. You will appear as “Charlie” to them, and you learn their role at the end of the night.");
 
 		e.addField("Attributes:", "- At the start of the game, you will learn the role of a random player. This does not bypass detection immunity, if such immunity grants the ability to choose a disguise role.\n- You have roleblock, control, and redirection immunity. If any of these are attempted on you, you will learn what role attempted to cause it.\n- If you carry the factional kill, you will roleblock your target.");
 
@@ -669,7 +669,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Tactical Espionage Master (1-shot): Use an ability that a Sabotage Agent can use.\n- Isolate (2-shot): Choose a player during the night. They will permanently be removed from any private chat they are in, and can only be added to another by an Agent’s ability. You may revoke this at any time.\n- Manipulate Connections (1-shot): Choose a player during the night. The next day, you may control their vote as if it were your own.");
+		e.addField("Abilities:", "- Tactical Espionage Master (2-shot): Use an ability that a Sabotage Agent can use.\n- Isolate (Infinite): Choose a player during the night. They will have Isolated Defense the next night and be removed from any private chats they’re in. (The target is informed of the defense change)\n- Manipulate Connections (1-shot): Choose a player during the night. The next day, you may control their vote as if it were your own.");
 
 		e.addField("Attributes:", "- You are detection immune. At the beginning of the game, you may choose a role to appear as to investigations. You may change this at any time.\n- If you carry the factional kill, it will be Astral and you may choose what role it appears to come from.");
 

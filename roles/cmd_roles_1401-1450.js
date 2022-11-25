@@ -15,19 +15,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["right_hand_man", "righthandman", "right", "rhm", "1402"], "Toppat", "Right Hand Man", {subCat: "Executive"}, (e) =>
+	register_role(["logger", "1402"], "NTF", "Logger", {subCat: "Investigative"}, (e) =>
 	{
 		e.setDescription("Post 1402");
 
-		e.addField("Alignment", "Toppat Clan Executive", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Alignment", "NTF Investigative", true);
+		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attack a player at night.\n- Assist with a Raid, attacking all players at the victim's home.");
+		e.addField("Abilities:", "- Check a player to see who they target tonight and who they targeted the previous night.\n- After participating in a secured node, during the day, learn how many players in that node were evil.");
 
-		e.addField("Attributes:", "**Chief Modifier** - If killed for the first time, don't die. Instead, gain Unstoppable attack and Basic defense, and Astral. Does not activate if lynched or killed by a Jailor or Jailor-type role.");
-
-		e.addField("Goal:", factions.Toppat.goal);
+		e.addField("Goal:", factions.NTF.goal);
 	});
 
 	register_role(["kidnapper", "1403", "63u"], "Unseen", "Kidnapper", {subCat: "Support"}, (e) =>
@@ -276,9 +274,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Scare someone, Roleblocking them and muting them the next day, Can't be used on the same person twice in a row.\n- Possess and control someone, Learning their role and doing their night action for them. (2 uses).");
+		e.addField("Abilities:", "- Scare someone, Roleblocking them and muting them the next day, Can't be used on the same person twice in a row.\n- Possess a player at Day, When night arrives, You will learn their role and do their night action for them. (2 uses)");
 
-		e.addField("Attributes:", "- You will get Basic defense and Roleblock Immunity on odd numbered Nights.");
+		e.addField("Attributes:", "- You will get Basic defense and Roleblock Immunity on odd numbered Nights.\n- Players will learn they were possessed at night start, You may not do your action if possessing someone.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -334,9 +332,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Breathe Flames on a Target, Rampaging and Torching them, Can only be used on night 3, 6, 9 and so on.\n- Ground pound to roleblock all players tonight, Koopas aren't affected by this. (1 use, +1 use after day 5)");
+		e.addField("Abilities:", "- Breathe Flames on a Target, Rampaging them and Torching the original Target, Can only be used on night 3, 6, 9 and so on.\n- Ground pound to roleblock all players tonight, Koopas aren't affected by this. (1 use, +1 use after day 5)");
 
-		e.addField("Attributes:", "- Anyone visiting you will be dealt a Basic attack if they aren't from your Faction.\n- Roleblock Immunity while Breathing flames.");
+		e.addField("Attributes:", "- Roleblock Immunity while Breathing flames.");
 
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -654,53 +652,6 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["undercover_agent", "undercoveragent", "undercover", "agent", "ua", "1444"], "Toppat", "Undercover Agent", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 1444");
-
-		e.addField("Alignment", "Toppat Clan Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Roleblock a player during the night.\n- Bypass roleblock immunity. 1 use.");
-
-		e.addField("Attributes:", "- At the beginning of the game, you are given a role in a rival REF that has a factional chat. This role cannot be a faction (Head) role. If no other REFs exist, or none have a factional chat, automatically reroll into another Toppat.\n- You gain the attributes and abilities of that role, as well as your own ability. You can use your own ability with your copied one. You may still survey players, as you are still a TcS role.\n- You lose access to the Toppat chat, but gain access to the chat of the faction you're disguised as. The Toppats will know your true identity, and you will know your fellow Toppats, however you cannot whisper to them.\n- You cannot become the Chief unless you are the only remaining Toppat. If the faction you're disguised as is eliminated, rejoin the Toppat chat and you can become Chief normally. You do not lose any abilities.");
-
-		e.addField("Chief Modifier:", "Gain the ability to roleblock all members of the faction you're disguised as, with 2 uses. If undisguised, you will always bypass Roleblock immunity.");
-
-		e.addField("Goal:", factions.Toppat.goal);
-	});
-
-	register_role(["base_guard", "baseguard", "bg", "1445"], "Toppat", "Base Guard", {subCat: "Operator"}, (e) =>
-	{
-		e.setDescription("Post 1445");
-
-		e.addField("Alignment", "Toppat Clan Operator", true);
-		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Stand guard at the Toppat Headquarters. You will automatically kill all Investigative, Killing, and other roles deemed to be a negative visit to a Toppat member. Other roles will not be affected, but you can kill multiple people at once. 3 uses.");
-
-		e.addField("Attributes:", "**Chief Modifier** - Gain the ability to order a goon to stand guard while you specifically hunt down another player to kill them. 2 uses.");
-
-		e.addField("Goal:", factions.Toppat.goal);
-	});
-
-	register_role(["government_traitor", "governmenttraitor", "gt", "1446"], "Toppat", "Government Traitor", {subCat: "Executive"}, (e) =>
-	{
-		e.setDescription("Post 1446");
-
-		e.addField("Alignment", "Toppat Clan Executive", true);
-		e.addField("Attack", "Basic (Powerful)", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Have a player report to you during the day. Learn their faction and alignment. 4 uses.\n- Interrogate a player during the night, learning their faction.\n- Anonymously threaten a player to reveal their role to you. If they accept, you learn their exact role. If they decline, you will attack them. If they are immune, they can choose what role to appear as. 1 use.");
-
-		e.addField("Attributes:", "**Chief Modifier** - Gain 2 uses of anonymously threatening a player. The attack is also increased to Powerful.");
-
-		e.addField("Goal:", factions.Toppat.goal);
-	});
-
 	register_role(["dry_bones", "drybones", "db", "1447"], "Koopa", "Dry Bones", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 1447");
@@ -729,21 +680,6 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- At the beginning of the game, two players will have been assigned to be your murderer, but you will only know their roles.\n- Once you kill both of these players, you may attack twice per night and you are able to kill anyone.");
 
 		e.addField("Goal:", factions.Spirit.goal);
-	});
-
-	register_role(["professional_vehicle_operator", "professionalvehicleoperator", "operator", "pvo", "1449"], "Toppat", "Professional Vehicle Operator", {subCat: "Operator"}, (e) =>
-	{
-		e.setDescription("Post 1449");
-
-		e.addField("Alignment", "Toppat Clan Operator", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Ram a vehicle into a person's home, each dealing a rampage attack. You have 1 of each vehicle.\n> - A car deals a Basic attack.\n> - A truck deals a Powerful attack.\n> - A helicopter deals an Unstoppable attack while Charles laughs from the sidelines.\n> - A rocket deals an Overkill attack.");
-
-		e.addField("Attributes:", "- The rocket can only be used once you are out of all other vehicles.\n- The rocket will kill the player's neighbors as well, but also yourself.\n**Chief Modifier** - Gain 2 cars and 1 truck. You will not die from the rocket.");
-
-		e.addField("Goal:", factions.Toppat.goal);
 	});
 
 	register_role(["goombario", "goombella", "goom", "1450"], "Koopa", "Goombario/Goombella", {subCat: "Support"}, (e) =>

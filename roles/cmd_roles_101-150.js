@@ -154,7 +154,7 @@ module.exports = (g) =>
 
 	register_role(["samurai", "111"], "Town", "Samurai", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 111");
+		e.setDescription("Post 111\n*It's called sudoku, actually.*");
 
 		e.addField("Alignment", "Town Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -162,7 +162,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Attack a player at night.");
 
-		e.addField("Attributes:", "- If you attack a Townie, you will immediately commit suicide, dealing an Unstoppable attack to yourself, even if the Townie doesn't die.\n- If you are roleblocked, you will attack your roleblocker unless they're a member of the Everfrost.");
+		e.addField("Attributes:", "- If you attack a Townie, you will immediately commit suicide, even if the Townie doesn't die.\n- If you are roleblocked, you will attack your roleblocker unless they're a member of the Everfrost.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

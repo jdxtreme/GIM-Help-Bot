@@ -12,7 +12,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Thunderbolt: Zap a player with a Basic attack. Whenever you use this, your attack tier increases. (3 uses)\n- Electroball: Roleblock a player AND whoever visits them. (3 uses)\n- Thunder Wave: Redirect two players to each other. (1 use)\n- Evolve: Evolve into Raichu (2303). May only be used if your attack tier is raised to Unstoppable.\n- Regional Evolve: Evolve into Alolan Raichu (2302). May only be used if you completed one of the following conditions as Pichu: Used Play Nice on someone that tried attacking OR used Nasty Plot on a Pokemember who wouldn't have killed a target if ya didn’t help.");
 
-		e.addField("Attributes:", "- Agility: You're capable of using multiple abilities in the same night as long as you have enough uses.");
+		e.addField("Attributes:", "- Agility: You're capable of multitasking as long as you have enough uses.");
 
 		e.addField("Goal:", factions.Pokemon.goal);
 	});
@@ -27,7 +27,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Thunder Punch: Choose one player to attack with a thunder punch. The impact is so large that it roleblocks their neighbors on the player list, but Pokemon players are immune. (∞ uses)\n- Disarming Voice: Disable all attacks targeting Pokemembers until the end of the next night. (2 uses)\n- Encore: Use one of the abilities from Pichu or Pikachu. (2 uses)\n- Quick Attack: Attack a player during the day. This attack resolves immediately. (1 use)\n- Shock Wave: Redirect three players to a player of your choice. (1 use)");
 
-		e.addField("Attributes:", "- Agility: You're capable of using multiple abilities in the same night as long as you have enough uses.\n- Concept of Evolution: Your attack value will be whatever your attack value was as Pikachu when you evolved.\n- Surge Surfer: You'll levitate over the first attack that targets you every night. You can only be killed by an attack if you're attacked twice or more in the same night.\n- This role can't spawn unless it's evolved from Pikachu.");
+		e.addField("Attributes:", "- Agility: You're capable of multitasking as long as you have enough uses.\n- Concept of Evolution: Your attack value will be whatever your attack value was as Pikachu when you evolved.\n- Surge Surfer: You'll levitate over the first attack that targets you every night. You can only be killed by an attack if you're attacked twice or more in the same night.\n- This role can't spawn unless it's evolved from Pikachu.");
 
 		e.addField("Goal:", factions.Pokemon.goal);
 	});
@@ -42,7 +42,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Thunder Punch: Choose one player to attack with a thunder punch. Does nothing besides an attack. (∞ uses)\n- Encore: Use one of the abilities from Pichu or Pikachu. (1 use)\n- Shock Wave: Redirect two players to a player of your choice. (1 use)");
 
-		e.addField("Attributes:", "- Agility: You're capable of using multiple abilities in the same night as long as you have enough uses.\n- Concept of Evolution: Your attack value will be whatever your attack value was as Pikachu when you evolved.");
+		e.addField("Attributes:", "- Agility: You're capable of multitasking as long as you have enough uses.\n- Concept of Evolution: Your attack value will be whatever your attack value was as Pikachu when you evolved.");
 
 		e.addField("Goal:", factions.Pokemon.goal);
 	});
@@ -158,7 +158,7 @@ module.exports = (g) =>
 
 	register_role(["unbound", "2311"], "Neutral", "Unbound", {subCat: "Evil"}, (e) =>
 	{
-		e.setDescription("Post 2311");
+		e.setDescription("Post 2311\n*They say the sky's the limit, but now we've got rockets.*");
 
 		e.addField("Alignment", "Neutral Evil", true);
 		e.addField("Attack", "None", true);
@@ -237,9 +237,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic (Unstoppable)", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Trap a player in your web. You may use this each night along with one of your other abilities. You know who is currently in your web at all times. This ability resolves after all other night abilities unless specified otherwise.\n- Poison a player in your web. This attack is Basic.\n- Devour a player in your web, dealing an Unstoppable attack to them and cleaning them. You may only use this ability if you're in the web yourself. (1 use)");
+		e.addField("Abilities:", "- Trap a player in your web. You may use this each night along with one of your other abilities. You know who is currently in your web at all times. This ability resolves after all other night abilities unless specified otherwise.\n- Bite a player in your web, poisoning them. This attack is Basic.\n- Devour a player in your web, dealing a Powerful attack which bypasses protective effects and cleans them. You may only use this ability if you're in the web yourself. (1 use)");
 
-		e.addField("Attributes:", "- Players are notified when they're trapped in your web. Players in your web are slowed down, and their abilities will be delayed by one night.\n- Players can spend a night escaping from the web, though this is affected by the delay as well. Escaping your web resolves after you trap someone.\n- A player escaping from your web delays poison effects by one night.\n- You are immune to your own delays.");
+		e.addField("Attributes:", "- Players are notified when they're trapped in your web. Players in your web are slowed down, and their abilities will be delayed by one night.\n- Players can spend a night escaping from the web, though this is affected by the delay as well. Escaping your web resolves after you trap someone.\n- A player escaping from your web delays poison effects by one night.\n- Players inside your web cannot be healed.\n- You are immune to your own delays.\n- You may self-target. ");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});

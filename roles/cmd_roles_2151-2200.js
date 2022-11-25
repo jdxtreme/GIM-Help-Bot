@@ -619,7 +619,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None (Powerful)", true);
 
-		e.addField("Abilities:", "- Choose at night whether you want to go on alert the next day.");
+		e.addField("Abilities:", "- Choose at night whether you want to go on alert the next day. (3 uses)");
 
 		e.addField("Attributes:", "- When going on alert, you will gain Powerful defense for the night and the next day.\n- While on alert, you will instantly deal a Powerful attack to anyone who targets you with a day ability and all people who vote you.");
 		
@@ -749,10 +749,10 @@ module.exports = (g) =>
 		e.setDescription("Post 2198");
 
 		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Unstoppable", true);
+		e.addField("Attack", "Variable", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- (30) Shoot someone, except you can only do it during the day because you hate the dark. Also you just walk up to the person point blank and shoot them in the head so your attacks are powerful instead of basic.\n- (2189) Choose at night whether you want to go on alert the next day.\n- (2190) - Select a player each night. You will be given flavour text describing their role without explicitly mentioning its name or referencing its abilities or attributes.\n- (2193) Check to see if someone is a Conversion Capable role that cant win with you during the day. If they are, you will attack them.\n- (2197) You may choose one person during the night to Jail for the day.");
+		e.addField("Abilities:", "- (30) Shoot someone, except you can only do it during the day because you hate the dark. Also you just walk up to the person point blank and shoot them in the head so your attacks are powerful instead of basic.\n- (2189) Choose at night whether you want to go on alert the next day.\n- (2193) Check to see if someone is a Conversion Capable role that cant win with you during the day. If they are, you will attack them.\n- (2197) You may choose one person during the night to Jail for the day.");
 
 		e.addField("Attributes:", "- May use up to 2 abilities per day/night.\n- Any specifics of your abilities, such as charges, cooldown, and other, dont apply\n- You do not have Guilt.\n- Your kills will appear as the role you used the ability of.");
 		

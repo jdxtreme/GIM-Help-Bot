@@ -696,19 +696,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Stalker.goal);
 	});
 
-	register_role(["dracula", "1697"], "Vampire", "Dracula", {subCat: "Killing"}, (e) =>
+	register_role(["dracula", "1697"], "Neutral", "Dracula", {subCat: "Killing"}, (e) =>
 	{
 		e.setDescription("Post 1697");
 
-		e.addField("Alignment", "Vampire Killing", true);
+		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Variable", true);
 
-		e.addField("Abilities:", "- You may choose a target to drain blood from, attacking them.");
+		e.addField("Abilities:", "- You may choose a target to drain blood from, attacking them.");c
 
-		e.addField("Attributes:", "- You will gain defense equal to the Attack Level of your drained target for the night. For example, if you drain a target with Unstoppable Attack, you will gain Invincible Defense.");
+		e.addField("Attributes:", "- You will gain defense equal to the Attack Level of your drained target for the night. For example, if you drain a target with Unstoppable Attack, you will gain Invincible Defense.\n- You may win with roles related to vampires, if any spawn.");
 		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
 	register_role(["apostle", "1698"], "Umbrae", "Apostle", {subCat: "Assault"}, (e) =>

@@ -102,17 +102,19 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Give someone an animal every night based on their alignment. (see 1950)\n- Give someone any animal at night. You may only do this thrice.");
 
-		e.addField("Attributes:", "- Animals are items that give their holders one use of the following abilities:\n> - Dog: Choose a player. If they're attacked, you grant them Powerful defense and cause the attacker to start bleeding. (see 235)\n> - Siamese cat: Choose a player. The host will find an image that best depicts your target's role and what they're doing tonight. (see 2057)\n> - Black cat: Choose three players. For each of them, redirect them to a player of your choice.\n> - Killer bunny: Deal a Basic attack to a player. If you are roleblocked, you will attack the role blocker in addition to your target. When you automatically kill a roleblocker, the roleblock attempt will fail. Roleblockers that target you will have their last will covered in blood, making it unreadable. You may choose to spare roleblockers instead.\n> - Beaver: Players can't talk, whisper, or vote for anything except nightfall the next day.\n> - Lamb: Choose a player. You deal a Basic attack to all of their visitors.");
+		e.addField("Attributes:", "- Animals are items that give their holders one use of the following abilities:");
 
-		e.addField("Attributes (cont.):", "> - Phoenix: Deal a Powerful attack to a player. If you die tonight, at the end of the next phase, you'll be revived and can't be killed or voted. (see 479)\n> - Dove: Deal a Basic attack to anyone who uses a rampage attack or one stronger than Basic tonight.\n> - Jaguar: Choose three players. You'll learn whether or not they can all win together.\n> - Wolf: Deal a Powerful Astral attack to a player and bleed them if they survive. (see 214 I think)\n> - Bat: Choose a player. They will be redirected to a random player.\n> - Tuxedo cat: Choose two players. They gain Powerful defense, roleblock immunity, and redirect immunity tonight.\n> - Goat: Choose a player. They gain Powerful defense for the night. You may choose a role. They appear as that role to all investigative effects tonight.\n> - Elephant: Choose a player. If they used an Astral ability tonight, deal a Powerful attack to them. Otherwise, roleblock them.");
+		e.addField("Animals:", "- Dog: Choose a player. If they're attacked, you grant them Powerful defense and cause the attacker to start bleeding. (see 235)\n- Siamese cat: Choose a player. The host will find an image that best depicts your target's role and what they're doing tonight. (see 2057)\n- Black cat: Choose three players. For each of them, redirect them to a player of your choice.\n- Killer bunny: Deal a Basic attack to a player. If you are roleblocked, you will attack the role blocker in addition to your target. When you automatically kill a roleblocker, the roleblock attempt will fail. Roleblockers that target you will have their last will covered in blood, making it unreadable. You may choose to spare roleblockers instead.\n- Beaver: Players can't talk, whisper, or vote for anything except nightfall the next day.\n- Lamb: Choose a player. You deal a Basic attack to all of their visitors.");
 
-		e.addField("Attributes (moar.):", "> - Squid: Choose a player. You roleblock them tonight, and the next night, they won't receive night feedback.\n> - Pigeon: Gain Powerful defense for the night.\n> - Canary: Choose a player. You will learn how many players visited them. Then, the next day, choose a player. If they visited your target last night, you'll deal a Basic attack to them.\n> - Spider: Choose a player. Anyone who would visit them tonight will be roleblocked. If a visitor would attack them, they're roleblocked through immunities.\n> - Eagle: Choose a player. You'll deal an attack to that player of a tier equal to the number of Striked players in their target chain. (see 1671)\n> - Parrot: Choose a player during the day. The next night, they may use their night abilities twice.\n> - Deer: Deal a rampaging Basic attack to someone.\n> - Fox: Increase all attack values by a tier tonight.\n> - Sheep: Send yourself and someone else to the Dream World. (see 326, probably, I haven't actually read the role I've got no idea what this does)");
+		e.addField("Animals (cont.):", "- Phoenix: Deal a Powerful attack to a player. If you die tonight, at the end of the next phase, you'll be revived and can't be killed or voted. (see 479)\n- Dove: Deal a Basic attack to anyone who uses a rampage attack or one stronger than Basic tonight.\n- Jaguar: Choose three players. You'll learn whether or not they can all win together.\n- Wolf: Deal a Powerful Astral attack to a player and bleed them if they survive. (see 214 I think)\n- Tuxedo cat: Choose two players. They gain Powerful defense, roleblock immunity, and redirect immunity tonight.\n- Goat: Choose a player. They gain Powerful defense for the night. You may choose a role. They appear as that role to all investigative effects tonight.\n- Elephant: Choose a player. If they used an Astral ability tonight, deal a Powerful attack to them. Otherwise, roleblock them.\n- Squid: Choose a player. You roleblock them tonight, and the next night, they won't receive night feedback.\n- Pigeon: Gain Powerful defense for the night.");
 
-		e.addField("Attributes (why.):", "> - Horse: Roleblock someone. The next player they visit will also be roleblocked.\n> - Owl: Roleblock someone through immunities.\n> - Skunk: Choose a player. For each limited-use ability they have, learn how many charges they have remaining of it. If they don't have any limited-use abilities, you will be notified.\n> - Swan: Choose a player. They gain roleblock, redirect, conversion, and detection immunity tonight, and their visit tonight is Astral. If they are attacked, you die instead.\n> - Rat: Choose a player. They cannot use their abilities for the rest of the game. Any other player may take a night to alleviate them of this.\n> - Dragon: Choose a player during the day. They're lynched immediately.\n> - Chipmunk: Deal a rampaging Powerful Astral attack to a player.\n> - Monkey: Choose two players. You'll roleblock the first and use their night ability on the second. (see 233)");
+		e.addField("Animals (moar.):", "- Canary: Choose a player. You will learn how many players visited them. Then, the next day, choose a player. If they visited your target last night, you'll deal a Basic attack to them.\n- Spider: Choose a player. Anyone who would visit them tonight will be roleblocked. If a visitor would attack them, they're roleblocked through immunities.\n- Eagle: Choose a player. You'll deal an attack to that player of a tier equal to the number of Striked players in their target chain. (see 1671)\n- Parrot: Choose a player during the day. The next night, they may use their night abilities twice.\n- Deer: Deal a rampaging Basic attack to someone.\n- Fox: Increase all attack values by a tier tonight.\n- Sheep: Send yourself and someone else to the Dream World. (see 326, probably, I haven't actually read the role I've got no idea what this does)\n- Horse: Roleblock someone. The next player they visit will also be roleblocked.\n- Owl: Roleblock someone through immunities.");
 
-		e.addField("Attributes (stop.):", "> - Ferret: Deal an Overkill attack to someone. This has a 33% chance to fail. If you rerolled a role this game, it has a 25% chance to fail instead.\n> - Cow: Deal a Powerful attack to the last player who said \"moo\" yesterday, or to two players if no one did.\n> - Eagle: Choose a player. You'll deal an attack to that player of a stage equal to the number of Striked players in their target chain. (see 1671)\n> - Lion: Deal a Powerful attack to two random non-Pale Moon players.\n> - Shark: Choose a player. They must choose to permanently lose either a stage of attack or stage of defense. Then, you can increase the chosen value by a stage for yourself or one of your teammates. If your target's attack and defense are both None or lower, you attack them instead.");
+		e.addField("Animals (why.):", "- Skunk: Choose a player. For each limited-use ability they have, learn how many charges they have remaining of it. If they don't have any limited-use abilities, you will be notified.\n- Swan: Choose a player. They gain roleblock, redirect, conversion, and detection immunity tonight, and their visit tonight is Astral. If they are attacked, you die instead.\n- Rat: Choose a player. They cannot use their abilities for the rest of the game. Any other player may take a night to alleviate them of this.\n- Dragon: Choose a player during the day. They're lynched immediately.\n- Chipmunk: Deal a rampaging Powerful Astral attack to a player.\n- Monkey: Choose two players. You'll roleblock the first and use their night ability on the second. (see 233)\n- Ferret: Deal an Overkill attack to someone. This has a 33% chance to fail. If you rerolled a role this\ngame, it has a 25% chance to fail instead.\n- Cow: Deal a Powerful attack to the last player who said \"moo\" yesterday, or to two players if no one did.");
 
-		e.addField("Attributes (please.):", "> - Robot dog: Choose {two // three} players. If they're attacked, you grant them {Basic // Powerful // Invincible}} defense and {cause the attacker to start bleeding. (see 235) // deal a Basic attack to the attacker. // roleblock the attacker and cover them in frost.}\n> - Bee: Prevent someone from using an ability the following night.\n> - Rhino: Deal a Powerful Astral attack to your target and a random visitor.\n> - Otter: Choose a player. If no other players would visit them tonight, roleblock them.\n> - Hummingbird: Choose a player. Their defense is decreased by a stage until they are healed or protected.\n> - Peacock: Leave the game. If the game has ended by the start of the next day, you win. Otherwise, you lose.\n> - Brushwagg: (G)(3): Raise a player's attack and defense values by three stages each for the night.\n> - Koala: Deal a Powerful attack to a player. When they die tonight, clean them.\n> - Emu: Prevent the details of all deaths tonight from being released until the day after.");
+		e.addField("Animals (stop.):", "- Eagle: Choose a player. You'll deal an attack to that player of a stage equal to the number of Striked players in their target chain. (see 1671)\n- Lion: Deal a Powerful attack to two random non-Pale Moon players.\n- Shark: Choose a player. They must choose to permanently lose either a stage of attack or stage of defense. Then, you can increase the chosen value by a stage for yourself or one of your teammates. If your target's attack and defense are both None or lower, you attack them instead.\n- Robot dog: Choose {two // three} players. If they're attacked, you grant them {Basic // Powerful // Invincible}} defense and {cause the attacker to start bleeding. (see 235) // deal a Basic attack to the attacker. // roleblock the attacker and cover them in frost.}\n- Bee: Prevent someone from using an ability the following night.\n- Rhino: Deal a Powerful Astral attack to your target and a random visitor.\n- Otter: Choose a player. If no other players would visit them tonight, roleblock them.");
+
+		e.addField("Animals (please.):", "- Hummingbird: Choose a player. Their defense is decreased by a stage until they are healed or protected.\n- Peacock: Leave the game. If the game has ended by the start of the next day, you win. Otherwise, you lose.\n- Brushwagg: (G)(3): Raise a player's attack and defense values by three stages each for the night.\n- Koala: Deal a Powerful attack to a player. When they die tonight, clean them.\n- Emu: Prevent the details of all deaths tonight from being released until the day after.\n- Caterpillar: The next night, players are forced to use abilities and forced to target themselves if able.\n- Beast: Deal a Powerful attack to a player and clean them.\n- Rooster: Grant a player RB, RD, conversion, and detection immunity and make their visit Astral tonight. If they would die, you do instead.");
 		
 		e.addField("Goal:", "Cause at least three deaths through your animals.");
 	});
@@ -182,12 +184,12 @@ module.exports = (g) =>
 		e.setDescription("Post 2112");
 
 		e.addField("Alignment", "Unique Sentry Power", true);
-		e.addField("Attack", "None", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Authorize an investigation on 1 player during the day. Mandatory or Random. You may authorize an additional target for every 10 players in the game (living or dead), rounded.\n- Slander someone during the day. This revokes their right to vote that day, and they will be authorized the following night. If they have already voted, their vote will be retracted.");
+		e.addField("Abilities:", "- Authorize an investigation on 1 player during the day. Mandatory or Random. You may authorize an additional target for every 10 players in the game (living or dead), rounded.\n- Slander someone during the day. This kills them. (they die.) (unless they have Powerful defense or higher.)");
 
-		e.addField("Attributes:", "- Your authorized targets will be revealed each night.\n- Targets remain authorized until the end of the following day.\n- You may choose someone to be your heir at any point. If they are a Sentry, they will be promoted to Dictator when you die. If they are not a Sentry, a random living Sentry will be promoted instead.\n- If you are the original Dictator, the new Dictator will not be able to use their abilities the following day after you die. Instead, 3 random people will be prioritized (See Post 1372), with one of them being your killer. This does not take effect if you are lynched.");
+		e.addField("Attributes:", "- Your authorized targets will be revealed each night.\n- Targets remain authorized permanently.\n- You may choose someone to be your heir at any point. If they are a Sentry, they will be promoted to Dictator when you die. If they are not a Sentry, a random living Sentry will be promoted instead.\n- If you are the original Dictator, the new Dictator will not be able to use their abilities the following day after you die. Instead, 3 random people will be prioritized (See Post 1372), with one of them being your killer. This does not take effect if you are lynched. The prioritized effect only lasts for 1 day and night.\n- You are immune to conversions.");
 		
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -466,7 +468,7 @@ module.exports = (g) =>
 
 	register_role(["germany", "german", "2130"], "Civilization", "Germany", {subCat: "Militaristic", censor: "German Infantry"}, (e) =>
 	{
-		e.setDescription("Post 2130");
+		e.setDescription("Post 2130\n*“Open war is better than masked peace.” -German Proverb*");
 
 		e.addField("Alignment", "Unique Civilization Militaristic", true);
 		e.addField("Attack", "Basic (Powerful)", true);
@@ -500,7 +502,7 @@ module.exports = (g) =>
 
 	register_role(["russia", "russian", "2132"], "Civilization", "Russia", {subCat: "Religious", censor: "Russian cossack"}, (e) =>
 	{
-		e.setDescription("Post 2132");
+		e.setDescription("Post 2132\n*“Destiny may ride with us today, but there is no reason for it to interfere with lunch.” -Peter the Great*");
 
 		e.addField("Alignment", "Unique Civilization Religious", true);
 		e.addField("Attack", "None", true);
@@ -517,7 +519,7 @@ module.exports = (g) =>
 
 	register_role(["maya", "mayan", "2133"], "Civilization", "Maya", {subCat: "Economic", censor: "Mayan hul'che"}, (e) =>
 	{
-		e.setDescription("Post 2133");
+		e.setDescription("Post 2133\n*“You pay for cacao with cacao, money with money, and corn with corn.” -Mayan proverb*");
 
 		e.addField("Alignment", "Unique Civilization Economic", true);
 		e.addField("Attack", "Powerful", true);
@@ -534,7 +536,7 @@ module.exports = (g) =>
 
 	register_role(["macedon", "macedonian", "2134"], "Civilization", "Macedon", {subCat: "Militaristic", censor: "Macedonian hypaspist"}, (e) =>
 	{
-		e.setDescription("Post 2134");
+		e.setDescription("Post 2134\n*“I am not afraid of an army of lions led by a sheep; I am afraid of an army of sheep led by a lion.” -Alexander the Great*");
 
 		e.addField("Alignment", "Unique Civilization Militaristic", true);
 		e.addField("Attack", "Basic (Unstoppable)", true);
@@ -568,7 +570,7 @@ module.exports = (g) =>
 
 	register_role(["portugal", "portugese", "2136"], "Civilization", "Portugal", {subCat: "Economic", censor: "Portugese Nau"}, (e) =>
 	{
-		e.setDescription("Post 2136");
+		e.setDescription("Post 2136\n*“Oh, salty sea, how much of your salt is tears from Portugal?” -Fernando Pessoa*");
 
 		e.addField("Alignment", "Unique Civilization Economic", true);
 		e.addField("Attack", "None", true);
@@ -585,7 +587,7 @@ module.exports = (g) =>
 
 	register_role(["vietnam", "vietnamese", "2137"], "Civilization", "Vietnam", {subCat: "Scientific", censor: "Vietnamese ambushers"}, (e) =>
 	{
-		e.setDescription("Post 2137");
+		e.setDescription("Post 2137\n*“You can kill ten of my men for every one I kill of yours. But even at those odds, you will lose and I will win.” -Ho Chi Minh*");
 
 		e.addField("Alignment", "Unique Civilization Scientific", true);
 		e.addField("Attack", "Basic", true);
@@ -602,7 +604,7 @@ module.exports = (g) =>
 
 	register_role(["india", "indian", "2138"], "Civilization", "India", {subCat: "Religious", censor: "Indian war elephant"}, (e) =>
 	{
-		e.setDescription("Post 2138");
+		e.setDescription("Post 2138\n*“The essence of all religions is one. Only their approaches are different.” -Mahatma Gandhi*");
 
 		e.addField("Alignment", "Unique Civilization Religious", true);
 		e.addField("Attack", "Basic", true);
@@ -640,7 +642,7 @@ module.exports = (g) =>
 
 	register_role(["spain", "spanish", "2140"], "Civilization", "Spain", {subCat: "Religious", censor: "Spanish Conquistador"}, (e) =>
 	{
-		e.setDescription("Post 2140");
+		e.setDescription("Post 2140\n*“I would rather lose all my lands and a hundred lives than be king over heretics.” -Philip II of Spain*");
 
 		e.addField("Alignment", "Unique Civilization Religious", true);
 		e.addField("Attack", "Powerful", true);
@@ -648,16 +650,16 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Guess someone’s win condition at night.\n- Launch the Inquisition the next day. Everyone must submit either their real win condition or a fake one. You will know how many people lie, but not who. (One Use) (Costs 10 Gold)");
 
-		e.addField("Attributes:", "- You will know all possible win conditions at the start of the game.\n- If you are correct, you will do one of the following at random:\n> - Learn the target’s exact role. (40% chance)\n> - Reveal the result publicly. (30% chance)\n> - Attack the target. (20% chance)\n> - Convert the target. (10% chance)\n- If you are wrong three times, you will deal an Overkill attack to yourself.\n- You can never select “Conquer the world through war.”\n- During the Inquisition, anyone who does not submit a win condition by the end of the day will be dealt a Powerful attack.\n- Detection Immunity");
+		e.addField("Attributes:", "- You will know all possible win conditions at the start of the game.\n- If you are correct, you will do one of the following at random:\n> - Learn the target’s exact role and read their will. (40% chance)\n> - Reveal the result publicly (if not good faction) OR convert the target into a random neutral role (if good faction) (30% chance)\n> - Attack the target. (20% chance)\n> - Convert the target. (10% chance)\n- If you are wrong three times, you will deal an Overkill attack to yourself.\n- You can never select “Conquer the world through war.”\n- During the Inquisition, anyone who does not submit a win condition by the end of the day will be dealt a Powerful attack.\n- Detection Immunity");
 
-		e.addField("Messages:", "“They were conquered by a Spanish Conquistador.” (Factional Kill)\n“The Inquisition has revealed that __’s win condition is __!” (Public Reveal)\n“A public Inquisition has commenced!” (Starting Inquisition)\n“They did not expect the Spanish Inquisition.” (Inquisitional kill)");
+		e.addField("Messages:", "“They were conquered by a Spanish Conquistador.” (Factional Kill)\n“The Inquisition has revealed  [player]’s win condition is [wincon]!” (Public Reveal)\n“A public Inquisition has commenced!” (Starting Inquisition)\n“They did not expect the Spanish Inquisition.” (Inquisitional kill)");
 		
 		e.addField("Goal:", factions.Civilization.goal);
 	});
 
 	register_role(["ottoman", "2141"], "Civilization", "Ottoman", {subCat: "Militaristic", censor: ["Ottoman Janissary", "Turkish"]}, (e) =>
 	{
-		e.setDescription("Post 2141");
+		e.setDescription("Post 2141\n*“What men call sovereignty is a worldly strife and constant war; Worship of God is the highest throne, the happiest of all estates.” -Suleiman the Magnificent*");
 
 		e.addField("Alignment", "Unique Civilization Militaristic", true);
 		e.addField("Attack", "Basic", true);
@@ -674,7 +676,7 @@ module.exports = (g) =>
 
 	register_role(["england", "english", "2142"], "Civilization", "England", {subCat: "Economic", censor: "English Redcoat"}, (e) =>
 	{
-		e.setDescription("Post 2142");
+		e.setDescription("Post 2142\n*“We are not interested in the possibilities of defeat. They do not exist.” -Queen Victoria*");
 
 		e.addField("Alignment", "Unique Civilization Economic", true);
 		e.addField("Attack", "None", true);
@@ -691,7 +693,7 @@ module.exports = (g) =>
 
 	register_role(["france", "french", "2143"], "Civilization", "France", {subCat: "Scientific", censor: "French imperial guard"}, (e) =>
 	{
-		e.setDescription("Post 2143");
+		e.setDescription("Post 2143\n*“How can anyone govern a nation that has two hundred and forty-six different kinds of cheese?” -Charles de Gaulle*");
 
 		e.addField("Alignment", "Unique Civilization Scientific", true);
 		e.addField("Attack", "None", true);

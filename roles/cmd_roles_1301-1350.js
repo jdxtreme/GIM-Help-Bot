@@ -10,9 +10,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Faction Variable", true);
 		e.addField("Defense", "Faction Variable", true);
 
-		e.addField("Abilities:", "- Watch a player from afar.");
+		e.addField("Abilities:", "- Watch a player's house from afar.");
 
-		e.addField("Attributes:", "- You will learn who they visit and who visits them.\n- On full moons, you may choose to watch from up close, scaring them and preventing them from visiting anyone. They will be notified of this, but not if they don't visit.");
+		e.addField("Attributes:", "- You learn everyone who visits them, and if your target visits anyone.\n- You scare off all visitors to your target, causing their ability to fail.\n- On full moons, as you are more visible, your target's ability will also fail.\n- You cannot cause a Spirit's ability to fail.");
 		
 		e.addField("Goal:", factions.Spirit.goal);
 	});

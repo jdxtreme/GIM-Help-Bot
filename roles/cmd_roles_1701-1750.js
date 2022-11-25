@@ -2,19 +2,9 @@ module.exports = (g) =>
 {
 	const {register_role, factions} = g;
 
-	register_role(["asda", "1701"], "Vampire", "ASDA", {subCat: "Killing"}, (e) =>
+	register_role(["asda", "1701"], "Other", "ASDA", {cannotRoll: true}, (e) =>
 	{
-		e.setDescription("Post 1701");
-
-		e.addField("Alignment", "Vampire Killing", true);
-		e.addField("Attack", "Basic (Unstoppable)", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- You can choose a player to hire at night, draining their will to live and attacking them\n- Send a Karen into your store during the night. 3 Uses, may be used in conjunction w/ hiring.\n- View security camera footage of a player during the day.");
-
-		e.addField("Attributes:", "- Astral\n- The vampire headquarters are in ASDA, and your attack target, if they survive, will learn all members of the vampires.\n- Sending a Karen into your store will buff your attack to Unstoppable.\n- When you view security camera footage of a player, you will be notified who they target the following night when they target them.\n- FUCK TESCO");
-		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.setDescription("Post 1701\nThis role cannot spawn, as the Vampire faction has been removed.");
 	});
 
 	register_role(["motherfucker", "mofo", "mfer", "1702"], "Neutral", "Motherfucker", {subCat: "Killing"}, (e) =>
@@ -122,19 +112,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Cult.goal);
 	});
 
-	register_role(["mandurugo", "mandu", "durugo", "1709"], "Vampire", "Mandurugo", {subCat: "Support"}, (e) =>
+	register_role(["mandurugo", "mandu", "durugo", "1709"], "Mafia", "Mandurugo", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1709");
 
-		e.addField("Alignment", "Vampire Support", true);
+		e.addField("Alignment", "Mafia Support", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
 		e.addField("Abilities:", "- Seduce a player during the night.\n- Detach yourself from the world during the night, becoming visit immune (1-shot)");
 
-		e.addField("Attributes:", "- Seduced players will be roleblocked, and if they attempt to vote for you the next day, their vote will secretly have 0 weight.\n- While you are detached, visitors are informed that you were not at your home. Astral actions can still target you.\n- If you take no action during the night, you have detection immunity, appearing as a random Town role.");
+		e.addField("Attributes:", "- Seduced players will be roleblocked, and if they attempt to vote for you the next day, their vote will secretly have 0 weight.\n- While you are detached, visitors will be given the generic failed visit message. Astral actions can still target you.\n- If you take no action during the night, you have detection immunity, appearing as a different random Town role each night. You will know what Town role you appear as each night.");
 		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Goal:", factions.Mafia.goal);
 	});
 
 	register_role(["believer", "believe", "1710"], "Cult", "Believer", {subCat: "Evil"}, (e) =>
@@ -197,92 +187,49 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.X.goal);
 	});
 
-	register_role(["victoria_the_vulture", "victoriathevulture", "victoria", "vulture", "vtv", "1714"], "COA", "Victoria the Vulture", {subCat: "Killing"}, (e) =>
+	register_role(["unstable", "1714"], "Neutral", "Unstable", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 1714");
 
-		e.addField("Alignment", "Unique Cult of Animals Killing", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "Basic", true);
+		e.addField("Alignment", "Neutral Other", true);
+		e.addField("Attack", "Overkill", true);
+		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- Attack a player at night.\n- Sacrifice a COA member during the day or night. You will attack them, bypassing any kind of protective effects, then devour them to complete the sacrificial ritual.");
+		e.addField("Abilities:", "- Attack a player at night. One use.");
 
-		e.addField("Attributes:", "- Sacrificing a COA member will have their will and role appear as Devoured.\n- Sacrificing a COA member allows you to use their ability once and only once.\n- You may choose to receive a buff after sacrificing.\n> * +1 attack tier (caps at Overkill)\n> * +1 defense tier (caps at Overprotective)\n> * +1 attack power (2 KPN -> Rampage -> 3 KPN)\n> * +1 investigation immunity (Detection Immune -> appear as any role to Investigative roles)\n- You may multitask.\n- When you sacrifice a COA member, they will immediately lose, even if COA wins.\n- COA members do not know when someone is being sacrificed.\n- You may sacrifice multiple COA members at once.");
+		e.addField("Attributes:", "- Redirect, Control, Roleblock, and Lynch immune.\n- You may only self-target.\n- Stable (1715) will always spawn.\n- The day after you use your ability, you permanently gain death immunity.");
 		
-		e.addField("Goal:", "Destroy those who will not worship you.");
+		e.addField("Goal:", "Eliminate yourself.");
 	});
 
-	register_role(["mole", "1715"], "COA", "Mole", {subCat: "Support"}, (e) =>
+	register_role(["stable", "1715"], "Neutral", "Stable", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 1715");
 
-		e.addField("Alignment", "Cult of Animals Support", true);
+		e.addField("Alignment", "Neutral Other", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Select a player. All visits towards them will fail, except yours.\n- Fail all visits towards yourself. 1 use.");
+		e.addField("Abilities:", "- Grant a player one tier of defense higher than what they currently have. 1 use.");
 
-		e.addField("Attributes:", "- Victoria's sacrifice will bypass your ability.");
+		e.addField("Attributes:", "- Redirect, Control, and Roleblock immune.\n- You may act while dead.\n- You may only target Unstable (1714).\n- Unstable (1714) will always spawn and you know who they are.\n- If your ability saves a player, you are considered to have won immediately.");
 		
-		e.addField("Goal:", factions.COA.goal);
+		e.addField("Goal:", "Keep Unstable (1714) alive at all costs.");
 	});
 
-	register_role(["tortoise", "tort", "1716"], "COA", "Tortoise", {subCat: "Support"}, (e) =>
+	register_role(["barbarians", "barbarian", "1716"], "Neutral", "Barbarians", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 1716");
 
-		e.addField("Alignment", "Cult of Animals Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Select a player and delay them. They will know this.");
+		e.addField("Abilities:", "- Raid a player. Their abilities are nullified.\n- Raid a player. Their attributes are nullified.\n- Raid a player. Their life is nullified. (3 uses, can only be used on Even nights.)");
 
-		e.addField("Attributes:", "- Delayed players will have their ability take effect tomorrow. They will not be able to queue a new ability tomorrow.\n- Victoria is immune to your ability.");
+		e.addField("Attributes:", "- After being raided, your targets gain the ability to Repair, which is a night ability that restores all lost abilities and attributes but sets their defense to Vulnerable for the night.\n- All Neutral roles except for Neutral (Benign) are immune to all raids, and you are immune to all negative abilities used by Neutral roles.\n- If you are not visited for three nights in a row, you will become a random non-Neutral role. You can only become roles which have living members in their faction.");
 		
-		e.addField("Goal:", factions.COA.goal);
-	});
-
-	register_role(["rabbit", "1717"], "COA", "Rabbit", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 1717");
-
-		e.addField("Alignment", "Cult of Animals Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Scout a player to either see who visits them or who they visit.");
-		
-		e.addField("Goal:", factions.COA.goal);
-	});
-
-	register_role(["lamb", "1718"], "COA", "Lamb", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 1718");
-
-		e.addField("Alignment", "Cult of Animals Support", true);
-		e.addField("Attack", "Basic", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Select a player to attack all of their visitors.");
-
-		e.addField("Attributes:", "- Victoria is completely immune to your ability.");
-		
-		e.addField("Goal:", factions.COA.goal);
-	});
-
-	register_role(["pig", "1719"], "COA", "Pig", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 1719");
-
-		e.addField("Alignment", "Cult of Animals Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Frame a player, then learn their role.");
-
-		e.addField("Attributes:", "- You cannot frame Victoria.");
-		
-		e.addField("Goal:", factions.COA.goal);
+		e.addField("Goal:", "Survive until the end of the game with only Neutrals alive.");
 	});
 
 	register_role(["owl", "1720"], "Thundercry", "Owl", {subCat: "Support"}, (e) =>

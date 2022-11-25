@@ -340,12 +340,12 @@ require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
 require("./roles/cmd_roles_misc.js")(GLOBAL);
-for(let i = 50; i <= 2400; i+=50)
+for(let i = 50; i <= 2500; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 for(let i = 50; i <= 50; i+=50)
 	require("./events/cmd_events_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
-for(let i = 1; i <= 2351; i++)
+for(let i = 1; i <= 2494; i++)
 	if(!commands[i.toString()])
 		console.log("Missing: " + i);
 for(let i = 1; i <= 32; i++)
@@ -458,7 +458,7 @@ bot.on("messageCreate", (message) =>
 		let channel = message.channel;
 		let embed = new MessageEmbed();
 		let args = UTILS.split(message.content.substring(PRE.length), " ");
-		let cmd = args[0].toLowerCase();
+		let cmd = (args[0] || "").toLowerCase();
 		args = args.splice(1);
 
 		if(commands[cmd])

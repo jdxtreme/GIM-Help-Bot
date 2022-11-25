@@ -567,19 +567,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Unseen.goal);
 	});
 
-	register_role(["judge_of_pacifism_and_retribution", "judgeofpacifismandretribution", "judge", "pacifism", "retribution", "jopar", "jpr", "2037"], "Neutral", "Judge of Pacifism and Retribution", {subCat: "Other"}, (e) =>
+	register_role(["j.o.p.a.r.", "jopar", "2037"], "Neutral", "J.O.P.A.R.", {subCat: "Other"}, (e) =>
 	{
 		e.setDescription("Post 2037");
 
 		e.addField("Alignment", "Unique \"True Neutral\" (Other)", true);
 		e.addField("Attack", "Powerful", true);
-		e.addField("Defense", "\"Hellbent\"", true);
+		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Just attack a player tonight. They won't know they died until it's too late. This ability will **fail** if the target hasn't voted for another player. You're like Robin Hood; you only kill those who've threatened the lives of others, similar to how Robin Hood only steals from the rich and gives to the poor. As such, if you visit someone who ain't ever voted before, you'll just heal 'em up like a Doctor.\n- You'll do worse than Robin Hood if the target's managed to kill someone in the past. They're dead, no questions asked, and they'll know they died. You'll upgrade your attack to a \"**Modkill**\" if this is the case. In this case, you're more like Batman.");
+		e.addField("Abilities:", "- Attack a player with a regular Powerful attack. This ability will fail if the target hasn't voted for another player. As such, if you visit someone who ain't ever voted before, you'll just heal 'em up like a Doctor.");
 
-		e.addField("Attributes:", "- Roleblock immune\n- Hellbent: You can't die at night. Whenever you're visited at night, you take 1 damage. Once you take 8 damage, you die.\n- Anyone who tries to do something **suspicious** at night, such as a murder, poison or framing, will be told that the Judge of Pacifism and Retribution is watching 'em. The role wouldn't be balanced unless the perps knew they were in danger, after all.");
+		e.addField("Attributes:", "- If you attack someone who's taken a life in the past, your attack power is upgraded to Overkill.\n- Anyone who tries to do something suspicious at night, such as a murder, poison or framing, will be told that the J.O.P.A.R. is looming over them.");
 		
-		e.addField("Goal:", "Depends. If the town lynches more than three people, you have to eliminate them. Less, and you'll have to eliminate evil factions like the Coven, Mafia or Fallen Angels.");
+		e.addField("Goal:", "If the Good faction lynches more than three people, you have to eliminate them. Less, and you'll have to eliminate REFS.");
 	});
 
 	register_role(["while_healing_it", "whilehealingit", "healing", "whi", "2038", "1489u"], "Unseen", "While Healing It", {subCat: "Protective"}, (e) =>

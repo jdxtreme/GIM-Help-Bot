@@ -52,7 +52,7 @@ module.exports = (g) =>
 			{
 				if(typeof info.features === "object")
 					for(let i = 0; i < info.features.length; i++)
-						e.addField("Features (Set " + (i+1) + "):", info.features[i]);
+						e.addField("Features (Part " + (i+1) + "):", info.features[i]);
 				else
 					e.addField("Features:", info.features);
 			}
@@ -199,16 +199,6 @@ module.exports = (g) =>
 		goal: "Kill all non-lycanthropes."
 	});
 
-	register_faction(["vampire", "vampires", "vamp", "vamps"], "Vampire", {
-		display: "Vampires",
-		color: "7B8968",
-		type: "evil",
-		icon: "https://cdn.discordapp.com/emojis/975231005713645618.webp",
-		summary: "Vampire-themed (duh) Evil; Some members are capapble of conversion, others work more like a traditional Mafia.",
-		features: "- A Vampire Killing role will always spawn, but there can only be one Vampire Killing role at a time.\n- If there are no Vampire Killing roles left, a random other Vampire role will become a Lampir.\n- Factional chat\n- No factional kill",
-		goal: "Convert or kill everyone who would oppose you."
-	});
-
 	register_faction(["everfrost", "ef"], "Everfrost", {
 		color: "00FFFF",
 		type: "evil",
@@ -297,7 +287,7 @@ module.exports = (g) =>
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/1007197839576809492.webp",
 		summary: "Pokemon-themed (duh) Evil; Led by a random Pokemon Legendary, pretty much anything goes as long as members are Pokemon with named attributes and abilities from the games. Each one also comes with a special \"Pokemon Ability\", but it's unspecified how this differs from any other ability or attribute, if at all.",
-		features: "- Exactly one Legendary and at least one Base or Single will always spawn.\n- Evolved cannot spawn naturally; they must be transformed into from Base.\n- Factional chat\n- No factional kill until the Legendary dies",
+		features: "- Exactly one Legendary and at least one Base or Single will always spawn.\n- Only one Single may spawn.\n- Evolved cannot spawn naturally; they must be transformed into from Base.\n- Factional chat\n- No factional kill until the Legendary dies",
 		goal: "Kill anyone that opposes the Pokemon."
 	});
 
@@ -424,16 +414,6 @@ module.exports = (g) =>
 		goal: "Rid the town of any dissidents to the Sentries."
 	});
 
-	register_faction(["toppat", "toppats", "toppat_clan", "toppatclan", "tc"], "Toppat", {
-		display: "Toppat Clan",
-		color: "B01C12",
-		type: "evil",
-		icon: "https://cdn.discordapp.com/emojis/1002935333723328572.webp",
-		summary: "Henry Stickmin-themed Evil; Led by the Right Hand Man and a random member assigned as the Chief. Each member has a specific bonus for being the Chief. In addition, most members have either one or both of the following day abilities: Raiding a non-Toppat player to weaken and possibly kill them while also buffing a Toppat member, or Investigating a player to gain the option to control them.",
-		features: ["- 1402: Right Hand Man will always spawn if there are 2 or more members.\n- At the beginning of the game, a random non-Executive Toppat will be made the Chief. The Chief may deal a Basic attack to a player each night, which they may use along with their night action if they were the first Chief or are the last Toppat alive.\n- If the Chief dies, the Right Hand Man will become Chief, then Toppat Executives, then random Toppats.\n- If the Chief is lynched, the next day, the gallows will be destroyed and there may not be a lynch.\n- Toppat Operators, Toppat Executives, and the Chief have the additional ability of raiding a player during the day, roleblocking them and reducing their attack and defense by a stage for the next night, and dealing a Powerful attack to them if they've killed a Chief. The raider may select any Toppat to increase the attack and defense of by a stage and grant detection immunity and Astral for the night.", "- Toppat Supports, Toppat Executives, and the Chief have the additional ability of investigating and surveying a player during the day, learning the target's faction, or their role if you've already surveyed them before, and allowing them to, at the cost of not using their ability, control their target's action the next night.\n- Factional chat\n- No factional kill"],
-		goal: "Destroy all who refuse to submit to the Toppats."
-	});
-
 	register_faction(["koopa", "koopas"], "Koopa", {
 		color: "4D8A45",
 		type: "evil",
@@ -532,14 +512,6 @@ module.exports = (g) =>
 		goal: "X Goal"
 	});
 
-	register_faction(["coa", "cult_of_animals", "cultofanimals"], "COA", {
-		display: "Cult of Animals",
-		color: "BA7D1A",
-		type: "evil",
-		summary: "Animal-themed Evil; Led by Victoria the Vulture, who has the option to devour any other member to empower herself. Members must survive to win. Other than Victoria herself, most members are not that strong, and any offensive or countering abilities will not be able to harm Victoria. No official post yet.",
-		goal: "Destroy those who will not worship Victoria, and appease her to avoid sacrifice."
-	});
-
 	register_faction(["faunae", "fauna"], "Faunae", {
 		color: "D4A12D",
 		type: "neutral",
@@ -572,7 +544,7 @@ module.exports = (g) =>
 		type: "good",
 		icon: "https://cdn.discordapp.com/emojis/1025184304264908879.webp",
 		summary: "Untrusted Crossover Good; Led by the Operation Leader, who always exists due to promotion. A complicated network exists that members can use as an alternate win condition by hacking through it. Each member has a \"Hacking Skill\" stat that ranges from \"None\" to \"Very High\", but it isn't specified what these exactly mean, same as some role-specific chance-based mechanics.",
-		features: "- Operation Leader (2166) will always spawn\n- No factional chat\n- No factional kill\n- When NETSEC spawns, an REF owned network will be present to all players. The machines NETSEC can or already has access to will be visible to all players, but only the REF may view the full topography.\n- There is one network for ALL REFs.\n- Roles that are capable of hacking can choose to hack into a point in a REF owned network\n- Capturing the master node on the REF network instantly results in a :townFaction:Town victory, but has a very low capture chance. This is always the last node on any topography",
+		features: ["- Operation Leader (2166) will always spawn\n- No factional chat\n- No factional kill\n- When NETSEC spawns, an REF owned network will be present to all players. The machines NETSEC can or already has access to will be visible to all players, but only the REF may view the full topography.\n- There is one network for ALL REFs.\n- Roles that are capable of hacking can choose to hack into a point in a REF owned network\n- Capturing the master node on the REF network instantly results in a :townFaction:Town victory, but has a very low capture chance. This is always the last node on any topography\n- NETSEC hacking chance on a node:\n> note: the master has a -5% modifier to the hack chance\n> none:0%\n> very low:10%\n> low:15%\n> below average:20%\n> average:25%\n> above average:30%\n> high:35%\n> very high:40%\n> hacking chances stack if multiple people target the same node", "- topography details\n> There are two types of nodes. laptops and servers. laptops have a natural extra 5% hacking chance, whilst servers have none. There are up to 4 servers in any given pathway and all pathways may end in the Master Node. It is always present in each topography and has a natural -5% hacking chance. Meaning it is harder to hack. Insta-pwn abilities have a 50% chance to fail on the Master. However, if NETSEC can hack it, they'll find data about who their enemies really are, instantly resulting in a dual victory split between the town and NETSEC.\n- rng\n> Inside Man and Improvised Hacker's Dumpster dive ability will grant a 5% hacking chance.\n> Blackhat's exploit grants 25%\n> Spearphisher's email grants 30%\n> Inside Man's keylogger grants a 20% chance"],
 		goal: "Capture the REF network and retrieve the stolen data OR eliminate the REF.",
 		fieldSSC: ["field_operations", "fieldoperations", "field", "operations", "fieldops", "fo"]
 	});
@@ -586,9 +558,32 @@ module.exports = (g) =>
 
 	register_faction(["beast", "beasts"], "Beast", {
 		display: "Beasts",
-		color: "4F59A0",
+		color: "89BAFF",
 		type: "evil",
+		icon: "https://cdn.discordapp.com/emojis/1036118637326651422.webp",
 		features: "- If the largest good faction is the Town, 2324: Unit will always spawn. If it's Florae, 2325: Roggle will spawn. If it's City, 2326: Drak will spawn. If it's Sentries, 2327: Songun will spawn. If it's Army, 2328: Tweed will spawn. If it's NETSEC, 2329: PixelRoggle will spawn. If it's NTF, 2330: Monitor will spawn.\n- Only one member of each subalignment may spawn.\n- Factional chat\n- No factional kill unless no kill-capable Beasts are alive.\n- Only one member may use a killing ability each night.\n- Members cannot win with Pokemon for any reason.\n- Members' Locked attributes and abilities only apply or can only be used when that member's Unlock Condition is met.",
 		goal: "Kill all who would oppose you or something probably idfk"
+	});
+
+	register_faction(["ntf", "nft"], "NTF", {
+		color: "78FF77",
+		type: "evil",
+		icon: "https://cdn.discordapp.com/emojis/1036120776883060736.webp",
+		goal: "Eliminate threats to the digital world, or resecure it to deny access to the enemy."
+	});
+
+	register_faction(["partisan_of_the_sun", "partisanofthesun", "partisans_of_the_sun", "partisansofthesun", "partisan", "partisans", "sun", "pots"], "Partisan", {
+		display: "Partisans of the Sun",
+		color: "FFF196",
+		type: "evil",
+		features: "- Factional chat\n- Factional kill\n- At the beginning of Day 1, the Town will be notified that the glorious sun shines through hypocrisy. For the rest of the game, players can’t whisper, modkill themselves, or resign.\n- If there are ever more Partisans than non-Partisans, the Partisans win the game and all players who oppose the Partisans lose the game.\n- __If the Partisans win, each living member must resurrect one dead non-Partisan who hasn’t won. That player wins with the Partisans.__",
+		goal: "Unite the Town under the sun."
+	});
+
+	register_faction(["mainframe"], "Mainframe", {
+		color: "65E4E1",
+		type: "good",
+		features: "- Roles aren't made like other factions. (You can still make roles, unlike Androids. It's just not like creating other roles. Also, please check with Lunari before doing it <3)\n- Instead, templates are created that roles are derived from. Templates have content in [brackets] that allows roles to differ from other variants of each other.\n- In the role's name, two base64 characters are chosen to be added to the name, including a - and _ for non-alphanumerical characters. The last 4 or 5 digits included depend on the variant's post number.\n- No factional kill\n- No factional chat\n- Counts as good",
+		goal: "Eliminate all threats to the Mainframe."
 	});
 };

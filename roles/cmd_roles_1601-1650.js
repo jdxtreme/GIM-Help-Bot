@@ -250,21 +250,6 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Discordian.goal);
 	});
 
-	register_role(["gunner", "1615"], "Toppat", "Gunner", {subCat: "Operator"}, (e) =>
-	{
-		e.setDescription("Post 1615");
-
-		e.addField("Alignment", "Toppat Clan Operator", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Shoot a player during the night. You may choose which type of ammo to use:\n - Regular Ammo: Basic Attack (Unlimited)\n> - Piercing Ammo: Powerful Attack (1-shot)\n> - Explosive Rounds: Powerful Attack + Rampage (1-shot)");
-
-		e.addField("Attributes:", "- If you are lynched, you may take a last stand and shoot a player with a Powerful Attack.\n- **Chief Modifier**: You gain one use each of Piercing Ammo and Explosive Rounds. You also gain the ability to shoot twice in one night three times.");
-		
-		e.addField("Goal:", factions.Toppat.goal);
-	});
-
 	register_role(["fortune_teller", "fortuneteller", "fortune", "teller", "ft", "1616"], "PaleMoon", "Fortune Teller", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1616");

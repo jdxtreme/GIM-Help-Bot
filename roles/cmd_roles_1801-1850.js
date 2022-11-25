@@ -40,9 +40,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Breathe Flames on a Target, Rampaging and Torching them, Can only be used on night 3, 6, 9 and so on.\n- Use the Star rod to give a Koopa Overprotective and Lynchproof defense until the start of the next night. (can't be used again for the next 2 nights.)");
+		e.addField("Abilities:", "- Breathe Flames on a Target, Rampaging them, Can only be used on night 3, 6, 9 and so on.\n- Use the Star rod to give a Koopa Overprotective and Lynchproof defense until the start of the next night. (can't be used again for the next 2 nights.)");
 
-		e.addField("Attributes:", "- Anyone visiting Koopas affected by Star Rod be dealt a Basic attack if they aren't from your Faction.");
+		e.addField("Attributes:", "- Anyone visiting Koopas affected by Star Rod be dealt a Basic attack if they aren't from your Faction.\n- Roleblock Immunity while Breathing flames.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -183,10 +183,10 @@ module.exports = (g) =>
 		e.setDescription("Post 1813");
 
 		e.addField("Alignment", "Koopa King", true);
-		e.addField("Attack", "Powerful (Basic)", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Breathe Flames on 4 Targets, Attacking and Torching them, Can only be used on night 4, 8, and so on.\n- Choose yourself as the normal Koopa attacker this night, Dealing a torching Basic attack.");
+		e.addField("Abilities:", "- Breathe Flames on a Target, Dealing a Rampage and Torching them and all Visitors, Can only be used on nights 3, 7, 10 and 13.\n- Choose yourself as the normal Koopa attacker this night, Dealing a Torching Basic attack.");
 
 		e.addField("Attributes:", "- All negative effects targeting you turn into a roleblock, Roleblock Immune while Breathing flames");
 		
@@ -218,7 +218,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Guard 1 (2 when all Koopas alive) Koopas, Giving them Powerful defense and RB + Redirect immunity for this night.\n- Redirect 3 players to targets of your choice. (2 uses, +1 use after day 5)");
 
-		e.addField("Attributes:", "- Each night, A random player who visited a Guarded player will be dealt a Basic attack if they aren't from your Faction.");
+		e.addField("Attributes:", "- Each night, A random player who visited a Guarded player will have their role and name revealed if they aren't from your Faction.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -229,11 +229,11 @@ module.exports = (g) =>
 
 		e.addField("Alignment", "Koopa King", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "Basic (None)", true);
+		e.addField("Defense", "Basic", true);
 
 		e.addField("Abilities:", "- Permanently reduce your defense by a tier, Converting a player into a random koopa role, you may choose a Alignment to convert if there is a Dead Koopa with the same alignment.");
 
-		e.addField("Attributes:", "- Your defense will permanently increase by 1 tier at the start of day 4, 7, 10, and so on.\n- If you are attacked and would die this night, redirect all attacks to a random Converted player, if one is alive.\n- Minimum defense: None, Maximum defense: Immortal.\n- The host may reroll this into another Koopa King if they don't want a Converter spawning.");
+		e.addField("Attributes:", "- Your defense will permanently increase by 1 tier at the start of day 3, 6, 9, and so on.\n- If you are attacked and would die this night, redirect all attacks to a random Converted player, if one is alive.\n- Minimum defense: None, Maximum defense: Immortal.\n- Roleblock immunity.\n- The host may reroll this into another Koopa King if they don't want a Converter spawning.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -243,12 +243,12 @@ module.exports = (g) =>
 		e.setDescription("Post 1817");
 
 		e.addField("Alignment", "Koopa King (Queen)", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Roleblock and Learn the role of a player, Using it on the same player will blackmail them additionally.\n- Roleblock 4 players, Attacking and Torching 2 of them at random, Can only be used on night 3, 6, 9 and so on.");
+		e.addField("Abilities:", "- Roleblock a player, Using it on the same player twice will blackmail them and you will learn their role.\n- Choose 4 players, Attacking 2 and Roleblocking 2 of them at random, Can only be used on night 3, 6, 9 and so on.");
 
-		e.addField("Attributes:", "- Anyone visiting you will be Roleblocked on the next night if they aren't from your Faction.");
+		e.addField("Attributes:", "- A random player visiting you each even night will be Redirected to a random Good faction member if they aren't from your Faction.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -425,7 +425,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Kill all who oppose the Town or win with your first attacker.");
 	});
 
-	register_role(["godfather", "gf", "1830"], "Mafia", "Godfather", {subCat: "Head"}, (e) =>
+	register_role(["patron", "1830"], "Mafia", "Patron", {subCat: "Head"}, (e) =>
 	{
 		e.setDescription("Post 1830");
 
@@ -433,7 +433,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Powerful", true);
 
-		e.addField("Abilities:", "- Attack a player tonight. Nothing more, nothing less.\n- Alter a player's soul, turning them into a completely different role with an even post number. This role can be **anything** in GIM. This could be a double-edged sword, so beware.\n- Summon the gang of mafia on a player, permanently removing them from day chats and lynches.");
+		e.addField("Abilities:", "- Attack a player tonight. Nothing more, nothing less.\n- Alter a player's soul, turning them into a completely different role with an even post number. This role can be anything in GIM. This could be a double-edged sword, so beware.\n- Summon the gang of mafia on a player, permanently removing them from day chats and lynches. ");
 
 		e.addField("Attributes:", "- You can use any of these abilities, but only one is available at night. Similar to Potion Master, you must wait two days before using them again.\n- Your action always succeeds, unless you're roleblocked.\n- Whenever you're attacked, you will summon your Mafia gang to seek revenge.");
 		

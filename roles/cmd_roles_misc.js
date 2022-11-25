@@ -28,22 +28,28 @@ function cycle(str, n)
 	return newstr;
 }
 
-function decToBits(bits, num)
+function decToBits(bits, num, base)
 {
-	for(let i = 9; i >= 0; i--)
+	let b = base-1;
+	for(let i = b; i >= 0; i--)
 	{
 		let n = Math.pow(2, i);
 		if(num >= n)
 		{
 			num -= n;
-			bits[9-i] = 1;
+			bits[b-i] = 1;
 		}
 		else
-			bits[9-i] = 0;
+			bits[b-i] = 0;
 	}
 }
 
-const ABILITIES = [
+var BASE64 = ["_", "-"];
+for(let i = 0; i <= 9; i++) BASE64[BASE64.length] = i;
+for(let i = 65; i <= 90; i++) BASE64[BASE64.length] = String.fromCharCode(i);
+for(let i = 97; i <= 122; i++) BASE64[BASE64.length] = String.fromCharCode(i);
+
+const AND_ABILITIES = [
 	"deal a Basic attack to them",
 	"learn their role",
 	"grant them death immunity for the phase",
@@ -54,7 +60,7 @@ const ABILITIES = [
 	"remove them from the next day phase"
 ];
 
-const ATTRIBUTES_1 = [
+const AND_ATTRIBUTES_1 = [
 	"your target will learn that they were targetted by an Android",
 	"you will not be able to use it ability on that target again",
 	"your defense is lowered by a tier the next night if your target isn't a member of the Town",
@@ -65,7 +71,7 @@ const ATTRIBUTES_1 = [
 	"a random Android's abilites and attributes are revealed to the Town the next day phase"
 ];
 
-const ATTRIBUTES_2 = [
+const AND_ATTRIBUTES_2 = [
 	"You are immune to effects that would interfere with your abilities",
 	"You cannot be killed by Powerful attacks",
 	"It takes two more votes to lynch you",
@@ -74,6 +80,111 @@ const ATTRIBUTES_2 = [
 	"You can talk to the dead at night",
 	"You can hear all whispers",
 	"You know all Neutral roles in the game"
+];
+
+const MI_ABILITIES_1 = [
+	"a player",
+	"two players",
+	"two different players",
+	"up to 3 players",
+	"any amount of players",
+	"both of a player's neighbors",
+	"a player you have not targeted",
+	"a random player (you know who your target is)"
+];
+
+const MI_ABILITIES_2 = [
+	"perform a Sheriff (948) check on them",
+	"perform a Sheriff (20) check on them",
+	"perform an Investigator (35) check on them",
+	"learn their role",
+	"perform an Investicreator (6) check on them",
+	"perform an Investiletter (37) check on them",
+	"bug (62) them",
+	"learn their subalignment (not faction)"
+];
+
+const MI_ATTRIBUTES_1 = [
+	"your visitors",
+	"your target's visitors",
+	"your target's target",
+	"a random Mainframe variant that exists",
+	"a random evil role that exists",
+	"a random Neutral that exists",
+	"all roles that visited you",
+	"all roles that visited your target"
+];
+
+const MI_ATTRIBUTES_2 = [
+	"learn your name and role",
+	"are roleblocked",
+	"are redirected to themself",
+	"require two extra votes to be lynched the next day"
+];
+
+const MK_ATTACK_TIER = [
+	"Basic",
+	"Powerful",
+	"Unstoppable",
+	"Overkill"
+];
+
+const MK_ABILITIES = [
+	"attack a player",
+	"rampage attack a player",
+	"attack all your visitors",
+	"attack a player's target",
+	"attack a player and their target",
+	"rampage attack a player and their target",
+	"attack all your visitors and gain Basic defense",
+	"attack all your visitors and rampage attack a player"
+];
+
+const MK_ATTRIBUTES_1 = [
+	"learn all whispers your target sent",
+	"learn all whispers your target received",
+	"hide your target's will from everyone else",
+	"hide your target's role from everyone else",
+	"hide your target's role and will from everyone else",
+	"randomize your target's role and will on death",
+	"hide that a player died (acts like archmage of ice without win condition attribute)",
+	"remove your target's goal"
+];
+
+const MK_ATTRIBUTES_2 = [
+	"do nothing",
+	"roleblock yourself the next night",
+	"randomize your target the next night",
+	"target yourself the next night"
+];
+
+const MP_ABILITIES = [
+	"grant Basic defense",
+	"grant Powerful defense",
+	"grant Invincible defense",
+	"Heal them",
+	"Purge them",
+	"Purge them and grant Powerful defense",
+	"Purge them, grant Invincible defense, and lynch immunity for the next day",
+	"increase their permanent defense by 1"
+];
+
+const MP_ATTACK_TIER = [
+	"None",
+	"Basic",
+	"Powerful",
+	"Unstoppable"
+];
+
+const MP_ATTRIBUTES = [
+	"learn who visited your target",
+	"learn all roles that visited your target",
+	"learn who attacked your target",
+	"learn your target's role",
+	"give your target your name",
+	"protect your target automatically tomorrow night",
+	"allow your target to act twice tomorrow",
+	"redirect your target to their attacker"
 ];
 
 module.exports = (g) =>
@@ -127,10 +238,10 @@ module.exports = (g) =>
 				return true;
 			}
 
-			decToBits(bits, num - 10001);
+			decToBits(bits, num - 10001, 10);
 		}
 		else
-			decToBits(bits, UTILS.randInt(1024));
+			decToBits(bits, UTILS.randInt(1024), 10);
 
 		let basename = bits[0] === 1 ? "ANDROI" : "NDROID";
 
@@ -149,9 +260,9 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Hack a player each " + (bits[0] === 1 ? "Day" : "Night") + ". You will " + ABILITIES[bitsToDec(bits, 1, 3)] + ".");
+		e.addField("Abilities:", "- Hack a player each " + (bits[0] === 1 ? "Day" : "Night") + ". You will " + AND_ABILITIES[bitsToDec(bits, 1, 3)] + ".");
 
-		e.addField("Attributes:", "- When you use your ability, " + ATTRIBUTES_1[bitsToDec(bits, 4, 6)] + ".\n- " + ATTRIBUTES_2[bitsToDec(bits, 7, 9)] + ".");
+		e.addField("Attributes:", "- When you use your ability, " + AND_ATTRIBUTES_1[bitsToDec(bits, 4, 6)] + ".\n- " + AND_ATTRIBUTES_2[bitsToDec(bits, 7, 9)] + ".");
 		
 		e.addField("Goal:", factions.Android.goal);
 	};
@@ -216,5 +327,107 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- No abbreviations for this role's command are to be put in the bot. Its only aliases should be =602214076000000000000000 and =lorenzoromanoamedeocarloavogadrocountofquaregnaandcerreto.\n- Sorry Rasen, you cannot tell me what to do.");
 		
 		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["m.i.", "mi"], "Mainframe", "M.I.", {subCat: "Investigative", spawnRate: 30}, (e, chn, message, args) =>
+	{
+		let bits = [];
+
+		if(args[0])
+		{
+			let num = parseInt(args[0], 10);
+
+			if(!UTILS.isInt(args[0]) || num < 1000001 || num > 1004096)
+			{
+				UTILS.msg(chn, "-ERROR: The provided parameter must be a post number within 1000001 and 1004096.");
+				return true;
+			}
+
+			decToBits(bits, num - 1000001, 12);
+		}
+		else
+			decToBits(bits, UTILS.randInt(4096), 12);
+
+		e.author.name += BASE64[bitsToDec(bits, 0, 5)] + BASE64[bitsToDec(bits, 6, 11)];
+		e.setDescription("Post " + (1000001 + bitsToDec(bits, 0, 11)));
+
+		e.addField("Alignment", "Mainframe Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- At night, select " + MI_ABILITIES_1[bitsToDec(bits, 0, 2)] + ". You will " + MI_ABILITIES_2[bitsToDec(bits, 3, 5)] + ".");
+
+		e.addField("Attributes:", "- When using your ability, you learn " + MI_ATTRIBUTES_1[bitsToDec(bits, 6, 8)] + ".\n- If your target is " + (bits[9] === 1 ? "good" : "evil") + ", they " + MI_ATTRIBUTES_2[bitsToDec(bits, 10, 11)] + ".");
+		
+		e.addField("Goal:", factions.Mainframe.goal);
+	});
+
+	register_role(["m.k.", "mk"], "Mainframe", "M.K.", {subCat: "Killing", spawnRate: 30}, (e, chn, message, args) =>
+	{
+		let bits = [];
+
+		if(args[0])
+		{
+			let num = parseInt(args[0], 10);
+
+			if(!UTILS.isInt(args[0]) || num < 1004097 || num > 1008182)
+			{
+				UTILS.msg(chn, "-ERROR: The provided parameter must be a post number within 1004097 and 1008182.");
+				return true;
+			}
+
+			decToBits(bits, num - 1004097, 12);
+		}
+		else
+			decToBits(bits, UTILS.randInt(4096), 12);
+
+		e.author.name += BASE64[bitsToDec(bits, 0, 5)] + BASE64[bitsToDec(bits, 6, 11)];
+		e.setDescription("Post " + (1004097 + bitsToDec(bits, 0, 11)));
+
+		e.addField("Alignment", "Mainframe Killing", true);
+		e.addField("Attack", MK_ATTACK_TIER[bitsToDec(bits, 0, 1)], true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- At " + (bits[2] === 1 ? "day" : "night") + ", you may " + MK_ABILITIES[bitsToDec(bits, 3, 5)] + ".");
+
+		e.addField("Attributes:", "- You will also " + MK_ATTRIBUTES_1[bitsToDec(bits, 6, 8)] + ".\n- If you kill " + (bits[9] === 1 ? "an ally" : "a Mainframe") + ", you will " + MK_ATTRIBUTES_2[bitsToDec(bits, 10, 11)] + ".");
+		
+		e.addField("Goal:", factions.Mainframe.goal);
+	});
+
+	register_role(["m.p.", "mp"], "Mainframe", "M.P.", {subCat: "Protective", spawnRate: 30}, (e, chn, message, args) =>
+	{
+		let bits = [];
+
+		if(args[0])
+		{
+			let num = parseInt(args[0], 10);
+
+			if(!UTILS.isInt(args[0]) || num < 1008183 || num > 1012288)
+			{
+				UTILS.msg(chn, "-ERROR: The provided parameter must be a post number within 1004097 and 1008182.");
+				return true;
+			}
+
+			decToBits(bits, num - 1008183, 12);
+		}
+		else
+			decToBits(bits, UTILS.randInt(4096), 12);
+
+		e.author.name += BASE64[bitsToDec(bits, 0, 5)] + BASE64[bitsToDec(bits, 6, 11)];
+		e.setDescription("Post " + (1008183 + bitsToDec(bits, 0, 11)));
+
+		let attack = MP_ATTACK_TIER[bitsToDec(bits, 0, 1)];
+		let targets = 1 + bitsToDec(bits, 2, 3);
+
+		e.addField("Alignment", "Mainframe Protective", true);
+		e.addField("Attack", attack, true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- At night, you may select " + targets + (targets > 1 ? " people" : " person") + " (you can" + (bits[4] === 1 ? "not" : "") + " self target) to protect. You will " + MP_ABILITIES[bitsToDec(bits, 5, 7)] + ".");
+
+		e.addField("Attributes:", "- You'll also deal " + (attack === 3 ? "an " : "a ") + attack + " attack to " + (bits[8] === 1 ? "an attacker" : "a random visitor") + ".\n- If your target is attacked, you will " + MP_ATTRIBUTES[bitsToDec(bits, 9, 11)] + ".");
+		
+		e.addField("Goal:", factions.Mainframe.goal);
 	});
 };

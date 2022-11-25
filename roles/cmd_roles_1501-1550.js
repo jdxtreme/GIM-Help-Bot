@@ -14,7 +14,7 @@ module.exports = (g) =>
 {
 	const {register_role, factions, randomRole} = g;
 
-	register_role(["frigade", "1501"], "Warfleet", "Frigade", {subCat: "Support"}, (e) =>
+	register_role(["frigate", "1501"], "Warfleet", "Frigate", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1501");
 

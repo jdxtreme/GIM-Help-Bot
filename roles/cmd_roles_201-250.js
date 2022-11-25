@@ -325,7 +325,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Stalk a player during the day, marking them for collapse.\n- Collapse a stalked player's house at night.");
 
-		e.addField("Attributes:", "- If you collapse a player's house, everyone targetting them will have their ability fail, and they will go home from assuming the player is dead. The targetted player is not actually affected.\n- If the targetted player visits someone who saw their collapsed house, that visit will still go through.\n- You can collapse houses while dead. You may not mark while dead.\n- If a marked target is attacked by a rampage attack, you will be attacked too.\n- You cannot stalk yourself.\n- Control immune.");
+		e.addField("Attributes:", "- If you collapse a player's house, everyone targeting them will have their ability fail.\n- If the target player targets someone who saw their collapsed house, that visit will still go through.\n- You can collapse houses while dead. You may not mark while dead.\n- If a marked target is attacked by a Rampage attack, you will be attacked too, unless you collapsed their house that night.\n- You cannot prevent delayed abilities if they activated a night before: a poisoned player will still die if their house is destroyed.\n- You cannot stalk yourself.\n- You ignore prevention immunity.\n- Control and Redirect immune.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

@@ -25,9 +25,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Shoot someone during the night.");
+		e.addField("Abilities:", "- Shoot someone during the night. (3 uses)");
 
-		e.addField("Attributes:", "- This kill is resolved as soon as the host sees the action, and if the target dies they may not perform their night ability.\n- You have 3 bullets and may not shoot N1\n- If you shoot a Town member you will lose all of your bullets.");
+		e.addField("Attributes:", "- This kill is resolved as soon as the host sees the action, and if the target dies they may not perform their night ability.\n- You may not shoot N1.\n- If you shoot a Town member you will lose all of your bullets.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});
@@ -657,7 +657,7 @@ module.exports = (g) =>
 
 	register_role(["sk_with_a_gun", "skwithagun", "sk_gun", "skgun", "skwag", "2244"], "Neutral", "SK with a Gun", {subCat: "Killing"}, (e) =>
 	{
-		e.setDescription("Post 2244");
+		e.setDescription("Post 2244\n*Knives are sooooo last century.*");
 
 		e.addField("Alignment", "Neutral Killing", true);
 		e.addField("Attack", "Basic", true);
@@ -665,7 +665,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Shoot someone at night.");
 
-		e.addField("Attributes:", "- Detection immunity (vigi has a gun and they're innocent so you are too)\n- You can disguise your kill has any role that uses a gun as a weapon.");
+		e.addField("Attributes:", "- Detection immunity\n- You can disguise your kill has any role that uses a gun as a weapon.");
 
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});

@@ -304,7 +304,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Gracefully dance around someone's house at night.\n- Choose to dance around the Town square during the day. (1 use)");
 
-		e.addField("Attributes:", "- All players who visit your target will become distracted and instead watch you dance causing them to be roleblocked.\n- When you dance around the Town square, you will receive the next twenty whispers sent. This ability will persist throughout all day phases until you have received twenty whispers. This will not be publicly announced. You will not be able to speak while dancing around the Town.\n- You are roleblock immune.");
+		e.addField("Attributes:", "- All players who visit your target will become distracted and instead watch you dance causing them to be roleblocked.\n- When you dance around the Town square, you will receive the next twenty whispers sent. This ability will persist throughout all day phases until you have received twenty whispers. This will not be publicly announced. You will not be able to speak nor react while dancing around the Town.\n- You are roleblock immune.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

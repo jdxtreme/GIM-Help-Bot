@@ -17,21 +17,6 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Spirit.goal);
 	});
 
-	register_role(["recruit", "1452"], "Toppat", "Recruit", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 1452");
-
-		e.addField("Alignment", "Toppat Clan Support", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Look out for another Toppat.");
-
-		e.addField("Attributes:", "- If some form of negative action would occur to your target because of them visiting (such as a Veteran, or being tracked if they're a killing role), you will roleblock them and bypass immunity.\n**Chief Modifier** - You will also learn what it was that you prevented. If you are the final Toppat, you may use your ability on yourself.");
-
-		e.addField("Goal:", factions.Toppat.goal);
-	});
-
 	register_role(["new_role", "newrole", "new", "nr", "1453"], "Neutral", "New Role", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 1453");
@@ -802,7 +787,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- At night, choose another player to repair if they get attacked. That will grant them Powerful Defense and remove any negative effects from them.\n- Choose another player to revive at the start of the next day. (0 use)");
 
-		e.addField("Attributes:", "- Your revival ability cannot be refilled except by bying Upgraded.");
+		e.addField("Attributes:", "- Your revival ability cannot be refilled except by being Upgraded.");
 
 		e.addField("Upgrade:", "- Upon being Upgraded, you will gain one use of your Revival ability.\n- Targets you repair will gain Unstoppable Defense instead.");
 

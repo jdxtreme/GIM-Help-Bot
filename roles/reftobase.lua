@@ -3,14 +3,14 @@ lines = {}
 output = "module.exports = (g) =>\n{\n\tconst {register_role, factions, GOOD, EVIL} = g;"
 
 SPECIAL = "[^_%w]"
-EXCLUDE = {"a", "an", "the", "to", "of", "but", "or", "and", "with", "without", "can", "cannot", "can't", "no", "do", "does", "don't", "doesn't", "us", "our", "you", "i", "me"}
+EXCLUDE = {"a", "an", "the", "to", "of", "but", "or", "and", "with", "without", "can", "cannot", "can't", "no", "do", "does", "don't", "doesn't", "us", "our", "you", "i", "me", "this", "that", "there", "then", "in", "out", "not", "if", "it", "it's", "its", "role", "event"}
 for _, w in ipairs(EXCLUDE) do
 	EXCLUDE[w] = true
 end
 
 function split(input, sep)
 	if not sep then
-		    sep = " "
+		sep = " "
 	end
 
 	local t = {}
@@ -72,10 +72,10 @@ for a, line in ipairs(lines) do
 			output = output.."\""..namewords[1].."\", "
 		end
 
-		output = output..string.format("\"%s\"], \"%s\", \"%s\", {subCat: \"%s\"}, (e) =>\n\t{\n\t\te.setDescription(\"Post %s\");\n\n\t\te.addField(\"Alignment\", \"", param[1], param[4], param[2], param[5], param[1])..(param[6] == "Y" and "Unique " or "")..string.format("%s %s\", true);\n\t\te.addField(\"Attack\", \"None\", true);\n\t\te.addField(\"Defense\", \"None\", true);\n\n\t\te.addField(\"Abilities:\", \"\");\n\n\t\te.addField(\"Attributes:\", \"\");", param[4], param[5])
+		output = output..string.format("\"%s\"], \"%s\", \"%s\", {subCat: \"%s\"}, (e) =>\n\t{\n\t\te.setDescription(\"Post %s\");\n\n\t\te.addField(\"Alignment\", \"", param[1], param[4], param[2], param[5], param[1])..(param[6] == "Y" and "Unique " or "")..string.format("%s %s\", true);\n\t\te.addField(\"Attack\", \"None\", true);\n\t\te.addField(\"Defense\", \"None\", true);\n\n\t\te.addField(\"Abilities:\", \"‎\");\n\n\t\te.addField(\"Attributes:\", \"‎\");", param[4], param[5])
 
-		if param[4] == "Neutral" and param[5] ~= "Killing" then
-			output = output.."\n\n\t\te.addField(\"Goal:\", \"\");\n\t});"
+		if param[4] == "Any" or (param[4] == "Neutral" and param[5] ~= "Killing") then
+			output = output.."\n\n\t\te.addField(\"Goal:\", \"‎\");\n\t});"
 		else
 			output = output.."\n\n\t\te.addField(\"Goal:\", "..(param[4] == "Neutral" and "factions.Neutral.goalNK" or "factions."..param[4]..".goal")..");\n\t});"
 		end

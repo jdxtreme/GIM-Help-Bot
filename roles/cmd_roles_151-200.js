@@ -316,7 +316,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Steal three people's attributes and survive until the end of the game.");
 	});
 
-	register_role(["supergaurd", "172"], "Town", "Superguard", {subCat: "Protective"}, (e) =>
+	register_role(["superguard", "172"], "Town", "Superguard", {subCat: "Protective"}, (e) =>
 	{
 		e.setDescription("Post 172\n*DON'T FUCK WITH M— fuck.*");
 

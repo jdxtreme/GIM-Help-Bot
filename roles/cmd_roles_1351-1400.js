@@ -25,7 +25,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Encourage a Rock at night. They will be impressed by your superior rockiness, enabling them to use their one of their abilities twice tomorrow night.\n- Rally all the Rocks, encouraging them with a valorous speech. Each and every member of the Rocks besides you will be able to use one of their abilities twice tomorrow night. The rock faction may also perform their factional kill twice.");
+		e.addField("Abilities:", "- Encourage a Rock at night. They will be impressed by your superior rockiness, enabling them to use their one of their abilities twice tomorrow night.\n- Rally all the Rocks, encouraging them with a valorous speech. Each and every member of the Rocks besides you will be able to use one of their abilities twice tomorrow night. The rock faction may also perform their factional kill twice. (1 use)");
 
 		e.addField("Attributes:", "- You cannot normally target yourself with your abilities.\n- However, if you're the only Rock role in the game, you will awaken your inner spirit and channel the true power of the rocks. You gain Basic defense, and the ability to self-target. Your abilities are also no longer restricted to just Rocks, so you'll be able to use them on any player in the game. Finally, you'll be able to use your abilities in addition to the factional Rock kill, and are able to use multiple abilities each night. Your alignment is also changed to Rock Head, which doesn't change anything gameplay wise, but is very cool.");
 		
@@ -85,9 +85,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Invincible", true);
 
-		e.addField("Abilities:", "- Deal a Rampaging attack to someone.\n- Attack everyone that visits you and their visitors.");
+		e.addField("Abilities:", "- Deal a Basic attack to your target and a random person visiting them.\n- Attack everyone that visits you.");
 
-		e.addField("Attributes:", "- You will die if you get hit by a Basic attack.");
+		e.addField("Attributes:", "- Surviving visitors of people targeted by your first ability will learn your name and role.\n- You will die if you get hit by a Basic attack.");
 		
 		e.addField("Goal:", factions.Koopa.goal);
 	});
@@ -276,7 +276,7 @@ module.exports = (g) =>
 	{
 		e.setDescription("Post 1369");
 
-		e.addField("Alignment", "Sentry Killing", true);
+		e.addField("Alignment", "Unique Sentry Killing", true);
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None", true);
 

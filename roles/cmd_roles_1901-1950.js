@@ -698,21 +698,6 @@ module.exports = (g) =>
 		e.addField("Goal:", "Obliterate the opposition.");
 	});
 
-	register_role(["lizard", "1946"], "COA", "Lizard", {subCat: "Support"}, (e) =>
-	{
-		e.setDescription("Post 1946");
-
-		e.addField("Alignment", "COA Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Redirect a player to a target of your choice. They will know they were redirected.");
-
-		e.addField("Attributes:", "- You cannot redirect Victoria.\n- You will learn the redirected player’s original target.");
-		
-		e.addField("Goal:", factions.COA.goal);
-	});
-
 	register_role(["axolotl", "axo", "1947"], "Faunae", "Axolotl", {subCat: "Predator"}, (e) =>
 	{
 		e.setDescription("Post 1947");
@@ -768,9 +753,9 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You will know which animal you give your target.");
 
-		e.addField("Animals:", "- Dogs are given to Town members.\n- Siamese cats are given to Mafia members.\n- Black cats are given to Coven members.\n- Killer bunnies are given to Neutral Evils and Neutral Killings.\n- Beavers are given to Rocks and other Neutrals.\n- Lambs are given to Plants.\n- Phoenixes are given to Underworld members.\n- Doves are given to Hallow members.\n- Jaguars are given to Stalkers.\n- Wolves are given to Were members.\n- Bats are given to Vampires.\n- Tuxedo cats are given to Umbrae.\n- Goats are given to Everfrost members.\n- Elephants are given to Pale Moon members.\n- Squids are given to Sith members.\n- Pigeons are given to Insurgency members.\n- Canaries are given to Loyalists.\n- Spiders are given to SCPs.\n- Eagles are given to Thundercry members.\n- Parrots are given to Crew members.\n- Deer are given to Pokemon.\n- Foxes are given to Foxes.\n- Sheep are given to Cult members.\n- Horses are given to Horsemen.\n- Owls are given to Unseen members.\n- Skunks are given to Biohazard members.\n- Swans are given to Fallen Angels.");
+		e.addField("Animals:", "- Dogs are given to Town members.\n- Siamese cats are given to Mafia members.\n- Black cats are given to Coven members.\n- Killer bunnies are given to Neutral Evils and Neutral Killings.\n- Beavers are given to Rocks and other Neutrals.\n- Lambs are given to Plants.\n- Phoenixes are given to Underworld members.\n- Doves are given to Hallow members.\n- Jaguars are given to Stalkers.\n- Wolves are given to Were members.\n- Tuxedo cats are given to Umbrae.\n- Goats are given to Everfrost members.\n- Elephants are given to Pale Moon members.\n- Squids are given to Sith members.\n- Pigeons are given to Insurgency members.\n- Canaries are given to Loyalists.\n- Spiders are given to SCPs.\n- Eagles are given to Thundercry members.\n- Parrots are given to Crew members.\n- Deer are given to Pokemon.\n- Foxes are given to Foxes.\n- Sheep are given to Cult members.\n- Horses are given to Horsemen.\n- Owls are given to Unseen members.\n- Skunks are given to Biohazard members.\n- Swans are given to Fallen Angels.");
 
-		e.addField("Animals (cont.):", "- Rats are given to Agents.\n- Random animals are given to Random members.\n- Dragons are given to members of the Last.\n- Chipmunks are given to Spirits.\n- Monkeys are given to Mathematics members.\n- Ferrets are given to Sentries.\n- Cows are given to Koopa.\n- Eagles are given to Toppats.\n- Lions are given to Creators.\n- Sharks are given to Warfleet members.\n- Robot dogs are given to Androids.\n- Bees are given to Florae.\n- Rhinos are given to City members.\n- Otters are given to Serial Killers.\n- Hummingbirds are given to Band members.\n- Peacocks are given to members of the Seven.\n- Brushwaggs are given to Gatherers.\n- Koalas are given to Army members.\n- Emus are given to Civilizations.");
+		e.addField("Animals (cont.):", "- Rats are given to Agents.\n- Random animals are given to Random members.\n- Dragons are given to members of the Last.\n- Chipmunks are given to Spirits.\n- Monkeys are given to Mathematics members.\n- Ferrets are given to Sentries.\n- Cows are given to Koopa.\n- Eagles are given to Toppats.\n- Lions are given to Creators.\n- Sharks are given to Warfleet members.\n- Robot dogs are given to Androids.\n- Bees are given to Florae.\n- Rhinos are given to City members.\n- Otters are given to Serial Killers.\n- Hummingbirds are given to Band members.\n- Peacocks are given to members of the Seven.\n- Brushwaggs are given to Gatherers.\n- Koalas are given to Army members.\n- Emus are given to Civilizations.\n- Horses are given to Discordians.\n- Caterpillars are given to Metamorphs.\n- Beasts are given to Beasts.\n- Roosters are given to Partisans.");
 		
 		e.addField("Goal:", factions.Town.goal);
 	});

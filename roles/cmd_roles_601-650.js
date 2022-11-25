@@ -72,7 +72,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Roleblock a player. If you successfully stopped an action with this ability, generate one sun. If you stopped an action targetting a Plants member, generate two instead.\n- Grant a non-plant permanent roleblock immunity, generating one sun.\n- Grant an ally plant permanent roleblock immunity. Costs 1 sun.\n- Roleblock one player for every time you've successfully stopped an action and for every time you've negated a roleblock. Costs 2 sun. (One use)");
+		e.addField("Abilities:", "- Roleblock a player. If you successfully stopped an action with this ability, generate one sun. If you stopped an action targetting a Plants member, generate two instead.\n- Grant an ally plant permanent roleblock immunity. Costs 1 sun.\n- Roleblock one player for every time you've successfully stopped an action and for every time you've negated a roleblock. Costs 2 sun. (One use)");
 		
 		e.addField("Goal:", factions.Plant.goal);
 	});
@@ -329,7 +329,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Each night, make someone horny. They won't know it, but their direct neighbors will\\");
 
-		e.addField("Attributes:", "- Horny players will occasionally miss their action due to... ...sus.\n- Members of the Were faction has a higher chance of missing.\n- You can only attack players that have horn.\n- Your ability will fail on Asmodeus (Post 359)\n\nMiss chances:\nregular:20%\nWeres:40%");
+		e.addField("Attributes:", "- Horny players will occasionally miss their action due to... ...sus.\n- Members of the Were faction has a higher chance of missing.\n- You can only attack players that have horn.\n- Your ability will fail on Asmodeus (Post 359)\n- Miss chances:\n> Regular:20%\n> Weres:40%\n> Furry (2285): 60%");
 		
 		e.addField("Goal:", "Be the last player standing");
 	});

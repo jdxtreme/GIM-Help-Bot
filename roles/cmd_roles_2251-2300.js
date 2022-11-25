@@ -19,7 +19,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Checkmate the enemy at all costs.");
 	});
 
-	register_role(["black_king", "blackking", "black", "king", "bk", "2252"], "Neutral", "White King", {subCat: "Chaos"}, (e) =>
+	register_role(["black_king", "blackking", "black", "king", "bk", "2252"], "Neutral", "Black King", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 2252");
 
@@ -333,7 +333,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Hide within the town during the day. You'll be removed from the current Day channel. The first person to notice you're gone gains an enchanted pickaxe. If you hide without being caught twice, you'll become Pleased. If someone notices you while you're Pleased, you'll give 'em three enchanted pickaxes instead. If you hide within an hour of the day ending, it won't count towards your pleasedness.");
 
-		e.addField("Attributes:", "- The enchanted pickaxe is an item which someone can use along with their night ability. Depending on random chance, the user can get a certain ore. Also, if you've got multiple pickaxes, you can mine with all of 'em at the same time each night.\n> Coal (44% chance): You can mine twice next night.\n> Copper (15% chance): For every two copper, pick any ore to gain immediately besides Diamond.\n> Iron (15% chance): Get another tier of defense. If you're at none, it'll become basic. Basic becomes powerful, etcetera.\n> Redstone (10% chance): Next night you can mine thrice, multitask and use one of your actual abilities twice.\n> Lapis (10% chance): Double your current amount of pickaxes.\n> Gold (5% chance): Get another life - the first time you die, survive the attack, and it'll look like you were healed. This isn't a protection, so a high attack tier doesn't matter.\n> Diamond (1% chance): Win the game immediately regardless of the outcome. If you've already won, choose another player to win. You can't gain this ore unless you've mined at least three times.\n- You cannot claim, and even implying your role will result in an immediate loss and death. Hiding from the town doesn't count even though it might be obvious you're the Rascal after that.\n- You also can't self-target or self-notice.");
+		e.addField("Attributes:", "- The enchanted pickaxe is an item which someone can use along with their night ability. Depending on random chance, the user can get a certain ore. Also, if you've got multiple pickaxes, you can mine with all of 'em at the same time each night.\n> Coal (44% chance): You can mine twice next night.\n> Copper (15% chance): For every two copper, pick any ore to gain immediately besides Diamond.\n> Iron (15% chance): Get another tier of defense. If you're at none, it'll become basic. Basic becomes powerful, etcetera.\n> Redstone (10% chance): Next night you can mine thrice, multitask and use one of your actual abilities twice.\n> Lapis (10% chance): Double your current amount of pickaxes.\n> Gold (5% chance): Get another life - the first time you die, survive the attack, and it'll look like you were healed. This isn't a protection, so a high attack tier doesn't matter.");
+
+		e.addField("Attributes (cont.):", "> Diamond (1% chance): Win the game immediately regardless of the outcome. If you've already won, choose another player to win. You can't gain this ore unless you've mined at least three times.\n- You cannot claim, and even implying your role will result in an immediate loss and death. Hiding from the town doesn't count even though it might be obvious you're the Rascal after that.\n- You also can't self-target or self-notice.");
 
 		e.addField("Goal:", "Become Pleased and give at least five people some pickaxes.");
 	});
@@ -393,7 +395,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- During the day, call a ceasefire for a target. They will become deauthorized at the start of the night. You deauthorize an additional target for every ten players in the game, rounded. Mandatory or random as long as there are alive Authorized players.\n- During the day, sentence a player to be executed for dissidence against the Sentries. This is not public but they will be aware of this. You will learn if they are a Neutral role or not. If they're not Neutral, they will be roleblocked and you will deal an astral Unstoppable attack to them, unless they're visited by a member of their faction on the same night. (3 uses)\n- During the night, amend one of your previous statements and re-authorize an unauthorized player. They will be authorized starting the next night. (1 use + Get another use for every ten players in the game, rounded)");
 
-		e.addField("Attributes:", "- If you spawn in the game, it will be announced, and all players will automatically become Authorized.\n- A list of Authorized targets will be posted at the start of each night.\n- When you're attacked, if any Sentries visited you tonight, a random Sentry will take the hit for you instead. You will be aware of this. This ability is not given to any heirs and will only affect the original Autarch.\n- You may choose someone to be your heir at any point. If they are a Sentry, they will be promoted to Autarch when you die. If they are not a Sentry, a random living Sentry will be promoted instead. When this attribute activates, the next ceasefire must include two additional targets.");
+		e.addField("Attributes:", "- If you spawn in the game, it will be announced, and all players will automatically become Authorized.\n- A list of Authorized targets will be posted at the start of each night.\n- When you're attacked, if any Sentries visited you tonight, a random Sentry will take the hit for you instead. You will be aware of this. This ability is not given to any heirs and will only affect the original Autarch.\n- You may choose someone to be your heir at any point. If they are a Sentry, they will be promoted to Autarch when you die. If they are not a Sentry, a random living Sentry will be promoted instead. When this attribute activates, the next ceasefire must include two additional targets.\n- You are conversion immune.");
 
 		e.addField("Goal:", factions.Sentry.goal);
 	});
@@ -532,7 +534,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- If you don't select a target, you will rampage at your own house on Full Moon Nights.\n- You have Detection Immunity, but only during non-Full Moon Nights.");
 
-		e.addField("Goal:", factions.Neutral.goalNK + " You may win with Werewolf (98), Werewolves (Faction), Scp, Thundercry, Pokémon, Foxes, Koopas.");
+		e.addField("Goal:", factions.Neutral.goalNK + " You may win with Werewolf (98), Werewolves (Faction), Scp, Thundercry, Pokémon, Foxes, Koopas, Beasts.");
 	});
 
 	register_role(["nighttime_pierrot", "nighttimepierrot", "nighttime", "pierrot", "np", "2286"], "Neutral", "Nighttime Pierrot", {subCat: "Chaos"}, (e) =>
@@ -710,6 +712,8 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- The effects of Endeavor last for an additional night after its use.\n- You will be notified if a Whirlwind target was attacked.");
 
+		e.addField("Pokemon Ability:", "- Keen Eye: Grants immunity to abilities that roleblock.");
+
 		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
@@ -725,6 +729,8 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- Staraptor's defence cannot be improved when it is Vulnerable.\n- Agility cannot self-target in games where that is allowed.\n- Using Close Combat while having Vulnerable defence counts as one visit towards yourself.");
 
+		e.addField("Pokemon Ability:", "- Intimidate: The first time you are attacked, lower the attack's value by one stage.");
+
 		e.addField("Goal:", factions.Pokemon.goal);
 	});
 
@@ -736,7 +742,7 @@ module.exports = (g) =>
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Double Team: You can use one of your abilities twice tomorrow night. Only uses one charge of the ability in question. (3 uses)\n- Trick Room: Set the player to Isolated defense. They will be aware of this. Their defense will be returned to normal after three nights. (2 uses)\n- Shadow Claw: Roleblock at night AND whoever they visit. (∞ uses)\n- Pain Split: Attack a player. Whenever a member of the Pokemon faction is attacked, you will gain a charge of this ability. When using this ability, you can use all charges at once. Starts with (0 uses)");
+		e.addField("Abilities:", "- Double Team: You can use one of your abilities twice tomorrow night. Only uses one charge of the ability in question. (3 uses)\n- Trick Room: Set the player to Isolated defense. They will be aware of this. Their defense will be returned to normal after three nights. (2 uses)\n- Shadow Sneak: Roleblock a target at night AND whoever they attempted to visit. (∞ uses)\n- Pain Split: Attack a player. Whenever a member of the Pokemon faction is attacked, you will gain a charge of this ability. When using this ability, you can use all charges at once. Starts with (0 uses)");
 
 		e.addField("Attributes:", "- Isolated defense: You die to all attacks, and you die if you're not visited by at least one player at night. Below \"None\" tier-wise. If you die due to NOT being visited, you will be displayed as having died from \"going missing\". You can't visit yourself to save yourself.\n- Trick Room applies to the night you use it, but you'll be the one visitor needed to survive on that night.\n- If you're the final person alive on the Pokemon team, you'll be cursed with Isolated defense.");
 
@@ -753,7 +759,7 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Charm: Redirect a player to a target of your choice. They'll be aware they were redirected but not who they were redirected to. You can use this on your allies. (∞ uses)\n- Play Nice: Set a player's Attack value to none until the end of the next night. (2 uses)\n- Nasty Plot: Increase a fellow Pokemember's next attack increase in value by a tier and use Astral. (2 uses)\n- Evolve: Evolve into Pikachu. May only be used once Charm has been used to kill someone.");
 
-		e.addField("Attributes:", "- Agility: You're capable of using multiple abilities in the same night as long as you have enough uses.");
+		e.addField("Attributes:", "- Agility: You're capable of using two abilities in the same night as long as you have enough uses.");
 
 		e.addField("Goal:", factions.Pokemon.goal);
 	});

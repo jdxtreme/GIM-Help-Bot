@@ -478,7 +478,7 @@ module.exports = (g) =>
 
 		if(event && event.cmd)
 		{
-			event.cmd.func(chn, msg, e, [], nosend);
+			event.cmd.func(chn, message, e, [], nosend);
 			return event;
 		}
 		else

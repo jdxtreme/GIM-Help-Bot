@@ -315,19 +315,9 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["goat", "1222"], "COA", "Goat", {subCat: "Support"}, (e) =>
+	register_role(["goat", "1222"], "Other", "Goat", {cannotRoll: true}, (e) =>
 	{
-		e.setDescription("Post 1222");
-
-		e.addField("Alignment", "Cult of Animals Support", true);
-		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
-
-		e.addField("Abilities:", "- Give your target Powerful defense.");
-
-		e.addField("Attributes:", "- If you target a Cult of Animals role, choose a role for your target to appear as for all investigative abilities that night.\n- You can target yourself.\n- Victoria ignores your protection.");
-
-		e.addField("Goal:", factions.COA.goal);
+		e.setDescription("Post 1222\nThis role cannot spawn, as the Cult of Animals faction has been removed.");
 	});
 
 	register_role(["duplicate", "dupe", "1223"], "Neutral", "Duplicate", {subCat: "Chaos"}, (e) =>
