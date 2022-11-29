@@ -267,7 +267,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Android.goal);
 	};
 
-	register_role(["android", "android_role", "androidrole"], "Android", "Android", {subCat: "Support", spawnRate: 26}, g.androidRole);
+	register_role(["android", "android_role", "androidrole"], "Android", "Android", {subCat: "Support", spawnRate: 16}, g.androidRole);
 
 	register_role(["le0n", "leon", "11037"], "Neutral", "LE0N", {subCat: "Killing"}, (e) =>
 	{
@@ -313,6 +313,21 @@ module.exports = (g) =>
 		
 		e.addField("Goal:", "Live to see no kills occur on any given night other than Night 1.");
 	});
+	
+	register_role(["hex_saver", "hexsaver", "hs", "7033973561"], "Neutral", "Hex Saver", {subCat: "Chaos"}, (e) =>
+	{
+		e.setDescription("Post 7033973561\n*”that would be very funny”*");
+
+		e.addField("Alignment", "Unique Neutral Chaos", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Select a player at night. You may swap the placement of 2 letters in their role’s name. They will also gain the ability and attributes of the Hex Saver. Functionally, every mechanic in the game will act as though their role’s name has not been changed, except for any mechanic that would display its name. They will be notified that their role’s name has changed and that they have gained the ability and attributes.‎");
+
+		e.addField("Attributes:", "- If you would receive an attack from a player that has been affected by the Hex Saver’s ability, that player’s attack value will be treated as None for all attacks they have performed during this phase.\n- If all remaining players alive have been affected by the Hex Saver’s ability, the game ends in the victory of all affected players.\n- You may self-target.\n- Your visits are Astral.‎");
+
+		e.addField("Goal:", "Cause the game to end with all living players having been affected by your ability");
+	});
 
 	register_role("lorenzo", "Town", "Lorenzoromanoamedeocarloavogadrocountofquaregnaandcerreto", {subCat: "Investigative"}, (e) =>
 	{
@@ -329,7 +344,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["m.i.", "mi"], "Mainframe", "M.I.", {subCat: "Investigative", spawnRate: 30}, (e, chn, message, args) =>
+	register_role(["m.i.", "mi"], "Mainframe", "M.I.", {subCat: "Investigative", spawnRate: 5}, (e, chn, message, args) =>
 	{
 		let bits = [];
 
@@ -362,7 +377,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Mainframe.goal);
 	});
 
-	register_role(["m.k.", "mk"], "Mainframe", "M.K.", {subCat: "Killing", spawnRate: 30}, (e, chn, message, args) =>
+	register_role(["m.k.", "mk"], "Mainframe", "M.K.", {subCat: "Killing", spawnRate: 5}, (e, chn, message, args) =>
 	{
 		let bits = [];
 
@@ -395,7 +410,7 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Mainframe.goal);
 	});
 
-	register_role(["m.p.", "mp"], "Mainframe", "M.P.", {subCat: "Protective", spawnRate: 30}, (e, chn, message, args) =>
+	register_role(["m.p.", "mp"], "Mainframe", "M.P.", {subCat: "Protective", spawnRate: 5}, (e, chn, message, args) =>
 	{
 		let bits = [];
 

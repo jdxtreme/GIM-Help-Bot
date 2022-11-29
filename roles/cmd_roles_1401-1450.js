@@ -651,6 +651,21 @@ module.exports = (g) =>
 
 		e.addField("Goal:", factions.Town.goal);
 	});
+	
+	register_role(["abominationtheoneduwiiwontshutupabout", "abomination", "atodwsua", "shutupduwii", "1444"], "Neutral", "Abomination (The One Duwii Won't Shut Up About)", {subCat: "Chaos"}, (e) =>
+	{
+		e.setDescription("Post 1444\n*Tortured and reclusive... this man is more dangerous than he seems...*");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "Powerful", true);
+
+		e.addField("Abilities:", "- Ignore someone each night.");
+
+		e.addField("Attributes:", "- When you ignore someone, you will not be able to gain stress from them for the night.\n- You have a stress meter which goes up to 10.\n- You will be notified of where your stress meter is at the end of each night.\n- When you are visited, you gain 2 stress, and gain one additional stress if you were roleblocked, attacked, investigated, or controlled.\n- If your stress meter ever reaches ten, you will rampage at your own house.‎");
+
+		e.addField("Goal:", "Survive to the end of the game, while having killed less than five people.");
+	});
 
 	register_role(["dry_bones", "drybones", "db", "1447"], "Koopa", "Dry Bones", {subCat: "Protective"}, (e) =>
 	{

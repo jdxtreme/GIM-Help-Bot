@@ -1,0 +1,4 @@
+.store.json
+.backup.json
+node_modules/*
+changelog.txt

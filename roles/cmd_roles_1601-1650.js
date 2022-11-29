@@ -249,6 +249,21 @@ module.exports = (g) =>
 		
 		e.addField("Goal:", factions.Discordian.goal);
 	});
+	
+	register_role(["wrong", "incorrect", "1615"], "Neutral", "Wrong", {subCat: "Evil"}, (e) =>
+	{
+		e.setDescription("Post 1615\n*wooooooo time travel*");
+
+		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- At night, select a statement that was said during the previous day. The entire timeline will change so that the statement is not true. If the statement already wasn't true, you will be notified. The host has the liberty of choosing how they want to do this.");
+
+		e.addField("Attributes:", "- If someone's role is altered to make the statement not true, the game will be updated as if they had used the abilities of that role while keeping the same targets.\n- You have one use of your ability when you are dead. This cannot be used to revive yourself.\n- You always spawn with Right (2736) and have a night chat with them.‎");
+
+		e.addField("Goal:", "See the Town lose the game. You may win while dead.");
+	});
 
 	register_role(["fortune_teller", "fortuneteller", "fortune", "teller", "ft", "1616"], "PaleMoon", "Fortune Teller", {subCat: "Support"}, (e) =>
 	{

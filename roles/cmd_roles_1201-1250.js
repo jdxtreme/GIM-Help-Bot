@@ -663,34 +663,34 @@ module.exports = (g) =>
 		e.addField("Goal:", "The game ends with you having crawled to at least half of the living players' houses, and you caused someone's death.");
 	});
 
-	register_role(["bodysnatcher", "1246"], "Neutral", "Bodysnatcher", {subCat: "Other"}, (e) =>
+	register_role(["cerimonialist", "ritualist", "1246"], "Town", "Cerimonialist", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 1246");
 
-		e.addField("Alignment", "Neutral Other", true);
-		e.addField("Attack", "Powerful", true);
+		e.addField("Alignment", "Town…\"Support\"", true);
+		e.addField("Attack", "Overkill", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Attack someone, you will get their role if they die.");
+		e.addField("Abilities:", "- Sacrifice a Town member to revive another player.");
 
-		e.addField("Attributes:", "- Your target's death message will show you as a random role if it successfully changes your role.");
+		e.addField("Attributes:", "- Sacrificing a Town member deals an Overkill attack to them.\n- If you attempt to sacrifice a non-Town member, you will sacrifice yourself instead. You may also choose to sacrifice yourself normally.\n- You will change the Goal of the first Neutral you revive to the Town goal.\n- You cannot sacrifice someone more than one time, if you were to be made able to use your ability multiple times at once by any means.\n- You cannot keep a last will due to your practices being forbidden.‎");
 
-		e.addField("Goal:", "Kill someone to get their role and win as that role, lose otherwise.");
+		e.addField("Goal:", "Lynch all criminals and evildoers.");
 	});
 
-	register_role(["wandering_spirit", "wanderingspirit", "wandering", "ws", "1247"], "Neutral", "Wandering Spirit", {subCat: "Other"}, (e) =>
+	register_role(["capybara", "1247"], "Neutral", "Capybara", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 1247");
+		e.setDescription("Post 1247\n*<3*");
 
-		e.addField("Alignment", "Neutral Other", true);
+		e.addField("Alignment", "Neutral Benign", true);
 		e.addField("Attack", "None", true);
-		e.addField("Defense", "None", true);
+		e.addField("Defense", "Unkillable", true);
 
-		e.addField("Abilities:", "- Possess someone's body, you will swap roles with them, making them a Wandering Spirit.");
+		e.addField("Abilities:", "- **OK I PULL UP** - Visit a player’s house to immediately become friends with them. They now win with you.\n- **Boogie** - Stay home and throw an after party. All visits against you will fail and everyone there will now win with you.");
 
-		e.addField("Attributes:", "- If your target were to die that night, they will survive and you will die instead.\n- If you use your ability on the last night of the game, your target will win if their old role would win.");
+		e.addField("Attributes:", "- **Lovable** - Any attacker that targets you will have their attack fail and they will now win with you\n- **Internet Famous** - Due to your abundance on the internet, you and your legacy cannot die, including lynching, modkilling, and any form of removal from the game‎");
 
-		e.addField("Goal:", "Possess someone to get their role and win as that role, lose otherwise.");
+		e.addField("Goal:", "Have every living player win with you before the game ends.");
 	});
 
 	register_role(["arsonist", "1248"], "Neutral", "Arsonist", {subCat: "Chaos"}, (e) =>

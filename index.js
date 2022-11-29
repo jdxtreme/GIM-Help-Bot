@@ -196,7 +196,9 @@ function register_role(name, cat, desc, meta, func)
 				color = UTILS.rHex(6);
 
 			e.setAuthor({name: desc, iconURL: fac.icon});
-			e.setColor(color || "808080");
+			
+			if(color !== "null")
+				e.setColor(color || "808080");
 
 			try
 			{
@@ -340,12 +342,12 @@ require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
 require("./roles/cmd_roles_misc.js")(GLOBAL);
-for(let i = 50; i <= 2500; i+=50)
+for(let i = 50; i <= 2900; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 for(let i = 50; i <= 50; i+=50)
 	require("./events/cmd_events_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
-for(let i = 1; i <= 2494; i++)
+for(let i = 1; i <= 2867; i++)
 	if(!commands[i.toString()])
 		console.log("Missing: " + i);
 for(let i = 1; i <= 32; i++)

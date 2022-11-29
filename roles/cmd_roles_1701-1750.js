@@ -231,6 +231,23 @@ module.exports = (g) =>
 		
 		e.addField("Goal:", "Survive until the end of the game with only Neutrals alive.");
 	});
+	
+	register_role(["australia", "au", "🇦🇺", "1717"], "Civilization", "Australia", {subCat: "Scientific"}, (e) =>
+	{
+		e.setDescription("Post 1717\n*”Australia is like Jack Nicholson. It comes right up to you and laughs very hard in your face in a highly threatening and engaging manner.” -Douglas Adams*");
+
+		e.addField("Alignment", "Unique Civilization Scientific", true);
+		e.addField("Attack", "Powerful", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Flip someone’s post number upside down. Their abilities and attributes will be replaced by those of the post number opposite of theirs. Their win condition does not change. (e.g. if someone’s post number is n and there are x total roles then their new abilities will be that of post x-n)\n- Poison someone. If they take any actions aside from speaking for the next day and night, they will be killed immediately. (Costs 3 Gold)");
+
+		e.addField("Attributes:", "- If any Civilization is attacked and survives, they can perform two attacks the next time they perform the factional kill. ");
+
+		e.addField("Messages:", "“They were bested by an Australian digger.” (Factional Kill)\n“You were bitten by a snake. You must stay home to recover!” (Poisoned)"); 
+
+		e.addField("Goal:", factions.Civilization.goal);
+	});
 
 	register_role(["owl", "1720"], "Thundercry", "Owl", {subCat: "Support"}, (e) =>
 	{

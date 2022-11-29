@@ -686,4 +686,108 @@ module.exports = (g) =>
 
 		e.addField("Goal:", factions.Crew.goal);
 	});
+	
+	//Credit: Vikuale2
+	
+	register_role(["japan", "jp", "🇯🇵", "japanese", "2495"], "Civilization", "Japan", {subCat: "Militaristic", censor: ""}, (e) =>
+	{
+		e.setDescription("Post 2495");
+
+		e.addField("Alignment", "Unique Civilization Militaristic", true);
+		e.addField("Attack", "Basic (Powerful)", true);
+		e.addField("Defense", "Basic (Invincible)", true);
+
+		e.addField("Abilities:", "-Perform the Factional Kill\n- Prepare a Counterattack for the night (Costs 5 Gold)‎");
+
+		e.addField("Attributes:", "- While preparing a Counterattack, you gain Invincible Defense and will attack anyone who attacks you with a Powerful Attack.\n- If you are fatally attacked during the night, you will instead die at the end of the next night and trigger Counterattack for free that night.\n- The cause of death will be obfuscated if you die from a nightkill.‎");
+		
+		e.addField("Messages:", "“They were killed by a Japanese Samurai.” (Factional or Counterattack kill)\n“They were killed in Japan’s last stand!” (Kill while fatally wounded)\n“They finally died from a mortal wound.” (On death by delayed nightkill)");
+
+		e.addField("Goal:", factions.Civilization.goal);
+	});
+
+	register_role(["emperor", "2496"], "Metamorph", "Emperor", {subCat: "Killing"}, (e) =>
+	{
+		e.setDescription("Post 2496");
+
+		e.addField("Alignment", "Metamorph Killing", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Attack a player at night. You will also numb the target and anyone they attempted to visit that night, roleblocking them tonight and the next night.\n- Swap roles with a player at night, with the exception of faction and goal staying the same. This happens after all other actions resolve that night. You cannot use this on the same night as another ability.‎");
+
+		e.addField("Attributes:", "‎- Numbing does not penetrate roleblock immunity.\n- You will be aware of who you attempt to numb.\n- Metamorph-aligned players are immune to your numbing.\n- If you are alive and Metamorph-aligned in a Metamorph victory, that victory is nullified and the Good faction wins instead.");
+
+		e.addField("Goal:", factions.Metamorph.goal);
+	});
+
+	register_role(["network_specialist", "networkspecialist", "ns", "2497"], "NETSEC", "Network Specialist", {subCat: "Investigative"}, (e) =>
+	{
+		e.setDescription("Post 2497");
+
+		e.addField("Alignment", "NETSEC Investigative", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Hacking Skill:", "‎Low");
+
+		e.addField("Abilities:", "- During the day, you may attempt to hack a node. The chance of success is increased depending on how many people attempt to hack the node.\n- During the day, you may probe a node, making it easier to hack.\n- (3-shot) Review a player’s connections. You will see who they visited and who visited them the previous night.\n- (2-shot) Cover your tracks during the night, giving yourself Powerful Defense.‎");
+
+		e.addField("Attributes:", "‎- You are roleblock-immune while covering your tracks.\n- If at least two other players are trying to connect to the same node as you, your Hacking Skill increases to Average for that hack.");
+
+		e.addField("Goal:", factions.NETSEC.goal);
+	});
+
+	register_role(["guzzlord", "aaaaaaaa", "2498"], "Pokemon", "Guzzlord", {subCat: "Single"}, (e) =>
+	{
+		e.setDescription("Post 2498\n*It has gobbled mountains and swallowed whole buildings, according to reports. It's one of the Ultra Beasts.*");
+
+		e.addField("Alignment", "Pokemon Single", true);
+		e.addField("Attack", "Variable", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "‎- Dragon Rush: Deal a Basic attack to a player and roleblock them.\n- Giga Impact: Deal a Powerful rampaging attack to a player. You may not use abilities the night after using this.\n- Belch (**Locked**): Deal a Powerful attack to a player and Unstoppably poison them.");
+
+		e.addField("Attributes:", "‎- **Unlock Condition**: If you survive an attack, Unlock.");
+
+		e.addField("Pokemon Ability:", "- Beast Boost: Whenever you kill a player, your defense permanently increases by a stage. If it's Overprotective or higher, instead all of your attack values permanently increase by a stage.");
+
+		e.addField("Goal:", factions.Pokemon.goal);
+	});
+
+	register_role(["artisan", "2499"], "Town", "Artisan", {subCat: "Support"}, (e) =>
+	{
+		e.setDescription("Post 2499\n*I have no **time** for this nonsense! I've got deadlines to meet! Where's that shipment when you need it...*");
+
+		e.addField("Alignment", "Town Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Place down any of your **c**o**n**t**r**a**p**t**i**o**n**s. You can use this ability multiple times per night as long as you have enough **c**o**n**t**r**a**p**t**i**o**n**s.\n— Each of your **c**o**n**t**r**a**p**t**i**o**n**s can only be used so many times before they break down. In other words, one use of a **c**o**n**t**r**a**p**t**i**o**n** will only function for a certain amount of visits. Each **c**o**n**t**r**a**p**t**i**o**n** can break down in the middle of the night, and visits after it breaks down will not apply. Visits in the same night will take whoever has the highest priority first. If any visitors have the same priority, randomize the order.‎");
+
+		e.addField("Net of Entrapment:", "‎- Place the net between two players with adjacent houses. Any who visit the first target will instead visit the second and vice versa.\n> - No one is notified they were affected by this ability.\n> - The net will still take effect if one of the players dies, their visitors would just be redirected to a corpse.\n> - Affects the first three visits of either target before it breaks down.");
+
+		e.addField("Wooden Statuettes:", "‎- Litter wooden statuettes in front of a target's house.\n> - If two or more people visit someone with wooden statuettes, the target will be protected with Basic defense.\n> - Gives no notification for the visitors, but the target will be aware someone protected them if they were attacked.\n> - Affects the first eight total visits of the target before all statuettes are used. The visits do not necessarily need to have triggered the defense.");
+
+		e.addField("Blockade:", "- Place the blockade in front of someone's house. Anyone who visits them will have their visit prevented.\n> - Gives a standard \"visit prevented\" message as feedback.\n> - Affects the first two visits of the target before it breaks down.‎");
+
+		e.addField("Attributes:", "- Whenever a player dies, you will collect some resources from their corpse. Depending on their actions during the game, you'll get a different resources.\n> - If they were a Town role which never visited a player, gain two `wood`.\n> - If they were a Town role which visited more Town players than non-Towns, gain two `stone`.\n> - If they were a Town role which visited less Town players than non-Towns, or an equal amount of both, gain two `steel`.\n> - If they were a non-Town role, gain one `antimatter`.‎");
+
+		e.addField("Attributes (cont.):", "- At any time, you may use a combination of your current materials to craft a **c**o**n**t**r**a**p**t**i**o**n**. Doing so will consume the materials you used.\n> - Combine one `wood` with one `steel` to gain a __Net of Entrapment__.\n> - Combine one `steel` with one `stone` to gain a __Blockade__.\n> - Combine one `wood` with one `stone` to gain __Wooden Statuettes__.\n> - `Antimatter` can substitute __any__ material in the formulas above.\n> - Combine two `antimatter` to get one of each **c**o**n**t**r**a**p**t**i**o**n**. \n- If your role gains **P** at the start of it's name by any means, your goal will be changed to that of the Partisans.‎");
+
+		e.addField("Goal:", factions.Town.goal);
+	});
+
+	register_role(["ianist", "2500"], "Neutral", "Ianist", {subCat: "Chaos"}, (e) =>
+	{
+		e.setDescription("Post 2500\n*I'm not a fucking penis!*");
+
+		e.addField("Alignment", "Neutral Chaos", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "Basic", true);
+
+		e.addField("Abilities:", "- Put a P at the start of another player's role's name each night.‎");
+
+		e.addField("Goal:", "‎Live to see at least two players whose roles start with P win the game.");
+	});
 };

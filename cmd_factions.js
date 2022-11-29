@@ -20,7 +20,7 @@ module.exports = (g) =>
 
 			if(info.color === "random")
 				e.setColor(UTILS.rHex(6));
-			else
+			else if(info.color !== "null")
 				e.setColor(info.color || "808080");
 
 			e.addField("Color:", "#" + info.color, true);
@@ -549,7 +549,7 @@ module.exports = (g) =>
 		fieldSSC: ["field_operations", "fieldoperations", "field", "operations", "fieldops", "fo"]
 	});
 
-	register_faction(["metamorph", "meta", "morph"], "Metamorph", {
+	register_faction(["metamorph", "morph"], "Metamorph", {
 		color: "0A62B5",
 		type: "evil",
 		features: "- A Metamorph Killing will always spawn\n- Factional chat\n- No factional kill unless no Killing members are alive.\n- All original roles can swap roles with another player at night, with faction and goal staying the same. This will fail on Neutral roles with unique goals. Only one member may swap roles each night.",
@@ -585,5 +585,42 @@ module.exports = (g) =>
 		type: "good",
 		features: "- Roles aren't made like other factions. (You can still make roles, unlike Androids. It's just not like creating other roles. Also, please check with Lunari before doing it <3)\n- Instead, templates are created that roles are derived from. Templates have content in [brackets] that allows roles to differ from other variants of each other.\n- In the role's name, two base64 characters are chosen to be added to the name, including a - and _ for non-alphanumerical characters. The last 4 or 5 digits included depend on the variant's post number.\n- No factional kill\n- No factional chat\n- Counts as good",
 		goal: "Eliminate all threats to the Mainframe."
+	});
+
+	register_faction(["zombies", "zombie"], "Zombie", {
+		display: "Zombies",
+		color: "819075",
+		type: "evil",
+		features: "- Factional kill. The target is a random non-Zombie.\n- Factional chat",
+		goal: "Consume the brains of all who oppose the Zombies."
+	});
+
+	register_faction(["nothing"], "Nothing", {
+		color: "null",
+		type: "evil",
+		features: "- This faction has no subalignments or features.",
+		goal: "-"
+	});
+
+	register_faction(["backrooms", "backroom", "br"], "Backrooms", {
+		color: "E0D47C",
+		type: "evil",
+		features: "- Only up to three members may spawn.\n- Factional chat\n- No factional kill\n- All members are roleblock immune.",
+		goal: "Convert the town into another Backrooms level."
+	});
+
+	register_faction(["beekeepers", "beekeeper", "bk"], "Beekeeper", {
+		color: "F4C129",
+		type: "evil",
+		features: "- 2750: Beekeeper Head must spawn.\n- Cannot spawn unless there is at least one \"Beekeeper\" role. A \"Beekeeper\" role is one with \"beekeeper\" in its name, or one that uses bees to pay for ability costs.\n- Factional chat\n- No factional kill\n- Converted \"Beekeepers\" win with this faction and their original.",
+		goal: "Take down the non bee-lievers."
+	});
+
+	register_faction(["rugby", "rugbys", "rugby's", "rugby_7_team", "rugby7team", "rugby_7s_team", "rugby7steam", "r7t"], "Rugby", {
+		display: "Rugby 7's Team",
+		color: "5AE6D0",
+		type: "evil",
+		features: "- Only up to seven members may spawn.\n- Factional chat\n- No factional kill\n- If less than seven members would spawn, two-thirds, rounded down, must be Backs, and the rest must be Forwards.\n- At the start of the game, one member gets the Ball.\n- While a player has the Ball, they have Powerful defense and their ability is replaced with \"Choose two targets. You deal a basic attack to the first target. If you kill the target, you kick the ball into the second target, attacking them.\"\n- Whenever one or more players attack a player with the Ball, a random one of those attackers gets the Ball.\n- If no member has the Ball, whenever one or more members visits a player with the Ball, a random one of those members gets the Ball.\n- If, over the course of a night, no member gets the Ball, all members' names are revealed at the start of the next day. ",
+		goal: "Kill everyone"
 	});
 };

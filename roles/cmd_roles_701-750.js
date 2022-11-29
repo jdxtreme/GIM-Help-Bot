@@ -4,35 +4,33 @@ module.exports = (g) =>
 {
 	const {register_role, factions} = g;
 
-	register_role(["maiden", "701"], "Neutral", "Maiden", {subCat: "Benign"}, (e) =>
+	register_role(["chevalier", "cheval", "701"], "Neutral", "Chevalier", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 701");
+		e.setDescription("Post 701\n*It's like a Knight, but it's French*");
 
 		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "Basic", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Protect someone each night.");
+
+		e.addField("Attributes:", "‎- Protecting someone grants them Powerful defense.\n- If your target is directly attacked, you will attack the attacker(s).\n- You cannot protect the same person twice in a row.\n- Since you are French, you will immediately surrender to the first person who visits you. That visit's effect will fail and your win condition will change to theirs. They will learn you surrendered to them, and you will join their factional chat if they have one. If multiple people visit you at the same time, it will be random which one you join. ");
+
+		e.addField("Goal:", "Survive until the end of the game.");
+	});
+
+	register_role(["vip", "702"], "Town", "VIP", {spawnCat: "Town", subCat: "Other"}, (e) =>
+	{
+		e.setDescription("Post 702\n*WE LOVE VIP WE LOVE VIP WE LOVE VIP WE LOVE VIP*");
+
+		e.addField("Alignment", "Unique Town Other", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- (Day Ability): Choose a player to serve during day 1, you will gain this players win condition and gain a night chat with them, if your target is a factional member, you will gain their night chat.\n- (Night Ability): you may choose twice per game to use your skills and serve all players visiting your target, turning away all visits back onto themselves.");
+		e.addField("Attributes:", "- This can be rolled in any town slot.\n- If this would roll, the game becomes VIP mode with this player as the VIP. All whispers are disabled, all Townies are notified who the VIP is, and it is publicly announced that there is a VIP. Whoever rolled as VIP then immediately rerolls into the same Town slot they would've rolled into. If the VIP dies, all Townies immediately commit suicide.‎");
 
-		e.addField("Attributes:", "- You cannot die at night until your target is dead.\n- When your target dies, you will become 702: Hopeless.");
-		
-		e.addField("Goal:", "See your master win the game.");
+		e.addField("Goal:", "Lynch all criminals and evildoers.");
 	});
-	
-	    register_role(["hopeless", "702"], "Neutral", "Hopeless", {subCat: "Killing"}, (e) =>
-    {
-        e.setDescription("Post 702");
-
-        e.addField("Alignment", "Neutral Killing", true);
-        e.addField("Attack", "Powerful", true);
-        e.addField("Defense", "None", true);
-
-        e.addField("Abilities:", "Choose to kill a target, all visitors to your target, and who your target visits.");
-
-        e.addField("Attributes:", "You bypass redirection and role block, killing all role blockers against you.");
-
-        e.addField("Goal:", factions.Neutral.goalNK);
-    });
 
     register_role(["ninja_baker", "ninjabaker", "nb", "703"], "Town", "Ninja Baker", {subCat: "Support"}, (e) =>
     {

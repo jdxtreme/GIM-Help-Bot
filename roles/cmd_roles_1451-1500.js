@@ -16,6 +16,21 @@ module.exports = (g) =>
 
 		e.addField("Goal:", factions.Spirit.goal);
 	});
+	
+	register_role(["androidtowntraitor", "androidtraitor", "att", "1553u", "1452"], "Unseen", "Android Town Traitor", {subCat: "Support"}, (e) =>
+	{
+		e.setDescription("Post 1452\nConverted from: Android Traitor (1553)");
+
+		e.addField("Alignment", "Unseen Support", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None", true);
+
+		e.addField("Abilities:", "- Use the abilities of the roles you get.‎");
+
+		e.addField("Attributes:", "- You will be given two random Android roles; one for the day and one for the night. Those are your roles, but you win with the Unseen.\n- You will not get access to the factional chat, you will also not get access to the factional kill.\n- You will not get the following attributes:\n> - When you use your ability, a random non-Android will learn five names, at least one of which is an Android.\n> - When you use your ability, a random Android's abilities and attributes are revealed to the Town the next day phase.");
+
+		e.addField("Goal:", factions.Unseen.goal);
+	});
 
 	register_role(["new_role", "newrole", "new", "nr", "1453"], "Neutral", "New Role", {subCat: "Chaos"}, (e) =>
 	{

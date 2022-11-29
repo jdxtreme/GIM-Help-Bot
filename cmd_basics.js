@@ -38,15 +38,21 @@ module.exports = (g) =>
 	const {PRE, UTILS, add_cmd, commands, roles, aliases, MessageActionRow} = g;
 	let i = 0;
 	
-	function register_cmd(name, param, title, desc, func)
+	function register_cmd(name, param, title, desc, meta, func)
 	{
+		if(!func)
+		{
+			func = meta;
+			meta = {};
+		}
+	
 		add_cmd(name, {
 			id: "b" + i,
 			cat: "Basic",
 			title,
 			desc,
 			param,
-			meta: {},
+			meta,
 			func
 		});
 
@@ -268,31 +274,32 @@ module.exports = (g) =>
 		if(!args[0])
 			help(commands, e, "help", PRE);
 		else
-			help(commands, e, args[0], PRE);
+			help(commands, e, (args[0] || "").toLowerCase(), PRE);
 
 		UTILS.embed(chn, e);
 	});
 
-	register_cmd("meta", "<command>", "Meta", "List a command's meta data. This is primarily used for roles with special spawning conditions.\n\nYou should not include any prefix when specifying the command's name, unless it happens to be separately part of the command's name.", {minArgs: 1}, (chn, message, e, args) =>
+	register_cmd("meta", "<command>", "Meta", "List a command's meta data. This is primarily used for roles with special spawning conditions.\n\nYou should not include any prefix when specifying the command's name, unless it happens to be separately part of the command's name.", (chn, message, e, args) =>
 	{
-		let cmd = commands[args[0]];
+		let cname = args[0] || "";
+		let cmd = commands[cname];
 
 		if(!cmd)
 		{
-			UTILS.msg(chn, "-ERROR: Command " + PRE + args[0] + " not found.");
+			UTILS.msg(chn, "-ERROR: Command " + PRE + cname + " not found.");
 			return;
 		}
 
-		let meta = commands[args[0]].meta;
+		let meta = cmd.meta;
 		let keys = Object.keys(meta);
 
 		if(keys.length === 0)
 		{
-			UTILS.msg(chn, "Command " + PRE + args[0] + " has no meta.");
+			UTILS.msg(chn, "Command " + PRE + cname + " has no meta.");
 			return;
 		}
 
-		let output = "Meta for command " + PRE + args[0] + "\n{";
+		let output = "Meta for command " + PRE + cname + "\n{";
 
 		for(let i = 0; i < keys.length; i++)
 			output = output + "\n\t" + keys[i] + ": " + UTILS.display(meta[keys[i]]);
