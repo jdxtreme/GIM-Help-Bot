@@ -531,7 +531,7 @@ module.exports = (g) =>
 
 	register_role(["uninvestigator", "investigator", "3485"], "Town", "Uninvestigator", {subCat: "Uninvestigative"}, (e) =>
 	{
-		e.setDescription("Post 3465");
+		e.setDescription("Post 3485");
 
 		e.addField("Alignment", "Town Uninvestigative", true);
 		e.addField("Attack", "None", true);
