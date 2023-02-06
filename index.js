@@ -1,10 +1,9 @@
-//Vampire: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=118533
 //Umbrae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=120271
 //Florae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=119288
 //Faunae: https://www.blankmediagames.com/phpbb/viewtopic.php?f=27&t=119748
 
 const {Client, Intents, MessageEmbed, MessageActionRow} = require('discord.js');
-const {readFile, writeFile} = require("fs");
+const {readFile, writeFile, unlink} = require("fs");
 
 const PRE = "=";
 
@@ -46,31 +45,43 @@ readFile(FNAME, (err, data) =>
 		throw "Error: No TOKEN provided.";
 
 	if(store.SERVER_DATA)
+	{
 		for(let id in store.SERVER_DATA)
 			SERVER_DATA[id] = store.SERVER_DATA[id];
 
-	writeFile(FNAME2, data, (err) =>
-	{
-		if(err) throw err;
-	});
+		writeFile(FNAME2, data, (err) =>
+		{
+			if(err) throw err;
+		});
+	}
 
 	login();
 })
 
+var overwrites = 0;
 function overwrite(chn)
 {
+	if(overwrites > 1)
+	{
+		if(chn) UTILS.msg(chn, "-WARNING: " + overwrites + " simultaneous overwrites!");
+		console.log("WARNING: " + overwrites + " simultaneous overwrites!");
+	}
+
 	let json = JSON.stringify({TOKEN, SERVER_DATA});
+	overwrites++;
 
 	writeFile(FNAME, "", (err) =>
 	{
 		if(err) throw err;
 		if(chn) UTILS.msg(chn, "+Data cleared successfully.");
-	});
 
-	writeFile(FNAME, json, (err) =>
-	{
-		if(err) throw err;
-		if(chn) UTILS.msg(chn, "+Data saved successfully.");
+		writeFile(FNAME, json, (err) =>
+		{
+			if(err) throw err;
+			if(chn) UTILS.msg(chn, "+Data saved successfully.");
+
+			overwrites--;
+		});
 	});
 }
 
@@ -187,6 +198,7 @@ function register_role(name, cat, desc, meta, func)
 		desc: "View details of the " + desc + " role.",
 		param: "",
 		meta,
+		isRole: true,
 		func: (chn, message, e, args, nosend) =>
 		{
 			let fac = GLOBAL.factions[cat] || {color: "808080"};
@@ -342,12 +354,12 @@ require("./cmd_rng.js")(GLOBAL);
 require("./cmd_game.js")(GLOBAL);
 
 require("./roles/cmd_roles_misc.js")(GLOBAL);
-for(let i = 50; i <= 2900; i+=50)
+for(let i = 50; i <= 3500; i+=50)
 	require("./roles/cmd_roles_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 for(let i = 50; i <= 50; i+=50)
 	require("./events/cmd_events_" + (i-49) + "-" + (i) + ".js")(GLOBAL);
 
-for(let i = 1; i <= 2867; i++)
+for(let i = 1; i <= 3484; i++)
 	if(!commands[i.toString()])
 		console.log("Missing: " + i);
 for(let i = 1; i <= 32; i++)

@@ -157,6 +157,7 @@ module.exports = (g) =>
 	{
 		let pdata = SERVER_DATA[message.guild.id].players;
 		let players = (args[0] === "*" ? Object.keys(pdata) : [args[0]]);
+		let output = "";
 
 		if(UTILS.isInt(args[0]))
 			players[0] = parseInt(args[0])-1;
@@ -186,9 +187,14 @@ module.exports = (g) =>
 			for(let n = delnum-1; n < pdata.length; n++)
 				pdata[n].num = n+1;
 
-			UTILS.msg(chn, "+Deleted player " + delnum);
-			overwrite();
+			output += "-Deleted player " + delnum;
+
+			if(i > 0)
+				output += "\n";
 		}
+
+		UTILS.msg(chn, output);
+		overwrite();
 	});
 
 	register_cmd(["view_players", "viewplayers", "players"], "", "View Players", "Display the current data of registered players.\n\n**Warning, this can reveal meta info if used in public channels.**", {adminOnly: true}, (chn, message, e, args) =>
@@ -440,6 +446,7 @@ module.exports = (g) =>
 	{
 		let pdata = SERVER_DATA[message.guild.id].players;
 		let players = (args[0] === "*" ? Object.keys(pdata) : [args[0]]);
+		let output = "";
 
 		if(UTILS.isInt(args[0]))
 			players[0] = parseInt(args[0])-1;
@@ -473,17 +480,21 @@ module.exports = (g) =>
 			if(value === "-")
 			{
 				delete player.tags[args[1]];
-				UTILS.msg(chn, "+Tag \"" + args[1] + "\" deleted.");
+				output += "-Player " + player.num + ": Tag \"" + args[1] + "\" deleted.";
 			}
 			else if(value !== "")
 			{
 				player.tags[args[1]] = value;
-				UTILS.msg(chn, "+Tag \"" + args[1] + "\" set to \"" + value + "\".");
+				output += "+Player " + player.num + ": Tag \"" + args[1] + "\" set to \"" + value + "\".";
 			}
 			else
-				UTILS.msg(chn, "+Tag \"" + args[1] + "\" is currently set to \"" + (player.tags[args[1]] || "null") + "\".");
+				output += "Player " + player.num + ": Tag \"" + args[1] + "\" is currently set to \"" + (player.tags[args[1]] || "null") + "\".";
+
+			if(i < players.length-1)
+				output += '\n';
 		}
 
+		UTILS.msg(chn, output);
 		overwrite();
 	});
 
@@ -504,15 +515,15 @@ module.exports = (g) =>
 		if(value === "-")
 		{
 			delete defaults[args[0]];
-			UTILS.msg(chn, "+Tag \"" + args[0] + "\" deleted.");
+			UTILS.msg(chn, "+Tag Default \"" + args[0] + "\" deleted.");
 		}
 		else if(value !== "")
 		{
 			defaults[args[0]] = value;
-			UTILS.msg(chn, "+Tag \"" + args[0] + "\" set to \"" + value + "\".");
+			UTILS.msg(chn, "+Tag Default \"" + args[0] + "\" set to \"" + value + "\".");
 		}
 		else
-			UTILS.msg(chn, "+Tag \"" + args[0] + "\" is currently set to \"" + (defaults[args[1]] || "null") + "\".");
+			UTILS.msg(chn, "+Tag Default \"" + args[0] + "\" is currently set to \"" + (defaults[args[1]] || "null") + "\".");
 
 		overwrite();
 	});

@@ -189,20 +189,7 @@ const MP_ATTRIBUTES = [
 
 module.exports = (g) =>
 {
-	const {UTILS, register_role, factions} = g;
-
-	register_role(["not_tos_pirate", "nottospirate", "pirate", "ntp", "3000"], "Neutral", "Not ToS Pirate", {subCat: "Killing"}, (e) =>
-	{
-		e.setDescription("Post 3000");
-
-		e.addField("Alignment", "Neutral Killing", true);
-		e.addField("Attack", "Variable", true);
-		e.addField("Defense", "Basic", true);
-
-		e.addField("Abilities:", "- Shoot someone with your pistol. Unstoppable attack, but blocked by all temporary protections, including Basic defense ones.\n- Pierce someone with your Rapier, dealing a Powerful attack and bypassing temporary defense values\n- Slash someone with your Scimitar, dealing a Basic attack.");
-		
-		e.addField("Goal:", factions.Neutral.goalNK);
-	});
+	const {UTILS, register_role, factions, commands} = g;
 
 	register_role(["unexpected_trio", "unexpectedtrio", "unexpected", "trio", "3333", "3u"], "Unseen", "Unexpected Trio", {subCat: "Power"}, (e) =>
 	{
@@ -444,5 +431,49 @@ module.exports = (g) =>
 		e.addField("Attributes:", "- You'll also deal " + (attack === 3 ? "an " : "a ") + attack + " attack to " + (bits[8] === 1 ? "an attacker" : "a random visitor") + ".\n- If your target is attacked, you will " + MP_ATTRIBUTES[bitsToDec(bits, 9, 11)] + ".");
 		
 		e.addField("Goal:", factions.Mainframe.goal);
+	});
+
+	register_role(["every_role", "everyrole"], "Everything", "Every Role", {spawnRate: 10}, (e, chn, message, args) =>
+	{
+		let role = false;
+
+		if(args[0])
+		{
+			let cmd = commands[args[0]];
+
+			if(cmd && cmd.isRole)
+			{
+				cmd.func(chn, message, e, [], true);
+				role = cmd;
+			}
+			else
+			{
+				if(cmd.cat === "Conflict")
+					cmd.func(chn);
+				else
+					UTILS.msg(chn, "-ERROR: The provided command is not that of a role!");
+
+				return true;
+			}
+		}
+		else
+			role = g.randomRole(chn, message, e, [], true);
+
+		if(role)
+		{
+			e.author.name += " (Everything Version)";
+			e.setColor(factions.Everything.color);
+
+			if(factions.Everything.icon)
+				e.author.iconURL = factions.Everything.icon;
+			else
+				e.author.iconURL = null;
+
+			for(let i = 0; i < e.fields.length; i++)
+				if(e.fields[i].name === "Goal:")
+					e.fields[i].value = factions.Everything.goal;
+		}
+		else
+			UTILS.msg(chn, "-ERROR: No role could be rolled. This is probably a bug.");
 	});
 };

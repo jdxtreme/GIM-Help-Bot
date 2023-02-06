@@ -4,7 +4,7 @@ module.exports = (g) =>
 {
 	const {register_role, factions, GOOD, EVIL} = g;
 
-	register_role(["turkeybomb", "turkey", "bomb", "2801"], "Town", "Turkey Bomb", {subCat: "Town Power"}, (e) =>
+	register_role(["turkeybomb", "turkey", "bomb", "2801"], "Town", "Turkey Bomb", {subCat: "Power"}, (e) =>
 	{
 		e.setDescription("Post 2801");
 

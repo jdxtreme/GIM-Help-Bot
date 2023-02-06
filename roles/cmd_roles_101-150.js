@@ -599,11 +599,11 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Neutral.goalNK);
 	});
 
-	register_role(["emerald", "141"], "Neutral", "Emerald", {subCat: "Killing"}, (e) =>
+	register_role(["emerald", "141"], "Rock", "Emerald", {subCat: "Support"}, (e) =>
 	{
 		e.setDescription("Post 141\n*The light of the Emerald will protect you.*");
 
-		e.addField("Alignment", "Neutral Killing", true);
+		e.addField("Alignment", "Rock Support", true);
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None (Powerful)", true);
 

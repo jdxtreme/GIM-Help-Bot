@@ -47,19 +47,19 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["role_jury", "rolejury", "4"], "Neutral", "Role Jury", {subCat: "Chaos"}, (e) =>
+	register_role(["wadanohara_the_blue_sea_witch", "wadanoharatheblueseawitch", "wadanohara", "blue_sea_witch", "blueseawitch", "wtbsw", "wbsw", "4"], "Neutral", "Wadanohara, the Blue Sea Witch", {subCat: "Benign"}, (e) =>
 	{
-		e.setDescription("Post 4\n*How useful could this role possibly be when Rule 17 exists?*");
+		e.setDescription("Post 4\n*My dear girl. Please remain who you are. Let nothing stain you, let nothing take you away. That is all I ask of you.*");
 
-		e.addField("Alignment", "Neutral Chaos", true);
-		e.addField("Attack", "Overkill", true);
-		e.addField("Defense", "Powerful", true);
+		e.addField("Alignment", "Neutral Benign", true);
+		e.addField("Attack", "None", true);
+		e.addField("Defense", "None (Basic)", true);
 
-		e.addField("Abilities:", "- Pick a player every night.");
+		e.addField("Abilities:", "- Check to see if someone's house has a barrier. If they do, you will fix it.");
 
-		e.addField("Attributes:", "- If they're a role deemed unbalanced, deal an Overkill attack.\n- Your attack pierces through every form of defense and nothing can be saved. You will even kill things such as God.\n- At the start of the game, after every role has been locked in, the host must go through the entire rolelist and deem every role unbalanced or not.\n- You bypass Boy Scout, and ignore all effects that would make you not bypass Boy Scout. You also have a higher effect-cancelling priority than Boy Scout so Rasen cant do anything about It haha suck my dick. (You will also murder the Boy Scout to death with exactly 123,765,098,127 stab wounds)\n- The text in () above Is not actually part of the role and Is just there for comedic effect\n- If the host doesnt deem any role unbalanced, then Role Jury Is immediately rerolled.");
+		e.addField("Attributes:", "- You may choose to make your visits Astral or not each night.\n- At the start of the game, the town is notified that \"The six barriers protect the pristine blue sea...\". Then, six random players in the game are selected to have a barrier at their house. If that player gets visited twice OR killed, the barrier is broken.\n- Once all six barriers are broken, you have two options:\n> Sacrifice yourself\n> Become Wadanohara the Blood Sea Witch.\n- If you sacrifice yourself, you will suicide out of guilt and if the game ends in a good faction Victory, then you will also win the game regardless of win condition fullfillment.");
 
-		e.addField("Goal:", "Kill every unbalanced role.");
+		e.addField("Goal:", "Survive until the end of the game.");
 	});
 
 	register_role(["reaper", "5"], "Neutral", "Reaper", {subCat: "Killing"}, (e) =>
@@ -532,7 +532,7 @@ module.exports = (g) =>
 		e.addField("Attack", "None", true);
 		e.addField("Defense", "None", true);
 
-		e.addField("Abilities:", "- Investigate each player at night. You will learn what letter their role starts with.");
+		e.addField("Abilities:", "- Investigate a player each night. You will learn what letter their role starts with.");
 
 		e.addField("Goal:", factions.Town.goal);
 	});

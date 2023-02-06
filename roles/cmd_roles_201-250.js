@@ -426,9 +426,9 @@ module.exports = (g) =>
 		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Duel someone every night. The host will organise a time for you two to play chess. If the Pirate wins, their target is attacked. Losing chess warrants assault I guess.");
+		e.addField("Abilities:", "- Duel someone every night. The host will organize a time for you two to play chess. If the Pirate wins, their target is attacked. Losing chess warrants assault I guess.");
 
-		e.addField("Attributes:", "- Playing chess roleblocks your target because multitasking is hard.\n- Upon winning, you get access to your victims' player channels, though you may not post anything besides pictures of grapses. You also die.");
+		e.addField("Attributes:", "- Playing chess roleblocks your target because multitasking is hard.\n- Upon winning, you get access to your victims' player channels and <#970059745807437876>, though you may not post anything besides pictures of grapes. You also die.");
 
 		e.addField("Goal:", "Win two duels.");
 	});

@@ -391,17 +391,17 @@ module.exports = (g) =>
 		e.addField("Goal:", factions.Town.goal);
 	});
 
-	register_role(["ebay_marketer", "ebaymarketer", "ebay", "e-bay", "marketer", "177"], "Neutral", "E-Bay Marketer", {subCat: "Evil"}, (e) =>
+	register_role(["ebay_marketer", "ebaymarketer", "ebay", "e-bay", "marketer", "177"], "Neutral", "E-Bay Marketer", {subCat: "Chaos"}, (e) =>
 	{
 		e.setDescription("Post 177");
 
-		e.addField("Alignment", "Neutral Evil", true);
+		e.addField("Alignment", "Neutral Chaos", true);
 		e.addField("Attack", "Basic", true);
 		e.addField("Defense", "Basic", true);
 
-		e.addField("Abilities:", "- Harvest someone's organs each night.\n- Sell the organs you have on E-Bay.");
+		e.addField("Abilities:", "- Each night, select two dead players and harvest their organs. Each unique player harvested grants you one organ. Harvesting players you've killed before won't harbour more organs.\n- Sell the organs you have on E-Bay.");
 
-		e.addField("Attributes:", "- Killing someone grants you one organ.");
+		e.addField("Attributes:", "- You will attack those that visit you at night and clean their wills. Each kill grants you one organ.");
 
 		e.addField("Goal:", "Sell your organs, and make sure you sell more organs than there are people currently alive.");
 	});
@@ -497,7 +497,7 @@ module.exports = (g) =>
 		e.setDescription("Post 184\n*wh—*");
 
 		e.addField("Alignment", "Town Killing", true);
-		e.addField("Attack", "Basic", true);
+		e.addField("Attack", "Powerful", true);
 		e.addField("Defense", "None/Basic", true);
 
 		e.addField("Abilities:", "- In the night, you may shoot somebody. This has a 25% chance to miss and do nothing.\n- Aim: Your next attack will never miss if it hits an evil target, and it will have a 75% chance to miss if you attack someone innocent. (1 use)");

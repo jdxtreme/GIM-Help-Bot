@@ -666,9 +666,9 @@ module.exports = (g) =>
 
 		e.addField("Abilities:", "- Infect a player each night.");
 
-		e.addField("Attributes:", "- Players who visit you or infected players become infected.\n- Players who infected players visit become infected.\n- If, at the end of the phase, all other players are infected, you will become Post 94: Pestilence, Horseman of the Apocalypse.");
+		e.addField("Attributes:", "- Players who visit you or infected players become infected.\n- Players who infected players visit become infected.\n- If, at the end of the phase, all other players are infected, you will become Post 94: Pestilence, Horseman of the Apocalypse. When you do, the Town will be informed that a plague has consumed the Town.");
 
-		e.addField("Goal:", "Infect all living players and become Pestilence (Post 94).");
+		e.addField("Goal:", "Infect all living players and win as Pestilence. (Post 94)");
 	});
 
 	register_role(["pestilence", "pest", "94"], "Neutral", "Pestilence", {subCat: "Chaos"}, (e) =>
@@ -730,7 +730,7 @@ module.exports = (g) =>
 
 		e.addField("Attributes:", "- You have a factional chat with all Vampires.\n- Only the most recently converted Vampire may convert each night.\n- No Vampires may convert if a player was successfully converted last night.");
 		
-		e.addField("Goal:", factions.Vampire.goal);
+		e.addField("Goal:", "Convert everyone who would oppose you.");
 	});
 
 	register_role(["werewolf", "ww", "98"], "Neutral", "Werewolf", {subCat: "Killing"}, (e) =>

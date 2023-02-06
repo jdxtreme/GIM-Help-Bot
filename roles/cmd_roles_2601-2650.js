@@ -219,7 +219,7 @@ module.exports = (g) =>
 		e.addField("Goal:", "Eat as much sunscreen as possible‎");
 	});
 
-	register_role(["troll", "🧌"," 2616"], "Neutral", "Troll", {subCat: "Genocidal"}, (e) =>
+	register_role(["troll", "🧌","2616"], "Neutral", "Troll", {subCat: "Genocidal"}, (e) =>
 	{
 		e.setDescription("Post 2616\n*Trolling is just what I do. Cope, seethe, mald.*");
 

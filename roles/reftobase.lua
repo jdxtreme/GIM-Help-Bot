@@ -59,9 +59,11 @@ for a, line in ipairs(lines) do
 				acroL = acroL..n:sub(1, 1)
 			end
 
-			names[#names+1] = acroL
+			if #acroL > 1 then
+				names[#names+1] = acroL
+			end
 
-			if acroS ~= acroL then
+			if acroS ~= acroL and #acroS > 1 then
 				names[#names+1] = acroS
 			end
 

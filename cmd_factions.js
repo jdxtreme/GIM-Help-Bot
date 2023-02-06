@@ -26,26 +26,33 @@ module.exports = (g) =>
 			e.addField("Color:", "#" + info.color, true);
 			e.addField("Type:", UTILS.titleCase(info.type), true);
 
-			let subcats = {};
-
-			for(let cmd in commands)
+			if(info.subcats)
 			{
-				let data = commands[cmd];
-
-				if(data.cat === title && data.meta.subCat)
-					subcats[data.meta.subCat] = true;
+				e.addField("Subalignments: ", info.subcats);
 			}
-
-			subcats = Object.keys(subcats);
-
-			if(subcats.length > 0)
+			else
 			{
-				let subcatstr = subcats[0];
+				let subcats = {};
 
-				for(let i = 1; i < subcats.length; i++)
-					subcatstr = subcatstr + ", " + subcats[i];
+				for(let cmd in commands)
+				{
+					let data = commands[cmd];
 
-				e.addField("Subalignments:", subcatstr)
+					if(data.cat === title && data.meta.subCat)
+						subcats[data.meta.subCat] = true;
+				}
+
+				subcats = Object.keys(subcats);
+
+				if(subcats.length > 0)
+				{
+					let subcatstr = subcats[0];
+
+					for(let i = 1; i < subcats.length; i++)
+						subcatstr = subcatstr + ", " + subcats[i];
+
+					e.addField("Subalignments:", subcatstr);
+				}
 			}
 
 			if(info.features)
@@ -89,6 +96,12 @@ module.exports = (g) =>
 				break;
 
 			case "neutral":
+				g.NEUTRAL[g.NEUTRAL.length] = title;
+				break;
+
+			case "any":
+				g.GOOD[g.GOOD.length] = title;
+				g.EVIL[g.EVIL.length] = title;
 				g.NEUTRAL[g.NEUTRAL.length] = title;
 				break;
 		}
@@ -193,7 +206,7 @@ module.exports = (g) =>
 	register_faction("were", "Were", {
 		color: "804000",
 		type: "evil",
-		icon: "https://cdn.discordapp.com/emojis/974886993517490256.webp",
+		icon: "https://cdn.discordapp.com/emojis/1044153698030465044.webp",
 		summary: "Lycanthrope Evil; Members are weak but appear good in non-moon nights, but have raw strength in full-moon nights. Every FMN has a chance to become a \"Hunting Moon\" instead, which buffs every Were. Ignore the one Were Head role.",
 		features: "- A Were Killing role will always spawn.\n- Factional chat\n- No factional kill\n- If the Were are in the game, each Full Moon has an X% chance to be a Hunting Moon, where X is 50 plus an additional 15 for each Full Moon since the last Hunting Moon.\n- During Hunting Moons, Weres have their Hunting Moon Enhancement attributes.\n- Hunting Moons are not announced to the Town.",
 		goal: "Kill all non-lycanthropes."
@@ -315,8 +328,8 @@ module.exports = (g) =>
 		type: "evil",
 		icon: "https://cdn.discordapp.com/emojis/998691858207228026.webp",
 		summary: "Horsemen of the Apocalypse-themed Evil; Lead by the Harbinger, who attempts to find and unite the other members to later buff them and allow them to work together. If the Harbinger dies, the faction dissolves, and all other members are left to fight each other and fend for themselves.",
-		features: "- 968: Harbringer will always spawn\n- 93: Plaguebearer, 94: Pestilence, and 384: Pestilence, Horseman of the Apocalypse can't spawn with the Horsemen.\n- No factional chat, Horsemen members don't know each others' roles or names.\n- No factional kill\n- Horsemen Evil roles are recruited into the faction by the Harbringer, until the Harbringer dies",
-		goal: "Kill every other player, including the other Horsemen. / Protect the Harbringer and eliminate all who would oppose the Horsemen. (when recruited)"
+		features: "- 968: Harbinger will always spawn\n- 93: Plaguebearer, 94: Pestilence, and 384: Pestilence, Horseman of the Apocalypse can't spawn with the Horsemen.\n- No factional chat, Horsemen members don't know each others' roles or names.\n- No factional kill\n- Horsemen Evil roles are recruited into the faction by the Harbinger, until the Harbinger dies",
+		goal: "Kill every other player, including the other Horsemen. / Protect the Harbinger and eliminate all who would oppose the Horsemen. (when recruited)"
 	});
 
 	register_faction("biohazard", "Biohazard", {
@@ -508,14 +521,16 @@ module.exports = (g) =>
 	register_faction("x", "X", {
 		color: "FF47FF",
 		type: "evil",
-		summary: "Empowered Crossover-themed Evil; This faction is meant to be made of stronger versions of every role that has won at least one previous game. It does not have an official post yet, so not much more is known.",
-		goal: "X Goal"
+		summary: "This faction is meant to be made of stronger versions of every role that has won at least one previous game, unified under one banner. It probably won't ever be balanced, but we can always try; the motto of GIM.",
+		features: "- Only one X Power, one X Casual, and one X Conversion may spawn, and only two of the three may spawn\n- Factional chat\n- Factional kill\n- X Conversion roles cannot convert if there are 4 or more members.",
+		goal: "Reestablish your control over the town and eliminate those not worthy to control it."
 	});
 
 	register_faction(["faunae", "fauna"], "Faunae", {
 		color: "D4A12D",
 		type: "neutral",
 		summary: "Animal-themed Neutral; Led by the Lion, who is capable of killing a member of a non-Neutral player to take their goal for itself and for all other Faunae members to inherit. In turn, the other members either offensively support the Faunae (Predators) or defensively support the Faunae (Prey). No official post yet.",
+		features: "- A Fauna Apex must spawn\n- Factional chat\n- No factional kill",
 		goal: "Kill anyone who opposes the Faunae, or devour a player and complete their win condition."
 	});
 
@@ -544,14 +559,15 @@ module.exports = (g) =>
 		type: "good",
 		icon: "https://cdn.discordapp.com/emojis/1025184304264908879.webp",
 		summary: "Untrusted Crossover Good; Led by the Operation Leader, who always exists due to promotion. A complicated network exists that members can use as an alternate win condition by hacking through it. Each member has a \"Hacking Skill\" stat that ranges from \"None\" to \"Very High\", but it isn't specified what these exactly mean, same as some role-specific chance-based mechanics.",
-		features: ["- Operation Leader (2166) will always spawn\n- No factional chat\n- No factional kill\n- When NETSEC spawns, an REF owned network will be present to all players. The machines NETSEC can or already has access to will be visible to all players, but only the REF may view the full topography.\n- There is one network for ALL REFs.\n- Roles that are capable of hacking can choose to hack into a point in a REF owned network\n- Capturing the master node on the REF network instantly results in a :townFaction:Town victory, but has a very low capture chance. This is always the last node on any topography\n- NETSEC hacking chance on a node:\n> note: the master has a -5% modifier to the hack chance\n> none:0%\n> very low:10%\n> low:15%\n> below average:20%\n> average:25%\n> above average:30%\n> high:35%\n> very high:40%\n> hacking chances stack if multiple people target the same node", "- topography details\n> There are two types of nodes. laptops and servers. laptops have a natural extra 5% hacking chance, whilst servers have none. There are up to 4 servers in any given pathway and all pathways may end in the Master Node. It is always present in each topography and has a natural -5% hacking chance. Meaning it is harder to hack. Insta-pwn abilities have a 50% chance to fail on the Master. However, if NETSEC can hack it, they'll find data about who their enemies really are, instantly resulting in a dual victory split between the town and NETSEC.\n- rng\n> Inside Man and Improvised Hacker's Dumpster dive ability will grant a 5% hacking chance.\n> Blackhat's exploit grants 25%\n> Spearphisher's email grants 30%\n> Inside Man's keylogger grants a 20% chance"],
-		goal: "Capture the REF network and retrieve the stolen data OR eliminate the REF.",
+		features: ["- 2166: Operation Leader will always spawn\n- No factional chat\n- No factional kill\n- NETSEC has a 4x3 network of nodes that members can hack. There is a laptop node on each row of the first column and a master node somewhere on the fourth. The host must arbitrarily place any number of laptop nodes on spaces on the second and third columns and up to four server nodes on spaces on the second, third, and fourth, and must connect the nodes across rows and columns such that all the nodes are somehow linked through any number of connections. There can't be two nodes on the same space.\n- Members of evil factions may see the full layout of the network. Other players, including NETSEC members, can only see the first column, and all nodes connected to captured nodes.", "- NETSEC members may capture nodes by hacking them. NETSEC roles have Hacking Skill, which which corresponds to the chance they have to successfully capture a node when hacking it. Very Low is 10%, and then each subsequent tier (Very Low < Low < Below Average < Average < Above Average < High < Very High) increases the chance by 5%. When hacking a laptop node, the chance is increased by 5%, and when hacking the master node, the chance is decreased by 5%. PWNing a node will always capture it unless it's the master node, in which case it only has a 50% chance to capture it.\n- If the master node is captured, NETSEC and the Town win the game."],
+		goal: "Capture the REF network and retrieve the stolen data OR eliminate the REF. (you win with town.)",
 		fieldSSC: ["field_operations", "fieldoperations", "field", "operations", "fieldops", "fo"]
 	});
 
 	register_faction(["metamorph", "morph"], "Metamorph", {
 		color: "0A62B5",
 		type: "evil",
+		icon: "https://cdn.discordapp.com/emojis/1036185101949739010.webp",
 		features: "- A Metamorph Killing will always spawn\n- Factional chat\n- No factional kill unless no Killing members are alive.\n- All original roles can swap roles with another player at night, with faction and goal staying the same. This will fail on Neutral roles with unique goals. Only one member may swap roles each night.",
 		goal: "Emerge with a new form and destroy all opposition."
 	});
@@ -598,6 +614,7 @@ module.exports = (g) =>
 	register_faction(["nothing"], "Nothing", {
 		color: "null",
 		type: "evil",
+		icon: "https://cdn.discordapp.com/emojis/1047497405878243409.webp",
 		features: "- This faction has no subalignments or features.",
 		goal: "-"
 	});
@@ -620,7 +637,143 @@ module.exports = (g) =>
 		display: "Rugby 7's Team",
 		color: "5AE6D0",
 		type: "evil",
-		features: "- Only up to seven members may spawn.\n- Factional chat\n- No factional kill\n- If less than seven members would spawn, two-thirds, rounded down, must be Backs, and the rest must be Forwards.\n- At the start of the game, one member gets the Ball.\n- While a player has the Ball, they have Powerful defense and their ability is replaced with \"Choose two targets. You deal a basic attack to the first target. If you kill the target, you kick the ball into the second target, attacking them.\"\n- Whenever one or more players attack a player with the Ball, a random one of those attackers gets the Ball.\n- If no member has the Ball, whenever one or more members visits a player with the Ball, a random one of those members gets the Ball.\n- If, over the course of a night, no member gets the Ball, all members' names are revealed at the start of the next day. ",
+		features: "- Only up to seven members may spawn.\n- Factional chat\n- No factional kill\n- If less than seven members would spawn, two-thirds, rounded down, must be Backs, and the rest must be Forwards.\n- At the start of the game, one member gets the Ball.\n- While a player has the Ball, they have Powerful defense and their ability is replaced with \"Choose two targets. You deal a basic attack to the first target. If you kill the target, you kick the ball into the second target, attacking them.\"\n- Whenever one or more players attack a player with the Ball, a random one of those attackers gets the Ball.\n- If no member has the Ball, whenever one or more members visits a player with the Ball, a random one of those members gets the Ball.\n- If, over the course of a night, no member gets the Ball, all members' names are revealed at the start of the next day.",
 		goal: "Kill everyone"
+	});
+
+	register_faction("latex", "Latex", {
+		color: "393939",
+		type: "evil",
+		icon: "https://cdn.discordapp.com/emojis/1047367014068531230.webp",
+		features: "- At least one Black member, one White member, and one Chromatic member must spawn.\n- No factional chat. Members know each others' identities.\n- Factional transfur (Attempt to convert a player to a random Latex role of the same subalignment as the user)\n- At the beginning of the game, each player is assigned a secret random willpower value between 50% and 85%, minus 5% for each stage of attack or defense that player has up to Overkill/Overprotective. If the factional transfur is used on that player, this is the chance that the conversion is successful.\n- The factional transfur can be blocked by all protective effects.\n- If a member attacks someone and fails, they have a 25% chance to transfur them.",
+		goal: "Transfur all of your playmates ;)"
+	});
+
+	register_faction(["kombatants", "kombatant", "kombat"], "Kombat", {
+		display: "Kombatants",
+		color: "FBB546",
+		type: "evil",
+		features: "- Only up to four members may exist.\n- Factional chat\n- No factional kill unless no Killing members are alive.\n- Members' X-Ray attributes are unlocked if they are the last living member.\n- If more than one member is alive when the game ends, the Kombatants do not win.\n- If exactly one Kombatant and one non-Kombatant are alive, the game ends in the Kombatant victory.",
+		goal: "Konquer the town and prove your worth."
+	});
+
+	register_faction("traptrix", "Traptrix", {
+		color: "072A6C",
+		type: "evil",
+		features: ["- Only one Traptrix Power may spawn.\n- Factional chat\n- Factional kill\n- At the beginning of the game and every full moon night, each member receives a random trap hole, which is one of the following items that grants them one used of the listed ability:\n> Chaos Trap Hole: Choose a player. If their attack value is Basic or above and they visit someone tonight, kill both them and their target.\n> Traptrix Trap Hole: Kill all players who visit a player of your choice.\n> Bottomless Trap Hole: Kill a player if they have an attack value of Basic or above.\n> Treacherous Trap Hole: Kill two players. This can only be used if no other trap holes have been used.\n> Network Trap Hole: Kill a player if they interact with a player tonight without visiting that player.\n> Gravedigger's Trap Hole: Kill a player if they interact with a player tonight that they usually would not be able to.\n> Acid Trap Hole: If your target's defense is lower than Powerful, kill them.", "> Spikes Trap Hole: If your target attacks a player tonight, kill them. This may be used any number of times instead of just once."],
+		goal: "Slay everybody who would oppose you."
+	});
+
+	register_faction(["galactic", "galaxy"], "Galactic", {
+		display: "Galactics",
+		color: "4E32A8",
+		type: "evil",
+		features: "- Factional kill, but only usable by the Empowered member.\n- No factional chat\n- All members know each other's identities and roles, as well as which member is Empowered.\n- All members are assigned a random non-Power Town role, of which they have the abilities and attributes of when not Empowered. They lose those abilities and attributes when Empowered, but regain them when not Empowered.\n- A random member becomes Empowered at the beginning of Day 2. If the currently Empowered member dies, a random member will become Empowered at the start of the next day.\n- The Empowered member can, during the day, switch who the Empowered member is. This takes effect at the beginning of the night, but only if the Empowered member trying to become unempowered is alive by that point.\n- Investigative roles see Galactics as their true role, even when not Empowered, unless given any effect that would alter this by an outside source.\n- At the beginning of Day 1, the Town will be notified of a large beam from the sky in a distance",
+		goal: "Ensure the extermination of all who would stand in the way of the intergalactic empire."
+	});
+
+	register_faction(["minecraft", "mc"], "Minecraft", {
+		color: "808080",
+		type: "evil",
+		features: "- A Minecraft Head role will always spawn\n- Factional chat\n- No factional kill\n- If the Head member dies, at the start of the next night, a random role becomes their role. They gain the Head member's resources, if any, but not their items.",
+		goal: "Slay all else and turn them into gear (what??)"
+	});
+
+	register_faction(["everything"], "Everything", {
+		color: "808080",
+		type: "any",
+		features: "- This faction has no roles.\n- If a role would spawn in this faction, a random role but converted to Everything (through immunities) will spawn instead.\n- Factional chat\n- Factional kill \n- Can count as \"good\". If it does, it doesn't have a factional chat or kill.",
+		goal: "Kill everyone."
+	});
+
+	register_faction(["clocktower", "cocktower", "ct"], "Clocktower", {
+		color: "2E62C9",
+		type: "good",
+		features: "- If a majority of the players at the start of the game would be Clocktower members, a random slot in the rolelist is replaced with Neutral Demonic, and for the rest of the game, roles aren't revealed upon death and dead players may speak in day chats.\n- No factional chat\n- No factional kill\n- Counts as good",
+		goal: "Eliminate neighboring factions from ravenwood's bluff."
+	});
+
+	register_faction(["frog", "frogs"], "Frog", {
+		display: "Frogs",
+		color: "9BBE40",
+		type: "evil",
+		features: "- Exactly one Frog Killing must spawn\n- Factional chat\n- Factional kill",
+		goal: "Keep your habitat from being destroyed and destroy those who want to destroy it."
+	});
+
+	register_faction(["kingdom_attackers", "kingdomattackers", "kingdom", "attackers", "ka"], "KA", {
+		color: "D1D1D1",
+		type: "evil",
+		features: ["- Factional chat\n- Factional kill if no members have attacking cards\n- All members have Hell-Bent defense. Cards do not count as visits for Hell-Bent damage, and healing HP removes damage, which is processed after it's dealt and may save members from dying, or provides temporary defense of a tier equal to the amount of HP healed if used on a non-member.\n- All members have the following attribute: \n- Bonded: You cannot Duel a teammate unless forced by another player not in faction.\n- Members draw an Attack! (1), a Block! (12), and 3 random cards at the start of the game, and draw an additional random card at the start of each night.\n- Members may play any number of cards each night along with their abilities. Only one member may play attacking cards each night. Cards are unaffected by roleblocks and redirects.", "- Cards are drawn from this document: https://docs.google.com/document/d/1sh6G8P08ELZpy8uPzRb51BVf1t7b2KrcvdVogP_xSKc/edit?usp=drivesdk. Special cards are each 1/5th as likely to be drawn as normal ones, and Duel-won cards cannot be drawn or obtained except for from Duel?!s (44).\n- If a player is attacked by members of this faction multiple times in one night, the attacks become one attack of a tier equal to their combined value with all of those attacks' effects."],
+		goal: "Eliminate all Town, Florae, Sentries, City, Army, Mainframe, Everything, Neutral Killings and opposing evil Factions. You may spare all Crew, Neutral Benigns, Chaos and Evils however."
+	});
+
+	register_faction(["monkey", "monkeys"], "Monkey", {
+		display: "Monkeys",
+		color: "B15C23",
+		type: "evil",
+		features: "- Only one of each suballingment may spawn\n- Factional chat\n- No factional kill\n- Members have two upgrade paths which can be unlocked upon fulfilling some condition, but each member can only choose one path.",
+		goal: "Pop all who oppose you."
+	});
+
+	register_faction("chess", "Chess", {
+		color: "FCF7CA",
+		type: "evil",
+		features: "- 3194: King will always spawn.\n- Factional chat\n- No factional kill\n- Each living player is a space. Members occupying a space are attacked if and only if the space they're occupying is.\n- If the space a member is occupying is lynched, that member must immediately move to another legal space.\n- If there is no King, but the King didn't die, the highest ranking piece (Queen > Rook > Bishop > Knight > Pawn) will become the King.",
+		goal: "Protect the King from checkmate and deliver mate to the enemy."
+	});
+
+	register_faction(["linirean", "linireans"], "Linirean", {
+		display: "Linireans",
+		color: "808080",
+		type: "evil",
+		features: "- Only one Linirean Legend may spawn\n- Factional chat\n- No factional kill",
+		goal: "Claim the kingdom for Linirea!"
+	});
+
+	register_faction("twilight", "Twilight", {
+		color: "808080",
+		type: "evil",
+		features: "- 3196: Bella Swan must spawn, along with either 3197: Edward or 3198: Jacob, and one member of the opposite subalignment (Vampire and Werewolf). All subsequent members who spawn alternate subalignments between Vampire and Werewolf.\n- Factional chat\n- No factional kill\n-  If a Twilight Vampire or Werewolf takes no action for two nights in a row, they may become Edward or Jacob respectively if no player with that role is alive.\n- If there are no living Twilight Werewolves, a Vampire Fixation activates and empowers the abilities of Twilight Vampires.\n- If there are no living Twilight Vampires, a Werewolf Fixation activates and empowers the abilities of Twilight Werewolves.\n- All Twilight roles are unique.",
+		goal: "Take out all who disturb this terrible romance"
+	});
+
+	register_faction(["criminal", "criminals"], "Criminal", {
+		display: "Criminals",
+		color: "5E5E5E",
+		type: "evil",
+		features: "- Factional chat\n- Factional kill\n- Roles not named \"Criminal\" are immediately renamed to \"Criminal\" when the game begins.\n- Members' role numbers aren't revealed if their roles would be revealed, learned, or mentioned, except when rolling roles or upon death.",
+		goal: "Take down the town through various crimes."
+	});
+
+	register_faction(["inquisition", "inquisitor", "inquisitors"], "Inquisition", {
+		color: "C52D16",
+		type: "evil",
+		features: "- At least one Inquisition Killing role must spawn.\n- Factional chat\n- No factional kill unless no Killing members are alive.\n- If a condemned player is lynched, all members may Prosecute the next night. This allows them to either deal an Astral Unstoppable attack, two Basic attacks, or a rampaging Powerful attack. \n- If a member is roleblocked while Prosecuting, they stay home and attack all visitors.",
+		goal: "Rid the town of heretics and nonbelievers."
+	});
+
+	register_faction(["locust", "locusts"], "Locust", {
+		display: "Locusts",
+		color: "1EE14C",
+		type: "evil",
+		features: "- No factional chat\n- No factional kill\n- The member limit is double the normal informed minority member limit.\n- Luka is dead to **us**.",
+		goal: "Convert everybody who shall oppose you!"
+	});
+
+	register_faction(["storyteller", "storytellers", "story"], "Storyteller", {
+		display: "Storytellers",
+		color: "E52E33",
+		type: "evil",
+		features: "- Only one role of each subalignment may spawn or exist at a time.\n- Factional chat\n- Factional kill\n- If any default subalignment is missing, a member may choose to skip their night action in order to change into a random role from that subalignment.\n- Members create a story that, when complete, will be read to the town, and all actions tied to it will happen immediately.",
+		goal: "Tell a full story (Featuring an Introduction, Rising Action, Climax, Falling Action, and Conclusion) and kill anyone who does not submit to the Storytellers."
+	});
+
+	register_faction(["bounty_hunter", "bounty_hunters", "bountyhunters", "bountyhunter", "bounty", "hunter", "hunters", "bh"], "BountyHunter", {
+		display: "Bounty Hunters",
+		color: "CD895E",
+		type: "evil",
+		features: "- Factional chat\n- No Factional kill\n- At the start of the game, they receive X amount of roles, where X is the current players divided by 3. They must kill them all to achieve victory\n- If any of your contracts die, you gain a new contract. If you cannot gain a new contract, you immediately lose.\n- If one of your targets dies due to lynching, the host decides if you complete that contract. ",
+		goal: "Complete your contracts."
 	});
 };

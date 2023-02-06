@@ -1,0 +1,260 @@
+Confuser (261)
+Ghost Enthusiast (265)
+Caino Arukat (Lite!) (283)
+Testator (322)
+332
+Grass (333)
+341
+344
+347 Governor has flavor text
+354 WoH, Asahi's Accent OC role list has been updated with all actual Accent OC roles that exist in the thread
+Magic Clone (358) 
+365
+366: Firebrand, have flavour text
+367: Butcher, have flavour text
+369: Courier have flavour text
+370: Incarcerator have flavour text
+:neutralFaction: Werewolf but it can convert (386): Deleted and replaced with GIM: Classic.
+Your Best Nightmare (387): Buffed the killing ability
+Maid (396): given title to one of its abilities
+406: No longer Monster Conversion Immune
+431: Reworded
+453, Cupid no longer make me fall in love with igu lmfao
+454, Cupid no longer make me fall in love with igu lmfao
+455: Cupid no longer make me fall in love with igu lmfao
+483 edited
+A Vampire Clone (484)
+603: reworded
+605: Given base roleblock immunity
+:townFaction: Jedi Apprentice (614.5)-Removed ability to have own apprentice until they are a Jedi Knight 
+618: Excommunicator tweaked
+Post 620 is named Adrenaline Doctor not just Adrenaline noodle pls fix
+641: Added "- Your ability cannot be prevented from resolving, even by things which would do it in spite of this attribute." to attributes
+680: Rasen
+maiden 701 deleted
+hopeless 702 deleted
+Amanojaku (714): given title to one of its abilities
+716: Second attribute reworded
+750
+:townFaction: Leonard Hofstadter (760): Removed the BM from bazinga'd targets
+791: Synaesthesia is now actually exactly the same as 478: Synesthesia (but with an a)
+hitman (819)
+Sports Better (827)
+843: attribute removed
+Marker (845) name changed to Hitman, flavor text edited as a result.
+Easter Egg! (884)
+Tattletale (885)
+Lunatic Hell Fairy (949): given title to its ability 
+Mastermind (988) can now convert hardcounters because let's be honest nobody cared about that rule in the first place
+makes (1074) ritualist
+1094: Random Verb Generator renamed to Random Verb and alignment changed to Random Support teehee
+1117: Jailor, but it's finally Town Power like properly formatted and shit
+1125
+Post 1152 Red Riding Hood changed to Young Bandit
+Anticipator (1244) reworded the first ability and last attribute.
+:neutralFaction:Bodyswapper (1246): deleted
+:neutralFaction:Wandering Spirit (1247): Deleted
+1249: Criminalist edited the first ability to be more clear and added "investigating the same person twice will give the same result." and "When you investigate an evil player, they will learn the results." 
+:koopaFaction: Koopa Troopa (1278)
+:koopaFaction: Goomba (1356)
+:koopaFaction: Magikoopa (1381)
+:koopaFaction: Chain Chomp (1382)
+:koopaFaction: Spiky Goomba (1411)
+:koopaFaction: Monty Mole (1417)
+:koopaFaction: Boo (1418)
+:koopaFaction: Bowser (1422)
+:koopaFaction: Item Shop Koopa (1424)
+:koopaFaction: Hammer Bro (1430)
+Harsh Critic (1438) is now Astral and redirect immune
+:koopaFaction: Dry Bones (1447)
+:koopaFaction: Goombario/Goombella (1450)
+Ultimate Savior (1467) added flavor text and changed the third ability to reflect 670 being replaced.
+1479 attacks its own visitors
+:discordianFaction:Bionic (1500): Is now unique.
+1531: No longer Monster Conversion Immune
+Condor (1566) given flavour text
+:koopaFaction: Bob-omb (1571)
+Comedic SK (1574)'s chance to slip on a banana peel has decreased to night # times 7 as opposed to night # times 10.
+uhh 1606: Caino Arukat's Dai'ar Kul-ya now says "another player" instead of "an enemy character" B)
+:koopaFaction: Lakitu (1623)
+Post 1642 is incorrectly labeled as Injector as opposed to what it should actually be labeled, Corporal
+Surgeon (1643)'s delayed death can now be cancelled by any heal-like ability (Doctor, Lily, PM, etc. etc.)
+:townFaction:Ralsei (1649):
+1662: Pride - powerful defence specified to be temporary just in case yeah
+1686: Reworded and changed to Town Investigative
+1691: Rafflesia Arnoldii is now a Unique Town Protective
+♻️ Barbarians (1716) changed alignment (Neutral Chaos -> Crew Chaotic). Last attribute modified to reflect this.
+Post 1774 Icarus has been changed into Post 1774 Double-Faced
+:koopaFaction: Paper Bowser (1803)
+1809: bounty hunter now needs FOUR thousand gold to win
+:koopaFaction: Fury Bowser (1813)
+Townie With Common Sense (1814) has new attributes
+:koopaFaction: Cat Bowser (1815)
+:koopaFaction: Dry Bowser (1816)
+:koopaFaction: Bowsette (1817)
+1830: Changed back to Godfather for kicks
+:koopaFaction: Duplighost (1846)
+1868 lore
+Saxophone (1910) renamed to Alto Saxophone.
+Defense Attorney (1921): buffed necronomicon ability to raise defense levels by two stages instead of one
+1932 lore
+1934 lore
+:koopaFaction: Koopa Paratroopa (1944)
+1950: Animal Keeper reworded to fit all the new factions + added new factions
+Above Average Investigator (1957) can no longer use ToL Nightwatch's Follow. Also the flavor text is missing.
+2033: First ability changed to be used during the day + other changes 
+:townFaction:Noelle (2034):
+2037 lore
+2041: No longer Monster Conversion Immune
+2063 Super Duper Ultra Man should no longer have unstoppable attack as they have no attacks
+Running Up That Hill (2064) specifies that the deal with god cannot reroll the target into another instance of RUTH.
+2070: slight name change
+2089: No longer Monster Conversion Immune
+2094: Robotica, Curious Adversary edited a lot because tica sent me a whole thing lul
+2107: Animal Keeper nows uses a google doc because lol
+:koopaFaction: Rat Funk (2116)
+:koopaFaction: Rabbid Supporter (2117)
+Maya (2133): Gold per visitor increased 1 -> 2
+⏫ Macedon (2134) now gives all Civilizations Unstoppable attack once all leaders are dead.
+2151: e with n s, s, s,  s mf's ability changed, Choose a player each night. Four random, different letters will be chosen from their role card, and then all instances of those letters are removed from their role.
+Stray Cat (2165)
+⏫ Mongolia (2175)'s horse charge is now Astral.
+2180: Shut It renamed to Usseewa and forces people to listen to this song https://www.youtube.com/watch?v=Qp3b-RXtz4w which you should also listen to, right now
+Day Veteran (2189) can no longer spawn alongside other Veteran-type roles. Only one Vet allowed.
+2207: readymade's ability no longer has the fancy title
+Equaliser (2217) has flavor text :beegun:
+Martha Linchester (2234)
+2271
+2272
+2299
+2300
+2301
+2302
+2303
+🔧  Khmer (2305) now all correctly labelled as Unique.
+Veteran't (2313) can no longer spawn alongside other Veteran-type roles. Only one Vet allowed.
+2340 (Gef): Clarified that after Snowball ends, only Beasts who haven't met unlock conditions are locked again
+The Serial Killer (2354) has not received any changes. This is meant to let Noodle know the goal is wrong.
+2357
+2375 is missing its full name (Retributi- Hey Uhh, Did You Like Actually Learn To Revive People? Like No Offense, You Don't Seem Very Good At It)
+2382
+Blue Flame 2386 has been given some flavor text.
+2392
+2395
+Rolemaker (2404) changed so you can't make a rolecard that already EXISTS
+2413
+Cope tbh (2421) has the wrong goal
+2423
+2424
+2428
+Filter (2450): Self-nullification reduced (3 -> 2)
+2465: Inkay flavour text
+Lightweaver (2469)
+2470
+:covenFaction::serialkillerFaction:  TIS serial killer (2473): Now has these attributes:
+2474
+Warhorse (2475) now all correctly labelled as Unique.
+Instability (2477) now all correctly labelled as Unique.
+can i request that the Can't Opener (2480) have the =can't =cant commands directed to that role
+Pacifist (2486) conversion immune
+Warmonger (2487) conversion immune
+:koopaFaction: Nabbit (2490)
+Cannoneer (2494): Reworded last attribute due to, from what I see, a lack of a Crew promotion mechanic.
+2499
+2509
+:koopaFaction: Wario, Master of Disguise (2512)
+2514: Tweaked Hallow effect, added effects for Zombies Rugby Backrooms and Beekeepers
+Indonesia (2518) correctly labelled as Unique.
+:townFaction: Tailor (2527)
+♻️ Fish (2530) now allows for numbers up to the player count instead of just 10.
+Hell Bell (2531)
+Guess Who (2547)
+WM Drunk Driver reposted as post 2551 to fix the role # conflict.
+Browncoat Zombie (2577): No longer spawns naturally.
+2578: Conehead zombie now has some new exciting flavour text
+2579
+:nothingFaction:God 2 (2592)
+Rasen, Demigod of Ice (2595), have had the Demi removed from their name. The G in god(dess) is capitalized.
+Nub, Demigod of Nationality (2596), have had the Demi removed from their name. The G in god(dess) is capitalized.
+Accent, Demigoddess of Performing (2597), have had the Demi removed from their name. The G in god(dess) is capitalized.
+2598
+2600: Multitalented flavour text
+2602
+:koopaFaction: Waluigi (2604)
+Tox, Demigod of Nature (2605), have had the Demi removed from their name. The G in god(dess) is capitalized.
+Action, Demigod of Espionage (2621) have had the Demi removed from their name. The G in god(dess) is capitalized.
+Lightweaver (2632) 
+2646: If no more visiting roles remain, bacteria gains the ability to attack non-visiting targets
+2647: Skin Stealer can no longer multitask. Must choose between using its target’s ability or finding a new one to use
+🖌️ Auxiliary (2650) changed flavor text.
+2656
+Small (2659) given a bunch of new immunities, and can seance someone during the day. Must select their target during night when dead. Do not apply to current game
+Turntabler (2663)
+Post 2664
+⏫ uwu (2683) now has 5 uwus in the goal.
+⏫ damnit bionic (2696) now kills all Bionic roles.
+(2701) Dio Brando
+Unhitman (2743)
+:scpFaction:SCP-2401-Alpha (2748)-Not sure how NOBODY caught on from the rolecard, but for all mechanical purposes, is considered to be a beekeeper
+:beegun: Beekeeper Head (2750)
+⏫ 🐳 (2765) defense increased (None -> Basic)
+Spin-Fading Giles Corey (2785)
+2787 Spherical John Proctor Spinning is now immune to role-related modkills
+Crawler (2795): Role changed to Post ####
+The Batter(2814)
+:townFaction:Jester (2822)
+2824: King's Men Beekeeper: changed bzzz to bzzzz in flavourtext
+Humble bumble bumble bee (2826)
+SCP-993 (Post 2858):Visit to first target is now astral
+2887: Bad KA Host's flavourtext
+:latexFaction: Hypno Cat (2903):Changed transfur to occur two nights from when you visit your target
+Post 2943
+Post 2948
+Deathmarch (2956) - Evils are now informed that the march has begun at the start of the game
+Post 2961
+Post 2966
+Post 2967
+🖌️ 2986 renamed (Theist -> Thiest) to better reflect the role it's a parody of.
+2998 now only removes its own douses
+Not ToS Pirate (3000)'s Rapier no longer bypasses temporary defense, but its Scimitar does
+3025 (Mr Meeseeks)
+
+LIMIT: 3025
+
+
+
+🗓️Disease event (30): Now named Infection.
+
+
+
+Civilizations Faction: 
+Added feature “-The name Civilization is based on the Civilization series of games by Firaxis Games. However, you cannot copyright national history. Copyright lawyers can cope.”
+
+
+
+Netsec:
+Untrusted Crossover Good; Led by the Operation Leader, who always exists due to promotion. A complicated network exists that members can use as an alternate win condition by hacking through it. Each member has a "Hacking Skill" stat that ranges from "None" to "Very High", but it isn't specified what these exactly mean, same as some role-specific chance-based mechanics.
+
+
+
+were and umbrae factional posts both given
+- Members have detection immunity on moonless nights.
+
+
+
+Army (Protector) renamed to Army (Protective)
+Army (Supportive) renamed to Army (Support)
+Army (Investigating) changed to Army (Investigative)
+
+
+
+Note, Metamorph's got an icon :metamorphFaction: that could be added to the bot
+Rugby icon
+
+
+
+All-rounder and All-Rounder
+
+
+
+Last Updated: Feb 3, 2023
