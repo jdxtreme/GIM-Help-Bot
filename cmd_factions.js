@@ -768,7 +768,6 @@ module.exports = (g) =>
 		features: "- Only one role of each subalignment may spawn or exist at a time.\n- Factional chat\n- Factional kill\n- If any default subalignment is missing, a member may choose to skip their night action in order to change into a random role from that subalignment.\n- Members create a story that, when complete, will be read to the town, and all actions tied to it will happen immediately.",
 		goal: "Tell a full story (Featuring an Introduction, Rising Action, Climax, Falling Action, and Conclusion) and kill anyone who does not submit to the Storytellers."
 	});
-
 	register_faction(["bounty_hunter", "bounty_hunters", "bountyhunters", "bountyhunter", "bounty", "hunter", "hunters", "bh"], "BountyHunter", {
 		display: "Bounty Hunters",
 		color: "CD895E",
@@ -776,4 +775,31 @@ module.exports = (g) =>
 		features: "- Factional chat\n- No Factional kill\n- At the start of the game, they receive X amount of roles, where X is the current players divided by 3. They must kill them all to achieve victory\n- If any of your contracts die, you gain a new contract. If you cannot gain a new contract, you immediately lose.\n- If one of your targets dies due to lynching, the host decides if you complete that contract. ",
 		goal: "Complete your contracts."
 	});
+		register_faction(["mutants", "mutant"], "Mutants", {
+		color: "ff5733",
+		type: "evil",
+		icon: "https://cdn.discordapp.com/attachments/1078744744718499920/1078744797323464744/MojoOTR.png",
+		summary: "Crash Bandicoot Crossover Evil; Each member has access to an ultimate ability, which they share among the entire faction.",
+		features: ["- A mutant killing will always spawn in a balanced rolelist, no more than 1 mutant killing may spawn.\n- Factional chat\n- Factional kill, it will be basic unless the user's attack value is higher, in which case it will be that value.\n-  All members have access to Ultimate abilities, they have their uses shared by all members, 1 for Killing, 2 for non-killing, members cannot use their Ultimate ability before day 2 and cannot use more than 1 per phase.\n- All members have the following ability:\n- Block: Give yourself Basic defense, will fail if used twice in a row."],
+		goal: "Exterminate all who oppose the wrath of the Mutants",
+		fieldSSC: ["killing", "support"]
+	});
+	register_faction(["colors", "colours", "color", "colour"], "Color", {
+		display: "Colors",
+		color: "random",
+		type: "evil",
+		features: "- Exactly two different Color (Primary) roles will always spawn.\n- Factional chat\n- No factional kill\n- Color (Achromatic) roles will never spawn in the starting rolelist. Dead Colors will become White (3587) if they died during the day, and Black (3588) if they died at night.\n- If a Color (Primary) member dies, a Color (Composite) member will become that Color (Primary) role, if possible. If none are available, the next Colored person will immediately become the previous Color (Primary) role.\n- Coloring a player turns them into a Color role based on what members attempted to Color them.\n- Only one person may be Colored at a time, and Coloring a player cannot occur two nights in a row. Also, exactly two players must Color the same player for the Coloring to succeed.\n- If an evil faction member is Colored, they instead die and become Black (3588). This does not count as a successful Coloring.",
+		goal: "Paint the Town into a rainbow!",
+		summary: "Color themed evil, Led by a pair of Primary Colors. They primarily operate by Coloring their opponents, which makes them into a member of the faction.",
+		fieldSSC: ["primary", "composite", "achromatic"]
+	});
+		register_faction(["ghosts", "ghost"], "Ghosts", {
+		display: "Ghosts",
+		color: "#b2f1d6",
+		type: "evil",
+		summary: "Ghost themed Evil; Specializes in hunting down a traitor, always a member of the town. In the event that they die, they only become more powerful.",
+		features: "- Ghosts are an informed minority that specialize in tasks after death.\n- In the beginning of the game, if there are any, a random Town will be selected to become the Traitor.\n- The Traitor will be able to activate their coin ability and visit instead of doing their normal action to perform a kill, dealing a basic attack. Soothsayer, Retributionist, and Necromancer may all target them.\n- Retributionist will use the Traitor’s normal ability unless they are a non-visiting role, then they will kill with the body instead. Necromancer will always perform a kill and has priority over the Retributionist.\n- All Ghosts will be able to access a factional chat after death, during the day. But, they do not have one while alive.\n- All investigation abilities can be fooled by deceptive abilities.\n- If the game spawns only one Ghost, they will be converted to their distinctive counterpart.",
+		goal: "Eliminate everyone that hates Ghosts."
+	});
+};
 };
